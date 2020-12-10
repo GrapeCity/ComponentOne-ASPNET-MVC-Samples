@@ -1,0 +1,31 @@
+﻿@model MenuItemData[]
+
+<c1-tree-view id="accordion" class="accordion-tree" is-content-html="true" 
+              auto-collapse="true" display-member-path="Header" 
+              child-items-path="Items" source="Model"></c1-tree-view>
+
+<br/>
+<div id="tvAccordionItem"></div>
+
+<script type="text/javascript">
+    var treeView = wijmo.Control.getControl('#accordion');
+    if (treeView) {
+        treeView.hostElement.addEventListener('click', function (e) {
+            if (e.target.tagName == 'A') {
+                document.getElementById('tvAccordionItem').innerHTML =
+                    'Navigating to <b>*** ' + e.target.href + ' ***</b>';
+                e.preventDefault();
+            }
+        });
+    }
+</script>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.Accordion_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.Accordion_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.Accordion_Text2)</p>
+    <p>@Html.Raw(TreeViewRes.Accordion_Text3)</p>
+}

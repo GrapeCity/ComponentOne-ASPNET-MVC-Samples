@@ -1,0 +1,22 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year -1, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+    var format = CalendarRes.Index_DateFormat;
+
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+<div>
+    <label>Bound Calendar with min &amp; max</label>
+    <c1-calendar id="@settings.ControlId" value="@today" min="@minDate" max="@maxDate" month-view="true" width="300px">
+    </c1-calendar>
+</div>
+<p><b>@Html.Raw(CalendarRes.Index_ValidRange) <span>@minDate.ToString(format)</span> @Html.Raw(CalendarRes.Index_To) <span>@maxDate.ToString(format)</span></b></p>
+<p>
+    @Html.Raw(CalendarRes.Index_RepeatButtons)<br />
+    @Html.Raw(CalendarRes.Index_ShowYearPicker)
+</p>
+@section Description{
+    @Html.Raw(CalendarRes.Index_Text0)
+}

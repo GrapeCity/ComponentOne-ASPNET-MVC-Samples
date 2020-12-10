@@ -1,0 +1,23 @@
+﻿@using FlexViewerExplorer.Models
+<div id="reportViewerContainer">
+    <c1-report-viewer id="reportViewer" style="width:100%;" file-path="@ReportFiles.SelectedReportPath" 
+    report-name="@ReportFiles.SelectedReportName" zoom-mode="PageWidth" threshold-width="650"
+    zoom-mode-changed="ReportViewerZoomModeChanged"
+    ></c1-report-viewer>
+</div>
+<div id="pdfViewerContainer" class="hidden">
+    <c1-pdf-viewer id="pdfViewer" style="width:100%;" file-path="@Documents.Pdfs.SelectedDocumentPath" 
+    zoom-mode="PageWidth" threshold-width="650" zoom-mode-changed="PdfViewerZoomModeChanged"></c1-pdf-viewer>
+</div>
+
+@section Scripts{
+    <script>
+        function PdfViewerZoomModeChanged() {
+            console.log("PdfViewerZoomModeChanged!!!")
+        }
+
+        function ReportViewerZoomModeChanged() {
+            console.log("ReportViewerZoomModeChanged!!!")
+        }
+    </script>
+}

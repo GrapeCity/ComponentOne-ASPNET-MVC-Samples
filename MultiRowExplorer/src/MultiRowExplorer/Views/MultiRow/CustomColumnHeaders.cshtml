@@ -1,0 +1,49 @@
+﻿@model IEnumerable<DataRepresentation>
+
+<c1-multi-row id="cCHMultiRow" class="multirow" is-read-only="true" show-header-collapse-button="true">
+    <c1-items-source read-action-url="@Url.Action("CustomColumnHeaders_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group header="Name">
+        <c1-multi-row-cell binding="Name" header="Name" width="*" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Currency">
+        <c1-multi-row-cell binding="Currency" header="Currency" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Performance" colspan="4">
+        <c1-multi-row-cell binding="ytd" header="ytd" />
+        <c1-multi-row-cell binding="m1" header="m1" />
+        <c1-multi-row-cell binding="m6" header="m6" />
+        <c1-multi-row-cell binding="m12" header="m12" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Allocation" colspan="4">
+        <c1-multi-row-cell binding="stock" header="stock" />
+        <c1-multi-row-cell binding="bond" header="bond" />
+        <c1-multi-row-cell binding="cash" header="cash" />
+        <c1-multi-row-cell binding="other" header="other" />
+    </c1-multi-row-cell-group>
+
+    <c1-multi-row-header-cell-group header="Name">
+        <c1-multi-row-cell binding="Name" header="Name" width="*" />
+    </c1-multi-row-header-cell-group>
+    <c1-multi-row-header-cell-group header="Currency">
+        <c1-multi-row-cell binding="Currency" header="Currency" />
+    </c1-multi-row-header-cell-group>
+    <c1-multi-row-header-cell-group>
+        <c1-multi-row-cell header="Performance" colspan="4" />
+        <c1-multi-row-cell binding="ytd" header="ytd" />
+        <c1-multi-row-cell binding="m1" header="m1" />
+        <c1-multi-row-cell binding="m6" header="m6" />
+        <c1-multi-row-cell binding="m12" header="m12" />
+    </c1-multi-row-header-cell-group>
+    <c1-multi-row-header-cell-group>
+        <c1-multi-row-cell header="Allocation" colspan="4" />
+        <c1-multi-row-cell binding="stock" header="stock" />
+        <c1-multi-row-cell binding="bond" header="bond" />
+        <c1-multi-row-cell binding="cash" header="cash" />
+        <c1-multi-row-cell binding="other" header="other" />
+    </c1-multi-row-header-cell-group>
+</c1-multi-row>
+
+@section Description{
+    <p>@Html.Raw(MultiRowRes.CustomColumnHeader_Text0)</p>
+
+}

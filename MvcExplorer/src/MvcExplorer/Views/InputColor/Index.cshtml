@@ -1,0 +1,52 @@
+﻿@section Scripts{
+    <style>
+        .invalid-tooltip {
+            background-color: red;
+            color: yellow;
+            opacity: 0.9;
+            border-color: lightcoral;
+        }
+    </style>
+
+    <script>
+        var _invalidTooltip;
+        c1.documentReady(function () {
+            _invalidTooltip = new wijmo.Tooltip();
+            _invalidTooltip.cssClass = 'invalid-tooltip';
+            _invalidTooltip.position = 11;
+            window.addEventListener('resize', function () {
+                if (_invalidTooltip.isVisible) {
+                    _invalidTooltip.hide();
+                    onInvalidInput();
+                }
+            });
+        })
+
+        function onInvalidInput(input, e) {
+            e && (e.cancel = true);
+            _invalidTooltip.show("#invalidInput", "@Html.Raw(InputColorRes.Index_Text2)");
+        }
+
+        function onValueChanged(input, e) {
+            _invalidTooltip && _invalidTooltip.hide();
+            changeColor(input, e);
+        }
+
+        function changeColor(sender, e) {
+            document.getElementById("image1").style.backgroundColor = sender.value;
+        }
+    </script>
+}
+
+<p>
+  <img id="image1" src="@Href("~/Content/images/room.png")" />
+</p>
+
+<div>
+    <label>@Html.Raw(InputColorRes.Index_Text0)</label>
+    <c1-input-color id="invalidInput" value="White" click-action="Toggle" invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-color>
+</div>
+
+@section Description{
+    @Html.Raw(InputColorRes.Index_Text1)
+}

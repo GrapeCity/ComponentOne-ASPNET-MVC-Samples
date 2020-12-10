@@ -1,0 +1,45 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var showIntermediateTotal = demoSettingsModel.GetBool("ShowIntermediateTotal", false);
+
+    var waterfallStyle = new WaterfallStyles();
+    waterfallStyle.ConnectorLines = new SVGStyle { Stroke = "#333", StrokeDasharray = "5 5" };
+    waterfallStyle.Start = new SVGStyle { Fill = "#7dc7ed" };
+    waterfallStyle.Falling = new SVGStyle { Fill = "#dd2714", Stroke = "#a52714" };
+    waterfallStyle.Rising = new SVGStyle { Fill = "#0f9d58", Stroke = "#0f9d58" };
+    waterfallStyle.IntermediateTotal = new SVGStyle { Fill = "#7dc7ed" };
+    var labels = new string[] { "Q1", "Q2", "Q3", "Q4" };
+    var positions = new int[] { 3, 6, 9, 12 };
+}
+
+@model IEnumerable<WaterfallData>
+
+@section Scripts{
+<script>
+    function customChangeRelativeData(control, value) {
+        control.series[0].relativeData = value;
+    }
+    function customChangeConnectorLines(control, value) {
+        control.series[0].connectorLines = value;
+    }
+    function customChangeShowTotal(control, value) {
+        control.series[0].showTotal = value;
+    }
+    function customChangeShowIntermediateTotal(control, value) {
+        control.series[0].showIntermediateTotal = value;
+    }
+</script>
+}
+
+<c1-flex-chart id="@demoSettingsModel.ControlId" binding="Value" binding-x="Name" height="300px">
+    <c1-items-source source-collection="Model" />
+    <c1-flex-chart-waterfall relative-data="false" show-total="true" start="1000"
+        show-intermediate-total="@showIntermediateTotal"
+        intermediate-total-labels="labels" intermediate-total-positions="positions" 
+        connector-lines="true" styles="waterfallStyle" name="Increase,Decrease,Total" />
+</c1-flex-chart>
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.Waterfall_Text0)</p>
+}

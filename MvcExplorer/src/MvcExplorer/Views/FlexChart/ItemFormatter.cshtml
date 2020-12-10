@@ -1,0 +1,39 @@
+﻿@{
+    var cos = new List<Dot>();
+    for (int i = 0; i < 300; i++)
+    {
+        cos.Add(new Dot { X = 0.16 * i, Y = Math.Cos(0.12 * i) });
+    }
+}
+
+@section Scripts{
+<script type="text/javascript">
+    var itemFormatter = function (engine, hitTestInfo, defaultFormat) {
+        if (hitTestInfo.chartElement == wijmo.chart.ChartElement.SeriesSymbol) {
+            var y = hitTestInfo.y;
+            var r = y >= 0 ? 255 : (255 * (1 + y)).toFixed();
+            var b = y < 0 ? 255 : (255 * (1 - y)).toFixed();
+            var g = ((1 - Math.abs(y)) * 255).toFixed();
+            engine.fill = 'rgb(' + r + ',' + g + ',' + b + ')';
+            defaultFormat();
+        }
+    };
+</script>
+}
+
+<c1-flex-chart id="HitTest"
+               chart-type="LineSymbols" 
+               legend-position="None"
+               item-formatter="itemFormatter">
+    <c1-flex-chart-series binding-x="X" binding="Y" name="cos(x)">
+        <c1-items-source source-collection="cos"></c1-items-source>
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.ItemFormatter_ItemFormatter)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.ItemFormatter_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.ItemFormatter_Text1)</p>
+}

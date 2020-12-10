@@ -1,0 +1,32 @@
+﻿@model IEnumerable<StatisticMessage>
+
+@{ 
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingModel = ViewBag.DemoSettingsModel;
+    var chartType = demoSettingModel.GetEnum("ChartType", C1.Web.Mvc.Chart.ChartType.Step);
+    var stepPositon = demoSettingModel.GetEnum("StepPosition", StepPosition.Start);
+}
+
+<script>
+    function updateStepPosition(control, value) {
+        control.options = { step: { position: value.toLowerCase() } };
+    }
+</script>
+
+<c1-flex-chart id="@demoSettingModel.ControlId" binding-x="Month" chart-type="@chartType">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="SMS" name="SMS Totals">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="Email" name="Email Totals">
+    </c1-flex-chart-series>
+    <c1-chart-legend position="Top"></c1-chart-legend>
+    <c1-flex-chart-axis c1-property="AxisX" axis-line="false" major-tick-marks="None"></c1-flex-chart-axis>
+    <c1-flex-chart-axis c1-property="AxisY" major-grid="false"></c1-flex-chart-axis>
+    <c1-chart-options>
+        <c1-step-options position="@stepPositon" />
+    </c1-chart-options>
+</c1-flex-chart>
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.StepChart_Text0)</p>
+}

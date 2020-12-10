@@ -1,0 +1,83 @@
+﻿@{
+    var stylesStr = "";
+}
+@section Styles{
+    <style>
+        .custom-gauge.wj-gauge .wj-face path {
+            fill: #f8f8f8;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge .wj-pointer path {
+            fill: #404040;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge circle.wj-pointer {
+            fill: #404040;
+            stroke: none;
+            transform-origin: center center 0px;
+            transform: scale(1);
+            transition: transform .5s;
+        }
+
+        .custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+            fill: red;
+            stroke: black;
+            transform: scale(1.3);
+            transition: transform 1s, fill 0.5s, stroke 0.5s;
+        }
+    </style>
+}
+
+@section Scripts{
+<script>
+    var boundValue, valueInput, radialGauge;
+    c1.documentReady(function () {
+        boundValue = 0;
+        getEles();
+    });
+
+    function getEles() {
+        valueInput = wijmo.Control.getControl('#valueInput');
+        radialGauge = wijmo.Control.getControl('#radialGauge');
+    }
+
+    function setValue(sender) {
+        if (boundValue != sender.value) {
+            boundValue = sender.value;
+            radialGauge.value = valueInput.value = boundValue;
+        }
+    }
+</script>
+}
+
+<c1-input-number id="valueInput" format="n0," value="0" step="1000" min="0" max="64000" value-changed="setValue"></c1-input-number>
+<br />
+<div class="row" style="width:100%;">
+    <div class="col-md-6">
+        <c1-radial-gauge id="radialGauge" style="width:100%;height:150px;padding:10px" thumb-size="10" has-shadow="false"
+                         value="0" format="n0," min="0" max="64000" step="1000" is-read-only="false" value-changed="setValue">
+            <c1-gauge-range c1-property="Face" thickness="0.08"></c1-gauge-range>
+            <c1-gauge-range c1-property="Pointer" thickness="0.08"></c1-gauge-range>
+        </c1-radial-gauge>
+
+    </div>
+    <div class="col-md-6">
+        <div style="position:relative;height:200px;width:100%">
+            @for (var rpt = 1; rpt < 4; rpt++)
+            {
+                stylesStr = string.Format("position:absolute; left:0; top:0; width:100%; height:200px;padding:{0}px;", rpt * 20);
+                <c1-radial-gauge style="@stylesStr" thumb-size="10" has-shadow="false" show-text="None"
+                                 start-angle="0" sweep-angle="270" auto-scale="false"
+                                 value="10 - 2 * rpt" min="0" max="10" is-read-only="false">
+                    <c1-gauge-range c1-property="Face" thickness="0.08"></c1-gauge-range>
+                    <c1-gauge-range c1-property="Pointer" thickness="0.08"></c1-gauge-range>
+                </c1-radial-gauge>
+            }
+        </div>
+    </div>
+</div>
+@section Description{
+    @Html.Raw(RadialGaugeRes.Scaling_Text0)
+}

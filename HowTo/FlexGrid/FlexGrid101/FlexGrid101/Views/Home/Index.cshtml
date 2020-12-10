@@ -1,0 +1,1174 @@
+﻿@model FlexGridModel
+@{
+    ViewBag.Title = "ASP.NET Core C1 FlexGrid Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    var list = Folder.Create(Startup.Environment.ContentRootPath).Children;
+}
+ 
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            @Html.Raw(FlexGrid101Res.Project_Name_Text0)
+        </h1>
+        <p>
+            @Html.Raw(FlexGrid101Res.Project_Description_Text0)
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Getting_Started_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Overview_Step_Title_Text0)
+        </p>
+        <ol>
+            <li>@Html.Raw(FlexGrid101Res.Overview_Step1_Text0)</li>
+            <li>@Html.Raw(FlexGrid101Res.Overview_Step2_Text0)</li>
+            <li>@Html.Raw(FlexGrid101Res.Overview_Step3_Text0)</li>
+            <li>@Html.Raw(FlexGrid101Res.Overview_Step4_Text0)</li>
+        </ol>
+        <p>
+            @Html.Raw(FlexGrid101Res.Overview_Description_Text0)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+    &lt;!-- this is the grid --&gt;
+        &lt;c1-flex-grid id="gsFlexGrid"
+                        is-read-only="true"
+                        auto-generate-columns="true"
+                        sorting-type="SingleColumn"&gt;
+            &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+        &lt;/c1-flex-grid&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCss">
+
+ /* set default grid style */
+.wj-flexgrid {
+    height: 300px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="gsFlexGrid"
+                              is-read-only="true"
+                              auto-generate-columns="true"
+                              sorting-type="SingleColumn">
+                    <c1-items-source source-collection="@Model.CountryData" ></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- column definitions -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Column_Definitions_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Column_Definitions_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Column_Definitions_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Column_Definitions_Description_Text2)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Column_Definitions_Description_Text3)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#cdHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cdCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="cdHtml">
+
+&lt;c1-flex-grid id="cdInitMethod"
+    is-read-only="true"
+    auto-generate-columns="false"
+    sorting-type="SingleColumn"&gt;
+    &lt;c1-flex-grid-column binding="ID"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Start" format="MMM d yy"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="End" format="HH:mm"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Country" width="*"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Amount" format="n0"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Amount2"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Discount" format="p0"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-flex-grid-column binding="Active"&gt;&lt;/c1-flex-grid-column&gt; 
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="cdCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="cdInitMethod"
+                              is-read-only="true"
+                              auto-generate-columns="false"
+                              sorting-type="SingleColumn">
+                    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount2"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- selection modes -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Selection_Modes_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Selection_Modes_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Selection_Modes_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#smHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#smJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#smCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="smHtml">
+
+&lt;c1-flex-grid id="smFlexGrid"
+    is-read-only="true"
+    auto-generate-columns="false"
+    sorting-type="SingleColumn"&gt;
+    &lt;c1-flex-grid-column binding="ID"&gt;&lt;/c1-flex-grid-column&gt;                    
+    &lt;c1-flex-grid-column binding="Country" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0" width="*"&gt;&lt;/c1-flex-grid-column&gt;                    
+    &lt;c1-flex-grid-column binding="Discount" format="p0" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Active" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+&lt;br /&gt;Selection Mode
+&lt;c1-combo-box id="smMenu" selected-index="0" selected-index-changed="smMenu_SelectedIndexChanged"&gt;
+    &lt;c1-items-source source-collection="@@Model.Settings["SelectionMode"]"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-combo-box&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="smJs">
+
+var smFlexGrid = smMenu = null;
+
+$(document).ready(function () {
+//@Html.Raw(FlexGrid101Res.Selection_Modes_Text0) Modules
+    smFlexGrid = wijmo.Control.getControl("#smFlexGrid");
+});
+
+//@Html.Raw(FlexGrid101Res.Selection_Modes_Text0) Modules
+function smMenu_SelectedIndexChanged(sender){
+    if(sender.selectedValue!=null && smFlexGrid!=null){
+        smFlexGrid.selectionMode = sender.selectedValue;
+    }
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="smCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.Settings = CreateSettings();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+
+        private IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Cell.ToString(),SelectionMode.CellRange.ToString(),SelectionMode.Row.ToString(),SelectionMode.RowRange.ToString(),SelectionMode.ListBox.ToString(),SelectionMode.MultiRange.ToString()}}
+            };
+            return settings;
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="smFlexGrid"
+                              is-read-only="true"
+                              auto-generate-columns="false"
+                              sorting-type="SingleColumn" selection-mode="None">
+                    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Active" width="*"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                </c1-flex-grid>
+                <br />@Html.Raw(FlexGrid101Res.Selection_Modes_Text0)
+                <c1-combo-box id="smMenu" selected-index="0" selected-index-changed="smMenu_SelectedIndexChanged">
+                    <c1-items-source source-collection="@Model.Settings["SelectionMode"]"></c1-items-source>
+                </c1-combo-box>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- editing -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Editing_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text2)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text3)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text4)
+        </p>
+        <ol>
+            <li>
+                @Html.Raw(FlexGrid101Res.Editing_Description_Text5)
+            </li>
+            <li>
+                @Html.Raw(FlexGrid101Res.Editing_Description_Text6)
+            </li>
+        </ol>
+        <p>
+            @Html.Raw(FlexGrid101Res.Editing_Description_Text7)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#eHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#eCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="eHtml">
+
+&lt;c1-flex-grid id="eFlexGrid"                              
+    auto-generate-columns="false"
+    sorting-type="SingleColumn"&gt;
+    &lt;c1-flex-grid-column binding="ID" is-read-only="true"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Country" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Discount" format="p0" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Active" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source read-action-url="@@Url.Action("GridRead")" update-action-url="@@Url.Action("EGridUpdate")"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="eCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult GridRead([C1JsonRequest] CollectionViewRequest&lt;Sale&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, FlexGridModel.Source));
+        }
+
+        public ActionResult EGridUpdate([C1JsonRequest]CollectionViewEditRequest&lt;Sale&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, sale =&gt;
+            {
+                string error = string.Empty;
+                bool success = true;
+                var fSale = FlexGridModel.Source.Find(item =&gt; item.ID == sale.ID);
+                fSale.Amount = sale.Amount;
+                fSale.Discount = sale.Discount;
+                fSale.Active = sale.Active;
+                return new CollectionViewItemResult&lt;Sale&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = fSale
+                };
+            }, () =&gt; FlexGridModel.Source));
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="eFlexGrid"
+                              auto-generate-columns="false"
+                              sorting-type="SingleColumn">
+                    <c1-flex-grid-column binding="ID" is-read-only="true"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Active" width="*"></c1-flex-grid-column>
+                    <c1-items-source read-action-url="@Url.Action("GridRead")" update-action-url="@Url.Action("EGridUpdate")"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- grouping -->
+    <div>
+        <h2>
+            @Html.Raw(FlexGrid101Res.Grouping_Text0)
+        </h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Grouping_Desription_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Grouping_Desription_Text1)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Grouping_Desription_Text2)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#gCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gHtml">
+
+&lt;c1-flex-grid id="gFlexGrid"
+    auto-generate-columns="false"
+    sorting-type="SingleColumn" group-by="Country"&gt;
+    &lt;c1-flex-grid-column binding="Country" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Color" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Start" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0" aggregate="Sum" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Active" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+&lt;br /&gt;@Html.Raw(FlexGrid101Res.Group_By_Text0)
+&lt;c1-combo-box id="gMenu" selected-index="0" selected-index-changed="gMenu_SelectedIndexChanged"&gt;
+    &lt;c1-items-source source-collection="@@Model.Settings["GroupBy"]"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-combo-box&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gJs">
+
+//@Html.Raw(FlexGrid101Res.Group_By_Text0) Modules
+function gMenu_SelectedIndexChanged(sender) {
+    var grid = wijmo.Control.getControl("#gFlexGrid");
+    if (sender.selectedValue && grid) {
+        var name = sender.selectedValue;
+        var groupDescriptions = grid.collectionView.groupDescriptions;
+        grid.beginUpdate();
+        groupDescriptions.clear();
+
+        if (name.indexOf("Country") > -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Country"));
+        }
+
+        if (name.indexOf("Product") > -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Product"));
+        }
+
+        if (name.indexOf("Color") > -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Color"));
+        }
+
+        if (name.indexOf("Start") > -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Start", function (item, prop) {
+                var value = item[prop];
+                return value.getFullYear() + "/" + value.getMonth();
+            }));
+        }
+
+        if (name.indexOf("Amount") > -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Amount", function (item, prop) {
+                var value = item[prop];
+                if (value <= 500) {
+                    return "<500";
+                }
+
+                if (value > 500 && value <= 1000) {
+                    return "500 to 1000";
+                }
+
+                if (value > 1000 && value <= 5000) {
+                    return "1000 to 5000";
+                }
+
+                return "More than 5000";
+            }));
+        }
+        grid.endUpdate();
+    }
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.Settings = CreateSettings();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+
+        private IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {                
+                {"GroupBy", new object[]{"Country", "Product", "Color","Start","Amount","Country and Product","Product and Color", "None"}}
+            };
+            return settings;
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="gFlexGrid"
+                              auto-generate-columns="false"
+                              sorting-type="SingleColumn" group-by="Country">
+                    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Color" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Start" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0" aggregate="Sum" width="*"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                </c1-flex-grid>
+                <br />@Html.Raw(FlexGrid101Res.Group_By_Text0)
+                <c1-combo-box id="gMenu" selected-index="0" selected-index-changed="gMenu_SelectedIndexChanged">
+                    <c1-items-source source-collection="@Model.Settings["GroupBy"]"></c1-items-source>
+                </c1-combo-box>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- filtering -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Filtering_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Filtering_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Filtering_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#fHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#fCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="fHtml">
+
+&lt;c1-flex-grid id="fFlexGrid"
+    auto-generate-columns="false"
+    is-read-only="true"
+    sorting-type="SingleColumn"&gt;
+    &lt;c1-flex-grid-column binding="ID"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Country"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Color"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Start" format="MMM d yy"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Discount" format="p0"&gt;&lt;/c1-flex-grid-column&gt;                    
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+    &lt;c1-flex-grid-filter default-filter-type="Both"&gt;
+        &lt;c1-flex-grid-column-filter column="ID" filter-type="FilterType.Condition"&gt;&lt;/c1-flex-grid-column-filter&gt;
+        &lt;c1-flex-grid-column-filter column="Country" filter-type="FilterType.Value"&gt;&lt;/c1-flex-grid-column-filter&gt;
+        &lt;c1-flex-grid-column-filter column="Product" filter-type="FilterType.None"&gt;&lt;/c1-flex-grid-column-filter&gt;
+        &lt;c1-flex-grid-column-filter column="Color" filter-type="FilterType.Both"&gt;&lt;/c1-flex-grid-column-filter&gt;
+        &lt;c1-flex-grid-column-filter column="Start" filter-type="FilterType.Both"&gt;&lt;/c1-flex-grid-column-filter&gt;
+    &lt;/c1-flex-grid-filter&gt; 
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="fCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="fFlexGrid"
+                              auto-generate-columns="false"
+                              is-read-only="true"
+                              sorting-type="SingleColumn">
+                    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                    <c1-flex-grid-filter default-filter-type="Both">
+                        <c1-flex-grid-column-filter column="ID" filter-type="FilterType.Condition"></c1-flex-grid-column-filter>
+                        <c1-flex-grid-column-filter column="Country" filter-type="FilterType.Value"></c1-flex-grid-column-filter>
+                        <c1-flex-grid-column-filter column="Product" filter-type="FilterType.None"></c1-flex-grid-column-filter>
+                        <c1-flex-grid-column-filter column="Color" filter-type="FilterType.Both"></c1-flex-grid-column-filter>
+                        <c1-flex-grid-column-filter column="Start" filter-type="FilterType.Both"></c1-flex-grid-column-filter>
+                    </c1-flex-grid-filter>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- paging -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Paging_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Paging_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Paging_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#pHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#pCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="pHtml">
+
+&lt;c1-flex-grid id="pFlexGrid"
+    auto-generate-columns="false"
+    is-read-only="true"
+    sorting-type="SingleColumn"
+    height="100%"&gt;
+    &lt;c1-flex-grid-column binding="ID"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Country"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Color"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Start" format="MMM d yy"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Discount" format="p0"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryData" page-size="10"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+&lt;c1-pager owner="pFlexGrid"&gt;&lt;/c1-pager&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="pCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="pFlexGrid"
+                              auto-generate-columns="false"
+                              is-read-only="true"
+                              sorting-type="SingleColumn"
+                              height="100%">
+                    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData" page-size="10"></c1-items-source>
+                </c1-flex-grid>
+                <c1-pager owner="pFlexGrid"></c1-pager>
+            </div>
+        </div>
+    </div>
+
+    <!-- conditional styling -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Conditional_Styling_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Conditional_Styling_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Conditional_Styling_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#csHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#csJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#csCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="csHtml">
+
+&lt;c1-flex-grid id="csFlexGrid"
+    auto-generate-columns="false"
+    is-read-only="true"
+    sorting-type="SingleColumn"
+    item-formatter="csFlexGrid_ItemFormatter"&gt;
+    &lt;c1-flex-grid-column binding="Country"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product"&gt;&lt;/c1-flex-grid-column&gt;                    
+    &lt;c1-flex-grid-column binding="Discount" format="p0"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="csJs">
+
+//@Html.Raw(FlexGrid101Res.Conditional_Styling_Text0) Modules
+function csFlexGrid_ItemFormatter(panel, r, c, cell) {
+    if (wijmo.grid.CellType.Cell == panel.cellType && panel.columns[c].binding == '_Color') {
+        var cellData = panel.getCellData(r, c);
+        cell.style.color = cellData < 0 ? 'red' : cellData < 500 ? 'black' : 'green';
+    }
+    if (wijmo.grid.CellType.Cell == panel.cellType && panel.columns[c].binding == 'Amount') {
+        var cellData = panel.getCellData(r, c);
+        cell.style.color = cellData < 0 ? 'red' : cellData < 500 ? 'black' : 'green';
+    }
+    if (wijmo.grid.CellType.Cell == panel.cellType && panel.columns[c].binding == 'Discount') {
+        var cellData = panel.getCellData(r, c);
+        cell.style.color = cellData < .1 ? 'red' : cellData < .2 ? 'black' : 'green';
+    }
+}
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="csCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="csFlexGrid"
+                              auto-generate-columns="false"
+                              is-read-only="true"
+                              sorting-type="SingleColumn"
+                              item-formatter="csFlexGrid_ItemFormatter">
+                    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- themes -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Themes_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Themes_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Themes_Description_Text0)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#tCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#tCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tHtml">
+
+&lt;c1-flex-grid id="tFlexGrid"
+    auto-generate-columns="false"
+    is-read-only="true"
+    sorting-type="SingleColumn"
+    class="custom-flex-grid"&gt;
+    &lt;c1-flex-grid-column binding="Country"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Discount" format="p0"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryData"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tCss">
+
+/* create a 'custom-flex-grid' theme for the FlexGrid */
+.custom-flex-grid .wj-header.wj-cell {
+	color: #fff;
+	background-color: #000;
+	border-bottom: solid 1px #404040;
+	border-right: solid 1px #404040;
+	font-weight: bold;
+}
+
+.custom-flex-grid .wj-cell {
+	background-color: #fff;
+	border: none;
+}
+
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+	background-color: #fff;
+}
+
+.custom-flex-grid .wj-state-selected {
+	background: #000;
+	color: #fff;
+}
+
+.custom-flex-grid .wj-state-multi-selected {
+	background: #222;
+	color: #fff;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+
+namespace ASPNetMVCFlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="tFlexGrid"
+                              auto-generate-columns="false"
+                              is-read-only="true"
+                              sorting-type="SingleColumn"
+                              class="custom-flex-grid">
+                    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.CountryData"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+    <!-- trees/hierarchical data -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Trees_and_Hierarchical_Data_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Trees_and_Hierarchical_Data_Des_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Trees_and_Hierarchical_Data_Des_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tvHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#tvCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#tvCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tvHtml">
+
+@@inject IApplicationEnvironment appEnvironment
+@@{
+    var list = Folder.Create(appEnvironment.ApplicationBasePath).Children;
+}
+&lt;c1-flex-grid id="tvFlexGrid"
+    auto-generate-columns="false"
+    is-read-only="true"
+    sorting-type="SingleColumn"
+    class="custom-flex-grid"
+    child-items-path="Children"&gt;
+    &lt;c1-flex-grid-column binding="Header" header="Folder/File Name" width="*"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Size" header="Size" width="80" align="center"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source source-collection="@@list"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tvCss">
+
+/* create a 'custom-flex-grid' theme for the FlexGrid */
+.custom-flex-grid .wj-header.wj-cell {
+	color: #fff;
+	background-color: #000;
+	border-bottom: solid 1px #404040;
+	border-right: solid 1px #404040;
+	font-weight: bold;
+}
+
+.custom-flex-grid .wj-cell {
+	background-color: #fff;
+	border: none;
+}
+
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+	background-color: #fff;
+}
+
+.custom-flex-grid .wj-state-selected {
+	background: #000;
+	color: #fff;
+}
+
+.custom-flex-grid .wj-state-multi-selected {
+	background: #222;
+	color: #fff;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tvCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="tvFlexGrid"
+                              auto-generate-columns="false"
+                              is-read-only="true"
+                              sorting-type="SingleColumn"
+                              class="custom-flex-grid"
+                              child-items-path="Children">
+                    <c1-flex-grid-column binding="Header" header="Folder/File Name" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Size" header="Size" width="80" align="center"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@list"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- handling null values -->
+    <div>
+        <h2>@Html.Raw(FlexGrid101Res.Handling_Null_Values_Text0)</h2>
+        <p>
+            @Html.Raw(FlexGrid101Res.Handling_Null_Values_Des_Text0)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Handling_Null_Values_Des_Text1)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Handling_Null_Values_Des_Text2)
+        </p>
+        <p>
+            @Html.Raw(FlexGrid101Res.Handling_Null_Values_Des_Text3)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#nvHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#nvCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="nvHtml">
+
+&lt;c1-flex-grid id="nvGrid"
+    auto-generate-columns="false"
+    sorting-type="SingleColumn"&gt;
+    &lt;c1-flex-grid-column binding="ID" is-read-only="true" is-required="false"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Country" is-required="false"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Product" is-required="true"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Discount" format="p0" is-required="true"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-flex-grid-column binding="Amount" format="n0" is-required="true"&gt;&lt;/c1-flex-grid-column&gt;
+    &lt;c1-items-source read-action-url="@@Url.Action("GridRead")" update-action-url="@@Url.Action("NVGridUpdate")"&gt;&lt;/c1-items-source&gt;
+&lt;/c1-flex-grid&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="nvCS">
+
+using System.Collections.Generic;
+using Microsoft.AspNetCore.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+
+    public ActionResult GridRead([C1JsonRequest] CollectionViewRequest&lt;Sale&gt; requestData)
+    {
+        return this.C1Json(CollectionViewHelper.Read(requestData, FlexGridModel.Source));
+    }
+
+    public ActionResult NVGridUpdate([C1JsonRequest]CollectionViewEditRequest&lt;Sale&gt; requestData)
+    {
+        return this.C1Json(CollectionViewHelper.Edit(requestData, sale =&gt;
+        {
+            string error = string.Empty;
+            bool success = true;
+            var fSale = FlexGridModel.Source.Find(item =&gt; item.ID == sale.ID);
+            fSale.Country = sale.Country;
+            fSale.Product = sale.Product;
+            fSale.Amount = sale.Amount;
+            fSale.Discount = sale.Discount;
+            return new CollectionViewItemResult&lt;Sale&gt;
+            {
+                Error = error,
+                Success = success,
+                Data = fSale
+            };
+        }, () =&gt; FlexGridModel.Source));
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(FlexGrid101Res.Result_Live_Text0):</h4>
+                <c1-flex-grid id="nvGrid"
+                              auto-generate-columns="false"
+                              sorting-type="SingleColumn">
+                    <c1-flex-grid-column binding="ID" is-read-only="true" is-required="false"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" is-required="false"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product" is-required="true"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Discount" format="p0" is-required="true"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="n0" is-required="true"></c1-flex-grid-column>
+                    <c1-items-source read-action-url="@Url.Action("GridRead")" update-action-url="@Url.Action("NVGridUpdate")"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+</div>

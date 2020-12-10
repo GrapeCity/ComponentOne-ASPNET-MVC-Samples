@@ -1,0 +1,37 @@
+@section Scripts{
+    <script>
+        function remoteSave() {
+            var flexSheet = wijmo.Control.getControl('#flexSheet');
+            flexSheet.remoteSave(c1.mvc.grid.sheet.ContentType.Xlsx);
+        }
+
+        function onFileSaved(sender, args) {
+            if (args.success) {
+                window.location.href = '@Url.Action("DownloadFile")';
+            } else {
+                alert(args.error);
+            }
+        }
+    </script>
+}
+
+<div>
+    <div class="copy">
+        <h3>
+            @Html.Raw(FlexSheetRes.RemoteLoadSave_Text2)
+        </h3>
+<p>@Html.Raw(FlexSheetRes.RemoteLoadSave_Text0)</p>
+
+    </div>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="flexSheet"
+                       load-action-url="@(Url.Action("RemoteLoadXlsx"))"
+                       save-action-url="@(Url.Action("RemoteSaveFile"))"
+                       remote-saved="onFileSaved">
+        </c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.RemoteLoadSave_Text1)</p>
+
+}

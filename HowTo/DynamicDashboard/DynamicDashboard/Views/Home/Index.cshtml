@@ -1,0 +1,366 @@
+@model DynamicDashboard.Models.Dashboard
+
+@{
+    ViewData["Title"] = "DynamicDashboard";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section id="myDashboard" class="myDashboard">
+    <ul id="sortable" class="dashboard">     
+      
+
+        <li id="salesDashboardWidget_li" class="tile ng-scope" draggable="true">
+            <div id="salesDashboardWidget">
+                <div class="header">
+                    <span id="salesDashboardDuration">Sales Dashboard for @Model.SalesDashboardStr</span>
+                    <icon>                        
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('salesDashboardWidget')" />
+                    </icon>
+                </div>
+                <div class="content">
+                    <c1-flex-grid id="salesDashboardFGrid"
+                                  is-read-only="true"
+                                  auto-generate-columns="false"
+                                  selection-mode="Row"
+                                  allow-resizing="None"
+                                  headers-visibility="Column"
+                                  class="widget-flex-grid"
+                                  selection-changed="salesDashboardFGrid_selectionChanged">
+                        <c1-flex-grid-column header="Country" binding="Country" width="*"></c1-flex-grid-column>
+                        <c1-flex-grid-column header="Last 12 Months" width="2*">
+                            <c1-flex-grid-cell-template is-editing="false">
+                                <c1-flex-chart height="20px" width="*" style="padding:0px;"
+                                               legend-position="None"
+                                               chart-type="Line"
+                                               template-bindings="@(new {ItemsSource="Last12MonthsSales"})">
+                                    <c1-flex-chart-tooltip is-content-html="false" content=""></c1-flex-chart-tooltip>
+                                    <c1-flex-chart-axis c1-property="AxisX" major-unit="100" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                                    <c1-flex-chart-axis c1-property="AxisY" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                                    <c1-flex-chart-series binding="Sales"></c1-flex-chart-series>
+                                    <c1-chart-gestures mouse-action="Zoom" interactive-axes="X" scale-x="0.5f" scale-y="0.5f" pos-x="0.0f" pos-y="0.0f"></c1-chart-gestures>
+                                </c1-flex-chart>
+                            </c1-flex-grid-cell-template>
+                        </c1-flex-grid-column>
+                        <c1-flex-grid-column header="Current Year(mil.)" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                        <c1-flex-grid-column header="Status" width="*">
+                            <c1-flex-grid-cell-template is-editing="false">
+                                <c1-bullet-graph direction="Right" show-ranges="true" thickness="0.5" min="0" template-bindings="@(new {Bad="BulletGBad",Target="BulletGTarget",Good= "BulletGGood",Max = "BulletGMax",Value = "BulletGValue" })">
+                                </c1-bullet-graph>
+                            </c1-flex-grid-cell-template>
+                        </c1-flex-grid-column>
+                        <c1-items-source source-collection="@Model.SalesDashboardData"></c1-items-source>
+                    </c1-flex-grid>
+                </div>
+            </div>
+        </li>
+
+
+        <li id="kPIsWidget_li" class="tile ng-scope" draggable="true">
+            <div id="kPIsWidget">
+                <div class="header">
+                    <span id="KPIsDuration"> KPIs for @Model.KPIsStr</span>
+                    <icon>                        
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('kPIsWidget')"/>
+                    </icon>
+                </div>
+                <div class="content">
+                    <div id="kPIsSalesGaugeValue" style="display:inline-block;margin-bottom:8px;text-align:left;width:100%;">
+                        Sales:
+                    </div>
+                    <c1-linear-gauge id="kPIsSalesGauge" min="0"
+                                     max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                                     value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                                     thumb-size="30"
+                                     show-text="None"
+                                     width="90%">
+                        <c1-gauge-range c1-property="Pointer" color="Green"></c1-gauge-range>
+                    </c1-linear-gauge>
+
+                    <div id="kPIsExpensesGaugeValue" style="display:inline-block;margin:20px 0px 8px 0px;text-align:left;width:100%;">
+                        Expenses:
+                    </div>
+                    <c1-linear-gauge id="kPIsExpensesGauge" min="0"
+                                     max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                                     value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Expenses).FirstOrDefault()"
+                                     thumb-size="30"
+                                     show-text="None"
+                                     width="90%">
+                        <c1-gauge-range c1-property="Pointer" color="Red"></c1-gauge-range>
+                    </c1-linear-gauge>
+
+                    <div id="kPIsProfitGaugeValue" style="display:inline-block;margin: 20px 0px 8px 0px;text-align:left;width:100%;">
+                        Profit:
+                    </div>
+                    <c1-linear-gauge id="kPIsProfitGauge" min="0"
+                                     max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                                     value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Profit).FirstOrDefault()"
+                                     thumb-size="30"
+                                     show-text="None"
+                                     width="90%">
+                        <c1-gauge-range c1-property="Pointer" color="Gold"></c1-gauge-range>
+                    </c1-linear-gauge>
+                </div>
+            </div>
+        </li>
+
+        <li id="monthlySalesChartWidget_li" class="tile ng-scope" draggable="true">
+
+            <div id="monthlySalesChartWidget">
+                <div class="header">
+                    <span id="monthlySalesDuration">Quarter Sales (@Model.MonthlySalesStr)</span>
+                    <icon>                        
+                        <img src="~/images/icon_export.png" title="Export chart" onclick="chart_exportToImage('monthlySalesChart')" />
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('monthlySalesChartWidget')" />
+                    </icon>
+                </div>
+                <div class="content">
+                    <div class="css-tabs">
+                        <a href="javascript:void(0);" data-toggle="monthlySalesChart_V" class="link-selected">View</a>
+                        |
+                        <a href="javascript:void(0);" data-toggle="monthlySalesChart_C">Settings</a>
+                        <div id="monthlySalesChart_V" class="tab-selected">
+                            <c1-flex-chart id="monthlySalesChart" binding-x="TxnDate" chart-type="Line" legend-position="Top" class="tab-flex-chart">
+                                <c1-items-source source-collection="@Model.MonthlySalesData"></c1-items-source>
+                                <c1-flex-chart-axis c1-property="AxisX"></c1-flex-chart-axis>
+                                <c1-flex-chart-axis c1-property="AxisY" title="in millions" format="g4,,"></c1-flex-chart-axis>
+                                <c1-flex-chart-series name="Sales" binding="Sales"></c1-flex-chart-series>
+                                <c1-flex-chart-series name="Expenses" binding="Expenses"></c1-flex-chart-series>
+                                <c1-flex-chart-trendline binding="Sales"
+                                                         name="Sales Trend Line"
+                                                         sample-count="200"
+                                                         trend-line-order="3"
+                                                         fit-type="AverageY">
+                                </c1-flex-chart-trendline>
+                                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                                <c1-chart-gestures id="monthlySalesChart_gestures" mouse-action="Zoom" interactive-axes="X" scale-x="0.5f" scale-y="0.5f" pos-x="0.0f" pos-y="0.0f"></c1-chart-gestures>
+                                <c1-chart-animation animation-mode="All" easing="Swing" duration="400"></c1-chart-animation>
+                            </c1-flex-chart>
+                        </div>
+                        <div id="monthlySalesChart_C" class="tab">
+                            <div class="settingsCmb">
+                                ChartType:
+                                <c1-combo-box id="monthlySalesChartTypeCmb" 
+                                              selected-index-changed="monthlySalesChartTypeCmb_selectedIndexChanged" 
+                                              class="tab-combo-box" 
+                                              selected-value="@Model.MonthlySalesChartType">
+                                    <c1-items-source source-collection="@Model.Settings["ChartType"]"></c1-items-source>
+                                </c1-combo-box>
+                                TrendLine:
+                                <c1-combo-box id="monthlySalesChartTrendLineCmb" selected-index-changed="monthlySalesChartTrendLineCmb_selectedIndexChanged" class="tab-combo-box" selected-value="@Model.MonthlySalesChartTrendLine">
+                                    <c1-items-source source-collection="@Model.Settings["TrendLine"]"></c1-items-source>
+                                </c1-combo-box>
+                            </div>
+                            <c1-flex-grid id="monthlySalesFGrid"
+                                          is-read-only="false"
+                                          auto-generate-columns="false"
+                                          selection-mode="Cell"
+                                          allow-resizing="None"
+                                          headers-visibility="Column"
+                                          cell-edit-ended="monthlySalesFGrid_cellEditEnded"
+                                          class="tab-flex-grid">
+                                <c1-flex-grid-column is-read-only="true" header="Txn Date" binding="TxnDate" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column is-read-only="true" header="Country" binding="Country" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Sales" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Expenses" binding="Expenses" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-items-source source-collection="@Model.MonthlySalesData.Where(x=>x.Country!="All")"></c1-items-source>
+                            </c1-flex-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li id="monthlyProfitChartWidget_li" class="tile ng-scope" draggable="true">
+
+            <div id="monthlyProfitChartWidget">
+                <div class="header">
+                    <span id="monthlyProfitChartDuration">Profit Chart (@Model.MonthlyProfitStr)</span>
+                    <icon>                        
+                        <img src="~/images/icon_export.png" title="Export chart" onclick="chart_exportToImage('monthlyProfitChart')" />
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('monthlyProfitChartWidget')" />
+                    </icon>
+                </div>
+                <div class="content">
+                    <div class="css-tabs">
+                        <a href="javascript:void(0);" data-toggle="monthlyProfitChart_V" class="link-selected">View</a>
+                        |
+                        <a href="javascript:void(0);" data-toggle="monthlyProfitChart_C">Settings</a>
+                        <div id="monthlyProfitChart_V" class="tab-selected">
+                            <c1-flex-chart id="monthlyProfitChart" binding-x="MonthName" chart-type="Column" legend-position="Top" class="tab-flex-chart">
+                                <c1-items-source source-collection="@Model.MonthlyProfitData"></c1-items-source>
+                                <c1-flex-chart-axis c1-property="AxisY" title="in millions" format="g4,,"></c1-flex-chart-axis>
+                                <c1-flex-chart-series name="Sales" binding="Sales"></c1-flex-chart-series>
+                                <c1-flex-chart-series name="Expenses" binding="Expenses"></c1-flex-chart-series>
+                                <c1-flex-chart-series name="Profit" binding="Profit" chart-type="LineSymbols"></c1-flex-chart-series>
+                                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                                <c1-chart-animation animation-mode="Series" easing="Swing" duration="400"></c1-chart-animation>
+                                <c1-annotation-layer>
+                                    <c1-annotation-rectangle offset="new System.Drawing.PointF(10,10)" content="N" tooltip="Completion of Acquisition or Disposition of Assets, Change in Directors or Principal."
+                                                             width="20" height="20" point-index="124">
+                                    </c1-annotation-rectangle>
+                                    <c1-annotation-rectangle offset="new System.Drawing.PointF(45,30)" content="E" tooltip="GC Inc Earnings Call scheduled for 5:00 pm ET today."
+                                                             width="20" height="20" point-index="202">
+                                    </c1-annotation-rectangle>
+                                    <c1-annotation-rectangle offset="new System.Drawing.PointF(400,25)" content="N" tooltip="Results of Operations and Financial Condition."
+                                                             width="20" height="20" point-index="73">
+                                    </c1-annotation-rectangle>
+                                    <c1-annotation-rectangle offset="new System.Drawing.PointF(90,20)" content="N" tooltip="Company has opened 3 new offices in US, China and India."
+                                                             width="20" height="20" point-index="235">
+                                    </c1-annotation-rectangle>
+                                    <c1-annotation-rectangle offset="new System.Drawing.PointF(200,35)" content="E" tooltip="Coverage initiated on GC by Brean Capital."
+                                                             width="20" height="20" point-index="235">
+                                    </c1-annotation-rectangle>
+                                </c1-annotation-layer>
+                            </c1-flex-chart>
+                        </div>
+                        <div id="monthlyProfitChart_C" class="tab">
+                            <div class="settingsCmb">
+                                ChartType:
+                                <c1-combo-box id="monthlyProfitChartTypeCmb" 
+                                              selected-index-changed="monthlyProfitChartTypeCmb_selectedIndexChanged" 
+                                              selected-value="@Model.MonthlyProfitChartType"
+                                              class="tab-combo-box">
+                                    <c1-items-source source-collection="@Model.Settings["ChartType"]"></c1-items-source>
+                                </c1-combo-box>
+                            </div>
+                            <c1-flex-grid id="monthlyProfitFGrid"
+                                          is-read-only="false"
+                                          auto-generate-columns="false"
+                                          selection-mode="Cell"
+                                          allow-resizing="None"
+                                          headers-visibility="Column"
+                                          cell-edit-ended="monthlyProfitFGrid_cellEditEnded"
+                                          class="tab-flex-grid">
+                                <c1-flex-grid-column is-read-only="true" header="Country" binding="Country" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column is-read-only="true" header="Month" binding="MonthName" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Sales" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Expenses" binding="Expenses" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Profit" binding="Profit" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-items-source source-collection="@Model.MonthlyProfitData.Where(x=>x.Country!="All")"></c1-items-source>
+                            </c1-flex-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </li>
+
+        <li id="costBudgetingChartWidget_li" class="tile ng-scope" draggable="true">
+
+            <div id="costBudgetingChartWidget">
+                <div class="header">
+                    <span id="costBudgetingDuration">Cost Budgeting for @Model.CostBudgetingStr</span>
+                    <icon>                        
+                        <img src="~/images/icon_export.png" title="Export chart" onclick="chart_exportToImage('costBudgetingChart')" />
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('costBudgetingChartWidget')" />
+                    </icon>
+                </div>
+                <div class="content">
+                    <div class="css-tabs">
+                        <a href="javascript:void(0);" data-toggle="costBudgetingChart_V" class="link-selected">View</a>
+                        |
+                        <a href="javascript:void(0);" data-toggle="costBudgetingChart_C">Settings</a>
+                        <div id="costBudgetingChart_V" class="tab-selected">
+                            <c1-flex-chart id="costBudgetingChart" binding-x="Country" legend-position="Top" chart-type="Column" class="tab-flex-chart">
+                                <c1-items-source source-collection="@Model.CostBudgetingData"></c1-items-source>
+                                <c1-flex-chart-axis c1-property="AxisY" title="in millions" format="g4,," log-base="10"></c1-flex-chart-axis>
+                                <c1-flex-chart-series name="Budget" binding="Budget"></c1-flex-chart-series>
+                                <c1-flex-chart-series name="Expenses" binding="Expenses" chart-type="Line"></c1-flex-chart-series>
+                                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                                <c1-annotation-layer>
+                                </c1-annotation-layer>
+                            </c1-flex-chart>
+                        </div>
+                        <div id="costBudgetingChart_C" class="tab">
+                            <div class="settingsCmb">
+                                ChartType:
+                                <c1-combo-box id="costBudgetingChartTypeCmb" 
+                                              selected-index-changed="costBudgetingChartTypeCmb_selectedIndexChanged" 
+                                              selected-value="@Model.CostBudgetingChartType"
+                                              class="tab-combo-box">
+                                    <c1-items-source source-collection="@Model.Settings["ChartType"]"></c1-items-source>
+                                </c1-combo-box>
+                            </div>
+                            <c1-flex-grid id="costBudgetingFGrid"
+                                          is-read-only="false"
+                                          auto-generate-columns="false"
+                                          selection-mode="Cell"
+                                          allow-resizing="None"
+                                          headers-visibility="Column"
+                                          cell-edit-ended="costBudgetingFGrid_cellEditEnded"
+                                          class="tab-flex-grid">
+                                <c1-flex-grid-column is-read-only="true" header="Country" binding="Country" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Budget" binding="Budget" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Expenses" binding="Expenses" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-items-source source-collection="@Model.CostBudgetingData.Where(x=>x.Country!="All")"></c1-items-source>
+                            </c1-flex-grid>
+                        </div>
+                    </div>
+
+
+
+
+                </div>
+            </div>
+
+        </li>
+
+        <li id="countrywiseSalesChartWidget_li" class="tile ng-scope" draggable="true">
+
+            <div id="countrywiseSalesChartWidget">
+                <div class="header">
+                    <span id="countrywiseSalesDuration">Countrywise Sales for @Model.CountrywiseSalesStr</span>
+                    <icon>                        
+                        <img src="~/images/icon_export.png" title="Export chart" onclick="chart_exportToImage('countrywiseSalesChart')" />
+                        <img src="~/images/icon_close.png" title="Close widget" onclick="closeWidget('countrywiseSalesChartWidget')" />
+                    </icon>
+                </div>
+                <div class="content">
+                    <div class="css-tabs">
+                        <a href="javascript:void(0);" data-toggle="countrywiseSalesChart_V" class="link-selected">View</a>
+                        |
+                        <a href="javascript:void(0);" data-toggle="countrywiseSalesChart_C">Settings</a>
+                        <div id="countrywiseSalesChart_V" class="tab-selected">
+                            <c1-flex-chart id="countrywiseSalesChart" binding-x="Country" chart-type="Bar" legend-position="Right" class="tab-flex-chart">
+                                <c1-items-source source-collection="@Model.CountrywiseSalesData"></c1-items-source>
+                                <c1-flex-chart-axis c1-property="AxisX" format="g4,," title="in millions"></c1-flex-chart-axis>
+                                <c1-flex-chart-series name="Sales" binding="Sales"></c1-flex-chart-series>
+                                <c1-flex-chart-series name="Expenses" binding="Expenses"></c1-flex-chart-series>
+                                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                                <c1-chart-animation animation-mode="All" easing="Swing" duration="400"></c1-chart-animation>
+                            </c1-flex-chart>
+                        </div>
+                        <div id="countrywiseSalesChart_C" class="tab">
+                            <div class="settingsCmb">
+                                ChartType:
+                                <c1-combo-box id="countrywiseSalesChartTypeCmb" 
+                                              selected-index-changed="countrywiseSalesChartTypeCmb_selectedIndexChanged" 
+                                              selected-value="@Model.CountrywiseSalesChartType"
+                                              class="tab-combo-box">
+                                    <c1-items-source source-collection="@Model.Settings["ChartType"]"></c1-items-source>
+                                </c1-combo-box>
+                            </div>
+                            <c1-flex-grid id="countrywiseSalesFGrid"
+                                          is-read-only="false"
+                                          auto-generate-columns="false"
+                                          selection-mode="Cell"
+                                          allow-resizing="None"
+                                          headers-visibility="Column"
+                                          cell-edit-ended="countrywiseSalesFGrid_cellEditEnded"
+                                          class="tab-flex-grid">
+                                <c1-flex-grid-column is-read-only="true" header="Country" binding="Country" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Sales" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-flex-grid-column header="Expenses" binding="Expenses" format="c0" width="*"></c1-flex-grid-column>
+                                <c1-items-source source-collection="@Model.CountrywiseSalesData.Where(x=>x.Country!="All")"></c1-items-source>
+                            </c1-flex-grid>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </li>
+
+    </ul>
+</section>
+
+
+

@@ -1,0 +1,32 @@
+﻿@model List<Tuple<string, string>>
+
+@section Styles{
+<style>
+    #box {
+        width: 100px;
+        height: 100px;
+        color: white;
+        background: linear-gradient(150deg, white -30%, gray);
+        margin: 20px;
+        box-shadow: 4px 4px 10px 0px darkgray;
+    }
+</style>
+}
+
+<div id="box"></div>
+
+<c1-menu header="@MenuRes.BindMode_Text0" display-member-path="Item1" execute-command="setColor" command-parameter-path="Item2">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+</c1-menu>
+
+@section Description{
+    @Html.Raw(MenuRes.BindMode_Text1)
+}
+
+@section Scripts{
+    <script>
+    function setColor(arg) {
+        document.getElementById("box").style.background = "linear-gradient(150deg, white -30%, " + arg + ")";
+    }
+    </script>
+}

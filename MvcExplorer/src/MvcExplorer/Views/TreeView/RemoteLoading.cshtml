@@ -1,0 +1,10 @@
+﻿<c1-tree-view display-member-path="Header" child-items-path="Items"
+              load-action-url="@Url.Action("RemoteLoading_LoadAction")"></c1-tree-view>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.RemoteLoading_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(TreeViewRes.RemoteLoading_Text1)
+}

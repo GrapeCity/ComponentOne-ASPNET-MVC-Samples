@@ -1,0 +1,254 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BindMode_Text0" xml:space="preserve">
+    <value>正方形の色を変更します</value>
+    <comment>Change the color of the square</comment>
+  </data>
+  <data name="BindMode_Text1" xml:space="preserve">
+    <value>このサンプルは、Menu コントロールとのデータ連結を使用する方法を示します。</value>
+    <comment>This sample shows the way to use data bind with the Menu control.</comment>
+  </data>
+  <data name="ContextMenu_Text0" xml:space="preserve">
+    <value>次の 3 つの要素には共通のコンテキストメニューがあり、要素を右クリックすると表示されます。</value>
+    <comment>The three elements below share a common context menu, right-click them to show:</comment>
+  </data>
+  <data name="ContextMenu_Text1" xml:space="preserve">
+    <value>ここにコンテキストメニューがあります。</value>
+    <comment>I have a Context Menu.</comment>
+  </data>
+  <data name="ContextMenu_Text2" xml:space="preserve">
+    <value>ここにも同じコンテキストメニューがあります。</value>
+    <comment>I have the same Context Menu.</comment>
+  </data>
+  <data name="ContextMenu_Text3" xml:space="preserve">
+    <value>ご想像どおり、ここにもあります。</value>
+    <comment>You guessed it, me too.</comment>
+  </data>
+  <data name="ContextMenu_ColorPink" xml:space="preserve">
+    <value>色：ピンク</value>
+    <comment>Color: pink</comment>
+  </data>
+  <data name="ContextMenu_ColorAqua" xml:space="preserve">
+    <value>色：水色</value>
+    <comment>Color: aqua</comment>
+  </data>
+  <data name="ContextMenu_ColorPurple" xml:space="preserve">
+    <value>色：紫</value>
+    <comment>Color: purple</comment>
+  </data>
+  <data name="ContextMenu_ColorBlue" xml:space="preserve">
+    <value>色：青</value>
+    <comment>Color: blue</comment>
+  </data>
+  <data name="ContextMenu_ColorRed" xml:space="preserve">
+    <value>色：赤</value>
+    <comment>Color: red</comment>
+  </data>
+  <data name="ContextMenu_ColorYellow" xml:space="preserve">
+    <value>色：黄色</value>
+    <comment>Color: yellow</comment>
+  </data>
+  <data name="ContextMenu_Text4" xml:space="preserve">
+    <value>コンテキストメニューは、ユーザーの操作時（主に右クリック）に表示されるメニューで、クリックされたオブジェクトに適用するコマンドを表示します。
+    コンテキストメニューは、owner プロパティを設定することによって設定できます。</value>
+    <comment>Context menus are menus that appear upon user interaction, typically a right-click, and display commands that apply to the object that was clicked.
+    We can set the context menu by setting owner property.</comment>
+  </data>
+  <data name="Index_ItemClickedEvent" xml:space="preserve">
+    <value>ItemClicked イベント</value>
+    <comment>ItemClicked Event</comment>
+  </data>
+  <data name="Index_Commands" xml:space="preserve">
+    <value>コマンド</value>
+    <comment>Commands</comment>
+  </data>
+  <data name="Index_File" xml:space="preserve">
+    <value>ファイル</value>
+    <comment>File</comment>
+  </data>
+  <data name="Index_FileNew" xml:space="preserve">
+    <value>新規：新規ドキュメントの作成</value>
+    <comment>New: create a new document</comment>
+  </data>
+  <data name="Index_FileOpen" xml:space="preserve">
+    <value>開く：既存のドキュメントをファイルからロード</value>
+    <comment>Open: load an existing document from a file</comment>
+  </data>
+  <data name="Index_FileSave" xml:space="preserve">
+    <value>保存：現在のドキュメントをファイルに保存</value>
+    <comment>Save: save the current document to a file</comment>
+  </data>
+  <data name="Index_FileExit" xml:space="preserve">
+    <value>終了：変更を保存してアプリケーションを終了</value>
+    <comment>Exit: save changes and exit the application</comment>
+  </data>
+  <data name="Index_Edit" xml:space="preserve">
+    <value>編集</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="Index_EditCut" xml:space="preserve">
+    <value>切り取り：現在の選択をクリップボードに移動</value>
+    <comment>Cut: move the current selection to the clipboard</comment>
+  </data>
+  <data name="Index_EditCopy" xml:space="preserve">
+    <value>コピー：現在の選択をクリップボードにコピー</value>
+    <comment>Copy: copy the current selection to the clipboard</comment>
+  </data>
+  <data name="Index_EditPaste" xml:space="preserve">
+    <value>貼り付け：クリップボードの内容をカーソル位置に挿入</value>
+    <comment>Paste: insert the clipboard content at the cursor position</comment>
+  </data>
+  <data name="Index_EditFind" xml:space="preserve">
+    <value>検索：現在のドキュメントからテキストを検索</value>
+    <comment>Find: search the current document for some text</comment>
+  </data>
+  <data name="Index_EditReplace" xml:space="preserve">
+    <value>置換：現在のドキュメントに出現する文字列を置き換え</value>
+    <comment>Replace: replace occurrences of a string in the current document</comment>
+  </data>
+  <data name="Index_ChangeTax" xml:space="preserve">
+    <value>税率の変更</value>
+    <comment>Change Tax</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このサンプルは、Menu コントロールの基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the Menu control.</comment>
+  </data>
+  <data name="Customize_Description" xml:space="preserve">
+    <value>このサンプルは、Menuコントロールをカスタマイズする方法をいくつか示しています。</value>
+    <comment>This sample shows some ways to customize the Menu control</comment>
+  </data>
+  <data name="Customize_OpenOnhover" xml:space="preserve">
+    <value>マウスオーバー時にメニューを表示する：</value>
+    <comment>Show menu on mouse hover:</comment>
+  </data>
+  <data name="Customize_ShowButton" xml:space="preserve">
+    <value>ドロップダウンボタンを表示する：</value>
+    <comment>Show the dropdown button:</comment>
+  </data>
+  <data name="Customize_ShowSubItems" xml:space="preserve">
+    <value>サブアイテムを表示する：</value>
+    <comment>Show the sub items:</comment>
+  </data>
+  <data name="Customize_CloseOnLeave" xml:space="preserve">
+    <value>マウスが離れるとメニューを閉じる：</value>
+    <comment>Close menu on mouse leave:</comment>
+  </data>
+</root>

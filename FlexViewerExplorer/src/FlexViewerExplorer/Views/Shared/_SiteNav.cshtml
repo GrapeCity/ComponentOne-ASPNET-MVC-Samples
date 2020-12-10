@@ -1,0 +1,25 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li class="narrow-screen">
+        <a href="@Url.Action("Intro", "FlexSheet")">@Html.Raw(FlexViewerRes._SiteNav_Text9)</a>
+    </li>
+    <li>
+        <a href="@Html.Raw(FlexViewerRes._SiteNav_Text5)" target="_blank">@Html.Raw(FlexViewerRes._SiteNav_Text0)</a>
+    </li>
+    <li>
+        <a href="@Html.Raw(FlexViewerRes._SiteNav_Text6)" target="_blank">@Html.Raw(FlexViewerRes._SiteNav_Text1)</a>
+    </li>
+    <li>
+        <a href="@Html.Raw(FlexViewerRes._SiteNav_Text7)" target="_blank">@Html.Raw(FlexViewerRes._SiteNav_Text2)</a>
+    </li>
+    <li class="bold">
+        <a href="@Html.Raw(FlexViewerRes._SiteNav_Text8)" target="_blank">@Html.Raw(FlexViewerRes._SiteNav_Text3)</a>
+    </li>
+    <li class="narrow-screen">
+        @Html.Raw(FlexViewerRes._SiteNav_Text4)
+        @Html.Partial("_ThemeList")
+    </li>
+</ul>

@@ -1,0 +1,154 @@
+﻿@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#customGridEditorsGrid');
+            grid.hostElement.addEventListener('keydown', function (e) {
+                if (e.keyCode == 32) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        // The following scripts added for customizing the updating for the Product column.
+
+        // apply the customized updating for the Product column
+        function cellEditEnding(grid, cellRangeEventArgs) {
+            var col = cellRangeEventArgs.col;
+            // when it is the editor of the "Product" column,
+            // apply the updating manually.
+            if (!cellRangeEventArgs.cancel
+                && cellRangeEventArgs.panel.cellType == wijmo.grid.CellType.Cell
+                && grid.columns[col].binding == 'Product') {
+                updateCellValue(grid, cellRangeEventArgs);
+                cellRangeEventArgs.cancel = true;
+            }
+        }
+
+        function productEditorFocus(event) {
+            var input = event.currentTarget;
+            if (input) {
+                wijmo.setSelectionRange(input, 0, input.value.length);
+            }
+        }
+
+        function productEditorBlur(event) {
+            var input = event.currentTarget;
+            setTimeout(function () {
+                if (wijmo.contains(document.activeElement, input)
+                    // ensure the input element is not removed from the page.
+                    || !document.body.contains(input)) {
+                    return;
+                }
+                var wrapper = input.parentNode,
+                    cellRange = getActiveEditorCellRange(input),
+                    grid = wijmo.Control.getControl('#customGridEditorsGrid');
+                updateCellValue(grid, cellRange);
+                wrapper.parentNode.removeChild(wrapper);
+            });
+        }
+
+        // the id of the element would be [grid's id] + "_Cell_r" + row + "_c" + col + "_"
+        function getActiveEditorCellRange(ele) {
+            var id = ele.id, strId,
+                row, col, index;
+            if (id) {
+                strId = id.substr('customGridEditorsGrid_Cell_r'.length);
+                index = strId.indexOf('_c');
+                row = parseInt(strId.substring(0, index));
+                col = parseInt(strId.substr(index + 2));
+                return { row: row, col: col };
+            }
+        }
+
+        // update the Product cell's value with its editor.
+        function updateCellValue(grid, cellRangeEventArgs) {
+            var row, col,
+                sel = grid.selection,
+                cv = grid.collectionView;
+
+            row = cellRangeEventArgs.row;
+            col = cellRangeEventArgs.col;
+            cv.editItem(cv.items[row]);
+            var input = getEditorControl(row, col);
+            grid.setCellData(row, col, input.value);
+            cv.commitEdit();
+            cv.commitNew();
+            grid.select(sel);
+        }
+
+        function getEditorControl(row, col) {
+            var elementId = 'customGridEditorsGrid_Cell_r' + row + '_c' + col;
+            return document.getElementById(elementId);
+        }
+    </script>
+}
+
+<c1-input-date id="dateEditor" style="width:100%" is-required="false" format="d"></c1-input-date>
+
+<c1-combo-box id="countryEditor" style="width:100%" is-editable="false">
+    <c1-items-source source-collection="@countries"></c1-items-source>
+</c1-combo-box>
+
+<c1-input-color id="colorEditor" style="width:100%" is-required="false"></c1-input-color>
+
+<!-- FlexGrid hosting the custom editors -->
+<c1-flex-grid id="customGridEditorsGrid" allow-add-new="true" allow-delete="true" key-action-tab="Cycle"
+              auto-generate-columns="false" style="height:500px" cell-edit-ending="cellEditEnding">
+    <c1-flex-grid-column binding="ID" width="0.4*" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" header="Date" width="*" format="d" editor="dateEditor"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" header="Time" width="*" format="t">
+        <c1-flex-grid-cell-template is-editing="true">
+            <c1-input-time id="timeEditor" style="width:100%" is-required="false" step="30" format="t" template-bindings="@(new {Value="End"})"></c1-input-time>
+        </c1-flex-grid-cell-template>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="1.5*" editor="countryEditor"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="1.5*">
+        <c1-flex-grid-cell-template is-editing="true">
+            <input type="text" id="{{uid}}" onfocus="productEditorFocus(event)" onblur="productEditorBlur(event)" style="width:100%;height:100%" value="{{Product}}" />
+        </c1-flex-grid-cell-template>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" width="1.5*" format="n2">
+        <c1-flex-grid-cell-template is-editing="true">
+            <c1-input-number id="amountEditor" style="width:100%" is-required="false" format="c2" step="10" template-bindings="@(new {Value="Amount"})"></c1-input-number>
+        </c1-flex-grid-cell-template>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" width="1.5*" format="n2" editor="colorEditor"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("CustomEditorsBind")"
+                     update-action-url="@Url.Action("GridEditorsUpdate")"
+                     create-action-url="@Url.Action("GridEditorsCreate")"
+                     delete-action-url="@Url.Action("GridEditorsDelete")">
+    </c1-items-source>
+</c1-flex-grid>
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.CustomEditors_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.CustomEditors_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.CustomEditors_Text2)</p>
+    <p>@Html.Raw(FlexGridRes.CustomEditors_Text3)</p>
+    <ul class="normal">
+        <li>
+            <b>@Html.Raw(FlexGridRes.CustomEditors_Text4)</b>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text5)</p>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text6)</p>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text7)</p>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text8)</p>
+        </li>
+        <li>
+            <b>@Html.Raw(FlexGridRes.CustomEditors_Text9)</b>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text10)</p>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text11)</p>
+            <p>@Html.Raw(FlexGridRes.CustomEditors_Text12)</p>
+        </li>
+    </ul>
+}

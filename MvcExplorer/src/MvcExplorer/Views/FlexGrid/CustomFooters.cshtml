@@ -1,0 +1,113 @@
+﻿@model IEnumerable<Sale>
+
+@section Scripts{
+    <script>
+        // class used to identify group footer rows
+        var ROW_FOOTER_CLASS = 'wj-groupfooter';
+
+        function grouping(groupBy) {
+            var flex = wijmo.Control.getControl('#grid'), data = flex.collectionView;
+            flex.beginUpdate();
+            data.groupDescriptions.clear();
+            var groups = groupBy ? groupBy.split(',') : [];
+            for (var i = 0; i < groups.length; i++) {
+                data.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription(groups[i]));
+            }
+            flex.endUpdate();
+        }
+
+        function onLoadedRows() {
+            var flex = wijmo.Control.getControl('#grid');
+            if (flex.collectionView.groupDescriptions.length) {
+                addGroupFooters();
+            }
+        }
+
+        // add group footers
+        function addGroupFooters() {
+            var flex = wijmo.Control.getControl('#grid');
+            flex.beginUpdate();
+            for (var r = 0; r < flex.rows.length; r++) {
+                var row = flex.rows[r];
+                if (row instanceof wijmo.grid.GroupRow && row.cssClass != ROW_FOOTER_CLASS) {
+
+                    // create footer row to match this group row
+                    var newRow = new wijmo.grid.GroupRow();
+                    newRow.level = row.level;
+                    newRow.cssClass = ROW_FOOTER_CLASS;
+
+                    // add footer row to the grid
+                    var index = findFooterIndex(r);
+                    flex.rows.insert(index, newRow);
+
+                    // add some content to footer row
+                    var group = row.dataItem;
+                    flex.setCellData(index, 0, 'f(' + group.name + ')', false);
+                }
+            }
+            flex.endUpdate();
+        }
+
+        // find the index where the group footer should be inserted
+        function findFooterIndex(r) {
+            var flex = wijmo.Control.getControl('#grid');
+            var level = flex.rows[r].level;
+            for (var i = r + 1; i < flex.rows.length; i++) {
+                var row = flex.rows[i];
+                if (row instanceof wijmo.grid.GroupRow) {
+
+                    // if this is *not* a footer and the level is <=, insert here
+                    if (row.cssClass != ROW_FOOTER_CLASS && row.level <= level) {
+                        return i;
+                    }
+
+                    // if this *is* a footer and the level is <, insert here
+                    if (row.cssClass == ROW_FOOTER_CLASS && row.level < level) {
+                        return i;
+                    }
+                }
+            }
+
+            // insert at the bottom
+            return flex.rows.length;
+        }
+    </script>
+}
+
+<label>@Html.Raw(FlexGridRes.CustomFooters_Text1)</label>
+<div class="wj-btn-group">
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('')">@Html.Raw(FlexGridRes.CustomFooters_None)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Country')">@Html.Raw(FlexGridRes.CustomFooters_Country)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Product')">@Html.Raw(FlexGridRes.CustomFooters_Product)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Product,Color')">@Html.Raw(FlexGridRes.CustomFooters_ProductAndColor)</button>
+</div>
+
+<label>@Html.Raw(FlexGridRes.CustomFooters_Text2)</label>
+<div class="multi-grid">
+    <c1-flex-grid id="grid" is-read-only="true" auto-generate-columns="false"
+                  show-groups="true" class="grid" loaded-rows="onLoadedRows"
+                  show-column-footers="true">
+        <c1-items-source disable-server-read="true" read-action-url="@Url.Action("CustomFooters_Bind")"></c1-items-source>
+        <c1-flex-grid-column binding="ID" width="70"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Amount2" format="c" aggregate="Sum"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Discount" width="100" format="p0" aggregate="Avg"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Active" width="80"></c1-flex-grid-column>
+    </c1-flex-grid>
+</div>
+
+@section Summary{
+    @Html.Raw(FlexGridRes.CustomFooters_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.CustomFooters_Text0)</p>
+    <ol>
+        <li>@Html.Raw(FlexGridRes.CustomFooters_Li1)</li>
+        <li>@Html.Raw(FlexGridRes.CustomFooters_Li2)</li>
+    </ol>
+}

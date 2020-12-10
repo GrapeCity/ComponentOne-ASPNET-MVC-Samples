@@ -1,0 +1,89 @@
+﻿@model List<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+<script type="text/javascript">
+    var validCountries = ["US", "UK", "Canada", "Japan", "China", "France", "German", "Italy", "Korea", "Australia"];
+    var validProducts = ["Widget", "Gadget", "Doohickey"];
+    function getError(item, property) {
+        switch (property) {
+            case 'Country':
+                return validCountries.indexOf(item[property]) < 0
+                    ? '@Html.Raw(FlexGridRes.BuiltInValidation_Message1)'
+                    : null;
+            case 'Product':
+                return validProducts.indexOf(item[property]) < 0
+                    ? '@Html.Raw(FlexGridRes.BuiltInValidation_Message2)'
+                    : null;
+            case 'Amount2':
+                return item[property] < 0 || item[property] >= 5000
+                    ? '@Html.Raw(FlexGridRes.BuiltInValidation_Message3)'
+                    : null;
+            case 'Active':
+                return item[property] && item['Country'] && item['Country'].match(/US|UK/)
+                    ? '@Html.Raw(FlexGridRes.BuiltInValidation_Message4)'
+                    : null;
+        }
+        return null;
+    }
+
+    function customChangeErrorTipStyle(control, value) {
+        var grid = wijmo.Control.getControl('#DemoControl')
+        grid.errorTip.cssClass = value;
+    }
+
+    function customChangeTooltipPosition(control, value) {
+        control.errorTip.position = value;
+    }
+</script>
+
+<style>
+    .red-yellow-errortip {
+        background-color: red;
+        color: yellow;
+    }
+
+    .gradient-errortip {
+        background-color: greenyellow;
+        background-image: radial-gradient(circle at top right, yellow, #f06d06 50%);
+        color: white;
+    }
+
+    .text-style-errortip {
+        background-color: lightyellow;
+        color: red;
+        font-style: oblique;
+        text-shadow: 2px 2px 5px orangered;
+    }
+
+    .strong-round-errortip {
+        background-color: lightgoldenrodyellow;
+        color: red;
+        border-radius: 10%;
+    }
+</style>
+
+<c1-items-source id="validationCV" get-error="getError"
+                 source-collection="Model"
+                 update-action-url="@Url.Action("GridUpdateSale")"
+                 create-action-url="@Url.Action("GridCreateSale")"
+                 delete-action-url="@Url.Action("GridDeleteSale")">
+</c1-items-source>
+
+<c1-flex-grid id="DemoControl" auto-generate-columns="false"
+              allow-add-new="true" allow-delete="true" height="400px"
+              items-source-id="validationCV">
+    <c1-flex-grid-column binding="ID" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-flex-grid-errortip class="red-yellow-errortip"></c1-flex-grid-errortip>
+</c1-flex-grid>
+
+@section Description{    
+    <p>@Html.Raw(FlexGridRes.BuiltInValidation_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.BuiltInValidation_Text1)</p>
+}

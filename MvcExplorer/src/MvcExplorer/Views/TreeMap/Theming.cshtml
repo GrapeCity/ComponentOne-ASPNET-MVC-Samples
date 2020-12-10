@@ -1,0 +1,40 @@
+﻿@model IEnumerable<FoodSale>
+
+@{
+    ViewBag.DemoSettings = false;
+    var colors = new List<string> { "#88bde6", "#fbb258", "#90cd97", "#f6aac9", "#bfa554", "#bc99c7", "#eddd46", "#f07e6e", "#8c8c8c" };
+}
+
+<c1-tree-map binding="Sales" binding-name="Category,SubCategory">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-tooltip content="<b>{name}</b><br />{value:c}"></c1-flex-chart-tooltip>
+    <c1-flex-chart-datalabel position="Center" content="{name}"></c1-flex-chart-datalabel>
+    <c1-tree-map-item-style title-color="#00277d" max-color="rgba(0,39,125,0.7)"
+                            min-color="rgba(168,187,230,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#7d1f00" max-color="rgba(125,21,0,0.7)" 
+                            min-color="rgba(230,183,168,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#007d27" max-color="rgba(0,125,39,0.7)" 
+                            min-color="rgba(168,230,188,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#7d003c" max-color="rgba(125,0,60,0.7)" 
+                            min-color="rgba(230,168,198,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#7d4300" max-color="rgba(125,67,0,0.7)" 
+                            min-color="rgba(230,201,168,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#51007d" max-color="rgba(81,0,125,0.7)" 
+                            min-color="rgba(209,170,230,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#7d7400" max-color="rgba(125,116,0,0.7)" 
+                            min-color="rgba(230,226,168,0.7)"></c1-tree-map-item-style>
+    <c1-tree-map-item-style title-color="#970000" max-color="rgba(151,0,0,0.7)"
+                            min-color="rgba(230,169,169,0.7)"></c1-tree-map-item-style>
+</c1-tree-map>
+
+<c1-tree-map binding="Sales" binding-name="Category,SubCategory"
+             palette="@colors">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-tooltip content="<b>{name}</b><br />{value:c}"></c1-flex-chart-tooltip>
+    <c1-flex-chart-datalabel position="Center" content="{name}"></c1-flex-chart-datalabel>
+</c1-tree-map>
+
+@section Description{
+    <p>@Html.Raw(TreeMapRes.Theming_Text0)</p>
+    <p>@Html.Raw(TreeMapRes.Theming_Text1)</p>
+}

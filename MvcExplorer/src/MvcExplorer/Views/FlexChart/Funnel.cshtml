@@ -1,0 +1,54 @@
+﻿@model IEnumerable<SalesData>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var funnelType = demoSettingsModel.GetEnum("FunnelType", FunnelType.Default);
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function updateMenu(menu, headerNamePrefix) {
+            menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+        }
+
+        function setFunnelOption(option, value) {
+            var chart = wijmo.Control.getControl('#chart');
+            if (chart) {
+                chart.options.funnel[option] = value;
+                chart.refresh(true);
+            }
+        }
+
+        function customChangeFunnelType(chart, name) {
+            setFunnelOption('type', name.toLowerCase());
+        }
+
+        function neckChanged(sender, args) {
+            setFunnelOption(sender.hostElement.id, wijmo.clamp(sender.value, sender.min, sender.max));
+        }
+
+    </script>
+}
+
+<c1-flex-chart id="chart" binding-x="CountryName" binding="Sale" 
+    chart-type="Funnel" width="500px" height="400px">
+    <c1-flex-chart-datalabel content="{y}" />
+    <c1-items-source source-collection="Model" />
+    <c1-flex-chart-series name="Sales"></c1-flex-chart-series>
+    <c1-chart-options>
+        <c1-funnel-options type="@funnelType" neck-height="0.2F" />
+    </c1-chart-options>
+</c1-flex-chart>
+
+
+@section Settings{
+    <label style="display: inline-block; font-weight: normal">@Html.Raw(FlexChartRes.Funnel_NeckWidth) </label>
+    <c1-input-number min="0" max="1" step="0.1" value="0.2" format="n1" value-changed="neckChanged" width="150px" id="neckWidth"></c1-input-number>
+    <label style="display: inline-block; font-weight: normal">@Html.Raw(FlexChartRes.Funnel_NeckHeight) </label>
+    <c1-input-number min="0" max="1" step="0.1" value="0.2" format="n1" value-changed="neckChanged" width="150px" id="neckHeight"></c1-input-number>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.Funnel_Text0)</p>
+}

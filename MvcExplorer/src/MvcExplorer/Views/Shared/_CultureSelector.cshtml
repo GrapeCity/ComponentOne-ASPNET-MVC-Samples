@@ -1,0 +1,13 @@
+﻿@{
+    Culture.SetCurrentCulture(Context, Context.Request.Query["culture"]);
+}
+
+<span class="culture">
+    <c1-combo-box id="theCulture" is-editable="false" display-member-path="Name"
+                  selected-index="@Culture.GetCurrentCultureIndex(Context)">
+        <c1-items-source source-collection="@Culture.GetAll()"></c1-items-source>
+        <c1-input-item-template>
+            <a href="{{Path}}" class="culture-selector-link">{{DisplayText}}</a>
+        </c1-input-item-template>
+    </c1-combo-box>
+</span>

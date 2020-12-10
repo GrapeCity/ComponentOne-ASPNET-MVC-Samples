@@ -1,0 +1,32 @@
+﻿@using MvcExplorer.Models
+@model List<UserInfo>
+
+@section Scripts{
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+<c1-flex-grid id="flexGrid" auto-generate-columns="false" allow-add-new="true" allow-delete="true" height="400px">
+    <c1-flex-grid-column binding="Id" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Name"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Email"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Phone"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Industry"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Birthdate" format="M/d/yyyy"></c1-flex-grid-column>
+    <c1-items-source source-collection="Model"
+                     create-action-url="@Url.Action("GridCreateUserInfo")"
+                     delete-action-url="@Url.Action("GridDeleteUserInfo")"
+                     update-action-url="@Url.Action("GridUpdateUserInfo")">
+    </c1-items-source>
+</c1-flex-grid>
+
+@section Summary{
+    @Html.Raw(FlexGridRes.UnobtrusiveValidation_Text3)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.UnobtrusiveValidation_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.UnobtrusiveValidation_Text1)</p>
+}

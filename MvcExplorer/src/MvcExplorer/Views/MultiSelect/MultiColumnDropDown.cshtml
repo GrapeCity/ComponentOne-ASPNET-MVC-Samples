@@ -1,0 +1,9 @@
+﻿@model IEnumerable<string>
+
+<c1-multi-select placeholder="@MultiSelectRes.MultiColumnDropDown_Placeholder" drop-down-css-class="multi-column">
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-multi-select>
+
+@section Description{
+    @Html.Raw(MultiSelectRes.MultiColumnDropDown_Text0)
+}

@@ -1,0 +1,67 @@
+﻿@page
+@using C1.Web.Mvc.Grid
+@model FlexGridModel
+@{
+    var optionsModel = (ControlOptions)ViewData["DemoOptions"];
+    ViewData["DemoSettings"] = true;
+}
+
+@section Scripts{
+    <script>
+    function collectingQueryData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+        {
+        <text>
+        e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+        </text>
+        }
+    }
+    </script>
+}
+
+@Html.AntiForgeryToken()
+
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" class="grid" is-read-only="true"
+              sorting-type="@((AllowSorting)Enum.Parse(typeof(AllowSorting), optionsModel.Options["Allow Sorting"].CurrentValue))"
+              selection-mode="@((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))">
+    <c1-flex-grid-column binding="ID"
+                         is-visible="@(string.Compare(optionsModel.Options["Column Visibility"].CurrentValue, "show", true) == 0)"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"
+                         format="@(optionsModel.Options["Formatting"].CurrentValue == "On" ? "MMM d yy" : "")"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End"
+                         format="@(optionsModel.Options["Formatting"].CurrentValue == "On" ? "HH:mm" : "")"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"
+                         width="@optionsModel.Options["Column Resize"].CurrentValue"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-items-source initial-items-count="100" read-action-url="@Url.Page("FlexGrid", "Bind")" query-data="collectingQueryData"></c1-items-source>
+</c1-flex-grid>
+
+
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>This view shows basic features of FlexGrid razor Pages.</p>
+}
+
+@section Description{
+    <p>
+        Steps for getting started with the FlexGrid control in Razor Pages:
+    </p>
+    <ol>
+        <li>Add handler <b>OnPostBind</b> to page model for model binding.</li>
+        <li>Add token <b>@@Html.AntiForgeryToken()</b> in Razor page view.</li>
+        <li>Initialize the FlexGrid control in Razor page view using <b>&lt;c1-flex-grid&gt;&lt;/c1-flex-grid&gt;</b> tag.</li>
+        <li>Set value of read-action-url attribute as @@Url.Page("FlexGrid", "Bind"). Here, "FlexGrid" is the page name and "Bind" is the handler name without prefix.</li>
+    </ol>
+}

@@ -1,0 +1,15 @@
+﻿@model IEnumerable<FoodSale>
+
+@{
+    ViewBag.DemoSettings = false;
+}
+
+<c1-tree-map binding="Sales" binding-name="Category,SubCategory">
+    <c1-items-source source-collection="Model" group-by="Category,SubCategory"></c1-items-source>
+    <c1-flex-chart-tooltip content="<b>{name}</b><br />{value:c}"></c1-flex-chart-tooltip>
+    <c1-flex-chart-datalabel position="Center" content="{name}"></c1-flex-chart-datalabel>
+</c1-tree-map>
+
+@section Description{
+    <p>@Html.Raw(TreeMapRes.GroupCollection_Text0)</p>
+}

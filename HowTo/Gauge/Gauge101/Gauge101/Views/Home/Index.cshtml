@@ -1,0 +1,1163 @@
+﻿@model GaugeModel
+
+@{
+    ViewBag.Title = "ASP.NET Core MVC C1 Gauge Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ASP.NET Core C1 Gauge 101
+        </h1>
+        <p>
+            This page shows how to get started with ASP.NET Core MVC's C1 Gauge controls.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the Gauge control in MVC applications:
+        </p>
+        <ol>
+            <li>Create a new ASP.NET Core MVC project using the "C1 ASP.NET Core MVC Web Application" template.</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Initialize the C1 Gauge control in view using tag &lt;c1-linear-gauge&gt;&lt;/c1-linear-gauge&gt; and &lt;c1-radial-gauge&gt;&lt;/c1-radial-gauge&gt;</li>
+            <li>(Optional) Add some CSS to customize the Gauge control's appearance.</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+                            
+&lt;/head&gt;
+&lt;body&gt;
+
+&lt;!-- LinearGauge --&gt;
+    &lt;c1-linear-gauge id="gsLinearGauge" 
+        value="@@Model.value" 
+        min="@@Model.min" 
+        max="@@Model.max" 
+        direction="Right"
+        format="@@Model.format"
+        class="linear-gauge"&gt;
+    &lt;/c1-linear-gauge&gt;
+&lt;!-- RadialGauge --&gt;
+    &lt;c1-radial-gauge id="gsRadialGauge"
+        value="@@Model.value"
+        min="@@Model.min"
+        max="@@Model.max"
+        format="@@Model.format"
+        class="radial-gauge"&gt;
+    &lt;/c1-radial-gauge&gt;
+
+&lt;!-- InputNumber --&gt;
+&lt;div&gt;
+    &lt;label&gt;Gauge Value&lt;/label&gt;
+    &lt;c1-input-number id="gsValue"
+        value="@@Model.value"
+        min="@@Model.min"
+        max="@@Model.max"
+        format="@@Model.format"
+        step="@@Model.step"
+        value-changed="gsValue_valueChanged"&gt;
+    &lt;/c1-input-number&gt;
+&lt;/div&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+
+                        </div>
+
+                        <div class="tab-pane pane-content" id="gsCS">
+
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-linear-gauge id="gsLinearGauge" 
+                                 value="@Model.value" 
+                                 min="@Model.min" 
+                                 max="@Model.max" 
+                                 direction="Right"
+                                 format="@Model.format"
+                                 class="linear-gauge">
+                </c1-linear-gauge>
+                <br />
+                <c1-radial-gauge id="gsRadialGauge"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 format="@Model.format"
+                                 class="radial-gauge">
+                </c1-radial-gauge>
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="gsValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="gsValue_valueChanged">
+                    </c1-input-number>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Displaying Values -->
+    <div>
+        <h2>Displaying Values</h2>
+        <p>
+            The gauge controls offer a <b>show-text</b> property that determines which values should be
+            displayed as text by the gauge. There are four valid values for the <b>show-text</b> property:
+        </p>
+        <ul>
+            <li>
+                <b>Value</b>:  Display the Gauge's current value.
+            </li>
+            <li>
+                <b>MinMax</b>:  Display the Gauge's current min and max values.
+            </li>
+            <li>
+                <b>All</b>:  Display the Gauge's current min, max, and values.  This option is a combination of
+                the <b>Value</b> and <b>MinMax</b> options.
+            </li>
+            <li>
+                <b>None</b>:  Do not display any text in the Gauge control.
+            </li>
+        </ul>
+        <p>
+            The example below allows you to see what happens when the <b>show-text</b> property is changed.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#dvHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#dvJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#dvCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="dvHtml">
+&lt;c1-linear-gauge id="dvLinearGauge"
+                    min="@@Model.min"
+                    max="@@Model.max"
+                    value="@@Model.value"
+                    format="@@Model.format"
+                    show-text="None"
+                    class="linear-gauge"&gt;
+&lt;/c1-linear-gauge&gt;
+&lt;c1-radial-gauge id="dvRadialGauge"
+                    min="@@Model.min"
+                    max="@@Model.max"
+                    value="@@Model.value"
+                    format="@@Model.format"
+                    show-text="None"
+                    class="radial-gauge"&gt;
+&lt;/c1-radial-gauge&gt;
+
+&lt;!-- "Gauge Value" input omitted --&gt;
+
+&lt;c1-input-number id="dvValue"
+                    value="@@Model.value"
+                    min="@@Model.min"
+                    max="@@Model.max"
+                    format="@@Model.format"
+                    step="@@Model.step"
+                    value-changed="dvValue_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;c1-menu id="dvShowTextMenu"
+        header="Show Text"
+        selected-value="ShowText.All"
+        execute-command="dvShowTextMenu_execute"&gt;
+&lt;c1-menu-item header="Value" command-parameter="ShowText.Value"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="Min/Max" command-parameter="ShowText.MinMax"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="All" command-parameter="ShowText.All"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="None" command-parameter="ShowText.None"&gt;&lt;/c1-menu-item&gt;
+&lt;/c1-menu&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="dvJs">
+
+function dvShowTextMenu_execute(arg) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var linearGauge = wijmo.Control.getControl("#dvLinearGauge");
+    var radialGauge = wijmo.Control.getControl("#dvRadialGauge");
+    linearGauge.showText = arg;
+    radialGauge.showText = arg;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="dvCS">
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-linear-gauge id="dvLinearGauge" 
+                                 min="@Model.min" 
+                                 max="@Model.max"
+                                 value="@Model.value"
+                                 format="@Model.format"
+                                 show-text="None"
+                                 class="linear-gauge">
+                </c1-linear-gauge>
+                <c1-radial-gauge id="dvRadialGauge"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 value="@Model.value"
+                                 format="@Model.format"
+                                 show-text="None"
+                                 class="radial-gauge">
+                </c1-radial-gauge>
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="dvValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="dvValue_valueChanged">
+                    </c1-input-number>
+                </div>
+                <c1-menu id="dvShowTextMenu"
+                         header="Show Text"
+                         selected-value="ShowText.All"
+                         execute-command="dvShowTextMenu_execute">
+                    <c1-menu-item header="Value" command-parameter="ShowText.Value"></c1-menu-item>
+                    <c1-menu-item header="Min/Max" command-parameter="ShowText.MinMax"></c1-menu-item>
+                    <c1-menu-item header="All" command-parameter="ShowText.All"></c1-menu-item>
+                    <c1-menu-item header="None" command-parameter="ShowText.None"></c1-menu-item>
+                </c1-menu>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Using Ranges -->
+    <div>
+        <h2>Using Ranges</h2>
+        <p>
+            All ASP.Net MVC gauges have a <b>&lt;c1-gauge-range&gt;</b> tag that contains an list of <b>Range</b> objects.  By default, the ranges
+            are displayed on the face of gauge to indicate zones of interest; however, the <b>show-ranges</b> property can be used to hide the ranges.  
+            Instead, the gauge will determine which range contains the current gauge value and will apply that
+            range's color to the gauge pointer.
+        </p>
+        <p>
+            The Range object itself offers properties such as <b>min</b>, <b>max</b>, and <b>color</b> to customize each zone.
+        </p>
+        <p>
+            The following example demonstrates how to use ranges with the LinearGauge, RadialGauge, and BulletGraph.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#urHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#urJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#urCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="urHtml">
+
+&lt;c1-linear-gauge id="urLinearGauge"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    direction="Right"
+    format="@@Model.format"
+    class="linear-gauge"
+    show-ranges="@@Model.showRanges"&gt;
+&lt;c1-gauge-range c1-property="Pointer" thickness="@@Model.pointerThickness"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.lowerRangemin" max="@@Model.lowerRangemax" color="@@Model.lowerRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.middleRangemin" max="@@Model.middleRangemax" color="@@Model.middleRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.upperRangemin" max="@@Model.upperRangemin" color="@@Model.upperRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;/c1-linear-gauge&gt;
+&lt;c1-bullet-graph id="urBulletGraph"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    direction="Right"
+    format="@@Model.format"
+    class="linear-gauge"
+    show-ranges="@@Model.showRanges"
+    target="@@Model.rangesTarget"
+    good="@@Model.middleRangemax"
+    bad="@@Model.middleRangemin"&gt;
+&lt;c1-gauge-range c1-property="Pointer" thickness="@@Model.pointerThickness"&gt;&lt;/c1-gauge-range&gt;
+&lt;/c1-bullet-graph&gt;
+&lt;c1-radial-gauge id="urRadialGauge" 
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    format="@@Model.format"
+    class="radial-gauge"
+    show-ranges="@@Model.showRanges"&gt;
+&lt;c1-gauge-range c1-property="Pointer" thickness="@@Model.pointerThickness"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.lowerRangemin" max="@@Model.lowerRangemax" color="@@Model.lowerRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.middleRangemin" max="@@Model.middleRangemax" color="@@Model.middleRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.upperRangemin" max="@@Model.upperRangemin" color="@@Model.upperRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;/c1-radial-gauge&gt;
+
+&lt;!-- "Gauge Value" input omitted --&gt;
+
+&lt;label&gt;
+Show Ranges&amp;nbsp;
+&lt;c1-input-number id="urValue"
+        value="@@Model.value"
+        min="@@Model.min"
+        max="@@Model.max"
+        format="@@Model.format"
+        step="@@Model.step"
+        value-changed="urValue_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/label&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="urJs">
+
+// InputNumber valueChanged event-to update value of Radial Gauge, Bullet Graph and Linear Gauge
+function urValue_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var linearGauge = wijmo.Control.getControl("#urLinearGauge");
+    var bulletGraph = wijmo.Control.getControl("#urBulletGraph");
+    var radialGauge = wijmo.Control.getControl("#urRadialGauge");
+    linearGauge.value = sender.value;
+    bulletGraph.value = sender.value;
+    radialGauge.value = sender.value;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="urCS">
+
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-linear-gauge id="urLinearGauge"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 direction="Right"
+                                 format="@Model.format"
+                                 class="linear-gauge"
+                                 show-ranges="@Model.showRanges">
+                    <c1-gauge-range c1-property="Pointer" thickness="@Model.pointerThickness"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.lowerRangemin" max="@Model.lowerRangemax" color="@Model.lowerRangecolor"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.middleRangemin" max="@Model.middleRangemax" color="@Model.middleRangecolor"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.upperRangemin" max="@Model.upperRangemin" color="@Model.upperRangecolor"></c1-gauge-range>
+                </c1-linear-gauge>
+                <c1-bullet-graph id="urBulletGraph"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 direction="Right"
+                                 format="@Model.format"
+                                 class="linear-gauge"
+                                 show-ranges="@Model.showRanges"
+                                 target="@Model.rangesTarget"
+                                 good="@Model.middleRangemax"
+                                 bad="@Model.middleRangemin">
+                    <c1-gauge-range c1-property="Pointer" thickness="@Model.pointerThickness"></c1-gauge-range>
+                </c1-bullet-graph>
+                <c1-radial-gauge id="urRadialGauge" 
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 format="@Model.format"
+                                 class="radial-gauge"
+                                 show-ranges="@Model.showRanges">
+                    <c1-gauge-range c1-property="Pointer" thickness="@Model.pointerThickness"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.lowerRangemin" max="@Model.lowerRangemax" color="@Model.lowerRangecolor"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.middleRangemin" max="@Model.middleRangemax" color="@Model.middleRangecolor"></c1-gauge-range>
+                    <c1-gauge-range min="@Model.upperRangemin" max="@Model.upperRangemin" color="@Model.upperRangecolor"></c1-gauge-range>
+                </c1-radial-gauge>
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="urValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="urValue_valueChanged">
+                    </c1-input-number>
+                </div>
+
+                <label>
+                    Show Ranges&nbsp;
+                    <input id="urShowRanges" type="checkbox" />
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+    <!-- Automatic Scaling -->
+    <div>
+        <h2>Automatic Scaling</h2>
+        <p>
+            The RadialGauge offers two properties to configure its layout, <b>start-angle</b> and <b>sweep-angle</b>. The
+            <b>start-angle</b> property specifies the RadialGauge's starting angle, or rotation.  The <b>sweep-angle</b>
+            property specifies an angle representing the length of the RadialGauge's arc.  The angle for both
+            properties are measured clockwise, starting at the 9 o'clock position.
+        </p>
+        <p>
+            The RadialGauge also offers the <b>auto-scale</b> property. When <b>auto-scale</b> is set to true, the RadialGauge
+            will be automatically scaled to fill its containing element.
+        </p>
+        <p>
+            The following example allows you to adjust the <b>start-angle</b>, <b>sweep-angle</b>, and <b>auto-scale</b> properties
+            in real-time.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#asHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#asJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#asCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="asHtml">
+
+&lt;c1-radial-gauge id="asRadialGauge"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    auto-scale="@@Model.autoScale"
+    format="@@Model.format"
+    class="radial-gauge"&gt;
+&lt;/c1-radial-gauge&gt;
+
+&lt;div&gt;
+&lt;label&gt;Gauge Value&lt;/label&gt;
+&lt;c1-input-number id="asValue"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    format="@@Model.format"
+    step="@@Model.step"
+    value-changed="asValue_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/div&gt;
+
+
+&lt;div&gt;
+&lt;label&gt;Start Angle&lt;/label&gt;
+&lt;c1-input-number id="asStartAngle"
+    value="@@Model.startAngle"
+    min="-360"
+    max="360"
+    step="45"
+    value-changed="asStartAngle_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/div&gt;
+
+&lt;div&gt;
+&lt;label&gt;Sweep Angle&lt;/label&gt;
+&lt;c1-input-number id="asSweepAngle"
+    value="@@Model.sweepAngle"
+    min="0"
+    max="360"
+    step="45"
+    value-changed="asSweepAngle_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/div&gt;
+
+&lt;label&gt;
+Auto-Scale&amp;nbsp;
+&lt;input id="asAutoScale" type="checkbox" /&gt;
+&lt;/label&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="asJs">
+
+$(document).ready(function () {
+    var autoscaleInput = document.getElementById('asAutoScale');
+    autoscaleInput.checked = true;
+    autoscaleInput.addEventListener('change', function () {
+
+        // determine autoScale by checkbox's checked state
+        var radialGauge = wijmo.Control.getControl("#asRadialGauge");
+        radialGauge.autoScale = this.checked;
+    });
+});
+
+// InputNumber valueChanged event-to update value of Radial Gauge
+function asValue_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var radialGauge = wijmo.Control.getControl("#asRadialGauge");
+    radialGauge.value = sender.value;
+};
+
+// InputNumber valueChanged event-to update startAngle of Radial Gauge
+function asStartAngle_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var radialGauge = wijmo.Control.getControl("#asRadialGauge");
+    radialGauge.startAngle = sender.value;
+};
+
+// InputNumber valueChanged event-to update sweepAngle of Radial Gauge
+function asSweepAngle_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var radialGauge = wijmo.Control.getControl("#asRadialGauge");
+    radialGauge.sweepAngle = sender.value;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="asCS">
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-radial-gauge id="asRadialGauge"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 auto-scale="@Model.autoScale"
+                                 format="@Model.format"
+                                 class="radial-gauge">
+                </c1-radial-gauge>
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="asValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="asValue_valueChanged">
+                    </c1-input-number>
+                </div>
+
+                <div class="app-input-group">
+                    <label>Start Angle</label>
+                    <c1-input-number id="asStartAngle"
+                                     value="@Model.startAngle"
+                                     min="-360"
+                                     max="360"
+                                     step="45"
+                                     value-changed="asStartAngle_valueChanged">
+                    </c1-input-number>
+                </div>
+
+                <div class="app-input-group">
+                    <label>Sweep Angle</label>
+                    <c1-input-number id="asSweepAngle"
+                                     value="@Model.sweepAngle"
+                                     min="0"
+                                     max="360"
+                                     step="45"
+                                     value-changed="asSweepAngle_valueChanged">
+                    </c1-input-number>
+                </div>
+
+                <label>
+                    Auto-Scale&nbsp;
+                    <input id="asAutoScale" type="checkbox" />
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Direction -->
+    <div>
+        <h2>Direction</h2>
+        <p>
+            The RadialGauge's <b>start-angle</b> and <b>sweep-angle</b> properties do not apply to the LinearGauge or
+            BulletGraph.  Instead, the LinearGauge and BulletGraph offer the <b>direction</b> property to determine
+            how it should be displayed.  There are four options for the <b>direction</b> property:
+        </p>
+        <ul>
+            <li>
+                <b>Up</b>:  The gauge is rendered vertically and its value increases the bottom to top.
+            </li>
+            <li>
+                <b>Right</b>:  The gauge is rendered horizontally and its value increases the right to left.  This is
+                the default value.
+            </li>
+            <li>
+                <b>Down</b>:  The gauge is rendered vertically and its value increases the top to bottom.
+            </li>
+            <li>
+                <b>Left</b>:  The gauge is rendered horizontally and its value increases the left to right.
+            </li>
+        </ul>
+        <p>
+            The example below allows you to see what happens when the <b>direction</b> property is changed.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#dHtml" role="tab" data-toggle="tab">index.cshtml</a></li>
+                        <li><a href="#dJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#dCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#dCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="dHtml">
+
+&lt;div class="row"&gt;
+&lt;div class="direction-col"&gt;
+&lt;c1-linear-gauge id="dLinearGauge"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    direction="Right"
+    format="@@Model.format"
+    class="linear-gauge"
+    show-ranges="@@Model.showRanges"&gt;
+&lt;c1-gauge-range c1-property="Pointer" thickness="@@Model.pointerThickness"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.lowerRangemin" max="@@Model.lowerRangemax" color="@@Model.lowerRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.middleRangemin" max="@@Model.middleRangemax" color="@@Model.middleRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;c1-gauge-range min="@@Model.upperRangemin" max="@@Model.upperRangemin" color="@@Model.upperRangecolor"&gt;&lt;/c1-gauge-range&gt;
+&lt;/c1-linear-gauge&gt;
+&lt;/div&gt;
+&lt;div class="direction-col"&gt;
+&lt;c1-bullet-graph id="dBulletGraph"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    direction="Right"
+    format="@@Model.format"
+    class="linear-gauge"
+    show-ranges="@@Model.showRanges"
+    target="@@Model.rangesTarget"
+    good="@@Model.middleRangemax"
+    bad="Model.middleRangemin"&gt;
+&lt;c1-gauge-range c1-property="Pointer" thickness="@@Model.pointerThickness"&gt;&lt;/c1-gauge-range&gt;
+&lt;/c1-bullet-graph&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;div class="app-input-group"&gt;
+&lt;label&gt;Gauge Value&lt;/label&gt;
+&lt;c1-input-number id="dValue"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    format="@@Model.format"
+    step="@@Model.step"
+    value-changed="dValue_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/div&gt;
+&lt;c1-menu id="dDirection"
+    header="Direction"
+    selected-value="GaugeDirection.Right"
+    execute-command="dDirection_execute"&gt;
+&lt;c1-menu-item header="Up" command-parameter="GaugeDirection.Up"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="Right" command-parameter="GaugeDirection.Right"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="Down" command-parameter="GaugeDirection.Down"&gt;&lt;/c1-menu-item&gt;
+&lt;c1-menu-item header="Left" command-parameter="GaugeDirection.Left"&gt;&lt;/c1-menu-item&gt;
+&lt;/c1-menu&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="dJs">
+
+// InputNumber valueChanged event-to update value of Linear Gauge and Bullet Graph
+function dValue_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var linearGauge = wijmo.Control.getControl("#dLinearGauge");
+    var bulletGraph = wijmo.Control.getControl("#dBulletGraph");
+    linearGauge.value = sender.value;
+    bulletGraph.value = sender.value;
+};
+
+function dDirection_execute(arg) {
+    var linearGauge = wijmo.Control.getControl("#dLinearGauge");
+    var bulletGraph = wijmo.Control.getControl("#dBulletGraph");
+    var direction = arg;
+    dirCols = Array.prototype.slice.call(document.querySelectorAll('.direction-col'));
+
+    // split or stack columns
+    dirCols.forEach(function (el) {
+    if (direction == 2 || direction == 3) {//if (direction == 'Up' || direction == 'Down') {
+        el.className += ' col-md-6';
+    }
+    else {
+        el.className = el.className.replace('col-md-6', '');
+    }
+});
+
+// set Gauge.direction
+linearGauge.direction = direction;
+bulletGraph.direction = direction;
+
+// update gauge's CSS Class
+if (direction == 2 || direction == 3) {//if (direction == 'Up' || direction == 'Down') {
+    linearGauge.hostElement.className = linearGauge.hostElement.className.replace('linear-gauge', 'vertical-gauge');
+    bulletGraph.hostElement.className = bulletGraph.hostElement.className.replace('linear-gauge', 'vertical-gauge');
+}
+else {
+    linearGauge.hostElement.className = linearGauge.hostElement.className.replace('vertical-gauge', 'linear-gauge');
+    bulletGraph.hostElement.className = bulletGraph.hostElement.className.replace('vertical-gauge', 'linear-gauge');
+    }
+};
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="dCss">
+.vertical-gauge {
+    height: 300px;
+    width: 1.2em;
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="dCS">
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="row">
+                    <div class="direction-col">
+                        <c1-linear-gauge id="dLinearGauge"
+                                         value="@Model.value"
+                                         min="@Model.min"
+                                         max="@Model.max"
+                                         direction="Right"
+                                         format="@Model.format"
+                                         class="linear-gauge"
+                                         show-ranges="@Model.showRanges">
+                            <c1-gauge-range c1-property="Pointer" thickness="@Model.pointerThickness"></c1-gauge-range>
+                            <c1-gauge-range min="@Model.lowerRangemin" max="@Model.lowerRangemax" color="@Model.lowerRangecolor"></c1-gauge-range>
+                            <c1-gauge-range min="@Model.middleRangemin" max="@Model.middleRangemax" color="@Model.middleRangecolor"></c1-gauge-range>
+                            <c1-gauge-range min="@Model.upperRangemin" max="@Model.upperRangemin" color="@Model.upperRangecolor"></c1-gauge-range>
+                        </c1-linear-gauge>
+                    </div>
+                    <div class="direction-col">
+                        <c1-bullet-graph id="dBulletGraph"
+                                         value="@Model.value"
+                                         min="@Model.min"
+                                         max="@Model.max"
+                                         direction="Right"
+                                         format="@Model.format"
+                                         class="linear-gauge"
+                                         show-ranges="@Model.showRanges"
+                                         target="@Model.rangesTarget"
+                                         good="@Model.middleRangemax"
+                                         bad="@Model.middleRangemin">
+                            <c1-gauge-range c1-property="Pointer" thickness="@Model.pointerThickness"></c1-gauge-range>
+                        </c1-bullet-graph>
+                    </div>
+                </div>
+
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="dValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="dValue_valueChanged">
+                    </c1-input-number>
+                </div>
+                <c1-menu id="dDirection" 
+                         header="Direction"
+                         selected-value="GaugeDirection.Right"
+                         execute-command="dDirection_execute">
+                    <c1-menu-item header="Up" command-parameter="GaugeDirection.Up"></c1-menu-item>
+                    <c1-menu-item header="Right" command-parameter="GaugeDirection.Right"></c1-menu-item>
+                    <c1-menu-item header="Down" command-parameter="GaugeDirection.Down"></c1-menu-item>
+                    <c1-menu-item header="Left" command-parameter="GaugeDirection.Left"></c1-menu-item>
+                </c1-menu>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Styling -->
+    <div>
+        <h2>Styling</h2>
+        <p>
+            The appearance of the gauge controls is largely defined in CSS.  In addition to the default theme,
+            we include several professionally designed themes that customize the appearance of all ASP.Net MVC
+            controls to achieve a consistent, attractive look.
+        </p>
+        <p>
+            In this example, we added the "custom-gauge" CSS class to the LinearGauge &amp; RadialGauge, and
+            define some CSS rules to create an orange pointer for both.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#sJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#sCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#sCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="sHtml">
+
+&lt;c1-linear-gauge id="sLinearGauge"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    direction="Right"
+    format="@@Model.format"
+    show-text="Value"
+    class="custom-gauge"&gt;
+&lt;/c1-linear-gauge&gt;
+&lt;c1-radial-gauge id="sRadialGauge"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    format="@@Model.format"
+    show-text="Value"
+    class="custom-gauge"&gt;
+&lt;/c1-radial-gauge&gt;
+
+&lt;div class="app-input-group"&gt;
+&lt;label&gt;Gauge Value&lt;/label&gt;
+&lt;c1-input-number id="sValue"
+    value="@@Model.value"
+    min="@@Model.min"
+    max="@@Model.max"
+    format="@@Model.format"
+    step="@@Model.step"
+    value-changed="sValue_valueChanged"&gt;
+&lt;/c1-input-number&gt;
+&lt;/div&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="sJs">
+
+function sValue_valueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    var linearGauge = wijmo.Control.getControl("#sLinearGauge");
+    var radialGauge = wijmo.Control.getControl("#sRadialGauge");
+    linearGauge.value = sender.value;
+    radialGauge.value = sender.value;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="sCss">
+
+.custom-gauge .wj-pointer path{
+    fill: #ffa500;
+    stroke: #cd853f;
+}
+
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="sCS">
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-linear-gauge id="sLinearGauge"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 direction="Right"
+                                 format="@Model.format"
+                                 show-text="Value"
+                                 class="custom-gauge">
+                </c1-linear-gauge>
+                <c1-radial-gauge id="sRadialGauge"
+                                 value="@Model.value"
+                                 min="@Model.min"
+                                 max="@Model.max"
+                                 format="@Model.format"
+                                 show-text="Value"
+                                 class="custom-gauge">
+                </c1-radial-gauge>
+                <div class="app-input-group">
+                    <label>Gauge Value</label>
+                    <c1-input-number id="sValue"
+                                     value="@Model.value"
+                                     min="@Model.min"
+                                     max="@Model.max"
+                                     format="@Model.format"
+                                     step="@Model.step"
+                                     value-changed="sValue_valueChanged">
+                    </c1-input-number>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+    <!-- Editing Values -->
+    <div>
+        <h2>Editing Values</h2>
+        <p>
+            The gauge controls can be used as a simple indicator or as an input control when the <b>is-read-only</b>
+            property is set to false.  The gauges also offer a <b>step</b> property that determines how much to
+            add or subtract from its current value when being used as an input control.
+        </p>
+        <p>
+            The example below demonstrates how to use the <b>is-read-only</b> and <b>step</b> properties with the
+            LinearGauge and RadialGauge controls.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#evHtml" role="tab" data-toggle="tab">HTML</a></li>
+                        <li><a href="#evJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#evCS" role="tab" data-toggle="tab">CS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="evHtml">
+
+&lt;c1-linear-gauge id="evLinearGauge"
+    value="25"
+    show-text="All"
+    min="0"
+    max="100"
+    direction="Right"
+    step="10"
+    is-read-only="false"
+    class="linear-gauge"&gt;
+&lt;/c1-linear-gauge&gt;
+&lt;c1-radial-gauge id="evRadialGauge" 
+    value="0.2"
+    min="0"
+    max="1"
+    format="@@Model.format"
+    step="0.15"
+    is-read-only="false"
+    class="radial-gauge"&gt;
+&lt;/c1-radial-gauge&gt;
+
+&lt;label&gt;
+    Read-Only&amp;nbsp;
+    &lt;input id="evReadOnly" type="checkbox" /&gt;
+&lt;/label&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="evJs">
+
+$(document).ready(function () {
+    var readOnlyInput = document.getElementById('evReadOnly');
+    readOnlyInput.addEventListener('change', function () {
+        // determine readOnly by checkbox's checked state
+        var linearGauge = wijmo.Control.getControl("#evLinearGauge");
+        var radialGauge = wijmo.Control.getControl("#evRadialGauge");
+        linearGauge.isReadOnly = this.checked;
+        radialGauge.isReadOnly = this.checked;
+    });
+});
+
+                        </div>
+                        <div class="tab-pane pane-content" id="evCS">
+using Microsoft.AspNetCore.Mvc;
+using Gauge101.Models;
+
+namespace Gauge101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public IActionResult Index()
+        {
+            return View(new GaugeModel());
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-linear-gauge id="evLinearGauge"
+                                 value="25"
+                                 show-text="All"
+                                 min="0"
+                                 max="100"
+                                 direction="Right"
+                                 step="10"
+                                 is-read-only="false"
+                                 class="linear-gauge">
+                </c1-linear-gauge>
+                <c1-radial-gauge id="evRadialGauge" 
+                                 value="0.2"
+                                 min="0"
+                                 max="1"
+                                 format="@Model.format"
+                                 step="0.15"
+                                 is-read-only="false"
+                                 class="radial-gauge">
+                </c1-radial-gauge>
+                <label>
+                    Read-Only&nbsp;
+                    <input id="evReadOnly" type="checkbox" />
+                </label>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+</div>

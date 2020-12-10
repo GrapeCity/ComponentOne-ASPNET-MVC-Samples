@@ -1,0 +1,63 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<script type="text/javascript">
+    var europe = ["UK", "France", "German", "Italy"],
+        american = ["US", "Canada"], asian = ["Japan", "China", "Korea"], autralian = ["Australia"];
+
+    function customGroup(prop) {
+        switch (prop) {
+            case 'Start':
+            case 'End':
+                return new wijmo.collections.PropertyGroupDescription(prop, function (item, prop){
+                    return wijmo.Globalize.formatDate(item[prop], 'yyyy');
+                });
+                break;
+            case 'Country':
+                return new wijmo.collections.PropertyGroupDescription(prop, function (item, prop){
+                    if (europe.indexOf(item.Country) > -1) {
+                        return "Europe";
+                    }
+                    else if (american.indexOf(item.Country) > -1) {
+                        return "American";
+                    }
+                    else if (asian.indexOf(item.Country) > -1) {
+                        return "Asian";
+                    } else {
+                        return "Australian";
+                    }
+                });
+                break;
+        }
+    }
+
+</script>
+
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" is-read-only="true" class="grid">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("GroupPanel_Bind")"></c1-items-source>
+    <c1-flex-grid-group-panel max-groups="@(Convert.ToInt32(optionsModel.Options["Max Groups"].CurrentValue))"
+                              placeholder="@(optionsModel.Options["Placeholder"].CurrentValue)"
+                              hide-grouped-columns="@(Convert.ToBoolean(optionsModel.Options["Hide Grouped Columns"].CurrentValue))"
+                              group-description-creator=@((Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue)) ? "customGroup" : "null")>
+    </c1-flex-grid-group-panel>
+</c1-flex-grid>
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+@section Description{
+    @Html.Raw(FlexGridRes.GroupPanel_Text0)
+    <br/>
+    @Html.Raw(FlexGridRes.GroupPanel_Text1)
+    <br/>
+    @Html.Raw(FlexGridRes.GroupDescriptionCreator_Text0)
+}

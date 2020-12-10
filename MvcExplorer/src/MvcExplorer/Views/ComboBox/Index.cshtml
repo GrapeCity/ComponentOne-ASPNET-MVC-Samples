@@ -1,0 +1,31 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    List<string> countries = ViewBag.Countries;
+    List<string> cities = ViewBag.Cities;
+}
+
+<div>
+    <label>@Html.Raw(ComboBoxRes.Index_NonEditable)</label>
+    <c1-combo-box selected-index="0" is-editable="false" max-drop-down-width="55"
+                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+        <c1-items-source source-collection="@countries"></c1-items-source>
+    </c1-combo-box>
+</div>
+<div>
+    <label>@Html.Raw(ComboBoxRes.Index_Editable)</label>
+    <c1-combo-box selected-index="0" is-editable="true"
+                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+        <c1-items-source source-collection="@cities"></c1-items-source>
+    </c1-combo-box>
+</div>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(ComboBoxRes.Index_Text0)
+    <br />
+    @Html.Raw(ComboBoxRes.CaseSensitiveSearchDescription_Text0)
+}

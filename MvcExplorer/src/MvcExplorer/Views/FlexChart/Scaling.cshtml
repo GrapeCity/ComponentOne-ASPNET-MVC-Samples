@@ -1,0 +1,25 @@
+﻿@{ 
+    var svgStyle = new SVGStyle()
+    {
+        Fill = "gold",
+        Stroke= "orange"
+    };
+}
+
+<c1-flex-chart binding-x="POP" chart-type="Bubble" legend-position="None">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="GDP,PCI" name="GDP" style="svgStyle">
+    </c1-flex-chart-series>
+    <c1-flex-chart-tooltip content="<b>{Country}</b>:<br/>{PCI:n0} US$/year/capita" is-content-html="true"></c1-flex-chart-tooltip>
+    <c1-flex-chart-axis c1-property="AxisX" title="Population (millions)" format="g4,," log-base="10"></c1-flex-chart-axis>
+    <c1-flex-chart-axis c1-property="AxisY" title="GDP (US$ billions)" format="g4," log-base="10"></c1-flex-chart-axis>
+</c1-flex-chart>
+
+@section Description{
+<h3>
+    @Html.Raw(FlexChartRes.Scaling_ChartScaling)
+</h3>
+<p>@Html.Raw(FlexChartRes.Scaling_Text0)</p>
+<p>@Html.Raw(FlexChartRes.Scaling_Text1)</p>
+<p>@Html.Raw(FlexChartRes.Scaling_Text2)</p>
+}

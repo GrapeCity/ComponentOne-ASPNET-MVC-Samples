@@ -1,0 +1,14 @@
+﻿@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    var palette = new List<string> { "Red", "Green", "Blue" };
+}
+
+<div>
+    <label>ColorPicker</label>
+    <c1-color-picker id="@settings.ControlId" palette="@palette" width="400px">
+    </c1-color-picker>
+</div>
+
+@section Description{
+    @Html.Raw(ColorPickerRes.Index_Text0)
+}

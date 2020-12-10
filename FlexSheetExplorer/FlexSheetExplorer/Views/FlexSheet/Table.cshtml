@@ -1,0 +1,79 @@
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/FlexSheet/table.js"></script>
+}
+
+@{ 
+    var style = C1.Web.Mvc.Sheet.TableStyle.CreateBuiltInTableStyleDark(9);
+    var range = new C1.Web.Mvc.Grid.CellRange(2, 1,3,4);
+}
+
+<div>
+    <div class="copy">
+        <h3>
+            @Html.Raw(FlexSheetRes.Table_Text5)
+        </h3>
+<p>@Html.Raw(FlexSheetRes.Table_Text0)</p>
+
+<p>@Html.Raw(FlexSheetRes.Table_Text1)</p>
+
+<p>@Html.Raw(FlexSheetRes.Table_Text2)</p>
+
+    </div>
+    <div>
+        <c1-flex-sheet id="tableSheet" class="flexSheet">
+            <c1-unbound-sheet>
+                <c1-sheet-table name="Table1" range="@range" style="@style">
+                    <c1-items-source source-collection="@Sale.GetData(10)"></c1-items-source>
+                    <c1-sheet-table-column name="ID"></c1-sheet-table-column>
+                    <c1-sheet-table-column name="Date"></c1-sheet-table-column>
+                    <c1-sheet-table-column name="Country"></c1-sheet-table-column>
+                    <c1-sheet-table-column name="Product"></c1-sheet-table-column>
+                    <c1-sheet-table-column name="Amount"></c1-sheet-table-column>
+                </c1-sheet-table>
+            </c1-unbound-sheet>
+        </c1-flex-sheet>
+    </div>
+    <div id="tableOptions" class="well well-lg" style="display:none;">
+<h4>@Html.Raw(FlexSheetRes.Table_Text4)</h4>
+        <div>
+            <label>
+                <input id="headerRow" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text6)
+            </label>
+            <label>
+                <input id="totalRow" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text7)
+            </label>
+        </div>
+        <div>
+            <label>
+                <input id="bandedRows" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text8)
+            </label>
+            <label>
+                <input id="bandedColumns" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text9)
+            </label>
+        </div>
+        <div>
+            <label>
+                <input id="firstColumn" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text10)
+            </label>
+            <label>
+                <input id="lastColumn" class="form-check-input" type="checkbox">
+                @Html.Raw(FlexSheetRes.Table_Text11)
+            </label>
+        </div>
+        <div>
+            <label style="width:auto">
+                @Html.Raw(FlexSheetRes.Table_Text12)
+            </label>
+            <c1-combo-box id="builtInStyles" is-editable="false"></c1-combo-box>
+        </div>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.Table_Text3)</p>
+
+}

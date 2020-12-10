@@ -1,0 +1,48 @@
+﻿@{
+    var colors = new List<string> {
+        "#f0a0a0","#a0f0a0","#a0a0f0","#0000ff","#ff0000","#ffff00"
+    };
+}
+@section Styles{
+<style>
+    .context {
+        margin: 10px;
+        padding: 20px;
+        color: white;
+        display: inline-block;
+    }
+</style>
+}
+
+@section Scripts{
+<script>
+    function setColor(arg) {
+        wijmo.Control.getControl("#ctxMenu").owner.style.background = arg;
+    }
+</script>
+}
+
+<label>@Html.Raw(MenuRes.ContextMenu_Text0)</label>
+
+<div class="context" style="background: #f0a0a0">
+    @Html.Raw(MenuRes.ContextMenu_Text1)
+</div>
+<div class="context" style="background: #a0f0a0">
+    @Html.Raw(MenuRes.ContextMenu_Text2)
+</div>
+<div class="context" style="background: #a0a0f0">
+    @Html.Raw(MenuRes.ContextMenu_Text3)
+</div>
+
+<c1-menu header="Change Tax" execute-command="setColor" style="display: none" id="ctxMenu" owner=".context">
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorPink" command-parameter="colors[0]"></c1-menu-item>
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorAqua" command-parameter="colors[1]"></c1-menu-item>
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorPurple" command-parameter="colors[2]"></c1-menu-item>
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorBlue" command-parameter="colors[3]"></c1-menu-item>
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorRed" command-parameter="colors[4]"></c1-menu-item>
+    <c1-menu-item header="@MenuRes.ContextMenu_ColorYellow" command-parameter="colors[5]"></c1-menu-item>
+</c1-menu>
+
+@section Description{
+@Html.Raw(MenuRes.ContextMenu_Text4)
+}

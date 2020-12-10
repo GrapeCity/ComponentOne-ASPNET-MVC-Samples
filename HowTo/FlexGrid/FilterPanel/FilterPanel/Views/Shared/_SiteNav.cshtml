@@ -1,0 +1,19 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">About</a>
+    </li>
+    <li>
+        <a href="http://supportone.componentone.com/login" target="_blank">Support</a>
+    </li>
+    <li>
+        <a href="https://www.grapecity.com/en/pricing" target="_blank">Pricing</a>
+    </li>
+    <li class="bold">
+        <a href="https://www.grapecity.com/en/download/componentone-studio" target="_blank">FREE TRIAL</a>
+    </li>
+</ul>
+

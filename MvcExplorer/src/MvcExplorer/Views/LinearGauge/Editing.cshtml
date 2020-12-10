@@ -1,0 +1,27 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@section Styles{
+    <style>
+        .wj-gauge .wj-tick-text text {
+            opacity: 1;
+            font-family: Courier;
+            font-size: 8pt;
+            fill: purple;
+        }
+    </style>
+}
+
+<br />
+<c1-linear-gauge id="@demoSettingsModel.ControlId" min="0" max="10" value="5" format="" show-text="All" is-read-only="false" step="0.5" width="500px"
+                 show-ticks="false" show-tick-text="false">
+</c1-linear-gauge>
+
+@section Description{
+    @Html.Raw(LinearGaugeRes.Editing_Text0)
+    <br />
+    @Html.Raw(LinearGaugeRes.Editing_Text1)
+    <br />
+    @Html.Raw(LinearGaugeRes.Editing_Text2)
+}

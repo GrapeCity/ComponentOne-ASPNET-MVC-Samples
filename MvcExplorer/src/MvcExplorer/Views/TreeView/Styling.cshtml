@@ -1,0 +1,14 @@
+﻿@model Property[]
+
+<c1-tree-view class="custom-tree"
+              display-member-path="Header" child-items-path="Items" 
+              source="Model"></c1-tree-view>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.Styling_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.Styling_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.Styling_Text2)</p>
+}

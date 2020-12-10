@@ -1,0 +1,52 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<HierarchicalData>
+
+@section Styles{
+<style type="text/css">
+    .custom-sunburst-chart.wj-sunburst .wj-header .wj-title {
+        fill: #666;
+        font-family: 'Courier New', Courier, monospace;
+        font-weight: bold;
+    }
+
+    .custom-sunburst-chart.wj-sunburst ellipse,
+    .custom-sunburst-chart.wj-sunburst path {
+        stroke-width: 0;
+    }
+
+    .custom-sunburst-chart.wj-sunburst ellipse {
+        fill: yellow;
+    }
+
+    .custom-sunburst-chart.wj-sunburst .slice-level2 > path {
+        fill: red;
+    }
+
+    .custom-sunburst-chart.wj-sunburst .slice-level3 > path {
+        fill: blue;
+    }
+
+    .custom-sunburst-chart.wj-sunburst .slice-level4 > path {
+        fill: black;
+    }
+
+    .custom-sunburst-chart.wj-sunburst .slice-level5 > path {
+        fill: white;
+        stroke-width: 2;
+        stroke: black;
+    }
+</style>
+}
+
+<c1-sunburst header="Sales" class="custom-sunburst-chart"
+             binding-name="Year, Quarter, Month" binding="Value">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-pie-datalabel content="{name}" position="Center"></c1-flex-pie-datalabel>
+</c1-sunburst>
+
+@section Description{
+    <p>@Html.Raw(SunburstRes.Theming_Text0)</p>
+    <p>@Html.Raw(SunburstRes.Theming_Text1)</p>
+    <p>@Html.Raw(SunburstRes.Theming_Text2)</p>
+}

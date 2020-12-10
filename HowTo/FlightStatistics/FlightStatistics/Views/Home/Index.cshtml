@@ -1,0 +1,116 @@
+@model FlightStatistics.Models.FlightDataModel
+@using FlightStatistics.Localization
+
+@{
+    ViewData["Title"] = "Flight Statistics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    List<object> years = ViewBag.Years;
+    var colors = new List<string> { "#287ab6", "#fc7900", "#00a514", "#dc0400", "#6400bc" };
+    var treemapPalette = new List<string> { "#dc0400", "#fc7900", "#00a514", "#287ab6", "#6400bc" };
+
+}
+
+<script type="text/javascript">
+    var airportData = @Html.Raw(Json.Serialize(ViewBag.AirportMonthlyData));
+    var airportGroupedData = @Html.Raw(Json.Serialize(ViewBag.GroupedData));
+    var regionsChartHeader1 = "@Html.Raw(FlightStatisticsRes.RegionsChartHeader1)";
+    var regionsChartHeader2 = "@Html.Raw(FlightStatisticsRes.RegionsChartHeader2)";
+    var regionsChartHeader3 = "@Html.Raw(FlightStatisticsRes.RegionsChartHeader3)";
+</script>
+
+<div id="container" class="container-fluid" style="margin-top:10px;height:100%">
+    <div class="col-lg-8" style="margin-top:5px">
+        <c1-flex-grid id="airportsGrid"
+                      is-read-only="true"
+                      auto-generate-columns="false"
+                      selection-mode="Row"
+                      allow-resizing="Columns"
+                      headers-visibility="Column"
+                      group-by="Region"
+                      item-formatter="itemFormatter"
+                      auto-size-mode="Both"
+                      group-header-format="{name}: {value}"
+                      loaded-rows="loadedRows"
+                      sorting-column="sortingColumn"
+                      class="custom-flex-grid"
+                      selection-changed="flexGridSelectionChanged"
+                      width="100%"
+                      height="780px">
+            <c1-items-source source-collection="@Model.AirportsData" order-by="Region"></c1-items-source>
+            <c1-flex-grid-column header="Airport Code" binding="AirportCode" align="center" width="*" word-wrap="false"></c1-flex-grid-column>
+            <c1-flex-grid-column header="City" binding="AirportCity" width="1.7*" align="left" word-wrap="false" allow-resizing="false">
+                <c1-flex-grid-cell-template is-editing="false">
+                    <img src="~/images/flags/{{CountryName}}.png" alt="flag" style="height:25px;width:25px" />
+                    <label style="font-weight:normal">{{AirportCity}}</label>
+                    <label style="font-weight:normal">({{CountryCode}})</label>
+                </c1-flex-grid-cell-template>
+            </c1-flex-grid-column>
+            <c1-flex-grid-column header="Rank" binding="OnTimeRanking" word-wrap="false" width="0.5*" align="center"></c1-flex-grid-column>
+            <c1-flex-grid-column header="Delay Trend" width="1.5*" word-wrap="false" allow-resizing="false" align="center">
+                <c1-flex-grid-cell-template is-editing="false">
+                    <c1-flex-chart height="20px" width="*" style="padding:0px;border:none 0px"
+                                   legend-position="None"
+                                   chart-type="Line"
+                                   template-bindings="@(new {ItemsSource="MonthlyData"})">
+                        <c1-flex-chart-tooltip is-content-html="false" content=""></c1-flex-chart-tooltip>
+                        <c1-flex-chart-axis c1-property="AxisX" major-unit="1" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                        <c1-flex-chart-axis c1-property="AxisY" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                        <c1-flex-chart-series binding="Delay"></c1-flex-chart-series>
+                    </c1-flex-chart>
+                </c1-flex-grid-cell-template>
+            </c1-flex-grid-column>
+            <c1-flex-grid-column header="Flights" binding="Flights" width="*" align="center"></c1-flex-grid-column>
+            <c1-flex-grid-column header="Completion Factor#" binding="CompletionFactor" word-wrap="false" format="p0" align="center" width="0.7*"></c1-flex-grid-column>
+            <c1-flex-grid-column header="On Time" binding="OnTime" format="p0" width="*" align="center"></c1-flex-grid-column>
+            <c1-flex-grid-column header="Delayed*" binding="Delayed" word-wrap="false" align="center" format="p0" width="0.7*"></c1-flex-grid-column>
+            <c1-flex-grid-column header="Average Delay YoY (mins)" binding="AverageDelay" word-wrap="false" width="*" align="center"></c1-flex-grid-column>
+            <c1-flex-grid-column header="User Rating" binding="UserRating" width="*" word-wrap="false" align="center"></c1-flex-grid-column>
+        </c1-flex-grid>
+        <div style="font-size:11px;font-style:italic;color:#999">
+            <p>#@Html.Raw(FlightStatisticsRes.Footnote1) <br />*@Html.Raw(FlightStatisticsRes.Footnote2)</p>
+        </div>
+    </div>
+    <div class="col-lg-4">
+        <div class="row" style="border:1px solid #e4e4e4;margin:5px 10px 0px 10px;">
+            <c1-tree-map id="airportsTreeMap" max-depth="1" header="@Html.Raw(FlightStatisticsRes.TreemapHeader)"
+                         binding="Flights" binding-name="Region,AirportCity" rendered="onTreemapRendered"
+                         style="border:none;margin-left:2px;padding-top:0px" height="150px" palette="@treemapPalette">
+                <c1-items-source source-collection="@Model.AirportsData" group-by="Region,AirportCity"></c1-items-source>
+                <c1-flex-chart-tooltip content="<b>{name}</b><br><b>Total flights:</b>{value:n}"></c1-flex-chart-tooltip>
+                <c1-flex-chart-datalabel position="Center" content="{name}"></c1-flex-chart-datalabel>
+            </c1-tree-map>
+        </div>
+        <div class="row" style="border:1px solid #e4e4e4;margin:5px 10px;">
+            <div>
+                <ol id="breadCrumbs" style="margin-left:20px; margin-top:5px"></ol>
+            </div>
+            <c1-flex-chart id="regionsFlexChart" chart-type="Column" binding-x="Region" selection-changed="regionsChartSelectionChanged"
+                           stacking="None" legend-position="None" legend-toggle="false" rendered="regionsChartRendered"
+                           style="border:none;font-size:small; padding-bottom:0px" item-formatter="regionsChartItemFormatter" height="240px"
+                           header="@Html.Raw(FlightStatisticsRes.RegionsChartHeader1) (@Html.Raw(FlightStatisticsRes.RegionsChartHeader3))" 
+                           selection-mode="Point" palette="@colors">
+                <c1-items-source source-collection="@Model.GroupedData"></c1-items-source>
+                <c1-flex-chart-series binding="OnTimeAvg"></c1-flex-chart-series>
+                <c1-flex-chart-axis c1-property="AxisX" labels="true" label-angle="-45"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisY" reversed="false" format="p0" title="On-Time Performance"></c1-flex-chart-axis>
+                <c1-flex-chart-tooltip content="<b>{Region}</b><br>On-Time:{value:P}"></c1-flex-chart-tooltip>
+                <c1-chart-animation animation-mode="All" easing="Swing" duration="400" id="animation"></c1-chart-animation>
+            </c1-flex-chart>
+        </div>
+        <div class="row" style="border:1px solid #e4e4e4;margin:5px 10px;">
+            <c1-flex-chart id="airportsFlexChart" selection-changed="flexChartSelectionChanged" chart-type="LineSymbols"
+                           stacking="None" legend-position="Bottom" legend-toggle="false" rendered="flexChartRendered"
+                           item-formatter="flexChartItemFormatter" palette="@colors" height="280px"
+                           style="border:none;" header="@Html.Raw(FlightStatisticsRes.AirportsChartHeader)" selection-mode="Series">
+                <c1-flex-chart-axis c1-property="AxisX" format="MMM"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisY" min="0" title="Cummulative Average Delay (in mins)" major-unit="2"></c1-flex-chart-axis>
+            </c1-flex-chart>
+            <c1-flex-chart id="rangeSelectChart" height="50px" chart-type="Line" legend-position="None" style="border:none;padding:5px 0px;margin-bottom:0px">
+                <c1-flex-chart-axis c1-property="AxisX" format="MMM" label-angle="0" position="Bottom" major-tick-marks="Inside"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisY" position="None"></c1-flex-chart-axis>
+                <c1-flex-chart-tooltip content="<b>Average Delay:{value:n2}</b>"></c1-flex-chart-tooltip>
+                <c1-range-selector range-changed="rangeChanged" id="RangeSelector" seamless="true"></c1-range-selector>
+            </c1-flex-chart>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,85 @@
+@model IEnumerable<Sale>
+
+@section Scripts{
+    <script type="text/javascript">
+        function rankFormatter(panel, r, c, cell) {
+            // gets the binding column
+            var bcol = panel.grid.getBindingColumn(panel, r, c);
+            if (bcol.binding === "Rank") {
+                cell.style.textAlign = "";
+                if (panel.cellType === wijmo.grid.CellType.Cell) {
+                    cell.innerHTML = buildRank(panel.getCellData(r, c));
+                }
+            }
+        }
+
+        function buildRank(rank) {
+            var markup = "", j, starType;
+            for (j = 0; j < 5; j++) {
+                starType = j < rank ? "star star-highlighted" : "star star-dimmed";
+                markup += "<span class='" + starType + "'>\u2605</span>";
+            }
+            return markup;
+        }
+    </script>
+}
+
+@section Styles{
+    <style>
+        .star-highlighted {
+            color: orange;
+        }
+
+        .star-dimmed {
+            color: lightgray;
+        }
+
+        .trends {
+            padding: 0px;
+            vertical-align: middle;
+            margin-top: 2px;
+        }
+    </style>
+}
+
+<c1-multi-row id="customCellMultiRow" is-read-only="true" class="multirow" item-formatter="rankFormatter">
+    <c1-items-source read-action-url="@Url.Action("CustomCells_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID" header="ID" width="100"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active" header="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" header="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product" header="Product" width="100"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color" header="Color" width="100"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount" header="Amount" width="100"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2" header="Amount2" width="100"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" header="Discount" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Trends" header="Trends" allow-sorting="false">
+            <c1-flex-grid-cell-template>
+                <c1-flex-chart width="100px" height="40px" class="trends"
+                               binding-x="Month" template-bindings="@(new {ItemsSource="Trends"})">
+                    <c1-flex-chart-axis c1-property="AxisX" position="None"></c1-flex-chart-axis>
+                    <c1-flex-chart-axis c1-property="AxisY" position="None"></c1-flex-chart-axis>
+                    <c1-flex-chart-series binding="Data"></c1-flex-chart-series>
+                </c1-flex-chart>
+            </c1-flex-grid-cell-template>
+        </c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Rank" header="Rank"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.CustomCells_Text0)</p>
+
+<p>@Html.Raw(MultiRowRes.CustomCells_Text1)</p>
+
+<p>@Html.Raw(MultiRowRes.CustomCells_Text2)</p>
+
+}

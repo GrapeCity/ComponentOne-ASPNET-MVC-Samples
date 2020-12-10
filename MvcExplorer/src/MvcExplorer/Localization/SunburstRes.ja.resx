@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューは、Sunburst の基本機能を示します。これは、チャートをデータモデルに連結します。</value>
+  <comment>This view shows the Sunburst's basic features. It binds the chart to a data model.</comment></data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>マウスをチャート要素の上に移動すると、そのデータポイントの詳細を示すツールチップが表示されます。</value>
+  <comment>If you move the mouse over a chart element, a tooltip will appear showing details about the data point.</comment></data>
+  <data name="LegendAndTitles_Text0" xml:space="preserve">
+    <value>&lt;b&gt;legend-position&lt;/b&gt; 属性を使用すると、チャートの凡例の外観をカスタマイズできます。
+        &lt;b&gt;header&lt;/b&gt; 属性と &lt;b&gt;footer&lt;/b&gt; 属性を使用すると、Sunburst チャートコントロールにタイトルを追加できます。
+        &lt;b&gt;c1-flex-chart-title-style&lt;/b&gt; タグを使用すると、ヘッダーとフッターにスタイルを適用できます。</value>
+  <comment>The &lt;b&gt;legend-position&lt;/b&gt; attribute can be used to customize the appearance of the chart's legend.
+        &lt;br /&gt; The &lt;b&gt;header&lt;/b&gt; and &lt;b&gt;footer&lt;/b&gt; attributes can be used to add titles to the Sunburst chart control.
+        &lt;br /&gt;&lt;b&gt;c1-flex-chart-title-style&lt;/b&gt; tag can be used to apply the style to header and footer.</comment></data>
+  <data name="LegendAndTitles_Text1" xml:space="preserve">
+    <value>次の例では、Sunburst の&lt;b&gt;凡例の位置&lt;/b&gt;、および
+        &lt;b&gt;ヘッダーとフッターの外観&lt;/b&gt;を変更できます。</value>
+  <comment>The following example allows you to change the Sunburst's &lt;b&gt;legend postion&lt;/b&gt;, and
+        &lt;b&gt;the appearance of the header and footer&lt;/b&gt;.</comment></data>
+  <data name="Selection_Text0" xml:space="preserve">
+    <value>Sunburst チャートコントロールを使用すると、Sunburst グラフセグメントをクリックまたはタッチしてデータポイントを選択できます。&lt;b&gt;selection-mode&lt;/b&gt;
+        属性を使用して、データポイントによる選択を可能にするか、または何も選択しないか（デフォルト）を指定できます。</value>
+  <comment>The Sunburst chart control allows you to select data points by clicking or touching a sunburst slice. Use the &lt;b&gt;selection-mode&lt;/b&gt;
+        attribute to specify whether you want to allow selection by data point or no selection at all (default).</comment></data>
+  <data name="Selection_Text1" xml:space="preserve">
+    <value>&lt;b&gt;selection-mode&lt;/b&gt; 属性を &lt;b&gt;Point&lt;/b&gt; に設定すると、Sunburst は、ユーザーが Sunburst グラフセグメントをクリックしたときに &lt;b&gt;selection&lt;/b&gt; 属性を更新し、
+        選択された要素に「wj-state-selected」クラスを適用します。Sunburst の
+        &lt;b&gt;selection-mode&lt;/b&gt; プロパティを &lt;b&gt;Series&lt;/b&gt; または &lt;b&gt;None&lt;/b&gt; に設定すると、コントロール内の選択内容が無効になります。</value>
+  <comment>Setting the &lt;b&gt;selection-mode&lt;/b&gt; attribute to &lt;b&gt;Point&lt;/b&gt; causes the Sunburst to update the &lt;b&gt;selection&lt;/b&gt; attribute when
+        the user clicks on a sunburst slice, and to apply the "wj-state-selected" class to the selected element. Setting the Sunburst's
+        &lt;b&gt;selection-mode&lt;/b&gt; property to &lt;b&gt;Series&lt;/b&gt; or &lt;b&gt;None&lt;/b&gt; will disable selections within the control.</comment></data>
+  <data name="Selection_Text2" xml:space="preserve">
+    <value>Sunburst チャートには、選択内容をカスタマイズするための 3 つの追加プロパティが用意されています。</value>
+  <comment>The Sunburst chart offers three additional properties to customize the selection:</comment></data>
+  <data name="Theming_Text0" xml:space="preserve">
+    <value>Sunburst チャートコントロールの外観の大部分は CSS で定義されます。デフォルトのテーマに加えて、
+        プロのデザインによるテーマが組み込まれており、すべての MVC コントロールの外観を
+        統一感のある魅力的な見た目にカスタマイズできます。</value>
+  <comment>The appearance of the Sunburst chart control is largely defined in CSS. In addition to the default theme, we
+        include several professionally designed themes that customize the appearance of all MVC controls to
+        achieve a consistent and attractive look.</comment></data>
+  <data name="Theming_Text1" xml:space="preserve">
+    <value>CSS を使用して Sunburst チャートコントロールの外観をカスタマイズできます。そでには、CSS ルールを
+        デフォルトのテーマから新しい CSS ファイルにコピーし、必要に応じてプロパティを変更します。</value>
+  <comment>You can customize the appearance of the Sunburst chart control using CSS. To do this, copy the CSS rules from the
+        default theme to a new CSS file and modify the properties as needed.</comment></data>
+  <data name="Theming_Text2" xml:space="preserve">
+    <value>この例では、コントロールに「custom-sunburst-chart」CSS クラスを追加し、いくつかの CSS ルールを定義して
+        ヘッダーの塗りつぶし、フォントファミリ、およびフォントウェイトと、グラフセグメントの塗りつぶし色を変更しました。</value>
+  <comment>In this example, we added the "custom-sunburst-chart" CSS class to the control and defined some CSS rules to
+        change the fill, font family, and font weight of the header and fill color of the slices.</comment></data>
+  <data name="Selection_Li1" xml:space="preserve">
+    <value>&lt;b&gt;selected-item-position&lt;/b&gt;: 選択した Sunburst グラフセグメントの位置を指定します。使用できるオプションは、Top、Bottom、
+            Left、Right、および None（デフォルト）です。</value>
+    <comment>&lt;b&gt;selected-item-position&lt;/b&gt;:  Specifies the position of the selected sunburst slice.  The available options are Top, Bottom,
+            Left, Right, and None (default).</comment>
+  </data>
+  <data name="Selection_Li2" xml:space="preserve">
+    <value>&lt;b&gt;is-animated&lt;/b&gt;: 選択内容をアニメーション表示するかどうかを決定します。</value>
+    <comment>&lt;b&gt;is-animated&lt;/b&gt;:  Determines whether or not to animate the selection.</comment>
+  </data>
+  <data name="Selection_Li3" xml:space="preserve">
+    <value>&lt;b&gt;selected-item-offset&lt;/b&gt;: コントロールの中央から、選択された Sunburst グラフセグメントまでのオフセットを指定します。</value>
+    <comment>&lt;b&gt;selected-item-offset&lt;/b&gt;:  Specifies the offset of the selected sunburst slice from the center of the control.</comment>
+  </data>
+</root>

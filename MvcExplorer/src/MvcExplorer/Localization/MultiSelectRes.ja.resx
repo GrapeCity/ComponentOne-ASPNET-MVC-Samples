@@ -1,0 +1,175 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Form_Text0" xml:space="preserve">
+    <value>このサンプルでは、フォームで MultiSelect を使用する方法を示します。</value>
+  <comment>This sample shows how to use MultiSelect in a form.</comment></data>
+  <data name="ComplexType_Text0" xml:space="preserve">
+    <value>オブジェクトの配列に連結された MultiSelect：</value>
+    <comment>MultiSelect bound to an array of objects:</comment>
+  </data>
+  <data name="ComplexType_Text1" xml:space="preserve">
+    <value>このサンプルでは、「display-member-path」、「selected-value-path」、および「checked-member-path」属性を使用して複合型のリストに連結する方法を示します。</value>
+    <comment>This sample shows how to bind to a list of complex type using "display-member-path" , "selected-value-path" and "checked-member-path" attributes.</comment>
+  </data>
+  <data name="Form_Text1" xml:space="preserve">
+    <value>使用している/していた製品を選択してください。</value>
+    <comment>Select the products you are using or used.</comment>
+  </data>
+  <data name="Form_Placeholder" xml:space="preserve">
+    <value>製品を選択</value>
+    <comment>Select the products</comment>
+  </data>
+  <data name="Form_HeaderFormat" xml:space="preserve">
+    <value>{count} 個の製品が選択されました</value>
+    <comment>{count} products selected</comment>
+  </data>
+  <data name="Form_Submit" xml:space="preserve">
+    <value>送信</value>
+    <comment>Submit</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>文字列の配列に連結された MultiSelect：</value>
+    <comment>MultiSelect bound to an array of strings:</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>このサンプルは、MultiSelect コントロールの基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the MultiSelect control.</comment>
+  </data>
+  <data name="Index_Placeholder" xml:space="preserve">
+    <value>国を選択してください</value>
+    <comment>Please select countries</comment>
+  </data>
+  <data name="Index_HeaderFormat" xml:space="preserve">
+    <value>{count} か国が選択されました</value>
+    <comment>{count} countries selected</comment>
+  </data>
+  <data name="Index_SelectResults" xml:space="preserve">
+    <value>結果を選択：</value>
+    <comment>Select results:</comment>
+  </data>
+  <data name="MultiColumnDropDown_Text0" xml:space="preserve">
+    <value>このサンプルでは、「multi-column」クラスをコントロールではなくドロップダウンに適用しています。これは、&lt;b&gt;c1-multi-select&lt;/b&gt; タグの &lt;b&gt;drop-down-css-class&lt;/b&gt; 属性によって提供されています。</value>
+    <comment>In this sample, the "multi-column" class was applied to the drop-down rather than to the control. It was provided by the &lt;b&gt;drop-down-css-class&lt;/b&gt; attribute of the c1-&lt;b&gt;multi-select&lt;/b&gt; tag.</comment>
+  </data>
+  <data name="MultiColumnDropDown_Placeholder" xml:space="preserve">
+    <value>国を選択してください</value>
+    <comment>Please select countries</comment>
+  </data>
+  <data name="Form_Message" xml:space="preserve">
+    <value>{0} 個選択されています。</value>
+    <comment>You have selected {0}.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ShowFilterInput：&lt;/b&gt; 表示される項目をフィルタするために、コントロールが項目の上に「フィルタ」入力を表示するかどうかをを決定します。</value>
+    <comment>&lt;b&gt;ShowFilterInput:&lt;/b&gt; determines whether the control should display a "filter" input above the items to filter the items displayed.</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>&lt;b&gt;CheckOnFilter：&lt;/b&gt; フィルタテキストが変更されたときに、MultiSelectListBox がすべてのフィルタされた項目を自動的に選択するかどうかを決定します。</value>
+    <comment>&lt;b&gt;CheckOnFilter:&lt;/b&gt; determines whether the MultiSelect should automatically select all the filtered items when the filter text changes.</comment>
+  </data>
+  <data name="Index_FilterInputPlaceholder" xml:space="preserve">
+    <value>フィルターを入力してください</value>
+    <value>Please enter filter</value>
+  </data>
+  <data name="CaseSensitiveSearchDescription_Text0" xml:space="preserve">
+    <value>CaseSensitiveSearch プロパティを<b>true</b>に設定した場合、検索では大文字と小文字が区別されます。</value>
+    <comment>When Case Sensitive Search is &lt;b&gt;true&lt;/b&gt;, the user types are searched as case-sensitive</comment>
+  </data>
+</root>

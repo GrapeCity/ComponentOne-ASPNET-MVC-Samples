@@ -1,0 +1,54 @@
+@model IEnumerable<Orders.Order>
+@{
+    var cities = Orders.GetCities().ToValues();
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    Dictionary<string, FilterType> filterTypes = ViewBag.FilterTypes;
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoDescription = false;
+}
+
+<c1-multi-row id="filteringMultiRow" is-read-only="true" selection-mode="Row"
+              sorting-type="SingleColumn" class="multirow">
+    <c1-items-source read-action-url="@Url.Action("Filter_Bind")" page-size="25"></c1-items-source>
+    <c1-multi-row-cell-group header="Order" colspan="2">
+        <c1-multi-row-cell binding="Id" header="ID" class="id" colspan="2" />
+        <c1-multi-row-cell binding="Amount" header="Amount" format="c" class="amount" colspan="2" />
+        <c1-multi-row-cell binding="Date" header="Ordered" />
+        <c1-multi-row-cell binding="ShippedDate" header="Shipped" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Customer" colspan="3">
+        <c1-multi-row-cell binding="Customer.Name" name="CustomerName" header="Customer" />
+        <c1-multi-row-cell binding="Customer.Email" name="CustomerEmail" header="Customer Email" class="email" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Address" name="CustomerAddress" header="Address" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Phone" name="CustomerPhone" header="Customer Phone" />
+        <c1-multi-row-cell binding="Customer.City" name="CustomerCity" header="City" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
+            <c1-data-map display-member-path="Value" selected-value-path="Value">
+                <c1-items-source source-collection="cities" />
+            </c1-data-map>
+        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Customer.State" name="CustomerState" header="State" />
+        <c1-multi-row-cell binding="Customer.Zip" name="CustomerZip" header="Zip" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Shipper">
+        <c1-multi-row-cell binding="Shipper.Name" name="ShipperName" header="Shipper" width="*" />
+        <c1-multi-row-cell binding="Shipper.Email" name="ShipperEmail" header="Shipper Email" class="email" />
+        <c1-multi-row-cell binding="Shipper.Express" name="ShipperExpress" header="Express" />
+    </c1-multi-row-cell-group>
+    <c1-flex-grid-filter default-filter-type="Both">
+        <c1-flex-grid-column-filter column="CustomerState" filter-type="@filterTypes["CustomerState"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="CustomerCity" filter-type="@filterTypes["CustomerCity"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="ShipperName" filter-type="@filterTypes["ShipperName"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="ShipperExpress" filter-type="@filterTypes["ShipperExpress"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Amount" filter-type="@filterTypes["Amount"]"></c1-flex-grid-column-filter>
+    </c1-flex-grid-filter>
+</c1-multi-row>
+
+<c1-pager owner="filteringMultiRow"></c1-pager>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @Html.Raw(MultiRowRes.Filter_Text0)
+}

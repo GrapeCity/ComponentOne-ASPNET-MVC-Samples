@@ -1,0 +1,48 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    List<string> cities = ViewBag.Cities;
+}
+
+<div>
+    <label>@Html.Raw(ListBoxRes.Index_Text0)</label>
+    <div class="wj-input" style="margin: 5px 0px">
+        <input type="text" id="searchValue" class="wj-form-control" placeholder="@Html.Raw(ListBoxRes.EnterTextSearch_Text0)" style="width:250px; height: 30px" />
+    </div>
+    <div id="list" style="width:250px;height:200px"></div>
+</div>
+<p><b>@Html.Raw(ListBoxRes.Index_SelectedIndex) <span id="lbSelIdx"></span></b></p>
+<p><b>@Html.Raw(ListBoxRes.Index_SelectedValue) <span id="lbSelVal"></span></b></p>
+
+<c1-list-box id="list" selected-index="0" selected-index-changed="selectedIndexChanged"
+             case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+    <c1-items-source source-collection="@cities"></c1-items-source>
+</c1-list-box>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(ListBoxRes.Index_Text1)
+    <br />
+    @Html.Raw(ListBoxRes.CaseSensitiveSearchDescription_Text0)
+}
+
+@section Scripts{
+    <script>
+        function selectedIndexChanged(sender) {
+            document.getElementById('lbSelIdx').innerHTML = sender.selectedIndex;
+            document.getElementById('lbSelVal').innerHTML = sender.selectedValue;
+        }
+
+        c1.documentReady(function () {
+            document.getElementById("searchValue").addEventListener("keyup", function (e) {
+                var listbox = wijmo.Control.getControl('#list');
+                listbox.selectedIndex = -1;
+                listbox._search = this.value;
+                listbox.selectedIndex = listbox._findNext();
+            });
+        });
+    </script>
+}

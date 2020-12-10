@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.Title = "FlexGrid Column Groups";
+}
+
+<p>
+    @Html.Raw(Resource.Index_View_P1)
+</p>
+<p>
+    @Html.Raw(Resource.Index_View_P2)
+</p>
+<p>
+    @Html.Raw(Resource.Index_View_P3)
+</p>
+
+<h3>
+    @Resource.SectionTitle_W3C
+</h3>
+<p>
+    @Html.Raw(Resource.Index_View_W3C_P1)
+</p>
+<c1-flex-grid id="w3cFlexGrid" is-read-only="true">
+    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+</c1-flex-grid>
+<h3>
+    @Resource.SectionTitle_Financial
+</h3>
+<p>
+    @Html.Raw(Resource.Index_View_Financial_P1)
+</p>
+<c1-flex-grid id="fnFlexGrid" is-read-only="true">
+    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+</c1-flex-grid>
+

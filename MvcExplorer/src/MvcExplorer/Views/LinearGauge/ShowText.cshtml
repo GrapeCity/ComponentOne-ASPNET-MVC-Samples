@@ -1,0 +1,10 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-linear-gauge id="@demoSettingsModel.ControlId" min="0" max="10" value="5" show-text="All" width="500px">
+</c1-linear-gauge>
+
+@section Description{
+    @Html.Raw(LinearGaugeRes.ShowText_Text0)
+}

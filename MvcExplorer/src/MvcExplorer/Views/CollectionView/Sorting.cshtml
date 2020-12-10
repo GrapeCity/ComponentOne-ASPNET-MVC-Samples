@@ -1,0 +1,30 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+    <c1-items-source id="CVService" read-action-url="@Url.Action("Sorting_Bind")"
+                     sort-nulls="@((CollectionViewSortNulls)Enum.Parse(typeof(CollectionViewSortNulls), optionsModel.Options["Sort Nulls"].CurrentValue))">
+    </c1-items-source>
+
+<c1-flex-grid id="FlexGridCV" items-source-id="CVService" auto-generate-columns="false" class="grid">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(CollectionViewRes.Sorting_Text0)</p>
+}

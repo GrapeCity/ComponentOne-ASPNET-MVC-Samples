@@ -1,0 +1,28 @@
+﻿    
+    header ul li:first-child {
+        width: 50% !important;
+    }
+
+    header ul li:last-child {
+        width: 50% !important;
+    }
+
+    header ul:last-child li {
+        width: 100% !important;
+    }
+
+
+.myDashboard ul li {
+    width: 100%;
+    margin-right: 0;
+    margin-bottom: 20px;
+    height: auto;
+    -webkit-box-sizing: initial;
+}
+
+
+@-moz-document url-prefix() {
+    .dashboard {
+        display: unset;
+    }
+}

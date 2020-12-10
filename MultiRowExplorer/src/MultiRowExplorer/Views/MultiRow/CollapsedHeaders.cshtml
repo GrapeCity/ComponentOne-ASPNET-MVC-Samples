@@ -1,0 +1,67 @@
+@model IEnumerable<Orders.Order>
+@{
+    var cities = Orders.GetCities().ToValues();
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+<c1-multi-row id="@settings.ControlId" class="multirow" collapsed-headers="true" show-header-collapse-button="true">
+    <c1-items-source read-action-url="@Url.Action("CollapsedHeaders_Bind")" disable-server-read="true"></c1-items-source>
+    <c1-multi-row-cell-group header="Order" colspan="2">
+        <c1-multi-row-cell binding="Id" header="ID" class="id" colspan="2" />
+        <c1-multi-row-cell binding="Amount" header="Amount" format="c" class="amount" colspan="2" />
+        <c1-multi-row-cell binding="Date" header="Ordered" />
+        <c1-multi-row-cell binding="ShippedDate" header="Shipped" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Customer" colspan="3">
+        <c1-multi-row-cell binding="Customer.Name" name="CustomerName" header="Customer" />
+        <c1-multi-row-cell binding="Customer.Email" name="CustomerEmail" header="Customer Email" class="email" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Address" name="CustomerAddress" header="Address" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Phone" name="CustomerPhone" header="Customer Phone" />
+        <c1-multi-row-cell binding="Customer.City" name="CustomerCity" header="City" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
+            <c1-data-map display-member-path="Value" selected-value-path="Value">
+                <c1-items-source source-collection="cities" />
+            </c1-data-map>
+        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Customer.State" name="CustomerState" header="State" />
+        <c1-multi-row-cell binding="Customer.Zip" name="CustomerZip" header="Zip" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Shipper">
+        <c1-multi-row-cell binding="Shipper.Name" name="ShipperName" header="Shipper" width="*" />
+        <c1-multi-row-cell binding="Shipper.Email" name="ShipperEmail" header="Shipper Email" class="email" />
+        <c1-multi-row-cell binding="Shipper.Express" name="ShipperExpress" header="Express" />
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Settings{
+    <script>
+        function customChangeCollapsedHeaders(multirow, name) {
+            switch (name) {
+                case "False":
+                    multirow.collapsedHeaders = false;
+                    break;
+                case "True":
+                    multirow.collapsedHeaders = true;
+                    break;
+                case "null":
+                    multirow.collapsedHeaders = null;
+                    break;
+            }
+        }
+    </script>
+}
+
+@section Summary{
+<p>@Html.Raw(MultiRowRes.CollapsedHeaders_Text0)</p>
+
+}
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.CollapsedHeaders_Text1)</p>
+
+<p>@Html.Raw(MultiRowRes.CollapsedHeaders_Text2)</p>
+
+<p>@Html.Raw(MultiRowRes.CollapsedHeaders_Text3)</p>
+
+<p>@Html.Raw(MultiRowRes.CollapsedHeaders_Text4)</p>
+
+}

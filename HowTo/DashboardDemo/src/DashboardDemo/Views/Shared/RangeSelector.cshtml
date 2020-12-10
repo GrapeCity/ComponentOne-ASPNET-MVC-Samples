@@ -1,0 +1,48 @@
+﻿@model RangeSelectorModel
+
+<div id="rangeSelector">
+    <c1-flex-chart binding-x="Date" id="flexChart1" class="chartRangeSelector">
+        <c1-flex-chart-axis c1-property="AxisY" labels="false" major-grid="false"></c1-flex-chart-axis>
+        <c1-flex-chart-axis c1-property="AxisX" format="MM/dd/yyyy"></c1-flex-chart-axis>
+        <c1-flex-chart-title-style c1-property="HeaderStyle" halign="Left" font-size="14"></c1-flex-chart-title-style>
+        <c1-items-source source-collection="Model.DateSaleList"></c1-items-source>
+        <c1-flex-chart-series binding="Sales" chart-type="Line">
+        </c1-flex-chart-series>
+    </c1-flex-chart>
+    <div id="theChartSelector" class="chart-selector"></div>
+</div>
+@if (Model.Range != null && Model.Range.NStart.HasValue)
+{
+    <script type="text/javascript">
+        var rangeMin = @Model.Range.NStart.Value;
+    </script>
+}
+@if (Model.Range != null && Model.Range.NEnd.HasValue)
+{
+    <script type="text/javascript">
+        var rangeMax =  @Model.Range.NEnd.Value;
+    </script>
+}
+<script type="text/javascript">
+    // create the chart with range selector
+    var theChartSelector = wijmo.Control.getControl('#flexChart1');
+    var rangeSelectorOpts = {
+        seamless: true
+    };
+    if (typeof (rangeMin) === 'number') {
+        rangeSelectorOpts['min'] = rangeMin;
+    }
+    if (typeof (rangeMax) === 'number') {
+        rangeSelectorOpts['max'] = rangeMax;
+    }
+    var rangeSelector = new wijmo.chart.interaction.RangeSelector(theChartSelector, rangeSelectorOpts);
+    rangeSelector.rangeChanged.addHandler(function (sender, e) {
+        setRange(Math.round(rangeSelector.min), Math.round(rangeSelector.max));
+    });
+
+    var rangeSelectorLayout = function(){
+        theChartSelector.invalidate();
+    };
+
+    window.addEventListener('resize', rangeSelectorLayout, false);
+</script>

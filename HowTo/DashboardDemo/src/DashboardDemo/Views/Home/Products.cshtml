@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.PageTitle = @Resource.ProductsPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Products.js")"></script>
+<script type="text/javascript">
+    basePath = '@ViewBag.BasePath';
+
+    function requestProducts() {
+        if (requestQueue.length) {
+            var req = requestQueue.pop();
+            req.url = '@Url.Action("GetProducts")';
+            sendRequest(req);
+        }
+    }
+</script>
+
+<div class="flex vertical" style="width:100%;height:100%;overflow:hidden;">
+    <c1-tab-panel id="tpProducts" selected-index-changed="selectedIndexChanged" class="auto">
+        <div>
+            <a href="#tabs-1">@Resource.All_Header</a>
+            <div class="products"></div>
+        </div>
+        <div>
+            <a href="#tabs-1">@Resource.Sports_Header</a>
+            <div class="products"></div>
+        </div>
+        <div>
+            <a href="#tabs-1">@Resource.City_Header</a>
+            <div class="products"></div>
+        </div>
+        <div>
+            <a href="#tabs-1">@Resource.MultiUtility_Header</a>
+            <div class="products"></div>
+        </div>
+        <div>
+            <a href="#tabs-1">@Resource.NewEntry_Header</a>
+            <div class="products"></div>
+        </div>
+    </c1-tab-panel>
+</div>

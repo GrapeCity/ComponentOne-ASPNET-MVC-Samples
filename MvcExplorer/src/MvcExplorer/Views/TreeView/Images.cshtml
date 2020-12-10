@@ -1,0 +1,13 @@
+﻿@model Property[]
+
+<c1-tree-view display-member-path="Header" child-items-path="Items"
+              image-member-path="Image" source="Model"></c1-tree-view>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.Images_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.Images_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.Images_Text2)</p>
+}

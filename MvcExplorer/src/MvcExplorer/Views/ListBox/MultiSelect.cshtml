@@ -1,0 +1,9 @@
+﻿@model C1NWindEntities
+
+<c1-list-box width="400px" height="200px" display-member-path="ProductName" checked-member-path="Discontinued">
+    <c1-items-source update-action-url="ListUpdateProducts" source-collection="@Model.Products"></c1-items-source>
+</c1-list-box>
+
+@section Description{
+    @Html.Raw(ListBoxRes.MultiSelect_Text0)
+}

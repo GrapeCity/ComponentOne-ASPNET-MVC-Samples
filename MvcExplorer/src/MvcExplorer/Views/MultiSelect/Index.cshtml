@@ -1,0 +1,46 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    List<string> countries = ViewBag.Countries;
+}
+@section Scripts{
+    <script>
+        var checkedItemsChanged = function (sender, e) {
+            var i, result = document.getElementById("result"),
+                items = sender.checkedItems;
+
+            if (result) {
+                result.innerHTML = "";
+            }
+
+            for (i = 0; i < items.length; i++) {
+                result.innerHTML += "<span>" + (i + 1) + ". " + items[i] + "<\/span><br>";
+            }
+        }
+    </script>
+}
+<div>
+    <label>@Html.Raw(MultiSelectRes.Index_Text0)</label>
+
+    <c1-multi-select id="multiselect" placeholder="@MultiSelectRes.Index_Placeholder" header-format="@MultiSelectRes.Index_HeaderFormat" checked-items-changed="checkedItemsChanged"
+                     filter-input-placeholder="@MultiSelectRes.Index_FilterInputPlaceholder"
+                     show-filter-input="@Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue)"
+                     check-on-filter="@Convert.ToBoolean(optionsModel.Options["Check On Filter"].CurrentValue)"
+                     case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+        <c1-items-source source-collection="countries" />
+    </c1-multi-select>
+
+    <label>@Html.Raw(MultiSelectRes.Index_SelectResults)</label>
+    <div id="result"></div>
+</div>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(MultiSelectRes.Index_Text1)</p>
+    <p>@Html.Raw(MultiSelectRes.Index_Text2)</p>
+    <p>@Html.Raw(MultiSelectRes.Index_Text3)</p>
+    <p>@Html.Raw(MultiSelectRes.CaseSensitiveSearchDescription_Text0)</p>
+}

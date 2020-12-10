@@ -1,0 +1,97 @@
+﻿@using C1Finance.Models
+@using C1.Web.Mvc.Grid
+
+@{
+    ViewBag.Title = "C1 ASP.Net MVC Finance";
+}
+@{  var link = "https://finance.yahoo.com/q?s=";}
+<div class="header">
+    <div class="container">
+        <br />
+                <img src="@Url.Content("~/C1Finance_logo.png")"/>
+            <p>
+            This application was developed using Bootstrap, and
+            <a href="http://www.grapecity.com">ComponentOne's ASP.Net MVC</a> controls.
+                The stock prices come from one of <a href="https://www.alphavantage.co/">Alphavantage's</a> free financial databases.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Portfolio
+        </div>
+        <c1-items-source read-action-url="@Url.Action("GetPortfolio")" id="cv" update-action-url="@Url.Action("GridUpdate")" delete-action-url="@Url.Action("GridDelete")" query-data="collectStockNames"></c1-items-source>
+        <c1-flex-grid id="PortfolioFGrid" selection-mode="Cell" headers-visibility="Column" item-formatter="PortfolioFGrid_ItemFormatter" items-source-id="cv"
+                       allow-sorting="true" auto-generate-columns="false">
+            <c1-flex-grid-column binding="Color" header="Name" is-read-only="true" width="2*">
+                <c1-flex-grid-cell-template cell-type="Cells">
+                    <span style="background-color:  {{Color}} ;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;{{Name}}</c1-flex-grid-cell-template>
+            </c1-flex-grid-column>
+            <c1-flex-grid-column binding="Name" header="" is-read-only="true" width="0"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Symbol" header="Symbol" is-read-only="true" width="*">
+                <c1-flex-grid-cell-template cell-type="Cells" >
+                    <a href="@link {{Symbol}}">{{Symbol}}</a>
+                </c1-flex-grid-cell-template>
+            </c1-flex-grid-column>
+            <c1-flex-grid-column binding="Chart" header="Chart" width="50"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="LastPrice" header="Last Price" is-read-only="true" width="*" input-type="DataType.Number" format="n2"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Change" header="Change" is-read-only="true" width="*" format="p2"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Shares" header="Shares" is-read-only="false" width="*" format="n0"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Price" header="Price" is-read-only="false" width="*" format="n2"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Cost" header="Cost" is-read-only="true" width="*" format="n0"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Value" header="Value" is-read-only="true" width="*" format="n0"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Gain" header="Gain" is-read-only="true" width="*" format="p2"></c1-flex-grid-column>
+            <c1-flex-grid-column name="Remove" header="Remove" is-read-only="true" align="center" width="*">
+              <c1-flex-grid-cell-template >
+                  <a href="#" onclick="deleteRow('{{Symbol}}')"><span class="align-center glyphicon glyphicon-remove" style="color:#D14836"></span></a>
+              </c1-flex-grid-cell-template>
+            </c1-flex-grid-column>
+           
+        </c1-flex-grid>
+        
+        <div class="panel-footer">
+            Add to portfolio:
+            <c1-auto-complete id="AddAutoComp" show-drop-down-button="false" display-member-path="symbolname" selected-value-path="symbol" placeholder="company name or symbol"
+                              css-match="match" selected-index-changed="AddAutoComp_SelectedIndexChanged">
+                <c1-items-source read-action-url="@Url.Action("GetStockNames")"></c1-items-source>
+            </c1-auto-complete>
+           
+            <button id="BtnAddToPortfolio" type="button" class="btn btn-primary"
+                    onclick="AddToPortfolio();">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- chart -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Chart
+            <div class="btn-group btn-group-xs pull-right">
+                <button id="BtnChartView0" type="button" class="btn btn-default" onclick="UpdateChartDuration(0)">YTD</button>
+                <button id="BtnChartView1" type="button" class="btn btn-default" onclick="UpdateChartDuration(1)">6m</button>
+                <button id="BtnChartView2" type="button" class="btn btn-default" onclick="UpdateChartDuration(2)">12m</button>
+                <button id="BtnChartView3" type="button" class="btn btn-default" onclick="UpdateChartDuration(3)">24m</button>
+                <button id="BtnChartView4" type="button" class="btn btn-default" onclick="UpdateChartDuration(4)">36m</button>
+                <button id="BtnChartView5" type="button" class="btn btn-default" onclick="UpdateChartDuration(5)">All</button>
+            </div>
+        </div>
+        <c1-flex-chart id="PortfolioFChart" binding-x="TimeSlab" chart-type="Line" selection-mode="Series" items-source-id="cv"
+                       legend-position="None">
+            <c1-flex-chart-axis c1-property="AxisX" format=""MMM-yyyy"> 
+
+            </c1-flex-chart-axis>
+            <c1-flex-chart-axis c1-property="AxisY" binding="PriceGrowth" format="p0" ></c1-flex-chart-axis>
+        </c1-flex-chart>
+       
+    </div>
+
+    <script type="text/javascript">
+        c1.mvc.Utils.documentReady(function () {
+            if (window["InitialControls"]) {
+                window["InitialControls"]();
+            }
+        });
+    </script>
+</div>

@@ -1,0 +1,13 @@
+﻿<c1-flex-chart binding-x="X" chart-type="Bubble">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="Y,Size"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.Bubble_Bubble)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Bubble_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Bubble_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.Bubble_Text2)</p>
+}

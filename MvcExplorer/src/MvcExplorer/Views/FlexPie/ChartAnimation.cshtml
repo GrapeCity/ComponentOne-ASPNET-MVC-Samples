@@ -1,0 +1,133 @@
+﻿@model IEnumerable<CustomerOrder>
+@{
+    ViewBag.DemoSettings = true;
+}
+
+<c1-flex-pie id="animationChart" header="Sales" binding-name="Country" binding="Count">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+    <c1-chart-animation id="animation" animation-mode="All" duration="400" easing="Swing"></c1-chart-animation>
+</c1-flex-pie>
+
+@section Scripts{
+<script type="text/javascript">
+    function updateMenu(menu, headerNamePrefix) {
+        menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+    }
+
+    function updateAnimation(prop, newValue) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            animationExt;
+
+        if (chart) {
+            animationExt = c1.getExtender(chart, 'animation');
+            if (animationExt) {
+                animationExt[prop] = newValue;
+            }
+        }
+    }
+
+    function animationModeChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(FlexPieRes.ChartAnimation_AnimationMode)');
+        updateAnimation('animationMode', wijmo.chart.animation.AnimationMode[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function easingChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(FlexPieRes.ChartAnimation_Easing)');
+        updateAnimation('easing', wijmo.chart.animation.Easing[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function durationChanged(sender, args) {
+        if (!checkValue(sender)) {
+            return;
+        }
+
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateAnimation('duration', sender.value);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function innerRadiusChanged(sender, args) {
+        var chart = wijmo.Control.getControl('#animationChart');
+        if (chart) {
+            chart.innerRadius = sender.value;
+        }
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+</script>
+}
+
+@section Settings{
+    <div class="container-fluid well">
+        <div calss="row" style="margin:10px">
+            <c1-menu header="@(FlexPieRes.ChartAnimation_AnimationMode + ": <b>All</b>")" item-clicked="animationModeChanged">
+                <c1-menu-item header="All"></c1-menu-item>
+                <c1-menu-item header="Point"></c1-menu-item>
+                <c1-menu-item header="Series"></c1-menu-item>
+            </c1-menu>
+            <c1-menu header="@(FlexPieRes.ChartAnimation_Easing + ": <b>Swing</b>")" item-clicked="easingChanged">
+                <c1-menu-item header="Linear"></c1-menu-item>
+                <c1-menu-item header="Swing"></c1-menu-item>
+                <c1-menu-item header="EaseInQuad"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuad"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuad"></c1-menu-item>
+                <c1-menu-item header="EaseInCubic"></c1-menu-item>
+                <c1-menu-item header="EaseOutCubic"></c1-menu-item>
+                <c1-menu-item header="EaseInOutCubic"></c1-menu-item>
+                <c1-menu-item header="EaseInQuart"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuart"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuart"></c1-menu-item>
+                <c1-menu-item header="EaseInQuint"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuint"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuint"></c1-menu-item>
+                <c1-menu-item header="EaseInSine"></c1-menu-item>
+                <c1-menu-item header="EaseOutSine"></c1-menu-item>
+                <c1-menu-item header="EaseInOutSine"></c1-menu-item>
+                <c1-menu-item header="EaseInExpo"></c1-menu-item>
+                <c1-menu-item header="EaseOutExpo"></c1-menu-item>
+                <c1-menu-item header="EaseInOutExpo"></c1-menu-item>
+                <c1-menu-item header="EaseInCirc"></c1-menu-item>
+                <c1-menu-item header="EaseOutCirc"></c1-menu-item>
+                <c1-menu-item header="EaseInOutCirc"></c1-menu-item>
+                <c1-menu-item header="EaseInBack"></c1-menu-item>
+                <c1-menu-item header="EaseOutBack"></c1-menu-item>
+                <c1-menu-item header="EaseInOutBack"></c1-menu-item>
+                <c1-menu-item header="EaseInBounce"></c1-menu-item>
+                <c1-menu-item header="EaseOutBounce"></c1-menu-item>
+                <c1-menu-item header="EaseInOutBounce"></c1-menu-item>
+                <c1-menu-item header="EaseInElastic"></c1-menu-item>
+                <c1-menu-item header="EaseOutElastic"></c1-menu-item>
+                <c1-menu-item header="EaseInOutElastic"></c1-menu-item>
+            </c1-menu>
+            <div>
+                <label style="display:inline-block;font-weight:normal">@Html.Raw(FlexPieRes.ChartAnimation_Duration)</label>
+                <c1-input-number min="200" max="500" step="200" value="400" format="n0" value-changed="durationChanged"></c1-input-number>
+            </div>
+            <div>
+                <label style="display:inline-block;font-weight:normal">@Html.Raw(FlexPieRes.ChartAnimation_InnerRadius)</label>
+                <c1-input-number min="0" max="1" step="0.1" value="0" format="n1" value-changed="innerRadiusChanged"></c1-input-number>
+            </div>
+        </div>
+    </div>
+}
+@section Description{
+    <p>@Html.Raw(FlexPieRes.ChartAnimation_Text0)</p>
+    <p>@Html.Raw(FlexPieRes.ChartAnimation_Text1)</p>
+    <p>@Html.Raw(FlexPieRes.ChartAnimation_Text2)</p>
+}

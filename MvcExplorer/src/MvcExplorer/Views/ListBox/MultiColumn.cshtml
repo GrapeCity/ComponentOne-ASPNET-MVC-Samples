@@ -1,0 +1,9 @@
+﻿@model IEnumerable<string>
+
+<c1-list-box class="multi-column">
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-list-box>
+
+@section Description{
+    @Html.Raw(ListBoxRes.MultiColumn_Text0)
+}

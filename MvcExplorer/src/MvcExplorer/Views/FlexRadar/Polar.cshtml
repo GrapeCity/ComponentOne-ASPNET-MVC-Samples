@@ -1,0 +1,20 @@
+﻿@model IEnumerable<MapData>
+@using C1.Web.Mvc.Chart
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var chartType = demoSettingsModel.GetEnum("ChartType", C1.Web.Mvc.Chart.RadarChartType.Line);
+    var stacking = demoSettingsModel.GetEnum("Stacking", C1.Web.Mvc.Chart.Stacking.None);
+}
+
+<c1-flex-radar binding-x="Longitude" binding="Latitude1" chart-type="@chartType" stacking="@stacking"
+    id="@demoSettingsModel.ControlId" height="400px" width="500px" legend-position="Top">
+    <c1-items-source source-collection="Model" />
+    <c1-flex-radar-series name="Latitude1" />
+    <c1-flex-radar-series name="Latitude2" binding="Latitude2" />
+</c1-flex-radar>
+
+@section Description{
+    <p>@Html.Raw(FlexRadarRes.Polar_Text0)</p>
+}

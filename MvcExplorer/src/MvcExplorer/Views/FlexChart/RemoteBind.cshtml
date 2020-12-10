@@ -1,0 +1,9 @@
+﻿<c1-flex-chart header="Sales (remote data)" legend-toggle="true" binding-x="Country">
+    <c1-items-source read-action-url="RemoteBind_Read"></c1-items-source>
+    <c1-flex-chart-series binding="Count" name="Count"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="Price" name="Price"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    @Html.Raw(FlexChartRes.RemoteBind_Text0)
+}

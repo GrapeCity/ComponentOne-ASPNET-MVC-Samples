@@ -1,0 +1,20 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<HierarchicalData>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-sunburst id="@demoSettingsModel.ControlId" legend-position="None" header="Header" footer="Footer"
+             binding-name="Year, Quarter, Month" binding="Value">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-pie-datalabel content="{name}" position="Center"></c1-flex-pie-datalabel>
+    <c1-flex-chart-title-style c1-property="HeaderStyle" font-family="Arial" />
+</c1-sunburst>
+
+@section Description{
+    <p>@Html.Raw(SunburstRes.LegendAndTitles_Text0)</p>
+    <p>@Html.Raw(SunburstRes.LegendAndTitles_Text1)</p>
+}

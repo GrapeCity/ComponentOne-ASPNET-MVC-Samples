@@ -1,0 +1,141 @@
+﻿@model IEnumerable<Fruit>
+
+@{
+    ViewBag.DemoSettings = true;
+}
+<c1-flex-chart id="animationChart" chart-type="Line" binding-x="Name">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice" name="March"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="AprPrice" name="April"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="MayPrice" name="May"></c1-flex-chart-series>
+    <c1-chart-animation animation-mode="All" easing="Swing" duration="400" id="animation"></c1-chart-animation>
+</c1-flex-chart>
+
+@section Scripts{
+<script type="text/javascript">
+    function updateMenu(menu, headerNamePrefix) {
+        menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+    }
+
+    function updateAnimation(prop, newValue) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            animationExt;
+
+        if (chart) {
+            animationExt = c1.getExtender(chart, 'animation');
+            if (animationExt) {
+                animationExt[prop] = newValue;
+            }
+        }
+    }
+
+    function chartTypeChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart');
+        updateMenu(menu, '@(FlexChartRes.ChartAnimation_ChartType)');
+        if (chart) {
+            chart.chartType = wijmo.chart.ChartType[menu.selectedItem.Header];
+        }
+    }
+
+    function animationModeChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(FlexChartRes.ChartAnimation_AnimationMode)');
+        updateAnimation('animationMode', wijmo.chart.animation.AnimationMode[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function easingChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(FlexChartRes.ChartAnimation_Easing)');
+        updateAnimation('easing', wijmo.chart.animation.Easing[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function durationChanged(sender, args) {
+        if (!checkValue(sender)) {
+            return;
+        }
+
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateAnimation('duration', sender.value);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+</script>
+}
+@section Settings{
+    <div class="container-fluid well">
+        <div calss="row" style="margin:10px">
+            <c1-menu header="@(FlexChartRes.ChartAnimation_ChartType + ": <b>Line</b>")" item-clicked="chartTypeChanged">
+                <c1-menu-item header="Bar"></c1-menu-item>
+                <c1-menu-item header="Column"></c1-menu-item>
+                <c1-menu-item header="Area"></c1-menu-item>
+                <c1-menu-item header="Line"></c1-menu-item>
+                <c1-menu-item header="LineSymbols"></c1-menu-item>
+                <c1-menu-item header="Spline"></c1-menu-item>
+                <c1-menu-item header="SplineSymbols"></c1-menu-item>
+            </c1-menu>
+            <c1-menu header="@(FlexChartRes.ChartAnimation_AnimationMode+ ": <b>All</b>")" item-clicked="animationModeChanged">
+                <c1-menu-item header="All"></c1-menu-item>
+                <c1-menu-item header="Point"></c1-menu-item>
+                <c1-menu-item header="Series"></c1-menu-item>
+            </c1-menu>
+            <c1-menu header="@(FlexChartRes.ChartAnimation_Easing+ ": <b>Swing</b>")" item-clicked="easingChanged">
+                <c1-menu-item header="Linear"></c1-menu-item>
+                <c1-menu-item header="Swing"></c1-menu-item>
+                <c1-menu-item header="EaseInQuad"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuad"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuad"></c1-menu-item>
+                <c1-menu-item header="EaseInCubic"></c1-menu-item>
+                <c1-menu-item header="EaseOutCubic"></c1-menu-item>
+                <c1-menu-item header="EaseInOutCubic"></c1-menu-item>
+                <c1-menu-item header="EaseInQuart"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuart"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuart"></c1-menu-item>
+                <c1-menu-item header="EaseInQuint"></c1-menu-item>
+                <c1-menu-item header="EaseOutQuint"></c1-menu-item>
+                <c1-menu-item header="EaseInOutQuint"></c1-menu-item>
+                <c1-menu-item header="EaseInSine"></c1-menu-item>
+                <c1-menu-item header="EaseOutSine"></c1-menu-item>
+                <c1-menu-item header="EaseInOutSine"></c1-menu-item>
+                <c1-menu-item header="EaseInExpo"></c1-menu-item>
+                <c1-menu-item header="EaseOutExpo"></c1-menu-item>
+                <c1-menu-item header="EaseInOutExpo"></c1-menu-item>
+                <c1-menu-item header="EaseInCirc"></c1-menu-item>
+                <c1-menu-item header="EaseOutCirc"></c1-menu-item>
+                <c1-menu-item header="EaseInOutCirc"></c1-menu-item>
+                <c1-menu-item header="EaseInBack"></c1-menu-item>
+                <c1-menu-item header="EaseOutBack"></c1-menu-item>
+                <c1-menu-item header="EaseInOutBack"></c1-menu-item>
+                <c1-menu-item header="EaseInBounce"></c1-menu-item>
+                <c1-menu-item header="EaseOutBounce"></c1-menu-item>
+                <c1-menu-item header="EaseInOutBounce"></c1-menu-item>
+                <c1-menu-item header="EaseInElastic"></c1-menu-item>
+                <c1-menu-item header="EaseOutElastic"></c1-menu-item>
+                <c1-menu-item header="EaseInOutElastic"></c1-menu-item>
+            </c1-menu>
+            <div>
+                <label style="display:inline-block;font-weight:normal">@Html.Raw(FlexChartRes.ChartAnimation_Duration)</label>
+                <c1-input-number min="200" max="500" step="200" value="400" format="n0" value-changed="durationChanged"></c1-input-number>
+            </div>
+        </div>
+    </div>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.ChartAnimation_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.ChartAnimation_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.ChartAnimation_Text2)</p>
+}

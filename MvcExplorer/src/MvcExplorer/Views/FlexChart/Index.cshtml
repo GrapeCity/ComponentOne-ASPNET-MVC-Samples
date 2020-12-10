@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingModel = ViewBag.DemoSettingsModel;
+    var chartType = demoSettingModel.GetEnum("ChartType", C1.Web.Mvc.Chart.ChartType.Column);
+    var orientationType = demoSettingModel.GetEnum("LegendOrientation", C1.Web.Mvc.Chart.LegendOrientation.Auto);
+    var stacking = demoSettingModel.GetEnum("Stacking", C1.Web.Mvc.Chart.Stacking.None, (content) =>
+    {
+        return string.Equals(content, "Stacked 100%", StringComparison.OrdinalIgnoreCase)
+            ? "Stacked100pc"
+            : content;
+    });
+    var rotated = demoSettingModel.GetBool("Rotated", false);
+}
+
+
+<c1-flex-chart id="@demoSettingModel.ControlId" binding-x="Name"
+               chart-type="@chartType" stacking="@stacking" rotated="@rotated" legend-position="Bottom" legend-orientation="@orientationType">
+    <c1-flex-chart-tooltip></c1-flex-chart-tooltip>
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice" name="March">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="AprPrice" name="April">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="MayPrice" name="May">
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Scripts{
+<script type="text/javascript">
+    convertStacking = function (value) {
+        return value === "Stacked 100%" ? "Stacked100pc" : value;
+    };
+    convertPalette = function (value) {
+        return wijmo.chart.Palettes[value];
+    };
+    updateGroupWidth = function (control, value) {
+        control.options = { groupWidth: value === "50 pixels" ? 50 : value };
+    };
+    customChangeLegendOrientation = function (control, value) {
+        control.legend.orientation = value;
+    };
+    function customChangeTooltipPosition(control, value) {
+        control.tooltip.position = value;
+    }
+</script>
+}
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.Index_Introduction)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Index_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Index_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.Index_Text2)</p>
+    <ol>
+        <li>@Html.Raw(FlexChartRes.Index_Li1)</li>
+        <li>@Html.Raw(FlexChartRes.Index_Li2)</li>
+        <li>@Html.Raw(FlexChartRes.Index_Li3)</li>
+    </ol>
+    <p>@Html.Raw(FlexChartRes.Index_Text3)</p>
+}

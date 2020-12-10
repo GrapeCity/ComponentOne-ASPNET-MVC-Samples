@@ -1,0 +1,67 @@
+@model IEnumerable<Sale>
+@{
+    var fields = new[] { "ID", "Start", "End", "Country", "Product", "Color", "Amount", "Amount2", "Discount", "Active" };
+    var orders = new[] { "Ascending", "Descending" };
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsByMenu = false;
+}
+
+<c1-multi-row id="sortingMultiRow" class="multirow" is-read-only="true" order-by="ID">
+    <c1-items-source read-action-url="@Url.Action("Sorting_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Scripts{
+    <script>
+        var field = "ID", order = "Ascending";
+        function sortMultiRow(combo) {
+            var multiRow, ascending, sd;
+            if (combo.hostElement.id === "sortingfield")
+                field = combo.selectedValue;
+            if (combo.hostElement.id === "sortingorder")
+                order = combo.selectedValue;
+
+            if (!field || !order) {
+                return;
+            }
+
+            multiRow = wijmo.Control.getControl("#sortingMultiRow");
+            ascending = order === "Ascending";
+            sd = multiRow.collectionView.sortDescriptions;
+            sdNew = new wijmo.collections.SortDescription(field, ascending);
+
+            // remove any old sort descriptors and add the new one
+            sd.splice(0, sd.length, sdNew);
+        }
+    </script>
+}
+
+@section Settings {
+    @Html.Raw(MultiRowRes.Sorting_Text0) <c1-combo-box id="sortingfield" selected-index="0" is-editable="false" selected-index-changed="sortMultiRow"><c1-items-source source-collection="@fields"></c1-items-source></c1-combo-box>
+    @Html.Raw(MultiRowRes.Sorting_Text1) <c1-combo-box id="sortingorder" selected-index="0" is-editable="false" selected-index-changed="sortMultiRow"><c1-items-source source-collection="@orders"></c1-items-source></c1-combo-box>
+}
+
+@section Summary{
+    @Html.Raw(MultiRowRes.Sorting_Text2)
+}
+
+@section Description{
+    @Html.Raw(MultiRowRes.Sorting_Text3)
+}

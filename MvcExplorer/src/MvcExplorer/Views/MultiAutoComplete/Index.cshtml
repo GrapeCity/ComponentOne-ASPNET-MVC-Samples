@@ -1,0 +1,24 @@
+﻿@model List<string>
+
+@section Styles{
+<style>
+    .highlight {
+        background-color: #ff0;
+        color: #000;
+    }
+</style>
+}
+
+<p>@Html.Raw(MultiAutoCompleteRes.Index_Text0)</p>
+<c1-multi-auto-complete css-match="highlight" max-selected-items="4" selected-indexes="new List<int> { 1 }">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+</c1-multi-auto-complete>
+
+@section Summary{
+    @Html.Raw(MultiAutoCompleteRes.Index_Text3)
+}
+
+@section Description{
+    <p>@Html.Raw(MultiAutoCompleteRes.Index_Text1)</p>
+    <p>@Html.Raw(MultiAutoCompleteRes.Index_Text2)</p>
+}

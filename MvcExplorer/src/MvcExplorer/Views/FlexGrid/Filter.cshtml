@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    Dictionary<string, FilterType> filterTypes = ViewBag.FilterTypes;
+    ViewBag.DemoSettings = true;
+}
+
+<script type="text/javascript">
+    function toggleExclusiveValueSearch(e) {
+        var exclusiveValueSearch = e.target.checked;
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        var flexGridFilter = c1.getExtenders(filteringGrid, wijmo.grid.filter.FlexGridFilter)[0];
+        var cols = filteringGrid.columns;    
+        for (var i = 0; i < cols.length; i++) {
+            var colFilter = flexGridFilter.getColumnFilter(cols[i]);
+            if (colFilter) {
+                colFilter.valueFilter.exclusiveValueSearch = exclusiveValueSearch;
+            }
+        }
+    }
+</script>
+
+<c1-flex-grid id="filteringGrid" auto-generate-columns="false" is-read-only="true"
+              selection-mode="Row" sorting-type="SingleColumn" class="grid">
+    <c1-items-source page-size="25" read-action-url="@Url.Action("Filter_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="t"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-flex-grid-filter default-filter-type="Both" exclusive-value-search="true">
+        <c1-flex-grid-column-filter column="Country" filter-type="@filterTypes["Country"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Product" filter-type="@filterTypes["Product"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Color" filter-type="@filterTypes["Color"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Amount" filter-type="@filterTypes["Amount"]"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Active" filter-type="@filterTypes["Active"]"></c1-flex-grid-column-filter>
+    </c1-flex-grid-filter>
+</c1-flex-grid>
+
+<c1-pager owner="filteringGrid"></c1-pager>
+
+@section Settings{
+    <p>@await Html.PartialAsync("_OptionsMenu", optionsModel)</p>
+    ExclusiveValueSearch:&nbsp;<input id="exclusiveValueSearch" type="checkbox" checked="checked" onchange="toggleExclusiveValueSearch(event)" />
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.Filter_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.Filter_Text1)</p>
+}

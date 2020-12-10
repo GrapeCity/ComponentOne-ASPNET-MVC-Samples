@@ -1,0 +1,94 @@
+﻿@model IEnumerable<ThingSale>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var defaultMaxDepth = (int)demoSettingsModel.DefaultValues["MaxDepth"];
+}
+
+<ol id="breadCrumbs"></ol>
+<c1-tree-map id="@demoSettingsModel.ControlId" 
+             binding="Sales" binding-name="Category" 
+             child-items-path="Items"
+             max-depth="@defaultMaxDepth"
+             rendered="onRendered">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-tooltip content="<b>{name}</b><br />{value:c}"></c1-flex-chart-tooltip>
+    <c1-flex-chart-datalabel position="Center" content="{name}"></c1-flex-chart-datalabel>
+</c1-tree-map>
+
+@section Scripts{
+    <script type="text/javascript">
+        var breadCrumbs = [];
+        var currentItem;
+        var treemap;
+
+        function onRendered() {
+            if (!treemap) {
+                treemap = wijmo.Control.getControl('#@demoSettingsModel.ControlId');
+            }
+
+            if (treemap) {
+                if (currentItem === treemap._currentItem) {
+                    return;
+                }
+                currentItem = treemap._currentItem;
+                createBreadCrumbs();
+            }
+        }
+
+        function rollUp(num) {
+            //rollup treemap *num times.
+            for (var i = 0; i < num; i++) {
+                treemap._rollUp();
+            }
+        }
+
+        function createBreadCrumbs() {
+            breadCrumbs = [];
+            resetBreadCrumbs(currentItem);
+            breadCrumbs.reverse();
+            appendBreadCrumbs();
+        }
+
+        function appendBreadCrumbs() {
+            var ol = document.querySelector('#breadCrumbs');
+            ol.innerHTML = '';
+            var len = breadCrumbs.length;
+            breadCrumbs.forEach(function (label, idx) {
+                ol.appendChild(apendBreadCrumb(label, idx !== len - 1, len - idx - 1));
+            });
+        }
+
+        function apendBreadCrumb(label, isAnchor, param) {
+            var li = document.createElement('li');
+            if (isAnchor) {
+                li.className = 'breakcrumb-item';
+                var a = document.createElement('a');
+                a.href = 'javascript:void(0)';
+                a.innerHTML = label;
+                a.addEventListener('click', function (evt) {
+                    rollUp(param);
+                });
+                li.appendChild(a);
+            } else {
+                li.className = 'breakcrumb-item active';
+                li.innerHTML = label;
+            }
+            return li;
+        }
+
+        function resetBreadCrumbs(item) {
+            if (item) {
+                breadCrumbs.push(item.label);
+                resetBreadCrumbs(item.parent);
+            } else {
+                breadCrumbs.push('@(TreeMapRes.MaxDepth_Root)');
+            }
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeMapRes.MaxDepth_Text0)</p>
+}

@@ -1,0 +1,45 @@
+﻿@model IEnumerable<Sale>
+
+@section Scripts{
+<script>
+    // Save or restore column layout in localStorage
+    function saveColumnLayout() {
+        var grid = wijmo.Control.getControl("#ovFlexGrid");
+        localStorage['columns'] = grid.columnLayout;
+    }
+    function loadColumnLayout() {
+        var grid = wijmo.Control.getControl("#ovFlexGrid"),
+            columnLayout = localStorage['columns'];
+        if (columnLayout) {
+            grid.columnLayout = columnLayout;
+        }
+    }
+</script>
+}
+
+<input type="button" value="@FlexGridRes.ColumnLayout_SaveColumnLayout" class="btn" onclick="saveColumnLayout()" />
+<input type="button" value="@FlexGridRes.ColumnLayout_LoadColumnLayout" class="btn" onclick="loadColumnLayout()" />
+
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" class="grid" is-read-only="true" sorting-type="SingleColumn">
+    <c1-flex-grid-column binding="ID" is-visible="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="@("MMM d yy")"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="@("HH:mm")"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="@("100")"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-items-source initial-items-count="100" source-collection="Model"></c1-items-source>
+</c1-flex-grid>
+
+@section Description{
+<p>@Html.Raw(FlexGridRes.ColumnLayout_Text0)</p>
+<p>@Html.Raw(FlexGridRes.ColumnLayout_Text1)</p>
+<ol>
+    <li>@Html.Raw(FlexGridRes.ColumnLayout_Li1)</li>
+    <li>@Html.Raw(FlexGridRes.ColumnLayout_Li2)</li>
+    <li>@Html.Raw(FlexGridRes.ColumnLayout_Li3)</li>
+    <li>@Html.Raw(FlexGridRes.ColumnLayout_Li4)</li>
+</ol>
+}

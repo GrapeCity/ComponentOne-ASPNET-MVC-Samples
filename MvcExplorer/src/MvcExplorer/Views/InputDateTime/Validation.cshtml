@@ -1,0 +1,61 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+}
+
+@section Scripts{
+    <style>
+        .invalid-tooltip {
+            background-color: red;
+            color: yellow;
+            opacity: 0.9;
+            border-color: lightcoral;
+        }
+    </style>
+
+    <script>
+    var _invalidTooltip;
+    c1.documentReady(function () {
+        _invalidTooltip = new wijmo.Tooltip();
+        _invalidTooltip.cssClass = 'invalid-tooltip';
+        _invalidTooltip.position = 11;
+        window.addEventListener('resize', function () {
+            if (_invalidTooltip.isVisible) {
+                _invalidTooltip.hide();
+                onInvalidInput();
+            }
+        });
+    })
+
+    function onInvalidInput(input, e) {
+        e && (e.cancel = true);
+        _invalidTooltip.show("#invalidInput", "@Html.Raw(InputDateTimeRes.Validation_Text4)");
+    }
+
+    function onValueChanged(input, e) {
+        _invalidTooltip.hide();
+    }
+
+    function itemValidator(date) {
+        var weekday = date.getDay();
+        return weekday != 0 && weekday != 6;
+    }
+    </script>
+}
+
+<div>
+    <P>@Html.Raw(InputDateTimeRes.Validation_Text0)</P>
+    <c1-input-date-time value="@today" min="@minDate" max="@maxDate" item-validator="itemValidator">
+    </c1-input-date-time>
+    <p></p>
+    <P>@Html.Raw(InputDateTimeRes.Validation_Text3)</P>
+    <c1-input-date-time id="invalidInput" value="@today" min="@minDate" max="@maxDate" invalid-input="onInvalidInput" value-changed="onValueChanged">
+    </c1-input-date-time>
+</div>
+
+@section Description{
+    @Html.Raw(InputDateTimeRes.Validation_Text1)
+    <br />
+    @Html.Raw(InputDateTimeRes.Validation_Text2)
+}

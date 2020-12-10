@@ -1,0 +1,28 @@
+﻿@{
+    ViewBag.PageTitle = @Resource.ReportsPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Reporting.js")"></script>
+
+<c1-tab-panel id="tpReports" class="auto" selected-index-changed="selectedIndexChanged">
+    <div>
+        <a>@Resource.RegionSales_Header</a>
+        <div>
+            <c1-report-viewer file-path="Content/Reports/RegionWiseSalesData.flxr"
+                              report-name="RegionalSales Report" zoom-mode="PageWidth">
+            </c1-report-viewer>
+        </div>
+    </div>
+    <div>
+        <a>@Resource.Opportunities_Header</a>
+        <div>
+            <c1-report-viewer zoom-mode="PageWidth"></c1-report-viewer>
+        </div>
+    </div>
+    <div>
+        <a>@Resource.ProfitAndSales_Header</a>
+        <div>
+            <c1-report-viewer zoom-mode="PageWidth"></c1-report-viewer>
+        </div>
+    </div>
+</c1-tab-panel>

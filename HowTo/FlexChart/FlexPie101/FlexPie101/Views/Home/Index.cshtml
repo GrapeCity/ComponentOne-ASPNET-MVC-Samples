@@ -1,0 +1,826 @@
+﻿@model FlexPieModel
+
+@{
+    ViewBag.Title = "ASP.NET Core MVC C1 FlexPie Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ASP.NET Core C1 FlexPie 101
+        </h1>
+        <p>
+            This page shows how to get started with ASP.NET Core MVC's C1 FlexPie controls.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the FlexPie control in MVC applications:
+        </p>
+        <ol>
+            <li>Create a new ASP.NET Core MVC project using the "C1 ASP.NET Core MVC Web Application" template.</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Initialize the C1 FlexPie control in view using tag &lt;c1-flex-pie&gt;&lt;/c1-flex-pie&gt;</li>
+            <li>(Optional) Add some CSS to customize the FlexPie control's appearance.</li>
+        </ol>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#sCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="sHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;                            
+&lt;/head&gt;
+&lt;body&gt;
+                            
+&lt;!-- FlexPie --&gt;
+&lt;c1-flex-pie id="introChart"
+                header="Products Sale By Country"
+                binding-name="Country"
+                binding="Count"&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryGroupOrderData"&gt;&lt;/c1-items-source&gt;
+    &lt;c1-flex-pie-datalabel content="{value}"&gt;&lt;/c1-flex-pie-datalabel&gt;
+&lt;/c1-flex-pie&gt;
+
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="sCS">
+                            
+using Microsoft.AspNetCore.Mvc;
+using FlexPie101.Models;
+using System.Collections.Generic;
+using C1.Web.Mvc.Chart;
+
+namespace FlexPie101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexPieModel ModelObj = new FlexPieModel();
+            ModelObj.CountryGroupOrderData = CustomerOrder.GetCountryGroupOrderData();
+            return View(ModelObj);
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-flex-pie id="introChart" 
+                             header="Products Sale By Country"
+                             binding-name="Country"
+                             binding="Count">
+                    <c1-items-source source-collection="@Model.CountryGroupOrderData"></c1-items-source>
+                    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+                </c1-flex-pie>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Basic Features -->
+    <div>
+        <h2>Basic Features</h2>
+        <p>
+            The FlexPie control has five basic properties that allow you to customize its layout and appearance:
+        </p>
+        <ul>
+            <li>
+                <b>inner-radius</b>:  Specifies the control's inner radius to support donut charts.
+            </li>
+            <li>
+                <b>offset</b>:  Specifies the offset of the pie slices from the center of the control.
+            </li>
+            <li>
+                <b>start-angle</b>:  Starting at the nine o'clock position, specifies the angle to start drawing pie slices.
+            </li>
+            <li>
+                <b>palette</b>:  Specifies an array of default colors to be used when rendering pie slices.
+            </li>
+            <li>
+                <b>reversed</b>:  Determines whether the control should draw pie slices clockwise (false) or counterclockwise (true).
+            </li>
+        </ul>
+        <p>
+            The example below allows you to see what happens when you change these properties.  Also, clicking on a pie slice will
+            display a tooltip for the data point.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#bfHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#bfJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#bfCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="bfHtml">
+
+&lt;c1-flex-pie id="basicChart"
+            header="Products Sale By Country"
+            binding-name="Country"
+            binding="Count"&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryGroupOrderData"&gt;&lt;/c1-items-source&gt;
+    &lt;c1-flex-pie-datalabel content="{value}"&gt;&lt;/c1-flex-pie-datalabel&gt;
+&lt;/c1-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Inner Radius&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;c1-input-number id="basicInnerRadius"
+                            min="0"
+                            max="1"
+                            step=".1"
+                            format="n"
+                            value-changed="basicInnerRadius_valueChanged"&gt;
+        &lt;/c1-input-number&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Offset&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;c1-input-number id="basicOffset"
+                            min="0"
+                            max="1"
+                            step=".1"
+                            format="n"
+                            value-changed="basicOffset_valueChanged"&gt;
+        &lt;/c1-input-number&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Start Angle&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;c1-input-number id="basicStartAngle"
+                            min="-360"
+                            max="360"
+                            step="45"
+                            format="n"
+                            value-changed="basicStartAngle_valueChanged"&gt;
+        &lt;/c1-input-number&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Palette&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;c1-combo-box id="basicPalette"
+                        placeholder="Pallete"                                          
+                        selected-index="0"                                          
+                        selected-index-changed="basicPalette_SelectedIndexChanged"&gt;
+            &lt;c1-items-source source-collection="@@Model.Settings["Palette"]"&gt;&lt;/c1-items-source&gt;
+        &lt;/c1-combo-box&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+                &lt;input id="basicReversed" type="checkbox" /&gt; Reversed?
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+                            
+                        </div>
+                        <div class="tab-pane pane-content" id="bfJs">
+
+$(document).ready(function () {
+
+    //Basic Features Module
+    var basicReversed = document.getElementById('basicReversed');
+    basicReversed.addEventListener('change', function () {
+        // determine reversed by checkbox's checked state
+        var chart = wijmo.Control.getControl("#basicChart");
+        chart.reversed = this.checked;
+    });
+});
+
+//Basic Features Module
+function basicInnerRadius_valueChanged(sender) {
+    var chart = wijmo.Control.getControl("#basicChart");
+    chart.innerRadius = sender.value;
+};
+
+function basicOffset_valueChanged(sender) {
+    var chart = wijmo.Control.getControl("#basicChart");
+    chart.offset = sender.value;
+};
+
+function basicStartAngle_valueChanged(sender) {
+    var chart = wijmo.Control.getControl("#basicChart");
+    chart.startAngle = sender.value;
+};
+
+function basicPalette_SelectedIndexChanged(sender) {
+    if (!sender.selectedValue)
+        return;
+    var chart = wijmo.Control.getControl("#basicChart");
+    chart.palette = wijmo.chart.Palettes[sender.selectedValue];
+};
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="bfCS">
+using Microsoft.AspNetCore.Mvc;
+using FlexPie101.Models;
+using System.Collections.Generic;
+using C1.Web.Mvc.Chart;
+
+namespace FlexPie101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexPieModel ModelObj = new FlexPieModel();
+            ModelObj.Settings = CreateSettings();
+            ModelObj.CountryGroupOrderData = CustomerOrder.GetCountryGroupOrderData();
+            return View(ModelObj);
+        }
+
+        private static IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"LegendPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+                {"SelectedItemPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+            };
+            return settings;
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-flex-pie id="basicChart"
+                             header="Products Sale By Country"
+                             binding-name="Country"
+                             binding="Count">
+                    <c1-items-source source-collection="@Model.CountryGroupOrderData"></c1-items-source>
+                    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+                </c1-flex-pie>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Inner Radius</label>
+                        <div class="col-md-9">
+                            <c1-input-number id="basicInnerRadius"
+                                             min="0"
+                                             max="1"
+                                             step=".1"
+                                             format="n"
+                                             value-changed="basicInnerRadius_valueChanged">
+                            </c1-input-number>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Offset</label>
+                        <div class="col-md-9">
+                            <c1-input-number id="basicOffset"
+                                             min="0"
+                                             max="1"
+                                             step=".1"
+                                             format="n"
+                                             value-changed="basicOffset_valueChanged">
+                            </c1-input-number>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Start Angle</label>
+                        <div class="col-md-9">
+                            <c1-input-number id="basicStartAngle"
+                                             min="-360"
+                                             max="360"
+                                             step="45"
+                                             format="n"
+                                             value-changed="basicStartAngle_valueChanged">
+                            </c1-input-number>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Palette</label>
+                        <div class="col-md-9">
+                            <c1-combo-box id="basicPalette"
+                                          placeholder="Pallete"                                          
+                                          selected-index="0"
+                                          selected-index-changed="basicPalette_SelectedIndexChanged">
+                                <c1-items-source source-collection="@Model.Settings["Palette"]"></c1-items-source>
+                            </c1-combo-box>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="basicReversed" type="checkbox" /> Reversed?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- Legend and Titles -->
+    <div>
+        <h2>Legend &amp; Titles</h2>
+        <p>
+            The <b>legend-position</b> property can be used to customize the appearance of the chart's legend.  The
+            <b>header</b> and <b>footer</b> properties can be used to add titles to the FlexPie control as well.
+        </p>
+        <p>
+            The following example allows you to change the FlexPie's <b>legend-position</b>, <b>header</b>, and
+            <b>footer</b> properties in real-time.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#ltHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#ltJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#ltCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="ltHtml">
+
+&lt;c1-flex-pie id="ltChart"
+    header="Products Sale By Country"
+    binding-name="Country"
+    binding="Count"
+    legend-position="Top"&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryGroupOrderData"&gt;&lt;/c1-items-source&gt;
+    &lt;c1-flex-pie-datalabel content="{value}"&gt;&lt;/c1-flex-pie-datalabel&gt;
+&lt;/c1-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Header&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;input id="ltHeader" type="text" class="form-control" placeholder="Specify the FlexPie's header" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Footer&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;input id="ltFooter" type="text" class="form-control" placeholder="Specify the FlexPie's footer" /&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;label class="col-md-3 control-label"&gt;Legend Position&lt;/label&gt;
+    &lt;div class="col-md-9"&gt;
+        &lt;c1-combo-box id="ltLegPos"
+            placeholder="Legend Position"                                          
+            selected-index-changed="ltLegPos_SelectedIndexChanged"&gt;
+            &lt;c1-items-source source-collection="@@Model.Settings["LegendPosition"]"&gt;&lt;/c1-items-source&gt;
+        &lt;/c1-combo-box&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="ltJs">
+
+$(document).ready(function () {
+    //Legend & Title Module
+    var ltchart = wijmo.Control.getControl("#ltChart");
+    var ltHeader = document.getElementById('ltHeader');
+    var ltFooter = document.getElementById('ltFooter');
+
+    ltHeader.value = ltchart.header = 'Products By Country';
+    ltFooter.value = ltchart.footer = '2014, GrapeCity Inc.';
+
+    ltHeader.addEventListener('input', function () {
+        ltchart.header = this.value;
+    });
+
+    ltFooter.addEventListener('input', function () {
+        ltchart.footer = this.value;
+    });
+});
+
+//Legend & Title Module
+function ltLegPos_SelectedIndexChanged(sender) {
+    if (!sender.selectedValue)
+        return;
+    var chart = wijmo.Control.getControl("#ltChart");
+    chart.legend.position = sender.selectedValue;
+};
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="ltCS">
+using Microsoft.AspNetCore.Mvc;
+using FlexPie101.Models;
+using System.Collections.Generic;
+using C1.Web.Mvc.Chart;
+
+namespace FlexPie101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexPieModel ModelObj = new FlexPieModel();
+            ModelObj.Settings = CreateSettings();
+            ModelObj.CountryGroupOrderData = CustomerOrder.GetCountryGroupOrderData();
+            return View(ModelObj);
+        }
+
+        private static IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"LegendPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+                {"SelectedItemPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+            };
+            return settings;
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-flex-pie id="ltChart"
+                             header="Products Sale By Country"
+                             binding-name="Country"
+                             binding="Count"
+                             legend-position="Top">
+                    <c1-items-source source-collection="@Model.CountryGroupOrderData"></c1-items-source>
+                    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+                </c1-flex-pie>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Header</label>
+                        <div class="col-md-9">
+                            <input id="ltHeader" type="text" class="form-control" placeholder="Specify the FlexPie's header" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Footer</label>
+                        <div class="col-md-9">
+                            <input id="ltFooter" type="text" class="form-control" placeholder="Specify the FlexPie's footer" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Legend Position</label>
+                        <div class="col-md-9">
+                            <c1-combo-box id="ltLegPos"
+                                          placeholder="Legend Position"
+                                          selected-index="0"
+                                          selected-index-changed="ltLegPos_SelectedIndexChanged">
+                                <c1-items-source source-collection="@Model.Settings["LegendPosition"]"></c1-items-source>
+                            </c1-combo-box>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Selection -->
+    <div>
+        <h2>Selection</h2>
+        <p>
+            The FlexPie control allows you to select data points by clicking or touching a pie slice. Use the <b>selection-mode</b>
+            property to specify whether you want to allow selection by data point or no selection at all (default).
+        </p>
+        <p>
+            Setting the <b>selection-mode</b> property to <b>Point</b> causes the FlexPie to update the <b>selection-mode</b> property when
+            the user clicks on a pie slice, and to apply the "wj-state-selected" class to the selected element.  Setting the FlexPie's
+            <b>selection-mode</b> property to <b>Series</b> or <b>None</b> will disable selections within the control.
+        </p>
+        <p>
+            The FlexPie offers three additional properties to customize the selection:
+        </p>
+        <ul>
+            <li>
+                <b>selected-item-offset</b>:  Specifies the offset of the selected pie slice from the center of the control.
+            </li>
+            <li>
+                <b>selected-item-position</b>:  Specifies the position of the selected pie slice.  The available options are Top, Bottom,
+                Left, Right, and None (default).
+            </li>
+            <li>
+                <b>is-animated</b>:  Determines whether or not to animate the selection.
+            </li>
+        </ul>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#selHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#selJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#selCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="selHtml">
+
+&lt;c1-flex-pie id="selChart"
+    header="Products Sale By Country"
+    binding-name="Country"
+    binding="Count"
+    is-animated="true"
+    selection-mode="Point"
+    selected-item-position="Top"&gt;
+    &lt;c1-items-source source-collection="@@Model.CountryGroupOrderData"&gt;&lt;/c1-items-source&gt;
+    &lt;c1-flex-pie-datalabel content="{value}"&gt;&lt;/c1-flex-pie-datalabel&gt;
+&lt;/c1-flex-pie&gt;
+&lt;div class="form-horizontal"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-md-4 control-label"&gt;Selected Item Offset&lt;/label&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;c1-input-number id="selItemOffset"
+                min="0"
+                max=".5"
+                step=".1"
+                format="n"
+                value-changed="selItemOffset_valueChanged"&gt;
+            &lt;/c1-input-number&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-md-4 control-label"&gt;Selected Item Position&lt;/label&gt;
+        &lt;div class="col-md-8"&gt;
+            &lt;c1-combo-box id="selItemPos"
+                placeholder="Selected Item Position"
+                selected-index="0"
+                selected-index-changed="selItemPos_SelectedIndexChanged"&gt;
+                &lt;c1-items-source source-collection="@@Model.Settings["SelectedItemPosition"]"&gt;&lt;/c1-items-source&gt;
+            &lt;/c1-combo-box&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="form-group"&gt;
+        &lt;div class="col-md-offset-3 col-md-9"&gt;
+            &lt;div class="checkbox"&gt;
+                &lt;label&gt;
+                    &lt;input id="selAnimated" type="checkbox"&gt; Is Animated?
+                &lt;/label&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="selJs">
+
+
+$(document).ready(function () {
+    //Selection Module
+    var selAnimated = document.getElementById('selAnimated');
+    selAnimated.checked = true;
+    selAnimated.addEventListener('change', function () {
+        // determine Is Animated by checkbox's checked state
+        var chart = wijmo.Control.getControl("#selChart");
+        chart.isAnimated = this.checked;
+    });
+});
+
+//Selection Module
+function selItemOffset_valueChanged(sender) {
+    var chart = wijmo.Control.getControl("#selChart");
+    chart.selectedItemOffset = sender.value;
+};
+
+function selItemPos_SelectedIndexChanged(sender) {
+    if (!sender.selectedValue)
+        return;
+    var chart = wijmo.Control.getControl("#selChart");
+    chart.selectedItemPosition = sender.selectedValue;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="selCS">
+
+using Microsoft.AspNetCore.Mvc;
+using FlexPie101.Models;
+using System.Collections.Generic;
+using C1.Web.Mvc.Chart;
+
+namespace FlexPie101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexPieModel ModelObj = new FlexPieModel();
+            ModelObj.Settings = CreateSettings();
+            ModelObj.CountryGroupOrderData = CustomerOrder.GetCountryGroupOrderData();
+            return View(ModelObj);
+        }
+
+        private static IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"LegendPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+                {"SelectedItemPosition", new object[]{Position.Top.ToString(), Position.Bottom.ToString(), Position.Left.ToString(), Position.None.ToString(), Position.Right.ToString()}},
+            };
+            return settings;
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-flex-pie id="selChart"
+                             header="Products Sale By Country"
+                             binding-name="Country"
+                             binding="Count"
+                             is-animated="true"
+                             selection-mode="Point"
+                             selected-item-position="Top">
+                    <c1-items-source source-collection="@Model.CountryGroupOrderData"></c1-items-source>
+                    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+                </c1-flex-pie>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Selected Item Offset</label>
+                        <div class="col-md-8">
+                            <c1-input-number id="selItemOffset"
+                                             min="0"
+                                             max=".5"
+                                             step=".1"
+                                             format="n"
+                                             value-changed="selItemOffset_valueChanged">
+                            </c1-input-number>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-4 control-label">Selected Item Position</label>
+                        <div class="col-md-8">
+                            <c1-combo-box id="selItemPos"
+                                          placeholder="Selected Item Position"
+                                          selected-index="0"
+                                          selected-index-changed="selItemPos_SelectedIndexChanged">
+                                <c1-items-source source-collection="@Model.Settings["SelectedItemPosition"]"></c1-items-source>
+                            </c1-combo-box>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-offset-3 col-md-9">
+                            <div class="checkbox">
+                                <label>
+                                    <input id="selAnimated" type="checkbox"> Is Animated?
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Theming -->
+    <div>
+        <h2>Theming</h2>
+        <p>
+            The appearance of the FlexPie control is largely defined in CSS. In addition to the default theme, we
+            include several professionally designed themes that customize the appearance of all MVC controls to
+            achieve a consistent, attractive look.
+        </p>
+        <p>
+            You can customize the appearance of the FlexPie control using CSS. To do this, copy the CSS rules from the
+            default theme to a new CSS file and modify the properties as needed.
+        </p>
+        <p>
+            In this example, we added the "custom-pie-chart" CSS class to the control and defined some CSS rules to
+            change the fill, font family, and font weight of the header, footer, and legend.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tHtml" role="tab" data-toggle="tab">index.cshtml</a></li>
+                        <li><a href="#tCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#tCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tHtml">
+                            
+&lt;c1-flex-pie id="themeChart"
+    header="Products Sale By Country"
+    class="custom-pie-chart"
+    binding-name="Country"
+    binding="Count"
+    is-animated="true"
+    selection-mode="Point"
+    selected-item-position="Top"&gt;
+        &lt;c1-items-source source-collection="@@Model.CountryGroupOrderData"&gt;&lt;/c1-items-source&gt;
+        &lt;c1-flex-pie-datalabel content="{value}"&gt;&lt;/c1-flex-pie-datalabel&gt;
+&lt;/c1-flex-pie&gt;                            
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tCss">
+
+.custom-pie-chart.wj-flexchart .wj-header .wj-title,
+.custom-pie-chart.wj-flexchart .wj-footer .wj-title,
+.custom-pie-chart.wj-flexchart .wj-legend &gt; .wj-label {
+    fill: #666;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tCS">
+
+using Microsoft.AspNetCore.Mvc;
+using FlexPie101.Models;
+using System.Collections.Generic;
+using C1.Web.Mvc.Chart;
+
+namespace FlexPie101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexPieModel ModelObj = new FlexPieModel();
+            ModelObj.CountryGroupOrderData = CustomerOrder.GetCountryGroupOrderData();
+            return View(ModelObj);
+        }
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <c1-flex-pie id="themeChart"
+                             header="Products Sale By Country"
+                             class="custom-pie-chart"
+                             binding-name="Country"
+                             binding="Count"
+                             is-animated="true"
+                             selection-mode="Point"
+                             selected-item-position="Top">                    
+                    <c1-items-source source-collection="@Model.CountryGroupOrderData"></c1-items-source>
+                    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+                </c1-flex-pie>
+            </div>
+        </div>
+    </div>
+
+
+</div>

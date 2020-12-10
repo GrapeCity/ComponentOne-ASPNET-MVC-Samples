@@ -1,0 +1,243 @@
+﻿@model object[]
+<link href="~/Content/css/barcode.css" rel="stylesheet" />
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>@Html.Raw(BarcodeRes.Barcode_Index_Text0)</th>
+            <th>@Html.Raw(BarcodeRes.Barcode_Index_Text2)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td style="width: 400px">
+                <c1-tree-view 
+                              display-member-path="Name" 
+                              child-items-path="Items"
+                              selected-item-changed="OnSelectedItemChanged"
+                              loaded-items="OnLoadedItems"
+                              source="Model"
+                              is-animated="true"
+                              auto-collapse="true"
+                              expand-on-click="true">
+                </c1-tree-view>
+            </td>
+            <td style="position: relative">
+                <div data-id="Codabar" class="barcode-control-result">
+                    <div class="name">Codabar</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Codabar_Description_Text0)</div>
+                    <div class="barcode"><c1-codabar value="A15126893B" auto-width-zoom="2"></c1-codabar></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>A15126893B</div>
+                </div>
+                <div data-id="Code39" class="barcode-control-result">
+                    <div class="name">Code39</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Code39_Description_Text0)</div>
+                    <div class="barcode"><c1-code39 value="A1312BCV" auto-width-zoom="2"></c1-code39></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>A1312BCV</div>
+                </div>
+                <div data-id="Code128" class="barcode-control-result">
+                    <div class="name">Code128</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Code128_Description_Text0)</div>
+                    <div class="barcode"><c1-code128 value="Code128Demo" auto-width-zoom="2" code-set="B"></c1-code128></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>Code128Demo</div>
+                </div>
+                <div data-id="Ean8" class="barcode-control-result">
+                    <div class="name">Ean8</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Ean8_Description_Text0)</div>
+                    <div class="barcode"><c1-ean8 value="9031101"></c1-ean8></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>9031101</div>
+                </div>
+                <div data-id="Ean13" class="barcode-control-result">
+                    <div class="name">Ean13</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Ean13_Description_Text0)</div>
+                    <div class="barcode"><c1-ean13 value="963850741111" add-on="86"></c1-ean13></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>963850741111</div>
+                </div>
+                <div data-id="Gs1_128" class="barcode-control-result">
+                    <div class="name">Gs1_128</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1_128_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1_128 value="GS1128Demo" auto-width-zoom="2"></c1-gs1_128></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>GS1128Demo</div>
+                </div>
+                <div data-id="QRCode" class="barcode-control-result">
+                    <div class="name">QRCode</div>
+                    <div class="description">@Html.Raw(BarcodeRes.QRCode_Description_Text0)</div>
+                    <div class="barcode"><c1-qr-code value="https://en.wikipedia.org/wiki/QR_code"></c1-qr-code></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>https://en.wikipedia.org/wiki/QR_code</div>
+                </div>
+                <div data-id="UpcA" class="barcode-control-result">
+                    <div class="name">UpcA</div>
+                    <div class="description">@Html.Raw(BarcodeRes.UpcA_Description_Text0)</div>
+                    <div class="barcode"><c1-upc-a value="01234567890"></c1-upc-a></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>01234567890</div>
+                </div>
+                <div data-id="UpcE0" class="barcode-control-result">
+                    <div class="name">UpcE0</div>
+                    <div class="description">@Html.Raw(BarcodeRes.UpcE0_Description_Text0)</div>
+                    <div class="barcode"><c1-upc-e0 value="012345"></c1-upc-e0></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>012345</div>
+                </div>
+                <div data-id="UpcE1" class="barcode-control-result">
+                    <div class="name">UpcE1</div>
+                    <div class="description">@Html.Raw(BarcodeRes.UpcE1_Description_Text0)</div>
+                    <div class="barcode"><c1-upc-e1 value="012345"></c1-upc-e1></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>012345</div>
+                </div>
+                <div data-id="Code49" class="barcode-control-result">
+                    <div class="name">Code49</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Code49_Description_Text0)</div>
+                    <div class="barcode"><c1-code49 value="Code49_123"></c1-code49></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>Code49_123</div>
+                </div>
+                <div data-id="Code93" class="barcode-control-result">
+                    <div class="name">Code93</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Code93_Description_Text0)</div>
+                    <div class="barcode"><c1-code93 value="CODE93" check-digit="true" auto-width-zoom="2"></c1-code93></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>CODE93</div>
+                </div>
+                <div data-id="DataMatrixEcc200" class="barcode-control-result">
+                    <div class="name">DataMatrixEcc200</div>
+                    <div class="description">@Html.Raw(BarcodeRes.DataMatrixEcc200_Description_Text0)</div>
+                    <div class="barcode"><c1-data-matrix-ecc200 value="abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%^&*()_+"></c1-data-matrix-ecc200></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%^&*()_+</div>
+                </div>
+                <div data-id="DataMatrixEcc000" class="barcode-control-result">
+                    <div class="name">DataMatrixEcc000</div>
+                    <div class="description">@Html.Raw(BarcodeRes.DataMatrixEcc000_Description_Text0)</div>
+                    <div class="barcode"><c1-data-matrix-ecc000 value="abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%^&*()_+"></c1-data-matrix-ecc000></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ!#$%^&*()_+</div>
+                </div>
+                <div data-id="Interleaved2of5" class="barcode-control-result">
+                    <div class="name">Interleaved2of5</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Interleaved2of5_Description_Text0)</div>
+                    <div class="barcode"><c1-interleaved2of5 value="1234567895" auto-width-zoom="2"></c1-interleaved2of5></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>1234567895</div>
+                </div>
+                <div data-id="Itf14" class="barcode-control-result">
+                    <div class="name">Itf14</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Itf14_Description_Text0)</div>
+                    <div class="barcode"><c1-itf14 value="98765432109213"></c1-itf14></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>98765432109213</div>
+                </div>
+                <div data-id="JapanesePostal" class="barcode-control-result">
+                    <div class="name">JapanesePostal</div>
+                    <div class="description">@Html.Raw(BarcodeRes.JapanesePostal_Description_Text0)</div>
+                    <div class="barcode"><c1-japanese-postal value="6540123789-A-K-Z"></c1-japanese-postal></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>6540123789-A-K-Z</div>
+                </div>
+                <div data-id="Gs1DataBarExpanded" class="barcode-control-result">
+                    <div class="name">Gs1DataBarExpanded</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarExpanded_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-expanded value="(01)00012345678905(10)ABC123"></c1-gs1-data-bar-expanded></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)00012345678905(10)ABC123</div>
+                </div>
+                <div data-id="Gs1DataBarExpandedStacked" class="barcode-control-result">
+                    <div class="name">Gs1DataBarExpandedStacked</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarExpandedStacked_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-expanded-stacked value="(01)00012345678905(10)ABC123"></c1-gs1-data-bar-expanded-stacked></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)00012345678905(10)ABC123</div>
+                </div>
+                <div data-id="Gs1DataBarLimited" class="barcode-control-result">
+                    <div class="name">Gs1DataBarLimited</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarLimited_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-limited value="(01)20012345678909"></c1-gs1-data-bar-limited></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)20012345678909</div>
+                </div>
+                <div data-id="Gs1DataBarOmnidirectional" class="barcode-control-result">
+                    <div class="name">Gs1DataBarOmnidirectional</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarOmnidirectional_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-omnidirectional value="(01)20012345678909"></c1-gs1-data-bar-omnidirectional></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)20012345678909</div>
+                </div>
+                <div data-id="Gs1DataBarStacked" class="barcode-control-result">
+                    <div class="name">Gs1DataBarStacked</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarStacked_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-stacked value="(01)20012345678909"></c1-gs1-data-bar-stacked></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)20012345678909</div>
+                </div>
+                <div data-id="Gs1DataBarStackedOmnidirectional" class="barcode-control-result">
+                    <div class="name">Gs1DataBarStackedOmnidirectional</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarStackedOmnidirectional_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-stacked-omnidirectional value="(01)20012345678909"></c1-gs1-data-bar-stacked-omnidirectional></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)20012345678909</div>
+                </div>
+                <div data-id="Gs1DataBarTruncated" class="barcode-control-result">
+                    <div class="name">Gs1DataBarTruncated</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Gs1DataBarTruncated_Description_Text0)</div>
+                    <div class="barcode"><c1-gs1-data-bar-truncated value="(01)20012345678909"></c1-gs1-data-bar-truncated></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>(01)20012345678909</div>
+                </div>
+                <div data-id="Pdf417" class="barcode-control-result">
+                    <div class="name">Pdf417</div>
+                    <div class="description">@Html.Raw(BarcodeRes.Pdf417_Description_Text0)</div>
+                    <div class="barcode"><c1-pdf417 value="This is a PDF417 barcode" auto-width-zoom="2"></c1-pdf417></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>This is a PDF417 barcode</div>
+                </div>
+                <div data-id="MicroPdf417" class="barcode-control-result">
+                    <div class="name">MicroPdf417</div>
+                    <div class="description">@Html.Raw(BarcodeRes.MicroPdf417_Description_Text0)</div>
+                    <div class="barcode"><c1-micro-pdf417 value="This is a MicroPDF417 barcode"></c1-micro-pdf417></div>
+                    <div><span class="value">@Html.Raw(BarcodeRes.Barcode_Index_Text1): </span>This is a MicroPDF417 barcode</div>
+                </div>
+            </td>
+        </tr>
+
+    </tbody>
+</table>
+
+@section Scripts{
+    <script>
+        function OnSelectedItemChanged(e, s) {
+            var selectedItem = e.selectedItem;
+            if (!selectedItem.Items) {
+                $(".barcode-control-result").css("opacity", 0);
+                $(".barcode-control-result").each(function (index, ele) {
+                    let self = $(ele);
+                    if (self.data("id") == selectedItem.Name) {
+                        self.css("opacity", 1);
+                    }
+                });
+            }
+        }
+
+        function OnLoadedItems(e) {
+            e.getFirstNode().select();
+        }
+    </script>
+}
+
+@section Summary{
+    <p>@Html.Raw(BarcodeRes.Barcode_Description_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(BarcodeRes.Barcode_Description_Text0)
+    <p>
+        @Html.Raw(BarcodeRes.Codabar_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Code39_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Code49_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Code93_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Code128_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.DataMatrixEcc200_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.DataMatrixEcc000_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Ean8_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Ean13_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1_128_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarExpanded_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarExpandedStacked_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarLimited_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarOmnidirectional_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarStacked_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarStackedOmnidirectional_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Gs1DataBarTruncated_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Interleaved2of5_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Itf14_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.JapanesePostal_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.Pdf417_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.MicroPdf417_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.QRCode_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.UpcA_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.UpcE0_Description_Text0)<br />
+        @Html.Raw(BarcodeRes.UpcE1_Description_Text0)
+    </p>
+}

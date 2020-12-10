@@ -1,0 +1,164 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.param-item {
+    float:left;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+    .param-item label,.param-item>span {
+        width: 150px;
+        display: inline-block;
+        font-weight: 700;
+        margin: 0px;
+        padding: 5px 0;
+        float:left;
+    }
+    .param-item>span {
+        width: 650px;
+    }
+    .param-item > div {
+        float:left;
+        margin-right: 100px;
+    }
+    .param-item > div>label {
+        font-weight:700;
+    }
+    .param-item .saved-Label {
+        font-weight:400;
+    }
+
+    .param-item textarea {
+        max-width: 650px;
+        width: 650px;
+        height:110px;
+        resize:none;
+    }
+
+    .param-item input {
+        width: 180px;
+    }
+
+.header {
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+label {
+    font-weight: normal;
+    margin-right: 20px;
+}
+
+/* Wijmo Controls */
+.wj-combobox {
+    width: 100px;
+}
+.wj-flexgrid {
+    max-height: 500px;
+}
+.wj-flexgrid .wj-cell {
+    padding: 6px;
+}
+.wj-flexgrid .wj-cell:not(.wj-header) {
+    border-bottom: none;
+}
+
+/* ticker cell */
+.ticker div {
+    display: inline-block;
+}
+.ticker .chg {
+    font-size: 75%;
+    opacity: .75;
+    text-align: center;
+    width: 4em;
+}
+.ticker .glyph {
+    font-size: 120%;
+    text-align: center;
+    width: 1em;
+}
+.ticker .spark {
+    padding: 0 4px;
+    width: 4em;
+    height: 1em;
+    opacity: .65;
+}
+.ticker .spark svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 2px;
+    overflow: visible;
+}
+
+/* value going up */
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .ticker.chg-up .chg,
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .ticker.chg-up .glyph {
+    color: green;
+}
+
+/* value going down */
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .ticker.chg-down .chg,
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .ticker.chg-down .glyph {
+    color: red;
+}
+
+/* value not changing */
+.ticker.chg-none .chg,
+.ticker.chg-none .glyph {
+    opacity: .25;
+}
+
+/* up/down 'flare' animations */
+.ticker.flare-up:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: 1s ease-out flare-up;
+}
+@keyframes flare-up {
+    from { background: rgba(50, 255, 50, 0.5); }
+}
+.ticker.flare-down:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    animation: 1s ease-out flare-down;
+}
+@keyframes flare-down {
+    from { background: rgba(255, 50, 50, 0.5); }
+}

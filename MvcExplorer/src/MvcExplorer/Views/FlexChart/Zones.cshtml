@@ -1,0 +1,87 @@
+﻿@{
+    List<Dot> studentPoints = ViewBag.studentPoints;
+    List<List<Dot>> lineSeriesDataList = ViewBag.lineSeriesDataList;
+
+    List<string> colors = ViewBag.colors;
+    List<double> zones = ViewBag.zones;
+
+    SVGStyle s0 = new SVGStyle { Stroke = "#202020", StrokeWidth = 2, StrokeDasharray = "2,2" };
+    SVGStyle s1 = new SVGStyle { Stroke = "#202020", StrokeWidth = 2, StrokeDasharray = "5,1" };
+    SVGStyle s2 = new SVGStyle { Stroke = "#202020", StrokeWidth = 2 };
+    SVGStyle s3 = new SVGStyle { Stroke = "#202020", StrokeWidth = 2, StrokeDasharray = "5,1" };
+    SVGStyle s4 = new SVGStyle { Stroke = "#202020", StrokeWidth = 2, StrokeDasharray = "2,2" };
+
+    SVGStyle sA = new SVGStyle { Fill = colors[4], Stroke = "transparent" };
+    SVGStyle sB = new SVGStyle { Fill = colors[3], Stroke = "transparent" };
+    SVGStyle sC = new SVGStyle { Fill = colors[2], Stroke = "transparent" };
+    SVGStyle sD = new SVGStyle { Fill = colors[1], Stroke = "transparent" };
+    SVGStyle sE = new SVGStyle { Fill = colors[0], Stroke = "transparent" };
+}
+
+@section Scripts{
+<script type="text/javascript">
+    function drawAlarmZone(chart, engine, xmin, ymin, xmax, ymax, fill) {
+        var pt1 = chart.dataToPoint(new wijmo.Point(xmin, ymin));
+        var pt2 = chart.dataToPoint(new wijmo.Point(xmax, ymax));
+        engine.fill = fill;
+        engine.drawRect(Math.min(pt1.x, pt2.x), Math.min(pt1.y, pt2.y), Math.abs(pt2.x - pt1.x), Math.abs(pt2.y - pt1.y));
+    }
+
+    var zones = [
+        @zones[0],
+        @zones[1],
+        @zones[2],
+        @zones[3],
+    ];
+
+    var chartRendering,
+        colors = ["rgba(255,192,192,0.2)",
+                "rgba(55,328,228,0.5)",
+                "rgba(255,228,128,0.5)",
+                "rgba(128,255,128,0.5)",
+                "rgba(128,128,225,0.5)"];
+
+    chartRendering = function (sender, e) {
+        for (var i = 0; i < 5; i++) {
+            var ymin = i == 0 ? sender.axisY.actualMin : zones[i - 1];
+            var ymax = i == 4 ? sender.axisY.actualMax : zones[i];
+            drawAlarmZone(sender, e.engine, sender.axisX.actualMin, ymin, sender.axisX.actualMax, ymax, colors[i]);
+        }
+    }
+</script>
+}
+
+<c1-flex-chart id="flexChart" chart-type="Scatter" binding-x="X" rendering="chartRendering">
+    <c1-items-source source-collection="studentPoints"></c1-items-source>
+    <c1-flex-chart-series binding="Y" name="raw score" symbol-size="6"></c1-flex-chart-series>
+    
+    <c1-flex-chart-series binding-x="X" binding="Y" name="m-2s" chart-type="Line" style="s0">
+        <c1-items-source source-collection="lineSeriesDataList[0]"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="m-1s" chart-type="Line" style="s1">
+        <c1-items-source source-collection="lineSeriesDataList[1]"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="mean" chart-type="Line" style="s2">
+        <c1-items-source source-collection="lineSeriesDataList[2]"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="m+1s" chart-type="Line" style="s3">
+        <c1-items-source source-collection="lineSeriesDataList[3]"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="m+2s" chart-type="Line" style="s4">
+        <c1-items-source source-collection="lineSeriesDataList[4]"></c1-items-source>
+    </c1-flex-chart-series>
+
+    <c1-flex-chart-series chart-type="Area" name="A" style="sA"></c1-flex-chart-series>
+    <c1-flex-chart-series chart-type="Area" name="B" style="sB"></c1-flex-chart-series>
+    <c1-flex-chart-series chart-type="Area" name="C" style="sC"></c1-flex-chart-series>
+    <c1-flex-chart-series chart-type="Area" name="D" style="sD"></c1-flex-chart-series>
+    <c1-flex-chart-series chart-type="Area" name="E" style="sE"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.Zones_Zones)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Zones_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Zones_Text1)</p>
+}

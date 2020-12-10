@@ -1,0 +1,37 @@
+.multi-item-carousel .carousel-inner > .item {
+  transition: 500ms ease-in-out left;
+}
+.multi-item-carousel .carousel-inner .active.left {
+  left: -33%;
+}
+.multi-item-carousel .carousel-inner .active.right {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .next {
+  left: 33%;
+}
+.multi-item-carousel .carousel-inner .prev {
+  left: -33%;
+}
+@media all and (transform-3d), (-webkit-transform-3d) {
+  .multi-item-carousel .carousel-inner > .item {      
+      left:10%;
+    transition: 500ms ease-in-out all;
+    backface-visibility: visible;
+    transform: none!important;
+  }
+}
+.multi-item-carousel .carouse-control.left,
+.multi-item-carousel .carouse-control.right {
+  background-image: none;
+}
+
+.multi-item-carousel .carousel-inner .item a{
+  cursor: pointer;
+}
+
+.multi-item-carousel .carousel-inner .item img{  
+  
+}
+
+

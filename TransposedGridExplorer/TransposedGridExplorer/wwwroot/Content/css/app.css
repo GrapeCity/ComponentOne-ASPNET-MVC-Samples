@@ -1,0 +1,113 @@
+﻿body {
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #001F29;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+a.active {
+    text-decoration: underline;
+}
+
+.header {
+    color: #383838;
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #383838;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+ul.flat-list {
+    list-style-type: none;
+    margin-bottom: 0;
+    padding-left: 7px;
+}
+
+    ul.flat-list > li {
+        margin-bottom: 5px;
+    }
+
+        ul.flat-list > li:last-child {
+            margin-bottom: 0;
+        }
+
+
+.small {
+    display: block;
+    font-size: 0.75em;
+    margin: 0 0 1em 0;
+}
+
+[data-toggle].read-more {
+    display: inline-block;
+}
+
+.snapping {
+    -ms-touch-action: none;
+    touch-action: none;
+}
+
+.TransposedGrid {
+    height: 600px;
+    border: 2px solid #e0e0e0;
+    margin: 6px;
+}
+
+input[type="file"] {
+    display: inline-block;
+}
+
+.input-control {
+    display: inline-block;
+    width: inherit;
+}
+
+.panel-body .btn {
+    margin-top: -4px;
+}
+
+.panel-warning {
+    border-color: #FFB166;
+}
+
+    .panel-warning .panel-heading {
+        background-color: #FFB166;
+    }
+
+.row {
+    margin-bottom: 10px;
+    margin-left: 0px;
+}
+
+.wj-header-row {
+    background-color: #ABD0ED !important;
+    color: #000000 !important;
+}
+
+.demo-control .form-control {
+    height: auto;
+}
+
+label {
+    width: 160px;
+}

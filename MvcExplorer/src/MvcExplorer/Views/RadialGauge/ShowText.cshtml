@@ -1,0 +1,10 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-radial-gauge id="@demoSettingsModel.ControlId" min="0" max="10" value="5" show-text="All" width="300px" height="180px">
+</c1-radial-gauge>
+
+@section Description{
+    @Html.Raw(RadialGaugeRes.ShowText_Text0)
+}

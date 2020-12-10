@@ -1,0 +1,75 @@
+@model IEnumerable<ProductData>
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoOptions;
+}
+
+<c1-pivot-engine id="indexEngine">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-view-field-collection c1-property="RowFields" items="Country"></c1-view-field-collection>
+    <c1-view-field-collection c1-property="ColumnFields" items="Product"></c1-view-field-collection>
+    <c1-view-field-collection c1-property="ValueFields" items="Sales"></c1-view-field-collection>
+</c1-pivot-engine>
+
+<div class="row">
+    <div class="col-sm-3 col-md-3">
+        <c1-slicer id="slicer" pivot-engine-id="indexEngine" show-header="true" header="@OlapRes.Slicer_Text4" field="Country" show-checkboxes="true"></c1-slicer>
+    </div>
+    <div class="col-sm-9 col-md-9">
+        <c1-pivot-grid id="indexGrid" items-source-id="indexEngine"></c1-pivot-grid>
+    </div>
+</div>
+<p>
+    @Html.Raw(OlapRes.Slicer_Text0)
+</p>
+
+@Html.Raw(OlapRes.Slicer_Text1)&nbsp;<input id="showHeader" type="checkbox" checked="checked" onchange="showHeader()" /><br />
+@Html.Raw(OlapRes.Slicer_Text2)&nbsp;<input id="showCheckbox" type="checkbox" checked="checked" onchange="showCheckbox()" /><br />
+@Html.Raw(OlapRes.Slicer_Text3)&nbsp;<input id="multiSelect" type="checkbox" onchange="setMultiSelect()" /><br />
+
+<p></p>
+
+@section Scripts{
+    <script type="text/javascript">
+        function showHeader() {
+            var slicer = wijmo.Control.getControl("#slicer");
+            var checkbox = document.getElementById("showHeader");
+            slicer.showHeader = checkbox.checked;
+        }
+
+        function showCheckbox() {
+            var slicer = wijmo.Control.getControl("#slicer");
+            var checkbox = document.getElementById("showCheckbox");
+            slicer.showCheckboxes = checkbox.checked;
+        }
+
+        function setMultiSelect(isSliderButton) {
+            var slicer = wijmo.Control.getControl("#slicer");
+            var checkbox = document.getElementById("multiSelect");
+            if (isSliderButton) {
+                checkbox.checked = slicer.multiSelect;
+            } else {
+                slicer.multiSelect = checkbox.checked;
+            }
+        }
+
+        //slicer button click to change 'Allow multi select' checkbox
+        $(document).ready(function () {
+            $("#slicer button").on("click", function (e) {
+                setMultiSelect(true);
+            });
+        });
+    </script>
+}
+@section Settings{
+        @Html.Partial("_OptionsMenu", optionsModel)
+}
+@section Description{
+    @Html.Raw(OlapRes.Slicer_Desc)
+
+}
+@section Summary{
+    <p>
+        @Html.Raw(OlapRes.Slicer_Summary)
+    </p>
+
+}

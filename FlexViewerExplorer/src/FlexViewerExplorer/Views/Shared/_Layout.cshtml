@@ -1,0 +1,141 @@
+﻿@using FlexViewerExplorer.Models
+
+@{
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    ViewBag.DocLink = "https://help.grapecity.com/componentone/NetHelp/c1mvccore/webframe.html";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@Html.Raw(FlexViewerRes._Layout_Text9)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+    @{
+        Theme.SetCurrentTheme(Context);
+    }
+    <c1-styles theme="@Theme.GetCurrentTheme(Context)" />
+    <link href="~/Content/css/bootstrap/bootstrap.min.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+
+    <link href="~/Content/css/explorer.css" rel="stylesheet" />
+    <link href="@Html.Raw(FlexViewerRes.GcIconsCssPath)" rel="stylesheet" />
+    <link href="~/Content/css/app.css" rel="stylesheet" />
+    <link href="~/Content/css/site.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+
+    <script>
+        var siteRootUrl = '@Url.Content("~/")';
+    </script>
+
+    <script src="~/Scripts/jquery.min.js"></script>
+    <c1-scripts>
+        <c1-flex-viewer-scripts />
+    </c1-scripts>
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js" type="text/javascript"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js" type="text/javascript"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js" type="text/javascript"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js" type="text/javascript"></script>
+    <script src="~/Scripts/site.js"></script>
+    @RenderSection("Scripts", false)
+</head>
+<body>
+    <div class="hide">
+        @Html.Partial("_SiteNav", true)
+    </div>
+    <header>
+        <a class="logo-container" href="@Html.Raw(FlexViewerRes._SiteNav_Text5)" target="_blank">
+            <i class="gcicon-product-c1"></i>@Html.Raw(FlexViewerRes._Layout_Text6)
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Html.Raw(FlexViewerRes._Layout_Text7)</span>
+            <span class="semi-bold wide-screen">@Html.Raw(FlexViewerRes._Layout_Text8)</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="title-content ui-helper-clearfix">
+            <div class="title-container">
+                <div class="navigator ui-helper-clearfix">
+
+                    <div class="home-title wide-screen">
+                        <span>ReportViewer - @ReportFiles.SelectedReportTitle</span>
+                    </div>
+                    @Html.Partial("_ControlsMobNav")
+                </div>
+            </div>
+            @RenderSection("ContentTitle", false)
+        </div>
+    </section>
+    <div class="main-content">
+        <div class="col-md-3 side wide-screen">
+            <div class="padder">
+                @Html.Partial("_ControlsNav")
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="padder">
+                <div class="sample-title mob-show-0">
+                    @ViewBag.PageText
+                </div>
+                <div id="sampleTabs">
+                    <ul id="navList" class="nav nav-tabs ui-helper-clearfix mob-hide-1" role="tablist">
+                        <li><a>@Html.Raw(FlexViewerRes._Layout_Text4)</a></li>
+                        <li><a>@Html.Raw(FlexViewerRes._Layout_Text5)</a></li>
+                    </ul>
+                    <div id="panelList" class="tab-content">
+                        <a class="mob-show-1 tab-title collapse-title" href="#">@Html.Raw(FlexViewerRes._Layout_Text4)<span class="caret"></span></a>
+                        <div class="tab-pane pane-content active collapse-panel" id="sample">
+                            <div class="demo-control">@RenderBody()</div>
+                        </div>
+                        <a class="mob-show-1 tab-title collapse-title" href="#">@Html.Raw(FlexViewerRes._Layout_Text5)<span class="caret"></span></a>
+                        <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                            <div class="demo-source">
+                                @Html.Partial("_DemoSource", PageSources.GetPageSources(controllerName, actionName))
+                            </div>
+                        </div>
+                        <div class="mob-tab-title mob-show-1"><a class="collapse-title" href=@ViewBag.DocLink target="_blank" style="text-decoration: underline;">@Html.Raw(FlexViewerRes._Layout_Text2)</a></div>
+                    </div>
+                    <a id="docs" href=@ViewBag.DocLink target="_blank" style="display:none"><span class="mob-hide-1">@Html.Raw(FlexViewerRes._Layout_Text2)</span><span class="mob-show-1">@Html.Raw(FlexViewerRes._Layout_Text3)</span></a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <c1-popup id="popupFullScreen" modal="true" hide-trigger="None">
+        <div id="popupFullScreen" class="popup">
+            <label>@Html.Raw(FlexViewerRes._Layout_Text1)<span class="countdown-text" id="countdownText"></span></label>
+            <div class="btn-group-popup">
+                <input class="btn btn-primary" type="button" value="@Html.Raw(FlexViewerRes._Layout_Text10)" onclick="fullScreenViewer()" />
+                <input class="btn btn-primary" type="button" value="@Html.Raw(FlexViewerRes._Layout_Text11)" onclick="showFullScreenPopup(false)" />
+            </div>
+        </div>
+    </c1-popup>
+
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © @DateTime.Now.Year @Html.Raw(FlexViewerRes._Layout_Text0)
+        </p>
+        @{
+            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

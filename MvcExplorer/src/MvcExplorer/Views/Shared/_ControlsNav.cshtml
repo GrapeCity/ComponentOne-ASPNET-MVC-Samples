@@ -1,0 +1,17 @@
+﻿<script>
+    function controlNav_formatItem(s, e) {
+        var elem = e.element;
+        var content = elem.innerHTML;
+        elem.innerHTML = "<a href=\"" + e.dataItem.Path + "\">" + content + "<span class='right-icon'</span></a>";
+    }
+    function controlNav_LoadedItems(control, e) {
+        var page = findPage(control.itemsSource, actionName);
+        control.collapseToLevel(0);
+        control.selectedItem = page;
+        control.selectedNode.isCollapsed = false;
+    }
+</script>
+<h4 class="semi-bold wide-screen">@Html.Raw(Resource.ControlsNav_Features)</h4>
+<c1-tree-view id="controlNav" class="page-nav wide-screen" format-item="controlNav_formatItem" loaded-items="controlNav_LoadedItems"
+              source="(IEnumerable<ControlPage>)ViewBag.Pages" display-member-path="Text" child-items-path="SubPages">
+</c1-tree-view>

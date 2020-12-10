@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+<c1-flex-grid id="@controlId" height="500px" is-read-only="true" auto-generate-columns="false"
+        sorting-type="None" group-by="ShipCountry,ShipCity" show-groups="true">
+    <c1-items-source read-action-url="@Url.Action("CheckboxSelection_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="OrderID" header="Id"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipCountry" header="Ship Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipCity" header="Ship City"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShippedDate" header="Shipped Date"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipAddress" header="Ship Address" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Freight" header="Freight" format="c2" aggregate="Sum"></c1-flex-grid-column>
+    <c1-flex-grid-selector show-check-all="true"></c1-flex-grid-selector>
+</c1-flex-grid>
+
+@section Scripts{
+    <script>
+        function customChangeCheckboxColumn(grid, name) {
+            let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+            if (name == "Header") {
+                selector.column = grid;
+            } else {
+                selector.column = grid.getColumn(name);
+            }
+            grid.endUpdate();
+        }
+        function customChangeShowCheckAll(grid, value) {
+            let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+            selector.showCheckAll = value == "False" ? false : true;
+            grid.endUpdate();
+        }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(FlexGridRes.CheckboxSelection_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.CheckboxSelection_Text1)</p>
+}

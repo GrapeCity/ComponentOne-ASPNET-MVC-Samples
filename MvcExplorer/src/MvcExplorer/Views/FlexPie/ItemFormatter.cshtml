@@ -1,0 +1,30 @@
+﻿@section Scripts{
+<script>
+    function formatItem(engine, hitTestInfo, defaultFormatter) {
+        var fsz = engine.fontSize;
+        engine.fontSize = '10';
+        defaultFormatter();
+        var point = hitTestInfo.point.clone();
+        var text = hitTestInfo.name + '=' + hitTestInfo.value.toFixed(1);
+        var sz = engine.measureString(text);
+        var fill = engine.fill;
+        var x = point.x - 2 - sz.width / 2;
+        var y = point.y - sz.height + 4;
+        engine.fill = 'white';
+        engine.drawRect(x, y < 0 ? 0 : y, sz.width + 4, sz.height);
+        engine.fill = fill;
+        point.x -= sz.width / 2;
+        point.y += 4;
+        engine.drawString(text, point);
+        engine.fontSize = fsz;
+    }
+</script>
+}
+
+<c1-flex-pie binding-name="Country" binding="Count" item-formatter="formatItem">
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-flex-pie>
+
+@section Description{
+    @Html.Raw(FlexPieRes.ItemFormatter_Text0)
+}

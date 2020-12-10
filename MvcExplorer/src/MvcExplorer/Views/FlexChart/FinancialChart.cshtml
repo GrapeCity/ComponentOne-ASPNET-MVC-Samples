@@ -1,0 +1,33 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var chartType = demoSettingsModel.GetEnum("ChartType", C1.Web.Mvc.Chart.ChartType.Candlestick);
+}
+
+@section Scripts{
+<script type="text/javascript">
+    var tooltipContent = function (ht) {
+        var item = ht.series.collectionView.items[ht.pointIndex];
+        return 'Date: ' + wijmo.Globalize.format(ht.x, 'MMM-dd') + '<br/>' +
+                    'High: ' + item.High.toFixed() + '<br/>' +
+                    'Low: ' + item.Low.toFixed() + '<br/>' +
+                    'Open: ' + item.Open.toFixed() + '<br/>' +
+                    'Close: ' + item.Close.toFixed();
+    };
+</script>
+}
+
+<c1-flex-chart id="@demoSettingsModel.ControlId" chart-type="@chartType" binding-x="X" symbol-size="4">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="High,Low,Open,Close"></c1-flex-chart-series>
+    <c1-flex-chart-axis c1-property="AxisX" format="MMM-dd"></c1-flex-chart-axis>
+    <c1-flex-chart-tooltip content="tooltipContent"></c1-flex-chart-tooltip>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.FinancialChart_FinancialChart)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.FinancialChart_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.FinancialChart_Text1)</p>
+}

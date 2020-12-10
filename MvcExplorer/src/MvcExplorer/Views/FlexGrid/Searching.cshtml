@@ -1,0 +1,110 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    var cssMatch = optionsModel.Options["Css Match"].CurrentValue;
+    if (cssMatch == "Default")
+    {
+        cssMatch = "wj-state-match";
+    }
+}
+
+<p id="theSearch"></p>
+
+<c1-flex-grid id="theFlexGrid" class="grid" auto-generate-columns="false" is-read-only="true" auto-search="true"
+        case-sensitive-search="@(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("Searching_Bind")"></c1-items-source>
+    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+</c1-flex-grid>
+
+<c1-flex-grid-search id="theSearch" grid="theFlexGrid" placeholder="@Html.Raw(FlexGridRes.EnterTextSearch_Text0)"
+                     delay="@(Convert.ToInt32(optionsModel.Options["Delay"].CurrentValue))" css-match="@cssMatch"></c1-flex-grid-search>
+
+<p>
+    @Html.Raw(FlexGridRes.Searching_Text2) <b><span id="searchCount"></span></b>.
+</p>
+
+<style type="text/css">
+    .color-match {
+        color: orangered !important;
+        background-color: #C3EFA2 !important;
+        font-weight: bold;
+    }
+
+    .underline-match {
+        color: black !important;
+        background-color: yellow !important;
+        font-weight: bold;
+        text-decoration: underline !important;
+    }
+
+    .style-match {
+        color: darkgreen !important;
+        background-color: lightyellow !important;
+        font-style: oblique;
+        text-shadow: 2px 2px 5px green;
+    }
+</style>
+
+@section Scripts {
+    <script>
+        function saveValue(key, value) {
+            if (sessionStorage) {
+                sessionStorage.setItem(key, value);
+            } else {
+                $.cookies.set(key, value);
+            }
+        }
+
+        function getValue(key) {
+            if (sessionStorage) {
+                return sessionStorage.getItem(key);
+            } else {
+                return $.cookies.get(key);
+            }
+        }
+
+        function updateSearchCount(theGrid) {
+            let cnt = theGrid.collectionView.items.length;
+            document.getElementById('searchCount').textContent = cnt;
+        }
+
+        window.onbeforeunload = function () {
+            let theSearch = wijmo.Control.getControl("#theSearch");
+            saveValue("SearchValue", theSearch.text || "");
+        }
+
+        c1.documentReady(function () {
+            let theSearch = wijmo.Control.getControl("#theSearch");
+            theSearch.text = getValue("SearchValue") || theSearch.text || "";
+
+            let theGrid = wijmo.Control.getControl("#theFlexGrid");
+            theGrid.collectionView.collectionChanged.addHandler(function () {
+                updateSearchCount(theGrid);
+            });
+        });
+    </script>
+}
+
+@section Settings {
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Summary {
+    <p>@Html.Raw(FlexGridRes.Searching_Text0)</p>
+}
+
+@section Description {
+    <p>@Html.Raw(FlexGridRes.Searching_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.Searching_Text3)</p>
+}

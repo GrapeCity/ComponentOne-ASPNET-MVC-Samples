@@ -1,0 +1,147 @@
+﻿body
+{
+    font-family: 'Segoe UI', sans-serif;
+}
+
+th
+{
+    font-size: 90%;
+    color: #b0b0b0;
+}
+
+.header
+{
+    background-color: #f27c0a;
+    background-position: 0% 0%;
+    background-repeat: repeat-x;
+    padding: 12px 0px;
+    margin-bottom: 14px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: white;
+}
+.header a
+{
+    font-weight: bold;
+    color: #ffe44e;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.match
+{
+    font-weight: bold;
+    background-color: yellow;
+}
+
+/* remove borders and center-align table cells */
+.table> thead> tr> td, .table> tbody> tr> td, .table> tfoot> tr> td
+{
+    border: none;
+    vertical-align: middle;
+}
+
+/* clip cells with long content */
+.clipCell
+{
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+    min-width: 100px;
+}
+
+/* remove borders/padding from input cells */
+.inputCell  {
+    max-width: 80px;
+    padding: 2px;
+}
+.inputCell .wj-inputnumber 
+{
+    border: none;
+    background-color: #f8f8fa;
+    min-height: 20px;
+}
+
+/* customize appearance of the FlexGrid control */
+.wj-control {
+    outline: 0;
+}
+.wj-control.wj-flexgrid {
+    border: none;
+    padding: 6px;
+}
+.wj-header {
+    background-color: #fff;
+    color: #888;
+    font-weight: normal;
+}
+.wj-colheaders .wj-header {
+    background: linear-gradient(to bottom, #fff, #f4f4f4);
+    border-bottom: 2px solid #e0e0e0;
+    border-right: 1px solid #e0e0e0;
+}
+.wj-rowheaders .wj-header {
+    background: linear-gradient(to right, #fff, #f4f4f4);
+    border-right: 2px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.wj-topleft .wj-header {
+    background: linear-gradient(to bottom right, #fff, #f4f4f4);
+    border-right: 1px solid #e0e0e0;
+    border-bottom: 1px solid #e0e0e0;
+}
+.wj-cell {
+    border: none;
+}
+.wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background: #fff;
+}
+.wj-flexgrid .wj-group {
+    background: rgba(0, 0, 0, 0.1);
+}
+.wj-state-selected {
+    background: #e0e0e0;
+    color: #000;
+}
+.wj-state-multi-selected {
+    background: #f4f4f4;
+    color: #000;
+}
+
+/* customize appearance of chart selection */
+.wj-flexchart .wj-state-selected {
+    stroke-width: 6px;
+}
+
+.gcicon-logo-gc-horiz {
+    font-size: 44px;
+}
+
+    .gcicon-logo-gc-horiz:before {
+        content: "\e900";
+        color: #451a62;
+    }
+
+    

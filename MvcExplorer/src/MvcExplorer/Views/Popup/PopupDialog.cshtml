@@ -1,0 +1,230 @@
+﻿@section Styles{
+    <style>
+        .modal-body label {
+            padding: 0px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>
+    var popups, modal = true;
+    function showPopup(name) {
+        var popup, inputs;
+        if (!popups) {
+            popups = {};
+            popups["login"] = wijmo.Control.getControl("#popupLogin");
+            popups["create"] = wijmo.Control.getControl("#popupCreate");
+            popups["edit"] = wijmo.Control.getControl("#popupEdit");
+            popups["custom"] = wijmo.Control.getControl("#popupCustom");
+        }
+
+        popup = popups[name];
+        if (popup) {
+            inputs = popup.hostElement.querySelectorAll('input');
+            for (var i = 0; i < inputs.length; i++) {
+                if (inputs[i].type != 'checkbox') {
+                    inputs[i].value = '';
+                }
+            }
+
+            popup.modal = modal;
+            if (name == 'custom') {
+                popup.show(modal, function (sender) {
+                    if (sender.dialogResult == sender.dialogResultSubmit) {
+                        var customInput = document.getElementById("customInput");
+                        alert('@Html.Raw(PopupRes.PopupDialog_ResultSubmit) "' + sender.dialogResultSubmit + '", "' + customInput.value + '".');
+                    }
+                });
+            } else {
+                popup.show();
+            }
+        }
+    }
+
+    function check(pwd1, pwd2) {
+        if (pwd1.value !== pwd2.value) {
+            pwd2.setCustomValidity("Passwords don't match.");
+        } else {
+            pwd2.setCustomValidity("");
+        }
+    }
+
+    function checkCreate() {
+        var pwd1 = document.getElementById("createPwd1"),
+            pwd2 = document.getElementById("createPwd2");
+        check(pwd1, pwd2);
+    }
+
+    function checkEdit() {
+        var pwd1 = document.getElementById("editPwd1"),
+            pwd2 = document.getElementById("editPwd2");
+        check(pwd1, pwd2);
+    }
+
+    function changeModal() {
+        modal = wijmo.getElement("#modal").checked;
+    }
+
+    //The first input element will get focus after dialog shown.
+    function autoFocus(control) {
+        control.hostElement.querySelector("input").focus();
+    }
+
+    function hideDialog(evt, msg) {
+        // hide dialog
+        for (var e = evt.target; e; e = e.parentElement) {
+            if (wijmo.hasClass(e, 'wj-popup')) {
+                var dlg = wijmo.Control.getControl(e);
+                dlg.hide();
+            }
+        }
+
+        // show alert
+        alert(msg);
+    }
+    </script>
+}
+
+<label>@Html.Raw(PopupRes.PopupDialog_Text0)</label><br />
+<!-- The login popup dialog -->
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupLogin" hide-trigger="None" shown="autoFocus">
+    <form>
+        <h4 class="modal-header">
+            @Html.Raw(PopupRes.PopupDialog_LogIn)
+            <button type="button" tabindex="-1" class="close wj-hide">×</button>
+        </h4>
+        <div class="modal-body">
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Email) <input class="form-control" required="" type="email">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Password) <input class="form-control" type="password" required="" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_RememberMe)
+                <input type="checkbox">
+            </label>
+            <br>
+            <a href="#" class="wj-hide" onclick="showPopup('create')">@Html.Raw(PopupRes.PopupDialog_Text1)</a>
+        </div>
+        <div class="modal-footer">
+            <div style="float:left">
+                <img src="~/Content/css/images/icons/30/facebook.png" title="@(PopupRes.PopupDialog_Text2)"
+                     onclick="hideDialog(event, '@(PopupRes.PopupDialog_Text3)')">
+                <img src="~/Content/css/images/icons/30/google.png" title="@Html.Raw(PopupRes.PopupDialog_Text4)"
+                     onclick="hideDialog(event, '@Html.Raw(PopupRes.PopupDialog_Text5)')">
+            </div>
+            <button class="btn btn-primary" type="submit">
+                @Html.Raw(PopupRes.PopupDialog_LogIn)
+            </button>
+        </div>
+    </form>
+</c1-popup>
+
+<!-- The content of popup dialog to create account. -->
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCreate" hide-trigger="None" shown="autoFocus">
+    <form>
+        <h4 class="modal-header">
+            @Html.Raw(PopupRes.PopupDialog_CreateAccount)
+            <button type="button" tabindex="-1" class="close wj-hide">×</button>
+        </h4>
+        <div class="modal-body">
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Name)
+                <input class="form-control" required="" pattern=".{2,}" title="@(PopupRes.PopupDialog_Title2)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Email)
+                <input class="form-control" required="" type="email">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Password)
+                <input class="form-control" type="password" id="createPwd1" required="" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_ConfirmPassword)
+                <input class="form-control " type="password" id="createPwd2" required="" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" onclick="checkCreate()">
+                @Html.Raw(PopupRes.PopupDialog_CreateAccount)
+            </button>
+        </div>
+    </form>
+</c1-popup>
+
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupEdit" hide-trigger="None" shown="autoFocus">
+    <form>
+        <h4 class="modal-header">
+            @Html.Raw(PopupRes.PopupDialog_EditAccount)
+            <button type="button" tabindex="-1" class="close wj-hide">×</button>
+        </h4>
+        <div class="modal-body">
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_Email)
+                <input class="form-control" required="" type="email">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_CurrentPassword)
+                <input class="form-control" type="password" required="" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_NewName)
+                <input class="form-control" pattern=".{2,}" title="@(PopupRes.PopupDialog_Title2)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_NewPassword)
+                <input class="form-control" type="password" id="editPwd1" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+            <br>
+            <label>
+                @Html.Raw(PopupRes.PopupDialog_ConfirmNewPassword)
+                <input class="form-control" type="password" id="editPwd2" pattern=".{4,}" title="@(PopupRes.PopupDialog_Title4)">
+            </label>
+        </div>
+        <div class="modal-footer">
+            <button class="btn btn-primary" type="submit" onclick="checkEdit()">
+                @Html.Raw(PopupRes.PopupDialog_UpdateAccount)
+            </button>
+        </div>
+    </form>
+</c1-popup>
+
+<form id="popupCustom">
+    <h4 class="modal-header">
+        @Html.Raw(PopupRes.PopupDialog_Title5)
+        <button type="button" tabindex="-1" class="close wj-hide">×</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            @Html.Raw(PopupRes.PopupDialog_CustomInput)
+            <input id="customInput" class="form-control" type="text">
+        </label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">
+            OK
+        </button>
+    </div>
+</form>
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCustom" hide-trigger="None" shown="autoFocus" dialog-result-submit="OK"></c1-popup>
+
+<button class="btn btn-default" onclick="showPopup('login')">@Html.Raw(PopupRes.PopupDialog_LogIn)</button>
+<button class="btn btn-default" onclick="showPopup('create')">@Html.Raw(PopupRes.PopupDialog_CreateAccount)</button>
+<button class="btn btn-default" onclick="showPopup('edit')">@Html.Raw(PopupRes.PopupDialog_EditAccount)</button>
+<button class="btn btn-default" onclick="showPopup('custom')">@Html.Raw(PopupRes.PopupDialog_Custom)</button><br />
+<label>Modal <input type="checkbox" id="modal" checked="checked" onchange="changeModal()" /></label>
+
+@section Description{
+    @Html.Raw(PopupRes.PopupDialog_Text6)
+}

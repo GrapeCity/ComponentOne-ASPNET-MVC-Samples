@@ -1,0 +1,33 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net452</TargetFramework>
+    <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Remove="credentials.json" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20203.277" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20203.297" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore" Version="1.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" Version="1.0.6" />
+    <PackageReference Include="Microsoft.AspNetCore.StaticFiles" Version="1.1.3" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Debug" Version="1.0.2" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.BrowserLink" Version="1.0.1" />
+    <PackageReference Include="Google.Apis.Auth" Version="1.44.1" />
+    <PackageReference Include="Google.Apis.Drive.v3" Version="1.44.1.1876" />
+    <PackageReference Include="Microsoft.Azure.KeyVault.Core" Version="3.0.5" />
+    <PackageReference Include="WindowsAzure.Storage" Version="8.7.0" />
+  </ItemGroup>
+  
+</Project>

@@ -1,0 +1,1295 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchEditing_Text0" xml:space="preserve">
+    <value>&lt;b&gt;Excel 形式の編集：&lt;/b&gt;
+    FlexGrid では、Excel 形式の高速なセル内編集が組み込みでサポートされています。
+    余分な列を追加して、そこに表示モードと編集モードを切り替えるための［編集］ボタンを置く必要はありません。
+    </value>
+    <comment>&lt;b&gt;Excel-Style editing:&lt;/b&gt;
+    The FlexGrid has built-in support for Excel-like, fast, in-cell editing.
+    There is no need to add extra columns with 'Edit' buttons that switch
+    between display and edit modes.</comment>
+  </data>
+  <data name="BatchEditing_Text1" xml:space="preserve">
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、
+    「クイック編集」モードと呼ばれます。
+    このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。
+    ［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。
+    これは、「完全編集」モードと呼ばれます。
+    このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、ユーザーは
+    ［Enter］、［Tab］、または［Escape］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called
+    'quick-edit' mode.
+    In this mode, the cursor keys finish the editing and the grid moves the selection.
+    They can also start editing by pressing F2 or by clicking a cell twice.
+    This is called 'full-edit' mode.
+    In this mode, the cursor keys move the caret within the editor and the user must
+    press the Enter, Tab, or Escape keys to finish editing.</comment>
+  </data>
+  <data name="BatchEditing_Text2" xml:space="preserve">
+    <value>データを編集するには、次の 2 つのモードがあります。</value>
+    <comment>There are two modes for editing the data.</comment>
+  </data>
+  <data name="BatchEditing_Text3" xml:space="preserve">
+    <value>このモードでは、更新または作成された項目は、対応する行の編集の終了後にサーバーにコミットされます。削除された行は、即座にサーバーにコミットされます。</value>
+    <comment>In this mode, the item updated or created will be commit to the server after the corresponding row finishes editing. The removed row will be commit to the server immediately.</comment>
+  </data>
+  <data name="BatchEditing_Text4" xml:space="preserve">
+    <value>ユーザーがデータを更新する場合は、更新アクション URL が提供される必要があります。データを追加または削除する場合は、作成または削除アクション URL が提供される必要があります。
+    その後、ユーザーは対応するアクションでデータを編集する必要があります。これは、デフォルトモードです。</value>
+    <comment>If the user wants to update the data, the Update action Url should be provided. If he wants to add or remove the data, the Create or Delete action Url should be provided.
+    And the user should edit the data in the corresponding action. It is default mode.</comment>
+  </data>
+  <data name="BatchEditing_Text5" xml:space="preserve">
+    <value>FlexGrid には一括編集に対する組み込みのサポートがあり、ユーザーは複数の項目を更新、作成、または削除し、すべての変更を一度にデータソースにコミットできます。複数の変更のコミットは、グリッドをソート、ページング、またはフィルタ処理して行ったり、ボタンを 1 回クリックするだけで行うことができます。</value>
+    <comment>FlexGrid has in-built support for BatchEditing, the user can update, create or remove multiple items and commit all changes to the data source once . The user can commit multiple modifications by sorting, paging or filtering the grid or simply on a button click.</comment>
+  </data>
+  <data name="BatchEditing_Text6" xml:space="preserve">
+    <value>このモードでは、&lt;b&gt;BatchEditing&lt;/b&gt; アクション URL を提供する必要があります。</value>
+    <comment>The &lt;b&gt;BatchEditing&lt;/b&gt; action Url should be provided in this mode.</comment>
+  </data>
+  <data name="ColumnLayout_Text0" xml:space="preserve">
+    <value>FlexGrid にはクライアント columnLayout プロパティがあり、グリッド列とそのプロパティのリストを含む JSON 文字列を取得または設定します。
+    datamap 列はサポートされていません。
+    このサンプルでは、クライアントの columnLayout プロパティを使用して、列レイアウトをブラウザの localStorage に保持します。FlexGrid は、サーバー側での列レイアウトの保存/ロードをサポートします。
+    これは、列レイアウトをストレージ/データベースに保存して、ユーザーごとに異なる表示を行う場合に便利です。実装については、「ColumnLayout」のハウツーサンプルを参照してください。</value>
+    <comment>The FlexGrid has a client columnLayout property that gets or sets a JSON string containing a list of grid columns and their properties,
+    It doesn't support the datamap column.
+    This sample uses the client columnLayout property to persist the column layout to the browser's localStorage. FlexGrid also supports server-side saving\loading of column layout,
+    this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Please refer "ColumnLayout" HowTo sample for the implementation.</comment>
+  </data>
+  <data name="ColumnLayout_Text1" xml:space="preserve">
+    <value>これがどう動作するかを確認するには、次の手順に従います。</value>
+    <comment>To see how this works, follow these steps:</comment>
+  </data>
+  <data name="CustomEditors_Text0" xml:space="preserve">
+    <value>このサンプルは、カスタムエディタを使用して
+    FlexGrid セルの値を変更する方法を示します。</value>
+    <comment>This sample shows how you can use custom editors to change the values in
+    FlexGrid cells.</comment>
+  </data>
+	<data name="CustomEditors_Text1" xml:space="preserve">
+    <value>このサンプルは、EditTemplate プロパティおよび Editor プロパティを使用してグリッドの内部エディタ以外のエディタを設定する方法を示します。</value>
+	<comment>The sample demonstrates two ways to set up editors other than FlexGrid’s internal editor: EditTemplate and Column Editor properties.</comment>
+  </data>
+	<data name="CustomEditors_Text2" xml:space="preserve">
+    <value>ユーザーがセルの編集を開始すると、 エディタが表示され、フォーカスが取得されます。</value>
+	<comment>When the user starts editing a cell, the editor will show and get the focus.</comment>
+  </data>
+	<data name="CustomEditors_Text3" xml:space="preserve">
+    <value>次の 2 種類のエディタがあります。</value>
+	<comment>There can be two kinds of custom editors:</comment>
+  </data>
+	<data name="CustomEditors_Text4" xml:space="preserve">
+    <value>「Value」プロパティまたは「Text」プロパティを持つ C1 Input コントロール</value>
+	<comment>C1 Input controls which have "Value" or "Text" property:</comment>
+  </data>
+	<data name="CustomEditors_Text5" xml:space="preserve">
+    <value>EditTemplate プロパティを使用するには、C1 Input コントロールをテンプレートとして宣言して、その ID を列の EditTemplateId プロパティに割り当てるか、c1-flex-grid-cell-template タグでコントロールを宣言する必要があります。</value>
+    <comment>To use EditTemplate, you need to declare the C1 Input control as template then assign it's id to the EditTemplateId property of a column or declare the control under the c1-flex-grid-cell-template tag.</comment>
+  </data>
+	<data name="CustomEditors_Text6" xml:space="preserve">
+    <value>別の方法として、C1 Input コントロールを宣言し、その ID を列の Editor プロパティに割り当てることができます。</value>
+	<comment>The second way is to declare a C1 Input control as usual and then assign it's id to the Editor property of a column.</comment>
+  </data>
+	<data name="CustomEditors_Text7" xml:space="preserve">
+    <value>グリッドで新しい行を追加できる場合は、エディタの IsRequired を false に設定します。 セル全体をエディタに表示する場合は、スタイルの幅を「100%」に設定する必要があります。</value>
+	<comment>If the grid allows adding a new row, you need set the editor's IsRequired property to false. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</comment>
+  </data>
+	<data name="CustomEditors_Text8" xml:space="preserve">
+    <value>このサンプルでは、​​「Start」、「Country」、「Color」に Editor プロパティを使用し、「End」、「Amount」に EditTemplate プロパティを使用して、C1 Input コントロールをエディタとして設定します。</value>
+	<comment>This sample uses Editor property for "Start", "Country", "Color" and uses EditTemplate for "End", "Amount" to set C1 Input controls as the editors.</comment>
+  </data>
+	<data name="CustomEditors_Text9" xml:space="preserve">
+   <value>その他のコントロール、または「Value」プロパティまたは「Text」プロパティを持たない C1 コントロール</value>
+	<comment>Use a control or a C1 control that does NOT have a ”Value" or "Text" property:</comment>
+  </data>
+	<data name="CustomEditors_Text10" xml:space="preserve">
+    <value>このようなエディタでは、グリッドの OnClientCellEditEnding イベントを監視し、&lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;を設定して更新を適用する必要があります。&lt;/p&gt;</value>
+	<comment>In this type of editors, you need to listen to the grid's OnClientCellEditEnding event and set &lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;to apply updates.&lt;/p&gt;</comment>
+  </data>
+	<data name="CustomEditors_Text11" xml:space="preserve">
+    <value>次に、セル値をいつ更新し、アプリケーション内のグリッドからエディタを除去するかを検討する必要があります。 たとえば、エディタがフォーカスを失ったときに、セル値を更新してエディタを除去する必要があります。</value>
+	<comment>Then you need to consider when to update the cell value and remove the editor from the grid in your application. For example, when the editor blurs, we need to update the cell value and remove the editor.</comment>
+  </data>
+	<data name="CustomEditors_Text12" xml:space="preserve">
+    <value>この例では、「Product」列が&amp;lt;input /&amp;gt;をエディタとして使用しています。</value>
+	<comment>In this sample, the "Product" column uses &amp;lt;input /&amp;gt; as the editor to show this kind of editor.</comment>
+  </data>
+  <data name="CustomFooters_Text0" xml:space="preserve">
+    <value>このサンプルでは、FlexGrid を拡張して以下の 2 つのタイプのフッター要素を提供する方法を示します。</value>
+    <comment>This sample shows how to extend FlexGrid to provide two types of footer elements.</comment>
+  </data>
+  <data name="DataMap_Text0" xml:space="preserve">
+    <value>データマップは、グリッドに自動検索機能を提供します。たとえば、顧客の ID の代わりに顧客名、RGB 値の代わりに色名を表示できます。&lt;br /&gt;
+    関連付けられたデータマップを持つ列は、連結値の代わりにマップされた表示値に基づいてソートすることができます。</value>
+    <comment>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.</comment>
+  </data>
+  <data name="DataMap_Text1" xml:space="preserve">
+    <value>関連付けられたデータマップを持つ列は、AutoComplete、DropDownList、または RadioButtons として表示できます。これらのタイプを選択するには、&lt;b&gt;DataMapEditor&lt;/b&gt;プロパティを設定します。</value>
+    <comment>Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</comment>
+  </data>
+  <data name="DataMap_Text2" xml:space="preserve">
+    <value>&amp;nbsp;</value>
+    <comment>&amp;nbsp;</comment>
+  </data>
+  <data name="DataMap_Text3" xml:space="preserve">
+    <value>&amp;nbsp;</value>
+    <comment>&amp;nbsp;</comment>
+  </data>
+  <data name="DataMap_Text4" xml:space="preserve">
+    <value>&lt;b&gt;c1-flex-grid-column&lt;/b&gt; タグには &lt;b&gt;drop-down-css-class&lt;/b&gt; 属性があり、これによって
+    データマップ列の値の編集に使用できるドロップダウンのスタイルを設定できます。</value>
+    <comment>The &lt;b&gt;c1-flex-grid-column&lt;/b&gt; tag has a &lt;b&gt;drop-down-css-class&lt;/b&gt; attribue that can be used to
+    style the drop-downs used to edit values in data-mapped columns.</comment>
+  </data>
+  <data name="DataMap_Text5" xml:space="preserve">
+    <value>複数列エディタの実例を表示するには、
+    「Color」の列でいずれかのドロップダウンボタンをクリックするか、その列で
+    セルを選択して［F4］を押します。</value>
+    <comment>To see the multi-column editor
+    in action, click one of the drop-down buttons in the "Color" column, or select a cell in that
+    column and press F4:</comment>
+  </data>
+  <data name="Editing_Text0" xml:space="preserve">
+    <value>FlexGrid では、Excel 形式の高速なセル内編集が組み込みでサポートされています。
+    余分な列を追加して、そこに表示モードと編集モードを切り替えるための［編集］ボタンを置く必要はありません。
+    </value>
+    <comment>The FlexGrid has built-in support for Excel-like, fast, in-cell editing.
+    There is no need to add extra columns with 'Edit' buttons that switch
+    between display and edit modes.</comment>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、
+    「クイック編集」モードと呼ばれます。
+    このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。
+    ［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。
+    これは、「完全編集」モードと呼ばれます。
+    このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、ユーザーは
+    ［Enter］、［Tab］、または［Escape］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called
+    'quick-edit' mode.
+    In this mode, the cursor keys finish the editing and the grid moves the selection.
+    They can also start editing by pressing F2 or by clicking a cell twice.
+    This is called 'full-edit' mode.
+    In this mode, the cursor keys move the caret within the editor and the user must
+    press the Enter, Tab, or Escape keys to finish editing.</comment>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>グリッドオブジェクトまたは列オブジェクトの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティを使用して、
+        グリッドレベルまたは列レベルで編集を無効にすることができます。</value>
+    <comment>You can disable editing at the grid or column levels using the &lt;b&gt;isReadOnly&lt;/b&gt;
+        property of the grid or column objects.</comment>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>&lt;b&gt;モバイルデバイス：&lt;/b&gt;
+        モバイルデバイスは、ダブルクリックイベントを使用してズームインとズームアウトを行い、
+        デフォルトではキーボードが表示されません。モバイルデバイスのセルの編集を開始するには、
+        セルをクリックして選択してから、再度クリックして編集の開始を示すだけです。</value>
+    <comment>&lt;b&gt;Mobile Devices:&lt;/b&gt;
+        Mobile devices use the double-click event to zoom in and out, and do not show
+        a keyboard by default. To start editing a cell on mobile devices, simply click
+        a cell to select it, then click it again to indicate you want to start editing.</comment>
+  </data>
+  <data name="Editing_Text4" xml:space="preserve">
+    <value>&lt;b&gt;自動型検証/型強制：&lt;/b&gt;
+        ユーザーが列に無効な値（数値列または日付列に対して「hello」など）を入力すると、
+        その編集は適用されず、
+        セルは元の値を維持します。日時は、列に割り当てられた書式で解析されます。
+        </value>
+    <comment>&lt;b&gt;Automatic type Validation/Coercion:&lt;/b&gt;
+        If the user types anything that is invalid for the column (e.g. "hello" for a
+        numeric or date column), the edits won't be applied and the cell will keep its
+        original value. Dates and times are parsed using the format assigned to the
+        column.</comment>
+  </data>
+  <data name="Editing_Text5" xml:space="preserve">
+    <value>&lt;b&gt;チェックボックス：&lt;/b&gt;
+        デフォルトでは、（Excel と異なり）Boolean 値はチェックボックスとして表示されます。ユーザー
+        は、スペースバーをクリックするか押して、チェックボックスの値を変更できます。
+        チェックボックスは、「TRUE」文字列や
+        「FALSE」文字列を含むフィールドよりも読みやすく、編集が容易です。</value>
+    <comment>&lt;b&gt;Checkboxes:&lt;/b&gt;
+        By default (and unlike Excel), Boolean values are shown as checkboxes. Users
+        can change the checkbox values by clicking or by pressing the space bar.
+        Checkboxes are easier to read and to edit than fields containing "TRUE" or
+        "FALSE" strings.</comment>
+  </data>
+  <data name="Editing_Text6" xml:space="preserve">
+    <value>&lt;b&gt;複数行：&lt;/b&gt;
+        列の &lt;b&gt;multiline&lt;/b&gt; プロパティを true に設定すると、列内のセルのコンテンツは
+        改行文字（\n）で折り返されます。Excel と同様に、［Alt］+［Enter］を押して改行を入力できます。</value>
+    <comment>&lt;b&gt;Multiline:&lt;/b&gt;
+        When setting the column's &lt;b&gt;multiline&lt;/b&gt; property to true, the content of cells in
+        column would wrap at new line characters (\n). Like Excel, users can press ALT+ENTER to enter a new line.</comment>
+  </data>
+  <data name="Editing_Text7" xml:space="preserve">
+    <value>&lt;b&gt;編集モード：&lt;/b&gt;
+        データを更新するには、次の 2 つのモードがあります。
+        デフォルトでは、編集が終了すると更新操作がサーバーにコミットされます。
+        ユーザーが更新操作をデータソースサーバーにコミットする場合は、Update アクション、Delete アクション、または Create アクションの URL を提供する必要があります。
+        データソースを更新するために使用するコードは、対応するアクション内に記述する必要があります。
+        もう 1 つのモードは BatchEdit です。ユーザーは複数の項目を更新、作成、または削除できます。
+        これらの変更は、確認後に 1 回だけデータソースに対してコミットされます。これで、これらの変更はクライアント側の CollectionView の commit メソッドによってコミットできます。
+        ユーザーは、ソート動作、ページング動作、またはフィルタ処理動作によってこれらをコミットすることもできます。</value>
+    <comment>&lt;b&gt;Editing Mode:&lt;/b&gt;
+        There are two modes for updating the data.
+        By default, the update operation will be commit to the server once finishing editing.
+        If the user wants to commit the update operation to datasource server, the Update, Delete or Create action url should be provided.
+        And the corresponding codes used to update the datasource should be written in the corresponding action.
+        The other mode is called BatchEdit. The user can update, create or remove multiple items.
+        Once these modifications are confirmed, They could be commit to the data source only once. Now these modifications can be commit by the commit method of CollectionView in client side.
+        The user can also commit them by sorting, paging or filtering behavior.</comment>
+  </data>
+  <data name="Editing_Text9" xml:space="preserve">
+    <value>典型的な編集可能グリッドの例として、「Description」列にはテキストが複数行で表示されます。</value>
+    <comment>Here is a typical editable grid, the Description column shows text in multiline.</comment>
+  </data>
+  <data name="Editing_Text10" xml:space="preserve">
+    <value>ポップアップ編集は、Excel 形式のクイックデータ入力に対してネイティブ編集を有効にしたまま、
+    ［詳細の編集］ボタンを追加して、ユーザーが項目の詳細を編集できるフォームを呼び出します。</value>
+    <comment>Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds
+    an "Edit Detail" button to invoke a form where the user can edit the item details.</comment>
+  </data>
+  <data name="Editing_Text11" xml:space="preserve">
+    <value>この動作を確認するには、グリッドの項目を選択し、下の［詳細の編集］ボタンをクリックします。
+    これにより、現在の選択項目のデータをユーザーが編集できるフォームが表示されます。</value>
+    <comment>To see this in action, select an item on the grid and click the "Edit Detail" button below.
+    This will bring up a form where users can edit the data for the currently selected item.</comment>
+  </data>
+  <data name="Editing_Text12" xml:space="preserve">
+    <value>詳細フォームは、より多くのスペースを必要とする一方で場合によってはデータ入力が容易になる
+    特別な入力コントロールを使用します。このフォームには、変更をコミットする［OK］ボタンと
+    元のデータを復元する［キャンセル］ボタンがあります。どちらのアクションも、グリッドのデータソースとして使用される
+    &lt;b&gt;CollectionView&lt;/b&gt; の 1 回の呼び出しで実行されます。</value>
+    <comment>The detail form uses specialized input controls that take up more space but can make data
+    entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes
+    or restore the original data. Both actions are accomplished with a single call to the
+    &lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</comment>
+  </data>
+  <data name="Editing_Text13" xml:space="preserve">
+    <value>何らかの理由で Excel 形式の編集を避け、
+    各行に編集ボタンを追加する場合は（編集可能 HTML テーブルなど）、
+    1 つの &lt;b&gt;cellFormatter&lt;/b&gt; といくつかのコントローラメソッドを使用して実現できます。</value>
+    <comment>If for some reason you don't like the Excel-style editing and prefer to add editing
+    buttons to every row (typical of editable HTML tables), you can accomplish that
+    using a &lt;b&gt;cellFormatter&lt;/b&gt; and a few controller methods.</comment>
+  </data>
+  <data name="Editing_Text14" xml:space="preserve">
+    <value>次のグリッドは、この方法を示します。セルのボタンは、
+    コントローラのメソッドを呼び出して必要なアクションを実行します。</value>
+    <comment>The grid below demonstrates this approach. The buttons in the cells call
+    methods in the controller to perform the required actions:</comment>
+  </data>
+  <data name="ExcelImportExport_Text0" xml:space="preserve">
+    <value>このサンプルでは、FlexGrid コンテンツを Excel の xlsx ファイルにエクスポートまたはインポートする方法を示します。</value>
+    <comment>The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file.</comment>
+  </data>
+  <data name="ExcelImportExport_Text1" xml:space="preserve">
+    <value>FlexGrid コンテンツをエクスポートするには、FlexGrid インスタンスを &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; メソッドに渡します。これにより、xlsx ファイルのコンテンツが生成され、このコンテンツをローカルファイルに保存したり、サーバーに送ることができます。</value>
+    <comment>To export FlexGrid content, pass the FlexGrid instance to the &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; method. This generates xlsx file content, which can be saved to a local file or sent to a server.</comment>
+  </data>
+  <data name="ExcelImportExport_Text2" xml:space="preserve">
+    <value>xlsx ファイルから FlexGrid にデータを挿入するには、FlexGrid インスタンスと xlsx ファイルのコンテンツを &lt;b&gt;FlexGridXlsxConverter.load&lt;/b&gt; メソッドに渡します。</value>
+    <comment>To populate FlexGrid with data from an xlsx file, pass the FlexGrid instance and the xlsx file content to the &lt;b&gt;FlexGridXlsxConverter.load&lt;/b&gt; method.</comment>
+  </data>
+  <data name="ExcelImportExport_Text3" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt;CDN のリンク http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js から、jszip.js ライブラリを追加する必要があります。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt;You should add jszip.js library by yourself and the CDN link is:http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js</comment>
+  </data>
+  <data name="Globalization_Text0" xml:space="preserve">
+    <value>デフォルトでは、MVC コントロールは、アメリカ英語カルチャを使用してデータの書式設定と解析を行います。
+        小数点記号はピリオド、桁区切りはカンマ、
+        曜日は「Sunday」から「Saturday」です。</value>
+    <comment>By default, MVC controls format and parse the data using American English culture.
+        The decimal symbol is a period, the thousand separator is a comma, and the days of
+        the week are "Sunday" through "Saturday".</comment>
+  </data>
+  <data name="Globalization_Text1" xml:space="preserve">
+    <value>アプリケーションが他のカルチャをターゲットとする場合は、
+        HTML ページに MVC スクリプトを登録することで、該当するカルチャを登録します。</value>
+    <comment>If your application targets other cultures, register the appropriate culture by
+        registering the MVC scripts in your HTML pages.</comment>
+  </data>
+  <data name="Globalization_Text2" xml:space="preserve">
+    <value>たとえば、ドイツ語カルチャ向けにアプリケーションをローカライズする場合は、
+        スクリプトの登録時に「de」カルチャを登録します。</value>
+    <comment>For example, to localize an application for the German culture, register the "de"
+        culture while registering the scripts:</comment>
+  </data>
+  <data name="Globalization_Text3" xml:space="preserve">
+    <value>クライアント &lt;b&gt;FlexGridFilter&lt;/b&gt; クラスはローカライズ可能です。この機能を利用して、
+        UI 文字列を変更したり、条件と演算子のリストを変更することもできます。
+        </value>
+    <comment>The client &lt;b&gt;FlexGridFilter&lt;/b&gt; class is localizable, and you can take advantage
+        of this feature for modifying the UI strings and also the lists of conditions and
+        operators.</comment>
+  </data>
+  <data name="Globalization_Text4" xml:space="preserve">
+    <value>この例では、フィルタの &lt;b&gt;stringOperators&lt;/b&gt;、&lt;b&gt;numberOperators&lt;/b&gt;、&lt;b&gt;dateOperators&lt;/b&gt;、
+        および &lt;b&gt;booleanOperators&lt;/b&gt; にカスタム配列を割り当てることで、
+        演算子のリストをカスタマイズしました。</value>
+    <comment>In this sample, we customized the list of operators by assigning custom arrays to
+        the filter's &lt;b&gt;stringOperators&lt;/b&gt;, &lt;b&gt;numberOperators&lt;/b&gt;, &lt;b&gt;dateOperators&lt;/b&gt;,
+        &lt;b&gt;and booleanOperators&lt;/b&gt;.</comment>
+  </data>
+  <data name="Grouping_Text0" xml:space="preserve">
+    <value>このサンプルは、FlexGrid のグループ化のサポートを示します。作業のほとんどは、
+        グリッドのデータソースとして使用される CollectionView クラスによって行われます。
+        ビューの GroupBy メソッドを使用してグループ記述を設定できます。
+        JavaScript でグループ化を追加するには、1 つ以上の GroupDescription 
+        オブジェクトを collectionView.groupDescriptions プロパティに追加します。次に、
+        グリッドの showGroups プロパティが true に設定されていることを確認します。</value>
+    <comment>This sample shows grouping support in the FlexGrid. Most of the work is
+        done by the CollectionView class used as a data source for the grid.
+        You can config group description by GroupBy method in view.
+        To add grouping by Javascript, add one or more GroupDescription
+        objects to the collectionView.groupDescriptions property. And ensure
+        that the grid's showGroups property is set to true.</comment>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>グリッドの groupHeaderFormat プロパティを使用して、
+        グループヘッダー行に表示されるテキストをカスタマイズできます。デフォルトでは、これには、
+        ShipCountry などのグループ名、およびその後に現在のグループと
+        グループの項目数が表示されます。各 Column オブジェクトの format プロパティを使用して、
+        その列のグループヘッダーに表示される集計データの書式を設定します。
+        列の aggregate プロパティを使用して各列のデータの集約方法を指定している
+        ことに注意してください。</value>
+    <comment>You can customize the text that is displayed in group header rows using
+        the grid's groupHeaderFormat property. By default, this displays the name
+        of the group, for example, ShipCountry, followed by the current group and the
+        number of items in the group. Use the format property on each Column object
+        to format aggregated data displayed in the group header for that column.
+        Notice how we use the column's aggregate property to specify how to aggregate
+        the data for each column.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューは、FlexGrid の基本機能を示します。</value>
+    <comment>This view shows FlexGrid's basic features.</comment>
+  </data>
+  <data name="Paging_Text0" xml:space="preserve">
+    <value>このサンプルは、FlexGrid を使用してページ付きビューを実装する方法を示します。
+        すべての作業は、グリッドのデータソースとして使用される CollectionView クラスによって行われます。
+        ページングを有効にするには、&lt;b&gt;FlexGrid&lt;/b&gt; または &lt;b&gt;CollectionViewService&lt;/b&gt; の PageSize プロパティを設定します。
+        ページを切り替えるには、Pager コントロールを使用し、Pager.Owner プロパティを &lt;b&gt;FlexGrid&lt;/b&gt; または &lt;b&gt;CollectionViewService&lt;/b&gt; の ID に設定します。</value>
+    <comment>This sample shows how to implement paged views with the FlexGrid.
+        All the work is done by the CollectionView class used as a data source for the grid.
+        To enable paging, set the PageSize property of &lt;b&gt;FlexGrid&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.
+        To switch pages, use the Pager Control and set Pager.Owner property to the id of &lt;b&gt;FlexGrid&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</comment>
+  </data>
+  <data name="Paging_Text1" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt; ページング UI は、グリッド外で実装されます。これにより、
+        ページングメカニズムの外観と機能を完全に制御できます。
+        JavaScript で Pager をカスタマイズする方法については、クライアント CollectionView クラスを参照してください。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete
+        control over the appearance and functionality of the paging mechanism.
+        To customize the Pager by Javascript, please refer the client CollectionView class.</comment>
+  </data>
+  <data name="PDFExport_Text0" xml:space="preserve">
+    <value>&lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt; ベースの JavaScript ライブラリである FlexGridPdfConverter を使用して、サーバー側のコードを使用することなく、
+        FlexGrid を PDF（Portable Document Format）にエクスポートできます。</value>
+    <comment>You can use the FlexGridPdfConverter, a &lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;-based JavaScript library,
+        to export FlexGrid to PDF (Portable Document Format) without using any server-side code.</comment>
+  </data>
+  <data name="PDFExport_Text1" xml:space="preserve">
+    <value>FlexGrid をエクスポートするには、以下の引数を受け取る &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; 関数を使用する必要があります。</value>
+    <comment>To export a FlexGrid, you need to use the &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; function that takes the following arguments:</comment>
+  </data>
+  <data name="PDFExport_Text2" xml:space="preserve">
+    <value>このサンプルでは、上記のメニューを使用して、以下のエクスポート設定を変更できます。</value>
+    <comment>In this sample, you can change the following export settings using the menus above:</comment>
+  </data>
+  <data name="PDFExport_Text3" xml:space="preserve">
+    <value>このサンプルでは、FlexGridPdfConverter で FlexGrid の行のグループ化機能をサポートする方法を示します。</value>
+    <comment>This sample shows how the row grouping feature of the FlexGrid is supported in the FlexGridPdfConverter.</comment>
+  </data>
+  <data name="PDFExport_Text4" xml:space="preserve">
+    <value>このサンプルでは、FlexGridPdfConverter で FlexGrid のセル結合機能をサポートする方法を示します。</value>
+    <comment>This sample shows how the cell merging feature of the FlexGrid is supported in the FlexGridPdfConverter.</comment>
+  </data>
+  <data name="PDFExport_Text5" xml:space="preserve">
+    <value>このサンプルでは、FlexGridPdfConverter で FlexGrid のツリービュー機能をサポートする方法を示します。</value>
+    <comment>This sample shows how the tree view feature of the FlexGrid is supported in the FlexGridPdfConverter.</comment>
+  </data>
+  <data name="PDFExport_Text6" xml:space="preserve">
+    <value>このサンプルでは、FlexGrid は &lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt; フォントを使用し、
+            2 つの書体 &lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt; と &lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt; がドキュメントに埋め込まれます。
+            ヘッダーセルの表示には FiraSans-Bold.ttf（太字）書体が使用され、それ以外のコンテンツには FiraSans-Regular.ttf 
+            書体が使用されます。</value>
+    <comment>In this sample, FlexGrid uses font &lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt;
+            and two typefaces, &lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt; and &lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt;, are embeded into the document.
+            The FiraSans-Bold.ttf (boldface) typeface is used to display the header cells, and the FiraSans-Regular.ttf
+            typeface is used for rest of the content.</comment>
+  </data>
+  <data name="PDFExport_Text7" xml:space="preserve">
+    <value>そのために、以下のエクスポート設定が使用されます。</value>
+    <comment>To achieve this, the following export settings are used:</comment>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>一部の言語（特にアラビア語とヘブライ語）は、
+    ページの右から左にコンテンツをレンダリングします。HTML は、「dir」属性を使用してこれに適応しています。
+    任意の要素で「dir」を「rtl」に設定すると、
+    要素のコンテンツは右から左に流れます。</value>
+    <comment>Some languages (Arabic and Hebrew especially) render content from the right
+    to the left of the page. HTML accommodates this with the 'dir' attribute.
+    Setting 'dir' to 'rtl' on any element causes the element's content to flow 
+    from right to left.</comment>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>&lt;b&gt;FlexGrid&lt;/b&gt; は、これを自動的にサポートします。グリッドをホストする要素で
+    「dir」属性を「rtl」に設定すると、
+    列は右から左にレンダリングされます。コントロールのプロパティを設定する必要はありません。
+    </value>
+    <comment>The &lt;b&gt;FlexGrid&lt;/b&gt; supports this automatically. If the element hosting the
+    grid has the 'dir' attribute set to 'rtl', the grid will render columns 
+    from the right to the left. You don't have to set any properties on the 
+    control.</comment>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>「dir」属性値は継承されるので、たとえば、
+    body タグでこれを設定すると、グリッドを含むページ全体が
+    右から左にレンダリングされます。</value>
+    <comment>Note that the 'dir' attribute value is inherited, so if you set it on the
+    body tag for example, the entire page will be rendered from right to left,
+    including the grid.</comment>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>また、CSS には、「dir」要素属性と同じ機能を実行する 
+    「direction」属性があります。原則として「dir」属性の方が適切であると
+    考えられます。これには、
+    CSS ルールで使用できるなど、&lt;a href="http://www.w3.org/International/questions/qa-bidi-css-markup"&gt;いくつかの理由&lt;/a&gt;が
+    あります。</value>
+    <comment>Note also that CSS has a 'direction' attribute that performs the same 
+    function as the 'dir' element attribute. The 'dir' attribute is generally
+    considered more appropriate for 
+    &lt;a href="http://www.w3.org/International/questions/qa-bidi-css-markup"&gt;several reasons&lt;/a&gt;,
+    including the fact that the 'dir' attribute can be used in CSS rules.</comment>
+  </data>
+  <data name="StarSizing_Text0" xml:space="preserve">
+    <value>このグリッドには 4 つの列があります。最初の列は 80 ピクセルの幅で、
+        40 ピクセルから 160 ピクセルの間でサイズ変更できます。他の 3 つの列は、2*、*、および * の幅を持ち、マウスを使用して
+        サイズ変更することはできません。</value>
+    <comment>This grid has four columns. The first is 80 pixels wide and can be resized between
+        40 and 160 pixels. The other three have widths of 2*, *, and *, and cannot be
+        resized using the mouse.</comment>
+  </data>
+  <data name="StarSizing_Text1" xml:space="preserve">
+    <value>2 番目の列は、3 番目の列と 4 番目の列の 2 倍の幅があり、
+        この比率は、最初の列やグリッド全体をサイズ変更しても維持されます。</value>
+    <comment>Notice that the second column is twice as wide as the third and fourth columns, and that
+        they keep these proportions even as you resize the first column or the whole grid.</comment>
+  </data>
+  <data name="StarSizing_Text2" xml:space="preserve">
+    <value>このグリッドは、有効なスペース全体に列を引き伸ばす方法を示します。このような場合は、
+        2 番目の列の幅を * に設定してその効果を実現します。</value>
+    <comment>This grid shows how you can make any column stretch to fill the available space. In this case,
+        we set the width of the second column to * to achieve that effect.</comment>
+  </data>
+  <data name="StarSizing_Text3" xml:space="preserve">
+    <value>また、2 番目の列の最小幅を 100 ピクセルに設定して、
+        グリッドの他の列がサイズ変更されたときに狭くなり過ぎるのを避け、
+        ユーザーがこの列をマウスでサイズ変更できないようにします。</value>
+    <comment>We also set the minimum width of the second column to 100 pixels in order to prevent it from
+        getting too narrow when the other columns in the grid are resized, and we prevent users from 
+        resizing this column with the mouse.</comment>
+  </data>
+  <data name="StarSizing_Text4" xml:space="preserve">
+    <value>この例は、すべての幅を * に設定します。つまり、有効なスペースが均等に分割されます。
+        ブラウザをサイズ変更して、グリッドがサイズ変更されることと、グリッドが列の間で均等に分配されることを確認してください。</value>
+    <comment>This example sets all widths to *, which means the space available is divided equally among them.
+        Resize the browser and notice how the grid resizes and the columns fill it up equally.</comment>
+  </data>
+  <data name="StarSizing_Text5" xml:space="preserve">
+    <value>また、他の例とは異なり、この例は個々の列ではなくグリッド全体の allowResizing プロパティを 
+        設定します。ここでは None に設定しますが、Columns、Rows、または Both を選択することもできます。</value>
+    <comment>Also, unlike the other examples, this one sets the allowResizing property of the entire grid rather 
+        than an individual column. We set this one to None, but you may also choose Columns, Rows, or Both.</comment>
+  </data>
+  <data name="UnobtrusiveValidation_Text0" xml:space="preserve">
+    <value>このサンプルでは、控えめな検証の基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the unobtrusive validation.</comment>
+  </data>
+  <data name="UnobtrusiveValidation_Text1" xml:space="preserve">
+    <value>これらの列には、次の検証があります。
+        &lt;ul&gt;
+            &lt;li&gt;&lt;b&gt;Name：&lt;/b&gt;必須。英数字で 4 文字から 10 文字を含む。&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Industry：&lt;/b&gt;必須。&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Country：&lt;/b&gt;必須。&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Phone：&lt;/b&gt;必須。8 文字から 11 文字。&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Email：&lt;/b&gt;必須。有効な電子メールアドレス。&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Birthdate：&lt;/b&gt;必須。&lt;/li&gt;
+        &lt;/ul&gt;</value>
+    <comment>The columns have the following validations:
+        &lt;ul&gt;
+            &lt;li&gt;&lt;b&gt;Name:&lt;/b&gt; Required. Alphanumeric and contains 4 to 10 characters.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Industry:&lt;/b&gt; Required.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Country:&lt;/b&gt; Required.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Phone:&lt;/b&gt; Required. 8 to 11 characters.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Email:&lt;/b&gt; Required. Valid e-mail address.&lt;/li&gt;
+            &lt;li&gt;&lt;b&gt;Birthdate:&lt;/b&gt; Required.&lt;/li&gt;
+        &lt;/ul&gt;</comment>
+  </data>
+  <data name="BatchEditing_Update" xml:space="preserve">
+    <value>更新</value>
+    <comment>Update</comment>
+  </data>
+  <data name="BatchEditing_Normal" xml:space="preserve">
+    <value>標準</value>
+    <comment>Normal</comment>
+  </data>
+  <data name="BatchEditing_Batch" xml:space="preserve">
+    <value>一括更新</value>
+    <comment>Batch</comment>
+  </data>
+  <data name="BatchEditing_Updating" xml:space="preserve">
+    <value>更新中...</value>
+    <comment>Updating...</comment>
+  </data>
+  <data name="BatchEditing_NoChanges" xml:space="preserve">
+    <value>変更なし。</value>
+    <comment>No changes.</comment>
+  </data>
+  <data name="BatchEditing_Done" xml:space="preserve">
+    <value>完了。</value>
+    <comment>Done.</comment>
+  </data>
+  <data name="BuiltInValidation_Text0" xml:space="preserve">
+    <value>このサンプルでは、組み込みの検証の基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the built-in validation.</comment>
+  </data>
+  <data name="BuiltInValidation_Message1" xml:space="preserve">
+    <value>無効な国。["US", "UK", "Canada", "Japan", "China", "France", "German", "Italy", "Korea", "Australia"] の中の国を使用してください</value>
+    <comment>Invalid Country, Please use the country in the list["US", "UK", "Canada", "Japan", "China", "France", "German", "Italy", "Korea", "Australia"]</comment>
+  </data>
+  <data name="BuiltInValidation_Message2" xml:space="preserve">
+    <value>無効な製品。["Widget", "Gadget", "Doohickey"] の中の製品を使用してください</value>
+    <comment>Invalid Product, Please use the product in the list ["Widget", "Gadget", "Doohickey"]</comment>
+  </data>
+  <data name="BuiltInValidation_Message3" xml:space="preserve">
+    <value>0 未満または 5000 より大きくすることはできません。</value>
+    <comment>Cannot be less than 0 or greater than 5000!</comment>
+  </data>
+  <data name="BuiltInValidation_Message4" xml:space="preserve">
+    <value>US または UK でアクティブな項目は許可されません。</value>
+    <comment>Active items are not allowed in the US or UK!</comment>
+  </data>
+  <data name="ColumnLayout_SaveColumnLayout" xml:space="preserve">
+    <value>列レイアウトの保存</value>
+    <comment>Save Column Layout</comment>
+  </data>
+  <data name="ColumnLayout_LoadColumnLayout" xml:space="preserve">
+    <value>列レイアウトのロード</value>
+    <comment>Load Column Layout</comment>
+  </data>
+  <data name="ColumnLayout_Li1" xml:space="preserve">
+    <value>いくつかの列をサイズ変更し、新しい位置にドラッグします。</value>
+    <comment>Resize some columns and drag some to new positions.</comment>
+  </data>
+  <data name="ColumnLayout_Li2" xml:space="preserve">
+    <value>［列レイアウトの保存］ボタンをクリックし、変更をローカルストレージに保存します。</value>
+    <comment>Click the "Save Column Layout" button to save the changes to local storage.</comment>
+  </data>
+  <data name="ColumnLayout_Li3" xml:space="preserve">
+    <value>ページをリフレッシュして元のレイアウトを復元します。</value>
+    <comment>Refresh the page to restore the original layout.</comment>
+  </data>
+  <data name="ColumnLayout_Li4" xml:space="preserve">
+    <value>［列レイアウトのロード］ボタンをクリックしてレイアウトをローカルストレージから復元します。</value>
+    <comment>Click the "Load Column Layout" button to restore the layout from local storage.</comment>
+  </data>
+  <data name="CustomCells_Text0" xml:space="preserve">
+    <value>このビューは、FlexGrid コントロールのカスタムセル機能を示します。</value>
+    <comment>This view shows the FlexGrid control's custom cells features.</comment>
+  </data>
+  <data name="CustomFooters_Text1" xml:space="preserve">
+    <value>データをグループ化する方法を選択</value>
+    <comment>Select how to group the data</comment>
+  </data>
+  <data name="CustomFooters_None" xml:space="preserve">
+    <value>なし</value>
+    <comment>None</comment>
+  </data>
+  <data name="CustomFooters_Country" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="CustomFooters_Product" xml:space="preserve">
+    <value>製品</value>
+    <comment>Product</comment>
+  </data>
+  <data name="CustomFooters_ProductAndColor" xml:space="preserve">
+    <value>製品と色</value>
+    <comment>Product and Color</comment>
+  </data>
+  <data name="CustomFooters_Text2" xml:space="preserve">
+    <value>ここでデータを確認して編集</value>
+    <comment>See and edit the data here</comment>
+  </data>
+  <data name="CustomFooters_Li1" xml:space="preserve">
+    <value>&lt;b&gt;列フッター行&lt;/b&gt;：グリッドデータの下に、小計などのサマリー情報を含む
+            スクロール不可能な行を表示したい場合があります。
+            それには、&lt;b&gt;ShowColumnFooters(bool value = true, string rowHeaderText = null)&lt;/b&gt; メソッドを使用します。
+            &lt;b&gt;Aggregate&lt;/b&gt; プロパティが設定されたすべての列に対して、
+            自動的に値が提供されます。これが、このサンプルが実行していることです。</value>
+    <comment>&lt;b&gt;Column Footer Rows&lt;/b&gt;: In some situations you may want to display non-scrollable rows below
+            the grid data containing summary information such as subtotals.
+            This can be done by the &lt;b&gt;ShowColumnFooters(bool value = true, string rowHeaderText = null)&lt;/b&gt; method.
+            The grid will automatically provide values for any columns that have
+            the &lt;b&gt;Aggregate&lt;/b&gt; property set. This is what this sample does.</comment>
+  </data>
+  <data name="CustomFooters_Li2" xml:space="preserve">
+    <value>&lt;b&gt;グループフッター行&lt;/b&gt;：グループ化を有効にすると、FlexGrid が各グループの上にグループ行を追加します。
+            このサンプルでは、各グループの下にもカスタムグループ行を追加する方法を示します。</value>
+    <comment>&lt;b&gt;Group Footer Rows&lt;/b&gt;: When grouping is enabled, FlexGrid adds group rows above each group.
+            This sample shows how you can add custom group rows below each group as well.</comment>
+  </data>
+  <data name="DataMap_DataMap" xml:space="preserve">
+    <value>データマップ</value>
+    <comment>Data Map</comment>
+  </data>
+  <data name="DataMap_MultiColumnDataMap" xml:space="preserve">
+    <value>複数列のデータマップ</value>
+    <comment>Multi-column Data Map</comment>
+  </data>
+  <data name="DetailRow_Text0" xml:space="preserve">
+    <value>行の詳細セクションを追加すると、いくつかのデータをテンプレートにまとめて、それを任意に表示/非表示にすることができます。&lt;br /&gt;
+	たとえば、各行にデータのサマリーのみが表示される FlexGrid に行詳細を追加して、ユーザーが行を選択したときにその他のデータを表示することができます。&lt;br /&gt;
+	また、行に詳細があるかどうかを判定するためのコールバック関数を設定できます。</value>
+    <comment>Adding a row details section enables you to group some data in a template that is optionally visible or collapsed.&lt;br /&gt;
+	For example, you can add row details to a FlexGrid that presents only a summary of the data for each row, but presents more data when the user selects a row.&lt;br /&gt;
+	Also, you can set a callback function that determines whether a row has details.</comment>
+  </data>
+  <data name="DisableServerRead_Text0" xml:space="preserve">
+    <value>ページングを使用しない FlexGrid</value>
+    <comment>FlexGrid without paging</comment>
+  </data>
+  <data name="DisableServerRead_Text1" xml:space="preserve">
+    <value>PageSize を 10 に設定した FlexGrid のページング</value>
+    <comment>Paging FlexGrid which PageSize is set to 10</comment>
+  </data>
+  <data name="DisableServerRead_Text2" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;DisableServerRead&lt;/b&gt; プロパティが何に対して作用するかを示します。
+    このプロパティを True に設定した場合は、すべての項目がクライアント側に転送されます。ソート、ページング、またはフィルタ処理はクライアント側で実行されます。
+    この場合、スクロールバーをスクロールしたときに、データをロードするために「ロード中...」のようなメッセージは表示されません。
+    そうでない場合、ソート、ページング、またはフィルタ処理はサーバー側で実行されます。この場合は、「ロード中...」というメッセージが表示されることもあります。</value>
+    <comment>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for. 
+    When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.
+    And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.
+    Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</comment>
+  </data>
+  <data name="Editing_Editing" xml:space="preserve">
+    <value>編集</value>
+    <comment>Editing</comment>
+  </data>
+  <data name="Editing_Text15" xml:space="preserve">
+    <value>このサンプルでは、さまざまな方法でセルデータを編集する方法を示します。</value>
+    <comment>This sample shows how to edit cell data with various ways.</comment>
+  </data>
+  <data name="Editing_ExcelStyleEditing" xml:space="preserve">
+    <value>Excel 形式の編集</value>
+    <comment>Excel-Style editing</comment>
+  </data>
+  <data name="Editing_DialogTitle" xml:space="preserve">
+    <value>項目の編集</value>
+    <comment>Edit Item</comment>
+  </data>
+  <data name="Editing_CategoryID" xml:space="preserve">
+    <value>カテゴリ ID</value>
+    <comment>Category ID</comment>
+  </data>
+  <data name="Editing_CategoryName" xml:space="preserve">
+    <value>カテゴリ名</value>
+    <comment>Category Name</comment>
+  </data>
+  <data name="Editing_Description" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="Editing_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="Editing_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Editing_EditDetail" xml:space="preserve">
+    <value>詳細の編集...</value>
+    <comment>Edit Detail...</comment>
+  </data>
+  <data name="Editing_PopupEditing" xml:space="preserve">
+    <value>ポップアップ編集</value>
+    <comment>Popup editing</comment>
+  </data>
+  <data name="Editing_InlineEditing" xml:space="preserve">
+    <value>インライン編集</value>
+    <comment>Inline editing</comment>
+  </data>
+  <data name="Editing_Edit" xml:space="preserve">
+    <value>編集</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="Editing_Delete" xml:space="preserve">
+    <value>削除</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="Editing_ReadMore" xml:space="preserve">
+    <value>詳細</value>
+    <comment>Read More</comment>
+  </data>
+  <data name="ExcelImportExport_Import" xml:space="preserve">
+    <value>インポート</value>
+    <comment>Import</comment>
+  </data>
+  <data name="ExcelImportExport_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ExcelImportExport_IncludeColumnHeaders" xml:space="preserve">
+    <value>列ヘッダーを含む</value>
+    <comment>Include Column Headers</comment>
+  </data>
+  <data name="Filter_Text0" xml:space="preserve">
+    <value>このビューは、FlexGrid でフィルタ処理を使用する方法を示します。</value>
+    <comment>This view shows how to use filtering in FlexGrid.</comment>
+  </data>
+  <data name="FrozenCells_Text0" xml:space="preserve">
+    <value>このビューは、FlexGrid コントロールの固定セル機能を示します。</value>
+    <comment>This view shows the FlexGrid control's frozen cells features.</comment>
+  </data>
+  <data name="Globalization_Text5" xml:space="preserve">
+    <value>カルチャを選択してください</value>
+    <comment>Please select a culture</comment>
+  </data>
+  <data name="Globalization_Text6" xml:space="preserve">
+    <value>フィルタ UI をカスタマイズ</value>
+    <comment>Customize filter UI</comment>
+  </data>
+  <data name="Globalization_Text7" xml:space="preserve">
+    <value>このビューは、FlexGrid コントロールをローカライズする方法を示します。</value>
+    <comment>This view shows how to localize the FlexGrid control.</comment>
+  </data>
+  <data name="Globalization_Globalization" xml:space="preserve">
+    <value>グローバリゼーション</value>
+    <comment>Globalization</comment>
+  </data>
+  <data name="Globalization_Customization" xml:space="preserve">
+    <value>カスタマイズ</value>
+    <comment>Customization</comment>
+  </data>
+  <data name="GroupPanel_Text0" xml:space="preserve">
+    <value>GroupPanel 機能では、ドラッグドロップグループ化 UI を任意の FlexGrid コントロールに追加できます。</value>
+    <comment>The GroupPanel feature allows you to add a drag-drop grouping UI to any FlexGrid control.</comment>
+  </data>
+  <data name="GroupPanel_Placeholder1" xml:space="preserve">
+    <value>ここで列をドラッグするとグループが作成されます</value>
+    <comment>Drag columns here to create Groups</comment>
+  </data>
+  <data name="GroupPanel_Placeholder2" xml:space="preserve">
+    <value>ここに列をドラッグ...</value>
+    <comment>Drag columns here...</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>ASP.NET MVC 向けグリッドは、これまでよりも柔軟で強力な新しいバージョンの FlexGrid コントロールです。
+    このグリッドでは、データの選択、編集、ソート、グループ化、フィルタ処理、およびページングが可能です。さらに、この多用途の FlexGrid では、データの書式を設定したり、
+    階層化データをより簡単に視覚化することができます。FlexGrid にとってパフォーマンスは重要な属性なので、
+    中核となるコントロールは軽量・高速を維持し、複雑な機能が必要な場合は拡張機能を使用します。</value>
+    <comment>The grid for ASP.NET MVC is a brand new version of the FlexGrid control, more flexible and powerful than ever.
+    This grid allows you to select, edit, sort, group, filter &amp; page data. Additionally this versatile flexgrid lets you format
+    data and easily visualize hierarchical data. Performance is a vital attribute of FlexGrid hence the core control stays
+    lightweight &amp; fast and for complex features it uses extensions.</comment>
+  </data>
+  <data name="MasterDetail_Text0" xml:space="preserve">
+    <value>顧客：</value>
+    <comment>Customers:</comment>
+  </data>
+  <data name="MasterDetail_Text1" xml:space="preserve">
+    <value>選択された顧客のすべての注文：</value>
+    <comment>All orders of the selected Customer:</comment>
+  </data>
+  <data name="MasterDetail_Text2" xml:space="preserve">
+    <value>クライアント側 CollectionView は通貨を組み込みでサポートし、これによって FlexGrid でマスター/詳細シナリオを実装できます。&lt;strong&gt;currentItem&lt;/strong&gt; を参照して、ページ内の任意の要素の連結ソースとして使用できます。
+&lt;br/&gt;
+現在の項目が変更されたときは、詳細ビューを更新する必要があります。それには、&lt;strong&gt;currentChanged&lt;/strong&gt; イベントにハンドラをアタッチし、必要に応じて詳細ビューを更新します。</value>
+    <comment>The client side CollectionView has built-in support for currency, which enables you to implement master-detail scenarios with FlexGrid. You can refer to the &lt;strong&gt;currentItem&lt;/strong&gt; and use it as a binding source for any elements on the page.
+&lt;br/&gt;
+Note that you have to update the details view when the current item changes. To do that, attach a handler to the &lt;strong&gt;currentChanged&lt;/strong&gt; event and update the details view as needed.</comment>
+  </data>
+  <data name="MergeCells_Text0" xml:space="preserve">
+    <value>このビューは、FlexGrid コントロールの結合セル機能を示します。</value>
+    <comment>This view shows the FlexGrid control's merge cells features.</comment>
+  </data>
+  <data name="ODataBind_Text0" xml:space="preserve">
+    <value>この例は、FlexGrid と OData サービスを連結する方法を示します。</value>
+    <comment>This example shows how you can bind FlexGrid with an OData service.</comment>
+  </data>
+  <data name="PDFExport_Li1" xml:space="preserve">
+    <value>FlexGrid インスタンス。</value>
+    <comment>A FlexGrid instance.</comment>
+  </data>
+  <data name="PDFExport_Li2" xml:space="preserve">
+    <value>エクスポートするファイルの名前。</value>
+    <comment>Name of the file to export.</comment>
+  </data>
+  <data name="PDFExport_Li3" xml:space="preserve">
+    <value>エクスポートの設定。</value>
+    <comment>Export settings.</comment>
+  </data>
+  <data name="PDFExport_Li4" xml:space="preserve">
+    <value>&lt;b&gt;scaleMode&lt;/b&gt;：ページに合わせて FlexGrid コンテンツを拡大縮小する方法を決定します。</value>
+    <comment>&lt;b&gt;scaleMode&lt;/b&gt;: Determines how the FlexGrid content should be scaled in order to fit the page.</comment>
+  </data>
+  <data name="PDFExport_Li5" xml:space="preserve">
+    <value>&lt;b&gt;orientation&lt;/b&gt;：ページの向きを決定します。</value>
+    <comment>&lt;b&gt;orientation&lt;/b&gt;: Determines the orientation of pages.</comment>
+  </data>
+  <data name="PDFExport_Li6" xml:space="preserve">
+    <value>&lt;b&gt;exportMode&lt;/b&gt;：FlexGrid のどの部分（すべてのデータまたは現在の選択だけ）をエクスポートするかを決定します。</value>
+    <comment>&lt;b&gt;exportMode&lt;/b&gt;: Determines which part of the FlexGrid should be exported (all of the data or only the current selection).</comment>
+  </data>
+  <data name="PDFExport_ExportSettings" xml:space="preserve">
+    <value>エクスポートの設定：</value>
+    <comment>Export Settings:</comment>
+  </data>
+  <data name="PDFExport_ScaleMode" xml:space="preserve">
+    <value>拡大縮小モード：</value>
+    <comment>Scale Mode:</comment>
+  </data>
+  <data name="PDFExport_Orientation" xml:space="preserve">
+    <value>方向：</value>
+    <comment>Orientation:</comment>
+  </data>
+  <data name="PDFExport_ExportMode" xml:space="preserve">
+    <value>エクスポートモード：</value>
+    <comment>Export Mode:</comment>
+  </data>
+  <data name="PDFExport_GroupingSupport" xml:space="preserve">
+    <value>グループ化のサポート</value>
+    <comment>Grouping support</comment>
+  </data>
+  <data name="PDFExport_Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="PDFExport_MergingSupport" xml:space="preserve">
+    <value>結合のサポート</value>
+    <comment>Merging support</comment>
+  </data>
+  <data name="PDFExport_AllowMerging" xml:space="preserve">
+    <value>結合を許可：</value>
+    <comment>Allow Merging:</comment>
+  </data>
+  <data name="PDFExport_TreeViewSupportAndFontEmbedding" xml:space="preserve">
+    <value>ツリービューのサポートとフォントの埋め込み</value>
+    <comment>Tree view support and font embedding</comment>
+  </data>
+  <data name="PDFExport_Li7" xml:space="preserve">
+    <value>&lt;b&gt;embeddedFonts&lt;/b&gt;：URL、名前、スタイル、ウェイト（太さ）など、さまざまな独自フォントに関する情報をエクスポートライブラリに提供します。
+                </value>
+    <comment>&lt;b&gt;embeddedFonts&lt;/b&gt;: Provides information to the export library, about various custom fonts to be embedded, such as URL,
+                name, style, weight.</comment>
+  </data>
+  <data name="PDFExport_Li8" xml:space="preserve">
+    <value>&lt;b&gt;styles&lt;/b&gt;：グリッド要素のスタイルを設定して、埋め込みフォントにリンクするために使用します。</value>
+    <comment>&lt;b&gt;styles&lt;/b&gt;: It is used to set up the style for the grid elements and link them with the embedded fonts.</comment>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>この例は、FlexGrid を何らかのアクションによるデータと連結する方法を示します。</value>
+    <comment>This example shows how you can bind FlexGrid with the data from some Action.</comment>
+  </data>
+  <data name="Sorting_SortingField" xml:space="preserve">
+    <value>ソートするフィールド</value>
+    <comment>Sorting Field</comment>
+  </data>
+  <data name="Sorting_SortingOrder" xml:space="preserve">
+    <value>ソート順</value>
+    <comment>Sorting Order</comment>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>このサンプルでは、最初のリストで選択されたフィールド値に基づいてコレクションをソートすることができます。また、2 番目のリストでソート順を指定することもできます。</value>
+    <comment>In this sample, you can sort the collection based on the corresponding field value chosen in the first list. You can also specify the sorting order in the second list.</comment>
+  </data>
+  <data name="StarSizing_Example1" xml:space="preserve">
+    <value>例 1：</value>
+    <comment>Example 1:</comment>
+  </data>
+  <data name="StarSizing_Example2" xml:space="preserve">
+    <value>例 2：</value>
+    <comment>Example 2:</comment>
+  </data>
+  <data name="StarSizing_Example3" xml:space="preserve">
+    <value>例 3：</value>
+    <comment>Example 3:</comment>
+  </data>
+  <data name="StarSizing_Text6" xml:space="preserve">
+    <value>このサンプルは、XAML スタイルのスターサイズを使用して
+    FlexGrid に柔軟なレイアウトを実装できることを示します。スターサイズは、オブジェクトの width プロパティで指定します。</value>
+    <comment>This sample shows how you can use XAML-style star sizing to implement flexible layouts
+    with the FlexGrid. Star sizing is specified in the width property of the object.</comment>
+  </data>
+  <data name="TreeView_Text0" xml:space="preserve">
+    <value>このサンプルプロジェクトのファイル構造</value>
+    <comment>The file structure of this sample project</comment>
+  </data>
+  <data name="TreeView_Text1" xml:space="preserve">
+    <value>このサンプルは、FlexGrid を使用してツリービューを表示する方法を示します。</value>
+    <comment>This sample shows how to use FlexGrid to display a tree view.</comment>
+  </data>
+  <data name="UnobtrusiveValidation_Text3" xml:space="preserve">
+    <value>このサンプルでは、控えめな検証の基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the unobtrusive validation.</comment>
+  </data>
+  <data name="VirtualScrolling_Text0" xml:space="preserve">
+    <value>このサンプルは、グリッドを仮想スクロールモードにする方法を示します。この機能を有効にするには、DisableServerRead プロパティが false（デフォルト）である必要があります。次に、InitialItemsCount プロパティに 0 より大きい数字を設定する必要があります。</value>
+    <comment>This sample shows how to make grid work in virtual scrolling mode. To enable this functionality, the DisableServerRead property should be false(default). Then the InitialItemsCount property should be set a number which is greater than 0.</comment>
+  </data>
+  <data name="HeaderTemplate_Description" xml:space="preserve">
+    <value>この例は、財務データを含む表を示しています。 データには2つの列グループがあり、1つはファンドの実績を示し、もう1つはファンドの構成を示します。</value>
+    <comment>This example shows a table with financial data. The data contains two column groups, one showing fund performance and one showing fund composition.</comment>
+  </data>
+  <data name="HeaderTemplate_Sumary" xml:space="preserve">
+    <value>このサンプルは、カスタムヘッダーテンプレートの基本的な使用方法を示しています。</value>
+    <comment>This sample shows the basic usage of the Custom Header Template.</comment>
+  </data>
+  <data name="HeaderTemplate_Table_Description" xml:space="preserve">
+    <value>財務テーブルの例</value>
+    <comment>Financial table example.</comment>
+  </data>
+  <data name="BuiltInValidation_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ErrorTip&lt;/b&gt;の&lt;b&gt;CssClass&lt;/b&gt;プロパティまたは&lt;b&gt;c1-errortip&lt;/b&gt;タグの&lt;b&gt;class&lt;/b&gt;属性を設定することによって、エラーツールチップの外観をカスタマイズすることもできます。</value>
+    <comment>You can also customize error tooltip's appearance by setting &lt;b&gt;CssClass&lt;/b&gt; property of &lt;b&gt;ErrorTip&lt;/b&gt; or &lt;b&gt;class&lt;/b&gt; attribute of &lt;b&gt;c1-errortip&lt;/b&gt; tag using CSS.</comment>
+  </data>
+  <data name="Filter_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ExclusiveValueSearch&lt;/b&gt;は、列フィルタボックスでフィルタ値を検索するときの動作をカスタマイズするための高度なプロパティです。&lt;br /&gt; ExclusiveValueSearchのチェックをオンにして列フィルタアイコンをクリックし、一部の値のチェックを外したり値を検索ボックスに入力することで、それがどのように機能するかを見ることが出来ます。</value>
+    <comment>The &lt;b&gt;ExclusiveValueSearch&lt;/b&gt; is an advanced property to customize the behavior while searching filter value in column filter box.&lt;br /&gt;You can toggle check ExclusiveValueSearch then click on column filter icon, uncheck some values and input value into search box for observing how it work.</comment>
+  </data>
+  <data name="Editing_Text8" xml:space="preserve">
+    <value>&lt;b&gt;AutoRowHeights：&lt;/b&gt;データまたはグリッドレイアウトが変更されると、行のサイズを自動的に変更します。 グリッドのコンテンツをワードラップするように構成された列がある場合、およびグリッドの行数が比較的少ない場合に特に便利です。</value>
+    <comment>&lt;b&gt;AutoRowHeights: &lt;/b&gt;Automatically resize the rows when the data or grid layout change. Especially useful when the grid has columns configured to word-wrap their content, and when the grid has a relatively small number of rows.</comment>
+  </data>
+  <data name="Editing_Text16" xml:space="preserve">
+    <value>&lt;b&gt; RefreshOnEdit：&lt;/b&gt;これは、セルの編集後にグリッドがすべてのセルを更新するかどうかを決定します。 デフォルトではTrueになっていますが、これを無効にしてパフォーマンスを向上させることができます。</value>
+    <comment>&lt;b&gt;RefreshOnEdit:&lt;/b&gt; This determines whether the grid should refresh all cells after a cell is edited. It's True by default, you can disable this for more perfomance.</comment>
+  </data>
+  <data name="AutoGenerateColumns_Text0" xml:space="preserve">
+    <value>FlexGridは、自動生成列の幅をデータ型に基づいてカスタマイズできる列の自動生成をサポートしています。</value>
+    <comment>The FlexGrid supports generating columns automatically which the width of auto-generate columns can be customizable based on their data-type.</comment>
+  </data>
+  <data name="AutoGenerateColumns_Text1" xml:space="preserve">
+    <value>このページは、&lt;b&gt; AutoGenerateColumns &lt;/b&gt;プロパティが静的プロパティ&lt;b&gt; DefaultTypeWidth &lt;/b&gt;とどのように機能するかを示しています。&lt;br /&gt;静的プロパティ&lt;b&gt; DefaultTypeWidth &lt;/b&gt;は、 データ型に基づいて列を自動生成します。&lt;br /&gt;「静的プロパティ」は、グリッドに対してこのプロパティを一度設定するだけで、その後作成されるすべてのグリッドで機能することを意味します。</value>
+    <comment>This page show how the &lt;b&gt;AutoGenerateColumns&lt;/b&gt; property works with the static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt;.&lt;br /&gt;The static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt; allow to set the default width of auto-generate columns based on their data-type.&lt;br /&gt;It's "static property", means only need to set this property once for any grid then it should work for all grids which are created following.</comment>
+  </data>
+  <data name="AutoGenerateColumns_Text2" xml:space="preserve">
+    <value>次の設定は最初のグリッド専用です。2番目のグリッドは常にAutoGenerateColumnsをtrueに設定します。</value>
+    <comment>The following settings are for the first grid only, the second grid is always set AutoGenerateColumns to true:</comment>
+  </data>
+  <data name="CustomCells_Text1" xml:space="preserve">
+    <value>ColumnのデータセルのHTMLコンテンツを生成するために&lt;b&gt;Template&lt;/b&gt;プロパティを使用します。</value>
+    <comment>Uses &lt;b&gt;Template&lt;/b&gt; property for generating the HTML content of data cells in the Column.</comment>
+  </data>
+  <data name="AllowPinning_Text0" xml:space="preserve">
+    <value>AllowPinningプロパティを使用すると、列ヘッダーにピンアイコンを追加できます。アイコンをクリックすると、列の固定状態が切り替わります。</value>
+    <comment>AllowPinning property allows to add pin icons to the column headers and clicking the icons toggles the column's frozen state</comment>
+  </data>
+  <data name="CopyHeaders_Text0" xml:space="preserve">
+    <value>CopyHeadersプロパティを使用すると、データをクリップボードにコピーするときにグリッドに行または列ヘッダーを含めるかどうかを指定できます。</value>
+    <comment>CopyHeaders property allows to specify whether the grid should include row and/or column headers when copying data to the clipboard.</comment>
+  </data>
+  <data name="Searching_Text0" xml:space="preserve">
+    <value>FlexGridSearchコントロールは、FlexGridコントロールで全文検索を実行するためのシンプルなUIを提供します。</value>
+    <comment>The FlexGridSearch control provides a simple UI for performing full-text searches on FlexGrid controls.</comment>
+  </data>
+  <data name="Searching_Text1" xml:space="preserve">
+    <value>FlexGridSearchコントロールは、FlexGridコントロールでフルテキスト検索を実行するためのシンプルなUIを提供します。&lt;br /&gt;入力時にグリッド上のデータをフィルタリングし、一致を強調表示します。&lt;br /&gt; 同じFlexGridコントロールをFlexGridSearchコントロールとフィルター機能で同時にフィルター処理できます。</value>
+    <comment>The FlexGridSearch control provides a simple UI for performing full-text searches on FlexGrid controls.&lt;br /&gt;It filters the data and highlights matches on the grid as you type.&lt;br /&gt;The same FlexGrid control can be filtered by the FlexGridSearch control and filter feature at the same time.</comment>
+  </data>
+  <data name="Searching_Text2" xml:space="preserve">
+    <value>合計アイテム数は</value>
+    <comment>The total item count is now</comment>
+  </data>
+  <data name="ODataBind_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ODataCollectionView &lt;/b&gt;クラスは、コントロールをODataソースに接続する簡単な方法を提供します。 &lt;b&gt; ODataCollectionView &lt;/b&gt;を作成すると、ソースのデータのロードが開始されます。 &lt;b&gt; ODataVirtualCollectionView &lt;/b&gt;は、&lt;b&gt; ODataCollectionView &lt;/b&gt;を拡張して、データの&lt;b&gt;オンデマンド&lt;/b&gt;ロードを提供します。 サーバーからデータを自動的にロードしません。 代わりに、&lt;b&gt; setWindow &lt;/b&gt;メソッドに依存して、データフラグメント（ウィンドウ）をオンデマンドでロードします。 上記のグリッドは、両方のクラスがどのように機能するかを示しています。 上部のグリッドに、徐々にロードされるデータが表示されることに注意してください。 下部のグリッドにはすぐに完全なレコードカウントが表示されますが、下にスクロールするまでデータはロードされません。</value>
+    <comment>The &lt;b&gt;ODataCollectionView&lt;/b&gt; class provides a simple way to connect controls to OData sources. When you create an &lt;b&gt;ODataCollectionView&lt;/b&gt;, it starts loading the data in the source. The &lt;b&gt;ODataVirtualCollectionView&lt;/b&gt; extends &lt;b&gt;ODataCollectionView&lt;/b&gt; to provide &lt;b&gt;on-demand&lt;/b&gt; loading of data. It does not load the data from the server automatically. Instead, it relies on the &lt;b&gt;setWindow&lt;/b&gt; method to load data fragments (windows) on demand. The grids above show how both classes work. Notice how the grid on the top shows the data being loaded gradually. The grid on the bottom shows the full record count immediately, but the data will not be loaded until you scroll down.</comment>
+  </data>
+  <data name="ColumnGroups_Text0" xml:space="preserve">
+    <value>列グループ機能を使用すると、列に子列を含めることができ、列グループを折りたたみおよび展開できます。</value>
+    <comment>The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable.</comment>
+  </data>
+  <data name="ColumnGroups_Text1" xml:space="preserve">
+    <value>このサンプルは、グリッドの列セットを階層列として初期化して列グループを作成する方法を示しています。&lt;br /&gt;列の&lt;b&gt; ColapseTo &lt;/b&gt;および&lt;b&gt; IsColapsed &lt;/b&gt;プロパティを設定することでのみ、列グループを折りたたみ、子列を表示できます。&lt;br /&gt; CSSを使用して、列グループを展開または折りたたむときにアニメーション化することもできます。</value>
+    <comment>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</comment>
+  </data>
+  <data name="PreserveWhiteSpace_Text0" xml:space="preserve">
+    <value>このサンプルは、グリッドがセル内の空白をデータに表示されるとおりに保持するか、または空白を単一の空白文字に折りたたむかどうかを決定する方法を示します。</value>
+    <comment>The sampe shows how to make the grid should keep whitespace in cells as they appear in the data or whether it should collapse the whitespace into a single space character.</comment>
+  </data>
+  <data name="PreserveWhiteSpace_Text1" xml:space="preserve">
+    <value>このプロパティを True に設定した場合は、グリッドがセル内の空白を保持します。詳細については、「色」列を参照してください。</value>
+    <comment>When 'Preserve White Space' value is set True, the grid will keep whitespace in cells. See Color column for more clartity.</comment>
+  </data>
+  <data name="GroupDescriptionCreator_Text0" xml:space="preserve">
+    <value>GroupDescriptionCreator を True に設定すると、「開始」および「終了」列を年でグループ化でき、「国」列を大陸名でグループ化できます。</value>
+    <comment>If 'Group Description Creator' is True, 'Start' and 'End' columns can group by Year, 'Country' column can group by continent</comment>
+  </data>
+  <data name="CheckboxSelection_Text0" xml:space="preserve">
+    <value>Selector クラスを使用すると、チェックボックスで行を選択することができます。</value>
+    <comment>Use the Selector extender to add a checkbox-based scheme for row selection.</comment>
+  </data>
+  <data name="CheckboxSelection_Text1" xml:space="preserve">
+    <value>Selector クラスを使用して、チェックボックスで行を選択できます。これは、通常は拡張選択を作成するために使用されるShiftキーとCtrlキーを持たないモバイルデバイスで最適に機能します。&lt;br /&gt;
+        Selector クラスは、行ヘッダー列および通常のスクロール可能なデータ列で使用できます。&lt;br /&gt;
+        Selector クラスは、フラットビューおよび階層ビューで機能します。階層ビューで使用すると、ユーザーはグループ全体の選択状態を一度に切り替えることができます。</value>
+    <comment>The Selector adds checkboxes for row selection. This is very useful on mobile devices, which have no keyboards with shift and control keys for extended selections.&lt;br /&gt;
+        The Selector can be used on header columns as well as regular scrollable/data columns.&lt;br /&gt;
+        The Selector works with flat and hierarchical views. In hierarchical views, users can toggle the selected state for entire groups at once.</comment>
+  </data>
+  <data name="BooleanChecker_Text0" xml:space="preserve">
+    <value>グループまたは列のすべての値を設定できるように、ブール列のヘッダーおよびグループセルにチェックボックスを追加するクラスです。</value>
+    <comment>Use the BooleanChecker extender to add checkboxes to groups and column header of boolean column for checking all values in groups or column.</comment>
+  </data>
+  <data name="BooleanChecker_Text1" xml:space="preserve">
+    <value>このサンプルでは、​​すべてのアクティブな値を設定するように、BooleanChecker が「アクティブ」列にアタッチされています。&lt;br /&gt;
+    グループヘッダー行にチェックボックスを表示するには、「アクティブ」列の Aggregate プロパティを Aggregate.First に設定する必要があります。&lt;br /&gt;
+    メモ：このプロパティはブール列でのみ機能します。リモートデータ連結を使用する場合は、手動で列の DataType プロパティを DataType.Boolean に設定する必要があります。</value>
+    <comment>In this sample, the BooleanChecker is attached to "Active" column for checking all active values.&lt;br /&gt;
+    To show checkboxes in groups header, need setting Aggregate property of the "Active" column as Aggregate.First.&lt;br /&gt;
+    Note that the BooleanChecker only works with the boolean column. Therefore, with remote data binding, you should manually set the DataType of the column as DataType.Boolean.</comment>
+  </data>
+  <data name="ODataDeferCommits_Description_Text0" xml:space="preserve">
+    <value>このプロパティのデフォルト値は false です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
+    <comment>The default value for this property is &lt;b&gt;false&lt;/b&gt;, which causes any changes to the data to be immediately committed to the database.</comment>
+  </data>
+  <data name="ODataDeferCommits_Summary_Text0" xml:space="preserve">
+    <value>このプロパティのデフォルト値は false です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
+    <comment>The default value for this property is false, which causes any changes to the data to be immediately committed to the database.</comment>
+  </data>
+  <data name="ODataDeferCommits_Description_Text1" xml:space="preserve">
+    <value>このプロパティを trueに設定すると、 データへの変更（編集、追加、削除など）は追跡されますが、［コミット］ボタンをクリックして変更をコミットするか、［キャンセル］ボタンをクリックして保留中の変更を破棄するまで、 データベースにコミットされません。</value>
+    <comment>If you set this property to &lt;b&gt;true&lt;/b&gt;, any changes to the data (including edits, additions, and removals) will be tracked but not committed to the database until you click Commit button to commit the changes, or Cancel button to discard all pending changes</comment>
+  </data>
+  <data name="ODataDeferCommits_Done_Text0" xml:space="preserve">
+    <value>終了。</value>
+    <comment>Done.</comment>
+  </data>
+  <data name="ODataDeferCommits_No_Change_Text0" xml:space="preserve">
+    <value>変更なし。</value>
+    <comment>No Changes.</comment>
+  </data>
+  <data name="ODataDeferCommits_Updating_Text0" xml:space="preserve">
+    <value>更新中…</value>
+    <comment>Updating...</comment>
+  </data>
+  <data name="Searching_Text3" xml:space="preserve">
+    <value>CaseSensitiveSearchプロパティを指定して、検索するときに大文字と小文字を区別するかどうかを決定する値を設定できます。
+</value>
+    <comment>You can also specify the CaseSensitiveSearch property of FlexGrid to determine whether the search is case-sensitive or not.</comment>
+  </data>
+  <data name="MergeCells_Text1" xml:space="preserve">
+    <value>ExpandSelectionOnCopyPaste プロパティは、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定する値を設定します。</value>
+    <comment>The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</comment>
+  </data>
+  <data name="GroupPanel_Text1" xml:space="preserve">
+    <value>ドラッグ＆ドロップ操作は、コンピュータでマウスを使用して動作し、タッチデバイス上でタッチ操作を使用して動作します。</value>
+    <comment>The drag-drop is supported on computer by using mouse and touch devices by touching.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>FlexGrid は、コンピュータまたはタッチデバイスでマウスまたはタッチ操作を使用して、列を別の列にドラッグアンドドロップする操作をサポートします。 </value>
+    <comment>The FlexGrid also support drag-drop to change position of columns on both computer and touch devices using mouse pointer or touching.</comment>
+  </data>
+  <data name="SelectionMode_Text0" xml:space="preserve">
+    <value>selectionMode プロパティでは、行、行範囲、連続しない行リスト、セル、セル範囲、選択なしのいずれかにユーザーの選択を制限することができます。</value>
+    <comment>The selectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all.</comment>
+  </data>
+  <data name="ColumnVisibility_Text0" xml:space="preserve">
+    <value>Visible プロパティを使用すると、行または列を表示するように設定できます。（AutoGenerateColumnsプロパティをFalseに設定します。）</value>
+    <comment>The Visible property allows you to set row or column is visible.(Grid is set AutoGenerateColumns to false)</comment>
+  </data>
+  <data name="SortingType_Text0" xml:space="preserve">
+    <value>ユーザーが一度に1つまたは複数の列をソートできるように、SortingType プロパティを使用してこの動作を変更します。
+</value>
+    <comment>Use the SortingType property to change this behavior so users can sort none/single/multiple columns at a time.</comment>
+  </data>
+  <data name="LazyRender_Text0" xml:space="preserve">
+    <value>LazyRender プロパティを使用して、グリッドでは、最後の描画サイクルで更新されたセルの描画をスキップするかどうかを決定する値を設定します。
+</value>
+    <comment>Use the LazyRender property to sets whether the grid should skip rendering cells that were updated in the last render cycle.</comment>
+  </data>
+  <data name="BigCheckboxes_Text0" xml:space="preserve">
+    <value>BigCheckboxes プロパティを使用して、ブール列の編集に使用されるチェックボックスがセル幅全体をカバーするように拡張するかどうかを決定する値を設定します。
+</value>
+    <comment>Use the BigCheckboxes property to sets a value that determines whether the checkboxes used to edit boolean columns should extend to cover the whole cell width.</comment>
+  </data>
+  <data name="PDFExport_Annotating" xml:space="preserve">
+    <value>注釈</value>
+    <comment>Annotating</comment>
+  </data>
+  <data name="PDFExport_ContentAccessibility" xml:space="preserve">
+    <value>アクセシビリティを有効にする</value>
+    <comment>Content Accessibility</comment>
+  </data>
+  <data name="PDFExport_Copying" xml:space="preserve">
+    <value>内容のコピー</value>
+    <comment>Copying</comment>
+  </data>
+  <data name="PDFExport_DocumentAssembly" xml:space="preserve">
+    <value>文書アセンブリ</value>
+    <comment>Document Assembly</comment>
+  </data>
+  <data name="PDFExport_FillingForms" xml:space="preserve">
+    <value>フォームフィールドの入力と署名</value>
+    <comment>Filling Forms</comment>
+  </data>
+  <data name="PDFExport_Modifying" xml:space="preserve">
+    <value>文書の変更</value>
+    <comment>Modifying</comment>
+  </data>
+  <data name="PDFExport_OwnerPassword" xml:space="preserve">
+    <value>所有者パスワード</value>
+    <comment>Owner password</comment>
+  </data>
+  <data name="PDFExport_Permissions" xml:space="preserve">
+    <value>文書の制限</value>
+    <comment>Permissions</comment>
+  </data>
+  <data name="PDFExport_PermissionsNote" xml:space="preserve">
+    <value>所有者パスワードが必要</value>
+    <comment>require owner password</comment>
+  </data>
+  <data name="PDFExport_Printing" xml:space="preserve">
+    <value>印刷</value>
+    <comment>Printing</comment>
+  </data>
+  <data name="PDFExport_SecuritySettings" xml:space="preserve">
+    <value>セキュリティ設定：</value>
+    <comment>Security settings:</comment>
+  </data>
+  <data name="PDFExport_Text8" xml:space="preserve">
+    <value>エクスポートされたPDF 文書を保存するには、ユーザーパスワード、所有者パスワード、アクセス許可などのセキュリティ設定を指定することができます。</value>
+    <comment>You can also specify some security settings, such as user password, owner password and permissions, to protect the exported PDF content.</comment>
+  </data>
+  <data name="PDFExport_UserPassword" xml:space="preserve">
+    <value>ユーザーパスワード</value>
+    <comment>User password</comment>
+  </data>
+  <data name="EnterTextSearch_Text0" xml:space="preserve">
+    <value>ここに検索テキストを入力します</value>
+    <comment>Enter search text here</comment>
+  </data>
+</root>

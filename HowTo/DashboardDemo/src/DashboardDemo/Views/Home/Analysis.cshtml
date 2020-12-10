@@ -1,0 +1,108 @@
+﻿
+@{
+    ViewBag.PageTitle = Resource.AnalysisPage_Title;
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/Analysis.js")"></script>
+
+<script type="text/javascript">
+    var ctrPopup;
+
+    function setRange(start, end) {
+        updateData(start, end, '@Url.Action("GetAnalysisData")');
+    }
+
+    function customToolbar(sender, e) {
+        var dashboardLayout = sender, // gets the DashboardLayout control
+            tile = e.tile; // gets the formatted tile
+
+        if (tile.headerText == '@Html.Raw(Resource.ProductWise_Header)') {
+            // get the toolbar control.
+            var toolbar = e.toolbar;
+            // clear all the internal items.
+            toolbar.clear();
+
+            // add a custom item in toolbar to show the PivotPanel control in a popup window.
+            var strSettingsIcon = '<span style="font-size:16pt" class="glyphicon glyphicon-cog"></span>';
+            toolbar.insertToolbarItem({
+                icon: strSettingsIcon,
+                title: 'SETTINGS',
+                command: function () {
+                    // when the item is clicked, show a PivotPanel control in a popup window to configurate.
+                    console.log("Settings");
+                    if (!ctrPopup) {
+                        ctrPopup = wijmo.Control.getControl('#popup');
+                    }
+                    ctrPopup.show(true, function (e) {
+                        if (e.dialogResult == 'wj-hide-ok') {
+                            // apply the settings of the PivotPanel control
+                            // to get the aggregated result for the PivotGrid control.
+                            apply();
+                        } else if (e.dialogResult == 'wj-hide') {
+                            // don't apply the settings.
+                            cancel();
+                        }
+                    });
+                }
+            }, 0);
+        }
+    }
+</script>
+<div class="hidden">
+    <c1-pivot-engine id="indexEngine">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+        <c1-view-field-collection c1-property="RowFields" items="Category,Product"></c1-view-field-collection>
+        <c1-view-field-collection c1-property="ColumnFields" items="Region"></c1-view-field-collection>
+        <c1-view-field-collection c1-property="ValueFields" items="Sale"></c1-view-field-collection>
+    </c1-pivot-engine>
+
+    <c1-popup id="popup" modal="true" hide-trigger="None" shown="popupShown" class="modal-content col-md-6">
+        <div class="modal-body">
+            <c1-pivot-panel items-source-id="indexEngine"></c1-pivot-panel>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">@Resource.Analysis_Apply</button>
+                <button type="button" class="btn btn-default wj-hide">@Resource.Analysis_Cancel</button>
+            </div>
+        </div>
+    </c1-popup>
+</div>
+<div class="flex vertical" style="width:100%;height:100%;overflow:hidden;">
+    <div class="auto" style="overflow:auto">
+        <c1-split-layout id="wsSplitLayout" orientation="Horizontal">
+            <c1-split-tile show-header="true" size="7*" header-text="@Resource.ProductWise_Header">
+                <c1-pivot-grid items-source-id="indexEngine" auto-size-mode="None" 
+                               loaded-rows="pivotGridLoadedRows">
+                </c1-pivot-grid>
+            </c1-split-tile>
+            <c1-split-group size="4*" orientation="Vertical">
+                <c1-split-tile size="*" header-text="@Resource.CategoryRegion_Sale">
+                    <c1-tree-map id="chartRegionSale" binding-name="Region, Category" binding="Sale" refreshing="tileContentRefreshing">
+                        <c1-flex-chart-title-style c1-property="HeaderStyle" halign="left" font-size="18pt"></c1-flex-chart-title-style>
+                        <c1-items-source source-collection="@ViewBag.RegionSales"></c1-items-source>
+                        <c1-flex-chart-datalabel content="{name}"></c1-flex-chart-datalabel>
+                        <c1-flex-chart-tooltip content="<b>{name}</b><br />{value:c0}"></c1-flex-chart-tooltip>
+                    </c1-tree-map>
+                </c1-split-tile>
+                <c1-split-tile size="*" header-text="@Resource.Opportunities_Header">
+                    <c1-flex-chart binding-x="LevelName" id="chartOpportunities" legend-position="Bottom"
+                                   chart-type="Funnel" binding="Sales" refreshing="tileContentRefreshing">
+                        <c1-flex-chart-title-style c1-property="HeaderStyle" halign="left" font-size="18pt"></c1-flex-chart-title-style>
+                        <c1-flex-chart-axis c1-property="AxisY" position="None"></c1-flex-chart-axis>
+                        <c1-flex-chart-datalabel position="Center" content="{y:C0}"></c1-flex-chart-datalabel>
+                        <c1-items-source source-collection="@ViewBag.OpportunityItemList"></c1-items-source>
+                        <c1-flex-chart-series name="@Resource.Sale_Series">
+                        </c1-flex-chart-series>
+                        <c1-chart-options>
+                            <c1-funnel-options type="Default" neck-height="0.2F" />
+                        </c1-chart-options>
+                        <c1-flex-chart-tooltip content="<b>{name}</b><br />{x} {value:c0}"></c1-flex-chart-tooltip>
+                    </c1-flex-chart>
+                </c1-split-tile>
+            </c1-split-group>
+        </c1-split-layout>
+        <c1-split-layout id="nsSplitLayout" orientation="Vertical"></c1-split-layout>
+        <c1-dashboard-layout id="dashboard" format-tile="customToolbar" allow-drag="false"></c1-dashboard-layout>
+    </div>
+    <div>
+        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+    </div>
+</div>

@@ -1,0 +1,28 @@
+﻿@model CustomerProduct
+
+@{
+    String message = ViewBag.Message;
+    List<string> products = ViewBag.Products;
+}
+
+<label>@Html.Raw(MultiSelectRes.Form_Text1)</label>
+<div>
+    <form asp-action="Form">
+        <div>
+            <c1-multi-select for="@Model.Products"  placeholder="@MultiSelectRes.Form_Placeholder" header-format="@MultiSelectRes.Form_HeaderFormat" >
+                <c1-items-source source-collection="products" />
+            </c1-multi-select>
+        </div>
+
+        <div style="margin-top: 10px">
+            <input type="submit" class="wj-btn wj-btn-default" value="@(MultiSelectRes.Form_Submit)" />
+        </div>
+    </form>
+
+    <p>@message</p>
+
+</div>
+
+@section Description{
+    <p>@Html.Raw(MultiSelectRes.Form_Text0)</p>
+}

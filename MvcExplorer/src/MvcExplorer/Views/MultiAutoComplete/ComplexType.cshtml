@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MvcExplorer.Models.NamedColor>
+
+<div>
+    <label>@Html.Raw(MultiAutoCompleteRes.ComplexType_Text1)</label>
+    <p>@Html.Raw(MultiAutoCompleteRes.ComplexType_Text0)</p>
+    <c1-multi-auto-complete display-member-path="Name" selected-indexes="new List<int> { 0, 1 }">
+        <c1-items-source source-collection="@Model">
+        </c1-items-source>
+    </c1-multi-auto-complete>
+</div>
+
+@section Description{
+    @Html.Raw(MultiAutoCompleteRes.ComplexType_Text2)
+}

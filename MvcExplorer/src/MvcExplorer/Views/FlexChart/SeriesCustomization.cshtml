@@ -1,0 +1,50 @@
+﻿@{
+    List<Dot> data1 = new List<Dot>();
+    List<Dot> data2 = new List<Dot>();
+    for (int i = 0; i < 300; i++)
+    {
+        data1.Add(new Dot { X = 0.2 * i, Y = Math.Cos(0.1 * i) });
+        data2.Add(new Dot { X = 0.3 * i, Y = Math.Sin(0.15 * i) });
+    }
+}
+
+@section Scripts{
+    <script type="text/javascript">
+
+        var seriesItemFormatter = function (engine, hitTestInfo, defaultFormat) {
+            if (hitTestInfo.chartElement == wijmo.chart.ChartElement.SeriesSymbol) {
+                var y = hitTestInfo.y;
+                var g = y >= 0 ? 255 : (255 * (1 + y)).toFixed();
+                var b = y < 0 ? 255 : (255 * (1 - y)).toFixed();
+                var r = ((1 - Math.abs(y)) * 255).toFixed();
+                engine.fill = 'rgb(' + r + ',' + g + ',' + b + ')';
+                engine.stroke = 'rgb(' + (255 - r) + ',' + (255 - g) + ',' + (255 - b) + ')';
+                engine.strokeWidth = 1;
+                defaultFormat();
+            }
+        };
+
+    </script>
+}
+
+<c1-flex-chart id="chartDemo" chart-type="Bubble" legend-position="None" height="400px">
+    <c1-flex-chart-series binding-x="X" binding="Y" name="cos(x)">
+        <c1-items-source source-collection="data1"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="sin(x)" item-formatter="seriesItemFormatter"
+                          tooltip-content="<b>Sin(x)</b>:<i><br>Item formatter,<br>Custom tooltip content</i>">
+        <c1-items-source source-collection="data2"></c1-items-source>
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+
+    <p>@Html.Raw(FlexChartRes.SeriesCustomization_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.SeriesCustomization_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.SeriesCustomization_Text2)</p>
+    <ul>
+        <li>@Html.Raw(FlexChartRes.SeriesCustomization_Text3)</li>
+        <li>@Html.Raw(FlexChartRes.SeriesCustomization_Text4)</li>
+    </ul>
+
+}

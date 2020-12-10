@@ -1,0 +1,64 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+        function collapseAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(0);
+        }
+        function expandAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(10);
+        }
+    </script>
+}
+
+<input type="button" value="@Html.Raw(MultiRowRes.Grouping_Text2)" class="btn" onclick="collapseAllGroups()" />
+<input type="button" value="@Html.Raw(MultiRowRes.Grouping_Text3)" class="btn" onclick="expandAllGroups()" />
+
+
+<c1-multi-row id="@settings.ControlId" class="multirow" is-read-only="true" group-by="Country" show-groups="true" multi-row-group-headers="true">
+    <c1-items-source read-action-url="@Url.Action("GroupHeaders_Bind")" disable-server-read="true"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID" header="ID" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Country" header="Country" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Color" header="Color" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Amount" header="Amount" aggregate="Sum" />
+        <c1-multi-row-cell binding="Discount" header="Discount" aggregate="Sum" />
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Settings{
+    <script>
+        function customChangeGroupBy(grid, name) {
+            var groupDescriptions = grid.collectionView.groupDescriptions;
+            grid.beginUpdate();
+            groupDescriptions.clear();
+
+            if (name.indexOf("Country") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Country"));
+            }
+
+            if (name.indexOf("Color") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Color"));
+            }
+
+            grid.endUpdate();
+        }
+
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(MultiRowRes.Grouping_Text4)</p>
+}

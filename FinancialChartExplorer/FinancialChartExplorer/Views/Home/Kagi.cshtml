@@ -1,0 +1,48 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<script type="text/javascript">
+    function customChangeOptions_Kagi_ReversalAmount(control, value) {
+        var reversalAmount = +value;
+        control.options.kagi.reversalAmount = control.options.kagi.rangeMode === wijmo.chart.finance.RangeMode.Percentage ? (reversalAmount / 100) : reversalAmount;
+        control.invalidate();
+    }
+
+    function customChangeOptions_Kagi_RangeMode(control, value) {
+        var reversalAmount = control.options.kagi.reversalAmount;
+        if (value !== "Percentage") {
+            if (reversalAmount < 1) {
+                control.options.kagi.reversalAmount = Math.round(reversalAmount * 100);
+            }
+        } else {
+            if (reversalAmount > 1) {
+                control.options.kagi.reversalAmount = reversalAmount / 100;
+            }
+        }
+
+        control.options.kagi.rangeMode = wijmo.chart.finance.RangeMode[value];
+        control.invalidate();
+    }
+
+    function convertOptions_Kagi_Fields(value) {
+        return wijmo.chart.finance.DataFields[value];
+    }
+
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" chart-type="Kagi" kagi-fields="High" kagi-range-mode="Fixed" kagi-reversal-amount="2">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="financialTooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Description{
+    <p>@Html.Raw(Home.Kagi_Text0)</p>
+    <p>@Html.Raw(Home.Kagi_Text1)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.Kagi_Text2)</p>
+}

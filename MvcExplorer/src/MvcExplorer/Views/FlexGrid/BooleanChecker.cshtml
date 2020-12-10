@@ -1,0 +1,47 @@
+﻿@model IEnumerable<Sale>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function customChangeShowCheckAll(grid, value) {
+            let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+            selector.showCheckAll = (value == 'False' ? false : true);
+            grid.endUpdate();
+        }
+        function customChangeShowCheckGroups(grid, value) {
+            grid.getColumn('Active').aggregate = (value == 'True' ? 'First' : 'None');
+            grid.endUpdate();
+        }
+    </script>
+}
+
+<c1-flex-grid id="@controlId" allow-add-new="true" allow-delete="true"
+              auto-generate-columns="false" style="height:500px" group-by="Country" show-groups="true"
+              big-checkboxes="true">
+    <c1-flex-grid-column binding="ID" width="0.4*" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" header="Date" width="*" format="d"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" header="Time" width="*" format="t"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="1.5*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="1.5*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" width="1.5*" format="n2" aggregate="First" c1-data-type="C1.Web.Mvc.Grid.DataType.Boolean"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("GridBooleanCheckerBind")"
+                     update-action-url="@Url.Action("GridBooleanCheckerUpdate")">
+    </c1-items-source>
+    <c1-flex-grid-boolean-checker column="Active" show-check-all="true"></c1-flex-grid-boolean-checker>
+</c1-flex-grid>
+
+
+@section Summary{
+    @Html.Raw(FlexGridRes.BooleanChecker_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.BooleanChecker_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.BigCheckboxes_Text0)</p>
+}

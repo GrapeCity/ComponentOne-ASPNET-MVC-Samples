@@ -1,0 +1,24 @@
+﻿@model IEnumerable<AccessibilityExtender.Models.Sale>
+@{
+    ViewBag.Title = "FlexGrid AccessibilityExtender";
+}
+
+<p></p>
+<p>
+    @Html.Raw(Resource.Index_View_P1)
+</p>
+<p>
+    @Html.Raw(Resource.Index_View_P2)
+</p>
+@Html.Raw(Resource.Index_View_P3)
+
+<div class="input-group">
+    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+    <input type="text" class="form-control" id="filter" placeholder="filter">
+</div>
+<c1-flex-grid id="theGrid" selection-mode="ListBox" show-alternating-rows="false"
+              sorted-column="sortedColumn" is-read-only="true">
+    <c1-items-source source-collection="Model" disable-server-read="true"></c1-items-source>
+</c1-flex-grid>
+
+

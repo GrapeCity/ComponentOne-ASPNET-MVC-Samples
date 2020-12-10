@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var style = new SVGStyle { StrokeWidth = 3 };
+}
+
+<c1-flex-chart id="@demoSettingsModel.ControlId" binding-x="Date" chart-type="Line" legend-toggle="true" interpolate-nulls="true">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="SalesInUSA" name="Sales in USA" style="@style"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="SalesInJapan" name="Sales in Japan" style="@style"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.Binding_ChartBinding)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Binding_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Binding_Text1)</p>
+    <ol>
+        <li>@Html.Raw(FlexChartRes.Binding_Li1)</li>
+        <li>@Html.Raw(FlexChartRes.Binding_Li2)</li>
+        <li>@Html.Raw(FlexChartRes.Binding_Li3)</li>
+    </ol>
+    <p>@Html.Raw(FlexChartRes.Binding_Text2)</p>
+}

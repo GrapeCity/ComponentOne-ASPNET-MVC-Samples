@@ -1,0 +1,23 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+}
+
+@section Scripts{
+<script>
+    function itemValidator(date) {
+        var weekday = date.getDay();
+        return weekday != 0 && weekday != 6;
+    }
+</script>
+}
+<div>
+    <P>@Html.Raw(CalendarRes.Validation_Text0)</P>
+    <c1-calendar value="@today" min="@minDate" max="@maxDate" item-validator="itemValidator" width="300px">
+    </c1-calendar>
+</div>
+
+@section Description{
+    @Html.Raw(CalendarRes.Validation_Text1)
+}

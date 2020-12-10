@@ -1,0 +1,25 @@
+﻿@model Property[]
+
+@section Scripts{
+    <script type="text/javascript">
+        function itemClicked(treeView) {
+            document.getElementById('tvNavItem').innerHTML = '@Html.Raw(TreeViewRes.Navigation_NavigatingInfo)'.replace('{0}', treeView.selectedItem.Header);
+        }
+    </script>
+}
+
+<c1-tree-view display-member-path="Header" child-items-path="Items"
+              source="Model" item-clicked="itemClicked"></c1-tree-view>
+
+<br/>
+<div id="tvNavItem" style="background-color:yellow"></div>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.Navigation_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.Navigation_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.Navigation_Text2)</p>
+    <p>@Html.Raw(TreeViewRes.Navigation_Text3)</p>
+}

@@ -1,0 +1,63 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+    var cv, oDataDeferCommits, minHeight;
+
+    c1.documentReady(function () {
+        oDataDeferCommits = wijmo.Control.getControl('#oDataDeferCommits');
+        cv = oDataDeferCommits.collectionView;
+    });
+
+    function commitEdits() {
+        cv.commitChanges(function (r) {
+            setQueryMessage('@(FlexGridRes.ODataDeferCommits_Done_Text0)');
+        });
+
+        var isChanged = (cv.itemsEdited && cv.itemsEdited.length);
+        if (isChanged) {
+            setQueryMessage('@(FlexGridRes.ODataDeferCommits_Updating_Text0)');
+        } else {
+            setQueryMessage('@(FlexGridRes.ODataDeferCommits_No_Change_Text0)');
+        }
+
+    }
+
+    function cancelChanges() {
+        cv.cancelChanges();
+        setQueryMessage('');//clear message
+    }
+
+    function setQueryMessage(message, className) {
+        var element = document.getElementById('queryMessage');
+        element.innerHTML = message;
+        element.className = className;
+    }
+    </script>
+}
+<input type="button" value="Commit" class="btn" onclick="commitEdits()" />
+<input type="button" value="Cancel" class="btn" onclick="cancelChanges()" />
+<span id="queryMessage"></span>
+<c1-flex-grid id="oDataDeferCommits">
+    <c1-odata-source service-url="https://services.odata.org/V4/(S(3vn0jej2dr3ebcgodm1zxcys))/TripPinServiceRW/"
+                     table-name="Airlines"
+                     keys="AirlineCode"
+                     defer-commits="@(Convert.ToBoolean(optionsModel.Options["Defer Commits"].CurrentValue))"></c1-odata-source>
+</c1-flex-grid>
+
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.ODataDeferCommits_Description_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.ODataDeferCommits_Description_Text1)</p>
+}
+
+@section Summary{
+    @Html.Raw(FlexGridRes.ODataDeferCommits_Summary_Text0)
+}

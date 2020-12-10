@@ -1,0 +1,12 @@
+﻿@model IEnumerable<NamedColor>
+
+<div>
+    <label>@Html.Raw(ListBoxRes.ComplexType_Text0)</label>
+    <c1-list-box display-member-path="Name" selected-value-path="Value" style="height:200px; width:250px">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-list-box>
+</div>
+
+@section Description{
+    @Html.Raw(ListBoxRes.ComplexType_Text1)
+}

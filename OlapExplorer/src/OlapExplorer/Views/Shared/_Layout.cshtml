@@ -1,0 +1,165 @@
+﻿@{
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+    ViewBag.ControllerName = controllerName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+    ViewBag.Title = string.Format("{0} - {1}", controllerName, ViewBag.PageText);
+    ViewBag.DemoDescription = ViewBag.DemoDescription ?? true;
+    ViewBag.DemoSettings = ViewBag.DemoSettings ?? false;
+    ViewBag.DemoLog = ViewBag.DemoLog ?? false;
+    ViewBag.DemoSource = ViewBag.DemoSource ?? true;
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+    ViewBag.DocLink = group.Documentation;
+
+    var pages = group.Pages;
+    ViewBag.CurrentPageIndex = group.GetSelectedPageIndex(actionName);
+
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+
+    ViewBag.Pages = pages;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title - @Html.Raw(OlapRes._Layout_Text10)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    @{
+        Theme.SetCurrentTheme(Context);
+    }
+    <c1-styles theme="@Theme.GetCurrentTheme(Context)" />
+    <link href="~/Content/css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/explorer.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+    <link href="@Url.Content(OlapRes.GcIconsCssPath)" rel="stylesheet" />
+    @RenderSection("Styles", false)
+
+    <script src="~/Scripts/jquery.js"></script>
+    <c1-scripts>
+        <c1-basic-scripts />
+        <c1-olap-scripts />
+    </c1-scripts>
+    <script src="~/Scripts/MultiLevelMenu.js"></script>
+    <script src="~/Scripts/Layout.js"></script>
+    <script>
+            var CurrentPageIndex = @ViewBag.CurrentPageIndex;
+    </script>
+    <script src="~/Scripts/ControlLayout.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
+    @RenderSection("Scripts", false)
+</head>
+<body>
+    <div class="hide">
+        @Html.Partial("_SiteNav", true)
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="@Html.Raw(OlapRes._Layout_Text9)" target="_blank">
+            <i class="gcicon-product-c1"></i>@Html.Raw(OlapRes._Layout_Text0)
+        </a>
+        @Html.Partial("_ThemeSelector")
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Html.Raw(OlapRes._Layout_Text1)</span>
+            <span class="semi-bold wide-screen">@Html.Raw(OlapRes._Layout_Text2)</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="narrow-screen features-bar">
+            <span>@Html.Raw(OlapRes._ControlsNav_Text0)<span class="wj-glyph-down"></span></span>
+            <ul class="narrow-screen features-nav">
+                @foreach (var controlPage in ViewBag.Pages)
+                {
+                    <li><a href="@controlPage.Path">@controlPage.Text</a></li>
+                }
+            </ul>
+        </div>
+
+        <div class="col-md-3 side">
+            <div>
+                <h4 class="semi-bold wide-screen">@ViewBag.PageText</h4>
+                <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
+                <div class="description">@RenderSection("Summary", false)</div>
+            </div>
+            @Html.Partial("_ControlsNav")
+        </div>
+        <div class="col-md-9">
+            <div class="padder">
+                <div>
+                    <ul id="navList" class="nav nav-tabs">
+                        <li><a class="semi-bold">@Html.Raw(OlapRes._Layout_Text5)</a></li>
+                        <li><a class="semi-bold">@Html.Raw(OlapRes._Layout_Text6)</a></li>
+                        <li><span onclick="gotoDoc('@ViewBag.DocLink')" class="doc-tab semi-bold">@Html.Raw(OlapRes._Layout_Text3)</span></li>
+                    </ul>
+                    <div id="panelList" class="tab-content">
+                        <div class="tab-pane pane-content active collapse-panel" id="sample">
+                            <div class="demo-control">@RenderBody()</div>
+                            @if (ViewBag.DemoOptions != null)
+                            {
+                                <div class="demo-settings">
+                                    <h3 class="semi-bold">@Html.Raw(OlapRes._Layout_Text7)</h3>
+                                    @RenderSection("Settings", false)
+                                </div>
+
+                            }
+                            else
+                            {
+                                IgnoreSection("Settings");
+                            }
+
+                            @{
+                                if (ViewBag.DemoDescription)
+                                {
+                                    <div class="demo-description">
+                                        <h3 class="semi-bold">@Html.Raw(OlapRes._Layout_Text8)</h3>
+                                        <div>
+                                            @RenderSection("Description", false)
+                                        </div>
+                                    </div>
+                                }
+                            }
+                        </div>
+                        <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                            <div class="demo-source">
+                                @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © @DateTime.Now.Year @Html.Raw(OlapRes._Layout_Text4)
+        </p>
+        @{
+            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

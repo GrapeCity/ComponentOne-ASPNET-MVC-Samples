@@ -1,0 +1,17 @@
+﻿<c1-flex-chart binding-x="Date" 
+               chart-type="LineSymbols" 
+               header="@FlexChartRes.HeaderFooter_Header"
+               footer="@FlexChartRes.HeaderFooter_Footer"
+               >
+    <c1-flex-chart-title-style c1-property="FooterStyle" halign="right"></c1-flex-chart-title-style>
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="SalesInChina" name="Sales"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.HeaderFooter_ChartHeaderAndFooter)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.HeaderFooter_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.HeaderFooter_Text1)</p>
+}

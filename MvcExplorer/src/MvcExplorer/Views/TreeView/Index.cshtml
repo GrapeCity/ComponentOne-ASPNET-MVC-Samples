@@ -1,0 +1,27 @@
+﻿@model Property[]
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-tree-view display-member-path="Header" child-items-path="Items"
+              source="Model"
+              is-animated="@Convert.ToBoolean(optionsModel.Options["IsAnimated"].CurrentValue)"
+              auto-collapse="@Convert.ToBoolean(optionsModel.Options["AutoCollapse"].CurrentValue)"
+              expand-on-click="@Convert.ToBoolean(optionsModel.Options["ExpandOnClick"].CurrentValue)"
+              expand-on-load="@Convert.ToBoolean(optionsModel.Options["ExpandOnLoad"].CurrentValue)">
+</c1-tree-view>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.Index_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.Index_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.Index_Text2)</p>
+}

@@ -1,0 +1,169 @@
+﻿@model UserInfo
+
+@if (ViewBag.IsValid == true)
+{
+    <p><h3>@Html.Raw(ValidationRes.Register_RegistrationComplete)</h3></p>
+    <div style="height:200px">
+        @Html.Raw(ValidationRes.Register_Text0) @Model.Name@Html.Raw(ValidationRes.Register_Text1)
+    </div>
+}
+else
+{
+    @section Scripts{
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/jquery.validate.js"></script>
+        <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+    }
+    <h3>@Html.Raw(ValidationRes.Register_CreateAnAccount)</h3>
+    <br />
+    <form asp-action="Register">
+        <div class="container" style="width: 100%">
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Name"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-input-mask for="Name"></c1-input-mask>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Name"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Email"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-input-mask for="Email"></c1-input-mask>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Email"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Password"></label>
+                </div>
+                <div class="col-md-2">
+                    <input type="password" asp-for="Password" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Password"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="ConfirmPassword"></label>
+                </div>
+                <div class="col-md-2">
+                    <input type="password" asp-for="ConfirmPassword" class="form-control" />
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="ConfirmPassword"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Phone"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-input-mask for="Phone" mask="+8600000000000"></c1-input-mask>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Phone"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Country"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-auto-complete for="Country">
+                        <c1-items-source source-collection="UsersData.Countries"></c1-items-source>
+                    </c1-auto-complete>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Country"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Industry"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-combo-box for="Industry" display-member-path="name" selected-value-path="value">
+                        <c1-items-source source-collection="UsersData.Industries"></c1-items-source>
+                    </c1-combo-box>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Industry"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Birthdate"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-input-date for="Birthdate"></c1-input-date>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Birthdate"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="FavoriteColor"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-input-color for="FavoriteColor"></c1-input-color>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="FavoriteColor"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Skills"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-multi-select for="Skills">
+                        <c1-items-source source-collection="UsersData.SkillsList"></c1-items-source>
+                    </c1-multi-select>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Skills"></span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    <label asp-for="Hobbies"></label>
+                </div>
+                <div class="col-md-2">
+                    <c1-multi-auto-complete for="Hobbies">
+                        <c1-items-source source-collection="UsersData.HobbyList"></c1-items-source>
+                    </c1-multi-auto-complete>
+                    <div class="text-muted">@Html.Raw(ValidationRes.Register_Text3)</div>
+                </div>
+                <div class="col-md-4">
+                    <span asp-validation-for="Hobbies"></span>
+                </div>
+            </div>
+
+            <p><input type="submit" value="@(ValidationRes.Register_Register)" class="btn btn-primary" /></p>
+        </div>
+    </form>
+}
+
+@section Description{
+    @Html.Raw(ValidationRes.Register_Text2)
+}

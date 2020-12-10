@@ -1,0 +1,47 @@
+@using C1.Web.Mvc.Grid
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoOptions;
+}
+<c1-pivot-engine id="ssasEngine" service-url="~/api/dataengine/cube"  show-row-totals="Subtotals" show-column-totals="Subtotals">
+    <c1-pivot-field-collection>
+        <c1-cube-field header="Internet Orders" dimension-type="Measure">
+            <c1-cube-field binding="[Measures].[Internet Order Count]" header="Internet Order Count" type="DataType.Number" dimension-type="Measure"></c1-cube-field>
+        </c1-cube-field>
+        <c1-cube-field header="Product" dimension-type="Dimension">
+            <c1-cube-field binding="[Product].[Category]" header="Category" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+            <c1-cube-field header="Stocking">
+                <c1-cube-field binding="[Product].[Color]" header="Color" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+                <c1-cube-field binding="[Product].[Class]" header="Class" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+            </c1-cube-field>
+            <c1-cube-field binding="[Product].[Product]" header="Product" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+        </c1-cube-field>
+    </c1-pivot-field-collection>
+    <c1-view-field-collection c1-property="RowFields" items="[Product].[Product]"></c1-view-field-collection>
+    <c1-view-field-collection c1-property="ValueFields" items="[Measures].[Internet Order Count]"></c1-view-field-collection>
+</c1-pivot-engine>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        <c1-pivot-panel id="@(optionsModel.ControlId)" items-source-id="ssasEngine"></c1-pivot-panel>
+    </div>
+    <div class="col-sm-8 col-md-8">
+        <c1-pivot-grid id="indexGrid" items-source-id="ssasEngine"></c1-pivot-grid>
+    </div>
+</div>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+<p>@Html.Raw(OlapRes.SSAS_Text0)</p>
+
+<p>@Html.Raw(OlapRes.SSAS_Text1)</p>
+
+<p>@Html.Raw(OlapRes.SSAS_Text2)</p>
+
+}
+@section Summary{
+<p>@Html.Raw(OlapRes.SSAS_Text3)</p>
+
+}

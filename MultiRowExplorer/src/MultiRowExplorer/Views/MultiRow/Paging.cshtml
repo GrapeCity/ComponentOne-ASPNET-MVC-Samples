@@ -1,0 +1,60 @@
+@model IEnumerable<Orders.Order>
+@{
+    var cities = Orders.GetCities().ToValues();
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Styles{
+    <style>
+        .customMultiRow {
+            margin-top: 5px;
+        }
+    </style>
+}
+
+<c1-items-source id="collectionViewService" read-action-url="@Url.Action("Paging_Bind")" page-size="@Convert.ToInt32(optionsModel.Options["pageSize"].CurrentValue)"></c1-items-source>
+
+<c1-pager owner="collectionViewService"></c1-pager>
+
+<c1-multi-row id="pagingMultiRow" class="multirow customMultiRow" is-read-only="true" items-source-id="collectionViewService">
+    <c1-multi-row-cell-group header="Order" colspan="2">
+        <c1-multi-row-cell binding="Id" header="ID" class="id" colspan="2" />
+        <c1-multi-row-cell binding="Amount" header="Amount" format="c" class="amount" colspan="2" />
+        <c1-multi-row-cell binding="Date" header="Ordered" />
+        <c1-multi-row-cell binding="ShippedDate" header="Shipped" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Customer" colspan="3">
+        <c1-multi-row-cell binding="Customer.Name" name="CustomerName" header="Customer" />
+        <c1-multi-row-cell binding="Customer.Email" name="CustomerEmail" header="Customer Email" class="email" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Address" name="CustomerAddress" header="Address" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Phone" name="CustomerPhone" header="Customer Phone" />
+        <c1-multi-row-cell binding="Customer.City" name="CustomerCity" header="City" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
+            <c1-data-map display-member-path="Value" selected-value-path="Value">
+                <c1-items-source source-collection="cities" />
+            </c1-data-map>
+        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Customer.State" name="CustomerState" header="State" />
+        <c1-multi-row-cell binding="Customer.Zip" name="CustomerZip" header="Zip" />
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group header="Shipper">
+        <c1-multi-row-cell binding="Shipper.Name" name="ShipperName" header="Shipper" width="*" />
+        <c1-multi-row-cell binding="Shipper.Email" name="ShipperEmail" header="Shipper Email" class="email" />
+        <c1-multi-row-cell binding="Shipper.Express" name="ShipperExpress" header="Express" />
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+<c1-pager owner="pagingMultiRow"></c1-pager>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.Paging_Text0)</p>
+
+<p>@Html.Raw(MultiRowRes.Paging_Text1)</p>
+
+<p>@Html.Raw(MultiRowRes.Paging_Text2)</p>
+
+}

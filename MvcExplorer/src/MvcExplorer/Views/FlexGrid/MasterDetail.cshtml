@@ -1,0 +1,61 @@
+﻿@model IEnumerable<Customer>
+
+@section Scripts{
+<script type="text/javascript">
+    var grid, cv, detail, cvDetail, currentItem;
+    c1.documentReady(function () {
+        grid = wijmo.Control.getControl("#Customer");
+        cv = grid.collectionView;
+        cv.currentChanged.addHandler(getOrders);
+        cv.moveCurrentToFirst();
+    });
+
+    function getOrders() {
+        detail = wijmo.Control.getControl("#Orders");
+        cvDetail = detail.collectionView;
+        cvDetail.refresh();
+    }
+   
+    function getCustomer(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        grid = wijmo.Control.getControl("#Customer");
+        if (grid) {
+            currentItem = grid.collectionView.currentItem;
+            e.extraRequestData["CustomerID"] = currentItem ? currentItem.CustomerID : "";
+        }
+    }
+</script>
+}
+
+<h4>@Html.Raw(FlexGridRes.MasterDetail_Text0)</h4>
+<c1-flex-grid id="Customer" auto-generate-columns="false" is-read-only="true" selection-mode="Row">
+    <c1-flex-grid-column binding="CustomerID" width="*" />
+    <c1-flex-grid-column binding="CompanyName" width="2*" />
+    <c1-flex-grid-column binding="Country" width="2*" />
+    <c1-flex-grid-column binding="City" width="2*" />
+    <c1-items-source source-collection="Model" />
+</c1-flex-grid>
+<br/>
+<h4>@Html.Raw(FlexGridRes.MasterDetail_Text1)</h4>
+<c1-flex-grid id="Orders" auto-generate-columns="false" is-read-only="true">
+    <c1-flex-grid-column binding="OrderID" />
+    <c1-flex-grid-column binding="EmployeeID" />
+    <c1-flex-grid-column binding="OrderDate" />
+    <c1-flex-grid-column binding="ShippedDate" />
+    <c1-flex-grid-column binding="RequiredDate" />
+    <c1-flex-grid-column binding="Freight" />
+    <c1-flex-grid-column binding="ShipVia" />
+    <c1-flex-grid-column binding="ShipName" />
+    <c1-flex-grid-column binding="ShipCountry" />
+    <c1-flex-grid-column binding="ShipCity" />
+    <c1-flex-grid-column binding="ShipAddress" />
+    <c1-flex-grid-column binding="ShipPostalCode" />
+    <c1-items-source read-action-url="@Url.Action("DetailData")" query-data="getCustomer" />
+</c1-flex-grid>
+
+@section Description{
+@Html.Raw(FlexGridRes.MasterDetail_Text2)
+}

@@ -1,0 +1,20 @@
+﻿
+<c1-tree-view display-member-path="Name"
+              child-items-path="SubExployees"
+              load-action-url="@Url.Action("Load")" lazy-load-action-url="@Url.Action("LazyLoading_LoadAction")"></c1-tree-view>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text2)</p>
+    <ul class="normal">
+        <li>@Html.Raw(TreeViewRes.LazyLoading_Li1)</li>
+        @Html.Raw(TreeViewRes.LazyLoading_Text6)
+    </ul>
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text3)</p>
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text4)</p>
+    <p>@Html.Raw(TreeViewRes.LazyLoading_Text5)</p>
+}

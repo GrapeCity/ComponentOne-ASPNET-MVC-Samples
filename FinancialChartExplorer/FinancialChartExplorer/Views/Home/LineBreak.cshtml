@@ -1,0 +1,48 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var chartStyle = new SVGStyle() { Stroke = "LightBlue", Fill = "LightBlue" };
+    var chartAltStyle = new SVGStyle() { Stroke = "LightBlue", Fill = "Transparent" };
+}
+
+<script type="text/javascript">
+    function customChangeLineBreak(control, value) {
+        control.options = { lineBreak: { newLineBreaks: +value } };
+    }
+
+    function customChangeStroke(control, value) {
+        setColor(control, "style", "stroke", value);
+    }
+
+    function customChangeAltStroke(control, value) {
+        setColor(control, "altStyle", "stroke", value);
+    }
+
+    function customChangeFill(control, value) {
+        setColor(control, "style", "fill", value);
+    }
+
+    function customChangeAltFill(control, value) {
+        setColor(control, "altStyle", "fill", value);
+    }
+
+    function setColor(control, styleName, attName, value) {
+        control.series[0][styleName][attName] = value;
+        control.invalidate();
+    }
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" chart-type="LineBreak" line-break-new-line-breaks="1">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close" style="chartStyle" alt-style="chartAltStyle" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="financialTooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Description{
+    <p>@Html.Raw(Home.LineBreak_Text0)</p>
+    <p>@Html.Raw(Home.LineBreak_Text1)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.LineBreak_Text2)</p>
+}

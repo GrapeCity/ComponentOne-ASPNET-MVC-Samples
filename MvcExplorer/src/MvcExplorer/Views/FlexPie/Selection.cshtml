@@ -1,0 +1,16 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-flex-pie id="@demoSettingsModel.ControlId" header="Sales" 
+             binding-name="Country" binding="Count"
+             selection-mode="Point"
+             is-animated="true"
+             selected-item-position="Top">
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-flex-pie>
+
+@section Description{
+    <p>@Html.Raw(FlexPieRes.Selection_Text0)</p>
+}

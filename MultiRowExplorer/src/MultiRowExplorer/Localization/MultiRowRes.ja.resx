@@ -1,0 +1,847 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchEditing_Text0" xml:space="preserve">
+    <value>&lt;b&gt;Excel形式の編集：&lt;/b&gt;&lt;/br&gt;&lt;b&gt;MultiRow&lt;/b&gt;では、Excel形式の高速なセル内編集が組み込みでサポートされています。&lt;/br&gt;余分な列を追加して、そこに表示モードと編集モードを切り替えるための［編集］ボタンを置く必要はありません。&lt;/br&gt;</value>
+    <comment>&lt;b&gt;Excel-Style editing:&lt;/b&gt;&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch&lt;/br&gt;between display and edit modes.</comment>
+  </data>
+  <data name="BatchEditing_Text1" xml:space="preserve">
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、&lt;/br&gt;［Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing.</comment>
+  </data>
+  <data name="BatchEditing_Text10" xml:space="preserve">
+    <value>このサンプルは、一括編集モードによるデータの編集を示します。</value>
+    <comment>This sample shows the BatchEditing mode for editing the data.</comment>
+  </data>
+  <data name="BatchEditing_Text2" xml:space="preserve">
+    <value>データを編集するには、次の2つのモードがあります。</value>
+    <comment>There are two modes for editing the data.</comment>
+  </data>
+  <data name="BatchEditing_Text25" xml:space="preserve">
+    <value>このサンプルでは、さまざまな方法でセルデータを編集する方法を示します。</value>
+    <comment>This sample shows how to edit cell data with various ways.</comment>
+  </data>
+  <data name="BatchEditing_Text26" xml:space="preserve">
+    <value>編集</value>
+    <comment>Editing</comment>
+  </data>
+  <data name="BatchEditing_Text27" xml:space="preserve">
+    <value>Excel形式の編集</value>
+    <comment>Excel-Style editing</comment>
+  </data>
+  <data name="BatchEditing_Text28" xml:space="preserve">
+    <value>詳細の編集...</value>
+    <comment>Edit Detail...</comment>
+  </data>
+  <data name="BatchEditing_Text29" xml:space="preserve">
+    <value>ポップアップ編集</value>
+    <comment>Popup editing</comment>
+  </data>
+  <data name="BatchEditing_Text3" xml:space="preserve">
+    <value>このモードでは、更新または作成された項目は、対応する行の編集の終了後にサーバーにコミットされます。削除された行は、即座にサーバーにコミットされます。</value>
+    <comment>In this mode, the item updated or created will be commit to the server after the corresponding row finishes editing. The removed row will be commit to the server immediately.</comment>
+  </data>
+  <data name="BatchEditing_Text30" xml:space="preserve">
+    <value>インライン編集</value>
+    <comment>Inline editing</comment>
+  </data>
+  <data name="BatchEditing_Text4" xml:space="preserve">
+    <value>データを更新する場合は、更新アクションURLを提供する必要があります。データを追加または削除する場合は、作成または削除アクションURLを提供する必要があります。&lt;/br&gt;その後、対応するアクションでデータを編集します。これは、デフォルトモードです。</value>
+    <comment>If the user wants to update the data, the Update action Url should be provided. If he wants to add or remove the data, the Create or Delete action Url should be provided.&lt;/br&gt;And the user should edit the data in the corresponding action. It is default mode.</comment>
+  </data>
+  <data name="BatchEditing_Text5" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;には一括編集に対する組み込みのサポートがあり、ユーザーは複数の項目を更新、作成、または削除し、すべての変更を一度にデータソースにコミットできます。&lt;/br&gt;複数の変更のコミットは、グリッドをソート、ページング、またはフィルタ処理して行ったり、ボタンを1回クリックするだけで行うことができます。</value>
+    <comment>&lt;b&gt;MultiRow&lt;/b&gt; has in-built support for &lt;b&gt;BatchEditing&lt;/b&gt;, the user can update, create or remove multiple items and commit all changes to the data source once .&lt;/br&gt;The user can commit multiple modifications by sorting, paging or filtering the grid or simply on a button click.</comment>
+  </data>
+  <data name="BatchEditing_Text6" xml:space="preserve">
+    <value>このモードでは、&lt;b&gt;一括編集&lt;/b&gt;アクションURLを提供する必要があります。</value>
+    <comment>The &lt;b&gt;BatchEditing&lt;/b&gt; action Url should be provided in this mode.</comment>
+  </data>
+  <data name="BatchEditing_Text7" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt; ソート/フィルタ/ページ操作中にデータの更新を無効にするには、MultiRowの&lt;b&gt;ItemSource&lt;/b&gt;の&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティをTrueに設定します。&lt;/br&gt;これにより、クライアント側のソート、フィルタ処理、ページングが有効になり、collectionViewの&lt;b&gt;commit&lt;/b&gt;メソッドがクライアント側から明示的に呼び出されたときにのみデータが送信されます。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow's &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView's &lt;b&gt;commi&lt;/b&gt;t method is explicitly called from client-side.</comment>
+  </data>
+  <data name="BatchEditing_Text8" xml:space="preserve">
+    <value>標準</value>
+    <comment>Normal</comment>
+  </data>
+  <data name="BatchEditing_Text9" xml:space="preserve">
+    <value>一括更新</value>
+    <comment>Batch</comment>
+  </data>
+  <data name="CollapsedHeaders_Text0" xml:space="preserve">
+    <value>MultiRowコントロールでは、列ヘッダーを1行に折りたたみ、個別のセルではなくグループ名だけを表示することができます。</value>
+    <comment>MultiRow control can collapse the column headers to a single line, showing only the group names rather than individual cells.</comment>
+  </data>
+  <data name="CollapsedHeaders_Text1" xml:space="preserve">
+    <value>デフォルトでは、&lt;b&gt;MultiRow&lt;/b&gt;コントロールは複数の行から成る列ヘッダーを作成します。ここに、layoutDefinitionで定義された各セルのヘッダーが表示されます。</value>
+    <comment>By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the layoutDefinition.</comment>
+  </data>
+  <data name="CollapsedHeaders_Text2" xml:space="preserve">
+    <value>これらセル固有の列ヘッダーは、従来のグリッドと同様に、データのソートやフィルタ処理に使用できます。</value>
+    <comment>These cell-specific column headers may be used to sort or filter the data as you would do in a conventional grid.</comment>
+  </data>
+  <data name="CollapsedHeaders_Text3" xml:space="preserve">
+    <value>列ヘッダーを1行に折りたたみ、個別のセルではなくグループ名だけを表示した方がよい場合もあります。&lt;/br&gt;列ヘッダーを折りたたむと、個別のセルヘッダーを表示するよりもスペースの節約になります。列ヘッダーを折りたたむには、&lt;b&gt;CollapsedHeaders&lt;/b&gt;プロパティをtrueに設定します。&lt;/br&gt;その場合は、列ヘッダーが空にならないように、グループの&lt;b&gt;Header&lt;/b&gt;プロパティを忘れずに設定してください。</value>
+    <comment>In some cases, you may want to collapse the column headers to a single line, showing only the group names rather than individual cells.&lt;/br&gt;This saves space at the expense of having individual cell headers. To collapse the column headers, set the &lt;b&gt;CollapsedHeaders&lt;/b&gt; property to true.&lt;/br&gt;In these scenarios, remember to set the &lt;b&gt;Header&lt;/b&gt; property on the groups in order to avoid empty column headers.</comment>
+  </data>
+  <data name="CollapsedHeaders_Text4" xml:space="preserve">
+    <value>&lt;b&gt;CollapsedHeaders&lt;/b&gt;プロパティを&lt;b&gt;null&lt;/b&gt;に設定すると、グリッドにすべてのヘッダー情報（グループおよび列）が表示されます。&lt;/br&gt;この場合、最初の行にはグループヘッダーが、残りの行には個々の列ヘッダーが表示されます。</value>
+    <comment>Setting the &lt;b&gt;CollapsedHeaders&lt;/b&gt; property to &lt;b&gt;null&lt;/b&gt; causes the grid to show all header information (groups and columns).&lt;/br&gt;In this case, the first row will show the group headers and the remaining rows will show the individual column headers.</comment>
+  </data>
+  <data name="CustomCells_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;MultiRow&lt;/b&gt;コントロールのカスタムセル機能を示します。</value>
+    <comment>This view shows the &lt;b&gt;MultiRow&lt;/b&gt; control's custom cells features.</comment>
+  </data>
+  <data name="CustomCells_Text1" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;TemplateId&lt;/b&gt;プロパティを使用して「Trends」列のテンプレートのIDを指定しています。</value>
+    <comment>The sample uses the &lt;b&gt;TemplateId&lt;/b&gt; property to specify the id of the template for the "Trends" column.</comment>
+  </data>
+  <data name="CustomCells_Text2" xml:space="preserve">
+    <value>また、このサンプルでは、&lt;b&gt;ItemFormatter&lt;/b&gt;プロパティを使用して「Rank」列の表示をカスタマイズしています。&lt;/br&gt;ItemFormatterイベントハンドラで、MultiRowの&lt;b&gt;getBindingColumn&lt;/b&gt;関数を使用して連結列を取得します。</value>
+    <comment>The sample also uses the &lt;b&gt;ItemFormatter&lt;/b&gt; property to customize the displaying of "Rank" column.&lt;/br&gt;In the ItemFormatter event handler, use the MultiRow's &lt;b&gt;getBindingColumn&lt;/b&gt; function to get the binding column.</comment>
+  </data>
+  <data name="CustomEditors_Text0" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;MultiRow&lt;/b&gt;コントロールに行を追加したりセルの値を変更したりする方法を示します。</value>
+    <comment>This sample shows how you can customize the way to add rows or change the values in the cells of &lt;b&gt;MultiRow&lt;/b&gt; control.</comment>
+  </data>
+  <data name="CustomEditors_Text1" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;EditTemplateId&lt;/b&gt;プロパティを使用してセルエディタのテンプレートのIDを指定しています。&lt;/br&gt;ユーザーがセルの編集を開始すると、エディタが表示され、フォーカスが取得されます。</value>
+    <comment>The sample uses the &lt;b&gt;EditTemplateId&lt;/b&gt; property to specify the id of the template for cell editor.&lt;/br&gt;When the user starts editing a cell, the editor will show and get the focus.</comment>
+  </data>
+  <data name="CustomEditors_Text10" xml:space="preserve">
+    <value>この例では、「Amount2」と「Active」がグリッドの内部エディタを使用しています。何もする必要はありません。</value>
+    <comment>In this sample, "Amount2" and "Active" use grid internal editor. You don't need do anything.</comment>
+  </data>
+  <data name="CustomEditors_Text11" xml:space="preserve">
+    <value>「Value」または「Text」プロパティを持つC1 Inputコントロールを使用</value>
+    <comment>Use C1 Input controls which has "Value" or "Text" property.</comment>
+  </data>
+  <data name="CustomEditors_Text12" xml:space="preserve">
+    <value>他のコントロール、あるいは「Value」または「Text」プロパティを持たないC1コントロールを使用</value>
+    <comment>Use other control or a C1 control which has NO "Value" or "Text" property.</comment>
+  </data>
+  <data name="CustomEditors_Text13" xml:space="preserve">
+    <value>グリッドの内部エディタを使用</value>
+    <comment>Use grid's internal editor.</comment>
+  </data>
+  <data name="CustomEditors_Text2" xml:space="preserve">
+    <value>次の3種類のエディタがあります。</value>
+    <comment>There are three kinds of editors.</comment>
+  </data>
+  <data name="CustomEditors_Text3" xml:space="preserve">
+    <value>セルの&lt;b&gt;EditTemplate&lt;/b&gt;プロパティを設定するだけです。</value>
+    <comment>You only need set the &lt;b&gt;EditTemplate&lt;/b&gt; property of a cell.</comment>
+  </data>
+  <data name="CustomEditors_Text4" xml:space="preserve">
+    <value>グリッドで新しい行を追加できる場合は、エディタの&lt;b&gt;IsRequired&lt;/b&gt;をfalseに設定する必要があります。&lt;/br&gt;セル全体をエディタに表示する場合は、スタイルの幅を「100%」に設定します。</value>
+    <comment>If the grid allows adding a new row, you need set the editor's &lt;b&gt;IsRequired&lt;/b&gt; to false.&lt;/br&gt;If you want the editor full with the whole cell, you can set the style width to "100%".</comment>
+  </data>
+  <data name="CustomEditors_Text5" xml:space="preserve">
+    <value>このサンプルでは、「Date」、「Time」、「Country」、「Amount」、および「Color」がC1 Inputコントロールをエディタとして使用します。</value>
+    <comment>In this sample, "Date", "Time", "Country", "Amount" and "Color" use C1 Input controls as the editors.</comment>
+  </data>
+  <data name="CustomEditors_Text6" xml:space="preserve">
+    <value>グリッドの&lt;b&gt;OnClientCellEditEnding&lt;/b&gt;イベントを監視し、&lt;/br&gt;&lt;pre&gt;&lt;/br&gt;cellEditEndingEventArgs.cancel = true;&lt;/br&gt;&lt;/pre&gt;&lt;/br&gt;を設定して更新を適用する必要があります。</value>
+    <comment>You need listen the grid's &lt;b&gt;OnClientCellEditEnding&lt;/b&gt; event and set&lt;/br&gt;&lt;pre&gt;&lt;/br&gt;cellEditEndingEventArgs.cancel = true;&lt;/br&gt;&lt;/pre&gt;&lt;/br&gt;to apply your updating.</comment>
+  </data>
+  <data name="CustomEditors_Text7" xml:space="preserve">
+    <value>次に、セル値をいつ更新し、アプリケーション内のグリッドからエディタを除去するかを検討する必要があります。&lt;/br&gt;たとえば、エディタがフォーカスを失ったときに、セル値を更新してエディタを除去する必要があります。</value>
+    <comment>Then you need consider when to update the cell value and remove the editor from a grid in your application.&lt;/br&gt;For example, when the editor blurs, we need update the cell value and remove the editor.</comment>
+  </data>
+  <data name="CustomEditors_Text8" xml:space="preserve">
+    <value>このサンプルでは、「Product」列が&lt;input /&gt;をエディタとして使用しています。</value>
+    <comment>In this sample, the "Product" column uses &lt;input /&gt; as the editor.</comment>
+  </data>
+  <data name="CustomEditors_Text9" xml:space="preserve">
+    <value>イベントハンドラで連結列を取得するには、MultiRowの&lt;b&gt;getBindingColumn&lt;/b&gt;関数を使用してください。</value>
+    <comment>To get the binding column in the event handler, please use the MultiRow's &lt;b&gt;getBindingColumn&lt;/b&gt; function.</comment>
+  </data>
+  <data name="DataMap_Text0" xml:space="preserve">
+    <value>データマップは、グリッドに自動検索機能を提供します。たとえば、顧客のIDの代わりに顧客名、RGB値の代わりに色名を表示できます。&lt;br /&gt;&lt;/br&gt;関連付けられたデータマップを持つ列は、連結値の代わりにマップされた表示値に基づいてソートすることができます。&lt;br /&gt;&lt;/br&gt;関連付けられたデータマップを持つ列には、クイック編集に使用できるドロップダウンボタンが表示されます。ドロップダウンボタンを表示しない場合は、列の&lt;b&gt;ShowDropDown&lt;/b&gt;プロパティをfalseに設定します。</value>
+    <comment>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</comment>
+  </data>
+  <data name="DataMap_Text1" xml:space="preserve">
+    <value />
+  </data>
+  <data name="DataMap_Text2" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;の列には&lt;b&gt;DropDownCssClass&lt;/b&gt;プロパティがあり、これを使用して、&lt;/br&gt;データマップ列の値の編集に使用できるドロップダウンのスタイルを設定できます。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; columns have a &lt;b&gt;DropDownCssClass&lt;/b&gt; property that can be used to&lt;/br&gt;style the drop-downs used to edit values in data-mapped columns.</comment>
+  </data>
+  <data name="DataMap_Text3" xml:space="preserve">
+    <value>複数列エディタの動作を確認するには、「Color」列のいずれかのドロップダウンボタンのをクリックするか、&lt;/br&gt;この列内のセルを選択して［F4］キーを押します。</value>
+    <comment>To see the multi-column editor in action, click one of the drop-down buttons in the "Color" column,&lt;/br&gt;or select a cell in that column and press F4:</comment>
+  </data>
+  <data name="DataMap_Text4" xml:space="preserve">
+    <value>データマップ</value>
+    <comment>Data Map</comment>
+  </data>
+  <data name="DataMap_Text5" xml:space="preserve">
+    <value>複数列のデータマップ</value>
+    <comment>Multi-column Data Map</comment>
+  </data>
+  <data name="DataMap_Text6" xml:space="preserve">
+    <value>このサンプルは、MultiRowに自動検索機能を提供するデータマップ機能を示します。</value>
+    <comment>This sample shows the data map feature which provides the MultiRow with automatic look up capabilities.</comment>
+  </data>
+  <data name="DisableServerRead_Text0" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティがどのように機能するかを示します。</value>
+    <comment>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for.</comment>
+  </data>
+  <data name="DisableServerRead_Text1" xml:space="preserve">
+    <value>このプロパティをTrueに設定した場合は、すべての項目がクライアント側に転送されます。ソート、ページング、またはフィルタ処理はクライアント側で実行されます。&lt;/br&gt;この場合、スクロールバーをスクロールしたときに、データをロードするために「ロード中...」のようなメッセージは表示されません。&lt;/br&gt;そうでない場合、ソート、ページング、またはフィルタ処理はサーバー側で実行されます。この場合は、「ロード中...」というメッセージが表示されることもあります。</value>
+    <comment>When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.&lt;/br&gt;And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</comment>
+  </data>
+  <data name="DisableServerRead_Text2" xml:space="preserve">
+    <value>ページングを使用しないMultiRow</value>
+    <comment>MultiRow without paging</comment>
+  </data>
+  <data name="DisableServerRead_Text3" xml:space="preserve">
+    <value>PageSizeを10に設定したMultiRowのページング</value>
+    <comment>Paging MultiRow which PageSize is set to 10</comment>
+  </data>
+  <data name="Editing_Text0" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;では、Excel形式の高速なセル内編集が組み込みでサポートされています。&lt;/br&gt;余分な列を追加して、そこに表示モードと編集モードを切り替えるための［編集］ボタンを置く必要はありません。&lt;/br&gt;</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch&lt;/br&gt;between display and edit modes.</comment>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、&lt;/br&gt;［Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing.</comment>
+  </data>
+  <data name="Editing_Text10" xml:space="preserve">
+    <value>この動作を確認するには、グリッドの項目を選択し、上の［詳細の編集］ボタンをクリックします。&lt;/br&gt;これにより、現在の選択項目のデータをユーザーが編集できるフォームが表示されます。</value>
+    <comment>To see this in action, select an item on the grid and click the "Edit Detail" button above.&lt;/br&gt;This will bring up a form where users can edit the data for the currently selected item.</comment>
+  </data>
+  <data name="Editing_Text11" xml:space="preserve">
+    <value>詳細フォームは、より多くのスペースを必要とする一方で場合によってはデータ入力が容易になる&lt;/br&gt;特別な入力コントロールを使用します。このフォームには、変更をコミットする［OK］ボタンと&lt;/br&gt;元のデータを復元する［キャンセル］ボタンがあります。どちらのアクションも、グリッドのデータソースとして使用される&lt;/br&gt;&lt;b&gt;CollectionView&lt;/b&gt;の1回の呼び出しで実行されます。</value>
+    <comment>The detail form uses specialized input controls that take up more space but can make data&lt;/br&gt;entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes&lt;/br&gt;or restore the original data. Both actions are accomplished with a single call to the&lt;/br&gt;&lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</comment>
+  </data>
+  <data name="Editing_Text12" xml:space="preserve">
+    <value>何らかの理由でExcel形式の編集を避け、&lt;/br&gt;各行に編集ボタンを追加する場合は（編集可能HTMLテーブルなど）、&lt;/br&gt;1つの&lt;b&gt;ItemFormatter&lt;/b&gt;といくつかのコントローラメソッドを使用してこれを実現できます。&lt;/br&gt;ItemFormatterイベントハンドラで連結列を取得するには、MultiRowの&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt;関数を使用してください。</value>
+    <comment>If for some reason you don't like the Excel-style editing and prefer to add editing&lt;/br&gt;buttons to every row (typical of editable HTML tables), you can accomplish that&lt;/br&gt;using an &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow's&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt; function.</comment>
+  </data>
+  <data name="Editing_Text13" xml:space="preserve">
+    <value>次のグリッドは、この方法を示します。セルのボタンは、&lt;/br&gt;コントローラのメソッドを呼び出して必要なアクションを実行します。</value>
+    <comment>The grid below demonstrates this approach. The buttons in the cells call&lt;/br&gt;methods in the controller to perform the required actions:</comment>
+  </data>
+  <data name="Editing_Text14" xml:space="preserve">
+    <value>項目の編集</value>
+    <comment>Edit Item</comment>
+  </data>
+  <data name="Editing_Text15" xml:space="preserve">
+    <value>仕入先ID</value>
+    <comment>Supplier ID</comment>
+  </data>
+  <data name="Editing_Text16" xml:space="preserve">
+    <value>会社名</value>
+    <comment>Company Name</comment>
+  </data>
+  <data name="Editing_Text17" xml:space="preserve">
+    <value>連絡先名</value>
+    <comment>Contact Name</comment>
+  </data>
+  <data name="Editing_Text18" xml:space="preserve">
+    <value>連絡先の役職</value>
+    <comment>Contact Title</comment>
+  </data>
+  <data name="Editing_Text19" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>グリッドオブジェクトまたは列オブジェクトの&lt;b&gt;isReadOnly&lt;/b&gt;プロパティを使用して、&lt;/br&gt;グリッドレベルまたは列レベルで編集を無効にすることができます。</value>
+    <comment>You can disable editing at the grid or column levels using the &lt;b&gt;isReadOnly&lt;/b&gt;&lt;/br&gt;property of the grid or column objects.</comment>
+  </data>
+  <data name="Editing_Text20" xml:space="preserve">
+    <value>地域</value>
+    <comment>Region</comment>
+  </data>
+  <data name="Editing_Text21" xml:space="preserve">
+    <value>都市</value>
+    <comment>City</comment>
+  </data>
+  <data name="Editing_Text22" xml:space="preserve">
+    <value>住所</value>
+    <comment>Address</comment>
+  </data>
+  <data name="Editing_Text23" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="Editing_Text24" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>&lt;b&gt;モバイルデバイス：&lt;/b&gt;&lt;/br&gt;モバイルデバイスは、ダブルクリックイベントを使用してズームインとズームアウトを行い、&lt;/br&gt;デフォルトではキーボードが表示されません。モバイルデバイスのセルの編集を開始するには、&lt;/br&gt;セルをクリックして選択してから、再度クリックして編集の開始を示します。</value>
+    <comment>&lt;b&gt;Mobile Devices:&lt;/b&gt;&lt;/br&gt;Mobile devices use the double-click event to zoom in and out, and do not show&lt;/br&gt;a keyboard by default. To start editing a cell on mobile devices, simply click&lt;/br&gt;a cell to select it, then click it again to indicate you want to start editing.</comment>
+  </data>
+  <data name="Editing_Text4" xml:space="preserve">
+    <value>&lt;b&gt;自動型検証/強制：&lt;/b&gt;&lt;/br&gt;ユーザーが列に無効な値（数値列または日付列に対して「hello」など）を入力すると、&lt;/br&gt;その編集は適用されず、&lt;/br&gt;セルは元の値を維持します。日時は、列に割り当てられた書式で解析されます。&lt;/br&gt;</value>
+    <comment>&lt;b&gt;Automatic type Validation/Coercion:&lt;/b&gt;&lt;/br&gt;If the user types anything that is invalid for the column (e.g. "hello" for a&lt;/br&gt;numeric or date column), the edits won't be applied and the cell will keep its&lt;/br&gt;original value. Dates and times are parsed using the format assigned to the&lt;/br&gt;column.</comment>
+  </data>
+  <data name="Editing_Text5" xml:space="preserve">
+    <value>&lt;b&gt;チェックボックス：&lt;/b&gt;&lt;/br&gt;デフォルトでは、（Excelと異なり）Boolean値はチェックボックスとして表示されます。ユーザーは、&lt;/br&gt;スペースバーをクリックするか押して、チェックボックスの値を変更できます。&lt;/br&gt;チェックボックスは、「TRUE」文字列や&lt;/br&gt;「FALSE」文字列を含むフィールドよりも読みやすく、編集が容易です。</value>
+    <comment>&lt;b&gt;Checkboxes:&lt;/b&gt;&lt;/br&gt;By default (and unlike Excel), Boolean values are shown as checkboxes. Users&lt;/br&gt;can change the checkbox values by clicking or by pressing the space bar.&lt;/br&gt;Checkboxes are easier to read and to edit than fields containing "TRUE" or&lt;/br&gt;"FALSE" strings.</comment>
+  </data>
+  <data name="Editing_Text6" xml:space="preserve">
+    <value>&lt;b&gt;編集モード：&lt;/b&gt;&lt;/br&gt;データを更新するには、次の2つのモードがあります。&lt;/br&gt;デフォルトでは、編集が終了すると更新操作がサーバーにコミットされます。&lt;/br&gt;ユーザーが更新操作をデータソースサーバーにコミットする場合は、更新アクション、削除アクション、または作成アクションのURLを提供する必要があります。&lt;/br&gt;また、データソースを更新するために使用するコードは、対応するアクション内に記述する必要があります。&lt;/br&gt;もう1つのモードは&lt;b&gt;BatchEdit&lt;/b&gt;です。ユーザーは複数の項目を更新、作成、または削除できます。&lt;/br&gt;これらの変更は、確認後に1回だけデータソースに対してコミットされます。&lt;/br&gt;これで、これらの変更はクライアント側の&lt;b&gt;CollectionView&lt;/b&gt;の&lt;b&gt;commit&lt;/b&gt;メソッドによってコミットできます。&lt;/br&gt;ユーザーは、ソート動作、ページング動作、またはフィルタ処理動作によってこれらをコミットすることもできます。</value>
+    <comment>&lt;b&gt;Editing Mode:&lt;/b&gt;&lt;/br&gt;There are two modes for updating the data.&lt;/br&gt;By default, the update operation will be commit to the server once finishing editing.&lt;/br&gt;If the user wants to commit the update operation to datasource server, the Update, Delete or Create action url should be provided.&lt;/br&gt;And the corresponding codes used to update the datasource should be written in the corresponding action.&lt;/br&gt;The other mode is called &lt;b&gt;BatchEdit&lt;/b&gt;. The user can update, create or remove multiple items.&lt;/br&gt;Once these modifications are confirmed, They could be commit to the data source only once.&lt;/br&gt;Now these modifications can be commit by the &lt;b&gt;commit&lt;/b&gt; method of &lt;b&gt;CollectionView&lt;/b&gt; in client side.&lt;/br&gt;The user can also commit them by sorting, paging or filtering behavior.</comment>
+  </data>
+  <data name="Editing_Text7" xml:space="preserve">
+    <value>&lt;input type="button" value="詳しく見る" class="btn collapse in" data-toggle="collapse" data-target=".collapsed-content, .btn.collapse" /&gt;</value>
+    <comment>&lt;input type="button" value="Read More" class="btn collapse in" data-toggle="collapse" data-target=".collapsed-content, .btn.collapse" /&gt;</comment>
+  </data>
+  <data name="Editing_Text8" xml:space="preserve">
+    <value>典型的な編集可能MultiRowを次に示します。</value>
+    <comment>Here is a typical editable MultiRow:</comment>
+  </data>
+  <data name="Editing_Text9" xml:space="preserve">
+    <value>ポップアップ編集は、Excel形式のクイックデータ入力を行うネイティブ編集を有効にしたまま、&lt;/br&gt;ユーザーが項目の詳細を編集するためのフォームを呼び出す［詳細の編集］ボタンを追加します。</value>
+    <comment>Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds&lt;/br&gt;an "Edit Detail" button to invoke a form where the user can edit the item details.</comment>
+  </data>
+  <data name="Error_Text0" xml:space="preserve">
+    <value>エラー。</value>
+    <comment>Error.</comment>
+  </data>
+  <data name="Error_Text1" xml:space="preserve">
+    <value>要求の処理中にエラーが発生しました。</value>
+    <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="ExcelExport_Text0" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;MultiRow&lt;/b&gt;のコンテンツをExcelのxlsxファイルにエクスポートする方法を示します。</value>
+    <comment>The sample demonstrates how to export &lt;b&gt;MultiRow&lt;/b&gt; content to an Excel xlsx file.</comment>
+  </data>
+  <data name="ExcelExport_Text1" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;のコンテンツをエクスポートするには、&lt;b&gt;MultiRow&lt;/b&gt;インスタンスを&lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt;メソッドに渡します。&lt;/br&gt;これにより、xlsxファイルのコンテンツが生成され、このコンテンツをローカルファイルに保存したり、サーバーに送ることができます。</value>
+    <comment>To export &lt;b&gt;MultiRow&lt;/b&gt; content, pass the &lt;b&gt;MultiRow&lt;/b&gt; instance to the &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; method.&lt;/br&gt;This generates xlsx file content, which can be saved to a local file or sent to a server.</comment>
+  </data>
+  <data name="ExcelExport_Text2" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt; CDNのリンク&lt;a href="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js"&gt;http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js&lt;/a&gt;から、&lt;b&gt;jszip.js&lt;/b&gt;ライブラリを追加する必要があります。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; You should add &lt;b&gt;jszip.js&lt;/b&gt; library by yourself and the CDN link is: &lt;a href="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js"&gt;http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js&lt;/a&gt;</comment>
+  </data>
+  <data name="Filter_Text0" xml:space="preserve">
+    <value>このビューは、MultiRowでフィルタ処理を使用する方法を示します。</value>
+    <comment>This view shows how to use filtering in MultiRow.</comment>
+  </data>
+  <data name="Freezing_Text0" xml:space="preserve">
+    <value>このビューは、MultiRowコントロールの固定セル機能を示します。</value>
+    <comment>This view shows the MultiRow control's frozen cells features.</comment>
+  </data>
+  <data name="Freezing_Text1" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;コントロールを使用すると、行や列を固定して、それらを常に表示したままグリッドをスクロールすることができます。&lt;/br&gt;ExcelやFlexGridコントロールと同様に、固定されたセルも通常のセルとして編集したり選択することができます。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; control allows you to freeze rows and columns so they remain in view as the user scrolls the grid.&lt;/br&gt;Frozen cells can be edited and selected as regular cells, exactly as in Excel and in the FlexGrid control.</comment>
+  </data>
+  <data name="Grouping_Text0" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;MultiRow&lt;/b&gt;のグループ化のサポートを示します。ほとんどの作業は、グリッドのデータソースとして使用されるCollectionViewクラスによって行われます。&lt;/br&gt;ビューの&lt;b&gt;GroupBy&lt;/b&gt;メソッドを使用してグループ記述を設定できます。&lt;/br&gt;Javascriptでグループ化を追加するには、1つ以上の&lt;b&gt;GroupDescription&lt;/b&gt;オブジェクトを&lt;b&gt;CollectionView.GroupDescriptions&lt;/b&gt;プロパティに追加します。&lt;/br&gt;次に、MultiRowの&lt;b&gt;ShowGroups&lt;/b&gt;プロパティがtrueに設定されていることを確認します。</value>
+    <comment>This sample shows grouping support in the &lt;b&gt;MultiRow&lt;/b&gt;. Most of the work is done by the CollectionView class used as a data source for the grid.&lt;/br&gt;You can config group description by &lt;b&gt;GroupBy&lt;/b&gt; method in view.&lt;/br&gt;To add grouping by Javascript, add one or more &lt;b&gt;GroupDescription&lt;/b&gt; objects to the &lt;b&gt;CollectionView.GroupDescriptions&lt;/b&gt; property.&lt;/br&gt;And ensure that the MultiRow's &lt;b&gt;ShowGroups&lt;/b&gt; property is set to true.</comment>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>MultiRowの&lt;b&gt;GroupHeaderFormat&lt;/b&gt;プロパティを使用して、グループヘッダー行に表示されるテキストをカスタマイズできます。&lt;/br&gt;デフォルトでは、これには、Stateなどグループの名前が表示され、その後に現在のグループとそのグループ内の項目数が表示されます。</value>
+    <comment>You can customize the text that is displayed in group header rows using the MultiRow's &lt;b&gt;GroupHeaderFormat&lt;/b&gt; property.&lt;/br&gt;By default, this displays the name of the group, for example, State, followed by the current group and the number of items in the group.</comment>
+  </data>
+  <data name="GroupPanel_Text0" xml:space="preserve">
+    <value>グループパネル機能では、ドラッグドロップグループ化UIを任意のMultiRowコントロールに追加できます。</value>
+    <comment>The GroupPanel feature allows you to add a drag-drop grouping UI to any MultiRow control.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>1レコードの表示に1行を使用する従来のグリッドビューです。レコード全体を見るには、水平方向にスクロールする必要があります。</value>
+    <comment>Traditional grid view, with one row per record.The user must scroll horizontally to see the whole record.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>このビューでは、1レコードの表示に2行を使用します。レイアウトは、注文、顧客、運送業者の3つのグループに分かれています。</value>
+    <comment>This view uses two rows per record. The layout is divided into three groups: order, customer, and shipper.</comment>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>このグループの幅はグリッド列3つ分です。その中に、さまざまな幅を持つ6つのセルが含まれます。&lt;/br&gt;レイアウトの生成時、グリッドは各行にできるだけ多くのセルを入れ、グループ幅に達すると次の行の先頭にセルを配置します。&lt;/br&gt;各行の最後のセルは、グループの&lt;b&gt;Colspan&lt;/b&gt;全体に自動的に拡大されます。&lt;/br&gt;この処理は、テキストを折り返して段落を作成する方法に似ています。</value>
+    <comment>The group spans three grid columns. It contains six cells with different spans.&lt;/br&gt;When generating the layout, the grid fits as many cells as possible in each row, and wraps to the next row when the group span is reached.&lt;/br&gt;The last cell in each row is automatically expanded to fill &lt;b&gt;Colspan&lt;/b&gt; of the group.&lt;/br&gt;The process is similar to wrapping of text to create a paragraph.</comment>
+  </data>
+  <data name="Index_Text11" xml:space="preserve">
+    <value>同じ処理が&lt;b&gt;LayoutDefinition&lt;/b&gt;オブジェクト内のすべてのグループに適用されます。</value>
+    <comment>The same process is applied to every group in the &lt;b&gt;LayoutDefinition&lt;/b&gt; object.</comment>
+  </data>
+  <data name="Index_Text12" xml:space="preserve">
+    <value>LayoutDefinition</value>
+    <comment>LayoutDefinition</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>このビューでは、1レコードの表示に3行を使用します。レイアウトは、注文、顧客、運送業者の3つのグループに分かれています。</value>
+    <comment>This view uses three rows per record. The layout is divided into three groups: order, customer, and shipper.</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>MultiRowコントロールは、従来のグリッドレイアウトを拡張し、複数の行を使用して各データ項目を表現します。</value>
+    <comment>The MultiRow control extends conventional grid layouts by using multiple rows to represent each data item.</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;コントロールは、従来のグリッドレイアウトを拡張し、複数の行を使用して各データ項目を表現します。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; control extends conventional grid layouts by using multiple rows to represent each data item.</comment>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;コントロールでは、他の従来のグリッドと同様に、表形式でデータを表示して編集できます。&lt;/br&gt;ただし、&lt;b&gt;MultiRow&lt;/b&gt;では、従来のグリッドと異なり、各データ項目を複数の行に連結して&lt;/br&gt;フォーム状のインタフェースを作成し、最小限の水平スクロールで多くの列を表示することができます。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; control allows users to see and edit data in a tabular form, just like other conventional grids.&lt;/br&gt;But, &lt;b&gt;MultiRow&lt;/b&gt; is different from these grids in a way that it allows you to bind each data item to multiple rows,&lt;/br&gt;creating form-like interfaces that can display a large number of columns with minimal horizontal scrolling.</comment>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;コントロールは&lt;b&gt;FlexGrid&lt;/b&gt;コントロールの拡張コントロールです。&lt;b&gt;FlexGrid&lt;/b&gt;の使用方法を知っていれば、すぐに&lt;b&gt;MultiRow&lt;/b&gt;を使用できます。&lt;/br&gt;新しい重要なプロパティは、グリッド行とセルのレイアウトを記述する&lt;b&gt;LayoutDefinition&lt;/b&gt;オブジェクトです。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so if you know how to use &lt;b&gt;FlexGrid&lt;/b&gt;, you will be able to use &lt;b&gt;MultiRow&lt;/b&gt; in no time.&lt;/br&gt;The main new property is &lt;b&gt;LayoutDefinition&lt;/b&gt;, which takes an object that describes the layout of the grid rows and cells.</comment>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;コントロールは、単に従来のグリッドの代わりに使用されるだけでなく、ある種の用途にぴったり合う特殊ツールです。</value>
+    <comment>The &lt;b&gt;MultiRow&lt;/b&gt; control is not a simple replacement for conventional grids; it is a specialized tool that fits some particular scenarios really well.</comment>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>&lt;b&gt;LayoutDefinition&lt;/b&gt;プロパティはグリッド内のセルのレイアウトを指定します。&lt;/br&gt;このプロパティには、セルグループオブジェクトのリストが含まれます。各セルグループは、グループが占める列の数と、各グループを構成するセルを指定します。</value>
+    <comment>The &lt;b&gt;LayoutDefinition&lt;/b&gt; property specifies the layout of the cells in the grid.&lt;/br&gt;It contains a list of cell group objects. Each cell group specifies how many columns the group should span, and the cells that make up each group.</comment>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>次の図は、セルグループがどのように解釈されてグリッドレイアウトになるかを示します。&lt;/br&gt;</value>
+    <comment>The image below illustrates how a cell group is interpreted and turned into a grid layout:&lt;/br&gt;</comment>
+  </data>
+  <data name="Paging_Text0" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;MultiRow&lt;/b&gt;を使用して、ページ付きビューを実装する方法を示します。&lt;/br&gt;すべての作業は、グリッドのデータソースとして使用される&lt;b&gt;CollectionView&lt;/b&gt;クラスによって行われます。&lt;/br&gt;ページングを有効にするには、&lt;b&gt;MultiRow&lt;/b&gt;または&lt;b&gt;CollectionViewService&lt;/b&gt;の&lt;b&gt;PageSize&lt;/b&gt;プロパティを設定します。&lt;/br&gt;ページを切り替えるには、&lt;b&gt;Pager&lt;/b&gt;コントロールを使用し、&lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt;プロパティを&lt;b&gt;MultiRow&lt;/b&gt;または&lt;b&gt;CollectionViewService&lt;/b&gt;のIDに設定します。</value>
+    <comment>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt;All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</comment>
+  </data>
+  <data name="Paging_Text1" xml:space="preserve">
+    <value>この例では、サーバー側でページングが行われます。これは、この&lt;b&gt;CollectionView&lt;/b&gt;がサービスのように動作して、サーバーデータと同期するためです。&lt;/br&gt; &lt;b&gt;CollectionView&lt;/b&gt;は、内部的にajax呼び出しを行って次のデータセットを取得します。クライアント側のページングについては、@Html.ActionLink("「サーバー読み取りの無効化」", "DisableServerRead")サンプルを参照してください。</value>
+    <comment>In this example, the paging happens server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes&lt;/br&gt;with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink("Disable Server Reading", "DisableServerRead") sample for client-side paging.</comment>
+  </data>
+  <data name="Paging_Text2" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt; ページングUIは、グリッド外で実装されます。これにより、&lt;/br&gt;ページングメカニズムの外観と機能を完全に制御できます。&lt;/br&gt;JavaScriptで&lt;b&gt;Pager&lt;/b&gt;をカスタマイズする方法については、クライアント&lt;b&gt;CollectionView&lt;/b&gt;クラスを参照してください。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete&lt;/br&gt;control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; by Javascript, please refer the client &lt;b&gt;CollectionView&lt;/b&gt; class.</comment>
+  </data>
+  <data name="PdfExport_Text0" xml:space="preserve">
+    <value>You can use the &lt;b&gt;FlexGridPdfConverter&lt;/b&gt;, a &lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;-based JavaScript library,&lt;/br&gt;to export &lt;b&gt;MultiRow&lt;/b&gt; to PDF (Portable Document Format) without using any server-side code.</value>
+    <comment>&lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;ベースのJavaScriptライブラリである&lt;b&gt;FlexGridPdfConverter&lt;/b&gt;を使用すると、&lt;/br&gt;サーバー側のコードを使用することなく、&lt;b&gt;MultiRow&lt;/b&gt;をPDF（Portable Document Format）にエクスポートできます。</comment>
+  </data>
+  <data name="PdfExport_Text1" xml:space="preserve">
+    <value>&lt;b&gt;MultiRow&lt;/b&gt;をエクスポートするには、以下の引数を受け取る&lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt;関数を使用する必要があります。</value>
+    <comment>To export a &lt;b&gt;MultiRow&lt;/b&gt;, you need to use the &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; function that takes the following arguments:</comment>
+  </data>
+  <data name="PdfExport_Text10" xml:space="preserve">
+    <value>&lt;b&gt;exportMode&lt;/b&gt;：MultiRowのどの部分（すべてのデータまたは現在の選択だけ）をエクスポートするかを決定します。</value>
+    <comment>&lt;b&gt;exportMode&lt;/b&gt;: Determines which part of the MultiRow should be exported (all of the data or only the current selection).</comment>
+  </data>
+  <data name="PdfExport_Text11" xml:space="preserve">
+    <value>embeddedFonts：URL、名前、スタイル、ウェイト（太さ）など、さまざまな独自フォントに関する情報をエクスポートライブラリに提供します。</value>
+    <comment>embeddedFonts: Provides information to the export library, about various custom fonts to be embedded, such as URL, name, style, weight.</comment>
+  </data>
+  <data name="PdfExport_Text12" xml:space="preserve">
+    <value>&lt;b&gt;styles&lt;/b&gt;：グリッド要素のスタイルを設定して、埋め込みフォントにリンクするために使用します。</value>
+    <comment>&lt;b&gt;styles&lt;/b&gt;: It is used to set up the style for the grid elements and link them with the embedded fonts.</comment>
+  </data>
+  <data name="PdfExport_Text13" xml:space="preserve">
+    <value>エクスポートの設定：</value>
+    <comment>Export Settings:</comment>
+  </data>
+  <data name="PdfExport_Text14" xml:space="preserve">
+    <value>PDFKitベースのJavaScriptライブラリであるFlexGridPdfConverterを使用して、サーバー側のコードを使用することなく、MultiRowをPDF（Portable Document Format）にエクスポートできます。</value>
+    <comment>You can use the FlexGridPdfConverter, a PDFKit-based JavaScript library, to export MultiRow to PDF (Portable Document Format) without using any server-side code.</comment>
+  </data>
+  <data name="PdfExport_Text15" xml:space="preserve">
+    <value>フォントを埋め込む</value>
+    <comment>Embed Fonts</comment>
+  </data>
+  <data name="PdfExport_Text2" xml:space="preserve">
+    <value>このサンプルでは、以下のメニューを使用して、以下のエクスポート設定を変更できます。</value>
+    <comment>In this sample, you can change the following export settings using the menus below:</comment>
+  </data>
+  <data name="PdfExport_Text3" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;MultiRow&lt;/b&gt;は、&lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt;フォント、および2つの書体&lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt;と&lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt;を使用します。&lt;/br&gt;ヘッダーセルの表示にはFiraSans-Bold.ttf（太字）書体が使用され、それ以外のコンテンツにはFiraSans-Regular.ttf書体が使用されます。</value>
+    <comment>In this sample, &lt;b&gt;MultiRow&lt;/b&gt; uses font &lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt; and two typefaces, &lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt; and &lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt;.&lt;/br&gt;The FiraSans-Bold.ttf (boldface) typeface is used to display the header cells, and the FiraSans-Regular.ttf typeface is used for rest of the content.</comment>
+  </data>
+  <data name="PdfExport_Text4" xml:space="preserve">
+    <value>PDFにフォントを埋め込むには、次のエクスポート設定を使用します。</value>
+    <comment>To embed the fonts into the PDF, the following export settings are used:</comment>
+  </data>
+  <data name="PdfExport_Text5" xml:space="preserve">
+    <value>MultiRowインスタンス。</value>
+    <comment>A MultiRow instance.</comment>
+  </data>
+  <data name="PdfExport_Text6" xml:space="preserve">
+    <value>エクスポートするファイルの名前。</value>
+    <comment>Name of the file to export.</comment>
+  </data>
+  <data name="PdfExport_Text7" xml:space="preserve">
+    <value>エクスポートの設定。</value>
+    <comment>Export settings.</comment>
+  </data>
+  <data name="PdfExport_Text8" xml:space="preserve">
+    <value>&lt;b&gt;scaleMode&lt;/b&gt;：ページに合わせてMultiRowコンテンツを拡大縮小する方法を決定します。</value>
+    <comment>&lt;b&gt;scaleMode&lt;/b&gt;: Determines how the MultiRow content should be scaled in order to fit the page.</comment>
+  </data>
+  <data name="PdfExport_Text9" xml:space="preserve">
+    <value>&lt;b&gt;orientation&lt;/b&gt;：ページの方向を決定します。</value>
+    <comment>&lt;b&gt;orientation&lt;/b&gt;: Determines the orientation of pages.</comment>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>この例は、MultiRowを何らかのアクションによるデータと連結する方法を示します。</value>
+    <comment>This example shows how you can bind MultiRow with the data from some Action.</comment>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>ソートするフィールド：</value>
+    <comment>Sorting Field :</comment>
+  </data>
+  <data name="Sorting_Text1" xml:space="preserve">
+    <value>ソート順：</value>
+    <comment>Sorting Order :</comment>
+  </data>
+  <data name="Sorting_Text2" xml:space="preserve">
+    <value>このサンプルは、MultiRowコントロールのソート機能を示します。</value>
+    <comment>This samples shows the sort features of the MultiRow control.</comment>
+  </data>
+  <data name="Sorting_Text3" xml:space="preserve">
+    <value>このサンプルでは、最初のリストで選択されたフィールド値に基づいてコレクションをソートすることができます。
+また、2番目のリストでソート順を指定することもできます。</value>
+    <comment>In this sample, you can sort the collection based on the corresponding field value chosen in the first list. 
+You can also specify the sorting order in the second list.</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>この例は、組み込みのクラス名をCSSルールで使用して、レコード区切りとグループ区切りの外観をカスタマイズする方法を示します。</value>
+    <comment>This example shows how you can use built-in class names in CSS rules to customize the appearance of the record and group delimiters.</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>多くのアプリケーションでは、各レコードやグループがどこで始まりどこで終わるかを示しておくのが普通です。&lt;/br&gt;&lt;b&gt;MultiRow&lt;/b&gt;コントロールは、グループごとに最初と最後の行/列にあるセル要素にCSSクラス名を追加することで、これを可能にしています。&lt;/br&gt;使用するクラス名は、wj-record-start、wj-record-end、wj-group-start、wj-group-endです。</value>
+    <comment>In most of the applications, you would want to show where each record and group starts or ends.&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; control enables this by adding CSS class names to cell elements in the first and last row/column of each group.&lt;/br&gt;The class names are wj-record-start, wj-record-end, wj-group-start, and wj-group-end.</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>この例は、これらのクラス名をCSSルールで使用して、レコード区切りとグループ区切りの外観をカスタマイズする方法を示します。&lt;/br&gt;また、標準の&lt;b&gt;CssClass&lt;/b&gt;プロパティを使用して、グループ内の特定のセルをカスタマイズする方法も示します。</value>
+    <comment>This example shows how you can use these class names in CSS rules to customize the appearance of the record and group delimiters.&lt;/br&gt;It also shows how you can use the standard &lt;b&gt;CssClass&lt;/b&gt; property to customize the appearance of specific cells within groups.</comment>
+  </data>
+  <data name="UnobtrusiveValidation_Text0" xml:space="preserve">
+    <value>このサンプルは、控えめな検証の基本的な使用方法を示しています。</value>
+    <comment>This sample shows the basic usage of the unobtrusive validation.</comment>
+  </data>
+  <data name="UnobtrusiveValidation_Text1" xml:space="preserve">
+    <value>各列に対して、次の検証が行われます。&lt;/br&gt;&lt;ul&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;名前：&lt;/b&gt; 必須。英数字4～10文字。&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;業種：&lt;/b&gt; 必須。&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;国：&lt;/b&gt; 必須。&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;電話：&lt;/b&gt; 必須。8～11文字。&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;電子メール：&lt;/b&gt; 必須。有効な電子メールアドレス。&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;生年月日：&lt;/b&gt; 必須。&lt;/li&gt;&lt;/br&gt;&lt;/ul&gt;</value>
+    <comment>The columns have the following validations:&lt;/br&gt;&lt;ul&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Name:&lt;/b&gt; Required. Alphanumeric and contains 4 to 10 characters.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Industry:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Country:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Phone:&lt;/b&gt; Required. 8 to 11 characters.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Email:&lt;/b&gt; Required. Valid e-mail address.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Birthdate:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;/ul&gt;</comment>
+  </data>
+  <data name="VirtualScrolling_Text0" xml:space="preserve">
+    <value>このサンプルは、グリッドを仮想スクロールモードにする方法を示します。</value>
+    <comment>This sample shows how to make grid work in virtual scrolling mode.</comment>
+  </data>
+  <data name="VirtualScrolling_Text1" xml:space="preserve">
+    <value>この機能を有効にするには、&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティがfalse（デフォルト）である必要があります。&lt;/br&gt;次に、&lt;b&gt;InitialItemsCount&lt;/b&gt;プロパティに0より大きい数字を設定する必要があります。</value>
+    <comment>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number which is greater than 0.</comment>
+  </data>
+  <data name="_ControlLayout_Text0" xml:space="preserve">
+    <value>サンプル</value>
+    <comment>Sample</comment>
+  </data>
+  <data name="_ControlLayout_Text1" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="_ControlLayout_Text2" xml:space="preserve">
+    <value>マニュアル</value>
+    <comment>Documentation</comment>
+  </data>
+  <data name="_ControlLayout_Text3" xml:space="preserve">
+    <value>設定</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="_ControlsNav_Text0" xml:space="preserve">
+    <value>機能</value>
+    <comment>Features</comment>
+  </data>
+  <data name="_Layout_Text0" xml:space="preserve">
+    <value>ComponentOne</value>
+    <comment>ComponentOne</comment>
+  </data>
+  <data name="_Layout_Text1" xml:space="preserve">
+    <value>MVC MultiRowエクスプローラー</value>
+    <comment>MVC MultiRow Explorer</comment>
+  </data>
+  <data name="_Layout_Text2" xml:space="preserve">
+    <value>ASP.NET MVC Edition MultiRowエクスプローラー</value>
+    <comment>ASP.NET MVC Edition MultiRow Explorer</comment>
+  </data>
+  <data name="_Layout_Text3" xml:space="preserve">
+    <value>マニュアル</value>
+    <comment>Documentation</comment>
+  </data>
+  <data name="_Layout_Text4" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+            ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
+    <comment>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+            All product and company names here in may be trademarks of their respective owners.</comment>
+  </data>
+  <data name="_Layout_Text5" xml:space="preserve">
+    <value>サンプル</value>
+    <comment>Sample</comment>
+  </data>
+  <data name="_Layout_Text6" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="_Layout_Text7" xml:space="preserve">
+    <value>設定</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="_Layout_Text8" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="_SiteNav_Text0" xml:space="preserve">
+    <value>製品情報</value>
+    <comment>About</comment>
+  </data>
+  <data name="_SiteNav_Text1" xml:space="preserve">
+    <value>サポート</value>
+    <comment>Support</comment>
+  </data>
+  <data name="_SiteNav_Text2" xml:space="preserve">
+    <value>ご購入</value>
+    <comment>Pricing</comment>
+  </data>
+  <data name="_SiteNav_Text3" xml:space="preserve">
+    <value>トライアル版</value>
+    <comment>FREE TRIAL</comment>
+  </data>
+  <data name="_SiteNav_Text4" xml:space="preserve">
+    <value>テーマの編集 &amp;gt;</value>
+    <comment>Edit Theme &amp;gt;</comment>
+  </data>
+  <data name="_SiteNav_Text5" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="_SiteNav_Text6" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/support</value>
+    <comment>http://supportone.componentone.com/login</comment>
+  </data>
+  <data name="_SiteNav_Text7" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/purchase</value>
+    <comment>https://www.grapecity.com/en/pricing</comment>
+  </data>
+  <data name="_SiteNav_Text8" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/download</value>
+    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.ja.css</value>
+    <comment>~/Content/css/gcicons.css</comment>
+  </data>
+  <data name="_Layout_Text9" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>すべて折りたたむ</value>
+    <comment>Collapse All</comment>
+  </data>
+  <data name="Grouping_Text3" xml:space="preserve">
+    <value>すべて展開</value>
+    <comment>Expand All</comment>
+  </data>
+  <data name="PdfExport_Text16" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="_ControlLayout_Text4" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="_Layout_Text10" xml:space="preserve">
+    <value>ComponentOne for ASP.NET MVC</value>
+    <comment>C1 ASP.NET MVC</comment>
+  </data>
+  <data name="BatchEditing_Text11" xml:space="preserve">
+    <value>更新</value>
+    <comment>Update</comment>
+  </data>
+  <data name="Index_Text13" xml:space="preserve">
+    <value>~/Content/images/cellGroup.ja.png</value>
+    <comment>~/Content/images/cellGroup.png</comment>
+  </data>
+  <data name="CustomEditors_Text14" xml:space="preserve">
+    <value>一番上の新しい行：</value>
+    <comment>New row at top:</comment>
+  </data>
+  <data name="CustomEditors_Text15" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;NewRowAtTop&lt;/b&gt;プロパティを使用して、グリッドの上部または下部に新しい行を追加できるようにします。</value>
+    <comment>This sample use the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</comment>
+  </data>
+  <data name="Grouping_Text4" xml:space="preserve">
+    <value>&lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; プロパティは、グループヘッダーに単一のヘッダー行ではなく複数の行を含めるかどうかを決定します。これは、グループヘッダーに集計値を表示する場合に便利です。</value>
+    <comment>The &lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; property determines whether group headers should have multiple rows instead of a single header row, which is useful when you want to display aggregate values in the group headers.</comment>
+  </data>
+  <data name="CustomColumnHeader_Text0" xml:space="preserve">
+    <value>&lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; プロパティは、グリッドの列ヘッダーを表示するために使用される行のレイアウトを定義します。 配列には、layoutDefinitionプロパティで使用されるものと同様のセルグループオブジェクトのリストが含まれます。</value>
+    <comment>The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid's column headers. The array contains a list of cell group objects similar to those used with the layoutDefinition property.</comment>
+  </data>
+  <data name="RowHeader_Description_Text0" xml:space="preserve">
+    <value>"レイアウトは、顧客情報、注文情報、運送業者情報の3つのグループに分かれています。顧客情報は行ヘッダーグループです。
+
+&lt;b&gt;isRowHeader&lt;/b&gt; プロパティをtrueに設定すると、セルのisReadOnly プロパティが自動的にtrueに設定され（ヘッダーは編集できません）、 セルがヘッダーとしてスタイル設定されるようにセルの &lt;b&gt;cssClass&lt;/b&gt; プロパティに'wj-header' スタイルが追加され、また、セルがヘッダーを連結されていない文字列として表示するように &lt;b&gt;cellTemplate&lt;/b&gt; プロパティをその &lt;b&gt;header&lt;/b&gt; 値に設定します。 行ヘッダーセルに連結されている値を表示する場合は、 セルの&lt;b&gt;header&lt;/b&gt;ではなく、&lt;b&gt;binding&lt;/b&gt;プロパティを設定することができます。"
+</value>
+    <comment>The layout is divided into three groups: customer, order, and shipper. Customer is a row header group.
+        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell's &lt;b&gt;isReadOnly&lt;/b&gt; property to true (headers cannot be edited),
+        adds a 'wj-header' style to the cell's &lt;b&gt;cssClass&lt;/b&gt; property (so the cells are styled as headers),
+        and sets the cell's &lt;b&gt;cellTemplate&lt;/b&gt; property to its &lt;b&gt;header&lt;/b&gt; value (so the cell shows the header as an unbound string).
+        You may choose to set the cell's &lt;b&gt;binding&lt;/b&gt; property instead of &lt;b&gt;header&lt;/b&gt; if you want to show
+        bound values in the row header cells.</comment>
+  </data>
+  <data name="RowHeader_Summary_Text0" xml:space="preserve">
+    <value>セルグループの isRowHeader プロパティを使用すると、行ヘッダーセルとして表示されるグループを作成できます。</value>
+    <comment>The IsRowHeader property of the cell groups allows you to create groups to be displayed as row header cells.</comment>
+  </data>
+  <data name="BatchEditing_Text12" xml:space="preserve">
+    <value>更新中...</value>
+    <comment>Updating...</comment>
+  </data>
+  <data name="BatchEditing_Text13" xml:space="preserve">
+    <value>変更なし</value>
+    <comment>No changes.</comment>
+  </data>
+  <data name="BatchEditing_Text14" xml:space="preserve">
+    <value>完了</value>
+    <comment>Done.</comment>
+  </data>
+  <data name="ExcelExport_Text3" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="GroupPanel_Text1" xml:space="preserve">
+    <value>ここで列をドラッグするとグループが作成されます</value>
+    <comment>Drag columns here to create Groups</comment>
+  </data>
+  <data name="GroupPanel_Text2" xml:space="preserve">
+    <value>ここに列をドラッグ...</value>
+    <comment>Drag columns here...</comment>
+  </data>
+  <data name="Editing_Text25" xml:space="preserve">
+    <value>このサンプルでは、さまざまな方法でセルデータを編集する方法を示します。</value>
+    <comment>This sample shows how to edit cell data with various ways.</comment>
+  </data>
+  <data name="Editing_Text26" xml:space="preserve">
+    <value>Excel形式の編集</value>
+    <comment>Excel-Style editing</comment>
+  </data>
+  <data name="Editing_Text27" xml:space="preserve">
+    <value>編集</value>
+    <comment>Editing</comment>
+  </data>
+  <data name="Editing_Text29" xml:space="preserve">
+    <value>ポップアップ編集</value>
+    <comment>Popup editing</comment>
+  </data>
+  <data name="Editing_Text30" xml:space="preserve">
+    <value>インライン編集</value>
+    <comment>Inline editing</comment>
+  </data>
+</root>

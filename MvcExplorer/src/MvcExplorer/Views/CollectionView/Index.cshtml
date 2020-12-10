@@ -1,0 +1,35 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<c1-items-source id="CVService" initial-items-count="500" read-action-url="@Url.Action("Index_Bind")"
+                 refresh-on-edit="@Convert.ToBoolean(optionsModel.Options["Refresh On Edit"].CurrentValue)" disable-server-read="true"></c1-items-source>
+
+<c1-flex-grid id="FlexGridCV" items-source-id="CVService" auto-generate-columns="false"
+              sorting-type="SingleColumn" class="grid">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Summary{
+    <p>@Html.Raw(CollectionViewRes.Index_Text0)</p>
+}
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(CollectionViewRes.Index_Text0)</p>
+    <p>@Html.Raw(CollectionViewRes.Index_Text1)</p>
+}

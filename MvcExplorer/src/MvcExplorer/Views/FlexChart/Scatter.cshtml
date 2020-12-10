@@ -1,0 +1,29 @@
+﻿@using C1.Web.Mvc.Chart
+@model List<Dot>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+<c1-flex-chart id="theChart" chart-type="Scatter"
+               binding-x="X" binding="Y"
+               render-engine="@((RenderEngine)Enum.Parse(typeof(RenderEngine), optionsModel.Options["RenderEngine"].CurrentValue))">
+    <c1-flex-chart-axis c1-property="AxisX" min="-2" max="2"></c1-flex-chart-axis>
+    <c1-flex-chart-axis c1-property="AxisY" min="-2" max="2" axis-line="true" major-grid="false"></c1-flex-chart-axis>
+    <c1-flex-chart-series name="Ser 1" symbol-marker="Dot"></c1-flex-chart-series>
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-chart-gestures mouse-action="Zoom" interactive-axes="XY" scale-x="1" scale-y="1" pos-x="0.5f" pos-y="0.5f"></c1-chart-gestures>
+</c1-flex-chart>
+
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @(Html.Raw(FlexChartRes.RenderEngine_Description_Text0))
+}
+
+@section Description{
+    @(Html.Raw(FlexChartRes.RenderEngine_Description_Text0))
+}

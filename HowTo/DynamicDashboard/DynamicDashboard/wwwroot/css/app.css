@@ -1,0 +1,359 @@
+﻿html {
+    overflow-y:scroll;
+}
+
+body {
+	background-color: #f8f8f8;
+	font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    font-size:12pt;
+	padding: 0;
+    margin:0;
+    -ms-overflow-style: scrollbar;
+    
+    
+}
+
+html,
+body {
+    height: 100%; 
+    padding: 0;
+    margin: 0;
+    position:relative;
+}
+
+.container {
+}
+
+.headerDesc{
+    font-size:80%;
+    color:#666;
+    padding:0px 30px 10px;
+    border-bottom:1px solid #DADADA;
+    text-align:center;
+}
+
+#headerMenu li{
+    vertical-align:top;
+    padding:0px;
+    margin:0px;
+    height:36px;
+}
+
+header ul:first-child{
+    list-style-type: none;
+    width:100%;
+    height:auto;
+    padding:0px;
+    margin:0px; 
+    display:block;
+}
+
+header ul:first-child li {
+       float:left;
+       display:inline-block;
+       margin:0px;
+       padding:0px;
+       
+    }
+
+    header ul:first-child li:first-child {
+        width:25%;
+        color:rgb(255,255,255);
+       background-color:rgb(0,176,185);
+    }
+
+    header ul:first-child li:last-child {
+        width: 75%;
+        float: right;
+        background-color: rgb(224,224,224);
+    }
+
+
+
+header ul:last-child li {
+  padding-left: 30px;
+}
+
+header ul:last-child li:hover {
+  background-color: #dedede !important;
+  color:#333;
+}
+header ul:last-child li:first-child {
+  background: url("../images/icon_settings.png") no-repeat left center;
+  line-height: 20px;
+  background-position: 5px 8px; 
+
+}
+header ul:last-child li:nth-child(2) {
+  background: url("../images/icon_print.png") no-repeat left center;
+  line-height: 20px;
+  background-position: 5px 8px; 
+}
+
+#headerMenu li #imgIconMenu{
+    cursor:pointer;
+    margin:6px;
+    height:24px;
+    width:auto;
+}
+
+#headerMenu li #imgScrollMenuShowHide {
+    height: 100%;
+    width: auto;
+    cursor: pointer;
+}
+
+#headerMenu li #headerText{
+    vertical-align:top;
+    font-size:16pt;    
+}
+
+.headerMenuListHide{
+    padding:0px;
+    margin:0px;
+    width: 200px;
+    background-color: #f1f1f1;
+    list-style:none;
+    display:none;
+}
+
+.headerMenuListShow {
+    position: absolute;
+    margin: 36px 0 0 0;
+    background-color: #f1f1f1;
+    list-style: none;
+    display: block;
+    padding: 0;
+    border: 1px solid #999;
+    border-left: none;
+    border-top: none;
+}
+
+.headerMenuListShow li{
+    cursor:pointer;
+    display:block;
+    color: #000;
+    padding: 8px 70px 8px 16px;
+    text-decoration: none;
+    border-bottom:1px solid #999;
+}
+.headerMenuListShow li:last-child{
+    border-bottom:none;
+}
+
+.headerMenuListShow li:hover{
+    background-color: #555;
+    color: white;
+}
+
+header{
+    position:relative;
+}
+
+header:after{
+    visibility: hidden;
+     display: block;
+     font-size: 0;
+     content: " ";
+     clear: both;
+     height: 0;
+}
+
+header ul li{
+    margin:0px;
+    box-sizing:border-box;
+}
+
+#scrollmenu {
+    clear: both;
+    position: relative;
+    margin: 0px;
+    padding: 10px;
+    border-bottom: 1px solid #fafafa;
+    -moz-box-shadow: #dedede 0px 5px 5px;
+    -webkit-box-shadow: #dedede 0px 5px 5px;
+    box-shadow: #dedede 0px 5px 5px;
+}
+
+    #scrollmenu.show {
+        display: block;
+    }
+
+    #scrollmenu.hide {
+        display: none;
+    }
+
+#scrollmenu .previous {
+  top: 50%;
+  margin-top: -14px;
+  position: absolute;
+  display: inline-block;
+  left: 5px;
+}
+#scrollmenu .next {
+  top: 50%;
+  margin-top: -14px;
+  position: absolute;
+  display: inline-block;
+  right: 5px;
+}
+#scrollmenu ul {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  text-align: center;
+  overflow: hidden;
+  height: 90px;
+}
+#scrollmenu ul li {
+  display: inline-block;
+  margin: 5px 10px;
+}
+#scrollmenu ul li img {
+  border: 1px solid #fafafa;
+  height: 50px;
+  width: auto;
+}
+
+footer {
+    display:none;
+    position:absolute;
+    font-size:12pt;
+    margin-top:50px;
+    padding:10px;
+    left:0;
+    bottom:0;
+    width:100%;
+    background-color:#dedede;
+    box-sizing:border-box;
+}
+
+
+.widget-flex-grid.wj-control.wj-flexgrid.wj-content{
+    width:100%;
+}
+
+.widget-flex-chart.wj-flexchart {
+    border:none;
+    height:260px;
+}
+
+.tab-flex-chart.wj-flexchart {
+    border:none;
+    height:240px;
+    width:100%;    
+    max-width:100%;
+}
+
+.tab-flex-grid.wj-control.wj-flexgrid.wj-content {
+    max-height:230px;
+    margin-top:3px;
+}
+
+.tab-combo-box.wj-control.wj-dropdown.wj-content{
+    width:100px;
+}
+
+
+.settingsCmb {
+    text-align: right;
+}
+
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* buttons and links extension to use brackets: [ click me ] */
+.btn-bracketed::before {
+    display:inline-block;
+    content: "[";
+    padding-right: 0.5em;
+}
+.btn-bracketed::after {
+    display:inline-block;
+    content: "]";
+    padding-left: 0.5em;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+  /* Hide captions */
+  .carousel-caption {
+    display: none
+  }
+}
+
+
+@media screen and (max-width: 768px) {
+    #headerMenu li {
+        height: 26px;
+    }
+
+        #headerMenu li #imgIconMenu {
+            margin: 4px;
+            height: 16px;
+            width: auto;
+        }
+
+        #headerMenu li #headerText {
+            font-size: 12pt;
+        }
+
+    .headerDesc {
+        text-align: center;
+        font-size: 80%;
+    }
+
+    .headerMenuListShow {
+        margin: 26px 0 0 0;        
+    }
+
+        .headerMenuListShow li {
+            font-size:80%;
+        }
+
+        header ul li:first-child {
+        width: 25% !important;
+    }
+
+    header ul li:last-child {
+        width: 75% !important;
+    }
+
+    header ul:last-child li {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 425px) {
+
+    header ul li:first-child {
+        width: 50% !important;
+    }
+
+    header ul li:last-child {
+        width: 50% !important;
+    }
+
+    header ul:last-child li {
+        width: 100% !important;
+    }
+}
+
+@media screen and (max-width: 320px) {
+
+    header ul li:first-child {
+        width: 55% !important;
+    }
+
+    header ul li:last-child {
+        width: 45% !important;
+    }
+
+    header ul:last-child li {
+        width: 100% !important;
+    }
+}

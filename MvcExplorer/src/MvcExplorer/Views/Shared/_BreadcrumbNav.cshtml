@@ -1,0 +1,32 @@
+﻿@{
+
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    var isHome = string.IsNullOrEmpty(controllerName) || string.Equals(controllerName, "home", StringComparison.OrdinalIgnoreCase);
+    var controlPage = ControlPages.GetControlPage(controllerName, actionName);
+    var controlPageGroup = ControlPages.GetControlPageGroup(controllerName);
+    if (controlPageGroup != null)
+    {
+        var group = ControlPages.GetGroup(controlPageGroup.ControlGroupName);
+        isHome = isHome || (group == null ? false : !group.Visible);
+    }
+}
+<ul class="breadcrumb wide-screen">
+    <li class="odd"><a class="glyphicon glyphicon-home" href="@Url.Action("Index", "Home")"></a></li>@if (!isHome)
+    {
+        <li class="separator1 right-icon"></li>
+        <li class="even">@Html.ActionLink(controlPage.ControlName, "Index", controlPage.ControlName)</li>
+        <li class="separator2 right-icon"></li>
+        <li class="odd"><span>@controlPage.Text</span></li>}
+    <li class="separator right-icon"></li>
+</ul>
+@if (!isHome)
+{
+    var groups = ControlPages.VisibleControlGroups;
+    <ul id="controlsNav" class="hide">
+        @foreach (var group in groups)
+        {
+            @await Html.PartialAsync("_ControlGroup", group)
+        }
+    </ul>
+}

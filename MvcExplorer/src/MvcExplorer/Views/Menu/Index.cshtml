@@ -1,0 +1,77 @@
+﻿@section Scripts{
+<script>
+    function itemClicked(sender) {
+        alert('You\'ve selected option ' + sender.selectedIndex + ' from the ' + sender.header + ' menu!');
+    }
+
+    function execute(arg) {
+        var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+        // convert argument to Number
+        arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+        // check if the conversion was successful
+        if (wijmo.isNumber(arg)) {
+
+            // update the value
+            inputNumber.value += arg;
+        }
+    }
+
+    function canExecute(arg) {
+        var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+        // convert argument to Number
+        arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+        // check if the conversion was successful
+        if (wijmo.isNumber(arg)) {
+            var val = inputNumber.value + arg;
+
+            // check if the value is valid
+            return val >= 0 && val <= 1;
+        }
+
+        return false;
+    }
+</script>
+}
+
+<div>
+    <label>@Html.Raw(MenuRes.Index_ItemClickedEvent)</label>
+    <c1-menu header="@MenuRes.Index_File" item-clicked="itemClicked">
+        <c1-menu-item header="@MenuRes.Index_FileNew"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_FileOpen"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_FileSave"></c1-menu-item>
+        <c1-menu-item is-separator="true"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_FileExit"></c1-menu-item>
+    </c1-menu>
+    <c1-menu header="@MenuRes.Index_Edit" item-clicked="itemClicked">
+        <c1-menu-item header="@MenuRes.Index_EditCut"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_EditCopy"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_EditPaste"></c1-menu-item>
+        <c1-menu-item is-separator="true"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_EditFind"></c1-menu-item>
+        <c1-menu-item header="@MenuRes.Index_EditReplace"></c1-menu-item>
+    </c1-menu>
+</div>
+<div>
+    <label>@Html.Raw(MenuRes.Index_Commands)</label>
+    <c1-menu header="@MenuRes.Index_ChangeTax" execute-command="execute" can-execute-command="canExecute">
+        <c1-menu-item header="+ 25%" command-parameter="0.25"></c1-menu-item>
+        <c1-menu-item header="+ 10%" command-parameter="0.10"></c1-menu-item>
+        <c1-menu-item header="+ 5%" command-parameter="0.05"></c1-menu-item>
+        <c1-menu-item header="+ 1%" command-parameter="0.01"></c1-menu-item>
+        <c1-menu-item is-separator="true"></c1-menu-item>
+        <c1-menu-item header="- 1%" command-parameter="-0.01"></c1-menu-item>
+        <c1-menu-item header="- 5%" command-parameter="-0.05"></c1-menu-item>
+        <c1-menu-item header="- 10%" command-parameter="-0.10"></c1-menu-item>
+        <c1-menu-item header="- 25%" command-parameter="-0.25"></c1-menu-item>
+    </c1-menu>
+    <c1-input-number id="mInputNumber" value="0.07" step="0.05" format="p0" min="0" max="1"></c1-input-number>
+</div>
+
+
+@section Description{
+    @Html.Raw(MenuRes.Index_Text0)
+}

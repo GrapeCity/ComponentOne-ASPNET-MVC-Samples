@@ -1,0 +1,57 @@
+﻿@model IEnumerable<Fruit>
+
+@{
+    ViewBag.DemoSettings = true;
+    var marStyle = new SVGStyle
+    {
+        Stroke = "darkred",
+        StrokeWidth = 1,
+        Fill = "l(0,0,1,0)#89f7fe-#66a6ff"
+    };
+}
+
+@section Scripts{
+    <script>
+        var chart, series;
+
+        c1.documentReady(function () {
+            chart = wijmo.Control.getControl('#chartGradients');
+            series = chart.series[0];
+        });
+
+        function customChangeFill(control, value) {
+            series.style.fill = value.substr(value.indexOf('-') + 2);
+            chart.refresh();
+        }
+    </script>
+}
+
+<c1-flex-chart id="chartGradients" binding-x="Name" chart-type="Column" legend-position="None">
+    <c1-flex-chart-datalabel content="{y}" />
+    <c1-items-source source-collection="Model" />
+    <c1-flex-chart-series name="March" binding="MarPrice" style="@marStyle"></c1-flex-chart-series>
+</c1-flex-chart>
+
+
+@section Summary{
+    This example shows how to specify gradients for series style properties.
+}
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.Gradients_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text1)</p>
+    <pre>
+    &lt;type&gt;(&lt;coords&gt;)&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]][-&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]]]-&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]]
+    </pre>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text6)</p>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text2)</p>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text3)</p>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text4)</p>
+    <pre>
+    'l(0,0,1,0)#ff0000-#00ff00-#0000ff', 'L(0,0,300,300)#ff0000:0.2:0.2-00ff00:0.8'
+    </pre>
+    <p>@Html.Raw(FlexChartRes.Gradients_Text5)</p>
+    <pre>
+    'r(0.5,0.5,1)#ff0000-#0000ff', 'R(100,100,100,200,200,200)#ff0000-#0000ff'
+    </pre>
+}

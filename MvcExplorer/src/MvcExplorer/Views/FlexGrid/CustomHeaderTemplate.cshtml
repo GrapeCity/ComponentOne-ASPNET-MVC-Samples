@@ -1,0 +1,63 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<MvcExplorer.Controllers.DataRepresentation>
+
+@section Scripts{
+    <script>
+
+        c1.documentReady(function () {
+            var fg = c1.mvc.grid.FlexGrid.getControl("#fnFlexGrid");
+            var columns = fg.columns;
+            for (var i = 0; i < columns.length; ++i) {
+                columns[i].align = 'center';
+            }
+        });
+
+    </script>
+}
+
+@{
+    var customHeader = new C1.Web.Mvc.HeaderTemplate();
+    customHeader.RowCount = 2;
+
+    customHeader.Cells = new List<C1.Web.Mvc.HeaderTemplateCell>();
+    {
+        customHeader.Cells.Add(new C1.Web.Mvc.HeaderTemplateCell().Set(0, 0, 2, 1, "Name"));
+        customHeader.Cells.Add(new C1.Web.Mvc.HeaderTemplateCell().Set(0, 1, 2, 1, "Currency"));
+        customHeader.Cells.Add(new C1.Web.Mvc.HeaderTemplateCell().Set(0, 2, 1, 4, "Performance"));
+        customHeader.Cells.Add(new C1.Web.Mvc.HeaderTemplateCell().Set(0, 6, 1, 4, "Allocation"));
+    };
+}
+
+<h2 style="font:bold">
+    @Html.Raw(FlexGridRes.HeaderTemplate_Table_Description)
+</h2>
+<br />
+<br />
+
+<c1-flex-grid id="fnFlexGrid" auto-generate-columns="false" class="grid" is-read-only="true"
+              header-template="@customHeader"
+              sorting-type="None"
+>
+    <c1-items-source read-action-url="@Url.Action("CustomHeaderTemplate_Bind")"></c1-items-source>
+
+    <c1-flex-grid-column binding="name" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="currency"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ytd"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="m1"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="m6"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="m12"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="stock"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="bond"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="cash"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="other"></c1-flex-grid-column>
+
+</c1-flex-grid>
+
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.HeaderTemplate_Sumary)</p>
+}
+
+@section Description{
+    @Html.Raw(FlexGridRes.HeaderTemplate_Description)
+}

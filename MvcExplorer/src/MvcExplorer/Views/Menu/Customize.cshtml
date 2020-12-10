@@ -1,0 +1,51 @@
+﻿@section Scripts{
+<script>
+    function changeOpenOnhover() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showOnHover");
+        menu.openOnHover = checkbox.checked;
+    }
+
+    function changeCloseOnLeave() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("closeOnLeave");
+        menu.closeOnLeave = checkbox.checked;
+    }
+
+    function changeShowDropDownButton() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showButton");
+        menu.showDropDownButton = checkbox.checked;
+    }
+
+    function changeSubItems() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showSubItems");
+        menu.subItemsPath = checkbox.checked ? "Items" : null;
+    }
+
+    function itemClicked(sender) {
+        alert('You\'ve selected option ' + sender.text + ' from the menu!');
+    }
+   
+</script>
+}
+
+
+<div>
+    <c1-menu header="Hierachial Menu" header-path="Header" item-clicked="itemClicked"
+        open-on-hover="true" close-on-leave="true" show-drop-down-button="false" id="hierMenu" sub-items-path="Items">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-menu>
+</div>
+<div>
+    <p></p>
+    @Html.Raw(MenuRes.Customize_OpenOnhover)&nbsp;<input id="showOnHover" type="checkbox" checked="checked" onchange="changeOpenOnhover()" /><br />
+    @Html.Raw(MenuRes.Customize_CloseOnLeave)&nbsp;<input id="closeOnLeave" type="checkbox" checked="checked" onchange="changeCloseOnLeave()" /><br />
+    @Html.Raw(MenuRes.Customize_ShowButton)&nbsp;<input id="showButton" type="checkbox" onchange="changeShowDropDownButton()" /><br />
+    @Html.Raw(MenuRes.Customize_ShowSubItems)&nbsp;<input id="showSubItems" type="checkbox" checked="checked" onchange="changeSubItems()" /><br />
+</div>
+
+@section Description{
+    @Html.Raw(MenuRes.Customize_Description)
+}

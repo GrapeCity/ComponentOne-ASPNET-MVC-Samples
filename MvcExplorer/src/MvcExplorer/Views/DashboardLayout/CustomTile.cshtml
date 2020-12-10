@@ -1,0 +1,222 @@
+﻿@model DashboardData
+
+<style>
+    .liContentChart.wj-flexchart {
+        min-width: 240px;
+        margin: 0px;
+        padding: 4px;
+        border: none;
+        height: 240px;
+    }
+</style>
+<div style="display:none">
+    <div id="popup" class="modal-content">
+        <div class="modal-header">
+            <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+            <h4 class="modal-title">@DashboardLayoutRes.CustomTile_Text1</h4>
+        </div>
+        <div class="modal-body">
+            <div class="wj-labeled-input">
+                <input id="chartType" />
+                <label for="chartType">@DashboardLayoutRes.CustomTile_ChartType</label>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">@DashboardLayoutRes.CustomTile_OK</button>
+                <button type="button" class="btn btn-default wj-hide">@DashboardLayoutRes.CustomTile_Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<c1-dashboard-layout id="custom" format-tile="formatTile">
+    <c1-auto-grid-layout orientation="Vertical" max-rows-or-columns="6" cell-size="152">
+        <c1-auto-grid-group>
+            <c1-auto-grid-tile header-text="@(string.Format(DashboardLayoutRes.SalesDashboard, Model.SalesDashboardStr))" column-span="2" row-span="2" show-toolbar="false">
+                <c1-flex-grid id="salesDashboardFGrid"
+                              is-read-only="true"
+                              auto-generate-columns="false"
+                              selection-mode="Row"
+                              allow-resizing="None"
+                              headers-visibility="Column"
+                              selection-changed="gridSelectionChanged">
+                    <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header1" binding="Country" width="*"></c1-flex-grid-column>
+                    <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header3" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                    <c1-items-source source-collection="@Model.SalesDashboardData"></c1-items-source>
+                </c1-flex-grid>
+            </c1-auto-grid-tile>
+            <c1-auto-grid-tile header-text="Country" column-span="2" row-span="1" show-header="false" show-toolbar="false"></c1-auto-grid-tile>
+            <c1-auto-grid-tile header-text="KPIs" row-span="2" column-span="2">
+                <div id="kPIsSalesGaugeValue" style="display:inline-block;margin-bottom:8px;text-align:left;width:100%;">
+                    @DashboardLayoutRes.Share_Text1:
+                </div>
+                <c1-linear-gauge id="kPIsSalesGauge" min="0"
+                                 max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                                 value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                                 thumb-size="30"
+                                 show-text="None"
+                                 width="90%">
+                    <c1-gauge-range c1-property="Pointer" color="Green"></c1-gauge-range>
+                </c1-linear-gauge>
+                <div id="kPIsExpensesGaugeValue" style="display:inline-block;margin:20px 0px 8px 0px;text-align:left;width:100%;">
+                    @DashboardLayoutRes.Share_Text2:
+                </div>
+                <c1-linear-gauge id="kPIsExpensesGauge" min="0"
+                                 max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                                 value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Expenses).FirstOrDefault()"
+                                 thumb-size="30"
+                                 show-text="None"
+                                 width="90%">
+                    <c1-gauge-range c1-property="Pointer" color="Red"></c1-gauge-range>
+                </c1-linear-gauge>
+                <div id="kPIsProfitGaugeValue" style="display:inline-block;margin: 20px 0px 8px 0px;text-align:left;width:100%;">
+                    @DashboardLayoutRes.Share_Text3:
+                </div>
+                <c1-linear-gauge id="kPIsProfitGauge" min="0"
+                                 max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                                 value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Profit).FirstOrDefault()"
+                                 thumb-size="30"
+                                 show-text="None"
+                                 width="90%">
+                    <c1-gauge-range c1-property="Pointer" color="Gold"></c1-gauge-range>
+                </c1-linear-gauge>
+            </c1-auto-grid-tile>
+            <c1-auto-grid-tile header-text="Countrywise Sales" row-span="2" column-span="3">
+                <c1-flex-chart id="countrywiseSalesChart" binding-x="Country" chart-type="Bar" legend-position="Right" class="liContentChart">
+                    <c1-items-source source-collection="@Model.CountrywiseSalesData"></c1-items-source>
+                    <c1-flex-chart-axis c1-property="AxisX" format="g4,," title="@DashboardLayoutRes.Share_Text6"></c1-flex-chart-axis>
+                    <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text1" binding="Sales"></c1-flex-chart-series>
+                    <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text2" binding="Expenses"></c1-flex-chart-series>
+                    <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                    <c1-chart-animation animation-mode="All" easing="Swing" duration="400"></c1-chart-animation>
+                </c1-flex-chart>
+            </c1-auto-grid-tile>
+        </c1-auto-grid-group>
+    </c1-auto-grid-layout>
+</c1-dashboard-layout>
+@section Scripts{
+    <script type="text/javascript">
+        var popup,cmbChartType;
+        function formatTile(sender, e) {
+            var dashboard = sender, // gets the DashboardLayout control
+                tile = e.tile, // gets the formatted tile
+                grid = wijmo.Control.getControl('#salesDashboardFGrid');
+
+            if (grid && grid.selectedItems && grid.selectedItems.length) {
+                var selectedRowData = grid.selectedItems[0];
+                switch (tile.headerText) {
+                    case 'Country':
+                        // update the tile content.
+                        e.tile.hostElement.style.backgroundColor = '#009ccc';
+                        var htmlContent = '<div style="color:white;">@Html.Raw(DashboardLayoutRes.Share_Header1)</div>' +
+                            '<div style="font-size:72px; text-align: center; color:white;overflow:hidden; text-overflow:ellipsis">' +
+                            selectedRowData.Country +
+                            '</div>';
+                        e.contentElement.innerHTML = htmlContent;
+                        break;
+                    case 'KPIs':
+                        // modify the header title.
+                        var headerText = '@(Html.Raw(string.Format(DashboardLayoutRes.KPIs, Model.KPIsStr)))';
+                        e.headerElement.querySelector('span.title').innerText = headerText;
+
+                        // update the guages properties.
+                        var kPIsSalesGauge = wijmo.Control.getControl('#kPIsSalesGauge'),
+                            kPIsExpensesGauge = wijmo.Control.getControl('#kPIsExpensesGauge'),
+                            kPIsProfitGauge = wijmo.Control.getControl('#kPIsProfitGauge'),
+                            kPIsData = selectedRowData.KPIsData,
+                            kPIsExpensesGaugeValue = document.getElementById('kPIsExpensesGaugeValue'),
+                            kPIsSalesGaugeValue = document.getElementById('kPIsSalesGaugeValue');
+                        kPIsProfitGaugeValue = document.getElementById('kPIsProfitGaugeValue');
+                        kPIsSalesGauge.max = kPIsData.Max;
+                        kPIsSalesGauge.value = kPIsData.Sales;
+                        kPIsSalesGaugeValue.innerText = '@(Html.Raw( DashboardLayoutRes.Share_Text1)): ' + wijmo.format('{Sales:c0}', kPIsData);
+                        kPIsExpensesGauge.max = kPIsData.Max;
+                        kPIsExpensesGauge.value = kPIsData.Expenses;
+                        kPIsExpensesGaugeValue.innerText = '@(Html.Raw(DashboardLayoutRes.Share_Text2)): ' + wijmo.format('{Expenses:c0}', kPIsData);
+                        kPIsProfitGauge.max = kPIsData.Sales;
+                        kPIsProfitGauge.value = kPIsData.Profit;
+                        kPIsProfitGaugeValue.innerText = '@(Html.Raw( DashboardLayoutRes.Share_Text3)): ' + wijmo.format('{Profit:c0}', kPIsData);
+
+                        break;
+                    case 'Countrywise Sales':
+                        // update the header title
+                        var headerText = '@(Html.Raw(string.Format(DashboardLayoutRes.Countrywise, Model.CountrywiseSalesStr)))';
+                        e.headerElement.querySelector('span.title').innerText = headerText;
+
+                        // customize the toolbar
+                        var toolbar = e.toolbar; // get the toolbar control.
+
+                        // add a 'Settings' item in toolbar for setting the chart options via dom.
+                        var txtSettings = '@Html.Raw(DashboardLayoutRes.CustomTile_Text1)';
+                        var iconClose = document.createElement('img');
+                        iconClose.title = txtSettings;
+                        iconClose.alt = txtSettings;
+                        iconClose.style.marginRight = '6px';
+                        iconClose.style.cursor = 'default';
+                        iconClose.src = '@Href("~/Content/images/th.png")';
+                        // insert the item at the first position
+                        var eleToolbar = toolbar.hostElement;
+                        eleToolbar.insertBefore(iconClose, eleToolbar.firstChild);
+                        iconClose.addEventListener('click', function () {
+                            // when this item is clicked, show a dialog to specify the chart type.
+                            if(!popup){
+                                popup = new wijmo.input.Popup('#popup', {
+                                    hideTrigger: wijmo.input.PopupTrigger.None
+                                });
+                            }
+
+                            if(!cmbChartType){
+                                cmbChartType = new wijmo.input.ComboBox('#chartType', { itemsSource: ["Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"] });
+                            }
+
+                            var countrywiseSalesChart = wijmo.Control.getControl('#countrywiseSalesChart');
+                            if(countrywiseSalesChart){
+                                cmbChartType.text = wijmo.chart.ChartType[countrywiseSalesChart.chartType];
+                            }
+
+                            popup.show(true, function(e){
+                                if (e.dialogResult == 'wj-hide-ok'){
+                                    // apply the chart type
+                                    var chart = wijmo.Control.getControl('#countrywiseSalesChart');
+                                    chart.chartType = wijmo.chart.ChartType[cmbChartType.text];
+                                }
+                            });
+                        });
+
+                        // clear all the internal items.
+                        toolbar.clear();
+
+                        // add a custom item in toolbar for exporting the content via toolbar api.
+                        var txtExport = '@Html.Raw(DashboardLayoutRes.CustomTile_Text2)';
+                        var strExportIcon = '<img style="vertical-align:middle" src="@Href("~/Content/images/icon_export.png")" alt="' + txtExport + '" title="' + txtExport + '" />';
+                        toolbar.insertToolbarItem({
+                            icon: strExportIcon,
+                            title: txtExport,
+                            command: function () {
+                                var chart = wijmo.Control.getControl('#countrywiseSalesChart');
+                                chart.saveImageToFile('countrywiseSalesChart.png');
+                            }
+                        }, 0);
+                        break;
+                    default:
+                        break;
+                    }
+            }
+        }
+
+        function gridSelectionChanged(sender, e) {
+            // refresh the DashboardLayout control after the selectionChanged is fired in the grid.
+            var dashboard = wijmo.Control.getControl('#custom');
+            dashboard.refresh();
+        }
+    </script>
+}
+@section Summary{
+    @Html.Raw(DashboardLayoutRes.CustomTile_Summary)
+}
+
+@section Description{
+    <p>@Html.Raw(DashboardLayoutRes.CustomTile_Desc1)</p>
+    <p>@Html.Raw(DashboardLayoutRes.CustomTile_Desc2)</p>
+    <p>@Html.Raw(DashboardLayoutRes.CustomTile_Desc3)</p>
+    <p>@Html.Raw(DashboardLayoutRes.CustomTile_Desc4)</p>
+    }

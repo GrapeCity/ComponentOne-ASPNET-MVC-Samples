@@ -1,0 +1,12 @@
+﻿@model Sale
+<div>
+    <label>@Html.Raw(InputNumberRes.EditorTemplates_Text2)</label>
+    @Html.EditorFor(m => m.Amount)
+    @Html.EditorFor(m => m.Start, "Time")
+    @Html.EditorFor(m => m.End)
+</div>
+
+@section Description{
+    <p>@Html.Raw(InputNumberRes.EditorTemplates_Text0)</p>
+    <p>@Html.Raw(InputNumberRes.EditorTemplates_Text1)</p>
+}

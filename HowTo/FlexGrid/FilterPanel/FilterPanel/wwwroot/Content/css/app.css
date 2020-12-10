@@ -1,0 +1,138 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;-ms-overflow-style: scrollbar;
+}
+
+body a,
+body a:focus,
+body a:hover{
+    text-decoration: none;
+    outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.container {
+    min-width:248px;
+}
+
+.container p {
+    min-width:358px;
+}
+
+.header {
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+    .sample-page download-link {
+        margin: 0,0,50px,0;
+    }
+
+.pane-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+}
+
+/* set default grid height and some shadow */
+.wj-flexgrid {
+    background-color: #fff;
+    max-height: 550px;
+}
+
+.row {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 991px) {
+    .header h1 {
+        font-size: 22px;
+        line-height: 1;
+        margin-top: 7px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 10px 0 25px 0;
+    }
+
+    .wj-dropdown {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .dl-horizontal, 
+    .btn-group, 
+    .input-group {
+        margin-bottom: 10px;
+    }
+
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+
+    .dl-horizontal dd {
+        width: 48%;
+        float: right;
+    }
+
+    .dl-horizontal dt {
+        width: 48%;
+        float: left;
+        text-align: right;
+    }
+}
+
+@media (max-width: 381px) {
+}
+
+
+.tab-pane {
+    max-height:620px;
+}
+
+.wj-glyph-down {
+    border-top: 5px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    margin-bottom: 3px;
+}
+
+
+/*.tab-pane pane-content active{
+    width:1000px!important;
+    height:1000px!important;
+}*/

@@ -1,0 +1,47 @@
+﻿@model List<CustomerOrder>
+
+<style>
+    .badge {
+        color: white;
+        background-color: darkred;
+        border-radius: 10px;
+        padding: 1px 10px;
+    }
+
+    .label {
+        color: black;
+        background-color: orange;
+        border-radius: 10px;
+        padding: 1px 10px;
+    }
+</style>
+
+<div>
+    <label>@Html.Raw(ListBoxRes.ItemTemplate_CustomHTML)</label>
+    <c1-list-box width="300px" height="250px">
+        <c1-input-item-template>
+            <span>
+                <span class="label">{{Product}}</span>
+                <span class="badge">{{Count}}</span>
+            </span>
+        </c1-input-item-template>
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-list-box>
+</div>
+
+<div>
+    <label>@Html.Raw(ListBoxRes.ItemTemplate_C1MVCControls)</label>
+    <c1-list-box width="300px" height="250px">
+        <c1-input-item-template>
+            <span>
+                <c1-input-number template-bindings="@(new { Value = "Count"})" min="0" max="10" step="1" is-template="true"></c1-input-number>
+            </span>
+        </c1-input-item-template>
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-list-box>
+</div>
+
+@section Description{
+    <p>@Html.Raw(ListBoxRes.ItemTemplate_Text0)</p>
+    <p>@Html.Raw(ListBoxRes.ItemTemplate_Text1)</p>
+}

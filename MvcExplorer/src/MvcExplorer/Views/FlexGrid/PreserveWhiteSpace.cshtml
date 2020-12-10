@@ -1,0 +1,46 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+    function collectingQueryData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+        {
+        <text>
+        e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+        </text>
+        }
+    }
+    </script>
+}
+
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" class="grid" is-read-only="true"
+              preserve-white-space="@Convert.ToBoolean(optionsModel.Options["Preserve White Space"].CurrentValue)">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("PreserveWhiteSpace_Bind")" query-data="collectingQueryData"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.PreserveWhiteSpace_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.PreserveWhiteSpace_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.PreserveWhiteSpace_Text1)</p>
+}

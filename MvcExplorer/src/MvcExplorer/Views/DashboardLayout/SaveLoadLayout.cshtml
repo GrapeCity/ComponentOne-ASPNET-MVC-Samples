@@ -1,0 +1,135 @@
+﻿@model DashboardData
+
+<input type="button" value="Save Layout" class="btn" onclick="saveLayout()" />
+<input type="button" value="Load Layout" class="btn" onclick="loadLayout()" />
+
+<style>
+    .liContentChart.wj-flexchart {
+        min-width: 240px;
+        margin: 0px;
+        padding: 4px;
+        border: none;
+        height: 240px;
+    }
+</style>
+
+<c1-dashboard-layout id="saveLoadDashboard">
+    <c1-flow-layout direction="LeftToRight">
+        <c1-flow-tile header-text="@(string.Format(DashboardLayoutRes.SalesDashboard,  Model.SalesDashboardStr))" width="303" height="303">
+            <c1-flex-grid is-read-only="true"
+                          auto-generate-columns="false"
+                          selection-mode="Row"
+                          allow-resizing="None"
+                          headers-visibility="Column">
+                <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header1" binding="Country" width="*"></c1-flex-grid-column>
+                <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header2" width="2*">
+                    <c1-flex-grid-cell-template is-editing="false">
+                        <c1-flex-chart height="20px" width="*" style="padding:0px;"
+                                       legend-position="None"
+                                       chart-type="Line"
+                                       template-bindings="@(new {ItemsSource="Last12MonthsSales"})">
+                            <c1-flex-chart-tooltip is-content-html="false" content=""></c1-flex-chart-tooltip>
+                            <c1-flex-chart-axis c1-property="AxisX" major-unit="100" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                            <c1-flex-chart-axis c1-property="AxisY" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                            <c1-flex-chart-series binding="Sales"></c1-flex-chart-series>
+                        </c1-flex-chart>
+                    </c1-flex-grid-cell-template>
+                </c1-flex-grid-column>
+                <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header3" binding="Sales" format="c0" width="*"></c1-flex-grid-column>
+                <c1-flex-grid-column header="@DashboardLayoutRes.Share_Header4" width="*">
+                    <c1-flex-grid-cell-template is-editing="false">
+                        <c1-bullet-graph direction="Right" show-ranges="true" thickness="0.5" min="0" template-bindings="@(new {Bad="BulletGBad",Target="BulletGTarget",Good= "BulletGGood",Max = "BulletGMax",Value = "BulletGValue" })">
+                        </c1-bullet-graph>
+                    </c1-flex-grid-cell-template>
+                </c1-flex-grid-column>
+                <c1-items-source source-collection="@Model.SalesDashboardData"></c1-items-source>
+            </c1-flex-grid>
+        </c1-flow-tile>
+        <c1-flow-tile header-text="@(string.Format(DashboardLayoutRes.KPIs,  Model.KPIsStr))" width="303" height="303">
+            <div id="kPIsSalesGaugeValue" style="display:inline-block;margin-bottom:8px;text-align:left;width:100%;">
+                @DashboardLayoutRes.Share_Text1:
+            </div>
+            <c1-linear-gauge id="kPIsSalesGauge" min="0"
+                             max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                             value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                             thumb-size="30"
+                             show-text="None"
+                             width="90%">
+                <c1-gauge-range c1-property="Pointer" color="Green"></c1-gauge-range>
+            </c1-linear-gauge>
+            <div id="kPIsExpensesGaugeValue" style="display:inline-block;margin:20px 0px 8px 0px;text-align:left;width:100%;">
+                @DashboardLayoutRes.Share_Text2:
+            </div>
+            <c1-linear-gauge id="kPIsExpensesGauge" min="0"
+                             max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Max).FirstOrDefault()"
+                             value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Expenses).FirstOrDefault()"
+                             thumb-size="30"
+                             show-text="None"
+                             width="90%">
+                <c1-gauge-range c1-property="Pointer" color="Red"></c1-gauge-range>
+            </c1-linear-gauge>
+            <div id="kPIsProfitGaugeValue" style="display:inline-block;margin: 20px 0px 8px 0px;text-align:left;width:100%;">
+                @DashboardLayoutRes.Share_Text3:
+            </div>
+            <c1-linear-gauge id="kPIsProfitGauge" min="0"
+                             max="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Sales).FirstOrDefault()"
+                             value="@Model.KPIsData.Where(x=>x.Country=="All").Select(x=>x.Profit).FirstOrDefault()"
+                             thumb-size="30"
+                             show-text="None"
+                             width="90%">
+                <c1-gauge-range c1-property="Pointer" color="Gold"></c1-gauge-range>
+            </c1-linear-gauge>
+        </c1-flow-tile>
+        <c1-flow-tile header-text="@(string.Format(DashboardLayoutRes.CostBudget,  Model.CostBudgetingStr))" width="303" height="303">
+            <c1-flex-chart binding-x="Country" legend-position="Top" chart-type="Column" class="liContentChart">
+                <c1-items-source source-collection="@Model.CostBudgetingData"></c1-items-source>
+                <c1-flex-chart-axis c1-property="AxisY" title="@DashboardLayoutRes.Share_Text6" format="g4,," log-base="10"></c1-flex-chart-axis>
+                <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text5" binding="Budget"></c1-flex-chart-series>
+                <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text2" binding="Expenses" chart-type="Line"></c1-flex-chart-series>
+                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                <c1-annotation-layer>
+                </c1-annotation-layer>
+            </c1-flex-chart>
+        </c1-flow-tile>
+        <c1-flow-tile header-text="@(string.Format(DashboardLayoutRes.Countrywise,  Model.CountrywiseSalesStr))" width="303" height="303">
+            <c1-flex-chart binding-x="Country" chart-type="Bar" legend-position="Top" class="liContentChart">
+                <c1-items-source source-collection="@Model.CountrywiseSalesData"></c1-items-source>
+                <c1-flex-chart-axis c1-property="AxisX" format="g4,," title="@DashboardLayoutRes.Share_Text6"></c1-flex-chart-axis>
+                <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text1" binding="Sales"></c1-flex-chart-series>
+                <c1-flex-chart-series name="@DashboardLayoutRes.Share_Text2" binding="Expenses"></c1-flex-chart-series>
+                <c1-flex-chart-tooltip content="<b>{seriesName}</b><br/>{x} {y:c0}"></c1-flex-chart-tooltip>
+                <c1-chart-animation animation-mode="All" easing="Swing" duration="400"></c1-chart-animation>
+            </c1-flex-chart>
+        </c1-flow-tile>
+    </c1-flow-layout>
+</c1-dashboard-layout>
+
+@section Scripts{
+    <script>
+    // Save or restore the layout definition in localStorage
+    function saveLayout() {
+        var dashboard = wijmo.Control.getControl('#saveLoadDashboard');
+        localStorage['layout'] = dashboard.saveLayout();
+    }
+    function loadLayout() {
+        var dashboard = wijmo.Control.getControl('#saveLoadDashboard'),
+            layoutDef = localStorage['layout'];
+        if (layoutDef) {
+            dashboard.loadLayout(layoutDef);
+        }
+    }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(DashboardLayoutRes.SaveLoadLayout_Summary)
+}
+
+@section Description{
+    <p>
+        @Html.Raw(DashboardLayoutRes.SaveLoadLayout_Desc1)
+    </p>
+    <p>
+        @Html.Raw(DashboardLayoutRes.SaveLoadLayout_Desc2)
+    </p>
+}

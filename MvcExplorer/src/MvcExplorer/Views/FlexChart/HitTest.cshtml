@@ -1,0 +1,61 @@
+﻿@{
+    ViewBag.Title = "SeriesBinding";
+    List<Dot> cos = new List<Dot>();
+    List<Dot> sin = new List<Dot>();
+    for (int i = 0; i < 60; i++)
+    {
+        cos.Add(new Dot { X = i, Y = Math.Cos(0.12 * i) });
+        sin.Add(new Dot { X = i, Y = Math.Sin(0.12 * i) });
+    }
+}
+
+<div id="HitTest" style="height: 300px"></div>
+<c1-flex-chart id="HitTest" chart-type="LineSymbols">
+    <c1-flex-chart-series binding-x="X" binding="Y" name="cos(x)">
+        <c1-items-source source-collection="cos"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding-x="X" binding="Y" name="sin(x)">
+        <c1-items-source source-collection="sin"></c1-items-source>
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+<div style="height: 110px">
+    <div id="info"></div>
+</div>
+
+@section Scripts{
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var chart = wijmo.Control.getControl("#HitTest"),
+            formatHitInfo = function (hitInfo, pt) {
+                var s = '<div>Chart element: ' + wijmo.chart.ChartElement[hitInfo.chartElement] + '</div>';
+                if (hitInfo.series) {
+                    s += '<div>@(FlexChartRes.HitTest_SeriesName) ' + hitInfo.series.name;
+                    if (hitInfo.pointIndex !== null && hitInfo.pointIndex !== undefined) {
+                        s += '<div>@(FlexChartRes.HitTest_PointIndex) ' + hitInfo.pointIndex + '</div>';
+                        s += '<div>Distance: ' + hitInfo.distance.toFixed(0) + '</div>';
+
+                        if (hitInfo.chartElement == wijmo.chart.ChartElement.PlotArea) {
+                            s += '<div>x: ' + pt.x.toFixed(2) + '</div>';
+                            s += '<div>y: ' + pt.y.toFixed(2) + '</div>';
+                        }
+                    }
+                }
+                return s;
+            };
+
+        chart.hostElement.onmousemove = function (e) {
+            var hit = chart.hitTest(e);
+            var info = document.getElementById("info");
+            info.innerHTML = formatHitInfo(hit, chart.pointToData(e));
+        };
+    });
+</script>
+}
+
+@section Description{
+    <h3>@Html.Raw(FlexChartRes.HitTest_HitTest)</h3>
+    <p>@Html.Raw(FlexChartRes.HitTest_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.HitTest_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.HitTest_Text2)</p>
+}

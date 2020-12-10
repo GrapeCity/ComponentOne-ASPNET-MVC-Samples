@@ -1,0 +1,160 @@
+﻿@section Styles{
+    <style>
+        .custom-gauge.wj-gauge .wj-face path {
+            fill: #f8f8f8;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge .wj-pointer path {
+            fill: #404040;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge circle.wj-pointer {
+            fill: #404040;
+            stroke: none;
+            transform-origin: center center 0px;
+            transform: scale(1);
+            transition: transform .5s;
+        }
+
+        .custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+            fill: red;
+            stroke: black;
+            transform: scale(1.3);
+            transition: transform 1s, fill 0.5s, stroke 0.5s;
+        }
+    </style>
+}
+
+@section Scripts{
+<script>
+    var redValue = 100, greenValue = redValue, blueValue = redValue, colorSpan, boundValue = 0, defaultRed,
+        defaultGreen, defaultBlue, customRed, customGreen, customBlue, valueInput, firstGauge, secondGauge;
+    c1.documentReady(function () {
+        getEles();
+        resetSpanBackGround();
+    });
+
+    function getEles() {
+        colorSpan = document.getElementById('colorSpan');
+        defaultRed = wijmo.Control.getControl('#defaultRed');
+        defaultGreen = wijmo.Control.getControl('#defaultGreen');
+        defaultBlue = wijmo.Control.getControl('#defaultBlue');
+        customRed = wijmo.Control.getControl('#customRed');
+        customGreen = wijmo.Control.getControl('#customGreen');
+        customBlue = wijmo.Control.getControl('#customBlue');
+        valueInput = wijmo.Control.getControl('#valueInput');
+        firstGauge = wijmo.Control.getControl('#firstGauge');
+        secondGauge = wijmo.Control.getControl('#secondGauge');
+    }
+
+    function resetSpanBackGround() {
+        colorSpan.style.background = "rgb(" + redValue + "," + greenValue + "," + blueValue + ")";
+    }
+
+    function setRedColor(sender) {
+        if (sender.value != redValue) {
+            redValue = sender.value;
+            defaultRed.value = customRed.value = redValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setGreenColor(sender) {
+        if (sender.value != greenValue) {
+            greenValue = sender.value;
+            defaultGreen.value = customGreen.value = greenValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setBlueColor(sender) {
+        if (sender.value != blueValue) {
+            blueValue = sender.value;
+            defaultBlue.value = customBlue.value = blueValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setValue(sender) {
+        if (boundValue != sender.value) {
+            boundValue = sender.value;
+            firstGauge.value = secondGauge.value = valueInput.value = boundValue;
+        }
+    }
+</script>
+}
+
+<h3>
+    @Html.Raw(LinearGaugeRes.Scaling_Text0)
+    <span id="colorSpan" style="border: 1px solid #333;">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+</h3>
+<div class="row" style="width:100%;">
+    <div class="col-md-4">
+        <h4>
+            @Html.Raw(LinearGaugeRes.Scaling_DefaultStyles)
+        </h4>
+        <c1-linear-gauge id="defaultRed" is-read-only="false" min="0" max="255" value="100" step="5" value-changed="setRedColor">
+            <c1-gauge-range c1-property="Pointer" color="red"></c1-gauge-range>
+        </c1-linear-gauge>
+        <c1-linear-gauge id="defaultGreen" is-read-only="false" min="0" max="255" value="100" step="5" value-changed="setGreenColor">
+            <c1-gauge-range c1-property="Pointer" color="green"></c1-gauge-range>
+        </c1-linear-gauge>
+        <c1-linear-gauge id="defaultBlue" is-read-only="false" min="0" max="255" value="100" step="5" value-changed="setBlueColor">
+            <c1-gauge-range c1-property="Pointer" color="blue"></c1-gauge-range>
+        </c1-linear-gauge>
+    </div>
+    <div class="col-md-4">
+        <h4>
+            @Html.Raw(LinearGaugeRes.Scaling_CustomCSS)
+        </h4>
+        <c1-linear-gauge id="customRed" class="custom-gauge" thumb-size="12" has-shadow="false" is-read-only="false" min="0" max="255"
+                         value="100" step="5" value-changed="setRedColor">
+            <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+            <c1-gauge-range c1-property="Pointer" thickness="0.25" color="red"></c1-gauge-range>
+        </c1-linear-gauge>
+        <c1-linear-gauge id="customGreen" class="custom-gauge" thumb-size="12" has-shadow="false" is-read-only="false" min="0" max="255"
+                         value="100" step="5" value-changed="setGreenColor">
+            <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+            <c1-gauge-range c1-property="Pointer" thickness="0.25" color="green"></c1-gauge-range>
+        </c1-linear-gauge>
+        <c1-linear-gauge id="customBlue" class="custom-gauge" thumb-size="12" has-shadow="false" is-read-only="false" min="0" max="255"
+                         value="100" step="5" value-changed="setBlueColor">
+            <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+            <c1-gauge-range c1-property="Pointer" thickness="0.25" color="blue"></c1-gauge-range>
+        </c1-linear-gauge>
+    </div>
+</div>
+
+<h2>
+    @Html.Raw(LinearGaugeRes.Scaling_Text1)
+</h2>
+<br />
+<c1-input-number id="valueInput" format="n0," value="0" step="1000" min="0" max="64000" value-changed="setValue"></c1-input-number>
+<br />
+<c1-linear-gauge id="firstGauge" style="margin:0px 10px" thumb-size="12" has-shadow="false" value="0" min="0" max="64000"
+                 step="1000" is-read-only="false" value-changed="setValue">
+    <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+    <c1-gauge-range c1-property="Pointer" thickness="0.25"></c1-gauge-range>
+</c1-linear-gauge>
+<br />
+<c1-linear-gauge id="secondGauge" style="height:2.5em; margin:10px" has-shadow="false" value="0" min="0" max="64000"
+                 step="1000" is-read-only="false" show-text="Value" value-changed="setValue" format="n0,">
+    <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+    <c1-gauge-range c1-property="Pointer" thickness="0.25"></c1-gauge-range>
+</c1-linear-gauge>
+<br />
+@for (var val = 1; val < 7; val++)
+{
+    <c1-linear-gauge style="margin:0px 10px" thumb-size="12" has-shadow="false" value="10000 * val" min="0" max="64000"
+                     step="1000" is-read-only="false">
+        <c1-gauge-range c1-property="Face" thickness="0.25"></c1-gauge-range>
+        <c1-gauge-range c1-property="Pointer" thickness="0.25"></c1-gauge-range>
+    </c1-linear-gauge>
+}
+@section Description{
+    @Html.Raw(LinearGaugeRes.Scaling_Text2)
+}

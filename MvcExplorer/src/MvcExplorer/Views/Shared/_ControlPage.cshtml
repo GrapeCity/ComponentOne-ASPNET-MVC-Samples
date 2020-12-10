@@ -1,0 +1,20 @@
+﻿@model ControlPage
+
+@{
+    Func<ControlPage, Microsoft.AspNetCore.Html.IHtmlContent> ShowPage = @<text>@{
+        <li class="control-page">
+            <a href="@item.Path">@item.Text</a>
+            @if (item.SubPages != null && item.SubPages.Count > 0)
+            {
+                <ul>
+                    @foreach (ControlPage subPage in item.SubPages)
+                    {
+                         @await Html.PartialAsync("_ControlPage", subPage)
+                    }
+                </ul>
+            }
+        </li>
+    }</text>;
+}
+
+@ShowPage(Model)

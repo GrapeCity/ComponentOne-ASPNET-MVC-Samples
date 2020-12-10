@@ -1,0 +1,15 @@
+﻿@model IEnumerable<NamedColor>
+
+<div>
+    <label>@Html.Raw(AutoCompleteRes.ComplexType_Text1)</label>
+    <p>@Html.Raw(AutoCompleteRes.ComplexType_Text0)</p>
+
+    <c1-auto-complete display-member-path="Name" selected-value-path="Value">
+        <c1-items-source source-collection="@Model">
+        </c1-items-source>
+    </c1-auto-complete>
+</div>
+
+@section Description{
+    @Html.Raw(AutoCompleteRes.ComplexType_Text2)
+}

@@ -1,0 +1,149 @@
+@using C1.Web.Mvc.Grid
+@model IEnumerable<ProductSheet>
+
+<h4 class="semi-bold">
+    TransposedGrid:
+</h4>
+
+<c1-transposed-grid id="theTransposedGrid" auto-generate-rows="false" class="product-sheet-grid" is-read-only="true" headers-visibility="Row"
+                    item-formatter="formatItem" loaded-rows="loadedRows" height="615">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-transposed-grid-row binding="Image" header=" " align="center" width="80"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Name" header="Model" align="center" word-wrap="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Rating" header="Rating" align="center" format="n1" width="130"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Price" header="Price" align="center" format="c2" width="120"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Screen" header="Screen" align="center" word-wrap="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Camera" header="Camera" align="center" word-wrap="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="OS" header="OS" align="center" word-wrap="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="CPU" header="CPU" align="center" word-wrap="true" width="150"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="RAM" header="RAM" align="center" format="n0" width="80"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="ROM" header="ROM" align="center" format="n0" width="80"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="SIM" header="SIM" align="center" word-wrap="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Battery" header="Battery" align="center" format="n0" width="80"></c1-transposed-grid-row>
+</c1-transposed-grid>
+
+<h4 class="semi-bold">
+    FlexGrid:
+</h4>
+
+<c1-flex-grid id="theFlexGrid" auto-generate-columns="false" class="product-sheet-grid" is-read-only="true"
+              item-formatter="formatItem" height="350" default-row-size="50" default-column-size="210">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-grid-column binding="Image" header=" " align="center" width="80"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Name" header="Model" align="center" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Rating" header="Rating" align="center" format="n1" width="130"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Price" header="Price" align="center" format="c2" width="120"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Screen" header="Screen" align="center" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Camera" header="Camera" align="center" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="OS" header="OS" align="center" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="CPU" header="CPU" align="center" word-wrap="true" width="150"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="RAM" header="RAM" align="center" format="n0" width="80"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ROM" header="ROM" align="center" format="n0" width="80"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="SIM" header="SIM" align="center" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Battery" header="Battery" align="center" format="n0" width="80"></c1-flex-grid-column>
+</c1-flex-grid>
+
+<style type="text/css">
+    .product-sheet-grid {
+        max-height: 2000px;
+    }
+
+        .product-sheet-grid .wj-rowheaders .wj-cell {
+            text-transform: uppercase;
+            font-size: 80%;
+        }
+
+        .product-sheet-grid .wj-cell {
+            padding: 4px;
+            border-bottom: none;
+        }
+
+            .product-sheet-grid .wj-cell span.rating {
+                font-size: x-large;
+                color: #e7711b;
+                margin-right: 0;
+            }
+
+            .product-sheet-grid .wj-cell span.price {
+                font-weight: bold;
+                color: #d0021b;
+            }
+
+        .product-sheet-grid img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+    .star {
+        font-size: x-large;
+        width: auto;
+        display: inline-block;
+        color: gray;
+    }
+
+        .star.half:after {
+            content: '\2605';
+            color: #e7711b;
+            margin-left: -20px;
+            width: 10px;
+            position: absolute;
+            overflow: hidden;
+        }
+</style>
+
+@section Scripts{
+    <script>
+        function loadedRows(grid) {
+                let g = grid;
+                g.columns.defaultSize = 210;
+                setTimeout(function () {
+                    g.autoSizeColumn(0, true, 30);
+                    g.autoSizeRows();
+                    g.rows[0].height = 170;
+                });
+        }
+
+        function formatItem(panel, r, c, cell) {
+            if (panel.cellType == 1) {
+                let binding = panel.rows[r].binding || panel.columns[c].binding;
+                switch (binding) {
+                    case 'Image':
+                        cell.innerHTML = '<img src="' + '@Url.Content("~/")' + cell.textContent + '" draggable="false"/>';
+                        break;
+                    case 'Name':
+                        cell.innerHTML = '<b>' + cell.innerHTML + '</b>';
+                        break;
+                    case 'Price':
+                        cell.innerHTML = '<span class="price">' + cell.innerHTML + '</span>';
+                        break;
+                    // rating as stars
+                    case 'Rating':
+                        let rating = panel.getCellData(r, c, false) * 1,
+                            stars = Math.floor(rating),
+                            html = new Array(stars + 1).join('&#x2605;');
+                        html = '<span class="rating">' + html + '</span>';
+                        if (rating > stars) {
+                            html += '<span class="star half">&#9734;</span>';
+                        }
+                        cell.innerHTML = html;
+                        break;
+                    case 'RAM':
+                    case 'ROM':
+                        cell.textContent += "GB";
+                        break;
+                    case 'Battery':
+                        cell.textContent += "mAh";
+                        break;
+                }
+            }
+        }
+    </script>
+}
+
+@section Summary{
+    <p>@Html.Raw(TransposedGridRes.Index_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TransposedGridRes.Index_Text1)</p>
+}

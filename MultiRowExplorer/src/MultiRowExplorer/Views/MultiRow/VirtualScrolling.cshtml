@@ -1,0 +1,30 @@
+@model IEnumerable<Sale>
+
+<c1-multi-row id="virtualScrollingMultiRow" class="multirow" is-read-only="true">
+    <c1-items-source initial-items-count="100" read-action-url="@Url.Action("VirtualScrolling_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.VirtualScrolling_Text0)</p>
+
+<p>@Html.Raw(MultiRowRes.VirtualScrolling_Text1)</p>
+
+}

@@ -1,0 +1,102 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var style = new SVGStyle { StrokeWidth = 3 };
+}
+
+@section Styles{
+<style>
+    /* Override the css Class to aviod the LineMarker being overlaied by parent nodes */
+    .tab-pane.pane-content.active {
+        overflow: visible;
+    }
+</style>
+}
+
+@section Scripts{
+<script type="text/javascript">
+    function lineMarkerContent(hitInfo, pt) {
+        var html = '', chart = hitInfo.series ? hitInfo.series.chart : undefined;
+        if (!chart || !chart.series) {
+            return html;
+        }
+        chart.series.forEach(function (s, i) {
+            var ht = s.hitTest(new wijmo.Point(pt.x, NaN)), hostEle = s.hostElement, polyline;
+
+            polyline = s.hostElement ? s.hostElement.getElementsByTagName("polyline")[0] : undefined;
+
+            if (polyline && ht.x && ht.y !== null) {
+                if (i == 0) {
+                    html += wijmo.Globalize.formatDate(ht.x, 'dd-MMM');
+                }
+                html += '<div style="color:' + polyline.getAttribute('stroke') + '">' + ht.name + ' = ' + ht.y.toFixed(2) + '</div>';
+            }
+        });
+        return html;
+    }
+    var chart, lineMarker;
+
+    c1.documentReady(function () {
+        chart = wijmo.Control.getControl("#@(demoSettingsModel.ControlId)");
+        lineMarker = c1.getExtender(chart, "LineMarker");
+    });
+
+    function customChangeLines(chart, value) {
+        if (lineMarker) {
+            lineMarker.lines = value;
+        }
+    }
+
+    function customChangeAlignment(chart, value) {
+        if (lineMarker) {
+            if (value === "Left & Bottom") {
+                lineMarker.alignment = 5;
+            } else if (value === "Left & Top") {
+                lineMarker.alignment = 7;
+            } else if (value === "Left") {
+                lineMarker.alignment = 1;
+            } else if (value === "Top") {
+                lineMarker.alignment = 6;
+            } else if (value === "Right") {
+                lineMarker.alignment = 0;
+            } else if (value === "Bottom") {
+                lineMarker.alignment = 4;
+            } else {
+                lineMarker.alignment = 2;
+            }
+        }
+    }
+
+    function customChangeInteraction(chart, value) {
+        if (lineMarker) {
+            lineMarker.interaction = value;
+        }
+    }
+</script>
+}
+
+<c1-flex-chart id="@demoSettingsModel.ControlId"
+               binding-x="Date" 
+               chart-type="Line"
+               interpolate-nulls="true">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="SalesInUSA" name="Sales In USA"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="SalesInJapan" name="Sales In Japan" style="@style"></c1-flex-chart-series>
+
+    <c1-flex-chart-axis c1-property="AxisX" format="dd-MMM"></c1-flex-chart-axis>
+    <c1-flex-chart-tooltip content=""></c1-flex-chart-tooltip>
+    <c1-line-marker id="LineMarker"
+                    alignment="Auto" 
+                    lines="Vertical"
+                    drag-content="true"
+                    interaction="Move"
+                    content="lineMarkerContent">
+    </c1-line-marker>
+</c1-flex-chart>
+
+@section Description {
+    <h3>
+        @Html.Raw(FlexChartRes.Marker_ChartMarker)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Marker_Text0)</p>
+}

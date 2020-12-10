@@ -1,0 +1,33 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<h4>@Html.Raw(FlexGridRes.DisableServerRead_Text0)</h4>
+<c1-flex-grid id="dsrFlexGrid" auto-generate-columns="true"
+              class="grid" is-read-only="true">
+    <c1-flex-grid-filter></c1-flex-grid-filter>
+    <c1-items-source disable-server-read="@(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue))"
+                     initial-items-count="10"
+                     read-action-url="@Url.Action("DisableServerRead_Bind")"></c1-items-source>
+</c1-flex-grid>
+<br />
+<br />
+<h4>@Html.Raw(FlexGridRes.DisableServerRead_Text1)</h4>
+<c1-flex-grid id="dsrPagingGrid" auto-generate-columns="true" height="300px"
+              style="height:auto" class="grid" is-read-only="true">
+    <c1-flex-grid-filter></c1-flex-grid-filter>
+    <c1-items-source disable-server-read="@(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue))"
+                     page-size="10"
+                     read-action-url="@Url.Action("DisableServerRead_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+<c1-pager owner="dsrPagingGrid"></c1-pager>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(FlexGridRes.DisableServerRead_Text2)
+}

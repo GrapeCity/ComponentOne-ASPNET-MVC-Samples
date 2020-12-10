@@ -1,0 +1,57 @@
+﻿<script>
+    c1.documentReady(function () {
+        var tabDetached = wijmo.Control.getControl('#tabDetached');
+
+        // hide the built-in content area
+        tabDetached.hostElement.querySelector('.wj-tabpanes').style.display = 'none';
+
+        tabDetached_selectedIndexChanged(tabDetached);
+    });
+
+    function tabDetached_selectedIndexChanged(s, e) {
+        var div = document.getElementById('detachedContent');
+        div.innerHTML = 'Content for tab <b>' +
+            s.selectedTab.header.textContent +
+            '</b>...';
+    }
+</script>
+
+<c1-tab-panel id="tabDetached" selected-index-changed="tabDetached_selectedIndexChanged">
+    <!-- tab without any content -->
+    <div>
+        <a>Africa</a>
+        <div></div>
+    </div>
+    <div>
+        <a>America</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Europe</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Oceania</a>
+        <div></div>
+    </div>
+</c1-tab-panel>
+
+<p></p>
+<div class="panel panel-success">
+    <!-- separate div to show the content -->
+    <div class="panel-heading">
+        <h3 id="detachedContent" class="panel-title"></h3>
+    </div>
+</div>
+
+@section Summary{
+<p>@Html.Raw(TabPanelRes.DetachedPanels_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TabPanelRes.DetachedPanels_Text1)</p>
+}

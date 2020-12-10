@@ -1,0 +1,22 @@
+﻿@section Styles{
+<style>
+    .highlight {
+        background-color: #ff0;
+        color: #000;
+    }
+</style>
+}
+
+<div>
+    <label>@Html.Raw(MultiAutoCompleteRes.CustomAction_CustomAction)</label>
+    <c1-multi-auto-complete items-source-action="@Url.Action("Heuristic")"></c1-multi-auto-complete>
+</div>
+<div>
+    <label>@Html.Raw(MultiAutoCompleteRes.CustomAction_CustomActionWithMaxItems)</label>
+    <p>@Html.Raw(MultiAutoCompleteRes.CustomAction_Text0)</p>
+    <c1-multi-auto-complete max-items="10" css-match="highlight" items-source-action="@Url.Action("TypesInMscorlib")"></c1-multi-auto-complete>
+</div>
+
+@section Description{
+    @Html.Raw(MultiAutoCompleteRes.CustomAction_Text1)
+}

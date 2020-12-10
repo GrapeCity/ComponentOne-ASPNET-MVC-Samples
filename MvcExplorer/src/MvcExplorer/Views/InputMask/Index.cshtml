@@ -1,0 +1,92 @@
+﻿@section Scripts{
+    <style>
+        .invalid-tooltip {
+            background-color: red;
+            color: yellow;
+            opacity: 0.9;
+            border-color: lightcoral;
+        }
+    </style>
+
+    <script>
+    var _invalidTooltip;
+    c1.documentReady(function () {
+        _invalidTooltip = new wijmo.Tooltip();
+        _invalidTooltip.cssClass = 'invalid-tooltip';
+        _invalidTooltip.position = 11;
+        window.addEventListener('resize', function () {
+            if (_invalidTooltip.isVisible) {
+                _invalidTooltip.hide();
+                onInvalidInput();
+            }
+        });
+    })
+
+    function onInvalidInput(input, e) {
+        e && (e.cancel = true);
+        _invalidTooltip.show("#invalidInput", "@Html.Raw(InputMaskRes.Index_Text13)");
+    }
+
+    function onValueChanged(input, e) {
+        _invalidTooltip && _invalidTooltip.hide();
+    }
+
+    function valueChanged(sender) {
+        var customMaskTrial = wijmo.Control.getControl("#imCustomTrial");
+        customMaskTrial.mask = sender.value;
+        customMaskTrial.hostElement.title = 'Mask: ' + (sender.value || 'N/A');
+    }
+    </script>
+}
+
+<div>
+    <label>
+        @InputMaskRes.Index_Text
+        @Html.Raw(InputMaskRes.Index_Text12)
+    </label>
+    <c1-input-mask id="invalidInput" mask="000-00-0000" title="Mask: 000-00-0000" value="012342678" 
+        invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-mask>
+</div>
+<div>
+    <label>@Html.Raw(InputMaskRes.Index_PhoneNumber)</label>
+    <c1-input-mask mask="(999) 000-0000" title="Mask: (999) 000-0000"></c1-input-mask>
+</div>
+<div>
+    <label>@Html.Raw(InputMaskRes.Index_TryYourOwn)</label>
+    <c1-input-mask id="imCustomInput" placeholder="@InputMaskRes.Index_EnterAnInputMask" value-changed="valueChanged"></c1-input-mask>
+    <c1-input-mask id="imCustomTrial" placeholder="@InputMaskRes.Index_TryYourInputMask"></c1-input-mask>
+</div>
+<div>
+    <label>@Html.Raw(InputMaskRes.Index_InputDateWithMask)</label>
+    <c1-input-date value="@DateTime.Now" format="d" mask="@InputMaskRes.Mask_Input_Date" title="Mask: @InputMaskRes.Mask_Input_Date"></c1-input-date>
+</div>
+<div>
+    <label>@Html.Raw(InputMaskRes.Index_InputTimeWithMask)</label>
+    <c1-input-time value="@DateTime.Now" format="t" mask="00:00 >LL" is-editable="true" title="Mask: 00:00 >LL"></c1-input-time>
+</div>
+
+<div>
+    <label>@Html.Raw(InputMaskRes.Index_Text6)</label>
+
+    <p>
+        @Html.Raw(InputMaskRes.Index_Text7)
+        <c1-input-mask placeholder="@InputMaskRes.Index_Placeholder3" input-type="password" title="InputType: password"></c1-input-mask>
+    </p>
+    <p>
+        @Html.Raw(InputMaskRes.Index_Text8)
+        <c1-input-mask input-type="week" title="InputType: week"></c1-input-mask>
+    </p>
+    <p>
+        @Html.Raw(InputMaskRes.Index_Text9)
+        <c1-input-mask input-type="month" title="InputType: month"></c1-input-mask>
+    </p>
+    <p>
+        @Html.Raw(InputMaskRes.Index_Text10)
+        <c1-input-mask mask="(999) 000-0000" input-type="tel" title="InputType: tel, Mask: (999) 000-0000"></c1-input-mask>
+    </p>
+</div>
+
+@section Description{
+    <p>@Html.Raw(InputMaskRes.Index_Text0)</p>
+    <p>@Html.Raw(InputMaskRes.Index_Text11)</p>
+}

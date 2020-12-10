@@ -1,0 +1,75 @@
+@model IEnumerable<Sale>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<h4>@Html.Raw(MultiRowRes.DisableServerRead_Text2)</h4>
+
+<c1-multi-row id="dsrMultiRow" class="multirow" is-read-only="true">
+    <c1-flex-grid-filter></c1-flex-grid-filter>
+    <c1-items-source disable-server-read="@(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue))"
+                     initial-items-count="10"
+                     read-action-url="@Url.Action("DisableServerRead_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+<br />
+<br />
+<h4>@Html.Raw(MultiRowRes.DisableServerRead_Text3)</h4>
+
+<c1-multi-row id="dsrPagingMultiRow" class="multirow" is-read-only="true">
+    <c1-flex-grid-filter></c1-flex-grid-filter>
+    <c1-items-source disable-server-read="@(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue))"
+                     page-size="10"
+                     read-action-url="@Url.Action("DisableServerRead_Bind")"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+<c1-pager owner="dsrPagingMultiRow"></c1-pager>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.DisableServerRead_Text0)</p>
+
+<p>@Html.Raw(MultiRowRes.DisableServerRead_Text1)</p>
+
+}

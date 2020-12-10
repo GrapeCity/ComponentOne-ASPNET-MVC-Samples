@@ -1,0 +1,216 @@
+﻿@using System.Drawing
+@model IEnumerable<BasicSale>
+@{
+    List<BasicSale> basicData = ViewBag.BasicData;
+    List<FinanceData> fbData = ViewBag.FbData;
+    var circleTooltip = FlexChartRes.Annotation_CircleTooltip;
+    var squareTooltip = FlexChartRes.Annotation_SquareTooltip;
+    var lineTooltip = FlexChartRes.Annotation_LineTooltip;
+    var textTooltip = FlexChartRes.Annotation_TextTooltip;
+    var ellipseTooltip = FlexChartRes.Annotation_EllipseTooltip;
+    var rectTooltip = FlexChartRes.Annotation_RectTooltip;
+    var imageTooltip = FlexChartRes.Annotation_ImageTooltip;
+    var polygonTooltip = FlexChartRes.Annotation_PolygonTooltip;
+    var circleStyle = new SVGStyle { Fill = "#e6e6e6", Stroke = "#7b9e7e", StrokeWidth=2 };
+    var squareStyle = new SVGStyle { Fill = "#e6e6e6", Stroke = "#918254", StrokeWidth = 2 };
+    var lineStyle = new SVGStyle { Stroke = "#01A9DB", StrokeWidth = 4 };
+    var textStyle = new SVGStyle { Fill = "#bbbbbb", FontSize = 26 };
+    var ellipseStyle = new SVGStyle { Fill = "#e6e6e6", Stroke = "#c2955f", StrokeWidth = 2 };
+    var rectStyle = new SVGStyle { Fill = "#e6e6e6", Stroke = "#937f99", StrokeWidth = 2 };
+    var polygonStyle = new SVGStyle { Fill = "#fff", Stroke = "#01A9DB", StrokeWidth = 4 };
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/AdvancedAnnotation.css" />
+}
+
+@section Scripts{
+    <script src="~/Scripts/AxisScrollbar.js"></script>
+    <script src="~/Scripts/advancedAnnotation.js"></script>
+}
+
+<h2>@Html.Raw(FlexChartRes.Annotation_Basic)</h2>
+<p>@Html.Raw(FlexChartRes.Annotation_Text0)</p>
+<c1-flex-chart binding-x="Date">
+    <c1-items-source source-collection="basicData"></c1-items-source>
+    <c1-flex-chart-series binding="Sale" chart-type="Line">
+    </c1-flex-chart-series>
+    <c1-annotation-layer>
+        <c1-annotation-circle attachment="DataIndex"
+                              radius="40" offset="new PointF(0, -15)"
+                              point-index="33" content="@FlexChartRes.Annotation_CircleContent"
+                              tooltip="@circleTooltip" style="circleStyle">
+        </c1-annotation-circle>
+        <c1-annotation-square attachment="DataIndex"
+                              length="80" offset="new PointF(0, -15)"
+                              point-index="45" content="@FlexChartRes.Annotation_SquareContent"
+                              tooltip="@squareTooltip" style="squareStyle">
+        </c1-annotation-square>
+        <c1-annotation-line start="new DataPoint(50, 150)" end="new DataPoint(240, 350)"
+                            tooltip="@lineTooltip" style="lineStyle" content="@FlexChartRes.Annotation_LineContent">
+        </c1-annotation-line>
+        <c1-annotation-text attachment="Relative"
+                            point="new DataPoint(0.55, 0.15)" content="@FlexChartRes.Annotation_TextContent"
+                            tooltip="@textTooltip" style="textStyle">
+        </c1-annotation-text>
+        <c1-annotation-ellipse attachment="Relative"
+                               width="100" height="80" content="@FlexChartRes.Annotation_EllipseContent"
+                               point="new DataPoint(0.4, 0.5)"
+                               tooltip="@ellipseTooltip" style="ellipseStyle">
+        </c1-annotation-ellipse>
+        <c1-annotation-rectangle attachment="DataCoordinate"
+                                 point="new DataPoint(new DateTime(2014, 2, 11), 30)"
+                                 content="@FlexChartRes.Annotation_RectangleContent" tooltip="@rectTooltip" style="rectStyle">
+        </c1-annotation-rectangle>
+        <c1-annotation-image attachment="DataCoordinate"
+                             href="@Url.Content("~/Content/images/c1icon.png")"
+                             point="new DataPoint(new DateTime(2014, 1, 26), 30)"
+                             width="80" height="80" tooltip="@imageTooltip">
+        </c1-annotation-image>
+        <c1-annotation-polygon tooltip="@polygonTooltip" style="polygonStyle" content="@FlexChartRes.Annotation_PolygonContent">
+            <c1-data-point x="200" y="0"></c1-data-point>
+            <c1-data-point x="150" y="50"></c1-data-point>
+            <c1-data-point x="175" y="100"></c1-data-point>
+            <c1-data-point x="225" y="100"></c1-data-point>
+            <c1-data-point x="250" y="50"></c1-data-point>
+        </c1-annotation-polygon>
+    </c1-annotation-layer>
+</c1-flex-chart>
+
+@{
+    var waterMarkerStyle = new SVGStyle
+    {
+        Fill = "#N45f04",
+        FillOpacity = 0.1,
+        Stroke = "rgba(124,240,10,0.2)",
+        FontSize = 60
+    };
+    var trendLineStyle = new SVGStyle
+    {
+        Fill = "#FF0040",
+        Stroke = "#3ADF00",
+        StrokeWidth = 1,
+        StrokeOpacity = 0.5
+    };
+    var eventStyle = new SVGStyle { Fill = "#01DFD7", Stroke = "#000" };
+    var detailStyle = new SVGStyle { Fill = "#CCCC00", Stroke = "#0B2F3A", StrokeOpacity = 0.4 };
+    var detailTextStyle = new SVGStyle { Fill = "#6E6E6E", FontSize = 12 };
+    var startLineStyle = new SVGStyle { Fill = "#000", Stroke = "#000", StrokeWidth = 1 };
+    var tradeRangeStyle = new SVGStyle
+    {
+        Fill = "#669999",
+        Stroke = "#B40431",
+        FillOpacity = 0.2,
+        StrokeWidth = 1,
+        StrokeOpacity = 0.1
+    };
+    var news = FlexChartRes.Annotation_News;
+}
+
+<h2>@Html.Raw(FlexChartRes.Annotation_Advanced)</h2>
+<p>@Html.Raw(FlexChartRes.Annotation_Text1)</p>
+<c1-flex-chart id="anChart" class="anchart" chart-type="Line" binding-x="X">
+    <c1-items-source source-collection="fbData"></c1-items-source>
+    <c1-flex-chart-series binding="Close" name="Close" chart-type="Line"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="Volume" name="Volumn" chart-type="Column">
+        <c1-flex-chart-axis c1-property="AxisY" max="fbData[0].Volume*8" labels="false"
+                            major-tick-marks="None" axis-line="false">
+        </c1-flex-chart-axis>
+    </c1-flex-chart-series>
+    <c1-flex-chart-axis c1-property="AxisX" axis-line="false" format="MM/dd/yy">
+    </c1-flex-chart-axis>
+    <c1-flex-chart-axis c1-property="AxisY" position="Right">
+    </c1-flex-chart-axis>
+    <c1-annotation-layer id="AnnotationLayer">
+        <c1-annotation-text content="componentone.com" attachment="Relative"
+                            name="waterMarker" point="new DataPoint(0.5,0.5)" style="waterMarkerStyle">
+        </c1-annotation-text>
+        <c1-annotation-line name="trendLine1" attachment="DataCoordinate" style="trendLineStyle"
+                            start="new DataPoint(new DateTime(2014, 5, 8), 64)" end="new DataPoint(new DateTime(2014, 9, 8), 84)"
+                            position="Center">
+        </c1-annotation-line>
+        <c1-annotation-line name="trendLine2" attachment="DataCoordinate" style="trendLineStyle"
+                            start="new DataPoint(new DateTime(2014, 5, 8), 56)" end="new DataPoint(new DateTime(2014, 9, 8), 76)"
+                            position="Center">
+        </c1-annotation-line>
+        <c1-annotation-rectangle name="eventa" offset="new PointF(0, -10)" attachment="DataIndex"
+                                 content="E" width="20" height="20" point-index="73" series-index="0"
+                                 tooltip="@FlexChartRes.Annotation_Tooltip1" style="eventStyle">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle name="eventb" offset="new PointF(0, 10)" attachment="DataIndex"
+                                 content="E" width="20" height="20" point-index="124" series-index="0" style="eventStyle"
+                                 tooltip="@FlexChartRes.Annotation_Tooltip2">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle name="eventc" offset="new PointF(0, -10)" attachment="DataIndex"
+                                 content="E" width="20" height="20" point-index="202" series-index="0" style="eventStyle"
+                                 tooltip="@FlexChartRes.Annotation_Tooltip3">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle name="eventd" offset="new PointF(0, -20)" attachment="DataIndex"
+                                 content="E" width="20" height="20" point-index="235" series-index="0" style="eventStyle"
+                                 tooltip="@FlexChartRes.Annotation_Tooltip4">
+        </c1-annotation-rectangle>
+        <c1-annotation-square name="detailContainer" length="110" is-visible="false" point="new DataPoint(55,55)" style="detailStyle">
+        </c1-annotation-square>
+        <c1-annotation-text name="detailLow" position="Center" point="new DataPoint(52, 20)" style="detailTextStyle">
+        </c1-annotation-text>
+        <c1-annotation-text name="detailHigh" position="Center" point="new DataPoint(52, 40)" style="detailTextStyle">
+        </c1-annotation-text>
+        <c1-annotation-text name="detailOpen" position="Center" point="new DataPoint(52, 60)" style="detailTextStyle">
+        </c1-annotation-text>
+        <c1-annotation-text name="detailClose" position="Center" point="new DataPoint(52, 80)" style="detailTextStyle">
+        </c1-annotation-text>
+        <c1-annotation-text name="detailVolume" position="Center" point="new DataPoint(52, 100)" style="detailTextStyle">
+        </c1-annotation-text>
+        <c1-annotation-line name="startLine" attachment="DataCoordinate" style="startLineStyle" tooltip="Previous close"
+                            start="new DataPoint(new DateTime(2014, 4, 10), 59.16)" end="new DataPoint(new DateTime(2016, 4, 10), 59.16)">
+        </c1-annotation-line>
+        <c1-annotation-image name="dividea" offset="new PointF(0, -20)" width="20" height="20" attachment="DataIndex"
+                             point-index="42" series-index="1" href="@Url.Content("~/Content/images/divide.png")" tooltip="Dividend">
+        </c1-annotation-image>
+        <c1-annotation-image name="divideb" offset="new PointF(0, -10)" width="20" height="20" attachment="DataIndex"
+                             point-index="73" series-index="1" href="@Url.Content("~/Content/images/divide.png")" tooltip="Dividend">
+        </c1-annotation-image>
+        <c1-annotation-image name="dividec" offset="new PointF(0, -10)" width="20" height="20" attachment="DataIndex"
+                             point-index="92" series-index="1" href="@Url.Content("~/Content/images/divide.png")" tooltip="Dividend">
+        </c1-annotation-image>
+        <c1-annotation-image name="divided" offset="new PointF(0, -10)" width="20" height="20" attachment="DataIndex"
+                             point-index="142" series-index="1" href="@Url.Content("~/Content/images/divide.png")" tooltip="Dividend">
+        </c1-annotation-image>
+        <c1-annotation-image name="dividee" offset="new PointF(0, -10)" width="20" height="20" attachment="DataIndex"
+                             point-index="202" series-index="1" href="@Url.Content("~/Content/images/divide.png")" tooltip="Dividend">
+        </c1-annotation-image>
+        <c1-annotation-rectangle name="tradeRange" offset="new PointF(0,-80)" attachment="DataCoordinate"
+                                 width="465" height="430" point="new DataPoint(new DateTime(2014, 11, 26), 70)" style="tradeRangeStyle">
+        </c1-annotation-rectangle>
+        <c1-annotation-text name="newsa" position="Center" attachment="DataCoordinate"
+                            content="@(FlexChartRes.Annotation_Content1)" point="new DataPoint(new DateTime(2015, 3, 2), 80)"
+                            offset="new PointF(0, 25)">
+        </c1-annotation-text>
+        <c1-annotation-image name="newsaMarker" offset="new PointF(0, -10)" point="new DataPoint(new DateTime(2015, 3, 2), 80)"
+                             href="@Url.Content("~/Content/images/flag.png")" attachment="DataCoordinate"
+                             width="14" height="24" tooltip="@news">
+        </c1-annotation-image>
+        <c1-annotation-text name="newsb" position="Center" attachment="DataCoordinate"
+                            content="@FlexChartRes.Annotation_Content2" point="new DataPoint(new DateTime(2014, 7, 8), 62)">
+        </c1-annotation-text>
+        <c1-annotation-image name="newsbMarker" offset="new PointF(7, -20)" point="new DataPoint(new DateTime(2014, 7, 8), 62)"
+                             href="@Url.Content("~/Content/images/flag.png")" attachment="DataCoordinate"
+                             width="14" height="24">
+        </c1-annotation-image>
+        <c1-annotation-text name="trendDesc" position="Center" attachment="DataCoordinate"
+                            content="@FlexChartRes.Annotation_Content3" point="new DataPoint(new DateTime(2014, 5, 8), 64)"
+                            style="new SVGStyle {FontSize=20}" offset="new PointF(0, -30)">
+        </c1-annotation-text>
+        <c1-annotation-image name="buyAnno" offset="new PointF(0, 15)" width="24" height="24" tooltip="Bid: $73.59"
+                             attachment="DataCoordinate" point="new DataPoint(new DateTime(2014, 10, 14), 73)"
+                             href="@Url.Content("~/Content/images/up.png")">
+        </c1-annotation-image>
+        <c1-annotation-image name="cellAnno" offset="new PointF(0, -10)" width="24" height="24" tooltip="Bid: $73.59"
+                             attachment="DataCoordinate" point="new DataPoint(new DateTime(2015, 1, 8), 73)"
+                             href="@Url.Content("~/Content/images/down.png")">
+        </c1-annotation-image>
+    </c1-annotation-layer>
+</c1-flex-chart>
+@section Description{
+    @Html.Raw(FlexChartRes.Annotation_Text2)
+}

@@ -1,0 +1,204 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessibility_Text0" xml:space="preserve">
+    <value>The TabPanel control implements WAI-ARIA accessibility guidelines.</value>
+  </data>
+  <data name="Accessibility_Text1" xml:space="preserve">
+    <value>The TabPanel implements WAI-ARIA accessibility guidelines.
+        All tab elements have the proper role attributes as well as all applicable ARIA attributes.</value>
+  </data>
+  <data name="Accessibility_Text2" xml:space="preserve">
+    <value>The example below assigns unique IDs to the tab headers and panes,
+        which the TabPanel automatically uses to generate "aria-controls" and "aria-labelledby" attributes.</value>
+  </data>
+  <data name="Accessibility_Text3" xml:space="preserve">
+    <value>The example also adds a "wj-state-active" class to the "America" pane in markup to define the tab that is initially selected.
+        Without that, the first tab would have been selected by default.</value>
+  </data>
+  <data name="Accessibility_Text4" xml:space="preserve">
+    <value>Finally, the example shows the effect of the &lt;b&gt;AutoSwitch&lt;/b&gt; property,
+        which affects how the control handles the tab and cursor keys.
+        For a detailed discussion of this topic, please see the
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA&lt;/a&gt; practices
+        and &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;SimplyAccessible&lt;/a&gt; article.</value>
+  </data>
+  <data name="CreatingProgrammatically_Text0" xml:space="preserve">
+    <value>This view shows how to programmatically add tabs to TabPanel control.</value>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>In some cases, you may want to add tabs to a TabPanel control programmatically rather than using HTML markup.</value>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>You can do this using the &lt;b&gt;tabs&lt;/b&gt; property, which provides access to the collection of tabs in the TabPanel.</value>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>In this example, we add several Tab objects to the &lt;b&gt;tabs&lt;/b&gt; collection. Each Tab object is defined by a header and a pane elements.</value>
+  </data>
+  <data name="CreatingProgrammatically_Text4" xml:space="preserve">
+    <value>You can also use the &lt;b&gt;tabs&lt;/b&gt; property to remove, modify, or reorder the tabs within the TabPanel.</value>
+  </data>
+  <data name="DetachedPanels_Text0" xml:space="preserve">
+    <value>This view shows how to hide built-in content element in TabPanel control.</value>
+  </data>
+  <data name="DetachedPanels_Text1" xml:space="preserve">
+    <value>The TabPanel has a built-in panel that shows the content of the selected tab.
+        In some cases, you may want to display the content in a different element.
+        To do that, simply hide the built-in content element and use the &lt;b&gt;selectedIndexChanged&lt;/b&gt; event to update the content.</value>
+  </data>
+  <data name="DisabledInvisibleTabs_Text0" xml:space="preserve">
+    <value>This view shows how to disable or hide individual tabs in TabPanel control.</value>
+  </data>
+  <data name="DisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>You can disable or hide individual tabs using the Tab's &lt;b&gt;isDisabled&lt;/b&gt; and &lt;b&gt;isVisible&lt;/b&gt; properties.</value>
+  </data>
+  <data name="HostingControls_Text0" xml:space="preserve">
+    <value>This view shows hosting C1 MVC controls in TabPanel control.</value>
+  </data>
+  <data name="HostingControls_Text1" xml:space="preserve">
+    <value>One of the main benefits of the TabPanel control is that it automatically updates any C1 MVC controls it contains when a new tab is selected.</value>
+  </data>
+  <data name="HostingControls_Text2" xml:space="preserve">
+    <value>When using other tab controls, you must add code to refresh any C1 MVC controls contained in the tabs.</value>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>This view shows how to create TabPanel control with HTML markup.</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>The markup used to initialize TabPanel controls consists of one element per tab.
+        Each child element contains two children: the tab header and the tab content.</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>We suggest you use anchor elements (tag a) for the tab headers because 
+        they are semantically more meaningful than plain div elements.</value>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>The TabPanel control supports right to left automatically.</value>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>Some languages render content from the right to the left of the page (Arabic and Hebrew are typical examples) .
+        HTML accommodates this with the 'dir' attribute. Setting 'dir' to 'rtl' on any element causes the element's content to flow from right to left.</value>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>The TabPanel supports this automatically. If the element hosting the control has the 'dir' attribute set to 'rtl', 
+        the panel will render with tabs aligned from right to left. You don't have to set any properties on the control.</value>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>Note that the 'dir' attribute value is inherited, so if you set it on the body tag for example, 
+        the entire page will be rendered from right to left, including the TabPanel.</value>
+  </data>
+  <data name="RightToLeft_Text4" xml:space="preserve">
+    <value>Note also that CSS has a 'direction' attribute that performs the same function as the 'dir' element attribute. 
+        The 'dir' attribute is generally considered more appropriate for several reasons, including the fact that it can be used in CSS rules.</value>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>This view shows how to customize the appearance of TabPanel control.</value>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>You can customize the appearance of the TabPanel using CSS.</value>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>The TabPanel control has a simple layout, which makes it easy to style using CSS. 
+        For example, tabs appear above the content by default, but you can use CSS to change their position 
+        and show the below or vertically stacked, to the left or to the right of the content.</value>
+  </data>
+  <data name="Styling_Text3" xml:space="preserve">
+    <value>This example changes the appearance of the Tabs and lets you select the tab alignment and whether or not to use animation when switching tabs.</value>
+  </data>
+</root>

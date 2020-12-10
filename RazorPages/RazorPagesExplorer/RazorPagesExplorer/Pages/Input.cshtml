@@ -1,0 +1,63 @@
+﻿@page
+@model InputModel
+@{
+    string message = (string)ViewData["Message"];
+    List<string> countries = Model.Countries;
+    List<string> products = Model.Products;
+    countries.Insert(0, "");
+}
+
+<div>
+    <form method="post">
+        <div asp-validation-summary="All">
+        </div>
+        <div>
+            <label asp-for="CustomerOrder.Country"></label>
+            <c1-auto-complete for="CustomerOrder.Country">
+                <c1-items-source source-collection="countries"></c1-items-source>
+            </c1-auto-complete>
+            <span asp-validation-for="CustomerOrder.Country"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerOrder.Product"></label>
+            <c1-combo-box for="CustomerOrder.Product">
+                <c1-items-source source-collection="products"></c1-items-source>
+            </c1-combo-box>
+            <span asp-validation-for="CustomerOrder.Product"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerOrder.Price"></label>
+            <c1-input-number for="CustomerOrder.Price"></c1-input-number>
+            <span asp-validation-for="CustomerOrder.Price"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerOrder.Count"></label>
+            <c1-input-number for="CustomerOrder.Count"></c1-input-number>
+            <span asp-validation-for="CustomerOrder.Count"></span>
+        </div>
+        <div>
+            <label asp-for="CustomerOrder.OrderTime"></label>
+            <c1-input-date-time for="CustomerOrder.OrderTime"></c1-input-date-time>
+            <span asp-validation-for="CustomerOrder.OrderTime"></span>
+        </div>
+        <div style="margin-top: 10px">
+            <input type="submit" class="wj-btn wj-btn-default" value="Submit" />
+        </div>
+    </form>
+</div>
+<p>@message</p>
+
+@section Summary{
+    <p>This view shows how to use input controls in a form in Razor Pages.</p>
+}
+
+@section Description{
+    <p>
+        Steps for using input controls in a form in Razor Pages:
+    </p>
+    <ol>
+        <li>Add a public property CustomerOrder with <b>BindProperty</b> attribute for model binding.</li>
+        <li>Initialize the Input controls in a form in razor page view using the input control tags.</li>
+        <li>Add a handler <b>OnPost</b> for post back.</li>
+    </ol>
+}

@@ -1,0 +1,39 @@
+@model IEnumerable<Sale>
+
+@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/excelIO.js"></script>}
+
+<div>
+    <div class="copy">
+<h3>@Html.Raw(FlexSheetRes.ExcelIO_Text2)</h3>
+
+<p>@Html.Raw(FlexSheetRes.ExcelIO_Text0)</p>
+
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <button class="btn btn-default" onclick="load()">@Html.Raw(FlexSheetRes.ExcelIO_Text4)</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                @Html.Raw(FlexSheetRes.ExcelIO_Text3)
+                <input type="text" class="form-control" id="fileName" onchange="fileNameChanged()" />
+                <button class="btn btn-default" onclick="save()">@Html.Raw(FlexSheetRes.ExcelIO_Text5)</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="excelIOSheet" selected-sheet-index="0">
+            <c1-bound-sheet>
+                <c1-items-source source-collection="@Model"></c1-items-source>
+            </c1-bound-sheet>
+            <c1-unbound-sheet column-count="8" row-count="20" name="Unbound"></c1-unbound-sheet>
+        </c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.ExcelIO_Text1)</p>
+
+}

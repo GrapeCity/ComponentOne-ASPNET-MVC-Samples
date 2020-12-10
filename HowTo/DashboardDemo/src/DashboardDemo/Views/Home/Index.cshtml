@@ -1,0 +1,149 @@
+﻿@using DashboardModel;
+@using C1.Web.Mvc.Grid;
+@using System.Drawing;
+
+@{
+    var teal = "#009688";
+    var red = "#F44336";
+    var palette = new List<string>();
+    palette.Add(teal);
+    palette.Add(red);
+
+    ViewBag.PageTitle = @Resource.DashboardPage_Title;
+
+    var salesVSGoalHeaderText = "<span>" + Resource.CategorySales_Header + "</span><span class=\"lblUnits\">(" + Resource.Unit_Text + ")</span>";
+    var regionalSalesVsGoalHeaderText = "<span>" + Resource.RegionSales_Header + "</span><span class=\"lblUnits\">(" + Resource.Unit_Text + ")</span>";
+}
+<script type="text/javascript" src="@Url.Content("~/Scripts/Index.js")"></script>
+<script type="text/javascript">
+    function setRange(start, end) {
+        updateData(start, end, '@Url.Action("GetTopData")');
+    }
+
+    function isLayoutChanged() {
+        var group = wsSplitLayout.items[0];
+        var count = group.children.length;
+
+        if (count != 6) {
+            return true;
+        }
+
+        if ((group.children[0].headerText == '@Html.Raw(Resource.BudgetVSProfit_Header)')
+             && (group.children[1].headerText == '@Html.Raw(Resource.SalesVsProfit_Header)')
+             && (group.children[2].headerText.indexOf('@Html.Raw(Resource.CategorySales_Header)') != -1)
+             && (group.children[3].headerText == '@Html.Raw(Resource.TopSaleProducts_Header)')
+             && (group.children[4].headerText =='@Html.Raw(Resource.TopSaleCustomer_Header)')
+             && (group.children[5].headerText.indexOf('@Html.Raw(Resource.RegionSales_Header)') != -1)) {
+            return false;
+        }
+
+        return true;
+    }
+
+</script>
+
+<c1-items-source id="top3SellingProducts" disable-server-read="true"
+                 source-collection="@(ViewBag.Top3SellingProducts as List<SaleItem>)"></c1-items-source>
+<c1-items-source id="top7SaleCustomers" disable-server-read="true"
+                 source-collection="@(ViewBag.Top7SaleCustomers as List<SaleItem>)"></c1-items-source>
+<c1-items-source id="categorySalesVsGoal" disable-server-read="true"
+                 source-collection="@(ViewBag.CategorySalesVsGoal as List<SaleGoalItem>)"
+                 source-collection-changed="categorySalesVsGoalChanged"></c1-items-source>
+<c1-items-source id="regionSalesVsGoal" disable-server-read="true"
+                 source-collection="@(ViewBag.RegionSalesVsGoal as List<SaleGoalItem>)"
+                 source-collection-changed="regionSalesVsGoalChanged"></c1-items-source>
+
+<c1-auto-grid-layout id="wsSplitLayout" orientation="Vertical" max-rows-or-columns="6" cell-size="10">
+    <c1-auto-grid-group>
+        <c1-auto-grid-tile header-text="@Resource.BudgetVSProfit_Header" row-span="3" column-span="4">
+            <c1-flex-chart binding-x="Date"
+                           legend-position="Top"
+                           refreshing="tileContentRefreshing"
+                           class="budgetVSProfitChart"
+                           palette="@palette">
+                <c1-flex-chart-axis c1-property="AxisY" format="N1,,M" major-unit="200000" title="(US$ M)"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisX" format="MMM"></c1-flex-chart-axis>
+                <c1-flex-chart-title-style c1-property="HeaderStyle" halign="left" font-size="18pt"></c1-flex-chart-title-style>
+                <c1-items-source source-collection="@ViewBag.BudgetItemList"></c1-items-source>
+                <c1-flex-chart-series binding="Profit" name="@Resource.CurrentYear_Series" chart-type="LineSymbols">
+                </c1-flex-chart-series>
+                <c1-flex-chart-series binding="ProirProfit" name="@Resource.PriorYear_Series" chart-type="LineSymbols">
+                </c1-flex-chart-series>
+                <c1-flex-chart-tooltip content="tooltipTemplate"></c1-flex-chart-tooltip>
+            </c1-flex-chart>
+        </c1-auto-grid-tile>
+        <c1-auto-grid-tile header-text="@Resource.SalesVsProfit_Header" row-span="2" column-span="2">
+            <c1-flex-chart binding-x="Date"
+                           legend-position="Bottom"
+                           refreshing="tileContentRefreshing"
+                           class="chartSalesVsProfit"
+                           palette="@palette">
+                <c1-flex-chart-axis c1-property="AxisX" overlapping-labels="Auto" format="MMM"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisY" labels="true" axis-line="false"
+                                    format="N0,," title="@(Resource.Sale_Series + " (US$ M)")" major-unit="4000000"
+                                    position="Right"></c1-flex-chart-axis>
+                <c1-flex-chart-title-style c1-property="HeaderStyle" halign="left" font-size="18pt"></c1-flex-chart-title-style>
+                <c1-items-source source-collection="@ViewBag.BudgetItemList"></c1-items-source>
+                <c1-flex-chart-series binding="Sales" chart-type="Column"
+                                      name="@Resource.Sale_Series">
+                </c1-flex-chart-series>
+                <c1-flex-chart-series binding="Profit" chart-type="Line" name="@Resource.Profit_Series">
+                    <c1-flex-chart-axis c1-property="AxisY" min="0"
+                                        axis-line="true" format="N1,," major-unit="200000"
+                                        title="@(Resource.Profit_Series + " (US$ M)")" position="Left"></c1-flex-chart-axis>
+                </c1-flex-chart-series>
+                <c1-flex-chart-tooltip content="tooltipTemplate"></c1-flex-chart-tooltip>
+            </c1-flex-chart>
+        </c1-auto-grid-tile>
+        <c1-auto-grid-tile header-text="@salesVSGoalHeaderText" row-span="2" column-span="2">
+            <div class="salesVSGoal gaugesChart">
+                <div class="gauges"></div>
+            </div>
+        </c1-auto-grid-tile>
+        <c1-auto-grid-tile header-text="@Resource.TopSaleProducts_Header" row-span="3" column-span="2">
+            <c1-flex-chart binding-x="Name"
+                           legend-position="None"
+                           refreshing="chartSaleTopProdRefreshing"
+                           items-source-id="top3SellingProducts"
+                           class="chartSaleTopProd"
+                           palette="@palette">
+                <c1-flex-chart-axis c1-property="AxisY" format="N0,," title="(US$ M)"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisX" overlapping-labels="Auto"></c1-flex-chart-axis>
+                <c1-flex-chart-title-style c1-property="HeaderStyle" halign="left" font-size="18pt"></c1-flex-chart-title-style>
+                <c1-items-source source-collection="@ViewBag.TopSaleProductList"></c1-items-source>
+                <c1-flex-chart-series binding="Sales" chart-type="Column">
+                </c1-flex-chart-series>
+                <c1-chart-animation animation-mode="All" easing="Linear" duration="400"></c1-chart-animation>
+            </c1-flex-chart>
+        </c1-auto-grid-tile>
+        <c1-auto-grid-tile header-text="@Resource.TopSaleCustomer_Header" row-span="3" column-span="2">
+            <c1-flex-grid items-source-id="top7SaleCustomers"
+                          show-alternating-rows="false"
+                          auto-size-mode="Both"
+                          allow-sorting="false"
+                          auto-generate-columns="false"
+                          selection-mode="None"
+                          headers-visibility="Column"
+                          is-read-only="true"
+                          style="width:98%">
+                <c1-flex-grid-column binding="Name" width="*"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Sales" format="C0" width="*"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Profit" format="C0" width="*"></c1-flex-grid-column>
+            </c1-flex-grid>
+        </c1-auto-grid-tile>
+        <c1-auto-grid-tile header-text="@regionalSalesVsGoalHeaderText" row-span="3" column-span="2">
+            <div class="regionalSalesVsGoal gaugesChart">
+                <div class="gauges"></div>
+            </div>
+        </c1-auto-grid-tile>
+    </c1-auto-grid-group>
+</c1-auto-grid-layout>
+
+<div class="flex vertical" style="width:100%;height:100%;overflow:hidden;">
+    <div class="auto" style="overflow:auto">
+        <c1-dashboard-layout id="dashboard" allow-resize="false"></c1-dashboard-layout>
+    </div>
+    <div>
+        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+    </div>
+</div>

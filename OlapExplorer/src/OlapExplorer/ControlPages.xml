@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Controls>
+  <ControlGroup name="Olap">
+    <Control name="Olap">
+      <action text="Overview" text.ja="はじめに" name="Index"></action>
+        <action text="Slicer" text.ja="スライサー" name="Slicer"></action>
+      <action text="Remote Bind" text.ja="リモート連結" name="RemoteBind"></action>
+      <action text="DataEngine Service(DataEngine)" text.ja="データエンジンサービス（データエンジン）" name="DataEngine" referredfiles="Startup.cs"></action>
+      <action text="DataEngine Service(DataSource)" text.ja="データエンジンサービス（データソース）" name="DataSource" referredfiles="Startup.cs"></action>
+      <action text="DataEngine Service(SSAS)" text.ja="データエンジンサービス（SSAS）" name="SSAS" referredfiles="Startup.cs"></action>
+      <action text="SSAS (OLAP Cube)" text.ja="SSAS（OLAPキューブ）" name="Cube"></action>
+    </Control>
+  </ControlGroup>
+</Controls>

@@ -1,0 +1,210 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+
+<script type="text/javascript">
+    var seriesIndex;
+
+    function hideOption(optionName) {
+        var eleMenu = wijmo.getElement('#' + optionName.replace('.', '_').replace(/ /g, ''));
+        if (eleMenu) {
+            eleMenu.style.display = 'none';
+        }
+    }
+
+    function showOption(optionName, value, allowedValues) {
+        var id = optionName.replace('.', '_').replace(/ /g, ''),
+            labelText = optionName.replace('.', ' '),
+            eleMenu = wijmo.getElement('#' + id), menu;
+        if (eleMenu) {
+            eleMenu.style.display = '';
+        }
+        if (typeof (value) !== 'undefined') {
+            menu = wijmo.Control.getControl('#' + id);
+            if (menu) {
+                menu.header = ' ' + labelText + ': ' + '<b>' + value + '</b>';
+                if (allowedValues && allowedValues.length > 0) {
+                    var items = [];
+                    allowedValues.forEach(function (item) {
+                        items.push({ Header: item, CommandParameter: item });
+                    });
+                    menu.itemsSource = items;
+                }
+            }
+        }
+    }
+
+    function showSeries(chart, index) {
+        for (var i = 1; i < chart.series.length; i++) {
+            chart.series[i].visibility = (i == index) ? wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
+        }
+    }
+
+    function updateType(chart, value) {
+		if (value !== 'Retracements') customChangeRangeSelector(chart, 'False');
+        var series;
+        switch (value) {
+            case 'Arcs':
+                seriesIndex = 2;
+                series = chart.series[seriesIndex];
+                showOption('Label Position', wijmo.chart.LabelPosition[series.labelPosition], ['Top', 'Center', 'Bottom', 'None']);
+                showOption('Start.X', series.start.x);
+                showOption('Start.Y', series.start.y);
+                showOption('End.X', series.end.x);
+                showOption('End.Y', series.end.y);
+                hideOption('StartX');
+                hideOption('EndX');
+                hideOption('Range Selector');
+                hideOption('Uptrend');
+                showSeries(chart, seriesIndex);
+                break;
+            case 'Fans':
+                seriesIndex = 3;
+                series = chart.series[seriesIndex];
+                showOption('Label Position', wijmo.chart.LabelPosition[series.labelPosition], ['Top', 'Center', 'Bottom', 'None']);
+                showOption('Start.X', series.start.x);
+                showOption('Start.Y', series.start.y);
+                showOption('End.X', series.end.x);
+                showOption('End.Y', series.end.y);
+                hideOption('StartX');
+                hideOption('EndX');
+                hideOption('Range Selector');
+                hideOption('Uptrend');
+                showSeries(chart, seriesIndex);
+                break;
+            case 'Retracements':
+                seriesIndex = 1;
+                series = chart.series[seriesIndex];
+                rs = c1.getExtender(chart, 'RangeSelector'),
+                showOption('Label Position', wijmo.chart.LabelPosition[series.labelPosition], ['Left', 'Center', 'Right', 'None']);
+                showOption('Uptrend', series.uptrend ? 'True' : 'False');
+                showOption('Range Selector', rs.isVisible ? 'True' : 'False');
+                hideOption('Start.X');
+                hideOption('Start.Y');
+                hideOption('End.X');
+                hideOption('End.Y');
+                hideOption('StartX');
+                hideOption('EndX');
+                showSeries(chart, seriesIndex);
+                break;
+            case 'Time Zones':
+                seriesIndex = 4;
+                series = chart.series[seriesIndex];
+                showOption('Label Position', wijmo.chart.LabelPosition[series.labelPosition], ['Left', 'Center', 'Right', 'None']);
+                showOption('StartX', series.startX);
+                showOption('EndX', series.endX);
+                hideOption('Start.X');
+                hideOption('Start.Y');
+                hideOption('End.X');
+                hideOption('End.Y');
+                hideOption('Range Selector');
+                hideOption('Uptrend');
+                showSeries(chart, seriesIndex);
+                break;
+        }
+    }
+
+    function rangeChanged(sender, args) {
+        var chart = wijmo.Control.getControl('#' + '@(demoSettingsModel.ControlId)'),
+            rs = c1.getExtender(chart, 'RangeSelector');
+        if (!chart || !rs) {
+            return;
+        }
+
+        chart.beginUpdate();
+        chart.series[1].minX = rs.min;
+        chart.series[1].maxX = rs.max;
+        chart.endUpdate();
+    }
+
+    function customChangeUptrend(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.uptrend = (value === 'True');
+        }
+    }
+
+    function customChangeLabelPosition(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.labelPosition = wijmo.chart.LabelPosition[value];
+        }
+    }
+
+    function customChangeRangeSelector(control, value) {
+        var rs = c1.getExtender(control, 'RangeSelector');
+        if (rs) {
+            rs.isVisible = (value === 'True');
+        }
+    }
+
+    function customChangeStart_X(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.start = new wijmo.chart.DataPoint(parseFloat(value), series.start.y);
+        }
+    }
+
+    function customChangeStart_Y(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.start = new wijmo.chart.DataPoint(series.start.x, parseFloat(value));
+        }
+    }
+
+    function customChangeEnd_X(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.end = new wijmo.chart.DataPoint(parseFloat(value), series.end.y);
+        }
+    }
+
+    function customChangeEnd_Y(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.end = new wijmo.chart.DataPoint(series.end.x, parseFloat(value));
+        }
+    }
+
+    function customChangeStartX(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.startX = parseFloat(value);
+        }
+    }
+
+    function customChangeEndX(control, value) {
+        var series = control.series[seriesIndex];
+        if (series) {
+            series.endX = parseFloat(value);
+        }
+    }
+
+    c1.documentReady(function () {
+        var chart = wijmo.Control.getControl('#' + '@(demoSettingsModel.ControlId)');
+        if (chart) {
+            updateType(chart, 'Arcs');
+        }
+    });
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" symbol-size="6"
+                    binding-x="X" chart-type="Candlestick">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-fibonacci binding="Close" uptrend="true" label-position="Left"></c1-flex-chart-fibonacci>
+    <c1-flex-chart-fibonacci-arcs binding="Close" start="new DataPoint(46, 19.75)" end="new DataPoint(54, 17.10)" label-position="Top"></c1-flex-chart-fibonacci-arcs>
+    <c1-flex-chart-fibonacci-fans binding="Close" start="new DataPoint(10, 18.12)" end="new DataPoint(32, 20.53)" label-position="Top"></c1-flex-chart-fibonacci-fans>
+    <c1-flex-chart-fibonacci-time-zones binding="Close" start-x="0" end-x="3"></c1-flex-chart-fibonacci-time-zones>
+    <c1-range-selector id="RangeSelector" seamless="true" is-visible="false" range-changed="rangeChanged"></c1-range-selector>
+</c1-financial-chart>
+
+@section Description{
+<p>@Html.Raw(Home.FibonacciTool_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.FibonacciTool_Text1)</p>
+}

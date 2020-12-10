@@ -1,0 +1,20 @@
+﻿<h3>
+    Right To Left</h3>
+<c1-flex-grid auto-generate-columns="false" is-read-only="true" class="grid"
+              dir="rtl">
+    <c1-items-source read-action-url="@Url.Action("RightToLeft_Bind")"></c1-items-source>
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Description{
+
+<p>@Html.Raw(FlexGridRes.RightToLeft_Text0)</p>
+<p>@Html.Raw(FlexGridRes.RightToLeft_Text1)</p>
+<p>@Html.Raw(FlexGridRes.RightToLeft_Text2)</p>
+<p>@Html.Raw(FlexGridRes.RightToLeft_Text3)</p>
+}

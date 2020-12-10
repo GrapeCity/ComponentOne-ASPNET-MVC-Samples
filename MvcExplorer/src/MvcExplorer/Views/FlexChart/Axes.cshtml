@@ -1,0 +1,23 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoSettingsModel = Model;
+    Dictionary<string, IEnumerable<CustomerOrder>> OrderDatas = ViewBag.OrderDatas;
+}
+
+<c1-flex-chart id="@Model.ControlId" header="@FlexChartRes.Axes_Sales">
+    <c1-flex-chart-series name="2013" binding-x="ID" binding="Count">
+        <c1-items-source source-collection="@OrderDatas["2013"]"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series name="2014" chart-type="LineSymbols" binding-x="ID" binding="Count">
+        <c1-items-source source-collection="@OrderDatas["2014"]"></c1-items-source>
+        <c1-flex-chart-axis c1-property="AxisY" position="Right"></c1-flex-chart-axis>
+    </c1-flex-chart-series>
+    <c1-flex-chart-axis c1-property="AxisX" binding="ID,Country">
+        <c1-items-source source-collection="@OrderDatas["CountryNames"]"></c1-items-source>
+    </c1-flex-chart-axis>
+</c1-flex-chart>
+
+@section Description{
+    <h3>@Html.Raw(FlexChartRes.Axes_MultipleAxes)</h3>
+    <p>@Html.Raw(FlexChartRes.Axes_Text0)</p>
+}

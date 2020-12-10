@@ -1,0 +1,43 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<script type="text/javascript">
+    function customChangeOrder(control, value) {
+        var trendLine = control.series[1];
+        if (trendLine) {
+            trendLine.order = +value;
+        }
+    }
+
+    function customChangeSampleCount(control, value) {
+        var trendLine = control.series[1];
+        if (trendLine) {
+            trendLine.sampleCount = +value;
+        }
+    }
+
+    function customChangeFitType(control, value) {
+        var trendLine = control.series[1];
+        if (trendLine) {
+            trendLine.fitType = wijmo.chart.analytics.TrendLineFitType[value];
+        }
+    }
+
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" chart-type="Line">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-trendline binding="Close" fit-type="Linear" name="Trend Line"></c1-flex-chart-trendline>
+    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Description{
+    <p>@Html.Raw(Home.TrendLine_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.TrendLine_Text1)</p>
+}

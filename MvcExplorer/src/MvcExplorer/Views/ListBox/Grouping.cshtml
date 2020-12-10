@@ -1,0 +1,28 @@
+﻿@model List<Order>
+
+<div>
+
+    <h2>
+        @Html.Raw(ListBoxRes.Grouping_Text0)
+    </h2>
+    <p>
+        @Html.Raw(ListBoxRes.Grouping_Text1)
+    </p>
+    <p>
+        @Html.Raw(ListBoxRes.Grouping_Text2)
+    </p>
+    <p>
+        @Html.Raw(ListBoxRes.Grouping_Text3)
+    </p>
+</div>
+<div>
+    <c1-list-box display-member-path="ShipName" style="height:200px; width:250px" show-groups="true">
+        <c1-items-source source-collection="@Model" group-by="ShipCountry"></c1-items-source>
+    </c1-list-box>
+</div>
+ 
+
+
+    @section Description{
+        @Html.Raw(ListBoxRes.Grouping_Text4)
+    }

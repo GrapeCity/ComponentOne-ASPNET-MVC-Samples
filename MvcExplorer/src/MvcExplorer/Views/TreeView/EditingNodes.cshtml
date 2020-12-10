@@ -1,0 +1,27 @@
+﻿@model Property[]
+
+@section Scripts{
+    <script type="text/javascript">
+        function nodeEditStarting(treeview, e) {
+            if (e.node.hasChildren) {
+                e.cancel = true;
+            }
+        }
+    </script>
+}
+
+<c1-tree-view display-member-path="Header" child-items-path="Items"
+              image-member-path="Image" show-checkboxes="true"
+              is-read-only="false" source="Model"
+              node-edit-starting="nodeEditStarting"></c1-tree-view>
+
+@section Summary{
+    <p>@Html.Raw(TreeViewRes.EditingNodes_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TreeViewRes.EditingNodes_Text1)</p>
+    <p>@Html.Raw(TreeViewRes.EditingNodes_Text2)</p>
+    <p>@Html.Raw(TreeViewRes.EditingNodes_Text3)</p>
+    <p>@Html.Raw(TreeViewRes.EditingNodes_Text4)</p>
+}

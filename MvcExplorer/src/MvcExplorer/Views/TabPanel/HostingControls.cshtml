@@ -1,0 +1,55 @@
+﻿@{ 
+    var gridData = ViewBag.GridData;
+    var chartData = ViewBag.ChartData;
+}
+
+<c1-tab-panel id="tabGettingStarted">
+    <div>
+        <a>FlexGrid</a>
+        <div>
+            <c1-flex-grid id="theGrid" auto-generate-columns="false" class="grid" is-read-only="true">
+                <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+                <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+                <c1-items-source source-collection="@gridData"></c1-items-source>
+            </c1-flex-grid>
+        </div>
+    </div>
+    <div>
+        <a>FlexChart</a>
+        <div>
+            <c1-flex-chart id="theChart" binding-x="Name" chart-type="Column">
+                <c1-items-source source-collection="@chartData"></c1-items-source>
+                <c1-flex-chart-series binding="MarPrice">
+                </c1-flex-chart-series>
+                <c1-flex-chart-series binding="AprPrice">
+                </c1-flex-chart-series>
+                <c1-flex-chart-series binding="MayPrice">
+                </c1-flex-chart-series>
+            </c1-flex-chart>
+        </div>
+    </div>
+    <div>
+        <a>Gauges</a>
+        <div style="overflow:hidden">
+            <c1-radial-gauge id="theRadialGauge" min="0" max="10" value="5" show-text="None" width="300px">
+            </c1-radial-gauge>
+            <c1-linear-gauge id="theLinearGauge" width="300px">
+                <c1-gauge-range c1-property="Face" min="0" max="10"></c1-gauge-range>
+                <c1-gauge-range c1-property="Pointer" max="5"></c1-gauge-range>
+            </c1-linear-gauge>
+        </div>
+    </div>
+</c1-tab-panel>
+
+
+@section Summary{
+<p>@Html.Raw(TabPanelRes.HostingControls_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TabPanelRes.HostingControls_Text1)</p>
+    <p>@Html.Raw(TabPanelRes.HostingControls_Text2)</p>
+}

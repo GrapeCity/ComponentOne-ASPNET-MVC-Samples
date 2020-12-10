@@ -1,0 +1,68 @@
+﻿@model IEnumerable<SalesAnalysis>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var showOutliers = demoSettingsModel.GetBool("ShowOutliers", false);
+    var rotated = demoSettingsModel.GetBool("Rotated", false);
+}
+
+
+@section Scripts{
+<script>
+
+    function setProperty(control, property, value) {
+        control.series.forEach(function (serie) {
+            serie[property] = value;
+        });
+    }
+
+    function customChangeGroupWidth(control, value) {
+        setProperty(control, 'groupWidth', value);
+    }
+
+    function customChangeGapWidth(control, value) {
+        setProperty(control, 'gapWidth', value);
+    }
+
+    function customChangeShowMeanLine(control, value) {
+        setProperty(control, 'showMeanLine', value);
+    }
+
+    function customChangeShowMeanMarker(control, value) {
+        setProperty(control, 'showMeanMarker', value);
+    }
+
+    function customChangeShowInnerPoints(control, value) {
+        setProperty(control, 'showInnerPoints', value);
+    }
+
+    function customChangeShowOutliers(control, value) {
+        setProperty(control, 'showOutliers', value);
+    }
+
+    function customChangeRotated(control, value) {
+        control.rotated = value;
+    }
+
+    function customChangeShowLabel(control, value) {
+        control.dataLabel.content = value ? '{y}' : '';
+    }
+
+    function customChangeQuartileCalculation(control, value) {
+        setProperty(control, 'quartileCalculation', value);
+    }
+
+</script>
+}
+
+<c1-flex-chart id="@demoSettingsModel.ControlId" binding="Downloads" binding-x="Country" height="300px" rotated="@rotated">
+    <c1-items-source source-collection="Model" />
+    <c1-flex-chart-boxwhisker name="Downloads" show-outliers="@showOutliers" />
+    <c1-flex-chart-boxwhisker binding="Sales" name="Sales" show-outliers="@showOutliers" />
+    <c1-flex-chart-boxwhisker binding="Queries" name="Queries" show-outliers="@showOutliers" />
+</c1-flex-chart>
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.BoxWhisker_Text0)</p>
+}

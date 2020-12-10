@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoSettingsModel = Model;
+    var fruits = Fruit.GetFruitsSales();
+}
+
+<c1-flex-chart id="@Model.ControlId" binding-x="Name">
+    <c1-items-source source-collection="fruits"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice" name="March"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="AprPrice" name="April"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="MayPrice" name="May"></c1-flex-chart-series>
+
+    <c1-flex-chart-datalabel position="Top" content="{y}"></c1-flex-chart-datalabel>
+</c1-flex-chart>
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexChartRes.Labels_Labels)
+    </h3>
+    <p>@Html.Raw(FlexChartRes.Labels_Text0)</p>
+}

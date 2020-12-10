@@ -1,0 +1,22 @@
+﻿@{
+    var style = new SVGStyle { Fill = "rgba(127,42,250,0.5)", StrokeWidth = 0 };
+    var altStyle = new SVGStyle { Fill = "rgba(255,0,0,0.5)", StrokeWidth = 0 };
+    var breakEvenStyles = new BreakEvenStyles();
+    breakEvenStyles.SafetyMargin = new SVGStyle { Fill = "lightgreen", StrokeWidth = 0 };
+    breakEvenStyles.SalesRevenue = new SVGStyle { Stroke = "rgba(127,42,250,1)", StrokeWidth = 3 };
+    breakEvenStyles.FixedCost = new SVGStyle { Stroke = "grey", StrokeWidth = 3 };
+    breakEvenStyles.TotalCost = new SVGStyle { Stroke = "red", StrokeWidth = 3 };
+    breakEvenStyles.VariableCost = new SVGStyle { Stroke = "black", StrokeWidth = 3 };
+    breakEvenStyles.MarginalProfit = new SVGStyle { Stroke = "green", StrokeWidth = 3 };
+    breakEvenStyles.BreakEven = new SVGStyle { Stroke = "rgba(69,171,235,1)", StrokeWidth = 3 };
+}
+
+<c1-flex-chart>
+    <c1-flex-chart-breakeven fixed-cost="1000000" variable-cost="20" sales-price="120" 
+                             style="style" alt-style="altStyle" styles="breakEvenStyles">
+    </c1-flex-chart-breakeven>
+</c1-flex-chart>
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.BreakEven_Text0)</p>
+}

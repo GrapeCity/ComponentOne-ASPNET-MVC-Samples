@@ -1,0 +1,26 @@
+﻿@model IEnumerable<AVDRelation>
+
+@{
+    var plotStyle = new SVGStyle { Fill = "rgba(136,189,230,0.2)" };
+}
+
+<c1-flex-chart id="flexChart" chart-type="Area" class="chart" binding-x="T">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-axis c1-property="AxisX" title="time, s"></c1-flex-chart-axis>
+    <c1-flex-chart-series binding="A" name="acceleration"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="V" name="velocity">
+        <c1-flex-chart-axis c1-property="AxisY" position="Left" major-grid="true" plot-area-index="2"></c1-flex-chart-axis>
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="D" name="distance">
+        <c1-flex-chart-axis c1-property="AxisY" position="Left" major-grid="true" plot-area-index="4"></c1-flex-chart-axis>
+    </c1-flex-chart-series>
+    <c1-plot-area style="plotStyle" />
+    <c1-plot-area row="1" height="20" />
+    <c1-plot-area row="2" style="plotStyle" />
+    <c1-plot-area row="3" height="20" />
+    <c1-plot-area row="4" style="plotStyle" />
+</c1-flex-chart>
+
+@section Description{
+    @Html.Raw(FlexChartRes.PlotAreas_Text0)
+}

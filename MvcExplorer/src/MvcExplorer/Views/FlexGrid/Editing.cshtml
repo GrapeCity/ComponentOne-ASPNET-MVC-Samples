@@ -1,0 +1,329 @@
+﻿@model C1NWindEntities
+@{
+    ViewBag.DemoDescription = false;
+}
+
+@section Summary{
+    @Html.Raw(FlexGridRes.Editing_Text15)
+}
+
+<h3>
+    @Html.Raw(FlexGridRes.Editing_Editing)
+</h3>
+
+<h4>
+    @Html.Raw(FlexGridRes.Editing_ExcelStyleEditing)
+</h4>
+<p>@Html.Raw(FlexGridRes.Editing_Text0)</p>
+<p>@Html.Raw(FlexGridRes.Editing_Text1)</p>
+<div class="collapsed-content collapse">
+    <p>@Html.Raw(FlexGridRes.Editing_Text2)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text3)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text4)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text5)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text6)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text7)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text8)</p>
+    <p>@Html.Raw(FlexGridRes.Editing_Text16)</p>
+</div>
+
+<input type="button" value="@FlexGridRes.Editing_ReadMore" class="btn collapse in" data-toggle="collapse" data-target=".collapsed-content, .btn.collapse" />
+
+<p>@Html.Raw(FlexGridRes.Editing_Text9)</p>
+<c1-flex-grid id="editGrid" auto-generate-columns="false" allow-add-new="true" auto-row-heights="true"
+              allow-delete="true" refresh-on-edit="false" style="height:400px">
+    <c1-flex-grid-column binding="CategoryID" is-read-only="true" format="d"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="CategoryName" word-wrap="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Description" word-wrap="true" width="*" multi-line="true"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("GridBindCategory")"
+                     update-action-url="@Url.Action("GridUpdateCategory")"
+                     create-action-url="@Url.Action("GridCreateCategory")"
+                     delete-action-url="@Url.Action("GridDeleteCategory")"></c1-items-source>
+</c1-flex-grid>
+<!-- a dialog for editing item details -->
+<div class="modal fade" id="dlgDetail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">@Html.Raw(FlexGridRes.Editing_DialogTitle)</h4>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal">
+                    <dt>@Html.Raw(FlexGridRes.Editing_CategoryID)</dt>
+                    <dd>
+                        <input id="CategoryID" class="form-control" disabled />
+                    </dd>
+                    <dt>@Html.Raw(FlexGridRes.Editing_CategoryName)</dt>
+                    <dd>
+                        <input id="CategoryName" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(FlexGridRes.Editing_Description)</dt>
+                    <dd>
+                        <textarea id="Description" class="form-control"></textarea>
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="commitUpdate()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    @Html.Raw(FlexGridRes.Editing_OK)
+                </button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                    @Html.Raw(FlexGridRes.Editing_Cancel)
+                </button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<div class="well grid-sort-group">
+
+    <!-- edit details in a popup -->
+    <button id="showEditDialogBtn"
+            class="btn btn-default"
+            data-toggle="modal"
+            data-backdrop="static"
+            data-keyboard="false"
+            data-target="#dlgDetail"
+            onclick="showEditDialog()">
+        <span class="glyphicon glyphicon-new-window"></span>
+        @Html.Raw(FlexGridRes.Editing_EditDetail)
+    </button>
+</div>
+
+<h4>
+    @Html.Raw(FlexGridRes.Editing_PopupEditing)
+</h4>
+<p>@Html.Raw(FlexGridRes.Editing_Text10)</p>
+<p>@Html.Raw(FlexGridRes.Editing_Text11)</p>
+<p>@Html.Raw(FlexGridRes.Editing_Text12)</p>
+<br />
+<h4>
+    @Html.Raw(FlexGridRes.Editing_InlineEditing)
+</h4>
+<p>@Html.Raw(FlexGridRes.Editing_Text13)</p>
+<p>@Html.Raw(FlexGridRes.Editing_Text14)</p>
+
+<c1-flex-grid id="inlineEditGrid" is-read-only="true" selection-mode="None"
+			  pinning-type="SingleColumn" pinned-column="pinnedColumn"
+              auto-generate-columns="false" item-formatter="itemFormatter" style="height:400px" refresh-on-edit="false"
+              scroll-position-changed="scrollPositionChanged" resizing-column="resizingColumn" dragging-column="draggingColumn" sorting-column="sortingColumn"
+			  pinning-column="pinningColumn">
+    <c1-items-source read-action-url="@Url.Action("GridBindCustomer")"
+                     update-action-url="@Url.Action("GridUpdateCustomer")"
+                     create-action-url="@Url.Action("GridCreateCustomer")"
+                     delete-action-url="@Url.Action("GridDeleteCustomer")"></c1-items-source>
+    <c1-flex-grid-column binding="CustomerID" width="80" align="right" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" name="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Address" width="*" name="Address"></c1-flex-grid-column>
+    <c1-flex-grid-column name="Buttons" width="170"></c1-flex-grid-column>
+</c1-flex-grid>
+
+
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/jquery.js"></script>
+    <script type="text/javascript" src="~/Scripts/BootStrap/bootstrap.js"></script>
+    <script>
+        var editGrid, editCV, minHeight,
+            showEditDialogBtn,
+            idInput, categoryNameInput, descriptionInput;
+
+        c1.documentReady(function () {
+            editGrid = wijmo.Control.getControl('#editGrid');
+            editCV = editGrid.collectionView;
+            showEditDialogBtn = document.getElementById('showEditDialogBtn');
+            idInput = document.getElementById('CategoryID');
+            categoryNameInput = document.getElementById('CategoryName');
+            descriptionInput = document.getElementById('Description');
+
+            updateButton();
+            editCV.currentChanged.addHandler(updateButton);
+
+            minHeight = editGrid.rows.defaultSize;
+            autoSizeEditGridRows();
+            editCV.collectionChanged.addHandler(autoSizeEditGridRows);
+        });
+
+        function autoSizeEditGridRows(s, e) {
+            if (e && e.action == 0) return;
+            editGrid.autoSizeRows();
+            for (var i = 0, len = editGrid.rows.length; i < len; i++) {
+                var row = editGrid.rows[i];
+                var height = row.height == undefined ? 0 : row.height;
+                row.height = Math.max(28, height);
+            }
+        }
+
+        function showEditDialog() {
+            var current;
+
+            if (!editCV || !editCV.currentItem) {
+                return;
+            }
+            current = editCV.currentItem;
+            // fill the current item data to the inputs.
+            idInput.value = current.CategoryID || '';
+            categoryNameInput.value = current.CategoryName || '';
+            descriptionInput.value = current.Description || '';
+        }
+        function updateButton() {
+            if (!showEditDialogBtn) {
+                return;
+            }
+            if (!editCV || !editCV.currentItem) {
+                showEditDialogBtn.disabled = true;
+            } else {
+                showEditDialogBtn.disabled = false;
+            }
+        }
+        function commitUpdate() {
+            if (!editCV) {
+                return;
+            }
+
+            var editItem = editCV.currentItem;
+
+            // begin to edit the current item
+            editCV.editItem(editItem);
+
+            //update the data
+            editItem.CategoryName = categoryNameInput.value;
+            editItem.Description = descriptionInput.value;
+            // commit the edit
+            editCV.commitEdit();
+        }
+
+        var inlineEditGrid, inlineEditCV,
+            editIndex = -1;
+        c1.documentReady(function () {
+            inlineEditGrid = wijmo.Control.getControl('#inlineEditGrid');
+            inlineEditGrid.rows.defaultSize = 44;
+            inlineEditCV = inlineEditGrid.collectionView;
+        });
+        function itemFormatter(panel, r, c, cell) {
+            var isLocalHost = (location.hostname === "localhost" || location.hostname === "127.0.0.1");
+            var col, html, hasUpdated = false;
+            if (panel.cellType == wijmo.grid.CellType.Cell) {
+                col = panel.columns[c];
+                if (r == editIndex) {
+                    switch (col.name) {
+                        case 'Country':
+                            html = '<input id="theCountry" class="form-control" onkeydown="keyDown(event)" value="' + panel.getCellData(r, c, true) + '"/>';
+                            hasUpdated = true;
+                            break;
+                        case 'Address':
+                            html = '<input id="theAddress" class="form-control" onkeydown="keyDown(event)" value="' + panel.getCellData(r, c, true) + '"/>';
+                            hasUpdated = true;
+                            break;
+                        case 'Buttons':
+                            html = '<div>' +
+                                   '&nbsp;&nbsp;' +
+                                   '<button class="btn btn-primary btn-sm" onclick="commitRow(' + r + ')">' +
+                                       '<span class="glyphicon glyphicon-ok"></span> @Html.Raw(FlexGridRes.Editing_OK)' +
+                                   '</button>' +
+                                   '&nbsp;&nbsp;' +
+                                   '<button class="btn btn-warning btn-sm" onclick="cancelRow(' + r + ')">' +
+                                       '<span class="glyphicon glyphicon-ban-circle"></span> @Html.Raw(FlexGridRes.Editing_Cancel)' +
+                                   '</button>' +
+                               '</div>';
+                            hasUpdated = true;
+                            break;
+                    }
+                }
+                else {
+                    switch (col.name) {
+                        case 'Buttons':
+                            hasUpdated = true;
+                            html = '<div>' +
+                                   '&nbsp;&nbsp;' +
+                                   '<button class="btn btn-default btn-sm" onclick="editRow(' + r + ')">' +
+                                       '<span class="glyphicon glyphicon-pencil"></span> @Html.Raw(FlexGridRes.Editing_Edit)' +
+                                   '</button>' +
+                                   '&nbsp;&nbsp;' +
+                                   '<button class="btn btn-default btn-sm" ' + (isLocalHost ? '' : 'style="display:none"') + ' onclick="deleteRow(' + r + ')">' +
+                                       '<span class="glyphicon glyphicon-remove"></span> @Html.Raw(FlexGridRes.Editing_Delete)' +
+                                   '</button>' +
+                               '</div>';
+                            break;
+                    }
+                }
+                if (hasUpdated) {
+                    cell.innerHTML = html;
+                    cell.style.padding = '3px';
+                }
+            }
+        }
+        function scrollPositionChanged() {
+            cancelEditingMode();
+        }
+        function resizingColumn() {
+            cancelEditingMode();
+        }
+        function draggingColumn() {
+            cancelEditingMode();
+        }
+        function sortingColumn() {
+            cancelEditingMode();
+        }
+		function pinningColumn() {
+            cancelEditingMode();
+            console.log("Column is pinning.");
+        }
+        function pinnedColumn() {
+            console.log("Column has pinned.");
+        }
+        function cancelEditingMode() {
+            if (editIndex > -1) {
+                cancelRow(editIndex);
+            }
+        }
+        function keyDown(e) {
+            e.stopPropagation();
+        }
+        function editRow(rowIndex) {
+            if (!inlineEditGrid || !inlineEditCV) {
+                return;
+            }
+            editIndex = rowIndex;
+            inlineEditGrid.invalidate();
+        }
+        function deleteRow(rowIndex) {
+            if (!inlineEditCV) {
+                return;
+            }
+            editIndex = -1;
+            inlineEditCV.removeAt(rowIndex);
+        }
+        function commitRow(rowIndex) {
+            var countryInput, addressInput, editItem;
+            if (!inlineEditCV) {
+                return;
+            }
+            //update the data
+            inlineEditCV.editItem(inlineEditCV.items[rowIndex]);
+            editItem = inlineEditCV.currentEditItem;
+            if (!editItem) {
+                return;
+            }
+            countryInput = document.getElementById('theCountry');
+            addressInput = document.getElementById('theAddress');
+            editItem.Country = countryInput.value;
+            editItem.Address = addressInput.value;
+            editIndex = -1;
+            inlineEditCV.commitEdit();
+        }
+        function cancelRow() {
+            editIndex = -1;
+            inlineEditGrid.invalidate();
+        }
+    </script>
+}

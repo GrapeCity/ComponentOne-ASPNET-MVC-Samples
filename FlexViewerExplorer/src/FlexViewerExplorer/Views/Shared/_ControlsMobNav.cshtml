@@ -1,0 +1,74 @@
+﻿@using FlexViewerExplorer.Models
+@{
+    var totalCount = Documents.AllItems.Count();
+}
+
+<script type="text/javascript">
+    function mobFlexGrid_MouseDown(e) {
+        if (e.button != 0) {
+            return;
+        }
+
+        var grid = wijmo.Control.getControl('#sNavList'),
+            ht = grid.hitTest(e.pageX, e.pageY);
+        if (ht.cellType != wijmo.grid.CellType.Cell) {
+            return;
+        }
+
+        var gr = wijmo.tryCast(grid.rows[ht.row], wijmo.grid.GroupRow);
+        if (!gr) {
+            return;
+        }
+
+        var viewerName = "ReportViewer";
+        switch (gr.dataItem["Kind"]) {
+            case "FlexReport":
+                loadFlexReport(gr.dataItem["FullPath"], gr.dataItem["Name"]);
+                break;
+            case "ArReport":
+                loadArReport(gr.dataItem["FullPath"]);
+                break;
+            case "SsrsReport":
+                loadSsrsReport(gr.dataItem["FullPath"]);
+                break;
+            case "Pdf":
+                viewerName = "PdfViewer";
+                loadPdf(gr.dataItem["FullPath"]);
+                break;
+            default:
+                gr.isCollapsed = !gr.isCollapsed;
+                return;
+        }
+
+        updateTitle(viewerName, gr.dataItem["Title"]);
+        addClass(grid.hostElement, 'mob-hide-0');
+    }
+
+    c1.documentReady(function () {
+        var grid = wijmo.Control.getControl('#sNavList');
+        grid.maxUpdateCount = 2;
+        grid.updatedView.addHandler(flexGrid_UpdatedView, grid);
+        grid.hostElement.addEventListener('mousedown', mobFlexGrid_MouseDown)
+    });
+</script>
+
+<div class="sample-navigator mob-show-0 narrow-screen">
+    <a id="sampleNavBtn" class="collapse-title" href="#" target="_self">
+        @Html.Raw(FlexViewerRes._ControlsMobNav_Text0)
+        @if (totalCount > 1)
+        {
+            <span class="caret"></span>
+        }
+    </a>
+    @if (totalCount > 1)
+    {
+        <c1-flex-grid class="controls-menu mob-hide-0 navgrid" id="sNavList" role="menu"
+          auto-generate-columns="false" is-read-only ="true" format-item="flexGrid_ItemFormatter"
+          headers-visibility="None" allow-sorting="false" tree-indent="20"
+          selection-mode="ListBox" child-items-path="Children"
+            allow-resizing="None">
+            <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
+            <c1-items-source source-collection="Documents.AllItems"></c1-items-source>
+        </c1-flex-grid>
+    }
+</div>

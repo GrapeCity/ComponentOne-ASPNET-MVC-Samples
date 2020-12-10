@@ -1,0 +1,68 @@
+﻿@page
+@model OverviewModel
+@{
+    ViewData["DemoDescription"] = false;
+}
+
+<h2>Overview</h2>
+<div>
+    <p>
+        ASP.NET Core 2.0 was released with a new feature called Razor Pages.
+        Unlike MVC, Razor Pages contain a Razor view and a PageModel code behind class.
+        <br />For more details, please refer <a href="https://docs.microsoft.com/en-us/aspnet/core/mvc/razor-pages/?tabs=visual-studio">Introduction to Razor Pages in ASP.NET Core</a>
+    </p>
+    <p>
+        C1 MVC Controls already support Razor Pages and the implementation 
+	    is almost same as that of MVC, with just a few differences.  
+        This sample takes few controls and features as example to demonstrate 
+	    their implementation with Razor Pages.
+    </p>
+    <h3>
+        FlexGrid
+    </h3>
+    <p>
+        This view shows the basic features of <b>FlexGrid</b> in Razor Pages. These basic features can be implemented 
+        with same settings as done in the case of MVC, but need <b>@@Html.AntiForgeryToken()</b> token to be added.
+    </p>
+    <h3>
+        Batch Editing
+    </h3>
+    <p>
+        This view shows an Excel-like editing in <b>FlexGrid</b> in Razor Pages. The FlexGrid control has built-in 
+        support for Excel-like, fast, in-cell editing. So, there is no need to add extra 
+        columns with 'Edit' buttons that switch between display and edit modes.
+    </p>
+    <p>
+        Such features can be implemented in Razor Pages just like any other basic feature by adding
+        handlers for model binding and batch editing, and a token @@Html.AntiForgeryToken().
+    </p>
+    <h3>
+        Unobtrusive Validation
+    </h3>
+    <p>
+        The implementation of unobtrusive validation in Razor Pages is a little different from MVC.
+        The model of razor page view is PageModel, but currently, our MVC Controls only support IEnumerable 
+        model for unobtrusive validation. However, there is a workaround that uses a partial view with 
+        IEnumerable model for FlexGrid.
+    </p>
+    <h3>
+        FlexChart
+    </h3>
+    <p>
+        This view shows the basic features of <b>FlexChart</b> in Razor Pages. It binds the chart to 
+        a model and allows you to select the chart type, series stacking, and rotation. The basic features 
+        of FlexChart can also be implemented like MVC.
+    </p>
+    <h3>
+        Input
+    </h3>
+    <p>
+        This view shows how to use input controls in a form in Razor Pages. You can also use model binding 
+        features at the same time. Unlike MVC, the property for model binding in input controls needs 
+        <b>BindProperty</b> attribute.
+    </p>
+</div>
+
+@section Summary{
+    <p>This sample shows how features of the C1 MVC Controls can be implemented in Razor Pages.</p>
+}

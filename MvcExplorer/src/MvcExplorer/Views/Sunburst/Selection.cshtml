@@ -1,0 +1,28 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<HierarchicalData>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-sunburst id="@demoSettingsModel.ControlId" header="Sales" is-animated="false"
+    selection-mode="None" selected-item-offset="0" selected-item-position="None"
+    binding-name="Year, Quarter, Month" binding="Value">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-pie-datalabel content="{name}" position="Center"></c1-flex-pie-datalabel>
+</c1-sunburst>
+
+@section Description{
+    <p>@Html.Raw(SunburstRes.Selection_Text0)</p>
+    <p>@Html.Raw(SunburstRes.Selection_Text1)</p>
+    <p>@Html.Raw(SunburstRes.Selection_Text2)</p>
+    <ul>
+        <li>
+            @Html.Raw(SunburstRes.Selection_Li3)
+        </li>
+        <li>@Html.Raw(SunburstRes.Selection_Li1)</li>
+        <li>@Html.Raw(SunburstRes.Selection_Li2)</li>
+    </ul>
+}

@@ -1,0 +1,162 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+@section Styles{
+    <style>
+        .star-highlighted {
+            color: orange;
+        }
+
+        .star-dimmed {
+            color: lightgray;
+        }
+        .wj-cell.wj-cell-maker label{
+            padding: 0;
+        }
+        /* images (applying formats to the cell, not to the inner IMG element */
+        .wj-flexgrid .wj-cell.cell-img {
+            padding: 0;
+            text-align: center;
+        }
+        .wj-flexgrid .wj-cell.cell-img:hover {
+            z-index: 1;
+            overflow: visible;
+        }
+        .wj-flexgrid .wj-cell.cell-img:hover img {
+            transform: scale(3);
+            transition: all 600ms;
+        }
+        .wj-flexgrid .wj-cell img.wj-cell-maker{
+            width: auto;
+        }
+
+        /* customize the rating symbol/color/size */
+        .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label {
+            width: .25em;
+            color: green;
+        }
+        .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label:after {
+            transform: scale(12);
+            content: '\2b24';
+        }
+
+        .Red {
+            color: red !important;
+        }
+
+        .Blue {
+            color: blue !important;
+        }
+
+        .Yellow {
+            color: yellow !important;
+        }
+
+        .None {
+            color: none;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function rankFormatter(panel, r, c, cell) {
+            if (panel.columns[c].header === "Rank") {
+                cell.style.textAlign = "";
+                if (panel.cellType === wijmo.grid.CellType.Cell) {
+                    cell.innerHTML = buildRank(panel.getCellData(r, c));
+                }
+            }
+        }
+
+        function buildRank(rank) {
+            var markup = "", j, starType;
+            for (j = 0; j < 5; j++) {
+                starType = j < rank ? "star star-highlighted" : "star star-dimmed";
+                markup += "<span class='" + starType + "'>\u2605</span>";
+            }
+            return markup;
+        }
+
+        function createButton(CellMaker) {
+            return CellMaker.makeButton({
+                text: '<b>${item.Country}</b> Button',
+                click: function (e, ctx) {
+                    alert('Clicked Button ** ' + ctx.item.Country + ' **');
+                }
+            });
+        }
+
+        function createHyperlink(CellMaker) {
+            return CellMaker.makeLink({
+                text: 'Visit <b>${item.Country}</b>',
+                href: '${item.Url}',
+                attributes: {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    tabIndex: -1
+                }
+            });
+        }
+
+        function createImage(CellMaker) {
+            return CellMaker.makeImage({
+                label: 'image for ${item.Country}',
+                click: function (e, ctx) {
+                    alert('Clicked image for ' + ctx.item.Country);
+                }
+            });
+        }
+
+        function createRating(CellMaker) {
+            return CellMaker.makeRating({
+                range: [0, 5],
+                label: 'Edit Product Rating'
+            });
+        }
+
+        function createSparkline(CellMaker) {
+            return CellMaker.makeSparkline({
+                markers: wijmo.grid.cellmaker.SparklineMarkers.High | wijmo.grid.cellmaker.SparklineMarkers.Low,
+                label: '${item.Country} sales history line chart',
+            });
+        }
+    </script>
+}
+
+<c1-flex-grid id="customCellFlexGrid" auto-generate-columns="false" is-read-only="false"
+              class="grid" item-formatter="rankFormatter">
+    <c1-flex-grid-column binding="ID" is-read-only="true" width="50"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="80"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="80" css-class-all="@(optionsModel.Options["Css Class All"].CurrentValue)"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" width="100" format="@(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "")"
+                         template="<span class=${item.Amount > 1000 ? 'bg-info' : 'bg-danger'}>${text}</span>">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column header="Trends" is-read-only="true" align="center">
+        <c1-flex-grid-cell-template>
+            <c1-flex-chart width="100px" height="20px" style="padding:0px"
+                           binding-x="Month" template-bindings="@(new {ItemsSource="Trends"})">
+                <c1-flex-chart-axis c1-property="AxisX" position="None"></c1-flex-chart-axis>
+                <c1-flex-chart-axis c1-property="AxisY" position="None"></c1-flex-chart-axis>
+                <c1-flex-chart-series binding="Data"></c1-flex-chart-series>
+            </c1-flex-chart>
+        </c1-flex-grid-cell-template>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Rank" is-read-only="true" width="90" align="center"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" header="CellMaker Button" width="150" align="center" template-function="createButton"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" header="CellMaker Hyperlink" width="180" template-function="createHyperlink"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Img" header="CellMaker Image" width="140" css-class-all="cell-img" template-function="createImage"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Rank" header="CellMaker Rating" width="150" align="center" css-class-all="custom-rating" template-function="createRating"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="History" header="CellMaker Sparkline" width="180" template-function="createSparkline"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("CustomCells_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings {
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+@section Description {
+    <p>@Html.Raw(FlexGridRes.CustomCells_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.CustomCells_Text1)</p>
+}

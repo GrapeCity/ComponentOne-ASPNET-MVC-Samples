@@ -1,0 +1,46 @@
+﻿@page
+@model UnobtrusiveValidationModel
+@{
+
+}
+
+@section Scripts{
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+}
+
+@Html.AntiForgeryToken()
+
+@Html.Partial("UnobtrusiveValidationPartial", UnobtrusiveValidationModel.Users)
+
+@section Summary{
+    This view shows the unobtrusive validation in Razor Pages.
+}
+
+@section Description{
+    <p>
+        Steps for implementing unobtrusive validation in Razor Pages:
+    </p>
+    <ol>
+        <li>Add handler <b>OnPostGridUpdateUserInfo</b> to page model for editing.</li>
+        <li>Add token <b>@@Html.AntiForgeryToken()</b> in Razor page view.</li>
+        <li>
+            Add a partial view with an IEnumerable model. This is required as a workaround because currently, our MVC Controls 
+            support IEnumerable model only and Razor Pages model is a PageModel. 
+        </li>
+        <li>Initialize the FlexGrid control in the partial view using <b>&lt;c1-flex-grid&gt;&lt;/c1-flex-grid&gt;</b> tag.</li>
+        <li>Render partial view in this page and pass an IEnumerable model to partial view.</li>
+    </ol>
+    <p>
+        The columns have the following validations:
+        <ul>
+            <li><b>Name:</b> Required. Alphanumeric and contains 4 to 10 characters.</li>
+            <li><b>Industry:</b> Required.</li>
+            <li><b>Country:</b> Required.</li>
+            <li><b>Phone:</b> Required. 8 to 11 characters.</li>
+            <li><b>Email:</b> Required. Valid e-mail address.</li>
+            <li><b>Birthdate:</b> Required.</li>
+        </ul>
+    </p>
+}

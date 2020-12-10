@@ -1,0 +1,117 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<style type="text/css">
+    .Red {
+        color: red !important;
+    }
+
+    .Blue {
+        color: blue !important;
+    }
+
+    .Green {
+        color: green !important;
+    }
+
+    .None {
+        color: none;
+    }
+</style>
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            function getCSS(el) {
+                if (el.currentStyle)
+                    return el.currentStyle;
+                else if (window.getComputedStyle)
+                    return document.defaultView.getComputedStyle(el, null);
+                else return {};
+            }
+            function setCSS(el, css, rxFilter) {
+                for (var key in css) {
+                    if (!rxFilter || rxFilter.test(key))
+                        el.style[key] = css[key];
+                }
+            }
+
+            function measureWidthPx(input) {
+                var el = document.createElement('div');
+                setCSS(el, getCSS(input), /padding|border|padding|font|zoom/);
+                el.style.position = 'absolute';
+                el.style.float = "left";
+                el.style.visibility = 'hidden';
+                el.style.whiteSpace = 'nowrap';
+                el.style.width = "auto";
+                el.style.height = "auto";
+                el.textContent = input.value;
+                el = document.body.appendChild(el);
+                var w = el.offsetWidth + 20;
+                el.parentNode.removeChild(el);
+                return w + "px";
+            }
+
+            function updateCvnWidth(headerElem) {
+                setTimeout(function () {
+                    if (headerElem.value != headerElem._value) {
+                        headerElem.style.width = measureWidthPx(headerElem);
+                        headerElem._value = headerElem.value;
+                    } else updateCvnWidth(headerElem);
+                }, 10)
+            }
+
+            var cvnIds = ['#CVNavigatorToCV', '#CVNavigatorToGridCV'];
+            cvnIds.forEach(function (cvnId) {
+                var cvn = wijmo.Control.getControl(cvnId);
+                var headerElem = cvn._txtCurr;
+                updateCvnWidth(headerElem);
+                cvn.cv.currentChanged.addHandler(function (s, e) { updateCvnWidth(headerElem) });
+                cvn.cv.pageChanged.addHandler(function (s, e) { updateCvnWidth(headerElem) });
+            })
+        });
+    </script>
+}
+
+<c1-items-source id="CVService" initial-items-count="500" read-action-url="@Url.Action("Index_Bind")" page-size="16"></c1-items-source>
+
+<c1-collection-view-navigator id="CVNavigatorToCV" items-source-id="CVService"
+                              by-page="false" header-format="Item: {current:n0} / {count:n0} - Page {currentPage}"
+                              repeat-buttons="@Convert.ToBoolean(optionsModel.Options["Repeat Buttons"].CurrentValue)"
+                              class="@optionsModel.Options["Css Class"].CurrentValue"
+                              style="background-color:lightgray">
+</c1-collection-view-navigator>
+
+<c1-flex-grid id="FlexGridCVN" items-source-id="CVService" auto-generate-columns="false"
+              sorting-type="SingleColumn" class="grid" is-read-only="true"
+              selection-mode="@SelectionMode.Row">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+
+</c1-flex-grid>
+
+<c1-collection-view-navigator id="CVNavigatorToGridCV" items-source-id="FlexGridCVN"
+                              by-page="true" header-format="Page: {currentPage} / {pageCount}"
+                              repeat-buttons="@Convert.ToBoolean(optionsModel.Options["Repeat Buttons"].CurrentValue)"
+                              class="@optionsModel.Options["Css Class"].CurrentValue"
+                              style="background-color:lightgray">
+</c1-collection-view-navigator>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(CollectionViewRes.CollectionViewNavigator_Text0)
+}

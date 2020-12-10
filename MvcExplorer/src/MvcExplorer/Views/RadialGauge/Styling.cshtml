@@ -1,0 +1,15 @@
+﻿@section Styles{
+<style>
+.custom-gauge .wj-pointer path{
+  fill: #ffa500;
+  stroke: #cd853f;
+}
+</style>
+}
+
+<c1-radial-gauge min="0" max="10" value="5" width="300px" height="180px" class="custom-gauge">
+</c1-radial-gauge>
+
+@section Description{
+    @Html.Raw(RadialGaugeRes.Styling_Text0)
+}

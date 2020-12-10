@@ -1,0 +1,45 @@
+﻿@model System.Collections.Generic.IDictionary<string,string>
+@if (Model != null)
+{
+    <ul id="sourceTab" class="nav nav-tabs ui-helper-clearfix mob-hide-1" role="tablist">
+        @foreach (var pageSource in Model)
+        {
+            <li ><a>@pageSource.Key</a></li>
+        }
+    </ul>
+    <div id="sourcePanel" class="tab-content">
+        <select id="sourceSelect" class="mob-tab-title mob-show-1">
+            @foreach (var pageSource in Model)
+            {
+                <option value="@pageSource.Key">@pageSource.Key</option>
+            }
+        </select>
+        @foreach (var pageSource in Model)
+        {
+            var className = "brush:c#;";
+            if (pageSource.Key.Contains(".cshtml"))
+            {
+                className = "brush:js;html-script:true;";
+            }
+            <div class="tab-pane pane-content mob-hide-1">
+                <pre  class=@className>@pageSource.Value</pre>
+            </div>
+        }
+    </div>
+    <script type="text/javascript">
+        var sourcePanel = document.getElementById("sourcePanel"),
+            sourceSelect = sourcePanel.getElementsByTagName("select")[0],
+            sourceTabPanels = sourcePanel.getElementsByClassName("tab-pane pane-content");
+        removeClass(sourceTabPanels[0], "mob-hide-1");
+
+        sourceSelect.addEventListener("change", function (event) {
+            var index = event.target.selectedIndex;
+            for (var i = 0; i < sourceTabPanels.length; i++) {
+                addClass(sourceTabPanels[i], "mob-hide-1");
+                removeClass(sourceTabPanels[i], "active");
+            }
+            removeClass(sourceTabPanels[index], "mob-hide-1");
+            addClass(sourceTabPanels[index], "active");
+        });
+    </script>
+}

@@ -1,0 +1,12 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<c1-linear-gauge id="@demoSettingsModel.ControlId" min="0" max="10" value="1" width="500px">
+    <c1-gauge-range min="2" max="3" color="Green"></c1-gauge-range>
+    <c1-gauge-range min="6" max="9" color="Yellow"></c1-gauge-range>
+</c1-linear-gauge>
+
+@section Description{
+    @Html.Raw(LinearGaugeRes.Ranges_Text0)
+}

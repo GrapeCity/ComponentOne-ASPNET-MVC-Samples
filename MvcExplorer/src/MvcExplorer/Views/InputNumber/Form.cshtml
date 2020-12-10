@@ -1,0 +1,53 @@
+﻿@model CustomerOrder
+
+@{
+    string message = ViewBag.Message;
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+    countries.Insert(0, "");
+}
+
+<div>
+    <form asp-anti-forgery="true" asp-action="Form">
+        <div asp-validation-summary="All">
+        </div>
+        <div>
+            <label asp-for="@Model.Country"></label>
+            <c1-auto-complete for="@Model.Country">
+                <c1-items-source source-collection="@countries"></c1-items-source>
+            </c1-auto-complete>
+            <span asp-validation-for="@Model.Country"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.Product"></label>
+            <c1-combo-box for="@Model.Product">
+                <c1-items-source source-collection="@products"></c1-items-source>
+            </c1-combo-box>
+            <span asp-validation-for="@Model.Product"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.Price"></label>
+            <c1-input-number for="@Model.Price"></c1-input-number>
+            <span asp-validation-for="@Model.Price"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.Count"></label>
+            <c1-input-number for="@Model.Count"></c1-input-number>
+            <span asp-validation-for="@Model.Count"></span>
+        </div>
+        <div>
+            <label asp-for="@Model.OrderTime"></label>
+            <c1-input-date-time for="@Model.OrderTime"></c1-input-date-time>
+            <span asp-validation-for="@Model.OrderTime"></span>
+        </div>
+        <div style="margin-top: 10px">
+            <input type="submit" class="wj-btn wj-btn-default" value="@(InputNumberRes.Form_Submit)" />
+        </div>
+    </form>
+</div>
+<p>@message</p>
+
+@section Description{
+    <p>@Html.Raw(InputNumberRes.Form_Text0)</p>
+    <p>@Html.Raw(InputNumberRes.Form_Text1)</p>
+}

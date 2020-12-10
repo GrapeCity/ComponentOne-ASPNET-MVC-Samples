@@ -1,0 +1,28 @@
+﻿@model List<Order>
+
+<div>
+
+    <h2>
+        @Html.Raw(ComboBoxRes.Grouping_Text0)
+    </h2>
+    <p>
+        @Html.Raw(ComboBoxRes.Grouping_Text1)
+    </p>
+    <p>
+        @Html.Raw(ComboBoxRes.Grouping_Text2)
+    </p>
+    <p>
+        @Html.Raw(ComboBoxRes.Grouping_Text3)
+    </p>
+</div>
+<div>
+    <c1-combo-box display-member-path="ShipName" selected-value-path="ShipName" selected-index="0" show-groups="true">
+        <c1-items-source source-collection="@Model" group-by="ShipCountry"></c1-items-source>
+    </c1-combo-box>
+</div>
+
+
+
+@section Description{
+    @Html.Raw(ComboBoxRes.Grouping_Text4)
+}

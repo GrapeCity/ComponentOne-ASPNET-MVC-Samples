@@ -1,0 +1,13 @@
+﻿@{
+    var selectedIndex = (int)ViewBag.CurrentPageIndex;
+    var pages = (IEnumerable<ControlPage>)ViewBag.Pages;
+    var headerText = (string)ViewBag.PageText;
+}
+
+<c1-menu id="headerNav" header="@headerText" display-member-path="Text"
+         selected-index="@selectedIndex">
+    <c1-items-source source-collection="pages"></c1-items-source>
+    <c1-input-item-template>
+        <a href="{{Path}}" class="nav-page">{{Text}}</a>
+    </c1-input-item-template>
+</c1-menu>

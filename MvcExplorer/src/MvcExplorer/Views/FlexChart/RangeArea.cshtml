@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Fruit>
+
+<c1-flex-chart id="rangeArea" binding-x="Name" chart-type="Area">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice,AprPrice" name="Price">
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.RangeArea_Text0)</p>
+}

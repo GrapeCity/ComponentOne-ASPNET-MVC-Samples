@@ -1,0 +1,520 @@
+/* The common parts(Start) */
+
+body {
+    font-family: 'Roboto', Sans-Serif;
+    background: #ffffff;
+    color: #575757;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    font-weight:500;
+}
+
+    body a,
+    body a:focus,
+    body a:hover {
+        text-decoration: none;
+        outline: none;
+    }
+
+        body a:hover {
+            color: #085fbd;
+        }
+
+*:before,
+*:after {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body {
+    height: 100%;
+}
+
+img {
+    user-select: none;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+}
+
+h3 {
+    padding: 0px;
+    margin-bottom: 5px;
+}
+
+.flex{
+    display: -moz-box;
+    display: -webkit-flexbox;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: -moz-flex;
+    display: flex;
+}
+
+.vertical{
+    -webkit-flex-direction: column;
+     -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+.horizontal{
+    -webkit-flex-direction: row;
+     -moz-flex-direction: row;
+    -ms-flex-direction: row;
+    flex-direction: row;
+}
+
+.auto{
+    -moz-box-flex: 1;
+    -webkit-flex: 1;
+    -moz-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    position:relative;
+}
+
+.hidden{
+    visibility:hidden;
+    position:absolute;
+    left:-10000px;
+    top:-10000px
+}
+
+/* The common parts(End) */
+
+
+/* The header part(Start) */
+
+.header {
+    height: 40px;
+    align-items:center;
+    background-color: white;
+    border-bottom:1px solid #eeeeee;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.12), 0 2px 4px rgba(0,0,0,0.24);
+    box-sizing: border-box;
+    font-family: 'Roboto', Sans-Serif;
+    font-weight:600;
+    font-size:15pt;
+}
+
+    .header .company-icon {
+        padding:0px 10px;
+        text-align: left;
+        display:inline-block;
+        border-right: 1px double rgba(0,0,0,0.24);
+    }
+
+/*The nav in the header*/
+#headerNav.wj-content .wj-input-group .wj-input-group-btn:last-child:not(:first-child) > .wj-btn,
+#headerNav.wj-content{
+    border-width: 0px;
+}
+
+#headerNav .wj-input-group .wj-form-control,
+.nav-page:hover {
+    color:rgba(0, 0, 0, 0.5);
+}
+
+#headerNav_dropdown .wj-listbox-item{
+    padding-right:0px;
+}
+
+.nav-page{
+    display:block;
+    color:rgba(0, 0, 0, 0.3);
+}
+
+#headerNav .wj-glyph-down {
+    display: inline-block;
+    font-family: FontAwesome;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    border-width:0px;
+}
+
+#headerNav .wj-glyph-down:before {
+    content: "\f107";
+}
+
+#headerNav .wj-input-group-btn > .wj-btn,
+#headerNav .wj-input-group-btn > .wj-btn:focus,
+#headerNav .wj-input-group-btn > .wj-btn:hover {
+    background: transparent;
+}
+
+/* The header part(End) */
+
+/* The body part(Start) */
+.body{
+    background-color:rgba(200,200,200,0.2);
+    overflow:auto;
+    padding:10px 15px;
+}
+
+/*The title, caption, header*/
+.wj-flexchart .wj-header .wj-title,
+.wj-tile-header .title {
+    font-weight:normal;
+    font-size: 20px;
+}
+
+/*The FlexGrid control*/
+ .wj-flexgrid .wj-cell.wj-header{
+    font-size:12px;
+    font-weight:300;
+    background-color:#ffffff;
+}
+
+ .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected){
+     background-color:#ffffff;
+     color:#212121;
+ }
+
+ .wj-flexgrid .wj-cell:not(.wj-header),
+ .wj-flexgrid .wj-rowheaders .wj-header {
+    font-size:13px;
+    color:#212121;
+}
+
+
+.wj-flexgrid .wj-colheaders .wj-header,
+.wj-flexgrid .wj-topleft .wj-header {
+    color:#666666;
+}
+
+.wj-flexgrid .wj-rowheaders .wj-header{
+    font-weight:bold;
+}
+
+.wj-flexgrid .wj-topleft .wj-header:not(:last-child),
+.wj-flexgrid .wj-rowheaders .wj-header:not(:last-child),
+.wj-flexgrid .wj-colheaders .wj-header,
+.wj-flexgrid .wj-cell:not(.wj-header) {
+    border-right-width:0px; 
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.wj-dashboard .wj-flexgrid {
+    border-style: none !important;
+}
+.wj-dashboard .wj-pivotgrid .wj-aggregate.wj-cell:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background: white; 
+}
+
+/* The GroupPanel */
+.wj-grouppanel .wj-cell{
+    border-radius:16px;
+}
+
+/*The FlexChart control*/
+.wj-flexchart {
+    border-style: none !important;
+    padding: 5px !important;
+    margin-bottom: 0px;
+    background-color: transparent;
+}
+
+/*The Dashboard control*/
+.wj-tile-toolbar .wj-menu .wj-input-group .wj-form-control,
+.wj-tile-header {
+    background-color: transparent;
+}
+.wj-tile-header {
+    border-bottom-width: 0px;
+    padding: 0px;
+}
+.wj-tile-content > .wj-control {
+    margin-bottom: 0px;
+}
+.wj-dl-tile{
+    padding: 5px;
+}
+.wj-tile-content{
+    padding:0px;
+}
+
+.wj-tile-content.wj-width-overflow,
+.wj-tile-content.wj-height-overflow{
+    margin:0px;
+}
+
+.wj-tile-toolbar {
+    top: 0px;
+}
+
+.wj-tile-toolbar .wj-control .wj-input-group .wj-form-control{
+    padding: 0px;
+}
+
+#dashboard {
+    width: 100%;
+    position: relative;
+    height:100%;
+    background-color: transparent;
+}
+
+/*The TabPanel control*/
+.wj-tabpanel{
+    background-color:transparent;
+    width:100%;
+}
+
+.wj-tabpanel > div > .wj-tabheaders > .wj-tabheader:after{
+    background-color:transparent;
+}
+
+.wj-tabpanel > div > .wj-tabheaders > .wj-tabheader{
+    color:rgba(0,0,0,0.3);
+    background-color:transparent;
+}
+
+.wj-tabpanel > div > .wj-tabheaders > .wj-tabheader.wj-state-active{
+    border-width: 1px 1px 0px 1px;
+    border-style:solid;
+    border-color:#cccccc;
+    border-radius: 5px 5px 0px 0px;
+    color:rgba(0,0,0,1);
+    background-color:#ffffff;
+}
+
+/* The body part(End) */
+
+/* Shared Range selector (Start) */
+
+.chart-selector {
+    border: none;
+}
+
+.chartRangeSelector {
+    margin-top: 5px;
+    height: 100px !important;
+}
+
+
+/* Shared Range selector (End) */
+
+
+/*Dashboard page(Start)*/
+
+/*Shared*/
+.wj-flexchart .wj-gridline, 
+.wj-flexchart .wj-gridline-minor {
+    opacity: .25; 
+}
+
+/* Current vs. Prior Profit */
+.budgetVSProfitChart {
+    width: 98%;
+}
+
+/* Sales vs. Profits */
+.chartSalesVsProfit {
+    width: 98%;
+}
+    .chartSalesVsProfit svg {
+        width: 100% !important;
+    }
+
+/*Gauges*/
+.gaugesChart {
+    position: relative;
+    margin: 0px;
+    width: 95%;
+}
+
+.lblUnits {
+    font-size:14px;
+}
+
+.wj-gauge .wj-pointer {
+    fill: #009688;
+}
+
+/*Dashboard page(End)*/
+
+
+/*Analysis page(Start)*/
+
+#chartRegionSale {
+    font-size: 9pt;
+}
+
+/*The popup window*/
+#popup .modal-body{
+    padding:0px;
+}
+
+#popup .modal-body{
+    padding:15px;
+}
+
+#popup .modal-footer{
+    margin:0px;
+    padding:10px;
+    border-top-width: 0px;
+}
+
+/*The PivotPanel control*/
+#popup .wj-pivotpanel {
+    min-height: 0em;
+}
+
+#popup .wj-pivotpanel,
+#popup .wj-pivotpanel tr,
+#popup .wj-pivotpanel td {
+    border-width:0px;
+}
+#popup .wj-pivotpanel > div > div:last-child{
+    display: none !important;
+}
+#popup .wj-pivotpanel table.viewdefinition .wj-flexgrid{
+    background-color: rgba(0, 0, 0, 0.02);
+    min-height:100px;
+}
+#popup .wj-pivotpanel .wj-flexgrid .wj-cell{
+    border-width:0px;
+}
+
+/*Analysis page(End)*/
+
+
+/* Report page(Start) */
+
+
+/* Report page(End) */
+
+
+/* Tasks page(Start) */
+#groupPanel{
+    height:64px;
+    border-width: 0px 1px;
+    border-style: solid;
+    border-color: #cccccc;
+    background-color: #ffffff;
+}
+
+#gridTasks{
+    height:100%;
+}
+
+    #gridTasks .wj-cell:not(.wj-header):not(.wj-group) {
+        border-right-width: 0px; 
+        border-bottom-color: rgba(0, 0, 0, 0.1);
+    }
+
+.progress-bar {
+    background-color: #fafad2;
+    border: 1px solid #ffd700;
+    position: absolute;
+    top: 1px;
+    left: 3px;
+    height: 90%;
+}
+
+.progress-value {
+    color: black;
+    font-size: 9pt;
+    position: relative;
+    margin-left: 40%;
+}
+
+/* Tasks page(End) */
+
+
+/* Product page(Start) */
+
+.product-item {
+    text-align: center;
+    display: inline-block;
+    width: 300px;
+    height: 190px;
+    overflow: hidden;
+}
+
+.product-item span {
+    color: black;
+    display: block;
+    text-align: center;
+    width: 100%;
+}
+
+#tpProducts{
+    background-color:#ffffff;
+}
+
+#tpProducts > div > .wj-tabheaders {
+    background-color:rgba(200,200,200,0.2);
+}
+
+/* Product page(End) */
+
+/* Narrow Screen */
+@media only screen and (max-width: 991px) {
+    /*The guage*/
+    .gauge-container {
+        position: relative;
+        height: 45px;
+    }
+
+    .gauge-container .bullet-graph {
+        position: relative;
+        left: 100px;
+        height: 45px;
+    }
+
+    .gauge-container .gauge-title {
+        position: absolute;
+        left: 0px;
+        top: 7px;
+    }
+
+    .gauge-axis-marker {
+        position: absolute;
+        left: 100px;
+        height: 6px;
+        width: 3px;
+        border: 1px solid gray;
+    }
+
+    .gauge-axis-title {
+        position: absolute;
+        font-size: 12px;
+    }
+}
+
+/* Wide Screen */
+@media only screen and (min-width: 992px) {
+    .gauge-container {
+        position: relative;
+        height: 45px;
+    }
+
+    .gauge-container .bullet-graph {
+        position: relative;
+        left: 100px;
+        height: 45px;
+    }
+
+    .gauge-container .gauge-title {
+        position: absolute;
+        left: 0px;
+    }
+
+    .gauge-axis-marker {
+        position: absolute;
+        left: 100px;
+        height: 6px;
+        width: 3px;
+        border: 1px solid gray;
+    }
+
+    .gauge-axis-title {
+        position: absolute;
+        font-size: 12px;
+    }
+}

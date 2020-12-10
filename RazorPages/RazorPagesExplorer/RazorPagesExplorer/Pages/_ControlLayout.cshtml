@@ -1,0 +1,107 @@
+﻿@{
+    var pageName = ViewContext.RouteData.Values["page"].ToString();
+    ViewData["DemoDescription"] = ViewData["DemoDescription"] ?? true;
+    ViewData["DemoSettings"] = ViewData["DemoSettings"] ?? false;
+
+    var pages = ControlPages.Pages;
+    var currentPageIndex = ControlPages.GetSelectedPageIndex(pageName);
+    var docLink = pages[currentPageIndex].Documentation;
+    var pageText = ControlPages.GetPageText(pageName);
+    ViewData["Title"] = pageText;
+
+    foreach (var page in pages)
+    {
+        page.Path = page.Name;
+    }
+
+    ViewData["Pages"] = pages;
+
+    Layout = "_Layout.cshtml";
+}
+
+@section Styles{
+    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+}
+
+@section Scripts{
+    <script>
+            var CurrentPageIndex = @currentPageIndex;
+    </script>
+    <script src="~/Scripts/ControlLayout.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>   
+    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
+    @RenderSection("Scripts", false)
+}
+
+<div class="narrow-screen features-bar">
+    <span>Features <span class="wj-glyph-down"></span></span>
+    <ul class="narrow-screen features-nav">
+        @foreach (var controlPage in (List<Page>)ViewData["Pages"])
+        {
+            <li><a asp-page="@controlPage.Path">@controlPage.Text</a></li>
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 side">
+    <div>
+        <h4 class="semi-bold wide-screen">@pageText</h4>
+        <h4 class="semi-bold narrow-screen">@pageText</h4>
+        <div class="description">@RenderSection("Summary", false)</div>
+    </div>
+    @Html.Partial("_ControlsNav")
+</div>
+<div class="col-md-9">
+    <div class="padder">
+        <div>
+            @{ 
+                if (pageName != "/Overview")
+                {
+                    <ul id="navList" class="nav nav-tabs">
+                        <li><a class="semi-bold">Sample</a></li>
+                        <li><a class="semi-bold">Source</a></li>
+                        <li><span onclick="gotoDoc('@docLink')" class="doc-tab semi-bold">Documentation</span></li>
+                    </ul>
+                }
+            }
+            <div id="panelList" class="tab-content">
+                <div class="tab-pane pane-content active collapse-panel" id="sample">
+                    <div class="demo-control">@RenderBody()</div>
+                    @{
+                        if ((bool)ViewData["DemoSettings"])
+                        {
+                            <div class="demo-settings">
+                                <h3 class="semi-bold">Settings</h3>
+                                @if (ViewData["DemoSettingsModel"] != null)
+                                {
+                                    @Html.Partial("_ClientSettingsByMenu", ViewData["DemoSettingsModel"] as ClientSettingsModel)
+                                }
+                                @RenderSection("Settings", false)
+                            </div>
+                        }
+                    }
+                    @{
+                        if ((bool)ViewData["DemoDescription"])
+                        {
+                            <div class="demo-description">
+                                <h3 class="semi-bold">Description</h3>
+                                <div>
+                                    @RenderSection("Description", false)
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                    <div class="demo-source">
+                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(pageName))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

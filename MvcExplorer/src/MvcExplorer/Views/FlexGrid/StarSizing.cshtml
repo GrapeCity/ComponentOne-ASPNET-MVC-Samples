@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Sale>
+
+<h4>
+        @Html.Raw(FlexGridRes.StarSizing_Example1)</h4>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text1)</p>
+<c1-flex-grid class="grid" auto-generate-columns="false" is-read-only="true">
+    <c1-flex-grid-column binding="Start" width="80" max-width="160" min-width="40"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="2*" allow-resizing="false"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("StarSizing_Bind")"></c1-items-source>
+</c1-flex-grid>
+    <br />
+    <br />
+<h4>
+        @Html.Raw(FlexGridRes.StarSizing_Example2)</h4>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text2)</p>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text3)</p>
+<c1-flex-grid auto-generate-columns="false" class="grid" is-read-only="true">
+    <c1-flex-grid-column binding="Start" width="80"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="*" min-width="100" allow-resizing="false"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c" width="120"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("StarSizing_Bind")"></c1-items-source>
+</c1-flex-grid>
+    <br />
+    <br />
+<h4>
+        @Html.Raw(FlexGridRes.StarSizing_Example3)</h4>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text4)</p>
+    <p>@Html.Raw(FlexGridRes.StarSizing_Text5)</p>
+<c1-flex-grid auto-generate-columns="false" class="grid" is-read-only="true">
+    <c1-flex-grid-column binding="Start" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="*" min-width="100"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c" width="*"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("StarSizing_Bind")"></c1-items-source>
+</c1-flex-grid>
+@section Description{
+    @Html.Raw(FlexGridRes.StarSizing_Text6)
+}
+

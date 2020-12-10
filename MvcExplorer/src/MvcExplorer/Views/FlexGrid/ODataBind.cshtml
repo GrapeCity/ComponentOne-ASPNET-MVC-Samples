@@ -1,0 +1,76 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    bool isReadOnly = ViewBag.IsReadOnly;
+}
+@if (isReadOnly)
+{
+    <h4>ODataCollectionView</h4>
+    <p id="itemCount"></p>
+    <c1-flex-grid id="ODataCollectionView" allow-add-new="false" allow-delete="false" style="height:400px" loaded-rows="oDataCVLoaded">
+        <c1-odata-source service-url="https://services.odata.org/Northwind/Northwind.svc" table-name="Orders" keys="OrderID"
+                         sort-on-server="@(Convert.ToBoolean(optionsModel.Options["Sort On Server"].CurrentValue))"
+                         filter-on-server="@(Convert.ToBoolean(optionsModel.Options["Filter On Server"].CurrentValue))"></c1-odata-source>
+        <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    </c1-flex-grid>
+
+    <h4>ODataVirtualCollectionView</h4>
+    <p id="totalItemCount"></p>
+    <c1-flex-grid id="ODataVirtualCollectionView" allow-add-new="false" allow-delete="false" style="height:400px" scroll-position-changed="scrollPositionChanged" loaded-rows="oDataVCVLoaded">
+        <c1-odata-virtual-source service-url="https://services.odata.org/Northwind/Northwind.svc" table-name="Orders" keys="OrderID"></c1-odata-virtual-source>
+        <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    </c1-flex-grid>
+}
+else
+{
+    <h4>ODataCollectionView</h4>
+    <p id="itemCount"></p>
+    <c1-flex-grid id="ODataCollectionView" allow-add-new="true" allow-delete="true" style="height:400px" loaded-rows="oDataCVLoaded">
+        <c1-odata-source service-url="~/MyNorthWind" table-name="Orders" keys="OrderID"
+                         sort-on-server="@(Convert.ToBoolean(optionsModel.Options["Sort On Server"].CurrentValue))"
+                         filter-on-server="@(Convert.ToBoolean(optionsModel.Options["Filter On Server"].CurrentValue))"></c1-odata-source>
+        <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    </c1-flex-grid>
+
+    <h4>ODataVirtualCollectionView</h4>
+    <p id="totalItemCount"></p>
+    <c1-flex-grid id="ODataVirtualCollectionView" allow-add-new="true" allow-delete="true" style="height:400px" scroll-position-changed="scrollPositionChanged" loaded-rows="oDataVCVLoaded">
+        <c1-odata-virtual-source service-url="~/MyNorthWind" table-name="Orders" keys="OrderID"></c1-odata-virtual-source>
+        <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    </c1-flex-grid>
+}
+@section Scripts{
+    <script type="text/javascript">
+        function customChangeSortOnServer(grid, value) {
+            if (grid && grid.collectionView) {
+                grid.collectionView.sortOnServer = value;
+            }
+        }
+        function customChangeFilterOnServer(grid, value) {
+            if (grid && grid.collectionView) {
+                grid.collectionView.filterOnServer = value;
+            }
+        }
+        function scrollPositionChanged(grid) {
+            var rng = grid.viewRange;
+            grid.collectionView.setWindow(rng.row, rng.row2);
+        }
+        function oDataCVLoaded(grid, e) {
+            var el = document.getElementById('itemCount');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+        }
+        function oDataVCVLoaded(grid, e) {
+            var el = document.getElementById('totalItemCount');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+        }
+    </script>
+}
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.ODataBind_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.ODataBind_Text1)</p>
+}

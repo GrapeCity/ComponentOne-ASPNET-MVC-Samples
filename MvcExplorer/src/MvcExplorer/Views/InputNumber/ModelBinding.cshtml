@@ -1,0 +1,12 @@
+﻿@model CustomerOrder
+
+<div>
+    <label>@Html.Raw(InputNumberRes.ModelBinding_Text3)</label>
+    <c1-input-number for="@Model.Count"></c1-input-number>
+    <c1-input-time for="@Model.OrderTime"></c1-input-time>
+</div>
+
+@section Description{
+    <p>@Html.Raw(InputNumberRes.ModelBinding_Text0)</p>
+    <p>@Html.Raw(InputNumberRes.ModelBinding_Text1)</p>
+}

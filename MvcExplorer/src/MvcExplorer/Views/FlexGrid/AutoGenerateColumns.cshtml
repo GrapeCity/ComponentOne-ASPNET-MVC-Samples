@@ -1,0 +1,63 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    string defTypeWidth = ViewBag.DefTypeWidth;
+}
+
+@if (optionsModel.Options["Auto Generate Columns"].CurrentValue == "False")
+{
+    <c1-flex-grid id="agcFlexGrid" auto-generate-columns="false" class="grid" is-read-only="true" sorting-type="SingleColumn" height="250px"
+                  selection-mode="@((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))"
+                  copy-headers="@((CopyHeader)Enum.Parse(typeof(CopyHeader), optionsModel.Options["Copy Header"].CurrentValue))"
+                  lazy-render="@(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))"
+                  default-type-width="@defTypeWidth">
+        <c1-flex-grid-column binding="ID" is-visible="@(string.Compare(optionsModel.Options["Column Visibility"].CurrentValue, "show", true) == 0)"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Start" format="@("MMM d yy")"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="End" format="@("HH:mm")"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Country" width="@("100")"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Rank"></c1-flex-grid-column>
+        <c1-items-source initial-items-count="100" source-collection="Model"></c1-items-source>
+    </c1-flex-grid>
+}
+else
+{
+    <c1-flex-grid id="agcFlexGrid" auto-generate-columns="true" class="grid" is-read-only="true" sorting-type="SingleColumn" height="250px"
+                  selection-mode="@((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))"
+                  copy-headers="@((CopyHeader)Enum.Parse(typeof(CopyHeader), optionsModel.Options["Copy Header"].CurrentValue))"
+                  lazy-render="@(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))"
+                  default-type-width="@defTypeWidth">
+        <c1-items-source initial-items-count="100" source-collection="Model"></c1-items-source>
+    </c1-flex-grid>
+}
+
+<c1-flex-grid id="agcFlexGrid1" auto-generate-columns="true" class="grid" is-read-only="true" sorting-type="SingleColumn" height="250px"
+              selection-mode="@((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))"
+              copy-headers="@((CopyHeader)Enum.Parse(typeof(CopyHeader), optionsModel.Options["Copy Header"].CurrentValue))"
+              lazy-render="@(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))">
+    <c1-items-source initial-items-count="100" source-collection="Model"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings{
+    <span style="color:gray">@Html.Raw(FlexGridRes.AutoGenerateColumns_Text2)</span>
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.AutoGenerateColumns_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.AutoGenerateColumns_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.CopyHeaders_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.SelectionMode_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.ColumnVisibility_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.LazyRender_Text0)</p>
+}

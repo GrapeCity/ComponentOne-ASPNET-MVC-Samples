@@ -1,0 +1,56 @@
+﻿@using System.Text.RegularExpressions
+@model ClientSettingsModel
+
+@{
+    if (Model != null && Model.Settings != null && !string.IsNullOrEmpty(Model.ControlId))
+    {
+        foreach (var setting in Model.Settings)
+        {
+            var propertyName = setting.Key.Replace(".", "_");
+            var commandName = "change" + propertyName;
+            var customChangeName = "customChange" + propertyName;
+            var converterName = "convert" + propertyName;
+            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")) + ": ";
+            var parts = setting.Key.Split('.');
+            for(int i = 0; i < parts.Length; i++)
+            {
+                var part = parts[i];
+                parts[i] = part[0].ToString().ToLower() + part.Substring(1);
+            }
+            var propertyPaths = string.Join(".", parts);
+            var updateProperty = "update" + propertyName;
+            var defaultValue = setting.Value.First();
+            if (Model.DefaultValues != null && Model.DefaultValues.ContainsKey(setting.Key))
+            {
+                defaultValue = Model.DefaultValues[setting.Key];
+            }
+            var headText = headerName + "<b>" + defaultValue + "</b>";
+            <script>
+                function @(commandName)(menu) {
+                    menu.header = "@(headerName)<b>" + menu.selectedItem.Header + "</b>";
+                    var control = wijmo.Control.getControl("#@(Model.ControlId)");
+                    var value = menu.selectedItem.CommandParameter;
+                    if(typeof @(customChangeName) === 'function') {
+                        @(customChangeName)(control, value);
+                        return;
+                    }
+
+                    if(typeof @(updateProperty) === 'function') {
+                        @(updateProperty)(control, value);
+                    } else {
+                        control.@(propertyPaths) = (typeof @(converterName) === 'undefined' ? value : @(converterName)(value));
+                        control.invalidate(); @*Controls like Calendar need this.*@
+                    }
+                }
+            </script>
+            var items = new List<object>();
+            foreach (var option in setting.Value)
+            {
+                items.Add(new { Header = option.ToString(), CommandParameter = option });
+            }
+            <c1-menu id="@propertyName" header="@headText" item-clicked="@commandName" display-member-path="Header" command-parameter-path="CommandParameter">
+                <c1-items-source source-collection="@items"></c1-items-source>
+            </c1-menu>
+        }
+    }
+}

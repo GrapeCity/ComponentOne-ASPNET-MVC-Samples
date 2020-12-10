@@ -1,0 +1,46 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+@section Styles{
+    <style>
+        .btn {
+            height: auto;
+        }
+
+        .popover {
+            display: block;
+            max-width: 600px;
+            width: 400px;
+        }
+
+        .tab-content > .tab-pane {
+            display: block;
+        }
+    </style>
+}
+<label>@Html.Raw(PopupRes.Index_Text2)</label>
+<!-- The popup owners. -->
+<button id="btn1" type="button" class="btn btn-default">
+    @Html.Raw(PopupRes.Index_ClickToShowPopupForm)
+    <br>
+    <small>@Html.Raw(PopupRes.Index_Description1)</small>
+</button>
+
+<c1-popup class="popover" style="display:none;" id="popup1" owner="#btn1" hide-trigger="Click" show-trigger="Click" is-resizable="true"
+          position="@((PopupPosition)Enum.Parse(typeof(PopupPosition), optionsModel.Options["Popup Position"].CurrentValue))">
+    <h3 class="popover-title">
+        @Html.Raw(PopupRes.Index_Title)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(PopupRes.Index_Text0)
+    </div>
+</c1-popup>
+
+@section Settings {
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(PopupRes.PopupPosition_Description)
+}

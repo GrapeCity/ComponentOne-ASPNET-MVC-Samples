@@ -1,0 +1,84 @@
+@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    List<CustomerSale.NamedProduct> products = ViewBag.Products;
+    List<NamedColor> colors = ViewBag.Colors;
+    ViewBag.DemoDescription = false;
+}
+<h3>
+    @Html.Raw(MultiRowRes.DataMap_Text4)
+</h3>
+<p>@Html.Raw(MultiRowRes.DataMap_Text0)</p>
+
+<c1-multi-row id="dmMultiRow" class="multirow" is-read-only="false">
+    <c1-items-source read-action-url="RemoteBindCustomerSale_Read" update-action-url="ProductsUpdate"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID" is-read-only="true"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End" format="HH:mm"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product">
+            <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+                <c1-items-source source-collection="products"></c1-items-source>
+            </c1-data-map>
+        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color">
+            <c1-data-map display-member-path="Name" selected-value-path="Value" sort-by-display-values="true">
+                <c1-items-source source-collection="colors"></c1-items-source>
+            </c1-data-map>
+        </c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount" format="c"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2" format="c"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" format="p0" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+<p>@Html.Raw(MultiRowRes.DataMap_Text1)</p>
+<h4>
+    @Html.Raw(MultiRowRes.DataMap_Text5)
+</h4>
+<p>@Html.Raw(MultiRowRes.DataMap_Text2)</p>
+
+<p>@Html.Raw(MultiRowRes.DataMap_Text3)</p>
+
+<c1-multi-row id="dmMultiColumns" class="multirow" is-read-only="false">
+    <c1-items-source initial-items-count="100" read-action-url="RemoteBindCustomerSale_Read" update-action-url="ProductsUpdate"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID" is-read-only="true"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End" format="HH:mm"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product">
+            <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+                <c1-items-source source-collection="products"></c1-items-source>
+            </c1-data-map>
+        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color" drop-down-css-class="multi-column">
+            <c1-data-map display-member-path="Name" selected-value-path="Value" sort-by-display-values="true">
+                <c1-items-source source-collection="colors"></c1-items-source>
+            </c1-data-map>
+        </c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Amount" format="c"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2" format="c"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Discount" format="p0" colspan="2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Summary{
+    @Html.Raw(MultiRowRes.DataMap_Text6)
+}

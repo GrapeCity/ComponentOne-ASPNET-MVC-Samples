@@ -1,0 +1,66 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+@section Scripts{
+    <script>
+    function updateHeaders() {
+        var flex = wijmo.Control.getControl("#@settings.ControlId");
+        if (flex) {
+            // insert new row if not yet
+            if (flex.columnHeaders.rows.length === 1) {
+                flex.columnHeaders.rows.insert(0, new wijmo.grid.Row());
+            }
+            flex.columnHeaders.rows[0].allowMerging = true;
+
+            // set headings so the cells merge
+            for (var i = 0; i < flex.columns.length; i++) {
+                var hdr = 'String';
+                switch (flex.columns[i].binding) {
+                    case 'ID':
+                    case 'Amount':
+                    case 'Discount':
+                        hdr = 'Number';
+                        break;
+                    case 'Active':
+                        hdr = 'Boolean';
+                        break;
+                }
+                flex.columnHeaders.setCellData(0, i, hdr);
+            }
+
+            @*// do the same to row headers
+            var col = flex.rowHeaders.columns[0];
+            col.allowMerging = true;
+            col.width = 80;
+            for (i = 0; i < flex.rows.length; i++) {
+                var start = Math.floor(i / 10) * 10, end = start + 9;
+                flex.rowHeaders.setCellData(i, 0, start + " - " + end);
+            }*@
+        }
+    }
+
+    c1.documentReady(function () {
+        updateHeaders();
+    });
+    </script>
+}
+
+<c1-flex-grid id="@settings.ControlId" auto-generate-columns="false" allow-merging="All"
+              expand-selection-on-copy-paste="true" is-read-only="false" class="grid">
+    <c1-flex-grid-column binding="ID" width="70"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" width="100" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" width="80" allow-merging="true"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("MergeCells_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+@section Description{
+    @Html.Raw(FlexGridRes.MergeCells_Text0)
+    <br />
+    @Html.Raw(FlexGridRes.MergeCells_Text1)
+}

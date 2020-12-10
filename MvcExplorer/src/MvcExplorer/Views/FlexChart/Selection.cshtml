@@ -1,0 +1,74 @@
+﻿@model ChartOptions
+
+@{
+    ViewBag.DemoSettings = true;
+    IEnumerable<Fruit> fruits = Fruit.GetFruitsSales();
+}
+
+<c1-flex-chart binding-x="Name"
+               chart-type="@Model.CType"
+               stacking="@Model.CStack"
+               selection-mode="@Model.CSelectionMode">
+    <c1-items-source source-collection="fruits"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice" name="March"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="AprPrice" name="April"></c1-flex-chart-series>
+    <c1-flex-chart-series binding="MayPrice" name="May"></c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Scripts{
+    <script type="text/javascript">
+        var indexes = [@ViewBag.typeIndex, @ViewBag.stackIndex, @ViewBag.selectionIndex],
+            isDocumentReady = false;
+
+        submit = function (combo, comboIndex) {
+            if (!isDocumentReady) {
+                return;
+            }
+
+            var form = document.forms ? document.forms[0] : null;
+            if (form && combo.selectedIndex != indexes[comboIndex]) {
+                form.submit();
+            }
+        };
+
+        postMethod0 = function (combo) {
+            submit(combo, 0);
+        };
+        postMethod1 = function (combo) {
+            submit(combo, 1);
+        };
+        postMethod2 = function (combo) {
+            submit(combo, 2);
+        };
+
+        c1.documentReady(function () {
+            wijmo.Control.getControl("#chartType").selectedIndex = indexes[0];
+            wijmo.Control.getControl("#stacking").selectedIndex = indexes[1];
+            wijmo.Control.getControl("#selection").selectedIndex = indexes[2];
+            isDocumentReady = true;
+        });
+    </script>
+}
+
+@section Settings{
+    <form method="post">
+        <span>@Html.Raw(FlexChartRes.Selection_ChartType)</span>
+        <c1-combo-box id="chartType" name="type" selected-index-changed="postMethod0" style="width: 130px">
+            <c1-items-source source-collection="ChartOptions.ChartTypes"></c1-items-source>
+        </c1-combo-box>
+        <span>@Html.Raw(FlexChartRes.Selection_Stacking)</span>
+        <c1-combo-box id="stacking" name="stack" selected-index-changed="postMethod1" style="width: 130px">
+            <c1-items-source source-collection="ChartOptions.Stackings"></c1-items-source>
+        </c1-combo-box>
+        <span>@Html.Raw(FlexChartRes.Selection_SelectionMode)</span>
+        <c1-combo-box name="selectionmode" id="selection" selected-index-changed="postMethod2" style="width: 130px">
+            <c1-items-source source-collection="ChartOptions.SelectionModes"></c1-items-source>
+        </c1-combo-box>
+    </form>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexChartRes.Selection_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.Selection_Text1)</p>
+    <p>@Html.Raw(FlexChartRes.Selection_Text2)</p>
+}

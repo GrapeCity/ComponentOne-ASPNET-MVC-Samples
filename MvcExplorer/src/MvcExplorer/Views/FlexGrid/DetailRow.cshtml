@@ -1,0 +1,28 @@
+﻿@model IEnumerable<CustomerWithOrders>
+
+@section Scripts{
+<script type="text/javascript">
+	function hasDetail(row) {
+		return row.dataItem.Country.length > 5;
+	}
+</script>
+}
+
+<c1-flex-grid id="detailRowFlexGrid" auto-generate-columns="false" is-read-only="true">
+	<c1-flex-grid-column binding="CustomerID" width="*"></c1-flex-grid-column>
+	<c1-flex-grid-column binding="CompanyName" width="2*"></c1-flex-grid-column>
+	<c1-flex-grid-column binding="Country" width="2*"></c1-flex-grid-column>
+	<c1-flex-grid-column binding="City" width="2*"></c1-flex-grid-column>
+	<c1-flex-grid-detail detail-visibility-mode="ExpandSingle" row-has-detail="hasDetail" is-animated="true">
+		<c1-flex-grid auto-generate-columns="false" is-read-only="true" height="200px" template-bindings="@(new {ItemsSource="Orders"})">
+			<c1-flex-grid-column binding="ShippedDate" width="*"></c1-flex-grid-column>
+			<c1-flex-grid-column binding="Freight" width="*"></c1-flex-grid-column>
+			<c1-flex-grid-column binding="ShipVia" width="*"></c1-flex-grid-column>
+		</c1-flex-grid>
+	</c1-flex-grid-detail>
+	<c1-items-source source-collection="Model"></c1-items-source>
+</c1-flex-grid>
+
+@section Description{
+	@Html.Raw(FlexGridRes.DetailRow_Text0)
+}

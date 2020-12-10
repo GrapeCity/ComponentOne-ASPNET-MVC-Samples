@@ -1,0 +1,64 @@
+﻿<div>
+    <div>
+        <a id="headerEmployees">EMPLOYEES</a>
+        <div id="paneEmployees">
+            <c1-flex-grid is-read-only="true" sorting-type="None">
+                <c1-odata-source service-url="https://services.odata.org/Northwind/Northwind.svc/" table-name="Employees"
+                                 fields="EmployeeID,LastName,FirstName,Title,TitleOfCourtesy"></c1-odata-source>
+            </c1-flex-grid>
+        </div>
+    </div>
+    <div>
+        <a id="headerCategories">CATEGORIES</a>
+        <div id="paneCategories">
+            <c1-flex-grid is-read-only="true" sorting-type="None">
+                <c1-odata-source service-url="https://services.odata.org/Northwind/Northwind.svc/" table-name="Categories"
+                                 fields="CategoryID,CategoryName,Description"></c1-odata-source>
+            </c1-flex-grid>
+        </div>
+    </div>
+</div>
+
+<c1-tab-panel id="tabInCode">
+    <c1-tab header="#headerEmployees" pane="#paneEmployees"></c1-tab>
+    <c1-tab header="#headerCategories" pane="#paneCategories"></c1-tab>
+</c1-tab-panel>
+
+<script>
+    c1.documentReady(function () {
+        var tabInCode = wijmo.Control.getControl('#tabInCode'),
+            url = 'https://services.odata.org/Northwind/Northwind.svc/',
+            headers = 'Products,Customers'.split(',');
+        tabInCode.tabs.deferUpdate(function () { // update only when done
+            headers.forEach(function (header) {
+
+                // create the tab header element
+                var elHeader = document.createElement('a');
+                elHeader.textContent = header;
+
+                // create the tab pane element
+                var elPane = document.createElement('div'),
+                    elGrid = document.createElement('div'),
+                    grid = new wijmo.grid.FlexGrid(elGrid, {
+                        isReadOnly: true,
+                        itemsSource: new wijmo.odata.ODataCollectionView(url, header)
+                    });
+                elPane.appendChild(elGrid);
+
+                // add the new Tab to the TabPanel
+                tabInCode.tabs.push(new wijmo.nav.Tab(elHeader, elPane));
+            });
+        });
+    });
+</script>
+
+@section Summary{
+<p>@Html.Raw(TabPanelRes.CreatingProgrammatically_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TabPanelRes.CreatingProgrammatically_Text1)</p>
+    <p>@Html.Raw(TabPanelRes.CreatingProgrammatically_Text2)</p>
+    <p>@Html.Raw(TabPanelRes.CreatingProgrammatically_Text3)</p>
+    <p>@Html.Raw(TabPanelRes.CreatingProgrammatically_Text4)</p>
+}

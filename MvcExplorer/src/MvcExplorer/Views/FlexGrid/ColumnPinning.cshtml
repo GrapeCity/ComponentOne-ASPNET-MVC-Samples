@@ -1,0 +1,39 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+    function collectingQueryData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+        {
+        <text>
+        e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+        </text>
+        }
+    }
+    </script>
+}
+
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="true" class="grid" is-read-only="true" width="900px"
+              pinning-type="@((PinningType)Enum.Parse(typeof(PinningType), optionsModel.Options["Pinning Type"].CurrentValue))">
+    <c1-items-source read-action-url="@Url.Action("ColumnPinning_Bind")" query-data="collectingQueryData"></c1-items-source>
+</c1-flex-grid>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.AllowPinning_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(FlexGridRes.AllowPinning_Text0)
+}

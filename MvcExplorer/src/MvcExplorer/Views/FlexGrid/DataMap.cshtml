@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Sale>
+@{
+    var countries = ViewBag.Countries;
+    var products = ViewBag.Products;
+    var colors = ViewBag.Colors;
+    var ranks = ViewBag.Ranks;
+    ViewBag.DemoDescription = false;
+}
+<h3>
+    @Html.Raw(FlexGridRes.DataMap_DataMap)
+</h3>
+<p>
+    @Html.Raw(FlexGridRes.DataMap_Text0)
+    @Html.Raw(FlexGridRes.DataMap_Text1)
+    @Html.Raw(FlexGridRes.DataMap_Text2)
+</p>
+<c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" class="grid" is-read-only="false">
+    <c1-flex-grid-column binding="ID" is-visible="false"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.AutoComplete">
+        <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+            <c1-items-source source-collection="countries"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
+        <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+            <c1-items-source source-collection="products"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
+        <c1-data-map display-member-path="Name" selected-value-path="Value" sort-by-display-values="true">
+            <c1-items-source source-collection="colors"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Rank" width="250" align="center" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.RadioButtons">
+        <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+            <c1-items-source source-collection="ranks"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-items-source read-action-url="RemoteBindCustomerSale_Read" update-action-url="ProductsUpdate"></c1-items-source>
+</c1-flex-grid>
+<p>@Html.Raw(FlexGridRes.DataMap_Text3)</p>
+<h4>
+    @Html.Raw(FlexGridRes.DataMap_MultiColumnDataMap)
+</h4>
+<p>@Html.Raw(FlexGridRes.DataMap_Text4)</p>
+<p>@Html.Raw(FlexGridRes.DataMap_Text5)</p>
+<c1-flex-grid id="multiColumns" auto-generate-columns="false" class="grid" is-read-only="false">
+    <c1-flex-grid-column binding="ID" is-visible="false"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="HH:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product">
+        <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+            <c1-items-source source-collection="products"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" drop-down-css-class="multi-column">
+        <c1-data-map display-member-path="Name" selected-value-path="Value" sort-by-display-values="true">
+            <c1-items-source source-collection="colors"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-items-source source-collection="Model" initial-items-count="100" update-action-url="ProductsUpdate"></c1-items-source>
+</c1-flex-grid>
+
+<style>
+    .wj-radio-map label {
+        padding: 0 0 0 0;
+    }
+</style>

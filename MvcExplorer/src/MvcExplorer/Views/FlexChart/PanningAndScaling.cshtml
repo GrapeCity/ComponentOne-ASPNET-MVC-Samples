@@ -1,0 +1,118 @@
+﻿@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+}
+<c1-flex-chart id="gesturesChart" class="stchart" chart-type="Area"
+               binding-x="X" legend-position="None" plot-margin="NaN NaN NaN 80">
+    <c1-flex-chart-axis c1-property="AxisX" axis-line="false"></c1-flex-chart-axis>
+    <c1-flex-chart-series binding="Close" name="Y Value"></c1-flex-chart-series>
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-chart-gestures id="gestures" mouse-action="Zoom" interactive-axes="X" scale-x="0.5f" scale-y="0.5f" pos-x="0.1f" pos-y="0.1f"></c1-chart-gestures>
+</c1-flex-chart>
+
+@section Scripts{
+<script>
+    var chart, chartGestures;
+
+    c1.documentReady(function () {
+        var gesturesChart = getChart();
+        if (navigator.userAgent.match(/iPad/i) != null || /Android/i.test(navigator.userAgent)) {
+            document.querySelector('#mouseAction').style.display = 'none';
+        }
+
+        if (gesturesChart) {
+            gesturesChart.axisX.rangeChanged.addHandler(function () {
+                document.querySelector('#reset').disabled = undefined;
+            });
+            gesturesChart.axisY.rangeChanged.addHandler(function () {
+                document.querySelector('#reset').disabled = undefined;
+            });
+        }
+    });
+
+    function getChart() {
+        if (!chart) {
+            chart = wijmo.Control.getControl('#gesturesChart');
+        }
+        return chart;
+    }
+
+    function getChartGesture() {
+        var gesturesChart;
+        if (!chartGestures) {
+            gesturesChart = getChart();
+            chartGestures = c1.getExtender(gesturesChart, 'gestures');
+        }
+        return chartGestures;
+    }
+
+    function updateMenu(menu, headerNamePrefix) {
+        menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+    }
+
+    function mouseActionChanged(menu) {
+        var extGesture = getChartGesture();
+        updateMenu(menu, 'Mouse Action');
+        if (extGesture) {
+            extGesture.mouseAction = wijmo.chart.interaction.MouseAction[menu.selectedItem.Header];
+        }
+    }
+
+    function interactiveAxesChanged(menu) {
+        var extGesture = getChartGesture();
+        updateMenu(menu, 'Interactive Axes');
+        if (extGesture) {
+            extGesture.interactiveAxes = wijmo.chart.interaction.InteractiveAxes[menu.selectedItem.Header];
+        }
+    }
+
+    function resetAxes() {
+        var extGesture = getChartGesture();
+        if (extGesture) {
+            extGesture.reset();
+        }
+
+        document.querySelector('#reset').disabled = 'disabled';
+    }
+</script>
+}
+
+@section Settings{
+    <c1-menu id="mouseAction" header="Mouse Action: <b>Zoom</b>" item-clicked="mouseActionChanged">
+        <c1-menu-item header="Zoom"></c1-menu-item>
+        <c1-menu-item header="Pan"></c1-menu-item>
+    </c1-menu>
+
+    <c1-menu id="interactiveAxes" header="Interactive Axes: <b>X</b>" item-clicked="interactiveAxesChanged">
+        <c1-menu-item header="X"></c1-menu-item>
+        <c1-menu-item header="Y"></c1-menu-item>
+        <c1-menu-item header="XY"></c1-menu-item>
+    </c1-menu>
+
+    <button id="reset" class="btn btn-primary" onclick="resetAxes()" disabled="disabled">Reset Zoom</button>
+}
+
+@section Description{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ul>
+                <li>
+                    <b>@Html.Raw(FlexChartRes.PanningAndScaling_MouseAction)</b>
+                    <ol>
+                        <li>@Html.Raw(FlexChartRes.PanningAndScaling_Li1)</li>
+                        <li>@Html.Raw(FlexChartRes.PanningAndScaling_Li2)</li>
+                    </ol>
+                </li>
+                <li>
+                    <b>@Html.Raw(FlexChartRes.PanningAndScaling_TouchAction)</b>
+                    <ol>
+                        <li>
+                            @Html.Raw(FlexChartRes.PanningAndScaling_Li3)
+                        </li>
+                    </ol>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+}

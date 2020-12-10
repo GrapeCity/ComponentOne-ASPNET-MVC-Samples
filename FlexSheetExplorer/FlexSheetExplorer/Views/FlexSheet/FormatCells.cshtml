@@ -1,0 +1,71 @@
+@{
+    IEnumerable<FontName> fontList = ViewBag.FontList;
+    IEnumerable<FontSize> fontSizeList = ViewBag.FontSizeList;
+}
+@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/formatCells.js"></script>}
+<div>
+    <div class="copy">
+<h3>@Html.Raw(FlexSheetRes.FormatCells_Text2)</h3>
+
+<p>@Html.Raw(FlexSheetRes.FormatCells_Text0)</p>
+
+    </div>
+    <div class="row well well-lg">
+        <div class="row">
+            @Html.Raw(FlexSheetRes.FormatCells_Text3)
+            <c1-menu id="menuFormat" header="Format" selected-index-changed="formatChanged">
+                <c1-menu-item header="Decimal Format" command-parameter="@("d0")"></c1-menu-item>
+                <c1-menu-item header="Number Format" command-parameter="@("n2")"></c1-menu-item>
+                <c1-menu-item header="Percentage Format" command-parameter="@("p2")"></c1-menu-item>
+                <c1-menu-item header="Currency Format" command-parameter="@("c2")"></c1-menu-item>
+                <c1-menu-item is-separator="true"></c1-menu-item>
+                <c1-menu-item header="Short Date" command-parameter="@("d")"></c1-menu-item>
+                <c1-menu-item header="Long Date" command-parameter="@("D")"></c1-menu-item>
+                <c1-menu-item header="Full Date/TIme (short time)" command-parameter="@("f")"></c1-menu-item>
+                <c1-menu-item header="Full Date/TIme (long time)" command-parameter="@("F")"></c1-menu-item>
+            </c1-menu>
+        </div>
+        <br />
+        <div class="row">
+            @Html.Raw(FlexSheetRes.FormatCells_Text4)
+            <c1-combo-box id="cboFontName" display-member-path="Name" selected-value-path="Value"
+                          selected-index="0" is-editable="false" style="width: 120px"
+                          selected-index-changed="fontChanged">
+                <c1-items-source source-collection="fontList"></c1-items-source>
+            </c1-combo-box>
+            <c1-combo-box id="cboFontSize" display-member-path="Name" selected-value-path="Value"
+                          selected-index="5" is-editable="false" style="width: 80px"
+                          selected-index-changed="fontSizeChanged">
+                <c1-items-source source-collection="fontSizeList"></c1-items-source>
+            </c1-combo-box>
+            <div class="btn-group">
+                <button type="button" id="boldBtn" class="btn btn-default" onclick="applyBoldStyle()">@Html.Raw(FlexSheetRes.FormatCells_Text6)</button>
+                <button type="button" id="italicBtn" class="btn btn-default" onclick="applyItalicStyle()">@Html.Raw(FlexSheetRes.FormatCells_Text7)</button>
+                <button type="button" id="underlineBtn" class="btn btn-default" onclick="applyUnderlineStyle()">@Html.Raw(FlexSheetRes.FormatCells_Text8)</button>
+            </div>
+            @Html.Raw(FlexSheetRes.FormatCells_Text5)
+            <div class="btn-group">
+                <button type="button" id="leftBtn" class="btn btn-default active" onclick="applyCellTextAlign('left')">@Html.Raw(FlexSheetRes.FormatCells_Text9)</button>
+                <button type="button" id="centerBtn" class="btn btn-default" onclick="applyCellTextAlign('center')">@Html.Raw(FlexSheetRes.FormatCells_Text10)</button>
+                <button type="button" id="rightBtn" class="btn btn-default" onclick="applyCellTextAlign('right')">@Html.Raw(FlexSheetRes.FormatCells_Text11)</button>
+            </div>
+            @Html.Raw(FlexSheetRes.FormatCells_Text14)
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" onclick="showColorPicker(event, false)">@Html.Raw(FlexSheetRes.FormatCells_Text12)</button>
+                <button type="button" class="btn btn-default" onclick="showColorPicker(event, true)">@Html.Raw(FlexSheetRes.FormatCells_Text13)</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="formatSheet">
+            <c1-unbound-sheet name="Number" column-count="8" row-count="20"></c1-unbound-sheet>
+            <c1-unbound-sheet name="Date" column-count="8" row-count="20"></c1-unbound-sheet>
+        </c1-flex-sheet>
+        <c1-color-picker id="colorPicker" style="display: none; position: fixed; z-index: 100">
+        </c1-color-picker>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.FormatCells_Text1)</p>
+
+}

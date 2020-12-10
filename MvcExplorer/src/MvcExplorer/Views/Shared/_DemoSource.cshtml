@@ -1,0 +1,22 @@
+﻿@model IDictionary<string, string>
+@if (Model != null)
+{
+    <c1-tab-panel id="sourceTab" class="nav nav-tabs ui-helper-clearfix mob-hide-1">
+        @foreach (var pageSource in Model)
+        {
+            <div>
+                <a>@pageSource.Key</a>
+                @{ 
+                    var className = "brush:c#;";
+                    if (pageSource.Key.Contains(".cshtml"))
+                    {
+                        className = "brush:js;html-script:true;";
+                    }
+                }
+                <div class="tab-pane pane-content mob-hide-1">
+                    <pre class=@className>@pageSource.Value</pre>
+                </div>
+            </div>
+        }
+    </c1-tab-panel>
+}

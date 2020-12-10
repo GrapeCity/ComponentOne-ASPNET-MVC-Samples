@@ -1,0 +1,10 @@
+﻿@model IEnumerable<ProductSales>
+
+<c1-flex-pie id="multipleChart" header="Product" binding-name="Country" binding="Downloads,Sales">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
+</c1-flex-pie>
+
+@section Description{
+    <p>@Html.Raw(FlexPieRes.Multiple_Text0)</p>
+}

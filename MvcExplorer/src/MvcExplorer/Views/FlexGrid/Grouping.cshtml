@@ -1,0 +1,72 @@
+﻿@model IEnumerable<Order>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+<c1-flex-grid id="@controlId" height="350px" is-read-only="true" show-groups="true"
+              auto-generate-columns="false" group-by="ShipCountry">
+    <c1-items-source read-action-url="@Url.Action("Grouping_Bind")" page-size="50"></c1-items-source>
+    <c1-flex-grid-column binding="OrderID" header="Id"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipCountry" header="Ship Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipCity" header="Ship City"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShippedDate" header="Shipped Date"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="ShipAddress" header="Ship Address" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Freight" header="Freight" format="c2" aggregate="Sum"></c1-flex-grid-column>
+</c1-flex-grid>
+
+<c1-pager owner="@controlId"></c1-pager>
+
+@section Scripts{
+    <script>
+        function customChangeGroupBy(grid, name) {
+            var groupDescriptions = grid.collectionView.groupDescriptions;
+            grid.beginUpdate();
+            groupDescriptions.clear();
+
+            if (name.indexOf("ShipCountry") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShipCountry"));
+            }
+
+            if (name.indexOf("ShipCity") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShipCity"));
+            }
+
+            if (name.indexOf("ShippedDate") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShippedDate", function (item, prop) {
+                    var value = item[prop];
+                    if (!value) {
+                        return "";
+                    } else {
+                        return value.getFullYear() + "/" + (value.getMonth() + 1);
+                    }
+                }));
+            }
+
+            if (name.indexOf("Freight") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Freight", function (item, prop) {
+                    var value = item[prop];
+                    if (value <= 50) {
+                        return "0 to 50";
+                    }
+
+                    if (value > 50 && value <= 100) {
+                        return "50 to 100";
+                    }
+
+                    if (value > 100 && value <= 150) {
+                        return "100 to 150";
+                    }
+
+                    return "More than 150";
+                }));
+            }
+
+            grid.endUpdate();
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.Grouping_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.Grouping_Text1)</p>
+}

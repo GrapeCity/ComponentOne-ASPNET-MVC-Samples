@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Product>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<div style="overflow: auto">
+    <div class="col-md-5">
+        <div id="multiSelectList" style="width:100%;max-width:400px;height:530px"></div>
+    </div>
+    <div class="col-md-7">
+        <p>
+            <b>Checked Items:</b>
+        </p>
+        <div style="height:500px; overflow-y:auto; border-top: 1px solid #eeeeee; border-bottom: 1px solid #eeeeee;">
+            <ul id="checkedItems" class="col-md-5"></ul>
+            <ul id="checkedItems1" class="col-md-5"></ul>
+        </div>
+    </div>
+</div>
+
+<c1-multi-select-list-box id="multiSelectList" display-member-path="ProductName" checked-member-path="Discontinued"
+            show-select-all-checkbox="@Convert.ToBoolean(optionsModel.Options["Show Select All Checkbox"].CurrentValue)" 
+            show-filter-input="@Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue)" 
+            checked-items-changed="checkedItemsChanged">
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-multi-select-list-box>
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            let multiSelectList = wijmo.Control.getControl("#multiSelectList");
+            checkedItemsChanged(multiSelectList);
+        })
+        // CheckedItemsChanged event handler
+        function checkedItemsChanged(sender) {
+            let html = '',
+                html1 = '',
+                items = sender.checkedItems,
+                n = items.length;
+            if (n > 40) n = n / 2;
+            else if (n > 20) n = 20;
+            items.forEach(function(item) {
+                n--;
+                if (n >= 0) {
+                    html += "<li>" + item.ProductName + "</li>";
+                } else {
+                    html1 += "<li>" + item.ProductName + "</li>";
+                }
+            });
+            document.querySelector('#checkedItems').innerHTML = html;
+            document.querySelector('#checkedItems1').innerHTML = html1;
+        }
+    </script>
+}
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @Html.Raw(MultiSelectListBoxRes.Index_Text0)
+}
+
+@section Description{
+    @Html.Raw(MultiSelectListBoxRes.Index_Text1)
+}

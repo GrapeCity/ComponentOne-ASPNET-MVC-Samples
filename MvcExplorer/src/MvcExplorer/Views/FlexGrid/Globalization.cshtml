@@ -1,0 +1,122 @@
+﻿@model IEnumerable<Sale>
+
+@section Scripts{
+    <script>
+        var filter = wijmo.culture.FlexGridFilter;
+        var Operator = wijmo.grid.filter.Operator;
+
+        var stringOperators = filter.stringOperators;
+        var customStringOperators = [
+        { name: '(not set)', op: null },
+        { name: 'Same', op: Operator.EQ },
+        { name: 'Different', op: Operator.NE },
+        { name: 'Bigger', op: Operator.GT }, // added
+        { name: 'Smaller', op: Operator.LT }, // added
+        //{ name: 'Begins with', op: Operator.BW },
+        //{ name: 'Ends with', op: Operator.EW },
+        //{ name: 'Has', op: Operator.CT },
+        //{ name: 'Hasn\'t', op: Operator.NC }
+        ];
+
+        var numberOperators = filter.numberOperators;
+        var customNumberOperators = [
+        { name: '(not set)', Operator: null },
+        { name: 'Same', op: Operator.EQ },
+        { name: 'Different', op: Operator.NE },
+        { name: 'Bigger', op: Operator.GT },
+        //{ name: 'Is Greater than or equal to', op: Operator.GE },
+        { name: 'Smaller', op: Operator.LT },
+        //{ name: 'Is Less than or equal to', op: Operator.LE }
+        ];
+
+        var dateOperators = filter.dateOperators;
+        var customDateOperators = [
+        { name: '(not set)', op: null },
+        { name: 'Same', op: Operator.EQ },
+        { name: 'Earlier', op: Operator.LT },
+        { name: 'Later', op: Operator.GT }
+        ];
+
+        var booleanOperators = filter.booleanOperators;
+        var customBooleanOperators = [
+        { name: '(not set)', op: null },
+        { name: 'Is', op: Operator.EQ },
+        { name: 'Isn\'t', op: Operator.NE }
+        ];
+
+        c1.documentReady(function () {
+            customFilterUI();
+        });
+
+        function resetFilterUI() {
+            filter.stringOperators = stringOperators;
+            filter.numberOperators = numberOperators;
+            filter.dateOperators = dateOperators;
+            filter.booleanOperators = booleanOperators;
+        }
+
+        function customFilterUI() {
+            filter.stringOperators = customStringOperators;
+            filter.numberOperators = customNumberOperators;
+            filter.dateOperators = customDateOperators;
+            filter.booleanOperators = customBooleanOperators;
+        }
+
+        function handleCustomize(customize) {
+            if (customize) {
+                customFilterUI();
+            } else {
+                resetFilterUI();
+            }
+        }
+    </script>
+}
+
+<c1-flex-grid id="globalizationGrid" auto-generate-columns="false" is-read-only="true"
+              selection-mode="Row" sorting-type="SingleColumn" group-by="Product" class="grid">
+    <c1-items-source source-collection="Model" disable-server-read="true"></c1-items-source>
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" format="dddd hh:mm"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+</c1-flex-grid>
+
+<label>
+    <b>@Html.Raw(FlexGridRes.Globalization_Text5)</b>
+    @await Html.PartialAsync("_CultureSelector")
+</label>
+<label>
+    <input id="customize" type="checkbox" checked onclick="handleCustomize(this.checked);" />
+    <b>@Html.Raw(FlexGridRes.Globalization_Text6)</b>
+</label>
+
+@section Summary{
+    @Html.Raw(FlexGridRes.Globalization_Text7)
+}
+
+@section Description{
+    <h3>
+        @Html.Raw(FlexGridRes.Globalization_Globalization)
+    </h3>
+    <p>@Html.Raw(FlexGridRes.Globalization_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.Globalization_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.Globalization_Text2)</p>
+    <div class="well">
+        &lt;c1-scripts culture="de"&gt;<br />
+            &nbsp;&nbsp;&nbsp;&nbsp;&lt;c1-basic-scripts /&gt;<br />
+        &lt;/c1-scripts&gt;
+    </div>
+
+    <h3>
+        @Html.Raw(FlexGridRes.Globalization_Customization)
+    </h3>
+    <p>@Html.Raw(FlexGridRes.Globalization_Text3)</p>
+    <p>@Html.Raw(FlexGridRes.Globalization_Text4)</p>
+}

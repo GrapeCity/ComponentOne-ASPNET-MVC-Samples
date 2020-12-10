@@ -1,0 +1,12 @@
+﻿@model IEnumerable<NamedColor>
+
+<div>
+    <label>@Html.Raw(ComboBoxRes.ComplexType_Text0)</label>
+    <c1-combo-box display-member-path="Name" selected-value-path="Value" selected-index="0">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-combo-box>
+</div>
+
+@section Description{
+    @Html.Raw(ComboBoxRes.ComplexType_Text1)
+}

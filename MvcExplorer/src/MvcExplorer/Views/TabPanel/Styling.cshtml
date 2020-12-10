@@ -1,0 +1,181 @@
+﻿@{
+    ClientSettingsModel demoSettingModel = ViewBag.DemoSettingsModel;
+    ViewBag.DemoSettings = true;
+}
+
+@section Styles{
+    <style>
+        /* custom-headers */
+        .wj-tabpanel.custom-headers .wj-tabpanes {
+            border-top: none;
+        }
+
+        .wj-tabpanel.custom-headers .wj-tabheaders {
+            background: black;
+            color: white;
+        }
+
+            .wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader.wj-state-active {
+                background: white;
+                color: black;
+            }
+
+            .wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader:not(.wj-state-active) {
+                font-weight: normal;
+            }
+
+            .wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader.wj-state-active:after { /* hide underline */
+                display: none;
+            }
+
+        /* tabs on the left */
+        .wj-tabpanel.tabs-left > div {
+          display: flex;
+          align-items: center;
+        }
+        .wj-tabpanel.tabs-left .wj-tabheaders {
+          display: flex;
+          flex-direction: column;
+          min-width: 8em;
+          border-right: 1px solid #ddd;
+        }
+        .wj-tabpanel.tabs-left .wj-tabheaders .wj-tabheader {
+          text-align: right;
+        } 
+        .wj-tabpanel.tabs-left .wj-tabpanes {
+          display: flex;
+          flex-grow: 1;
+          border-top: none;
+          overflow-x: hidden;
+        }
+
+        /* tabs on the right */
+        .wj-tabpanel.tabs-right > div {
+          display: flex;
+          align-items: center;
+        }
+        .wj-tabpanel.tabs-right .wj-tabheaders {
+          display: flex;
+          flex-direction: column;
+          min-width: 8em;
+          border-left: 1px solid #ddd;
+          order: 1;
+        }
+        .wj-tabpanel.tabs-right .wj-tabheaders .wj-tabheader {
+          text-align: left;
+        } 
+        .wj-tabpanel.tabs-right .wj-tabpanes {
+          display: flex;
+          flex-grow: 1;
+          border-top: none;
+          overflow-x: hidden;
+          order: 0;
+        }
+
+        /* tabs below */
+        .wj-tabpanel.tabs-below > div {
+          display: flex;
+          flex-direction: column;
+          align-items: stretch;
+        }
+        .wj-tabpanel.tabs-below .wj-tabheaders {
+          order: 1; /* headers after panes */
+        }
+        .wj-tabpanel.tabs-below .wj-tabpanes {
+          order: 0;
+        }
+        .wj-tabpanel.tabs-below .wj-tabheaders .wj-tabheader.wj-state-active:after {
+          top: 0;
+          bottom: unset;
+        }
+    </style>
+}
+
+<script>
+    var directions = ['Left', 'Right', 'Above', 'Below'];
+    function customChangeTabAlignment(control, value) {
+        control.hostElement.querySelector('.wj-tabheaders').style.textAlign = value;
+    }
+
+    function customChangeCustomHeaders(control, value) {
+        wijmo.toggleClass(control.hostElement, 'custom-headers', value);
+    }
+
+    function customChangeTabPosition(control, value) {
+        directions.forEach(function (d, i) {
+            var clsName = 'tabs-' + d.toLowerCase();
+            wijmo.toggleClass(control.hostElement, clsName, d == value);
+        })
+    }
+</script>
+
+<c1-tab-panel id="@demoSettingModel.ControlId" class="custom-tab">
+    <div>
+        <a>Africa</a>
+        <div>
+            <ul>
+                <li>Algeria</li>
+                <li>Angola</li>
+                <li>Benin</li>
+                <li>Botswana</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>America</a>
+        <div>
+            <ul>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>Mexico</li>
+                <li>United States</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div>
+            <ul>
+                <li>China</li>
+                <li>Korea</li>
+                <li>India</li>
+                <li>Japan</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Europe</a>
+        <div>
+            <ul>
+                <li>Austria</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+                <li>Netherlands</li>
+                <li>Switzerland</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Oceania</a>
+        <div>
+            <ul>
+                <li>Australia</li>
+                <li>Fiji</li>
+                <li>New Zealand</li>
+                <li>Samoa</li>
+            </ul>
+        </div>
+    </div>
+</c1-tab-panel>
+
+
+@section Summary{
+<p>@Html.Raw(TabPanelRes.Styling_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TabPanelRes.Styling_Text1)</p>
+    <p>@Html.Raw(TabPanelRes.Styling_Text2)</p>
+    <p>@Html.Raw(TabPanelRes.Styling_Text3)</p>
+}

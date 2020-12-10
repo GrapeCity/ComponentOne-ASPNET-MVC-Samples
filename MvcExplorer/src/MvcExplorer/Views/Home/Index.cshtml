@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = HomeRes.Index_Home;
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var groups = ControlPages.ControlGroups;
+
+    var allGroups = new List<ControlGroup>();
+    allGroups.Add(ControlPages.NewGroup);
+    allGroups.Add(ControlPages.PopularGroup);
+    allGroups.AddRange(groups);
+}
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var controlsNav = document.querySelector('.controls-nav');
+            for (var i = 0, l = controlsNav.children.length; i < l; i++){
+                var li = controlsNav.children[i];
+                if (!li.tagName || li.tagName.toLowerCase() !== 'li') {
+                    continue;
+                }
+
+                var title = li.querySelector('h3'),
+                    content = li.querySelector('ul'),
+                    downIcon = document.createElement('span');
+                downIcon.className = 'wj-glyph-down';
+                title.style.cursor = 'pointer';
+                title.innerHTML += ' ';
+                title.appendChild(downIcon);
+                $(title).on('click', function () {
+                    var uls = controlsNav.querySelectorAll('ul');
+                    for (var ulIndex = 0; ulIndex < uls.length; ulIndex++) {
+                        uls[ulIndex].classList.add('hide');
+                    }
+                    this.parentElement.querySelector('ul').classList.remove('hide');
+                });
+
+                content.classList.add('hide');
+            }
+        });
+
+    </script>
+}
+
+<div class="narrow-screen">
+    <section class="description">
+        <p>@Html.Raw(HomeRes.Index_Text0)</p>
+    </section>
+    <ul class="controls-nav">
+        @foreach (var group in allGroups)
+        {
+            @await Html.PartialAsync("_ControlGroup", group)
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 first wide-screen">
+    <section class="description">
+        <p>@Html.Raw(HomeRes.Index_Text1)</p>
+    </section>
+    <ul>
+        @await Html.PartialAsync("_ControlGroup", @ControlPages.ControlGroups.Skip(7).First())
+        @await Html.PartialAsync("_ControlGroup", @ControlPages.NewGroup)
+        @await Html.PartialAsync("_ControlGroup", @ControlPages.PopularGroup)
+        @await Html.PartialAsync("_ControlGroup", @ControlPages.ControlGroups.Skip(8).First())
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Take(3))
+        {
+            @await Html.PartialAsync("_ControlGroup", group)
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Skip(3).Take(4))
+        {
+            @await Html.PartialAsync("_ControlGroup", group)
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Skip(9))
+        {
+            @await Html.PartialAsync("_ControlGroup", group)
+        }
+    </ul>
+</div>

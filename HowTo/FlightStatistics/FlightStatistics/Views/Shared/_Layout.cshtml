@@ -1,0 +1,49 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <c1-styles></c1-styles>
+    <c1-scripts>
+        <c1-basic-scripts />
+    </c1-scripts>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/customMaterialGrid.css" />
+    <link rel="stylesheet" href="~/lib/spin/spin.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <script src="~/js/AggregateSeries.js"></script>
+    <script src="~/lib/spin/spin.js"></script>    
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+
+    @{
+        Culture.SetCurrentCulture(Context, Context.Request.Query["culture"]);
+    }
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img class="navbar-brand" src="~/images/FlightIcon_200X200.png" alt="" style="vertical-align:central" />
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Flight Statistics</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; 2018 - Flight Statistics</p>
+        </footer>
+    </div>
+
+    <script src="~/lib/jquery/dist/jquery.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

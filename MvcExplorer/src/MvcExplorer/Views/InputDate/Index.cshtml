@@ -1,0 +1,25 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+}
+
+@section Scripts{
+<script>
+    function changeDate(sender, e) {
+        wijmo.Control.getControl("#idcCalendar").value = sender.value;
+    }
+</script>
+}
+
+<p><c1-calendar id="idcCalendar" value="@today" min="@minDate" max="@maxDate" width="300px">
+    </c1-calendar></p>
+<div>
+    <label>@Html.Raw(InputDateRes.Index_Text1)</label>
+    <c1-input-date id="idcInputDate" value="@today" min="@minDate" max="@maxDate" value-changed="changeDate">
+    </c1-input-date>
+</div>
+
+@section Description{
+    @Html.Raw(InputDateRes.Index_Text0)
+}

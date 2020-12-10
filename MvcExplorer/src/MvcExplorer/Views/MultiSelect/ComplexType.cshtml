@@ -1,0 +1,13 @@
+﻿@model C1NWindEntities
+
+<div>
+    <label>@Html.Raw(MultiSelectRes.ComplexType_Text0)</label>
+
+    <c1-multi-select display-member-path="ProductName" selected-value-path="ProductID" checked-member-path="Discontinued">
+        <c1-items-source source-collection="Model.Products"/>
+    </c1-multi-select>
+</div>
+
+@section Description{
+    @Html.Raw(MultiSelectRes.ComplexType_Text1)
+}
