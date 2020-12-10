@@ -1,8 +1,4 @@
 ## ComponentOne AspNetCore MVC Samples
-#### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-ASPNET-MVC-Samples/tree/master)
-____
-#### 
-____
 
 There are several different projects that are organized in sub-folders. These sub-folders are organized similarly to the organization of the docs for .NET.
 
