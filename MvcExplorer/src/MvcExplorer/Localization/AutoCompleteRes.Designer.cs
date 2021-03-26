@@ -177,5 +177,16 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("CaseSensitiveSearchDescription_Text0", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to When Begins With Search is &lt;b&gt;true&lt;/b&gt;, the user types are searched as beginning.
+        /// </summary>
+        public static string BeginsWithSearchDescription_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("BeginsWithSearchDescription_Text0", resourceCulture);
+            }
+        }
     }
 }

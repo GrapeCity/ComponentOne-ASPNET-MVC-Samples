@@ -487,7 +487,7 @@
     <value>Invalid Product, Please use the product in the list ["Widget", "Gadget", "Doohickey"]</value>
   </data>
   <data name="BuiltInValidation_Message3" xml:space="preserve">
-    <value>Cannot be less than 0 or greater than 5000!</value>
+    <value>The Amount cannot be less than 0 or greater than or equal to 5000!</value>
   </data>
   <data name="BuiltInValidation_Message4" xml:space="preserve">
     <value>Active items are not allowed in the US or UK!</value>
@@ -929,5 +929,20 @@ Note that you have to update the details view when the current item changes. To 
   </data>
   <data name="EnterTextSearch_Text0" xml:space="preserve">
     <value>Enter search text here</value>
+  </data>
+  <data name="Editing_Text17" xml:space="preserve">
+    <value>&lt;b&gt;ShowPlaceholders&lt;/b&gt;: This setting determines whether the grid should use the column headers as placeholders when editing cells. It only works with the grid's built-in editor. It's not useful in IE because IE does not show input placeholders on focused input elements.</value>
+  </data>
+  <data name="CustomEditors_Text13" xml:space="preserve">
+    <value>The sample also shows how to customize the action for tab key and enter key using &lt;b&gt;KeyActionTab&lt;/b&gt; and &lt;b&gt;KeyActionEnter&lt;/b&gt; properties. Especially we can select the setting &lt;b&gt;CycleEditable&lt;/b&gt; to facilitates editting by moving the selection to the next editable when press tab/enter key.</value>
+  </data>
+  <data name="BuiltInValidation_Message5" xml:space="preserve">
+    <value>This item has {n} errors. Hover on specified error cells for detail.</value>
+  </data>
+  <data name="BuiltInValidation_Text2" xml:space="preserve">
+    <value>You can customize the single error report which is showed when hover on error cells and multiple errors report which is showed when hover on row headers.</value>
+  </data>
+  <data name="PDFExport_Summary" xml:space="preserve">
+    <value>The sample demonstrates how to export FlexGrid content to a PDF file.</value>
   </data>
 </root>

@@ -136,6 +136,15 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Search result: .
+        /// </summary>
+        public static string Index_SearchResult {
+            get {
+                return ResourceManager.GetString("Index_SearchResult", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to SelectedIndex:.
         /// </summary>
         public static string Index_SelectedIndex {

@@ -15,79 +15,6 @@
             });
         });
 
-        // The following scripts added for customizing the updating for the Product column.
-
-        // apply the customized updating for the Product column
-        function cellEditEnding(grid, cellRangeEventArgs) {
-            var row = cellRangeEventArgs.row, col = cellRangeEventArgs.col;
-            var bcol = grid.getBindingColumn(grid.cells, row, col);
-            // when it is the editor of the "Product" column,
-            // apply the updating manually.
-            if (!cellRangeEventArgs.cancel
-                && cellRangeEventArgs.panel.cellType == wijmo.grid.CellType.Cell
-                && bcol.binding == 'Product') {
-                updateCellValue(grid, cellRangeEventArgs);
-                cellRangeEventArgs.cancel = true;
-            }
-        }
-
-        function productEditorFocus(event) {
-            var input = event.currentTarget;
-            if (input) {
-                wijmo.setSelectionRange(input, 0, input.value.length);
-            }
-        }
-
-        function productEditorBlur(event) {
-            var input = event.currentTarget;
-            setTimeout(function () {
-                if (wijmo.contains(document.activeElement, input)
-                    // ensure the input element is not removed from the page.
-                    || !document.body.contains(input)) {
-                    return;
-                }
-                var wrapper = input.parentNode,
-                    cellRange = getActiveEditorCellRange(input),
-                    grid = wijmo.Control.getControl('#customEditorsMultiRow');
-                updateCellValue(grid, cellRange);
-                if (wrapper.parentNode) wrapper.parentNode.removeChild(wrapper);
-            });
-        }
-
-        // the id of the element would be [MultiRow's id] + "_Cell_r" + row + "_c" + col + "_"
-        function getActiveEditorCellRange(ele) {
-            var id = ele.id, strId,
-                row, col, index;
-            if (id) {
-                strId = id.substr('customEditorsMultiRow_Cell_r'.length);
-                index = strId.indexOf('_c');
-                row = parseInt(strId.substring(0, index));
-                col = parseInt(strId.substr(index + 2));
-                return { row: row, col: col };
-            }
-        }
-
-        // update the Product cell's value with its editor.
-        function updateCellValue(grid, cellRangeEventArgs) {
-            var row, col,
-                sel = grid.selection,
-                cv = grid.collectionView;
-
-            row = cellRangeEventArgs.row;
-            col = cellRangeEventArgs.col;           
-            var input = getEditorControl(row, col);
-            grid.setCellData(row, col, input.value);
-            var itemIndex = grid._getCvIndex(row);
-            cv.editItem(cv.items[itemIndex]);
-            cv.commitEdit();
-            cv.commitNew();
-        }
-
-        function getEditorControl(row, col) {
-            var elementId = 'customEditorsMultiRow_Cell_r' + row + '_c' + col;
-            return document.getElementById(elementId);
-        }
-
         function setNewRowAtTop() {
             var multirow = wijmo.Control.getControl("#customEditorsMultiRow");
             var checkbox = document.getElementById("newRowAtTop");
@@ -96,9 +23,17 @@
     </script>
 }
 
+<c1-input-date id="dateEditor" style="width:100%" is-required="false" format="d"></c1-input-date>
+<c1-input-time id="timeEditor" style="width:100%" is-required="false" step="30" format="t"></c1-input-time>
+<c1-combo-box id="countryEditor" style="width:100%" is-editable="false">
+    <c1-items-source source-collection="@countries"></c1-items-source>
+</c1-combo-box>
+<c1-input-color id="colorEditor" style="width:100%" is-required="false"></c1-input-color>
+<c1-input-number id="amountEditor" style="width:100%" is-required="false" format="c2" step="10"></c1-input-number>
+
 <!-- MultiRow hosting the custom editors -->
 <c1-multi-row id="customEditorsMultiRow" allow-add-new="true" allow-delete="true"
-              key-action-tab="Cycle" class="multirow" cell-edit-ending="cellEditEnding" new-row-at-top="false">
+              key-action-tab="Cycle" class="multirow" new-row-at-top="false">
     <c1-items-source read-action-url="@Url.Action("CustomEditors_Bind")"
                      update-action-url="@Url.Action("MultiRowEditorsUpdate")"
                      create-action-url="@Url.Action("MultiRowEditorsCreate")"
@@ -109,42 +44,16 @@
         <c1-multi-row-cell binding="Active" header="Active" is-read-only="false"></c1-multi-row-cell>
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group>
-        <c1-multi-row-cell binding="Start" header="Date" width="150" format="d">
-            <c1-flex-grid-cell-template is-editing="true">
-                <c1-input-date id="dateEditor" style="width:100%" is-required="false" format="d" template-bindings="@(new{ Value = "Start"})"></c1-input-date>
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
-        <c1-multi-row-cell binding="End" header="Time" format="t">
-            <c1-flex-grid-cell-template is-editing="true">
-                <c1-input-time id="timeEditor" style="width:100%" is-required="false" step="30" format="t" template-bindings="@(new {Value="End"})"></c1-input-time>
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Start" header="Date" width="150" format="d" editor="dateEditor"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End" header="Time" format="t" editor="timeEditor"></c1-multi-row-cell>
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group colspan="2">
-        <c1-multi-row-cell binding="Country" header="Country" colspan="2">
-            <c1-flex-grid-cell-template is-editing="true">
-                <c1-combo-box id="countryEditor" style="width:100%" is-editable="false" template-bindings="@(new {Text="Country"})">
-                    <c1-items-source source-collection="@countries"></c1-items-source>
-                </c1-combo-box>
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
-        <c1-multi-row-cell binding="Product" header="Product">
-            <c1-flex-grid-cell-template is-editing="true">
-                <input type="text" id="{{uid}}" onfocus="productEditorFocus(event)" onblur="productEditorBlur(event)" style="width:100%;height:100%" value="{{Product}}" />
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
-        <c1-multi-row-cell binding="Color" header="Color">
-            <c1-flex-grid-cell-template is-editing="true">
-                <c1-input-color id="colorEditor" style="width:100%" is-required="false" template-bindings="@(new {Value="Color"})"></c1-input-color>
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Country" header="Country" colspan="2" editor="countryEditor"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product" header="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color" header="Color" editor="colorEditor"></c1-multi-row-cell>
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group>
-        <c1-multi-row-cell binding="Amount" header="Amount" format="n2">
-            <c1-flex-grid-cell-template is-editing="true">
-                <c1-input-number id="amountEditor" style="width:100%" is-required="false" format="c2" step="10" template-bindings="@(new {Value="Amount"})"></c1-input-number>
-            </c1-flex-grid-cell-template>
-        </c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount" header="Amount" format="n2" editor="amountEditor"></c1-multi-row-cell>
         <c1-multi-row-cell binding="Amount2" header="Amount2"></c1-multi-row-cell>
     </c1-multi-row-cell-group>
 </c1-multi-row>
@@ -156,36 +65,4 @@
 @section Description{
     <p>@Html.Raw(MultiRowRes.CustomEditors_Text0)</p>
     <p>@Html.Raw(MultiRowRes.CustomEditors_Text15)</p>
-
-    <p>@Html.Raw(MultiRowRes.CustomEditors_Text1)</p>
-
-    <p>@Html.Raw(MultiRowRes.CustomEditors_Text2)</p>
-
-    <ul class="normal">
-        <li>
-            <b>@Html.Raw(MultiRowRes.CustomEditors_Text11)</b>
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text3)</p>
-
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text4)</p>
-
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text5)</p>
-
-        </li>
-        <li>
-            <b>@Html.Raw(MultiRowRes.CustomEditors_Text12)</b>
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text6)</p>
-
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text7)</p>
-
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text8)</p>
-
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text9)</p>
-
-        </li>
-        <li>
-            <b>@Html.Raw(MultiRowRes.CustomEditors_Text13)</b>
-            <p>@Html.Raw(MultiRowRes.CustomEditors_Text10)</p>
-
-        </li>
-    </ul>
 }

@@ -452,7 +452,7 @@ var c1;
                             seft._grid.select(0, 0);
                         }
                         seft._filtering = false;
-                    }, 50);
+                    }, 400);
                 }
             };
             Object.defineProperty(MultiColumnComboBox.prototype, "_isCallbackSource", {

@@ -78,5 +78,32 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;br/&gt;This sample also set the selection at the item in the middle of view by using &lt;b&gt;SelectedIndex&lt;/b&gt; property..
+        /// </summary>
+        public static string Index_Text2 {
+            get {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When the filter input is shown, using the &lt;b&gt;Delay&lt;/b&gt; property in milliseconds set the delay between when a keystroke occurs and when the search is performed to update the filter..
+        /// </summary>
+        public static string Index_Text3 {
+            get {
+                return ResourceManager.GetString("Index_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Using &lt;b&gt;CaseSensitiveSearch&lt;/b&gt; determines whether searches performed  while the user types should case-sensitive..
+        /// </summary>
+        public static string Index_Text4 {
+            get {
+                return ResourceManager.GetString("Index_Text4", resourceCulture);
+            }
+        }
     }
 }

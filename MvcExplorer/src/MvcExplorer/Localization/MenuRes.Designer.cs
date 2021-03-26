@@ -78,7 +78,25 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Color: aqua.
+        ///   Looks up a localized string similar to Use &lt;b&gt;HeaderPath&lt;/b&gt;.
+        /// </summary>
+        public static string BindMode_Text2 {
+            get {
+                return ResourceManager.GetString("BindMode_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  Use &lt;b&gt;HeaderPath&lt;/b&gt; if you want to decouple the value shown in the header content from the values shown in the drop-down list..
+        /// </summary>
+        public static string BindMode_Text3 {
+            get {
+                return ResourceManager.GetString("BindMode_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Color: aqua.
         /// </summary>
         public static string ContextMenu_ColorAqua {
             get {

@@ -14,7 +14,8 @@
 
 
 <c1-flex-chart id="@demoSettingModel.ControlId" binding-x="Name"
-               chart-type="@chartType" stacking="@stacking" rotated="@rotated" legend-position="Bottom" legend-orientation="@orientationType">
+               chart-type="@chartType" stacking="@stacking" rotated="@rotated"
+               legend-position="Bottom" legend-orientation="@orientationType" legend-max-size="100px">
     <c1-flex-chart-tooltip></c1-flex-chart-tooltip>
     <c1-items-source source-collection="Model"></c1-items-source>
     <c1-flex-chart-series binding="MarPrice" name="March">
@@ -26,23 +27,38 @@
 </c1-flex-chart>
 
 @section Scripts{
-<script type="text/javascript">
-    convertStacking = function (value) {
-        return value === "Stacked 100%" ? "Stacked100pc" : value;
-    };
-    convertPalette = function (value) {
-        return wijmo.chart.Palettes[value];
-    };
-    updateGroupWidth = function (control, value) {
-        control.options = { groupWidth: value === "50 pixels" ? 50 : value };
-    };
-    customChangeLegendOrientation = function (control, value) {
-        control.legend.orientation = value;
-    };
-    function customChangeTooltipPosition(control, value) {
-        control.tooltip.position = value;
-    }
-</script>
+    <script type="text/javascript">
+        convertStacking = function (value) {
+            return value === "Stacked 100%" ? "Stacked100pc" : value;
+        };
+        convertPalette = function (value) {
+            return wijmo.chart.Palettes[value];
+        };
+        updateGroupWidth = function (control, value) {
+            control.options = { groupWidth: value === "50 pixels" ? 50 : value };
+        };
+        customChangeLegendOrientation = function (control, value) {
+            control.legend.orientation = value;
+        };
+        function customChangeTooltipPosition(control, value) {
+            control.tooltip.position = value;
+        }
+        function setChartOption(value) {
+            var chart = wijmo.Control.getControl('#@demoSettingModel.ControlId');
+            if (chart) {
+                chart.legend.maxSize = value;
+                chart.refresh(true);
+            }
+        }
+        function maxSizeChanged(sender, args) {
+            setChartOption(sender.value);
+        }
+    </script>
+}
+
+@section Settings{
+    <label style="display: inline-block; font-weight: normal">Legend Maxsize</label>
+    <c1-input-number step="1" value="100" value-changed="maxSizeChanged" width="150px"></c1-input-number>
 }
 
 @section Description{
@@ -58,4 +74,5 @@
         <li>@Html.Raw(FlexChartRes.Index_Li3)</li>
     </ol>
     <p>@Html.Raw(FlexChartRes.Index_Text3)</p>
+    <p>@Html.Raw(FlexChartRes.Index_Text4)</p>
 }

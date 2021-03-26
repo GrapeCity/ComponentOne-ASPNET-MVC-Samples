@@ -7,7 +7,7 @@
 
 <div style="overflow: auto">
     <div class="col-md-5">
-        <div id="multiSelectList" style="width:100%;max-width:400px;height:530px"></div>
+        <div id="multiSelectList" style="width:100%;max-width:400px;height:530px; overflow-y: scroll"></div>
     </div>
     <div class="col-md-7">
         <p>
@@ -21,9 +21,10 @@
 </div>
 
 <c1-multi-select-list-box id="multiSelectList" display-member-path="ProductName" checked-member-path="Discontinued"
-            show-select-all-checkbox="@Convert.ToBoolean(optionsModel.Options["Show Select All Checkbox"].CurrentValue)" 
-            show-filter-input="@Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue)" 
-            checked-items-changed="checkedItemsChanged">
+                          show-select-all-checkbox="@Convert.ToBoolean(optionsModel.Options["Show Select All Checkbox"].CurrentValue)"
+                          show-filter-input="@Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue)"
+                          checked-items-changed="checkedItemsChanged" selected-index="8"
+                          delay="@Convert.ToInt16(optionsModel.Options["Delay Filter"].CurrentValue)" case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
     <c1-items-source source-collection="Model"></c1-items-source>
 </c1-multi-select-list-box>
 
@@ -56,7 +57,7 @@
 }
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 
 @section Summary{
@@ -65,4 +66,10 @@
 
 @section Description{
     @Html.Raw(MultiSelectListBoxRes.Index_Text1)
+    @Html.Raw(MultiSelectListBoxRes.Index_Text2)
+    <br />
+    @Html.Raw(MultiSelectListBoxRes.Index_Text3)
+    <br />
+    @Html.Raw(MultiSelectListBoxRes.Index_Text4)
+
 }

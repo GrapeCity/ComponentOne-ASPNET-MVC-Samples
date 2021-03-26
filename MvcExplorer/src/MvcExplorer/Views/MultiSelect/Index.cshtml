@@ -17,6 +17,11 @@
                 result.innerHTML += "<span>" + (i + 1) + ". " + items[i] + "<\/span><br>";
             }
         }
+
+        function delayChanged(sender, args) {
+            var multiselect = wijmo.Control.getControl('#multiselect');
+            multiselect.delay = sender.value;
+        }
     </script>
 }
 <div>
@@ -36,6 +41,9 @@
 
 @section Settings{
     @await Html.PartialAsync("_OptionsMenu", optionsModel)
+
+    <label style="font-weight:normal;margin-top:10px;">@Html.Raw(MultiSelectRes.Delay_Text0)</label>
+    <c1-input-number min="0" max="10000" step="100" value="500" format="n0" width="200px" value-changed="delayChanged" />
 }
 
 @section Description{
@@ -43,4 +51,5 @@
     <p>@Html.Raw(MultiSelectRes.Index_Text2)</p>
     <p>@Html.Raw(MultiSelectRes.Index_Text3)</p>
     <p>@Html.Raw(MultiSelectRes.CaseSensitiveSearchDescription_Text0)</p>
+    <p>@Html.Raw(MultiSelectRes.Delay_Text1)</p>
 }

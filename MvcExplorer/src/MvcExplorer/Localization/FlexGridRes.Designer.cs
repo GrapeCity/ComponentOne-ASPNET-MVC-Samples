@@ -313,7 +313,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///    Looks up a localized string similar to Cannot be less than 0 or greater than 5000!.
+        ///   Looks up a localized string similar to The Amount cannot be less than 0 or greater than or equal to 5000!.
         /// </summary>
         public static string BuiltInValidation_Message3
         {
@@ -335,6 +335,15 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to This item has {n} errors. Hover on specified error cells for detail..
+        /// </summary>
+        public static string BuiltInValidation_Message5 {
+            get {
+                return ResourceManager.GetString("BuiltInValidation_Message5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///    Looks up a localized string similar to This sample shows the basic usage of the built-in validation..
         /// </summary>
         public static string BuiltInValidation_Text0
@@ -344,7 +353,16 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("BuiltInValidation_Text0", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can customize the single error report which is showed when hover on error cells and multiple errors report which is showed when hover on row headers..
+        /// </summary>
+        public static string BuiltInValidation_Text2 {
+            get {
+                return ResourceManager.GetString("BuiltInValidation_Text2", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to Use the Selector extender to add a checkbox-based scheme for row selection..
         /// </summary>
@@ -535,7 +553,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to The another way, you also can declare the C1 Input control as usual and then assign it&apos;s id to the &lt;b&gt;Editor&lt;/b&gt; property of a column..
+        ///   Looks up a localized string similar to The sample also shows how to customize the action for tab key and enter key using &lt;b&gt;KeyActionTab&lt;/b&gt; and &lt;b&gt;KeyActionEnter&lt;/b&gt; properties. Especially we can select the setting &lt;b&gt;CycleEditable&lt;/b&gt; to facilitates editting by moving the selection to the next editable when press tab/enter key..
         /// </summary>
         public static string CustomEditors_Text13 {
             get {
@@ -1146,6 +1164,15 @@ namespace MvcExplorer.Localization
             }
         }
 
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;ShowPlaceholders&lt;/b&gt;: This setting determines whether the grid should use the column headers as placeholders when editing cells. It only works with the grid&apos;s built-in editor. It&apos;s not useful in IE because IE does not show input placeholders on focused input elements..
+        /// </summary>
+        public static string Editing_Text17 {
+            get {
+                return ResourceManager.GetString("Editing_Text17", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///    Looks up a localized string similar to You can disable editing at the grid or column levels using the &lt;b&gt;isReadOnly&lt;/b&gt;
         ///        property of the grid or column objects..
@@ -2075,7 +2102,18 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("PDFExport_SecuritySettings", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to The sample demonstrates how to export FlexGrid content to a PDF file..
+        /// </summary>
+        public static string PDFExport_Summary
+        {
+            get
+            {
+                return ResourceManager.GetString("PDFExport_Summary", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to You can use the FlexGridPdfConverter, a &lt;a href=&quot;https://github.com/devongovett/pdfkit&quot;&gt;PDFKit&lt;/a&gt;-based JavaScript library,
         ///        to export FlexGrid to PDF (Portable Document Format) without using any server-side code..

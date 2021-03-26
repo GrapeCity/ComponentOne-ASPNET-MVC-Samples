@@ -4,7 +4,7 @@
     <Control name="FlexGrid" popular="true">
       <action text="General" text.ja="一般">
         <subactions>
-          <action text="ShowCase" text.ja="ケースを表示" name="ShowCase" enhanced="true" 
+          <action text="ShowCase" text.ja="ケースを表示" name="ShowCase" enhanced="false" 
                   enhancetip="Added showcase sample page." 
                   enhancetip.ja="サンプルページが追加されました。"
                   ></action>
@@ -32,14 +32,14 @@
         <subactions>
           <action text="Filtering" text.ja="フィルタ処理" name="Filter" enhanced="false" 
                   enhancetip="Added DataMap support for ValueFilter.&lt;br&gt;Added new ExclusiveValueSearch property to FlexGridFilter and ValueFilter which is setted to true by default enables an Excel-like behavior (searching excludes items from the filter), set it to false to disable this." enhancetip.ja="ValueFilterのDataMapサポートを追加します。&lt;br&gt;FlexGridFilterに新しいExclusiveValueSearchプロパティを追加し、デフォルトでtrueに設定されたValueFilterはExcelに似た動作（検索はフィルタからアイテムを除外）を有効にします。"></action>
-          <action text="Searching" text.ja="検索処理" name="Searching" enhanced="true"
+          <action text="Searching" text.ja="検索処理" name="Searching" enhanced="false"
                   enhancetip="Added FlexGrid.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
                   enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、FlexGrid.CaseSensitiveSearch プロパティが追加されました。"
                   ></action>
           <action text="Paging" text.ja="ページング" name="Paging"></action>
           <action text="Sorting" text.ja="ソート" name="Sorting"></action>
           <action text="Grouping" text.ja="グループ化" name="Grouping"></action>
-          <action text="Group Panel" text.ja="グループパネル" name="GroupPanel" enhanced="true"
+          <action text="Group Panel" text.ja="グループパネル" name="GroupPanel" enhanced="false"
                   enhancetip="Added sample about the drag-drop which is supported on computer by using mouse and touch devices by touching."
                   enhancetip.ja="コンピュータまたはタッチデバイスでマウスまたはタッチ操作を使用して動作するドラッグ＆ドロップ操作に関するサンプルが追加されました。"></action>
           <action text="Checkbox Selection" text.ja="チェックボックスの選択" name="CheckboxSelection" enhanced="false"
@@ -81,7 +81,7 @@
           <action text="Custom Cells" text.ja="カスタムセル" name="CustomCells" enhanced="false"
                   enhancetip="Added a Column.Template property to generate the HTML content of data cells in this Column."
                   enhancetip.ja="この列のデータセルのHTMLコンテンツを生成するColumn.Templateプロパティを追加しました。"></action>
-          <action text="Merge Cells" text.ja="セルの結合" name="MergeCells" enhanced="true"
+          <action text="Merge Cells" text.ja="セルの結合" name="MergeCells" enhanced="false"
                   enhancetip="Added FlexGrid.ExpandSelectionOnCopyPaste property to determine whether the grid should automatically expand the selection to include cells in merged ranges when copying or pasting content to/from the clipboard."
                   enhancetip.ja="グリッドでクリップボードへ、またはクリップボードから、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定するために、FlexGrid.ExpandSelectionOnCopyPaste プロパティが追加されました。"></action>
           <action text="Data Map" text.ja="データマップ" name="DataMap" enhanced="false"
@@ -91,16 +91,17 @@
       </action>
       <action text="Editing" text.ja="編集">
         <subactions>
-          <action text="Editing" text.ja="編集" name="Editing" enhanced="false"
-                  enhancetip="Added FlexGrid.AutoRowHeights property to automatically resize the rows when the data or grid layout change. This property is especially useful when the grid has columns configured to word-wrap their content, and when the grid has a relatively small number of rows.&lt;br&gt;Added FlexGrid.RefreshOnEdit to determines whether the grid should refresh all cells after a cell is edited."
-                  enhancetip.ja="データまたはグリッドレイアウトが変更されたときに行のサイズを自動的に変更するFlexGrid.AutoRowHeightsプロパティが追加されました。 このプロパティは、グリッドのコンテンツをワードラップするように構成された列がある場合、およびグリッドの行数が比較的少ない場合に特に役立ちます。&lt;br&gt;セルの編集後にグリッドがすべてのセルを更新するかどうかを決定するFlexGrid.RefreshOnEditが追加されました。"></action>
+          <action text="Editing" text.ja="編集" name="Editing" enhanced="true"
+                  enhancetip="Add new ShowPlaceholders property for FlexGrid to display the column header as a placeholder when editing cells.&lt;br&gt;Add sample for new ShowPlaceholders property of FlexGrid."
+                  enhancetip.ja="FlexGridではShowPlaceholdersプロパティが追加され、セルを編集するときに列ヘッダをプレースホルダーとして表示できるようになりました。&lt;br&gt;また、ShowPlaceholdersプロパティのサンプルが追加されました。"></action>
           <action text="Batch Editing" text.ja="一括編集" name="BatchEditing"></action>
           <action text="Custom Editors" text.ja="カスタムエディタ" name="CustomEditors" enhanced="true"
-                  enhancetip="Added Column.Editor property to declare a C1 Input control as usual and then assign it's id to the Editor property of a column."
-                  enhancetip.ja="C1 Input コントロールを宣言し、その ID を列の Editor プロパティに割り当てる Column.Editor プロパティが追加されました。"></action>
+                  enhancetip="Add new KeyAction.CycleEditable setting for FlexGrid."
+                  enhancetip.ja="FlexGridではKeyAction.CycleEditableの設定が追加されました。"></action>
           <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
-          <action text="Built-in Validation" text.ja="組み込みの検証" name="BuiltInValidation" enhanced="true" enhancetip="Added a property that allows you to specify the location of the FlexGrid's ErrorTip." 
-                  enhancetip.ja="FlexGridのErrorTipの位置を指定できるプロパティを追加しました。"></action>
+          <action text="Built-in Validation" text.ja="組み込みの検証" name="BuiltInValidation" enhanced="true"
+                  enhancetip="Add sample for new feature ‘Multiple Error report’" 
+                  enhancetip.ja="「複数エラーレポート」のサンプルが追加されました。"></action>
           <action text="OData Defer Commits" text.ja="DeferCommits プロパティ" name="ODataDeferCommits" enhanced="false"
                   enhancetip="Added support for batch updates with the new DeferCommits property, commitEdits and cancelChanges methods."
                   enhancetip.ja="新しいDeferCommitsプロパティ、commitEditsおよびcancelChangesメソッドを使用したバッチ更新のサポートが追加されました。"></action>
@@ -109,14 +110,14 @@
       <action text="Import/Export" text.ja="インポート/エクスポート">
         <subactions>
           <action text="Excel Import And Export" text.ja="Excel インポート/エクスポート" name="ExcelImportExport"></action>
-          <action text="PDF Export" text.ja="PDF エクスポート" name="PDFExport" enhanced="true"
+          <action text="PDF Export" text.ja="PDF エクスポート" name="PDFExport" enhanced="false"
                   enhancetip="Added Pdf security to protect the exported PDF content."
                   enhancetip.ja="エクスポートされたPDF 文書を保存するために、セキュリティ設定が追加されました。"></action>
         </subactions>
       </action>
     </Control>
     <Control name="ListBox">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added ListBox.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
               enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、ListBox.CaseSensitiveSearch プロパティが追加されました。"></action>
       <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
@@ -134,6 +135,9 @@
       <action text="Sorting" text.ja="ソート" name="Sorting" enhanced="false"
               enhancetip="Added a SortNulls property that replaces the deprecated SortNullsFirst property and provides additional options for sorting null values."
               enhancetip.ja="SortNullsFirst プロパティは非推奨になりました。代わりに、null 値をソートするための追加オプションを提供する SortNulls プロパティが追加されました。"></action>
+      <action text="Calculated Fields" text.ja="計算フィールド" name="CalculatedFields" enhanced="true"
+              enhancetip="Add new CalculatedFields property as a collection of declaration to calculated fields for CollectionView."
+              enhancetip.ja="CollectionViewの計算フィールドに、宣言のコレクションとしてCalculatedFieldsプロパティが追加されました。"></action>
     </Control>
     <Control name="FlexSheet" name.ja="FlexSheet" link="https://demos.componentone.com/ASPNET/5/FlexSheetExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/FlexSheetExplorer/"
              enhanced="false" enhancetip="Added the AutoFilling and AutoFilled events."
@@ -148,7 +152,7 @@
              enhancetip.ja="複数のヘッダー行を持つヘッダーを許可するMultiRowGroupHeadersプロパティを追加しました。&lt;br&gt;列ヘッダーのカスタムレイアウトを定義できるHeaderLayoutDefinitionプロパティを追加しました。">
     </Control>
     <Control name="Barcode" popular="true" new="true">
-      <action text="General" text.ja="一般" name="Index" enhanced="true"
+      <action text="General" text.ja="一般" name="Index" enhanced="false"
              enhancetip="Added barcode controls."
              enhancetip.ja="追加されたバーコードコントロール。"></action>
     </Control>
@@ -162,15 +166,16 @@
       <action text="Remote Data Bind" text.ja="リモートデータ連結" name="RemoteBind"></action>
       <action text="Selection" text.ja="選択" name="Selection"></action>
       <action text="Animation" text.ja="アニメーション" name="ChartAnimation"></action>
-      <action text="Multiple Chart" text.ja="複数のグラフ" name="MultipleChart" enhanced="false"
-              enhancetip="Added new page to show Multiple Pie Chart." enhancetip.ja="複数の円グラフを表示する新しいページを追加しました。"></action>
+      <action text="Multiple Chart" text.ja="複数のグラフ" name="MultipleChart" enhanced="true"
+              enhancetip="Add new ChartsPerLine property that allows to control layout of multiple pie charts."
+              enhancetip.ja="ChartsPerLineプロパティが追加され、複数の円グラフのレイアウトを制御できるようになりました。"></action>
     </Control>
     <Control name="FlexChart" popular="true">
       <action text="General" text.ja="一般">
         <subactions>
           <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-                  enhancetip="Added a property that allows you to specify the position of the FlexChart Tooltip."
-                  enhancetip.ja="FlexChartのTooltipの位置を指定できるプロパティを追加しました。"></action>
+                  enhancetip="Add new Legend.MaxSize property of FlexChart that allows to specify maximum legend size in pixels."
+                  enhancetip.ja="FlexChartではLegend.MaxSizeプロパティが追加され、凡例の最大サイズをピクセル単位で指定できるようになりました。"></action>
         </subactions>
       </action>
       <action text="Data and Analysis" text.ja="データと分析">
@@ -235,7 +240,7 @@
         <subactions>
           <action text="WebGL" text.ja="WebGL">
             <subactions>
-              <action text="Scatter" text.ja="Scatter" name="Scatter" enhanced="true"
+              <action text="Scatter" text.ja="Scatter" name="Scatter" enhanced="false"
                   enhancetip="Added FlexChart.RenderEngine property to set the chart render engine."
                   enhancetip.ja="チャートのレンダリングエンジンを設定するために、FlexChart.RenderEngine プロパティが追加されました。"></action>
             </subactions>
@@ -293,20 +298,22 @@
   <ControlGroup name="Navigation and Layout" name.ja="ナビゲーションとレイアウト">
     <Control name="Menu">
       <action text="Overview" text.ja="概要" name="Index"></action>
-      <action text="Bind Mode" text.ja="連結モード" name="BindMode"></action>
+      <action text="Bind Mode" text.ja="連結モード" name="BindMode" enhanced="true"
+              enhancetip="Enable HeaderPath property for Menu."
+              enhancetip.ja="MenuコントロールではHeaderPathプロパティが有効になりました。"></action>
       <action text="Context Menu" text.ja="コンテキストメニュー" name="ContextMenu"></action>
       <action text="Hierarchical Menus" text.ja="メニューのカスタマイズ" name="Customize" enhanced="false" 
               enhancetip="Added Menu.CloseOnLeave property to work with Menu.OpenOnHover and provide more control over when menus open and close." enhancetip.ja="Menu.OpenOnHoverと連携してメニューの開閉時の制御を強化するMenu.CloseOnLeaveプロパティを追加しました。"></action>
     </Control>
     <Control name="Popup">
-       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+       <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added Dragging, Dragged, PositionChanging, PositionChanged, Resizing, Resized, SizeChanging, SizeChanged events to set the client function for each event."
               enhancetip.ja="Dragging、Dragged、PositionChanging、PositionChanged、Resizing、Resized、SizeChanging、および SizeChanged イベントが追加され、各イベントのクライアント関数が設定されました。"></action>
-      <action text="Popup Dialog" text.ja="ポップアップダイアログ" name="PopupDialog" enhanced="true"
+      <action text="Popup Dialog" text.ja="ポップアップダイアログ" name="PopupDialog" enhanced="false"
               enhancetip="Added DialogResultSubmit property to sets a string to be used as a dialogResult when the dialog is hosted by a form element and the user submits the form."
               enhancetip.ja="ダイアログがフォーム要素によってホストされ、 ユーザーがフォームを送信するときに dialogResult として使用される文字列を設定する DialogResultSubmit プロパティが追加されました。"></action>
       <action text="Popup Position" text.ja="ポップアップの位置" name="PopupPosition"
-              enhanced="true" enhancetip="Added Popup.PopupPosition property to set where the popup should be displayed with respect to the owner element" 
+              enhanced="false" enhancetip="Added Popup.PopupPosition property to set where the popup should be displayed with respect to the owner element" 
               enhancetip.ja="オーナ要素に対してポップアップを表示する必要があるポップアップの位置を設定する Popup.PopupPosition プロパティが追加されました。"></action>
     </Control>
     <Control name="TreeView">
@@ -325,7 +332,7 @@
       <action text="Editing Nodes" text.ja="ノードの編集" name="EditingNodes"></action>
     </Control>
     <Control name="Accordion" new="true">
-       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+       <action text="Overview" text.ja="概要" name="Index" enhanced="false"
                 enhancetip="Added the Accordion control to allow you to organize content into collapsible panes."
                 enhancetip.ja="コンテンツを折りたたみ可能なパネルに整理できる Accordion コントロールが追加されました。"></action>
     </Control>
@@ -362,15 +369,20 @@
   </ControlGroup>
   <ControlGroup name="Scheduling" name.ja="スケジュール">
     <Control name="Calendar">
-      <action text="Overview" text.ja="概要" name="Index"></action>
+      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+              enhancetip="Add new WeeksBefore and WeeksAfter properties for Calendar to show additional weeks before and after the current month.&lt;br&gt;Add new MonthCount property for Calendar to show multiple months in the same calendar control."
+              enhancetip.ja="CalendarコントロールではWeeksBeforeプロパティとWeeksAfterプロパティが追加され、現在の月の前後に追加の週を表示できるようになりました。&lt;br&gt;また、MonthCountプロパティが追加され、同じカレンダーに複数の月を表示できるようになりました。"></action>
       <action text="Validation" text.ja="検証" name="Validation"></action>
+      <action text="Ranges" text.ja="範囲" name="Ranges" enhanced="true"
+              enhancetip="Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for Calendar."
+              enhancetip.ja="CalendarコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
     </Control>
   </ControlGroup>
   <ControlGroup name="Input" name.ja="入力">
     <Control name="AutoComplete">
       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-              enhancetip="Added AutoComplete.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
-              enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、AutoComplete.CaseSensitiveSearch プロパティが追加されました。"></action>
+              enhancetip="Add new BeginsWithSearch property for AutoComplete to customize the matching behavior."
+              enhancetip.ja="AutoCompleteコントロールではBeginsWithSearchプロパティが追加され、一致する動作をカスタマイズできるようになりました。"></action>
       <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
       <action text="Incremental Search" text.ja="インクリメンタルサーチ" name="CustomAction"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
@@ -379,7 +391,7 @@
       <action text="Overview" text.ja="概要" name="Index"></action>
     </Control>
     <Control name="ComboBox">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
                   enhancetip="Added ComboBox.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
               enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、ComboBox.CaseSensitiveSearch プロパティが追加されました。"></action>
       <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
@@ -389,33 +401,43 @@
       <action text="Grouping" text.ja="グループ化" name="Grouping"></action>
     </Control>
     <Control name="InputColor">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
               enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputDate">
-      <action text="Overview" text.ja="概要" name="Index"></action>
-      <action text="Validation" text.ja="検証" name="Validation" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+              enhancetip="Add new WeeksBefore and WeeksAfter properties for InputDate to show additional weeks before and after the current month.&lt;br&gt;Add new MonthCount property for InputDate to show multiple months in the same calendar control.&lt;br&gt;Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for InputDate."
+              enhancetip.ja="InputDateコントロールではWeeksBeforeプロパティとWeeksAfterプロパティが追加され、現在の月の前後に追加の週を表示できるようになりました。&lt;br&gt;また、MonthCountプロパティが追加され、同じカレンダーに複数の月を表示できるようになりました。&lt;br&gt;InputDateコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
+      <action text="Range" text.ja="範囲" name="Range" enhanced="true"
+              enhancetip="Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for InputDate."
+              enhancetip.ja="InputDateコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
+      <action text="Validation" text.ja="検証" name="Validation" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid date and keep focus for correcting it."
               enhancetip.ja="無効な日付を確認し、エラーを修正できるようにフォーカスを保持する InvalidInput イベントが追加されました。"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputDateTime">
       <action text="Overview" text.ja="概要" name="Index"></action>
-      <action text="Validation" text.ja="検証" name="Validation" enhanced="true"
+      <action text="Validation" text.ja="検証" name="Validation" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
               enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
-    <Control name="InputMask">
+    <Control name="InputDateRange" new="true">
       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+              enhancetip="Add new control InputDateRange."
+              enhancetip.ja="新しいInputDateRangeコントロールが追加されました。"></action>
+    </Control>
+    <Control name="InputMask">
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
               enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputNumber">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
               enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
       <action text="Editor Template" text.ja="エディタテンプレート" name="EditorTemplates"></action>
@@ -424,25 +446,27 @@
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputTime">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
               enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
       <action text="Custom Time" text.ja="カスタム時間" name="CustomTime"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="MultiSelect">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true" 
-              enhancetip="Added MultiSelect.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
-              enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、MultiSelect.CaseSensitiveSearch プロパティが追加されました。"></action>
-      <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
+      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+              enhancetip="Add new Delay and CaseSensitiveSearch properties for MultiSelect."
+              enhancetip.ja="MultiSelectコントロールではDelayプロパティとCaseSensitiveSearchプロパティが追加されました。"></action>
+      <action text="Complex Type" text.ja="複合型" name="ComplexType" enhanced="true"
+              enhancetip="Enable HeaderPath property for MultiSelect."
+              enhancetip.ja="EMultiSelectコントロールではHeaderPathプロパティが有効になりました。"></action>
       <action text="Form" text.ja="フォーム" name="Form"></action>
       <action text="Multi-column DropDown" text.ja="複数列のドロップダウン" name="MultiColumnDropDown"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="MultiSelectListBox">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
-              enhancetip="Added a MultiSelectListBox control that is used as a drop-down for the MultiSelect control"
-              enhancetip.ja="MultiSelect コントロールによってドロップダウンとして使用される MultiSelectListBox コントロールが追加されました。"></action>
+      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+              enhancetip="Add new SelectedIndex property for MultiSelectListBox.&lt;br&gt;Add new Delay and CaseSensitiveSearch properties for MultiSelectListBox."
+              enhancetip.ja="MultiSelectListBoxコントロールではSelectedIndexプロパティが追加されました。&lt;br&gt;また、DelayプロパティとCaseSensitiveSearchプロパティが追加されました。"></action>
     </Control>
     <Control name="MultiAutoComplete">
       <action text="Overview" text.ja="概要" name="Index"></action>

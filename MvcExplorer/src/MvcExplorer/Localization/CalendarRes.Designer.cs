@@ -69,11 +69,56 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;First day of week&lt;/i&gt;: Represents the first day of the week, the one displayed in the first column of the calendar..
+        /// </summary>
+        public static string Index_FirstDayOfWeek {
+            get {
+                return ResourceManager.GetString("Index_FirstDayOfWeek", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Month Count.
+        /// </summary>
+        public static string Index_MonthCount {
+            get {
+                return ResourceManager.GetString("Index_MonthCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Month count&lt;/i&gt;: The number of months to display within the calendar..
+        /// </summary>
+        public static string Index_MonthsCount {
+            get {
+                return ResourceManager.GetString("Index_MonthsCount", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Month view&lt;/i&gt;: Indicating whether the calendar displays a month or a year..
+        /// </summary>
+        public static string Index_MonthView {
+            get {
+                return ResourceManager.GetString("Index_MonthView", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;i&gt;RepeatButtons&lt;/i&gt; = True: the calendar buttons (Previous and Next buttons) should act as repeat buttons, firing repeatedly as the button remains pressed..
         /// </summary>
         public static string Index_RepeatButtons {
             get {
                 return ResourceManager.GetString("Index_RepeatButtons", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Show header&lt;/i&gt;: Indicating whether the control displays the header area with the current month and navigation buttons..
+        /// </summary>
+        public static string Index_ShowHeader {
+            get {
+                return ResourceManager.GetString("Index_ShowHeader", resourceCulture);
             }
         }
         
@@ -110,6 +155,98 @@ namespace MvcExplorer.Localization {
         public static string Index_ValidRange {
             get {
                 return ResourceManager.GetString("Index_ValidRange", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Week After.
+        /// </summary>
+        public static string Index_WeekAfter {
+            get {
+                return ResourceManager.GetString("Index_WeekAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Week Before.
+        /// </summary>
+        public static string Index_WeekBefore {
+            get {
+                return ResourceManager.GetString("Index_WeekBefore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Week after&lt;/i&gt;: The number of weeks to show on the calendar after the current month..
+        /// </summary>
+        public static string Index_WeeksAfter {
+            get {
+                return ResourceManager.GetString("Index_WeeksAfter", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;Week before&lt;/i&gt;: The number of weeks to show on the calendar before the current month..
+        /// </summary>
+        public static string Index_WeeksBefore {
+            get {
+                return ResourceManager.GetString("Index_WeeksBefore", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The current range is:.
+        /// </summary>
+        public static string Ranges_CurrentSelection {
+            get {
+                return ResourceManager.GetString("Ranges_CurrentSelection", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to use DateSelectionMode.Range selection mode that allows users to select date ranges. 
+        ///    Selected ranges are defined by the &lt;b&gt;Value&lt;/b&gt;&quot; and &lt;b&gt;RangeEnd&lt;/b&gt; properties. 
+        ///    You may specify the minimum and maximum valid range lengths with the &lt;b&gt;RangeMin&lt;/b&gt; and &lt;b&gt;RangeMax&lt;/b&gt; properties..
+        /// </summary>
+        public static string Ranges_Description {
+            get {
+                return ResourceManager.GetString("Ranges_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;RangeMin&lt;/b&gt;: The default value for this property is 0, which means there is no minimum value for range lengths..
+        /// </summary>
+        public static string Ranges_Description1 {
+            get {
+                return ResourceManager.GetString("Ranges_Description1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;RangeMax&lt;/b&gt;: The default value for this property is 0, which means there is no maximum value for range lengths..
+        /// </summary>
+        public static string Ranges_Description2 {
+            get {
+                return ResourceManager.GetString("Ranges_Description2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RangeMax.
+        /// </summary>
+        public static string Ranges_RangeMax {
+            get {
+                return ResourceManager.GetString("Ranges_RangeMax", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to RangeMin.
+        /// </summary>
+        public static string Ranges_RangeMin {
+            get {
+                return ResourceManager.GetString("Ranges_RangeMin", resourceCulture);
             }
         }
         

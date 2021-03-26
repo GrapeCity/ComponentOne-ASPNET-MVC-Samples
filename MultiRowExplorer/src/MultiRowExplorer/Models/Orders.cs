@@ -88,7 +88,7 @@ namespace MultiRowExplorer.Models
                     if (_shippers == null)
                     {
                         _shippers = new List<Shipper>();
-                        _shippers.Add(new Shipper { Id = 0, Name = "Speedy Express", Email = "speedy@gmail.com", Phone = "431-3234", Express = true });
+                        _shippers.Add(new Shipper { Id = 0, Name = "Speedy Express", Email = "express.speedy@gmail.com", Phone = "431-3234", Express = true });
                         _shippers.Add(new Shipper { Id = 1, Name = "Flash Delivery", Email = "flash@gmail.com", Phone = "431-6563", Express = true });
                         _shippers.Add(new Shipper { Id = 2, Name = "Logitrax", Email = "logitrax@gmail.com", Phone = "431-3981", Express = false });
                         _shippers.Add(new Shipper { Id = 3, Name = "Acme Inc", Email = "acme@gmail.com", Phone = "431-3113", Express = false });

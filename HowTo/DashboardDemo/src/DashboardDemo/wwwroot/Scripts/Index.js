@@ -17,10 +17,9 @@ var top3SellingProducts,
     eleSalesVSGoalGauges,
     eleRegionalSalesVsGoalGauges;
 
-window.addEventListener('resize', relayout, false);
-
 c1.documentReady(function () {
     init();
+    window.addEventListener('resize', relayout, false);
     relayout();
 });
 

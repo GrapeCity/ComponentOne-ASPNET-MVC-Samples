@@ -13,9 +13,36 @@ namespace MvcExplorer.Controllers
         private static List<Sale> Source = Sale.GetData(20).ToList<Sale>();
         public ActionResult CustomEditors()
         {
+            ViewBag.DemoSettings = true;
+            ViewBag.DemoSettingsModel = new ClientSettingsModel
+            {
+                Settings = _getCustomEditorClientSettings(),
+                DefaultValues = _getCustomEditorDefaultValues()
+            };
+
             ViewBag.Countries = Sale.GetCountries();
             ViewBag.Products = Sale.GetProducts();
             return View();
+        }
+
+        private static IDictionary<string, object[]> _getCustomEditorClientSettings()
+        {
+            return new Dictionary<string, object[]>
+            {
+                {"KeyActionTab", new object[]{ "None", "MoveDown", "MoveAcross", "Cycle", "CycleOut", "CycleEditable" }},
+                {"KeyActionEnter", new object[]{ "None", "MoveDown", "MoveAcross", "Cycle", "CycleOut", "CycleEditable" }}
+            };
+        }
+
+        private static IDictionary<string, object> _getCustomEditorDefaultValues()
+        {
+            var defaultValues = new Dictionary<string, object>
+            {
+                {"KeyActionTab", "CycleEditable"},
+                {"KeyActionEnter", "MoveDown"}
+            };
+
+            return defaultValues;
         }
 
         public ActionResult CustomEditorsBind([C1JsonRequest] CollectionViewRequest<Sale> requestData)

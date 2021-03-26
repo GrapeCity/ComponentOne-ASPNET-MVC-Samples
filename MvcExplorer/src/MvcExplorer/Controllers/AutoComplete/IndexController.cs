@@ -11,7 +11,8 @@ namespace MvcExplorer.Controllers
         {
             Options = new OptionDictionary
             {
-                {"Case Sensitive Search",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "False"}}
+                {"Case Sensitive Search",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "False"}},
+                {"Begins With Search",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "False"}}
             }
         };
         public ActionResult Index(IFormCollection collection)

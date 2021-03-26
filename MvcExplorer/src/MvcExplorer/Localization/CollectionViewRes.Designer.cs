@@ -62,6 +62,42 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This sample show how to add calculated fields to CollectionView..
+        /// </summary>
+        public static string CalculatedFields_Text0 {
+            get {
+                return ResourceManager.GetString("CalculatedFields_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can add calculated fields to CollectionView using &lt;b&gt;CalculatedFields&lt;/b&gt; property. Each calculated field setting contains name and expression. The expression is regular with variable &apos;$&apos; that represents the current data item which allows referring to original and calculated fields of it..
+        /// </summary>
+        public static string CalculatedFields_Text1 {
+            get {
+                return ResourceManager.GetString("CalculatedFields_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Calculated fields are read-only and are automatically updated their dependent fields change..
+        /// </summary>
+        public static string CalculatedFields_Text2 {
+            get {
+                return ResourceManager.GetString("CalculatedFields_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;&lt;b&gt;Note&lt;/b&gt;: To use calculated fields in IE11, you must include a proxy polyfill such as https://www.npmjs.com/package/proxy-polyfill. &lt;/i&gt;.
+        /// </summary>
+        public static string CalculatedFields_Text3 {
+            get {
+                return ResourceManager.GetString("CalculatedFields_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The CollectionViewNavigator is used for navigating records of data in CollectionView. &lt;br&gt;This demo uses two CollectionViewNavigator controls, the first for navigating by item, the second for navigating by page. It uses following properties: &lt;br&gt; The &lt;b&gt;ItemSourceId&lt;/b&gt; refers the Id of CollectionViewService or Control that binds to data for navigating. &lt;br&gt; The &lt;b&gt;ByPage&lt;/b&gt; property for determining navigating by item or by page.&lt;br&gt; The &lt;b&gt;RepeatButtons&lt;/b&gt; property for enabling whether the next/previous  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string CollectionViewNavigator_Text0 {

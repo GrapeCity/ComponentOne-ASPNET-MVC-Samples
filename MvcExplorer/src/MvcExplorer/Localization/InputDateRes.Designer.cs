@@ -123,5 +123,124 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Validation_Text4", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to RangeMin.
+        /// </summary>
+        public static string Range_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to WeekAfter.
+        /// </summary>
+        public static string WeekAfter_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("WeekAfter_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to RangeMax.
+        /// </summary>
+        public static string Range_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set value of WeekBefore and WeedAfter for InputDate.
+        /// </summary>
+        public static string WeekBeforeAfterHeader_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("WeekBeforeAfterHeader_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Selected range of days.
+        /// </summary>
+        public static string Range_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to use InputDate with SelectionMode.Range.
+        /// </summary>
+        public static string Range_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Ranges are defined by the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;rangeEnd&lt;/b&gt; properties..
+        /// </summary>
+        public static string Range_Text4
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to To select a date range with the mouse, the user should click the starting date &lt;b&gt;value&lt;/b&gt; and then the ending date &lt;b&gt;rangeEnd&lt;/b&gt;..
+        /// </summary>
+        public static string Range_Text5
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text5", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to To select a date range with the keyobard, the user should use the cursor keys to select the starting date, then press the shift key and extend the selection to select the ending date..
+        /// </summary>
+        public static string Range_Text6
+        {
+            get
+            {
+                return ResourceManager.GetString("Range_Text6", resourceCulture);
+            }
+        }
+
+        ///   Looks up a localized string similar to WeekBefore.
+        /// </summary>
+        public static string WeekBefore_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("WeekBefore_Text0", resourceCulture);
+            }
+        }
+
+        ///   Looks up a localized string similar to MouthCount.
+        /// </summary>
+        public static string MonthCount_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("MonthCount_Text0", resourceCulture);
+            }
+        }
     }
 }

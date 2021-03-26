@@ -74,6 +74,22 @@
     </script>
 }
 
+<style>
+    .wj-control .wj-btn-group {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .wj-control .wj-btn-group * {
+        color: black !important;
+    }
+    .wj-control .wj-btn-group > *:not(:first-child) {
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .wj-control .wj-btn-group > .wj-btn.wj-btn-default:hover,
+    .wj-control .wj-btn-group > .wj-btn.wj-btn-default:focus {
+        background: #eee !important;
+    }
+</style>
+
 <label>@Html.Raw(FlexGridRes.CustomFooters_Text1)</label>
 <div class="wj-btn-group">
     <button type="button" class="wj-btn wj-btn-default" onclick="grouping('')">@Html.Raw(FlexGridRes.CustomFooters_None)</button>

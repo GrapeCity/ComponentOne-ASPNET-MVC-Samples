@@ -78,7 +78,16 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to {count} products selected.
+        ///   Looks up a localized string similar to Use &lt;b&gt;HeaderPath&lt;/b&gt; if you want to decouple the value shown in the header content from the values shown in the drop-down list..
+        /// </summary>
+        public static string ComplexType_Text2 {
+            get {
+                return ResourceManager.GetString("ComplexType_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to {count} products selected.
         /// </summary>
         public static string Form_HeaderFormat {
             get {
@@ -231,6 +240,28 @@ namespace MvcExplorer.Localization {
             get
             {
                 return ResourceManager.GetString("CaseSensitiveSearchDescription_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Delay.
+        /// </summary>
+        public static string Delay_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("Delay_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;Delay:&lt;/b&gt; determines a period of time, in milliseconds, between when a keystroke occurs and when the search is performed to update the filter. This property is relevant only when the showFilterInput property is set to true. The default value for this property is 500 milliseconds. .
+        /// </summary>
+        public static string Delay_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("Delay_Text1", resourceCulture);
             }
         }
     }

@@ -185,53 +185,53 @@
     <comment>This sample shows how you can use custom editors to change the values in
     FlexGrid cells.</comment>
   </data>
-	<data name="CustomEditors_Text1" xml:space="preserve">
+  <data name="CustomEditors_Text1" xml:space="preserve">
     <value>このサンプルは、EditTemplate プロパティおよび Editor プロパティを使用してグリッドの内部エディタ以外のエディタを設定する方法を示します。</value>
-	<comment>The sample demonstrates two ways to set up editors other than FlexGrid’s internal editor: EditTemplate and Column Editor properties.</comment>
+    <comment>The sample demonstrates two ways to set up editors other than FlexGrid’s internal editor: EditTemplate and Column Editor properties.</comment>
   </data>
-	<data name="CustomEditors_Text2" xml:space="preserve">
+  <data name="CustomEditors_Text2" xml:space="preserve">
     <value>ユーザーがセルの編集を開始すると、 エディタが表示され、フォーカスが取得されます。</value>
-	<comment>When the user starts editing a cell, the editor will show and get the focus.</comment>
+    <comment>When the user starts editing a cell, the editor will show and get the focus.</comment>
   </data>
-	<data name="CustomEditors_Text3" xml:space="preserve">
+  <data name="CustomEditors_Text3" xml:space="preserve">
     <value>次の 2 種類のエディタがあります。</value>
-	<comment>There can be two kinds of custom editors:</comment>
+    <comment>There can be two kinds of custom editors:</comment>
   </data>
-	<data name="CustomEditors_Text4" xml:space="preserve">
+  <data name="CustomEditors_Text4" xml:space="preserve">
     <value>「Value」プロパティまたは「Text」プロパティを持つ C1 Input コントロール</value>
-	<comment>C1 Input controls which have "Value" or "Text" property:</comment>
+    <comment>C1 Input controls which have "Value" or "Text" property:</comment>
   </data>
-	<data name="CustomEditors_Text5" xml:space="preserve">
+  <data name="CustomEditors_Text5" xml:space="preserve">
     <value>EditTemplate プロパティを使用するには、C1 Input コントロールをテンプレートとして宣言して、その ID を列の EditTemplateId プロパティに割り当てるか、c1-flex-grid-cell-template タグでコントロールを宣言する必要があります。</value>
     <comment>To use EditTemplate, you need to declare the C1 Input control as template then assign it's id to the EditTemplateId property of a column or declare the control under the c1-flex-grid-cell-template tag.</comment>
   </data>
-	<data name="CustomEditors_Text6" xml:space="preserve">
+  <data name="CustomEditors_Text6" xml:space="preserve">
     <value>別の方法として、C1 Input コントロールを宣言し、その ID を列の Editor プロパティに割り当てることができます。</value>
-	<comment>The second way is to declare a C1 Input control as usual and then assign it's id to the Editor property of a column.</comment>
+    <comment>The second way is to declare a C1 Input control as usual and then assign it's id to the Editor property of a column.</comment>
   </data>
-	<data name="CustomEditors_Text7" xml:space="preserve">
+  <data name="CustomEditors_Text7" xml:space="preserve">
     <value>グリッドで新しい行を追加できる場合は、エディタの IsRequired を false に設定します。 セル全体をエディタに表示する場合は、スタイルの幅を「100%」に設定する必要があります。</value>
-	<comment>If the grid allows adding a new row, you need set the editor's IsRequired property to false. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</comment>
+    <comment>If the grid allows adding a new row, you need set the editor's IsRequired property to false. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</comment>
   </data>
-	<data name="CustomEditors_Text8" xml:space="preserve">
+  <data name="CustomEditors_Text8" xml:space="preserve">
     <value>このサンプルでは、​​「Start」、「Country」、「Color」に Editor プロパティを使用し、「End」、「Amount」に EditTemplate プロパティを使用して、C1 Input コントロールをエディタとして設定します。</value>
-	<comment>This sample uses Editor property for "Start", "Country", "Color" and uses EditTemplate for "End", "Amount" to set C1 Input controls as the editors.</comment>
+    <comment>This sample uses Editor property for "Start", "Country", "Color" and uses EditTemplate for "End", "Amount" to set C1 Input controls as the editors.</comment>
   </data>
-	<data name="CustomEditors_Text9" xml:space="preserve">
-   <value>その他のコントロール、または「Value」プロパティまたは「Text」プロパティを持たない C1 コントロール</value>
-	<comment>Use a control or a C1 control that does NOT have a ”Value" or "Text" property:</comment>
+  <data name="CustomEditors_Text9" xml:space="preserve">
+    <value>その他のコントロール、または「Value」プロパティまたは「Text」プロパティを持たない C1 コントロール</value>
+    <comment>Use a control or a C1 control that does NOT have a ”Value" or "Text" property:</comment>
   </data>
-	<data name="CustomEditors_Text10" xml:space="preserve">
+  <data name="CustomEditors_Text10" xml:space="preserve">
     <value>このようなエディタでは、グリッドの OnClientCellEditEnding イベントを監視し、&lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;を設定して更新を適用する必要があります。&lt;/p&gt;</value>
-	<comment>In this type of editors, you need to listen to the grid's OnClientCellEditEnding event and set &lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;to apply updates.&lt;/p&gt;</comment>
+    <comment>In this type of editors, you need to listen to the grid's OnClientCellEditEnding event and set &lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;to apply updates.&lt;/p&gt;</comment>
   </data>
-	<data name="CustomEditors_Text11" xml:space="preserve">
+  <data name="CustomEditors_Text11" xml:space="preserve">
     <value>次に、セル値をいつ更新し、アプリケーション内のグリッドからエディタを除去するかを検討する必要があります。 たとえば、エディタがフォーカスを失ったときに、セル値を更新してエディタを除去する必要があります。</value>
-	<comment>Then you need to consider when to update the cell value and remove the editor from the grid in your application. For example, when the editor blurs, we need to update the cell value and remove the editor.</comment>
+    <comment>Then you need to consider when to update the cell value and remove the editor from the grid in your application. For example, when the editor blurs, we need to update the cell value and remove the editor.</comment>
   </data>
-	<data name="CustomEditors_Text12" xml:space="preserve">
+  <data name="CustomEditors_Text12" xml:space="preserve">
     <value>この例では、「Product」列が&amp;lt;input /&amp;gt;をエディタとして使用しています。</value>
-	<comment>In this sample, the "Product" column uses &amp;lt;input /&amp;gt; as the editor to show this kind of editor.</comment>
+    <comment>In this sample, the "Product" column uses &amp;lt;input /&amp;gt; as the editor to show this kind of editor.</comment>
   </data>
   <data name="CustomFooters_Text0" xml:space="preserve">
     <value>このサンプルでは、FlexGrid を拡張して以下の 2 つのタイプのフッター要素を提供する方法を示します。</value>
@@ -683,8 +683,8 @@
     <comment>Invalid Product, Please use the product in the list ["Widget", "Gadget", "Doohickey"]</comment>
   </data>
   <data name="BuiltInValidation_Message3" xml:space="preserve">
-    <value>0 未満または 5000 より大きくすることはできません。</value>
-    <comment>Cannot be less than 0 or greater than 5000!</comment>
+    <value>値は0未満または5000以上にすることはできません。</value>
+    <comment>The Amount cannot be less than 0 or greater than or equal to 5000!</comment>
   </data>
   <data name="BuiltInValidation_Message4" xml:space="preserve">
     <value>US または UK でアクティブな項目は許可されません。</value>
@@ -1291,5 +1291,25 @@ Note that you have to update the details view when the current item changes. To 
   <data name="EnterTextSearch_Text0" xml:space="preserve">
     <value>ここに検索テキストを入力します</value>
     <comment>Enter search text here</comment>
+  </data>
+  <data name="Editing_Text17" xml:space="preserve">
+    <value>&lt;b&gt;ShowPlaceholders&lt;/b&gt;：セルを編集するときにグリッドが列ヘッダをプレースホルダーとして使用するかどうかを決定します。このプロパティは、グリッドの組み込みエディタでのみ機能します。Internet Explorerは、フォーカスされた入力要素にプレースホルダーを表示しないため、このプロパティはIEでは利用できません。</value>
+    <comment>&lt;b&gt;ShowPlaceholders&lt;/b&gt;: This setting determines whether the grid should use the column headers as placeholders when editing cells. It only works with the grid's built-in editor. It's not useful in IE because IE does not show input placeholders on focused input elements.</comment>
+  </data>
+  <data name="CustomEditors_Text13" xml:space="preserve">
+    <value>このサンプルでは、​​&lt;b&gt;KeyActionTab&lt;/b&gt;および&lt;b&gt;KeyActionEnter&lt;/b&gt;プロパティを使用してタブキーおよびEnterキーを押したときに実行されるアクションをカスタマイズする方法を紹介します。特に、&lt;b&gt;CycleEditable&lt;/b&gt;を選択して、Tab／Enterキーを押したときに選択範囲を次の編集可能な列に移動することで、編集を容易にすることができます。</value>
+    <comment>The sample also shows how to customize the action for tab key and enter key using &lt;b&gt;KeyActionTab&lt;/b&gt; and &lt;b&gt;KeyActionEnter&lt;/b&gt; properties. Especially we can select the setting &lt;b&gt;CycleEditable&lt;/b&gt; to facilitates editting by moving the selection to the next editable when press tab/enter key.</comment>
+  </data>
+  <data name="BuiltInValidation_Message5" xml:space="preserve">
+    <value>この項目には{n}エラーがあります。詳細については、指定したセルにマウスポイントを合わせます。</value>
+    <comment>This item has {n} errors. Hover on specified error cells for detail.</comment>
+  </data>
+  <data name="BuiltInValidation_Text2" xml:space="preserve">
+    <value>セルにマウスポイントを合わせるときに表示される単一のエラーレポートと、行ヘッダにマウスポイントを合わせるときに表示される複数のエラーレポートをカスタマイズできます。</value>
+    <comment>You can customize the single error report which is showed when hover on error cells and multiple errors report which is showed when hover on row headers.</comment>
+  </data>
+  <data name="PDFExport_Summary" xml:space="preserve">
+    <value>このサンプルでは、FlexGridをPDFにエクスポートする方法を紹介します。</value>
+    <comment>The sample demonstrates how to export FlexGrid content to a PDF file.</comment>
   </data>
 </root>

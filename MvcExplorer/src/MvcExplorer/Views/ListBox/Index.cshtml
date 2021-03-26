@@ -11,6 +11,7 @@
     </div>
     <div id="list" style="width:250px;height:200px"></div>
 </div>
+<p><b>@Html.Raw(ListBoxRes.Index_SearchResult) <span id="lbSelResult"></span></b></p>
 <p><b>@Html.Raw(ListBoxRes.Index_SelectedIndex) <span id="lbSelIdx"></span></b></p>
 <p><b>@Html.Raw(ListBoxRes.Index_SelectedValue) <span id="lbSelVal"></span></b></p>
 
@@ -42,6 +43,24 @@
                 listbox.selectedIndex = -1;
                 listbox._search = this.value;
                 listbox.selectedIndex = listbox._findNext();
+
+                var searchValue = document.getElementById("searchValue").value;
+                if (searchValue === '') {
+                    document.getElementById('lbSelResult').innerHTML = null;
+                    return;
+                }
+
+                var searchResult;
+                if ('@optionsModel.Options["Case Sensitive Search"].CurrentValue' === 'False') {
+                    searchResult = listbox.itemsSource.items.filter(function (c) {
+                        if (c.toLowerCase().indexOf(searchValue.toLowerCase()) == 0) return c;
+                    });
+                } else {
+                    searchResult = listbox.itemsSource.items.filter(function (c) {
+                        if (c.indexOf(searchValue) == 0) return c;
+                    });
+                }
+                document.getElementById('lbSelResult').innerHTML = searchResult.join(", ");
             });
         });
     </script>

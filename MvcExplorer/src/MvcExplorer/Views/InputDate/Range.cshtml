@@ -1,0 +1,54 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var rangeEnd = DateTime.Now.Date.AddDays(3);
+}
+
+@section Scripts{
+    <script>
+        function rangeMinChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.rangeMin = sender.value;
+        }
+
+        function rangeMaxChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.rangeMax = sender.value;
+        }
+
+        var rangeEndChanged = function (sender, args) {
+            var result = document.getElementById('result');
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            result.innerHTML = '';
+            if (inputDate.rangeEnd) {
+                range = inputDate.rangeEnd.getDate() - inputDate.value.getDate();
+                result.innerHTML = range + 1;
+            }
+        }
+    </script>
+}
+
+<b style="margin: 10px 5px 10px 0;">@Html.Raw(InputDateRes.Range_Text2) <span id="result"></span></b>
+
+<div style="margin-top:5px;">
+    <c1-input-date id="idcInputDate" selection-mode="Range" value="@today" range-end="@rangeEnd" width="300px" range-end-changed="rangeEndChanged">
+    </c1-input-date>
+</div>
+
+<br />
+
+<label style="font-weight:normal;">@Html.Raw(InputDateRes.Range_Text0)</label>
+<c1-input-number min="0" step="1" value="0" format="n0" value-changed="rangeMinChanged" />
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.Range_Text1)</label>
+<c1-input-number min="0" step="1" value="0" format="n0" value-changed="rangeMaxChanged" />
+
+<hr />
+
+@section Description{
+    <div>@Html.Raw(InputDateRes.Range_Text3)</div>
+    <ul>
+        <li>@Html.Raw(InputDateRes.Range_Text4)</li>
+        <li>@Html.Raw(InputDateRes.Range_Text5)</li>
+        <li>@Html.Raw(InputDateRes.Range_Text6)</li>
+    </ul>
+}

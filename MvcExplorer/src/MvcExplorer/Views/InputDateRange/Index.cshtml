@@ -1,0 +1,130 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var rangeEnd = today.AddDays(3);
+}
+
+@section Scripts{
+    <script>
+        // Get predefined date ranges
+        function getPredefinedRanges() {
+            let dt = wijmo.DateTime, now = new Date();
+            return {
+                // Custom
+                'Custom Range': null,
+                // Days
+                //'Today': [now, now],
+                //'Yesterday': [dt.addDays(now, -1), dt.addDays(now, -1)],
+                //'Tomorrow': [dt.addDays(now, +1), dt.addDays(now, +1)],
+                // Weeks
+                'This Week': [dt.weekFirst(now), dt.weekLast(now)],
+                'Last Week': [dt.weekFirst(dt.addDays(now, -7)), dt.weekLast(dt.addDays(now, -7))],
+                'Next Week': [dt.weekFirst(dt.addDays(now, +7)), dt.weekLast(dt.addDays(now, +7))],
+                // Months
+                'This Month': [dt.monthFirst(now), dt.monthLast(now)],
+                'Last Month': [dt.monthFirst(dt.addMonths(now, -1)), dt.monthLast(dt.addMonths(now, -1))],
+                'Next Month': [dt.monthFirst(dt.addMonths(now, +1)), dt.monthLast(dt.addMonths(now, +1))],
+                // Years
+                'This Year': [dt.yearFirst(now), dt.yearLast(now)],
+                'Last Year': [dt.addYears(dt.yearFirst(now), -1), dt.addYears(dt.yearLast(now), -1)],
+                'Next Year': [dt.addYears(dt.yearFirst(now), +1), dt.addYears(dt.yearLast(now), +1)],
+            };
+        }
+
+        function dateRangeChanged(s) {
+            // Show date ranges
+            let el = document.querySelector('#showRange');
+            el.innerHTML = wijmo.format('@Html.Raw(InputDateRangeRes.Index_ShowRange)', s);
+        }
+
+        function monthCountChanged(sender) {
+            let inputDateRange = wijmo.Control.getControl("#demoControl");
+            inputDateRange.monthCount = sender.value;
+        }
+
+        function weeksBeforeChanged(sender) {
+            let inputDateRange = wijmo.Control.getControl("#demoControl");
+            inputDateRange.weeksBefore = sender.value;
+        }
+
+        function weeksAfterChanged(sender) {
+            let inputDateRange = wijmo.Control.getControl("#demoControl");
+            inputDateRange.weeksAfter = sender.value;
+        }
+        function closeOnSelectionChanged(sender) {
+            let inputDateRange = wijmo.Control.getControl("#demoControl");
+            inputDateRange.closeOnSelection = sender.checked;
+        }
+    </script>
+}
+
+<style>
+    .settings > div {
+        margin-bottom: 0.5em;
+    }
+
+    .settings label {
+        width: 10em;
+        text-align: right;
+        margin-right: 0.5em;
+        float: left;
+        font-weight: normal;
+        line-height: 2em;
+    }
+
+    .settings input {
+        height: 1.8em;
+    }
+
+    .settings .wj-inputnumber {
+        width: 10em;
+    }
+
+    .wj-inputdate-dropdown > .wj-listbox {
+        max-height: initial;
+    }
+</style>
+
+<p>
+    <div id="demoControl"></div>
+</p>
+
+<p>
+    <span id="showRange"></span>
+</p>
+
+<c1-input-date-range id="demoControl" always-show-calendar="true" close-on-selection="true" month-count="2" weeks-before="0" weeks-after="0" 
+    predefined-ranges="getPredefinedRanges" value-changed="dateRangeChanged" range-end-changed="dateRangeChanged" value="@today" range-end="@rangeEnd">
+</c1-input-date-range>
+
+@section Settings{
+    <div class="settings">
+        <div>
+            <label for="monthCount">Month Count</label>
+            <c1-input-number id="monthCount" min="1" step="1" value="2" value-changed="monthCountChanged" width="150">
+            </c1-input-number>
+        </div>
+        <div>
+            <label for="weeksBefore">Weeks Before</label>
+            <c1-input-number id="weeksBefore" min="0" step="1" value="0" value-changed="weeksBeforeChanged" width="150">
+            </c1-input-number>
+        </div>
+        <div>
+            <label for="weeksAfter">Weeks After</label>
+            <c1-input-number id="weeksAfter" min="0" step="1" value="0" value-changed="weeksAfterChanged" width="150">
+            </c1-input-number>
+        </div>
+        <div>
+            <label for="closeOnSelection">Close On Selection</label>
+            <input type="checkbox" id="closeOnSelection" onchange="closeOnSelectionChanged(this)" checked />
+        </div>
+    </div>
+}
+
+@section Summary{
+    <p>@Html.Raw(InputDateRangeRes.Index_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(InputDateRangeRes.Index_Text1)</p>
+    <p>@Html.Raw(InputDateRangeRes.Index_Text2)</p>
+}

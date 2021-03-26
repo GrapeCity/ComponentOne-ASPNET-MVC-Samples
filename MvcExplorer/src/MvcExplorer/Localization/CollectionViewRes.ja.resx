@@ -117,6 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="CalculatedFields_Text0" xml:space="preserve">
+    <value>このサンプルでは、計算フィールドをCollectionViewに追加する方法を紹介します。</value>
+    <comment>This sample show how to add calculated fields to CollectionView.</comment>
+  </data>
+  <data name="CalculatedFields_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CalculatedFields&lt;/b&gt;プロパティを使用して、計算フィールドをCollectionViewに追加できます。各計算フィールドには、計算フィールドの名前と式が含まれます。式は、元のフィールドと計算されたフィールドを参照できる現在のデータ項目を表す変数「$」値を持つ正規表示式です。</value>
+    <comment>You can add calculated fields to CollectionView using &lt;b&gt;CalculatedFields&lt;/b&gt; property. Each calculated field contains name and expression. The expression is regular with variable '$' that represents the current data item which allows referring to original and calculated fields of it.</comment>
+  </data>
+  <data name="CalculatedFields_Text2" xml:space="preserve">
+    <value>計算フィールドは読み取り専用であり、依存フィールドが変更されると自動的に更新されます。</value>
+    <comment>Calculated fields are read-only and are automatically updated their dependent fields change.</comment>
+  </data>
+  <data name="CalculatedFields_Text3" xml:space="preserve">
+    <value>"&lt;i&gt;&lt;b&gt;メモ：&lt;/b&gt;：IE11で計算フィールドを使用するには、次のようなプロキシポリフィルを含める必要があります。&lt;/i&gt;
+&lt;p&gt;https://www.npmjs.com/package/proxy-polyfill.&lt;/p&gt;"</value>
+    <comment>&lt;i&gt;&lt;b&gt;Note&lt;/b&gt;: To use calculated fields in IE11, you must include a proxy polyfill such as https://www.npmjs.com/package/proxy-polyfill. &lt;/i&gt;</comment>
+  </data>
   <data name="CollectionViewNavigator_Text0" xml:space="preserve">
     <value>CollectionViewNavigatorは、CollectionViewのデータのレコードをナビゲートするために使用されます。&lt;br&gt;このデモでは、2つのCollectionViewNavigatorコントロールを使用します。1つ目はアイテムごとのナビゲート用、2つ目はページごとのナビゲート用です。次のプロパティを使用します：&lt;br&gt;&lt;b&gt;ItemSourceId&lt;/b&gt;は、ナビゲーションのためにデータにバインドするCollectionViewServiceまたはControlのIDを参照します。&lt;br&gt;&lt;b&gt;ByPage&lt;/b&gt;プロパティはアイテムまたはページごとのナビゲーションを決定します。&lt;br&gt;&lt;b&gt;RepeatButtons&lt;/b&gt;プロパティは次のボタンまたは前のボタンを押したまま繰り返し発動するかどうかを有効にします。&lt;br&gt;&lt;b&gt;HeaderFormat&lt;/b&gt;プロパティはコントロールヘッダーの現在のアイテム/ページの合計値を表示するために使用される文字列をフォーマットします。</value>
     <comment>The CollectionViewNavigator is used for navigating records of data in CollectionView. &lt;br&gt;This demo uses two CollectionViewNavigator controls, the first for navigating by item, the second for navigating by page. It uses following properties: &lt;br&gt; The &lt;b&gt;ItemSourceId&lt;/b&gt; refers the Id of CollectionViewService or Control that binds to data for navigating. &lt;br&gt; The &lt;b&gt;ByPage&lt;/b&gt; property for determining navigating by item or by page.&lt;br&gt; The &lt;b&gt;RepeatButtons&lt;/b&gt; property for enabling whether the next/previous buttons fires repeatedly or not while remaining pressed.&lt;br&gt; The &lt;b&gt;HeaderFormat&lt;/b&gt; property for formatting the string used to display the current total item/page values in the control header.</comment>

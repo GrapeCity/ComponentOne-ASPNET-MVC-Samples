@@ -25,13 +25,14 @@
     <p>@Html.Raw(FlexGridRes.Editing_Text7)</p>
     <p>@Html.Raw(FlexGridRes.Editing_Text8)</p>
     <p>@Html.Raw(FlexGridRes.Editing_Text16)</p>
+  <p>@Html.Raw(FlexGridRes.Editing_Text17)</p>
 </div>
 
 <input type="button" value="@FlexGridRes.Editing_ReadMore" class="btn collapse in" data-toggle="collapse" data-target=".collapsed-content, .btn.collapse" />
 
 <p>@Html.Raw(FlexGridRes.Editing_Text9)</p>
 <c1-flex-grid id="editGrid" auto-generate-columns="false" allow-add-new="true" auto-row-heights="true"
-              allow-delete="true" refresh-on-edit="false" style="height:400px">
+              allow-delete="true" refresh-on-edit="false" show-placeholders="true" style="height:400px">
     <c1-flex-grid-column binding="CategoryID" is-read-only="true" format="d"></c1-flex-grid-column>
     <c1-flex-grid-column binding="CategoryName" word-wrap="true"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Description" word-wrap="true" width="*" multi-line="true"></c1-flex-grid-column>

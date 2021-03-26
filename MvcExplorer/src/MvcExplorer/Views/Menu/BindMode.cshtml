@@ -1,32 +1,52 @@
 ﻿@model List<Tuple<string, string>>
 
 @section Styles{
-<style>
-    #box {
-        width: 100px;
-        height: 100px;
-        color: white;
-        background: linear-gradient(150deg, white -30%, gray);
-        margin: 20px;
-        box-shadow: 4px 4px 10px 0px darkgray;
-    }
-</style>
+    <style>
+        #box {
+            width: 100px;
+            height: 100px;
+            color: white;
+            background: linear-gradient(150deg, white -30%, gray);
+            margin: 20px;
+            box-shadow: 4px 4px 10px 0px darkgray;
+        }
+    </style>
 }
 
 <div id="box"></div>
 
-<c1-menu header="@MenuRes.BindMode_Text0" display-member-path="Item1" execute-command="setColor" command-parameter-path="Item2">
+<c1-menu id="DemoMenu" header="@MenuRes.BindMode_Text0" display-member-path="Item1" execute-command="setColor" command-parameter-path="Item2">
     <c1-items-source source-collection="@Model"></c1-items-source>
 </c1-menu>
+<br />
+<input id="changeHeaderPath" type="checkbox" onchange="changeHeaderPath()" />
+@Html.Raw(MenuRes.BindMode_Text2)
+<br />
 
 @section Description{
-    @Html.Raw(MenuRes.BindMode_Text1)
+    <p>@Html.Raw(MenuRes.BindMode_Text1)</p>
+    <p>@Html.Raw(MenuRes.BindMode_Text3)</p>
 }
 
 @section Scripts{
     <script>
-    function setColor(arg) {
-        document.getElementById("box").style.background = "linear-gradient(150deg, white -30%, " + arg + ")";
-    }
+        function setColor(arg) {
+            document.getElementById("box").style.background = "linear-gradient(150deg, white -30%, " + arg + ")";
+        }
+
+        function changeHeaderPath() {
+            var menu = wijmo.Control.getControl("#DemoMenu");
+            var checkbox = document.getElementById("changeHeaderPath");
+            if (checkbox.checked) {
+                menu.headerPath = "Item1";
+                if (document.getElementById("box").style.background != '') {
+                    menu.header = menu.selectedValue.Item1;
+                }
+            }
+            else {
+                menu.headerPath = null;
+                menu.header = "@(MenuRes.BindMode_Text0)";
+            }
+        }
     </script>
 }

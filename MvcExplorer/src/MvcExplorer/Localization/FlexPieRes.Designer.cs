@@ -186,5 +186,16 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Selection_Text0", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Charts Per Line.
+        /// </summary>
+        public static string Multiple_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("Multiple_Text1", resourceCulture);
+            }
+        }
     }
 }

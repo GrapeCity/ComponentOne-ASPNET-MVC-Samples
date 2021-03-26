@@ -183,8 +183,8 @@
 <button class="btn btn-default" onclick="exportPdf()">@Html.Raw(MultiRowRes.PdfExport_Text16)</button>
 <br />
 
-<c1-multi-row id="exportPdfMultiRow" class="multirow custom-multi-row" is-read-only="true"
-              show-groups="true" group-by="Product,Country" selection-mode="ListBox">
+<c1-multi-row id="exportPdfMultiRow" class="multirow custom-multi-row" selection-mode="ListBox"
+              show-groups="true" group-by="Product,Country" headers-visibility="All">
     <c1-items-source source-collection="Model"></c1-items-source>
     <c1-multi-row-cell-group>
         <c1-multi-row-cell binding="ID"></c1-multi-row-cell>

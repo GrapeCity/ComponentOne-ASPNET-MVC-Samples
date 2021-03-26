@@ -153,4 +153,68 @@
     <value>&lt;i&gt;ShowYearPicker&lt;/i&gt; = True: ユーザーが年カレンダーのヘッダー要素をクリックすると、カレンダーに年のリストが表示されます。</value>
     <comment>&lt;i&gt;ShowYearPicker&lt;/i&gt; = True: the calendar should display a list of years when the user clicks the header element on the year calendar.</comment>
   </data>
+  <data name="Ranges_CurrentSelection" xml:space="preserve">
+    <value>選択されている範囲:</value>
+    <comment>The current range is:</comment>
+  </data>
+  <data name="Ranges_RangeMin" xml:space="preserve">
+    <value>最小範囲</value>
+    <comment>RangeMin</comment>
+  </data>
+  <data name="Ranges_RangeMax" xml:space="preserve">
+    <value>最大範囲</value>
+    <comment>RangeMax</comment>
+  </data>
+  <data name="Ranges_Description" xml:space="preserve">
+    <value>このサンプルでは、DateSelectionMode.Rangeを使用して、日付範囲を選択する方法を紹介します。
+    選択範囲は、&lt;b&gt;Value&lt;/b&gt;プロパティと&lt;b&gt;RangeEnd&lt;/b&gt;プロパティによって定義されます。
+   　&lt;b&gt;RangeMin&lt;/b&gt;プロパティと&lt;b&gt;RangeMax&lt;/b&gt;プロパティを使用して、有効な範囲の最小値と最大値を指定できます。</value>
+    <comment>This sample shows how to use DateSelectionMode.Range selection mode that allows users to select date ranges. 
+    Selected ranges are defined by the &lt;b&gt;Value&lt;/b&gt; and &lt;b&gt;RangeEnd&lt;/b&gt; properties. 
+    You may specify the minimum and maximum valid range lengths with the &lt;b&gt;RangeMin&lt;/b&gt; and &lt;b&gt;RangeMax&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="Ranges_Description1" xml:space="preserve">
+    <value>&lt;b&gt;RangeMin&lt;/b&gt;：このプロパティのデフォルト値は0で、範囲の最小値がないことを表します。</value>
+    <comment>&lt;b&gt;RangeMin&lt;/b&gt;: The default value for this property is 0, which means there is no minimum value for range lengths.</comment>
+  </data>
+  <data name="Ranges_Description2" xml:space="preserve">
+    <value>&lt;b&gt;RangeMax&lt;/b&gt;：このプロパティのデフォルト値は0で、範囲の最大値がないことを表します。</value>
+    <comment>&lt;b&gt;RangeMax&lt;/b&gt;: The default value for this property is 0, which means there is no maximum value for range lengths.</comment>
+  </data>
+  <data name="Index_MonthCount" xml:space="preserve">
+    <value>月数</value>
+    <comment>Month Count</comment>
+  </data>
+  <data name="Index_WeekBefore" xml:space="preserve">
+    <value>前の週の数</value>
+    <comment>Week Before</comment>
+  </data>
+  <data name="Index_WeekAfter" xml:space="preserve">
+    <value>後ろの週の数</value>
+    <comment>Week After</comment>
+  </data>
+  <data name="Index_FirstDayOfWeek" xml:space="preserve">
+    <value>&lt;i&gt;週の最初の曜日&lt;/i&gt;：週の最初の曜日（カレンダーの最初の列に表示される曜日）を表します。</value>
+    <comment>&lt;i&gt;First day of week&lt;/i&gt;: Represents the first day of the week, the one displayed in the first column of the calendar.</comment>
+  </data>
+  <data name="Index_MonthsCount" xml:space="preserve">
+    <value>&lt;i&gt;月数&lt;/i&gt;：カレンダーに表示する月数を表します。</value>
+    <comment>&lt;i&gt;Month count&lt;/i&gt;: The number of months to display within the calendar.</comment>
+  </data>
+  <data name="Index_MonthView" xml:space="preserve">
+    <value>&lt;i&gt;月表示&lt;/i&gt;：カレンダーに月を表示するか、年を表示するかを示します。</value>
+    <comment>&lt;i&gt;Month view&lt;/i&gt;: Indicating whether the calendar displays a month or a year.</comment>
+  </data>
+  <data name="Index_ShowHeader" xml:space="preserve">
+    <value>&lt;i&gt;ヘッダ領域の表示&lt;/i&gt;：コントロールに現在の月とナビゲーションボタンを含むヘッダ領域を表示するかどうかを示します。</value>
+    <comment>&lt;i&gt;Show header&lt;/i&gt;: Indicating whether the control displays the header area with the current month and navigation buttons.</comment>
+  </data>
+  <data name="Index_WeeksAfter" xml:space="preserve">
+    <value>&lt;i&gt;後ろの週の数&lt;/i&gt;：カレンダーに現在の月の後に表示する週数を示します。</value>
+    <comment>&lt;i&gt;Week after&lt;/i&gt;: The number of weeks to show on the calendar after the current month.</comment>
+  </data>
+  <data name="Index_WeeksBefore" xml:space="preserve">
+    <value>&lt;i&gt;前の週の数&lt;/i&gt;：カレンダーに現在の月の前に表示する週数を示します。</value>
+    <comment>&lt;i&gt;Week before&lt;/i&gt;: The number of weeks to show on the calendar before the current month.</comment>
+  </data>
 </root>

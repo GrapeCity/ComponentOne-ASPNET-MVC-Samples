@@ -15,12 +15,13 @@ namespace MvcExplorer.Controllers
 {
     public partial class FlexGridController : Controller
     {
-        private static List<SaleProductDetail> model;
+        private static List<SaleShowCase> model;
         private readonly ControlOptions _showcaseOption = new ControlOptions
         {
             Options = new OptionDictionary
             {
-                {"Data Size",new OptionItem{Values = new List<string> {"5 Rows", "50 Rows", "500 Rows", "5000 Rows", "50000 Rows", "100000 Rows", "500000 Rows", "1000000 Rows"},CurrentValue = "500 Rows"}}
+                {"Data Size",new OptionItem{Values = new List<string> {"5 Rows", "50 Rows", "500 Rows", "5000 Rows", "50000 Rows", "100000 Rows"},CurrentValue = "500 Rows"}},
+                {"Lazy Render",new OptionItem{Values = new List<string> {"True", "False"},CurrentValue = "True"}}
             }
         };
         public ActionResult ShowCase(IFormCollection collection)
@@ -28,8 +29,8 @@ namespace MvcExplorer.Controllers
             _showcaseOption.LoadPostData(collection);
             ViewBag.DemoOptions = _showcaseOption;
             ViewBag.Countries = FullCountry.GetCountries();
-            ViewBag.Products = Sale.GetProducts();
-            ViewBag.Colors = Sale.GetColors();
+            ViewBag.Products = ProductObject.GetProductObjects();
+            ViewBag.Colors = ColorObject.GetColorObjects();
             Theme.SetCurrentTheme(HttpContext, Themes.CleanLight);
             return View(model);
         }
@@ -39,7 +40,7 @@ namespace MvcExplorer.Controllers
                  .ToDictionary(kvp => kvp.Key, kvp => new StringValues(kvp.Value.ToString()));
             var data = new FormCollection(extraData);
             _showcaseOption.LoadPostData(data);
-            model = Sale.GetData(getDataSize()).Select(x => SaleProductDetail.FromSale(x)).ToList();
+            model = Sale.GetData(getDataSize()).Select(x => SaleShowCase.FromSale(x)).ToList();
             return this.C1Json(CollectionViewHelper.Read(requestData, model));
         }
         public ActionResult GridShowCaseUpdate([C1JsonRequest]CollectionViewEditRequest<Sale> requestData)

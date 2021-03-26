@@ -14,8 +14,8 @@
         <c1-multi-row-cell binding="ShippedDate" header="Shipped" />
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group header="Customer" colspan="3">
-        <c1-multi-row-cell binding="Customer.Name" name="CustomerName" header="Customer" width="200" />
-        <c1-multi-row-cell binding="Customer.Email" name="CustomerEmail" header="Customer Email" class="email" colspan="2" />
+        <c1-multi-row-cell binding="Customer.Name" name="CustomerName" header="Customer" width="250" />
+        <c1-multi-row-cell binding="Customer.Email" name="CustomerEmail" header="Customer Email" class="email" colspan="2" width="300" />
         <c1-multi-row-cell binding="Customer.Address" name="CustomerAddress" header="Address" />
         <c1-multi-row-cell binding="Customer.City" name="CustomerCity" header="City" datamap-editor="@C1.Web.Mvc.Grid.DataMapEditor.DropDownList">
             <c1-data-map display-member-path="Value" selected-value-path="Value">
@@ -25,7 +25,7 @@
         <c1-multi-row-cell binding="Customer.State" name="CustomerState" header="State" />
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group header="Shipper" colspan="2">
-        <c1-multi-row-cell binding="Shipper.Name" name="ShipperName" header="Shipper" colspan="2" />
+        <c1-multi-row-cell binding="Shipper.Name" name="ShipperName" header="Shipper" colspan="2" width="300" />
         <c1-multi-row-cell binding="Shipper.Email" name="ShipperEmail" header="Shipper Email" class="email" width="200" />
         <c1-multi-row-cell binding="Shipper.Express" name="ShipperExpress" header="Express" width="100" />
     </c1-multi-row-cell-group>

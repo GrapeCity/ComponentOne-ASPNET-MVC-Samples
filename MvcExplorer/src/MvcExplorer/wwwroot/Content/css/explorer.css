@@ -263,6 +263,7 @@ h4.semi-bold {
         padding: 0px;
         height: 26px;
         display: table;
+        color: black;
     }
 
         .page-nav .wj-node a {
@@ -273,6 +274,7 @@ h4.semi-bold {
         .page-nav .wj-node.wj-state-selected {
             background-color: #a2a2a2;
             font-weight: bolder;
+            color: black;
         }
 
             .page-nav .wj-node.wj-state-selected .right-icon {
@@ -292,6 +294,26 @@ h4.semi-bold {
         color: #333333;
     }
 
+#navList.wj-control
+  {
+    color: black;
+    background-color: white;
+}
+        
+#navList.wj-tabpanel > div > .wj-tabheaders > .wj-tabheader.wj-state-active {
+    background-color: white;
+}
+
+#sourceTab.wj-control
+  {
+    color: black;
+    background-color: white;
+}
+        
+#sourceTab.wj-tabpanel > div > .wj-tabheaders > .wj-tabheader.wj-state-active {
+    background-color: white;
+}
+ 
 .nav-tabs > li {
     cursor: pointer;
 }
