@@ -1,0 +1,78 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var rangeEnd = DateTime.Now.Date.AddDays(3);
+}
+
+@section Scripts{
+    <script>
+        document.readyState === 'complete' ? onLoaded() : window.onload = onLoaded;
+
+        function showRangeEnd(calendar) {
+            let rangEndSpan = document.querySelector('#rangeEnd');
+            rangEndSpan.textContent = wijmo.format('{rangeEnd:d}', calendar);
+        }
+
+        function showRange(inputDate) {
+            var result = document.getElementById('result');
+            range = inputDate.rangeEnd.getDate() - inputDate.value.getDate() + 1;
+            result.innerHTML = range;
+        }
+
+        function onLoaded() {
+            let inputDate = wijmo.Control.getControl('#idcInputDate');
+
+            showRangeEnd(inputDate);
+
+            if (inputDate.rangeEnd) {
+                showRange(inputDate);
+            }
+        }
+
+        function rangeMinChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.rangeMin = sender.value;
+        }
+
+        function rangeMaxChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.rangeMax = sender.value;
+        }
+
+        var rangeEndChanged = function (sender, args) {
+            showRangeEnd(sender);
+        }
+
+        var rangeChanged = function (sender, args) {
+            showRange(sender);
+        }
+    </script>
+}
+
+<b style="margin: 10px 5px 10px 0;">RangeEnd: <span id="rangeEnd"></span></b>
+<br />
+<b style="margin: 10px 5px 10px 0;">@Html.Raw(InputDateRes.Range_Text2) <span id="result"></span></b>
+
+<div style="margin-top:5px;">
+    <c1-input-date id="idcInputDate" selection-mode="Range" value="@today" range-end="@rangeEnd" width="300px"
+                   range-end-changed="rangeEndChanged" range-changed="rangeChanged">
+    </c1-input-date>
+</div>
+
+<br />
+
+<label style="font-weight:normal;">@Html.Raw(InputDateRes.Range_Text0)</label>
+<c1-input-number min="0" step="1" value="0" format="n0" value-changed="rangeMinChanged" />
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.Range_Text1)</label>
+<c1-input-number min="0" step="1" value="0" format="n0" value-changed="rangeMaxChanged" />
+
+<hr />
+
+@section Description{
+    <div>@Html.Raw(InputDateRes.Range_Text3)</div>
+    <ul>
+        <li>@Html.Raw(InputDateRes.Range_Text4)</li>
+        <li>@Html.Raw(InputDateRes.Range_Text5)</li>
+        <li>@Html.Raw(InputDateRes.Range_Text6)</li>
+    </ul>
+}

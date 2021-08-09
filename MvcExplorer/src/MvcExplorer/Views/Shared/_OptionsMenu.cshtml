@@ -34,7 +34,7 @@
         {
             string formattedKey = item.Key.Replace(" ", "").ToLower();
             var index = item.Value.Values.IndexOf(item.Value.CurrentValue);
-            var header = item.Key + ":&nbsp;<b>" + item.Value.CurrentValue + "</b>";
+            var header = item.Key.Replace(" ", "") + ":&nbsp;<b>" + item.Value.CurrentValue + "</b>";
             var source = Model.OptionItemToMenuItem(item.Key);
             <c1-menu id="@formattedKey" name="@formattedKey"
                      header="@header"

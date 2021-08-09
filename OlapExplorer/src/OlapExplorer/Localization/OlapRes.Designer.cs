@@ -251,6 +251,60 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The PivotEngine support GetAggregateValue function in PivotField to calculate aggregate field for each summary row..
+        /// </summary>
+        public static string CalculatedAggregates_Text0 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to PivotField objects have two properties as function that support custom calculations:.
+        /// </summary>
+        public static string CalculatedAggregates_Text1 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The GetValue function takes a data item as a parameter and returns a value that is calculated based on other properties of the data item. The function has no access to any aggregate information..
+        /// </summary>
+        public static string CalculatedAggregates_Text2 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The GetAggregateValue function takes a summary row as a parameter and returns a value to be displayed as an aggregate for the field. The function has no access to the individual/raw data items..
+        /// </summary>
+        public static string CalculatedAggregates_Text3 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample uses the GetValue function to calculate a Range field that categorizes raw sales value into three levels: &quot;High&quot;, &quot;Medium&quot;, or &quot;Low&quot;..
+        /// </summary>
+        public static string CalculatedAggregates_Text4 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to And uses GetAggregateValue function to calculate a Conversion field that shows the Sales/Downloads ratio for each summary row..
+        /// </summary>
+        public static string CalculatedAggregates_Text5 {
+            get {
+                return ResourceManager.GetString("CalculatedAggregates_Text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The PivotEngine allows to connect directly to OLAP cubes provided by SSAS servers..
         /// </summary>
         public static string Cube_Text0 {
@@ -377,7 +431,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can use the &lt;b&gt;viewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:.
+        ///   Looks up a localized string similar to You can use the &lt;b&gt;ViewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:.
         /// </summary>
         public static string Index_Text0 {
             get {
@@ -386,7 +440,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;showValueFieldHeaders&lt;/b&gt; property even only one value field available..
+        ///   Looks up a localized string similar to You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;ShowValueFieldHeaders&lt;/b&gt; property even only one value field available..
         /// </summary>
         public static string Index_Text10 {
             get {

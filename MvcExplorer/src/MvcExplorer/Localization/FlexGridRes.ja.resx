@@ -166,14 +166,14 @@
     <comment>The &lt;b&gt;BatchEditing&lt;/b&gt; action Url should be provided in this mode.</comment>
   </data>
   <data name="ColumnLayout_Text0" xml:space="preserve">
-    <value>FlexGrid にはクライアント columnLayout プロパティがあり、グリッド列とそのプロパティのリストを含む JSON 文字列を取得または設定します。
-    datamap 列はサポートされていません。
-    このサンプルでは、クライアントの columnLayout プロパティを使用して、列レイアウトをブラウザの localStorage に保持します。FlexGrid は、サーバー側での列レイアウトの保存/ロードをサポートします。
-    これは、列レイアウトをストレージ/データベースに保存して、ユーザーごとに異なる表示を行う場合に便利です。実装については、「ColumnLayout」のハウツーサンプルを参照してください。</value>
-    <comment>The FlexGrid has a client columnLayout property that gets or sets a JSON string containing a list of grid columns and their properties,
-    It doesn't support the datamap column.
-    This sample uses the client columnLayout property to persist the column layout to the browser's localStorage. FlexGrid also supports server-side saving\loading of column layout,
-    this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Please refer "ColumnLayout" HowTo sample for the implementation.</comment>
+    <value>FlexGrid にはクライアント ColumnLayout プロパティがあり、グリッド列とそのプロパティのリストを含む JSON 文字列を取得または設定します。
+        datamap 列はサポートされていません。
+        このサンプルでは、クライアントの ColumnLayout プロパティを使用して、列レイアウトをブラウザの localStorage に保持します。FlexGrid は、サーバー側での列レイアウトの保存/ロードをサポートします。
+        これは、列レイアウトをストレージ/データベースに保存して、ユーザーごとに異なる表示を行う場合に便利です。実装については、「ColumnLayout」のハウツーサンプルを参照してください。</value>
+    <comment>The FlexGrid has a client ColumnLayout property that gets or sets a JSON string containing a list of grid columns and their properties.
+        It doesn't support the datamap column.
+        This sample uses the client ColumnLayout property to persist the column layout to the browser's localStorage. FlexGrid also supports server-side saving\loading of column layout,
+        this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Please refer "ColumnLayout" HowTo sample for the implementation.</comment>
   </data>
   <data name="ColumnLayout_Text1" xml:space="preserve">
     <value>これがどう動作するかを確認するには、次の手順に従います。</value>
@@ -387,10 +387,10 @@
   <data name="Editing_Text13" xml:space="preserve">
     <value>何らかの理由で Excel 形式の編集を避け、
     各行に編集ボタンを追加する場合は（編集可能 HTML テーブルなど）、
-    1 つの &lt;b&gt;cellFormatter&lt;/b&gt; といくつかのコントローラメソッドを使用して実現できます。</value>
+    1 つの &lt;b&gt;ItemFormatter&lt;/b&gt; といくつかのコントローラメソッドを使用して実現できます。</value>
     <comment>If for some reason you don't like the Excel-style editing and prefer to add editing
     buttons to every row (typical of editable HTML tables), you can accomplish that
-    using a &lt;b&gt;cellFormatter&lt;/b&gt; and a few controller methods.</comment>
+    using a &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.</comment>
   </data>
   <data name="Editing_Text14" xml:space="preserve">
     <value>次のグリッドは、この方法を示します。セルのボタンは、
@@ -456,28 +456,28 @@
         ビューの GroupBy メソッドを使用してグループ記述を設定できます。
         JavaScript でグループ化を追加するには、1 つ以上の GroupDescription 
         オブジェクトを collectionView.groupDescriptions プロパティに追加します。次に、
-        グリッドの showGroups プロパティが true に設定されていることを確認します。</value>
+        グリッドの ShowGroups プロパティが true に設定されていることを確認します。</value>
     <comment>This sample shows grouping support in the FlexGrid. Most of the work is
         done by the CollectionView class used as a data source for the grid.
         You can config group description by GroupBy method in view.
         To add grouping by Javascript, add one or more GroupDescription
         objects to the collectionView.groupDescriptions property. And ensure
-        that the grid's showGroups property is set to true.</comment>
+        that the grid's ShowGroups property is set to true.</comment>
   </data>
   <data name="Grouping_Text1" xml:space="preserve">
-    <value>グリッドの groupHeaderFormat プロパティを使用して、
+    <value>グリッドの GroupHeaderFormat プロパティを使用して、
         グループヘッダー行に表示されるテキストをカスタマイズできます。デフォルトでは、これには、
         ShipCountry などのグループ名、およびその後に現在のグループと
-        グループの項目数が表示されます。各 Column オブジェクトの format プロパティを使用して、
+        グループの項目数が表示されます。各 Column オブジェクトの Format プロパティを使用して、
         その列のグループヘッダーに表示される集計データの書式を設定します。
-        列の aggregate プロパティを使用して各列のデータの集約方法を指定している
+        列の Aggregate プロパティを使用して各列のデータの集約方法を指定している
         ことに注意してください。</value>
     <comment>You can customize the text that is displayed in group header rows using
-        the grid's groupHeaderFormat property. By default, this displays the name
+        the grid's GroupHeaderFormat property. By default, this displays the name
         of the group, for example, ShipCountry, followed by the current group and the
-        number of items in the group. Use the format property on each Column object
+        number of items in the group. Use the Format property on each Column object
         to format aggregated data displayed in the group header for that column.
-        Notice how we use the column's aggregate property to specify how to aggregate
+        Notice how we use the column's Aggregate property to specify how to aggregate
         the data for each column.</comment>
   </data>
   <data name="Index_Text0" xml:space="preserve">
@@ -1105,8 +1105,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Uses &lt;b&gt;Template&lt;/b&gt; property for generating the HTML content of data cells in the Column.</comment>
   </data>
   <data name="AllowPinning_Text0" xml:space="preserve">
-    <value>AllowPinningプロパティを使用すると、列ヘッダーにピンアイコンを追加できます。アイコンをクリックすると、列の固定状態が切り替わります。</value>
-    <comment>AllowPinning property allows to add pin icons to the column headers and clicking the icons toggles the column's frozen state</comment>
+    <value>PinningTypeプロパティを使用すると、列ヘッダーにピンアイコンを追加できます。アイコンをクリックすると、列の固定状態が切り替わります。</value>
+    <comment>PinningType property allows to add pin icons to the column headers and clicking the icons toggles the column's frozen state</comment>
   </data>
   <data name="CopyHeaders_Text0" xml:space="preserve">
     <value>CopyHeadersプロパティを使用すると、データをクリップボードにコピーするときにグリッドに行または列ヘッダーを含めるかどうかを指定できます。</value>
@@ -1214,8 +1214,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>The FlexGrid also support drag-drop to change position of columns on both computer and touch devices using mouse pointer or touching.</comment>
   </data>
   <data name="SelectionMode_Text0" xml:space="preserve">
-    <value>selectionMode プロパティでは、行、行範囲、連続しない行リスト、セル、セル範囲、選択なしのいずれかにユーザーの選択を制限することができます。</value>
-    <comment>The selectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all.</comment>
+    <value>SelectionMode プロパティでは、行、行範囲、連続しない行リスト、セル、セル範囲、選択なしのいずれかにユーザーの選択を制限することができます。</value>
+    <comment>The SelectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all.</comment>
   </data>
   <data name="ColumnVisibility_Text0" xml:space="preserve">
     <value>Visible プロパティを使用すると、行または列を表示するように設定できます。（AutoGenerateColumnsプロパティをFalseに設定します。）</value>
@@ -1311,5 +1311,13 @@ Note that you have to update the details view when the current item changes. To 
   <data name="PDFExport_Summary" xml:space="preserve">
     <value>このサンプルでは、FlexGridをPDFにエクスポートする方法を紹介します。</value>
     <comment>The sample demonstrates how to export FlexGrid content to a PDF file.</comment>
+  </data>
+  <data name="Searching_SearchAllColumns" xml:space="preserve">
+    <value>&lt;b&gt;SearchAllColumns：&lt;/b&gt;非表示の列を検索に含めるかどうかを決定します。&lt;/br&gt;このサンプルでは、​​&lt;b&gt;色&lt;/b&gt;列は非表示になっています。&lt;b&gt;赤&lt;/b&gt;または&lt;b&gt;白&lt;/b&gt;で検索してみてください。</value>
+    <comment>&lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;.</comment>
+  </data>
+  <data name="GroupPanel_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ShowDragGlyphs&lt;/b&gt;をtrueに設定すると、グループマーカーの要素にドラッググリフを表示できます。falseに設定すると、グループマーカーの要素にドラッググリフを非表示にできます。</value>
+    <comment>Setting &lt;b&gt;ShowDragGlyphs&lt;/b&gt; to true or false enables to show or hide drag glyphs of the group marker elements.</comment>
   </data>
 </root>

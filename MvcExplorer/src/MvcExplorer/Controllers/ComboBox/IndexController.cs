@@ -11,7 +11,8 @@ namespace MvcExplorer.Controllers
         {
             Options = new OptionDictionary
             {
-                {"Case Sensitive Search",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "False"}}
+                {"Case Sensitive Search",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "False"}},
+                {"Handle Wheel",new OptionItem{ Values = new List<string> { "True", "False"}, CurrentValue = "True"}}
             }
         };
         private readonly C1NWindEntities _db;

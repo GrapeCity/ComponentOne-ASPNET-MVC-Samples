@@ -5,13 +5,45 @@
     ViewBag.DemoSettings = true;
 }
 
-<c1-tree-view display-member-path="Header" child-items-path="Items"
+<c1-tree-view display-member-path="Header" child-items-path="Items" id="treeView"
               source="Model"
               is-animated="@Convert.ToBoolean(optionsModel.Options["IsAnimated"].CurrentValue)"
+              collapse-when-disabled="@Convert.ToBoolean(optionsModel.Options["CollapseWhenDisabled"].CurrentValue)"
               auto-collapse="@Convert.ToBoolean(optionsModel.Options["AutoCollapse"].CurrentValue)"
               expand-on-click="@Convert.ToBoolean(optionsModel.Options["ExpandOnClick"].CurrentValue)"
+              collapse-on-click="@Convert.ToBoolean(optionsModel.Options["CollapseOnClick"].CurrentValue)"
               expand-on-load="@Convert.ToBoolean(optionsModel.Options["ExpandOnLoad"].CurrentValue)">
 </c1-tree-view>
+
+<div>
+    <button id="btnDisableNode" class="btn btn-default" onclick="disableSelectedNode()">
+        Disable Selected Node
+    </button>
+    <button id="btnEnableAllNodes" class="btn btn-default" onclick="enableAllNode()">
+        Enable All Nodes
+    </button>
+</div>
+
+@section Scripts{
+    <script>
+        function disableSelectedNode() {
+            let treeView = wijmo.Control.getControl("#treeView");
+            if (treeView && treeView.selectedNode) {
+                treeView.selectedNode.isDisabled = true;
+            }
+        }
+
+        function enableAllNode() {
+            let treeView = wijmo.Control.getControl("#treeView");
+            if (treeView) {
+                for (var nd = treeView.getFirstNode(); nd; nd = nd.next()) {
+                    nd.isDisabled = false;
+                }
+            }
+        }
+    </script>
+
+}
 
 @section Settings{
     @await Html.PartialAsync("_OptionsMenu", optionsModel)
@@ -24,4 +56,5 @@
 @section Description{
     <p>@Html.Raw(TreeViewRes.Index_Text1)</p>
     <p>@Html.Raw(TreeViewRes.Index_Text2)</p>
+    <p>@Html.Raw(TreeViewRes.Index_Text3)</p>
 }

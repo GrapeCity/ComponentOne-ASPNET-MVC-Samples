@@ -32,16 +32,22 @@
         <subactions>
           <action text="Filtering" text.ja="フィルタ処理" name="Filter" enhanced="false" 
                   enhancetip="Added DataMap support for ValueFilter.&lt;br&gt;Added new ExclusiveValueSearch property to FlexGridFilter and ValueFilter which is setted to true by default enables an Excel-like behavior (searching excludes items from the filter), set it to false to disable this." enhancetip.ja="ValueFilterのDataMapサポートを追加します。&lt;br&gt;FlexGridFilterに新しいExclusiveValueSearchプロパティを追加し、デフォルトでtrueに設定されたValueFilterはExcelに似た動作（検索はフィルタからアイテムを除外）を有効にします。"></action>
-          <action text="Searching" text.ja="検索処理" name="Searching" enhanced="false"
-                  enhancetip="Added FlexGrid.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
-                  enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、FlexGrid.CaseSensitiveSearch プロパティが追加されました。"
+          <action text="Searching" text.ja="検索処理" name="Searching" 
+enhanced="true"
+                  
+enhancetip="Added new SearchAllColumns property for FlexGridSearch."
+                  
+enhancetip.ja="FlexGridSearchクラスにSearchAllColumnsプロパティを追加しました。"
                   ></action>
           <action text="Paging" text.ja="ページング" name="Paging"></action>
           <action text="Sorting" text.ja="ソート" name="Sorting"></action>
           <action text="Grouping" text.ja="グループ化" name="Grouping"></action>
-          <action text="Group Panel" text.ja="グループパネル" name="GroupPanel" enhanced="false"
-                  enhancetip="Added sample about the drag-drop which is supported on computer by using mouse and touch devices by touching."
-                  enhancetip.ja="コンピュータまたはタッチデバイスでマウスまたはタッチ操作を使用して動作するドラッグ＆ドロップ操作に関するサンプルが追加されました。"></action>
+          <action text="Group Panel" text.ja="グループパネル" name="GroupPanel" 
+enhanced="true"
+                  
+enhancetip="Added ShowDragGlyphs property that determines whether the control should add drag glyphs to the group marker elements."
+                  
+enhancetip.ja="コントロールがグループマーカーの要素にドラッググリフを追加するかどうかを決定するShowDragGlyphsプロパティを追加しました。"></action>
           <action text="Checkbox Selection" text.ja="チェックボックスの選択" name="CheckboxSelection" enhanced="false"
                   enhancetip="Selector is used to add selection checkboxes to cells on a column so users can select multiple rows, all rows, and row groups using the mouse."
                   enhancetip.ja="Selector クラスは、列のセルにチェックボックスを追加します。このチェックボックスを使用すると、ユーザーはマウスを使用して複数の行、すべての行、および行グループを選択できます。"
@@ -91,15 +97,18 @@
       </action>
       <action text="Editing" text.ja="編集">
         <subactions>
-          <action text="Editing" text.ja="編集" name="Editing" enhanced="true"
+          <action text="Editing" text.ja="編集" name="Editing" 
+enhanced="false"
                   enhancetip="Add new ShowPlaceholders property for FlexGrid to display the column header as a placeholder when editing cells.&lt;br&gt;Add sample for new ShowPlaceholders property of FlexGrid."
                   enhancetip.ja="FlexGridではShowPlaceholdersプロパティが追加され、セルを編集するときに列ヘッダをプレースホルダーとして表示できるようになりました。&lt;br&gt;また、ShowPlaceholdersプロパティのサンプルが追加されました。"></action>
           <action text="Batch Editing" text.ja="一括編集" name="BatchEditing"></action>
-          <action text="Custom Editors" text.ja="カスタムエディタ" name="CustomEditors" enhanced="true"
+          <action text="Custom Editors" text.ja="カスタムエディタ" name="CustomEditors" 
+enhanced="false"
                   enhancetip="Add new KeyAction.CycleEditable setting for FlexGrid."
                   enhancetip.ja="FlexGridではKeyAction.CycleEditableの設定が追加されました。"></action>
           <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
-          <action text="Built-in Validation" text.ja="組み込みの検証" name="BuiltInValidation" enhanced="true"
+          <action text="Built-in Validation" text.ja="組み込みの検証" name="BuiltInValidation" 
+enhanced="false"
                   enhancetip="Add sample for new feature ‘Multiple Error report’" 
                   enhancetip.ja="「複数エラーレポート」のサンプルが追加されました。"></action>
           <action text="OData Defer Commits" text.ja="DeferCommits プロパティ" name="ODataDeferCommits" enhanced="false"
@@ -135,19 +144,22 @@
       <action text="Sorting" text.ja="ソート" name="Sorting" enhanced="false"
               enhancetip="Added a SortNulls property that replaces the deprecated SortNullsFirst property and provides additional options for sorting null values."
               enhancetip.ja="SortNullsFirst プロパティは非推奨になりました。代わりに、null 値をソートするための追加オプションを提供する SortNulls プロパティが追加されました。"></action>
-      <action text="Calculated Fields" text.ja="計算フィールド" name="CalculatedFields" enhanced="true"
+      <action text="Calculated Fields" text.ja="計算フィールド" name="CalculatedFields" 
+enhanced="false"
               enhancetip="Add new CalculatedFields property as a collection of declaration to calculated fields for CollectionView."
               enhancetip.ja="CollectionViewの計算フィールドに、宣言のコレクションとしてCalculatedFieldsプロパティが追加されました。"></action>
     </Control>
-    <Control name="FlexSheet" name.ja="FlexSheet" link="https://demos.componentone.com/ASPNET/5/FlexSheetExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/FlexSheetExplorer/"
+    <Control name="FlexSheet" name.ja="FlexSheet" link="https://www.grapecity.com/componentone/demos/aspnet/5/FlexSheetExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/FlexSheetExplorer/"
              enhanced="false" enhancetip="Added the AutoFilling and AutoFilled events."
              enhancetip.ja="AutoFillingおよびAutoFilledイベントを追加しました。">
     </Control>
-    <Control name="OLAP" name.ja="OLAP" link="https://demos.componentone.com/ASPNET/5/OlapExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/OlapExplorer/"
-             enhanced="false" enhancetip="Added PivotGrid.OutlineMode property that causes the PivotGrid to show row groups in outline format, allowing for more compact displays.&lt;br&gt;Changed the olap.PivotGrid to honor the AllowMerging property and also changed the default setting of the property to 'All'.&lt;br&gt;Added PivotGrid.ShowValueFieldHeaders property that causes the grid to show headers for value fields even in views that have a single value field.&lt;br&gt;Added a new ExclusiveValueSearch property to the PivotEngine"
-             enhancetip.ja="PivotGridの行グループをアウトライン形式で表示するPivotGrid.OutlineModeプロパティを追加しました。これにより、よりコンパクトな表示が可能になります。&lt;br&gt;AllowMergingプロパティを使用するようにolap.PivotGridを変更し、プロパティのデフォルト設定を 'All'に変更しました。&lt;br&gt;PivotGrid.ShowValueFieldHeadersプロパティが追加され、単一の値フィールドを持つビューでもグリッドに値フィールドのヘッダーが表示されるようになりました。&lt;br&gt;PivotEngineに新しいExclusiveValueSearchプロパティを追加しました。">
+    <Control name="OLAP" name.ja="OLAP" link="https://www.grapecity.com/componentone/demos/aspnet/5/OlapExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/OlapExplorer/"
+             
+enhanced="true" enhancetip="Added new GetAggregateValue property for PivotField."
+             
+enhancetip.ja="PivotFieldクラスにGetAggregateValueプロパティを追加しました。">
     </Control>
-    <Control name="MultiRow" name.ja="MultiRow" link="https://demos.componentone.com/ASPNET/5/MultiRowExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/MultiRowExplorer/"
+    <Control name="MultiRow" name.ja="MultiRow" link="https://www.grapecity.com/componentone/demos/aspnet/5/MultiRowExplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/MultiRowExplorer/"
              enhanced="false" enhancetip="Added a MultiRowGroupHeaders property that allows headers with multiple header rows.&lt;br&gt;Added a HeaderLayoutDefinition property that allows you to define custom layouts for the column headers."
              enhancetip.ja="複数のヘッダー行を持つヘッダーを許可するMultiRowGroupHeadersプロパティを追加しました。&lt;br&gt;列ヘッダーのカスタムレイアウトを定義できるHeaderLayoutDefinitionプロパティを追加しました。">
     </Control>
@@ -166,7 +178,8 @@
       <action text="Remote Data Bind" text.ja="リモートデータ連結" name="RemoteBind"></action>
       <action text="Selection" text.ja="選択" name="Selection"></action>
       <action text="Animation" text.ja="アニメーション" name="ChartAnimation"></action>
-      <action text="Multiple Chart" text.ja="複数のグラフ" name="MultipleChart" enhanced="true"
+      <action text="Multiple Chart" text.ja="複数のグラフ" name="MultipleChart" 
+enhanced="false"
               enhancetip="Add new ChartsPerLine property that allows to control layout of multiple pie charts."
               enhancetip.ja="ChartsPerLineプロパティが追加され、複数の円グラフのレイアウトを制御できるようになりました。"></action>
     </Control>
@@ -174,8 +187,10 @@
       <action text="General" text.ja="一般">
         <subactions>
           <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-                  enhancetip="Add new Legend.MaxSize property of FlexChart that allows to specify maximum legend size in pixels."
-                  enhancetip.ja="FlexChartではLegend.MaxSizeプロパティが追加され、凡例の最大サイズをピクセル単位で指定できるようになりました。"></action>
+                  
+enhancetip="Added new color schemes from ColorBrewer for FlexChart."
+                  
+enhancetip.ja="FlexChartコントロールに対して、ColorBrewerから新しい配色を追加しました。"></action>
         </subactions>
       </action>
       <action text="Data and Analysis" text.ja="データと分析">
@@ -258,8 +273,11 @@
       <action text="Using Ranges" text.ja="範囲の使用" name="Ranges"></action>
       <action text="Direction" text.ja="方向" name="Direction"></action>
       <action text="Styling" text.ja="スタイル設定" name="Styling"></action>
-      <action text="Editing Values" text.ja="値の編集" name="Editing" enhanced="false"
-              enhancetip="Added Gauge.ShowTickText property to show text labels next to each tickmark." enhancetip.ja="各目盛りの横にテキストラベルを表示するGauge.ShowTickTextプロパティを追加しました。"></action>
+      <action text="Editing Values" text.ja="値の編集" name="Editing" 
+enhanced="true"
+              enhancetip="Added new HandleWheel property for Gauge."
+              
+enhancetip.ja="GaugeクラスにHandleWheelプロパティを追加しました。"></action>
       <action text="Scaling" text.ja="スケーリング" name="Scaling"></action>
     </Control>
     <Control name="BulletGraph">
@@ -268,7 +286,10 @@
       <action text="Using Ranges" text.ja="範囲の使用" name="Ranges"></action>
       <action text="Direction" text.ja="方向" name="Direction"></action>
       <action text="Styling" text.ja="スタイル設定" name="Styling"></action>
-      <action text="Editing Values" text.ja="値の編集" name="Editing"></action>
+      <action text="Editing Values" text.ja="値の編集" name="Editing"
+enhanced="true"
+              enhancetip="Added new HandleWheel property for Gauge."
+              enhancetip.ja="GaugeクラスにHandleWheelプロパティを追加しました。"></action>
     </Control>
     <Control name="RadialGauge">
       <action text="Overview" text.ja="概要" name="Index"></action>
@@ -276,9 +297,12 @@
       <action text="Using Ranges" text.ja="範囲の使用" name="Ranges"></action>
       <action text="Automatic Scaling" text.ja="自動スケーリング" name="AutoScale"></action>
       <action text="Styling" text.ja="スタイル設定" name="Styling"></action>
-      <action text="Editing Values" text.ja="値の編集" name="Editing" enhanced="false"
-              enhancetip="Added Gauge.ShowTickText property to show text labels next to each tickmark.&lt;br&gt;Added RadialGauge.NeedleShape property to determines the shape of the gauge's needle element.&lt;br&gt;Added RadialGauge.NeedleLength to determines the length of the gauge's needle element with respect to the pointer range."
-              enhancetip.ja="各目盛りの横にテキストラベルを表示するGauge.ShowTickTextプロパティを追加しました。&lt;br&gt;ゲージの針要素の形状を決定するRadialGauge.NeedleShapeプロパティを追加しました。&lt;br&gt;ポインター範囲に対するゲージの針要素の長さを決定するRadialGauge.NeedleLengthが追加されました。"></action>
+      <action text="Editing Values" text.ja="値の編集" name="Editing" 
+enhanced="true"
+              
+enhancetip="Added new HandleWheel property for Gauge."
+              
+enhancetip.ja="GaugeクラスにHandleWheelプロパティを追加しました。"></action>
       <action text="Scaling" text.ja="スケーリング" name="Scaling"></action>
     </Control>
     <Control name="Sunburst">
@@ -293,12 +317,20 @@
       <action text="Theming" text.ja="テーマ" name="Theming"></action>
       <action text="Group Collection" text.ja="グループコレクション" name="GroupCollection"></action>
     </Control>
-    <Control name="FinancialChart" name.ja="FinancialChart" link="https://demos.componentone.com/ASPNET/5/FinancialChartExplorer/" link.ja="http://demo.grapecity.com/c1/aspnet/5/FinancialChartExplorer/"/>
+    <Control 
+name="FlexMap" new="true">
+      <action text="Overview" text.ja="概要" name="Index"></action>
+    
+<action text="US Choropleth" text.ja="アメリカのコロプレスマップ" name="USChoropleth"></action>
+      <action text="Bubble Map" text.ja="バブルマップ" name="BubbleMap"></action>
+    </Control>
+    <Control name="FinancialChart" name.ja="FinancialChart" link="https://www.grapecity.com/componentone/demos/aspnet/5/FinancialChartExplorer/" link.ja="http://demo.grapecity.com/c1/aspnet/5/FinancialChartExplorer/"/>
   </ControlGroup>
   <ControlGroup name="Navigation and Layout" name.ja="ナビゲーションとレイアウト">
     <Control name="Menu">
       <action text="Overview" text.ja="概要" name="Index"></action>
-      <action text="Bind Mode" text.ja="連結モード" name="BindMode" enhanced="true"
+      <action text="Bind Mode" text.ja="連結モード" name="BindMode" 
+enhanced="false"
               enhancetip="Enable HeaderPath property for Menu."
               enhancetip.ja="MenuコントロールではHeaderPathプロパティが有効になりました。"></action>
       <action text="Context Menu" text.ja="コンテキストメニュー" name="ContextMenu"></action>
@@ -317,8 +349,11 @@
               enhancetip.ja="オーナ要素に対してポップアップを表示する必要があるポップアップの位置を設定する Popup.PopupPosition プロパティが追加されました。"></action>
     </Control>
     <Control name="TreeView">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="false" 
-              enhancetip="Added TreeView.ExpandOnLoad property that determines whether the TreeView should automatically expand the first node when it loads (default behavior) or if all nodes should be initially collapsed." enhancetip.ja="TreeViewがロード時に最初のノードを自動的に展開するか（デフォルトの動作）、またはすべてのノードを最初に折りたたむかどうかを決定するTreeView.ExpandOnLoadプロパティを追加しました。"></action>
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="true"
+              enhancetip="Added new CollapseWhenDisabled property for TreeView."
+              
+enhancetip.ja="TreeViewクラスにCollapseWhenDisabledプロパティを追加しました。"></action>
       <action text="Remote Loading" text.ja="リモートロード" name="RemoteLoading"></action>
       <action text="Lazy Loading" text.ja="遅延ロード" name="LazyLoading"></action>
       <action text="Styling" text.ja="スタイル設定" name="Styling"></action>
@@ -365,22 +400,27 @@
     </Control>
   </ControlGroup>
   <ControlGroup name="Document" name.ja="ドキュメント">
-    <Control name="FlexReport" name.ja="FlexReport" link="https://demos.componentone.com/aspnet/5/flexviewerexplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/FlexViewerExplorer/"/>
+    <Control name="FlexReport" name.ja="FlexReport" link="https://www.grapecity.com/componentone/demos/aspnet/5/flexviewerexplorer" link.ja="http://demo.grapecity.com/c1/aspnet/5/FlexViewerExplorer/"/>
   </ControlGroup>
   <ControlGroup name="Scheduling" name.ja="スケジュール">
     <Control name="Calendar">
       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-              enhancetip="Add new WeeksBefore and WeeksAfter properties for Calendar to show additional weeks before and after the current month.&lt;br&gt;Add new MonthCount property for Calendar to show multiple months in the same calendar control."
-              enhancetip.ja="CalendarコントロールではWeeksBeforeプロパティとWeeksAfterプロパティが追加され、現在の月の前後に追加の週を表示できるようになりました。&lt;br&gt;また、MonthCountプロパティが追加され、同じカレンダーに複数の月を表示できるようになりました。"></action>
+              
+enhancetip="Added new HandleWheel property for Calendar."
+              
+enhancetip.ja="CalendarクラスにHandleWheelプロパティを追加しました。"></action>
       <action text="Validation" text.ja="検証" name="Validation"></action>
       <action text="Ranges" text.ja="範囲" name="Ranges" enhanced="true"
-              enhancetip="Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for Calendar."
-              enhancetip.ja="CalendarコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
+              
+enhancetip="Added new RangeChanged event for Calendar."
+              
+enhancetip.ja="CalendarクラスにRangeChangedイベントを追加しました。"></action>
     </Control>
   </ControlGroup>
-  <ControlGroup name="Input" name.ja="入力">
+  <ControlGroup name="Input and Editing" name.ja="入力と編集">
     <Control name="AutoComplete">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="false"
               enhancetip="Add new BeginsWithSearch property for AutoComplete to customize the matching behavior."
               enhancetip.ja="AutoCompleteコントロールではBeginsWithSearchプロパティが追加され、一致する動作をカスタマイズできるようになりました。"></action>
       <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
@@ -391,9 +431,12 @@
       <action text="Overview" text.ja="概要" name="Index"></action>
     </Control>
     <Control name="ComboBox">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
-                  enhancetip="Added ComboBox.CaseSensitiveSearch property to determine whether searches performed while the user types should case-sensitive."
-              enhancetip.ja="検索するときに大文字と小文字を区別するかどうかを決定するために、ComboBox.CaseSensitiveSearch プロパティが追加されました。"></action>
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="true"
+                  
+enhancetip="Added new HandleWheel property for ComboBox."
+              
+enhancetip.ja="ComboBoxクラスにHandleWheelプロパティを追加しました。"></action>
       <action text="Complex Type" text.ja="複合型" name="ComplexType"></action>
       <action text="Item Template" text.ja="項目テンプレート" name="ItemTemplate"></action>
       <action text="Multi-column DropDown" text.ja="複数列のドロップダウン" name="MultiColumnDropDown"></action>
@@ -408,11 +451,16 @@
     </Control>
     <Control name="InputDate">
       <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-              enhancetip="Add new WeeksBefore and WeeksAfter properties for InputDate to show additional weeks before and after the current month.&lt;br&gt;Add new MonthCount property for InputDate to show multiple months in the same calendar control.&lt;br&gt;Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for InputDate."
-              enhancetip.ja="InputDateコントロールではWeeksBeforeプロパティとWeeksAfterプロパティが追加され、現在の月の前後に追加の週を表示できるようになりました。&lt;br&gt;また、MonthCountプロパティが追加され、同じカレンダーに複数の月を表示できるようになりました。&lt;br&gt;InputDateコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
-      <action text="Range" text.ja="範囲" name="Range" enhanced="true"
-              enhancetip="Add new RangeEnd and RangeMin, RangeMax properties and new event OnRangeEndChanged for InputDate."
-              enhancetip.ja="InputDateコントロールではRangeEnd、RangeMin、RangeMaxプロパティ、およびOnRangeEndChangedイベントが追加されました。"></action>
+              
+enhancetip="Add new HandleWheel property for InputDate."
+              
+enhancetip.ja="InputDateクラスにHandleWheelプロパティを追加しました。"></action>
+      <action 
+text="Ranges" text.ja="範囲" name="Ranges" enhanced="true"
+              
+enhancetip="Added new RangeChanged event for InputDate."
+              
+enhancetip.ja="InputDateクラスにRangeChangedイベントを追加しました。"></action>
       <action text="Validation" text.ja="検証" name="Validation" enhanced="false"
               enhancetip="Added InvalidInput event to check invalid date and keep focus for correcting it."
               enhancetip.ja="無効な日付を確認し、エラーを修正できるようにフォーカスを保持する InvalidInput イベントが追加されました。"></action>
@@ -426,20 +474,27 @@
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputDateRange" new="true">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="false"
               enhancetip="Add new control InputDateRange."
               enhancetip.ja="新しいInputDateRangeコントロールが追加されました。"></action>
     </Control>
     <Control name="InputMask">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
-              enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
-              enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="true"
+              
+enhancetip="Added an OverwriteMode property for InputMask."
+              
+enhancetip.ja="InputMaskクラスにOverwriteModeプロパティを追加しました。"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="InputNumber">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="false"
-              enhancetip="Added InvalidInput event to check invalid value and keep focus for correcting it."
-              enhancetip.ja="無効な値をチェックし、それを修正するためにフォーカスを維持するために、InvalidInputイベントを追加しました。"></action>
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="true"
+              
+enhancetip="Added new HandleWheel property for InputNumber."
+              
+enhancetip.ja="InputNumberクラスにHandleWheelプロパティを追加しました。"></action>
       <action text="Editor Template" text.ja="エディタテンプレート" name="EditorTemplates"></action>
       <action text="Model Binding" text.ja="モデル連結" name="ModelBinding"></action>
       <action text="Form" text.ja="フォーム" name="Form"></action>
@@ -453,18 +508,21 @@
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="MultiSelect">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
-              enhancetip="Add new Delay and CaseSensitiveSearch properties for MultiSelect."
-              enhancetip.ja="MultiSelectコントロールではDelayプロパティとCaseSensitiveSearchプロパティが追加されました。"></action>
-      <action text="Complex Type" text.ja="複合型" name="ComplexType" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="false" 
+              enhancetip="Add new Delay property for MultiSelect."
+              enhancetip.ja="MultiSelectコントロールではDelayプロパティが追加されました。"></action>
+      <action text="Complex Type" text.ja="複合型" name="ComplexType" 
+enhanced="false"
               enhancetip="Enable HeaderPath property for MultiSelect."
-              enhancetip.ja="EMultiSelectコントロールではHeaderPathプロパティが有効になりました。"></action>
+              enhancetip.ja="MultiSelectコントロールではHeaderPathプロパティが有効になりました。"></action>
       <action text="Form" text.ja="フォーム" name="Form"></action>
       <action text="Multi-column DropDown" text.ja="複数列のドロップダウン" name="MultiColumnDropDown"></action>
       <action text="Unobtrusive Validation" text.ja="控えめな検証" name="UnobtrusiveValidation"></action>
     </Control>
     <Control name="MultiSelectListBox">
-      <action text="Overview" text.ja="概要" name="Index" enhanced="true"
+      <action text="Overview" text.ja="概要" name="Index" 
+enhanced="false"
               enhancetip="Add new SelectedIndex property for MultiSelectListBox.&lt;br&gt;Add new Delay and CaseSensitiveSearch properties for MultiSelectListBox."
               enhancetip.ja="MultiSelectListBoxコントロールではSelectedIndexプロパティが追加されました。&lt;br&gt;また、DelayプロパティとCaseSensitiveSearchプロパティが追加されました。"></action>
     </Control>
@@ -481,7 +539,7 @@
     </Control>
   </ControlGroup>
   <ControlGroup name="Tutorials" name.ja="チュートリアル">
-    <Control name="Learn MVC Client" name.ja="MVC クライアントの学習" link="https://demos.componentone.com/ASPNET/LearnMvcClient"
+    <Control name="Learn MVC Client" name.ja="MVC クライアントの学習" link="https://www.grapecity.com/componentone/demos/aspnet/LearnMvcClient"
 link.ja="https://demo.grapecity.com/c1/aspnet/LearnMvcClient/"/>
   </ControlGroup>
   <ControlGroup name="New Features" name.ja="新機能">
@@ -491,30 +549,30 @@ link.ja="https://demo.grapecity.com/c1/aspnet/LearnMvcClient/"/>
   </ControlGroup>
   <ControlGroup name="Getting Started Guides"
 name.ja="導入ガイド（英語）">
-    <Control name="FlexGrid 101" name.ja="FlexGrid 101" link="https://demos.componentone.com/ASPNET/5/FlexGrid101"
+    <Control name="FlexGrid 101" name.ja="FlexGrid 101" link="https://www.grapecity.com/componentone/demos/aspnet/5/FlexGrid101"
 link.ja="https://demos.componentone.com/ASPNET/5/FlexGrid101"/>
-    <Control name="FinancialChart 101" name.ja="FinancialChart 101" link="https://demos.componentone.com/ASPNET/MVCFinancialChart101"
+    <Control name="FinancialChart 101" name.ja="FinancialChart 101" link="https://www.grapecity.com/componentone/demos/aspnet/MVCFinancialChart101"
 link.ja="https://demos.componentone.com/ASPNET/MVCFinancialChart101"/>
-    <Control name="Gauge 101" name.ja="Gauge 101" link="https://demos.componentone.com/ASPNET/5/Gauge101"
+    <Control name="Gauge 101" name.ja="Gauge 101" link="https://www.grapecity.com/componentone/demos/aspnet/5/Gauge101"
 link.ja="https://demos.componentone.com/ASPNET/5/Gauge101"/>
-    <Control name="FlexChart 101" name.ja="FlexChart 101" link="https://demos.componentone.com/ASPNET/5/FlexChart101"
+    <Control name="FlexChart 101" name.ja="FlexChart 101" link="https://www.grapecity.com/componentone/demos/aspnet/5/FlexChart101"
 link.ja="https://demos.componentone.com/ASPNET/5/FlexChart101"/>
-    <Control name="FlexPie 101" name.ja="FlexPie 101" link="https://demos.componentone.com/ASPNET/5/FlexPie101"
+    <Control name="FlexPie 101" name.ja="FlexPie 101" link="https://www.grapecity.com/componentone/demos/aspnet/5/FlexPie101"
 link.ja="https://demos.componentone.com/ASPNET/5/FlexPie101"/>
-    <Control name="FlexSheet 101" name.ja="FlexSheet 101" link="https://demos.componentone.com/ASPNET/flexsheet101"
+    <Control name="FlexSheet 101" name.ja="FlexSheet 101" link="https://www.grapecity.com/componentone/demos/aspnet/flexsheet101"
 link.ja="https://demos.componentone.com/ASPNET/flexsheet101"/>
-    <Control name="Input 101" name.ja="Input 101" link="https://demos.componentone.com/ASPNET/5/Input101"
+    <Control name="Input 101" name.ja="Input 101" link="https://www.grapecity.com/componentone/demos/aspnet/5/Input101"
 link.ja="https://demos.componentone.com/ASPNET/5/Input101"/>
-    <Control name="CollectionView 101" name.ja="CollectionView 101" link="https://demos.componentone.com/aspnet/ASPNetMVCCollectionView101"
+    <Control name="CollectionView 101" name.ja="CollectionView 101" link="https://www.grapecity.com/componentone/demos/aspnet/ASPNetMVCCollectionView101"
 link.ja="https://demos.componentone.com/aspnet/ASPNetMVCCollectionView101"/>
   </ControlGroup>
   <ControlGroup name="Sample Applications" name.ja="サンプルアプリケーション（英語）">
-    <Control name="Dashboard" name.ja="Dashboard" link="https://demos.componentone.com/ASPNET/5/Dashboard" link.ja="https://demos.componentone.com/ASPNET/5/Dashboard" />
-    <Control name="C1 Finance" name.ja="C1 Finance" link="https://demos.componentone.com/aspnet/5/c1finance" link.ja="https://demos.componentone.com/aspnet/5/c1finance"/>
-    <Control name="Dynamic Dashboard" name.ja="Dynamic Dashboard" link="https://demos.componentone.com/ASPNET/5/DynamicDashboard" link.ja="https://demos.componentone.com/ASPNET/5/DynamicDashboard"/>
-    <Control name="Flight Statistics" name.ja="Flight Statistics" link="https://demos.componentone.com/ASPNET/5/flightstatistics" link.ja="https://demos.componentone.com/ASPNET/5/flightstatistics"/>
-    <Control name="FlexGrid Column Grouping" name.ja="FlexGrid Column Grouping" link="https://demos.componentone.com/ASPNET/5/flexgridcolumngrouping" link.ja="https://demos.componentone.com/ASPNET/5/flexgridcolumngrouping"/>
-    <Control name="AccessibilityExtender" name.ja="AccessibilityExtender" link="https://demos.componentone.com/ASPNET/5/accessibilityextender" link.ja="https://demos.componentone.com/ASPNET/5/accessibilityextender"/>
-    <Control name="RazorPagesExplorer" name.ja="RazorPagesExplorer（英語）" link= "https://demos.componentone.com/ASPNET/5/razorpagesexplorer/" link.ja="https://demos.componentone.com/ASPNET/5/razorpagesexplorer/" enhanced="false"/>
+    <Control name="Dashboard" name.ja="Dashboard" link="https://www.grapecity.com/componentone/demos/aspnet/5/Dashboard" link.ja="https://demos.componentone.com/ASPNET/5/Dashboard" />
+    <Control name="C1 Finance" name.ja="C1 Finance" link="https://www.grapecity.com/componentone/demos/aspnet/5/c1finance" link.ja="https://demos.componentone.com/aspnet/5/c1finance"/>
+    <Control name="Dynamic Dashboard" name.ja="Dynamic Dashboard" link="https://www.grapecity.com/componentone/demos/aspnet/5/DynamicDashboard" link.ja="https://demos.componentone.com/ASPNET/5/DynamicDashboard"/>
+    <Control name="Flight Statistics" name.ja="Flight Statistics" link="https://www.grapecity.com/componentone/demos/aspnet/5/flightstatistics" link.ja="https://demos.componentone.com/ASPNET/5/flightstatistics"/>
+    <Control name="FlexGrid Column Grouping" name.ja="FlexGrid Column Grouping" link="https://www.grapecity.com/componentone/demos/aspnet/5/flexgridcolumngrouping" link.ja="https://demos.componentone.com/ASPNET/5/flexgridcolumngrouping"/>
+    <Control name="AccessibilityExtender" name.ja="AccessibilityExtender" link="https://www.grapecity.com/componentone/demos/aspnet/5/accessibilityextender" link.ja="https://demos.componentone.com/ASPNET/5/accessibilityextender"/>
+    <Control name="RazorPagesExplorer" name.ja="RazorPagesExplorer（英語）" link= "https://www.grapecity.com/componentone/demos/aspnet/5/razorpagesexplorer/" link.ja="https://demos.componentone.com/ASPNET/5/razorpagesexplorer/" enhanced="false"/>
   </ControlGroup>
 </Controls>

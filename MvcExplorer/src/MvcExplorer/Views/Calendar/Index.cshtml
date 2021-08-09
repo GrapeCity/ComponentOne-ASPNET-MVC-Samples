@@ -23,23 +23,24 @@
     <li>@Html.Raw(CalendarRes.Index_MonthsCount)</li>
     <li>@Html.Raw(CalendarRes.Index_WeeksBefore)</li>
     <li>@Html.Raw(CalendarRes.Index_WeeksAfter)</li>
+    <li>@Html.Raw(CalendarRes.Index_HandleWheel)</li>
 </ul>
 
 @section Settings{
     <div style="padding: 4px 8px">
-        <label style="font-weight:700; display:inline-block; width: 100px">@Html.Raw(CalendarRes.Index_MonthCount)</></label>
+        <p style="display:inline-block; width: 100px">@Html.Raw(CalendarRes.Index_MonthCount)</p>
         <c1-input-number width="150px" min="1" max="10" step="1" value="1" format="n0" value-changed="monthCountChange">
         </c1-input-number>
     </div>
 
     <div style="padding: 4px 8px">
-        <label style="font-weight:700; display:inline-block; width: 100px"> @Html.Raw(CalendarRes.Index_WeekBefore)</></label>
+        <p style="display:inline-block; width: 100px"> @Html.Raw(CalendarRes.Index_WeekBefore)</p>
         <c1-input-number width="150px" min="0" max="10" step="1" value="0" format="n0" value-changed="weekBeforeChanged">
         </c1-input-number>
     </div>
 
     <div style="padding: 4px 8px">
-        <label style="font-weight:700; display:inline-block; width: 100px">@Html.Raw(CalendarRes.Index_WeekAfter)</></label>
+        <p style="display:inline-block; width: 100px">@Html.Raw(CalendarRes.Index_WeekAfter)</p>
         <c1-input-number width="150px" min="0" max="10" step="1" value="0" format="n0" value-changed="weekAfterChanged">
         </c1-input-number>
     </div>

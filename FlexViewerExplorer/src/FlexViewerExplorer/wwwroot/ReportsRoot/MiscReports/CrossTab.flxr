@@ -19,13 +19,14 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT Orders.ShipCountry, Categories.CategoryName, Year([OrderDate]) AS OrderYear, Sum([Order Details].[UnitPrice]*[Order Details].[Quantity]-[Discount]) AS SaleAmount, DatePart("q",[OrderDate]) AS OrderQtr
-FROM Categories INNER JOIN (Products INNER JOIN (Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID) ON Products.ProductID = [Order Details].ProductID) ON Categories.CategoryID = Products.CategoryID
-GROUP BY Orders.ShipCountry, Categories.CategoryName, Year([OrderDate]), DatePart("q",[OrderDate])
-ORDER BY Orders.ShipCountry, Categories.CategoryName, Year([OrderDate]);
-</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>
+            SELECT Orders.ShipCountry, Categories.CategoryName, strftime('%Y',[OrderDate]) AS OrderYear, Sum([Order Details].[UnitPrice]*[Order Details].[Quantity]-[Discount]) AS SaleAmount, (CAST(strftime('%m', [OrderDate]) as integer) + 2) / 3 AS OrderQtr
+            FROM Categories INNER JOIN (Products INNER JOIN (Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID) ON Products.ProductID = [Order Details].ProductID) ON Categories.CategoryID = Products.CategoryID
+            GROUP BY Orders.ShipCountry, Categories.CategoryName, strftime('%Y',[OrderDate]), OrderQtr
+            ORDER BY Orders.ShipCountry, Categories.CategoryName, strftime('%Y',[OrderDate]);
+        </RecordSource>
       </DataSource>
     </DataSources>
     <Groups>

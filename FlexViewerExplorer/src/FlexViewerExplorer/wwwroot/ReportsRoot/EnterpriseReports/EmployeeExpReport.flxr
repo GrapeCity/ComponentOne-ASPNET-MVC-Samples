@@ -23,8 +23,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT ((Airfare+lodging+Ground_transportation+Conferences_seminars+Meals_Tips+Mileage_Reimbursement+Miscellaneous)*Curr_Exchange_rate) AS [Total], *
 FROM EmployeeTravelExp
 WHERE EmpName=[Select Employee] order by [Date_From];</RecordSource>

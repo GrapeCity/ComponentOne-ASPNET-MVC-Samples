@@ -414,7 +414,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FlexSheet also allows user to process non-supported functions met in cell expressions by the client &lt;b&gt;unknownFuntion&lt;/b&gt; event.&lt;/br&gt;This event will pass the &apos;UnKnownFunctionEventArgs&apos; to customer.  This &apos;UnKnownFunctionEventArgs&apos; provides the function name and the evaluated values list of the parameters.&lt;/br&gt;User can set the &apos;value&apos; field of &apos;UnKnownFunctionEventArgs&apos; to customize the missed formula result.&lt;/br&gt;Otherwise the missed function will return the default error message: &lt;i&gt;&apos;The function &quot;funcName&quot; [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to FlexSheet also allows user to process non-supported functions met in cell expressions by the client &lt;b&gt;UnknownFunction&lt;/b&gt; event.&lt;/br&gt;This event will pass the &apos;UnKnownFunctionEventArgs&apos; to customer.  This &apos;UnKnownFunctionEventArgs&apos; provides the function name and the evaluated values list of the parameters.&lt;/br&gt;User can set the &apos;value&apos; field of &apos;UnKnownFunctionEventArgs&apos; to customize the missed formula result.&lt;/br&gt;Otherwise the missed function will return the default error message: &lt;i&gt;&apos;The function &quot;funcName [rest of string was truncated]&quot;;.
         /// </summary>
         public static string CustomFunction_Text1 {
             get {

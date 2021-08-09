@@ -55,20 +55,26 @@
                 <h4 class="modal-title">@Html.Raw(FlexGridRes.Editing_DialogTitle)</h4>
             </div>
             <div class="modal-body">
-                <dl class="dl-horizontal">
-                    <dt>@Html.Raw(FlexGridRes.Editing_CategoryID)</dt>
-                    <dd>
-                        <input id="CategoryID" class="form-control" disabled />
-                    </dd>
-                    <dt>@Html.Raw(FlexGridRes.Editing_CategoryName)</dt>
-                    <dd>
-                        <input id="CategoryName" class="form-control" />
-                    </dd>
-                    <dt>@Html.Raw(FlexGridRes.Editing_Description)</dt>
-                    <dd>
-                        <textarea id="Description" class="form-control"></textarea>
-                    </dd>
-                </dl>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@Html.Raw(FlexGridRes.Editing_CategoryID)</label>
+                        <div class="col-md-9">
+                            <input id="CategoryID" class="form-control" disabled />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@Html.Raw(FlexGridRes.Editing_CategoryName)</label>
+                        <div class="col-md-9">
+                            <input id="CategoryName" class="form-control" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">@Html.Raw(FlexGridRes.Editing_Description)</label>
+                        <div class="col-md-9">
+                            <textarea id="Description" class="form-control"></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary" data-dismiss="modal"

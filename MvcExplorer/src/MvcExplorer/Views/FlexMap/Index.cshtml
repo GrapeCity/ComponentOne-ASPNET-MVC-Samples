@@ -1,0 +1,64 @@
+﻿@using System.Drawing
+@{
+    var landsStyle = new SVGStyle { Fill = "rgba(200,200,200,1)" };
+    var airportsStyle = new SVGStyle { Fill = "rgba(10,10,10,1)" };
+    string[] palette = new string[] { "#9c88d9", "#a3d767", "#8ec3c0", "#e9c3a9", "#91ab36", "#d4ccc0", "#61bbd8", "#e2d76f", "#80715a" };
+}
+
+@section Scripts{
+    <script>
+        function scatterMapItemsSourceChanged(layer, a) {
+            const bb = new wijmo.Rect(-200, -10, 500, 80);
+            var map = wijmo.Control.getControl("#flexMap");
+            map.zoomTo(bb);
+
+            var features = layer.itemsSource;
+            features.forEach(function (f) {
+                var v = f.coordinates.split(",");
+                f.x = v[0];
+                f.y = v[1];
+                f.flow = 100000 + Math.random() * 100000000;
+            });
+
+        }
+        function colorScale(v) {
+            return 1 - v;
+        }
+        function colorScaleBindingLand(o) {
+            return o.properties.color;
+        }
+        function colorScaleBindingEurope(o) {
+            return o.properties.name.charCodeAt(0);
+        }
+    </script>
+}
+
+<c1-flex-map id="flexMap" header="Airport Map" height="600px">
+    <c1-geo-map-layer url="@Url.Content("~/Content/data/land.json")" style="@landsStyle">
+        <c1-color-scale colors="@palette" scale="colorScale" binding="colorScaleBindingLand"></c1-color-scale>
+    </c1-geo-map-layer>
+    <c1-geo-map-layer url="@Url.Content("~/Content/data/europe.json")">
+        <c1-color-scale colors="@C1.Web.Mvc.Chart.Palettes.Organic" scale="colorScale" binding="colorScaleBindingEurope"></c1-color-scale>
+    </c1-geo-map-layer>
+    <c1-geo-grid-layer></c1-geo-grid-layer>
+    <c1-scatter-map-layer url="@Url.Content("~/Content/data/airports.json")" binding="x,y,flow" symbol-min-size="3" symbol-max-size="8"
+                          style="@airportsStyle" items-source-changed="scatterMapItemsSourceChanged">
+    </c1-scatter-map-layer>
+    <c1-flex-chart-tooltip content="&#9992; <b>{iata_code}</b><br>{name}"></c1-flex-chart-tooltip>
+</c1-flex-map>
+
+@section Summary{
+    @Html.Raw(FlexMapRes.Index_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexMapRes.Index_Text1)</p>
+    <p>@Html.Raw(FlexMapRes.Index_Text2)</p>
+    <ol>
+        <li>@Html.Raw(FlexMapRes.Index_Text3)</li>
+        <li>@Html.Raw(FlexMapRes.Index_Text4)</li>
+        <li>@Html.Raw(FlexMapRes.Index_Text5)</li>
+        <li>@Html.Raw(FlexMapRes.Index_Text6)</li>
+        <li>@Html.Raw(FlexMapRes.Index_Text7)</li>
+    </ol>
+}

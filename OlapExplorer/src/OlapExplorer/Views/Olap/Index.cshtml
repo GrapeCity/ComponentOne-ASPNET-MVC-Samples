@@ -18,7 +18,7 @@
         <c1-pivot-grid id="indexGrid" items-source-id="indexEngine" outline-mode="false" show-value-field-headers="false"></c1-pivot-grid>
         <p>
             <span style="vertical-align:top; color:black;">
-                OutlineMode&nbsp;<input id="outlineMode" type="checkbox" onchange="toggleOulineMode(event)" style="margin-right:5em;" />
+                OutlineMode&nbsp;<input id="outlineMode" type="checkbox" onchange="toggleOutlineMode(event)" style="margin-right:5em;" />
                 ShowValueFieldHeaders&nbsp;<input id="ShowValueFieldHeaders" type="checkbox" onchange="toggleShowValueFieldHeaders(event)" />
             </span>
         </p>
@@ -164,7 +164,7 @@
         }
 
         // toggle outline mode      
-        function toggleOulineMode(e) {
+        function toggleOutlineMode(e) {
             var pivotGrid = wijmo.Control.getControl('#indexGrid');
             pivotGrid.outlineMode = e.target.checked;
         }

@@ -159,6 +159,15 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to In &lt;b&gt;OverwriteMode&lt;/b&gt;, every character you type is displayed at the cursor position. If a character is already at that position, it is replaced..
+        /// </summary>
+        public static string Index_Text14 {
+            get {
+                return ResourceManager.GetString("Index_Text14", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Masks using &lt;i&gt;InputType&lt;/i&gt; property:.
         /// </summary>
         public static string Index_Text6 {

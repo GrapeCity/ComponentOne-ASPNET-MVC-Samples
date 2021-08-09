@@ -16,7 +16,8 @@ namespace MvcExplorer.Controllers
                 {"Max Groups", new OptionItem {Values = new List<string> {"3", "4", "5", "6"}, CurrentValue = "3"}},
                 {"Placeholder", new OptionItem {Values = new List<string> {Localization.FlexGridRes.GroupPanel_Placeholder1, Localization.FlexGridRes.GroupPanel_Placeholder2}, CurrentValue = Localization.FlexGridRes.GroupPanel_Placeholder1}},
                 {"Hide Grouped Columns", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "False"}},
-                {"Group Description Creator", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "False"}}
+                {"Group Description Creator", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "False"}},
+                {"Show Drag Glyphs", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "False"}}
             }
         };
 

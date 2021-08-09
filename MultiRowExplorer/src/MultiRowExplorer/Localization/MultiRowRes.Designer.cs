@@ -297,7 +297,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Excel-Style editing:&lt;/b&gt;&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with &apos;Edit&apos; buttons that switch&lt;/br&gt;between display and edit modes..
+        ///   Looks up a localized string similar to &lt;b&gt;Excel-Style editing:&lt;/b&gt;&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with &apos;Edit&apos; buttons that switch between display and edit modes..
         /// </summary>
         public static string BatchEditing_Text0 {
             get {
@@ -306,7 +306,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Users can start editing simply by typing into any cell. This is called &apos;quick-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called &apos;full-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing..
+        ///   Looks up a localized string similar to Users can start editing simply by typing into any cell. This is called &apos;quick-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called &apos;full-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must press the Enter, Tab, or Escape keys to finish editing..
         /// </summary>
         public static string BatchEditing_Text1 {
             get {
@@ -459,7 +459,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow&apos;s &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView&apos;s &lt;b&gt;commi&lt;/b&gt;t method is explicitly called from client-side..
+        ///   Looks up a localized string similar to &lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow&apos;s &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView&apos;s &lt;b&gt;commit&lt;/b&gt; method is explicitly called from client-side..
         /// </summary>
         public static string BatchEditing_Text7 {
             get {
@@ -468,7 +468,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Normal.
+        ///   Looks up a localized string similar to Normal Mode.
         /// </summary>
         public static string BatchEditing_Text8 {
             get {
@@ -477,7 +477,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Batch.
+        ///   Looks up a localized string similar to Batch Mode.
         /// </summary>
         public static string BatchEditing_Text9 {
             get {
@@ -495,7 +495,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the layoutDefinition..
+        ///   Looks up a localized string similar to By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the LayoutDefinition..
         /// </summary>
         public static string CollapsedHeaders_Text1 {
             get {
@@ -558,7 +558,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid&apos;s column headers. The array contains a list of cell group objects similar to those used with the layoutDefinition property..
+        ///   Looks up a localized string similar to The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid&apos;s column headers. The array contains a list of cell group objects similar to those used with the LayoutDefinition property..
         /// </summary>
         public static string CustomColumnHeader_Text0 {
             get {
@@ -810,7 +810,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with &apos;Edit&apos; buttons that switch&lt;/br&gt;between display and edit modes..
+        ///   Looks up a localized string similar to The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with &apos;Edit&apos; buttons that switch between display and edit modes..
         /// </summary>
         public static string Editing_Text0 {
             get {
@@ -819,7 +819,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Users can start editing simply by typing into any cell. This is called &apos;quick-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called &apos;full-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing..
+        ///   Looks up a localized string similar to Users can start editing simply by typing into any cell. This is called &apos;quick-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called &apos;full-edit&apos; mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must press the Enter, Tab, or Escape keys to finish editing..
         /// </summary>
         public static string Editing_Text1 {
             get {
@@ -837,7 +837,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The detail form uses specialized input controls that take up more space but can make data&lt;/br&gt;entry easier in some cases. The form has &quot;OK&quot; and &quot;Cancel&quot; buttons that commit the changes&lt;/br&gt;or restore the original data. Both actions are accomplished with a single call to the&lt;/br&gt;&lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid..
+        ///   Looks up a localized string similar to The detail form uses specialized input controls that take up more space but can make data entry easier in some cases. The form has &quot;OK&quot; and &quot;Cancel&quot; buttons that commit the changes or restore the original data. Both actions are accomplished with a single call to the &lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid..
         /// </summary>
         public static string Editing_Text11 {
             get {
@@ -846,7 +846,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to If for some reason you don&apos;t like the Excel-style editing and prefer to add editing&lt;/br&gt;buttons to every row (typical of editable HTML tables), you can accomplish that&lt;/br&gt;using an &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow&apos;s&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt; function..
+        ///   Looks up a localized string similar to If for some reason you don&apos;t like the Excel-style editing and prefer to add editing buttons to every row (typical of editable HTML tables), you can accomplish that using an &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow&apos;s &lt;b&gt;getBindingColumn&lt;/b&gt; function..
         /// </summary>
         public static string Editing_Text12 {
             get {
@@ -855,7 +855,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The grid below demonstrates this approach. The buttons in the cells call&lt;/br&gt;methods in the controller to perform the required actions:.
+        ///   Looks up a localized string similar to The grid below demonstrates this approach. The buttons in the cells call methods in the controller to perform the required actions:.
         /// </summary>
         public static string Editing_Text13 {
             get {
@@ -1080,7 +1080,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds&lt;/br&gt;an &quot;Edit Detail&quot; button to invoke a form where the user can edit the item details..
+        ///   Looks up a localized string similar to Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds an &quot;Edit Detail&quot; button to invoke a form where the user can edit the item details..
         /// </summary>
         public static string Editing_Text9 {
             get {
@@ -1386,7 +1386,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this example, the paging happens server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes&lt;/br&gt;with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink(&quot;Disable Server Reading&quot;, &quot;DisableServerRead&quot;) sample for client-side paging..
+        ///   Looks up a localized string similar to In this example, the paging happens server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink(&quot;Disable Server Reading&quot;, &quot;DisableServerRead&quot;) sample for client-side paging..
         /// </summary>
         public static string Paging_Text1 {
             get {
@@ -1395,7 +1395,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete&lt;/br&gt;control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; by Javascript, please refer the client &lt;b&gt;CollectionView&lt;/b&gt; class..
+        ///   Looks up a localized string similar to &lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; by Javascript, please refer the client &lt;b&gt;CollectionView&lt;/b&gt; class..
         /// </summary>
         public static string Paging_Text2 {
             get {
@@ -1567,9 +1567,9 @@ namespace MultiRowExplorer.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to The layout is divided into three groups: customer, order, and shipper. Customer is a row header group.
-        ///        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell&apos;s &lt;b&gt;isReadOnly&lt;/b&gt; property to true (headers cannot be edited),
-        ///        adds a &apos;wj-header&apos; style to the cell&apos;s &lt;b&gt;cssClass&lt;/b&gt; property (so the cells are styled as headers),
-        ///        and sets the cell&apos;s &lt;b&gt;cellTemplate&lt;/b&gt; property to its &lt;b&gt;header&lt;/b&gt; value (so the cell shows the header as an unbound string).
+        ///        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell&apos;s &lt;b&gt;IsReadOnly&lt;/b&gt; property to true (headers cannot be edited),
+        ///        adds a &apos;wj-header&apos; style to the cell&apos;s &lt;b&gt;CssClass&lt;/b&gt; property (so the cells are styled as headers),
+        ///        and sets the cell&apos;s &lt;b&gt;CellTemplate&lt;/b&gt; property to its &lt;b&gt;Header&lt;/b&gt; value (so the cell shows the header as an unbound string).
         ///        Y [rest of string was truncated]&quot;;.
         /// </summary>
         public static string RowHeader_Description_Text0 {

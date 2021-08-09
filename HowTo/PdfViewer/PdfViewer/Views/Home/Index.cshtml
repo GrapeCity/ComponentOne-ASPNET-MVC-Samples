@@ -1,0 +1,49 @@
+﻿@{
+    ViewData["Title"] = "PdfViewer";
+}
+
+<div class="header ">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            PdfViewer
+        </h1>
+        <p>
+            @Html.Raw(PdfViewerRes.DescriptionTitle)
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">@Html.Raw(PdfViewerRes.Download)</a>
+    </div>
+
+    <!-- @Html.Raw(PdfViewerRes.Started) -->
+<div>
+    <h2>@Html.Raw(PdfViewerRes.Started)</h2>
+
+    <p>
+        @Html.Raw(PdfViewerRes.Steps)
+    </p>
+    <ol>
+        <li>@Html.Raw(PdfViewerRes.Step_1)</li>
+        <li>@Html.Raw(PdfViewerRes.Step_2)</li>
+        <li>@Html.Raw(PdfViewerRes.Step_3)</li>
+        <li>@Html.Raw(PdfViewerRes.Step_4)</li>
+    </ol>
+
+    <div>
+        <b>@Html.Raw(PdfViewerRes.SelectFile) </b>
+        <br />
+        <input type="file" onchange="uploadPdf(this, '@Url.Content("~")')" accept=".pdf" />
+        <label id="message" class="errormessage hidden">(@Html.Raw(PdfViewerRes.SelectNote) ".pdf".)</label>
+    </div>
+    
+    <div style="margin-top:15px;">
+        <c1-pdf-viewer id="pdfViewer" style="width:100%;" zoom-mode="PageWidth" threshold-width="650"></c1-pdf-viewer>
+    </div>
+</div>
+</div>

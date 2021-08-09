@@ -148,7 +148,7 @@
   </data>
   <data name="Checkboxes_Text5" xml:space="preserve">
     <value>The checkboxes are only shown when TreeView works without lazy nodes.
-        That's to say, the "&lt;b&gt;lazy-load-action-url&lt;/b&gt;" attribute and the "&lt;b&gt;lazy-load-function&lt;/b&gt;" attribute are not set.</value>
+        That's to say, the "&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;" attribute and the "&lt;b&gt;lazy-load-function&lt;/b&gt;" attribute are not set.</value>
   </data>
   <data name="CustomNodeContent_Text0" xml:space="preserve">
     <value>This view shows how to customize the node content in a TreeView control.</value>
@@ -225,7 +225,10 @@
             &lt;li&gt;&lt;b&gt;child-items-path&lt;/b&gt;&lt;/li&gt;
             It defines the name of the property in the items that contains the array of child nodes. By default, this property is set to the string 'items'.
         &lt;/ul&gt;
-        There are also properties for binding node images, checkboxes, and collapsed state to the &lt;b&gt;source&lt;/b&gt; array.</value>
+    </value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>There are also properties for binding node images, checkboxes the &lt;b&gt;Source&lt;/b&gt; array: &lt;b&gt;ImageMemberPath, CheckedMemberPath&lt;/b&gt; and properties for controlling treeview behavior: &lt;b&gt;IsAnimated, AutoCollapse, ExpandOnClick, CollapseOnClick, ExpandOnLoad, CollapseWhenDisabled&lt;/b&gt;.</value>
   </data>
   <data name="LazyLoading_Text0" xml:space="preserve">
     <value>This view shows how to load the child nodes dynamically in TreeView.</value>
@@ -286,7 +289,7 @@
     <value>Allow dropping into empty nodes</value>
   </data>
   <data name="LazyLoading_Li1" xml:space="preserve">
-    <value>Set the "&lt;b&gt;lazy-load-action-url&lt;/b&gt;" attribute to a url where you can get the lazy nodes data.</value>
+    <value>Set the "&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;" attribute to a url where you can get the lazy nodes data.</value>
   </data>
   <data name="LazyLoading_Text6" xml:space="preserve">
     <value>If the child node has children, you can set an empty array to the field which name is what the "&lt;b&gt;child-items-path&lt;/b&gt;" attribute stands for.

@@ -9,7 +9,7 @@
             var commandName = "change" + setting.Key.Replace(".", "_");
             var customChangeName = "customChange" + setting.Key.Replace(".", "_");
             var converterName = "convert" + setting.Key.Replace(".", "_");
-            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")) + ": ";
+            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")).Replace(" ","") + ": ";
             var propertyPaths = string.Join(".", setting.Key.Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
             var updateProperty = "update" + setting.Key.Replace(".", "_");
             var defaultValue = setting.Value.First();

@@ -1,4 +1,9 @@
-﻿@section Scripts{
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
     <style>
         .invalid-tooltip {
             background-color: red;
@@ -35,32 +40,40 @@
 
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text0)</label>
-    <c1-input-number value="0" format="n0"></c1-input-number>
+    <c1-input-number value="0" format="n0" handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text1)</label>
-    <c1-input-number value="@Math.PI" format="n"></c1-input-number>
+    <c1-input-number value="@Math.PI" format="n" handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text2)</label>
-    <c1-input-number value="3.5" format="c2" step="0.5" min="0" max="10"></c1-input-number>
+    <c1-input-number value="3.5" format="c2" step="0.5" min="0" max="10" handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text3)</label>
-    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false"></c1-input-number>
+    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false"
+                     handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text7)</label>
     <c1-input-number id="invalidInput" min="100" max="1000" value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false"
+                     handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"
                      invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-number>
 </div>
 
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text5)</label>
-    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false" format="g5" input-type="number"></c1-input-number>
+    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false" format="g5" input-type="number"
+                     handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
 
 @section Description{
     <p>@Html.Raw(InputNumberRes.Index_Text4)</p>
     <p>@Html.Raw(InputNumberRes.Index_Text6)</p>
+    <p>@Html.Raw(InputNumberRes.HandleWheelDescription_Text0)</p>
 }

@@ -5,7 +5,7 @@
             <!-- header -->
             Accordion
             <div class="desc">
-                Change the properties of this Accordion.
+                @Html.Raw(AccordionRes.Index_Pane_Text0)
             </div>
         </div>
         <div>
@@ -13,31 +13,31 @@
             <div class="wj-labeled-input switch">
                 <input id="showIcons" type="checkbox" checked />
                 <label for="showIcons">
-                    ShowIcons <span>Show icon in the pane headers</span>
+                    ShowIcons <span>@Html.Raw(AccordionRes.Index_Pane_Text1)</span>
                 </label>
             </div>
             <div class="wj-labeled-input switch">
                 <input id="autoSwitch" type="checkbox" checked />
                 <label for="autoSwitch">
-                    AutoSwitch <span>Expand panes when selecting with the keyboard</span>
+                    AutoSwitch <span>@Html.Raw(AccordionRes.Index_Pane_Text2)</span>
                 </label>
             </div>
             <div class="wj-labeled-input switch">
                 <input id="isAnimated" type="checkbox" checked />
                 <label for="isAnimated">
-                    IsAnimated <span>Animate pane collapse/expand</span>
+                    IsAnimated <span>@Html.Raw(AccordionRes.Index_Pane_Text3)</span>
                 </label>
             </div>
             <div class="wj-labeled-input switch">
                 <input id="allowCollapseAll" type="checkbox" />
                 <label for="allowCollapseAll">
-                    AllowCollapseAll <span>Can collapse all panes</span>
+                    AllowCollapseAll <span>@Html.Raw(AccordionRes.Index_Pane_Text4)</span>
                 </label>
             </div>
             <div class="wj-labeled-input switch">
                 <input id="allowExpandMany" type="checkbox" />
                 <label for="allowExpandMany">
-                    AllowExpandMany <span>Can expand multiple panes</span>
+                    AllowExpandMany <span>@Html.Raw(AccordionRes.Index_Pane_Text5)</span>
                 </label>
             </div>
         </div>
@@ -252,4 +252,5 @@
 
 @section Description{
     <p>@Html.Raw(AccordionRes.Index_Text1)</p>
+    <p>@Html.Raw(AccordionRes.Index_Text2)</p>
 }

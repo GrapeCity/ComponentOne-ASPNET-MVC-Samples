@@ -16,7 +16,7 @@
             }
         }
         optionMenus = '@(menus.ToString().Substring(0, menus.Length - 1))'.split(",");
-        optionValues = '@(currentValue.ToString().Substring(0, currentValue.Length - 1))'.split(",");
+        optionValues = '@(Html.Raw(currentValue.ToString().Substring(0, currentValue.Length - 1)))'.split(",");
         for (var i = 0; i < optionMenus.length; i++) {
             currentMenu = document.querySelector('input[name=\'' + optionMenus[i] + '\']');
             if (currentMenu && menu.inputElement !== currentMenu) {

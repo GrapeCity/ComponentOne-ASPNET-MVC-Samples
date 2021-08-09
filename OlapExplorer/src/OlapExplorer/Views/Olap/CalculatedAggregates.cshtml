@@ -1,0 +1,59 @@
+@using C1.Web.Mvc.Grid
+@model IEnumerable<ProductData>
+
+<c1-pivot-engine id="pvEngine" show-row-totals="Subtotals" show-column-totals="Subtotals" totals-before-data="true">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-pivot-field-collection>
+        <c1-pivot-field header="Country" binding="Country"></c1-pivot-field>
+        <c1-pivot-field header="Product" binding="Product"></c1-pivot-field>
+    <c1-pivot-field header="Date" binding="Date" format=@("yyyy \"Q\"q")></c1-pivot-field>
+        <c1-pivot-field header="Range" type="DataType.String" aggregate="Cnt" get-value="getValue"></c1-pivot-field>
+        <c1-pivot-field header="Sales" binding="Sales" format="n0"></c1-pivot-field>
+        <c1-pivot-field header="Downloads" binding="Downloads" format="n0"></c1-pivot-field>
+    <c1-pivot-field header="Conversion" type="DataType.Number" get-aggregate-value="getAggregateValue" format="p0"></c1-pivot-field>
+    </c1-pivot-field-collection>
+    <c1-view-field-collection c1-property="RowFields" items="Product,Date,Range"></c1-view-field-collection>
+    <c1-view-field-collection c1-property="ValueFields" items="Sales,Downloads,Conversion"></c1-view-field-collection>
+</c1-pivot-engine>
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        <c1-pivot-panel id="pvPanel" items-source-id="pvEngine"></c1-pivot-panel>
+    </div>
+    <div class="col-sm-8 col-md-8">
+        <c1-pivot-grid id="pvGrid" items-source-id="pvEngine" outline-mode="false" show-value-field-headers="false"></c1-pivot-grid>
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function getValue(item) {
+            let sales = item.Sales;
+            return sales <= 3000 ? 'Low' : sales <= 7000 ? 'Medium' : 'High';
+        }
+
+        function getAggregateValue(row) {
+            return row.Downloads ? row.Sales / row.Downloads : 0;
+        }
+    </script>
+}
+
+@section Settings{
+}
+
+@section Description{
+
+        @Html.Raw(OlapRes.CalculatedAggregates_Text1)
+  <ul>
+    <li>@Html.Raw(OlapRes.CalculatedAggregates_Text2)</li>
+    <li>@Html.Raw(OlapRes.CalculatedAggregates_Text3)</li>
+  </ul>
+    @Html.Raw(OlapRes.CalculatedAggregates_Text4)
+  <br />
+    @Html.Raw(OlapRes.CalculatedAggregates_Text5)
+
+}
+
+@section Summary{
+    <p>@Html.Raw(OlapRes.CalculatedAggregates_Text0)</p>
+}

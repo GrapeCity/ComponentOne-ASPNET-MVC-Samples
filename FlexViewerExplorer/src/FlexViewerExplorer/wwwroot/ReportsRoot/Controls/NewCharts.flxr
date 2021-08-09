@@ -235,8 +235,8 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -789,8 +789,8 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>GanttChartData</RecordSource>
       </DataSource>
     </DataSources>
@@ -1220,8 +1220,8 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from StockChartData order by Month(PriceDate), Day(PriceDate)</RecordSource>
         <CalculatedFields>
           <CalculatedField>
@@ -1735,9 +1735,10 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -2232,8 +2233,8 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
       </DataSource>
     </DataSources>
@@ -2780,8 +2781,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>DoughtNutChartData</RecordSource>
       </DataSource>
     </DataSources>

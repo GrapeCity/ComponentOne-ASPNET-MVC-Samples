@@ -48,7 +48,9 @@
     <c1-flex-grid-group-panel max-groups="@(Convert.ToInt32(optionsModel.Options["Max Groups"].CurrentValue))"
                               placeholder="@(optionsModel.Options["Placeholder"].CurrentValue)"
                               hide-grouped-columns="@(Convert.ToBoolean(optionsModel.Options["Hide Grouped Columns"].CurrentValue))"
-                              group-description-creator=@((Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue)) ? "customGroup" : "null")>
+                              group-description-creator=@((Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue)) ? "customGroup" : "null")
+                              show-drag-glyphs="@(Convert.ToBoolean(optionsModel.Options["Show Drag Glyphs"].CurrentValue))">
+                              
     </c1-flex-grid-group-panel>
 </c1-flex-grid>
 @section Settings{
@@ -60,4 +62,6 @@
     @Html.Raw(FlexGridRes.GroupPanel_Text1)
     <br/>
     @Html.Raw(FlexGridRes.GroupDescriptionCreator_Text0)
+    <br/>
+    @Html.Raw(FlexGridRes.GroupPanel_Text2)
 }

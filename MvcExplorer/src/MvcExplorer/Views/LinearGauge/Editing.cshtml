@@ -15,7 +15,7 @@
 
 <br />
 <c1-linear-gauge id="@demoSettingsModel.ControlId" min="0" max="10" value="5" format="" show-text="All" is-read-only="false" step="0.5" width="500px"
-                 show-ticks="false" show-tick-text="false">
+                 show-ticks="false" show-tick-text="false" handle-wheel="true">
 </c1-linear-gauge>
 
 @section Description{
@@ -24,4 +24,6 @@
     @Html.Raw(LinearGaugeRes.Editing_Text1)
     <br />
     @Html.Raw(LinearGaugeRes.Editing_Text2)
+    <br />
+    @Html.Raw(LinearGaugeRes.Editing_Text3)
 }

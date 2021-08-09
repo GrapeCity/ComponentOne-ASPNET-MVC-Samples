@@ -204,10 +204,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT TOP 23 MonthlyBudget.Tran_Type, MonthlyBudget.Tran_Name, MonthlyBudget.Estimated_Value, MonthlyBudget.Actual_Value, iif(MonthlyBudget.Tran_Type = 'Income' ,MonthlyBudget.Actual_Value- MonthlyBudget.Estimated_Value,MonthlyBudget.Estimated_Value-MonthlyBudget.Actual_Value) AS Deference
-FROM MonthlyBudget;</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>SELECT MonthlyBudget.Tran_Type, MonthlyBudget.Tran_Name, MonthlyBudget.Estimated_Value, MonthlyBudget.Actual_Value, iif(MonthlyBudget.Tran_Type = 'Income' ,MonthlyBudget.Actual_Value- MonthlyBudget.Estimated_Value,MonthlyBudget.Estimated_Value-MonthlyBudget.Actual_Value) AS Deference
+FROM MonthlyBudget LIMIT 23;</RecordSource>
       </DataSource>
     </DataSources>
     <Groups>
@@ -600,8 +600,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT MonthlyBudget.Tran_MainType,Sum(MonthlyBudget.Estimated_Value) As Estimated, Sum(MonthlyBudget.Actual_Value) As Actual, Sum( iif(MonthlyBudget.Tran_Type = 'Income' ,MonthlyBudget.Actual_Value- MonthlyBudget.Estimated_Value,MonthlyBudget.Estimated_Value-MonthlyBudget.Actual_Value)) AS Difference
 FROM MonthlyBudget group by MonthlyBudget.Tran_MainType ;
 </RecordSource>
@@ -1295,11 +1295,11 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select Top 5 Tran_Name,Actual_Value,ExpensesTotal from MonthlyBudget as t1 inner join (SELECT MonthlyBudget.Tran_MainType,Sum(MonthlyBudget.Actual_Value) as ExpensesTotal
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select Tran_Name,Actual_Value,ExpensesTotal from MonthlyBudget as t1 inner join (SELECT MonthlyBudget.Tran_MainType,Sum(MonthlyBudget.Actual_Value) as ExpensesTotal
 FROM MonthlyBudget group by MonthlyBudget.Tran_MainType) as t on  t1.Tran_MainType=t.Tran_MainType
-Where Tran_Type='Operating Expenses' order by Actual_Value desc;</RecordSource>
+Where Tran_Type='Operating Expenses' order by Actual_Value desc limit 5;</RecordSource>
       </DataSource>
     </DataSources>
     <Groups>

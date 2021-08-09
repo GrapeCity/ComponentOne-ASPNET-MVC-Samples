@@ -183,15 +183,15 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Type_Photo
 FROM PriceComparison AS T
-WHERE (((T.Product_ID) In (select top 3 t2.Product_ID
+WHERE (((T.Product_ID) In (select t2.Product_ID
 from PriceComparison  t2
 where 
 t2.Product_Type=T.Product_Type
-order by t2.Price_2013 desc, t2.Price_2014 desc
+order by t2.Price_2013 desc, t2.Price_2014 desc limit 3
 ))) ;
 </RecordSource>
       </DataSource>
@@ -320,15 +320,15 @@ _styleCtr = _styleCtr + 1
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Name, T.Price_2013, T.Price_2014
 FROM PriceComparison AS T
-WHERE (((T.Product_ID) In (select top 3 t2.Product_ID
+WHERE (((T.Product_ID) In (select t2.Product_ID
 from PriceComparison  t2
 where 
 t2.Product_Type=T.Product_Type
-order by t2.Price_2013 desc, t2.Price_2014 desc
+order by t2.Price_2013 desc, t2.Price_2014 desc limit 3
 ))) ;
 </RecordSource>
       </DataSource>
@@ -703,15 +703,15 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Name, T.Price_2013, T.Price_2014
 FROM PriceComparison AS T
-WHERE (((T.Product_ID) In (select top 3 t2.Product_ID
+WHERE (((T.Product_ID) In (select t2.Product_ID
 from PriceComparison  t2
 where 
 t2.Product_Type=T.Product_Type
-order by t2.Price_2013 desc, t2.Price_2014 desc
+order by t2.Price_2013 desc, t2.Price_2014 desc limit 3
 ))) ;
 </RecordSource>
       </DataSource>

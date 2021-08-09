@@ -8,9 +8,9 @@
 <c1-transposed-grid id="theTransposedGrid" auto-generate-rows="false" class="product-sheet-grid" is-read-only="true" headers-visibility="Row"
                     item-formatter="formatItem" loaded-rows="loadedRows" height="615">
     <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-transposed-grid-row binding="Image" header=" " align="center" width="80"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Image" header=" " align="center" width="80" height="170"></c1-transposed-grid-row>
     <c1-transposed-grid-row binding="Name" header="Model" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Rating" header="Rating" align="center" format="n1" width="130"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Rating" header="Rating" align="center" format="n1" width="130" height="40"></c1-transposed-grid-row>
     <c1-transposed-grid-row binding="Price" header="Price" align="center" format="c2" width="120"></c1-transposed-grid-row>
     <c1-transposed-grid-row binding="Screen" header="Screen" align="center" word-wrap="true"></c1-transposed-grid-row>
     <c1-transposed-grid-row binding="Camera" header="Camera" align="center" word-wrap="true"></c1-transposed-grid-row>
@@ -99,7 +99,7 @@
                 setTimeout(function () {
                     g.autoSizeColumn(0, true, 30);
                     g.autoSizeRows();
-                    g.rows[0].height = 170;
+                    //g.rows[0].height = 170;
                 });
         }
 

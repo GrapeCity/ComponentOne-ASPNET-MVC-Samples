@@ -122,8 +122,8 @@
     <comment>&lt;b&gt;Excel-Style editing:&lt;/b&gt;&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch&lt;/br&gt;between display and edit modes.</comment>
   </data>
   <data name="BatchEditing_Text1" xml:space="preserve">
-    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、&lt;/br&gt;［Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
-    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing.</comment>
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must press the Enter, Tab, or Escape keys to finish editing.</comment>
   </data>
   <data name="BatchEditing_Text10" xml:space="preserve">
     <value>このサンプルは、一括編集モードによるデータの編集を示します。</value>
@@ -175,23 +175,23 @@
   </data>
   <data name="BatchEditing_Text7" xml:space="preserve">
     <value>&lt;b&gt;メモ：&lt;/b&gt; ソート/フィルタ/ページ操作中にデータの更新を無効にするには、MultiRowの&lt;b&gt;ItemSource&lt;/b&gt;の&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティをTrueに設定します。&lt;/br&gt;これにより、クライアント側のソート、フィルタ処理、ページングが有効になり、collectionViewの&lt;b&gt;commit&lt;/b&gt;メソッドがクライアント側から明示的に呼び出されたときにのみデータが送信されます。</value>
-    <comment>&lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow's &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView's &lt;b&gt;commi&lt;/b&gt;t method is explicitly called from client-side.</comment>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow's &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView's &lt;b&gt;commit&lt;/b&gt; method is explicitly called from client-side.</comment>
   </data>
   <data name="BatchEditing_Text8" xml:space="preserve">
-    <value>標準</value>
-    <comment>Normal</comment>
+    <value>標準モード</value>
+    <comment>Normal Mode</comment>
   </data>
   <data name="BatchEditing_Text9" xml:space="preserve">
-    <value>一括更新</value>
-    <comment>Batch</comment>
+    <value>一括更新モード</value>
+    <comment>Batch Mode</comment>
   </data>
   <data name="CollapsedHeaders_Text0" xml:space="preserve">
     <value>MultiRowコントロールでは、列ヘッダーを1行に折りたたみ、個別のセルではなくグループ名だけを表示することができます。</value>
     <comment>MultiRow control can collapse the column headers to a single line, showing only the group names rather than individual cells.</comment>
   </data>
   <data name="CollapsedHeaders_Text1" xml:space="preserve">
-    <value>デフォルトでは、&lt;b&gt;MultiRow&lt;/b&gt;コントロールは複数の行から成る列ヘッダーを作成します。ここに、layoutDefinitionで定義された各セルのヘッダーが表示されます。</value>
-    <comment>By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the layoutDefinition.</comment>
+    <value>デフォルトでは、&lt;b&gt;MultiRow&lt;/b&gt;コントロールは複数の行から成る列ヘッダーを作成します。ここに、LayoutDefinitionで定義された各セルのヘッダーが表示されます。</value>
+    <comment>By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the LayoutDefinition.</comment>
   </data>
   <data name="CollapsedHeaders_Text2" xml:space="preserve">
     <value>これらセル固有の列ヘッダーは、従来のグリッドと同様に、データのソートやフィルタ処理に使用できます。</value>
@@ -321,24 +321,24 @@
     <comment>The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch&lt;/br&gt;between display and edit modes.</comment>
   </data>
   <data name="Editing_Text1" xml:space="preserve">
-    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、&lt;/br&gt;［Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
-    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must&lt;/br&gt;press the Enter, Tab, or Escape keys to finish editing.</comment>
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。&lt;/br&gt;［F2］キーを押すか、セルをダブルクリックすることで、編集を開始することもできます。&lt;/br&gt;これは、「完全編集」モードと呼ばれます。&lt;/br&gt;このモードでは、矢印キーを押すとエディタ内のカレットが移動し、編集を終了するには、Enter］、［Tab］、または［Esc］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell. This is called 'quick-edit' mode.&lt;/br&gt;In this mode, the cursor keys finish the editing and the grid moves the selection.&lt;/br&gt;They can also start editing by pressing F2 or by clicking a cell twice.&lt;/br&gt;This is called 'full-edit' mode.&lt;/br&gt;In this mode, the cursor keys move the caret within the editor and the user must press the Enter, Tab, or Escape keys to finish editing.</comment>
   </data>
   <data name="Editing_Text10" xml:space="preserve">
     <value>この動作を確認するには、グリッドの項目を選択し、上の［詳細の編集］ボタンをクリックします。&lt;/br&gt;これにより、現在の選択項目のデータをユーザーが編集できるフォームが表示されます。</value>
     <comment>To see this in action, select an item on the grid and click the "Edit Detail" button above.&lt;/br&gt;This will bring up a form where users can edit the data for the currently selected item.</comment>
   </data>
   <data name="Editing_Text11" xml:space="preserve">
-    <value>詳細フォームは、より多くのスペースを必要とする一方で場合によってはデータ入力が容易になる&lt;/br&gt;特別な入力コントロールを使用します。このフォームには、変更をコミットする［OK］ボタンと&lt;/br&gt;元のデータを復元する［キャンセル］ボタンがあります。どちらのアクションも、グリッドのデータソースとして使用される&lt;/br&gt;&lt;b&gt;CollectionView&lt;/b&gt;の1回の呼び出しで実行されます。</value>
-    <comment>The detail form uses specialized input controls that take up more space but can make data&lt;/br&gt;entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes&lt;/br&gt;or restore the original data. Both actions are accomplished with a single call to the&lt;/br&gt;&lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</comment>
+    <value>詳細フォームは、より多くのスペースを必要とする一方で場合によってはデータ入力が容易になる特別な入力コントロールを使用します。このフォームには、変更をコミットする［OK］ボタンと元のデータを復元する［キャンセル］ボタンがあります。どちらのアクションも、グリッドのデータソースとして使用される&lt;b&gt;CollectionView&lt;/b&gt;の1回の呼び出しで実行されます。</value>
+    <comment>The detail form uses specialized input controls that take up more space but can make data entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes or restore the original data. Both actions are accomplished with a single call to the&lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</comment>
   </data>
   <data name="Editing_Text12" xml:space="preserve">
-    <value>何らかの理由でExcel形式の編集を避け、&lt;/br&gt;各行に編集ボタンを追加する場合は（編集可能HTMLテーブルなど）、&lt;/br&gt;1つの&lt;b&gt;ItemFormatter&lt;/b&gt;といくつかのコントローラメソッドを使用してこれを実現できます。&lt;/br&gt;ItemFormatterイベントハンドラで連結列を取得するには、MultiRowの&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt;関数を使用してください。</value>
-    <comment>If for some reason you don't like the Excel-style editing and prefer to add editing&lt;/br&gt;buttons to every row (typical of editable HTML tables), you can accomplish that&lt;/br&gt;using an &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow's&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt; function.</comment>
+    <value>何らかの理由でExcel形式の編集を避け、各行に編集ボタンを追加する場合は（編集可能HTMLテーブルなど）、1つの&lt;b&gt;ItemFormatter&lt;/b&gt;といくつかのコントローラメソッドを使用してこれを実現できます。&lt;/br&gt;ItemFormatterイベントハンドラで連結列を取得するには、MultiRowの&lt;b&gt;getBindingColumn&lt;/b&gt;関数を使用してください。</value>
+    <comment>If for some reason you don't like the Excel-style editing and prefer to add editing buttons to every row (typical of editable HTML tables), you can accomplish that using an &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow's&lt;/br&gt;&lt;b&gt;getBindingColumn&lt;/b&gt; function.</comment>
   </data>
   <data name="Editing_Text13" xml:space="preserve">
-    <value>次のグリッドは、この方法を示します。セルのボタンは、&lt;/br&gt;コントローラのメソッドを呼び出して必要なアクションを実行します。</value>
-    <comment>The grid below demonstrates this approach. The buttons in the cells call&lt;/br&gt;methods in the controller to perform the required actions:</comment>
+    <value>次のグリッドは、この方法を示します。セルのボタンは、コントローラのメソッドを呼び出して必要なアクションを実行します。</value>
+    <comment>The grid below demonstrates this approach. The buttons in the cells call methods in the controller to perform the required actions:</comment>
   </data>
   <data name="Editing_Text14" xml:space="preserve">
     <value>項目の編集</value>
@@ -413,8 +413,8 @@
     <comment>Here is a typical editable MultiRow:</comment>
   </data>
   <data name="Editing_Text9" xml:space="preserve">
-    <value>ポップアップ編集は、Excel形式のクイックデータ入力を行うネイティブ編集を有効にしたまま、&lt;/br&gt;ユーザーが項目の詳細を編集するためのフォームを呼び出す［詳細の編集］ボタンを追加します。</value>
-    <comment>Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds&lt;/br&gt;an "Edit Detail" button to invoke a form where the user can edit the item details.</comment>
+    <value>ポップアップ編集は、Excel形式のクイックデータ入力を行うネイティブ編集を有効にしたまま、ユーザーが項目の詳細を編集するためのフォームを呼び出す［詳細の編集］ボタンを追加します。</value>
+    <comment>Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds an "Edit Detail" button to invoke a form where the user can edit the item details.</comment>
   </data>
   <data name="Error_Text0" xml:space="preserve">
     <value>エラー。</value>
@@ -521,8 +521,8 @@
     <comment>In this example, the paging happens server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes&lt;/br&gt;with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink("Disable Server Reading", "DisableServerRead") sample for client-side paging.</comment>
   </data>
   <data name="Paging_Text2" xml:space="preserve">
-    <value>&lt;b&gt;メモ：&lt;/b&gt; ページングUIは、グリッド外で実装されます。これにより、&lt;/br&gt;ページングメカニズムの外観と機能を完全に制御できます。&lt;/br&gt;JavaScriptで&lt;b&gt;Pager&lt;/b&gt;をカスタマイズする方法については、クライアント&lt;b&gt;CollectionView&lt;/b&gt;クラスを参照してください。</value>
-    <comment>&lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete&lt;/br&gt;control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; by Javascript, please refer the client &lt;b&gt;CollectionView&lt;/b&gt; class.</comment>
+    <value>&lt;b&gt;メモ：&lt;/b&gt; ページングUIは、グリッド外で実装されます。これにより、ページングメカニズムの外観と機能を完全に制御できます。&lt;/br&gt;JavaScriptで&lt;b&gt;Pager&lt;/b&gt;をカスタマイズする方法については、クライアント&lt;b&gt;CollectionView&lt;/b&gt;クラスを参照してください。</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; by Javascript, please refer the client &lt;b&gt;CollectionView&lt;/b&gt; class.</comment>
   </data>
   <data name="PdfExport_Text0" xml:space="preserve">
     <value>You can use the &lt;b&gt;FlexGridPdfConverter&lt;/b&gt;, a &lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;-based JavaScript library,&lt;/br&gt;to export &lt;b&gt;MultiRow&lt;/b&gt; to PDF (Portable Document Format) without using any server-side code.</value>
@@ -781,23 +781,23 @@ You can also specify the sorting order in the second list.</comment>
     <comment>The &lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; property determines whether group headers should have multiple rows instead of a single header row, which is useful when you want to display aggregate values in the group headers.</comment>
   </data>
   <data name="CustomColumnHeader_Text0" xml:space="preserve">
-    <value>&lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; プロパティは、グリッドの列ヘッダーを表示するために使用される行のレイアウトを定義します。 配列には、layoutDefinitionプロパティで使用されるものと同様のセルグループオブジェクトのリストが含まれます。</value>
-    <comment>The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid's column headers. The array contains a list of cell group objects similar to those used with the layoutDefinition property.</comment>
+    <value>&lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; プロパティは、グリッドの列ヘッダーを表示するために使用される行のレイアウトを定義します。 配列には、LayoutDefinitionプロパティで使用されるものと同様のセルグループオブジェクトのリストが含まれます。</value>
+    <comment>The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid's column headers. The array contains a list of cell group objects similar to those used with the LayoutDefinition property.</comment>
   </data>
   <data name="RowHeader_Description_Text0" xml:space="preserve">
     <value>"レイアウトは、顧客情報、注文情報、運送業者情報の3つのグループに分かれています。顧客情報は行ヘッダーグループです。
 
-&lt;b&gt;isRowHeader&lt;/b&gt; プロパティをtrueに設定すると、セルのisReadOnly プロパティが自動的にtrueに設定され（ヘッダーは編集できません）、 セルがヘッダーとしてスタイル設定されるようにセルの &lt;b&gt;cssClass&lt;/b&gt; プロパティに'wj-header' スタイルが追加され、また、セルがヘッダーを連結されていない文字列として表示するように &lt;b&gt;cellTemplate&lt;/b&gt; プロパティをその &lt;b&gt;header&lt;/b&gt; 値に設定します。 行ヘッダーセルに連結されている値を表示する場合は、 セルの&lt;b&gt;header&lt;/b&gt;ではなく、&lt;b&gt;binding&lt;/b&gt;プロパティを設定することができます。"
+&lt;b&gt;IsRowHeader&lt;/b&gt; プロパティをtrueに設定すると、セルのIsReadOnly プロパティが自動的にtrueに設定され（ヘッダーは編集できません）、 セルがヘッダーとしてスタイル設定されるようにセルの &lt;b&gt;CssClass&lt;/b&gt; プロパティに'wj-header' スタイルが追加され、また、セルがヘッダーを連結されていない文字列として表示するように &lt;b&gt;CellTemplate&lt;/b&gt; プロパティをその &lt;b&gt;Header&lt;/b&gt; 値に設定します。 行ヘッダーセルに連結されている値を表示する場合は、 セルの&lt;b&gt;Header&lt;/b&gt;ではなく、&lt;b&gt;Binding&lt;/b&gt;プロパティを設定することができます。"
 </value>
     <comment>The layout is divided into three groups: customer, order, and shipper. Customer is a row header group.
-        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell's &lt;b&gt;isReadOnly&lt;/b&gt; property to true (headers cannot be edited),
-        adds a 'wj-header' style to the cell's &lt;b&gt;cssClass&lt;/b&gt; property (so the cells are styled as headers),
-        and sets the cell's &lt;b&gt;cellTemplate&lt;/b&gt; property to its &lt;b&gt;header&lt;/b&gt; value (so the cell shows the header as an unbound string).
-        You may choose to set the cell's &lt;b&gt;binding&lt;/b&gt; property instead of &lt;b&gt;header&lt;/b&gt; if you want to show
+        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell's &lt;b&gt;IsReadOnly&lt;/b&gt; property to true (headers cannot be edited),
+        adds a 'wj-header' style to the cell's &lt;b&gt;CssClass&lt;/b&gt; property (so the cells are styled as headers),
+        and sets the cell's &lt;b&gt;CellTemplate&lt;/b&gt; property to its &lt;b&gt;Header&lt;/b&gt; value (so the cell shows the header as an unbound string).
+        You may choose to set the cell's &lt;b&gt;Binding&lt;/b&gt; property instead of &lt;b&gt;Header&lt;/b&gt; if you want to show
         bound values in the row header cells.</comment>
   </data>
   <data name="RowHeader_Summary_Text0" xml:space="preserve">
-    <value>セルグループの isRowHeader プロパティを使用すると、行ヘッダーセルとして表示されるグループを作成できます。</value>
+    <value>セルグループの IsRowHeader プロパティを使用すると、行ヘッダーセルとして表示されるグループを作成できます。</value>
     <comment>The IsRowHeader property of the cell groups allows you to create groups to be displayed as row header cells.</comment>
   </data>
   <data name="BatchEditing_Text12" xml:space="preserve">

@@ -78,6 +78,15 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can change the current displayMonth using the mouse wheel..
+        /// </summary>
+        public static string Index_HandleWheel {
+            get {
+                return ResourceManager.GetString("Index_HandleWheel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Month Count.
         /// </summary>
         public static string Index_MonthCount {
@@ -229,6 +238,15 @@ namespace MvcExplorer.Localization {
         public static string Ranges_Description2 {
             get {
                 return ResourceManager.GetString("Ranges_Description2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Range End.
+        /// </summary>
+        public static string Ranges_RangeEnd {
+            get {
+                return ResourceManager.GetString("Ranges_RangeEnd", resourceCulture);
             }
         }
         

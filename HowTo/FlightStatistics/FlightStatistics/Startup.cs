@@ -32,7 +32,7 @@ namespace FlightStatistics
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<AirportEntities>(o => o.UseSqlServer(GetConnectionString()));
+            services.AddDbContext<AirportEntities>(o => o.UseSqlite(GetConnectionString()));
             services.AddDistributedMemoryCache();
             services.AddSession(options =>
             {
@@ -53,13 +53,13 @@ namespace FlightStatistics
                 dataFolderPath += folderSeparator;
             }
 
-            var attachText = "AttachDbFilename=";
-            var index = configConnectionString.IndexOf(attachText);
+            var dataSourceText = "data source=";
+            var index = configConnectionString.IndexOf(dataSourceText);
             if (index != -1)
             {
-                return configConnectionString.Insert(index + attachText.Length, dataFolderPath);
+                return configConnectionString.Insert(index + dataSourceText.Length, dataFolderPath);
             }
-            
+
             return configConnectionString;
         }
 

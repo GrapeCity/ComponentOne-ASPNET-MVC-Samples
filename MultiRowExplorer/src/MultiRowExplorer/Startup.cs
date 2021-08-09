@@ -31,7 +31,7 @@ namespace MultiRowExplorer
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<C1NWindEntities>(o => o.UseSqlServer(GetConnectionString()));
+            services.AddDbContext<C1NWindEntities>(o => o.UseSqlite(GetConnectionString()));
 
             services.AddMvc();
 
@@ -48,11 +48,11 @@ namespace MultiRowExplorer
                 dataFolderPath += folderSeparator;
             }
 
-            var attachText = "AttachDbFilename=";
-            var index = configConnectionString.IndexOf(attachText);
+            var dataSourceText = "data source=";
+            var index = configConnectionString.IndexOf(dataSourceText);
             if (index != -1)
             {
-                return configConnectionString.Insert(index + attachText.Length, dataFolderPath);
+                return configConnectionString.Insert(index + dataSourceText.Length, dataFolderPath);
             }
 
             return configConnectionString;

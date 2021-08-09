@@ -21,9 +21,10 @@
     <EmbeddedResource Include="fb.json;fb2.json;Models\UserInfo.cs;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20211.306" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20212.315" />
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.OData" Version="7.0.0-beta1" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="2.2.6" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="project.json" />

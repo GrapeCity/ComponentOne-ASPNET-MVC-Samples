@@ -255,7 +255,7 @@ namespace MvcExplorer.Localization {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Delay:&lt;/b&gt; determines a period of time, in milliseconds, between when a keystroke occurs and when the search is performed to update the filter. This property is relevant only when the showFilterInput property is set to true. The default value for this property is 500 milliseconds. .
+        ///   Looks up a localized string similar to &lt;b&gt;Delay:&lt;/b&gt; determines a period of time, in milliseconds, between when a keystroke occurs and when the search is performed to update the filter. This property is relevant only when the ShowFilterInput property is set to true. The default value for this property is 500 milliseconds. .
         /// </summary>
         public static string Delay_Text1
         {

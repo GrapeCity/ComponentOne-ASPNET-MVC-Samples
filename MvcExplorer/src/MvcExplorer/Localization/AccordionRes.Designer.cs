@@ -61,6 +61,60 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Change the properties of this Accordion..
+        /// </summary>
+        public static string Index_Pane_Text0 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show icon in the pane headers.
+        /// </summary>
+        public static string Index_Pane_Text1 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Expand panes when selecting with the keyboard.
+        /// </summary>
+        public static string Index_Pane_Text2 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Animate pane collapse/expand.
+        /// </summary>
+        public static string Index_Pane_Text3 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can collapse all panes.
+        /// </summary>
+        public static string Index_Pane_Text4 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Can expand multiple panes.
+        /// </summary>
+        public static string Index_Pane_Text5 {
+            get {
+                return ResourceManager.GetString("Index_Pane_Text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to The Accordion control allows you to organize content into collapsible panes..
         /// </summary>
         public static string Index_Text0 {
@@ -75,6 +129,16 @@ namespace MvcExplorer.Localization {
         public static string Index_Text1 {
             get {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The first pane show some feature settings of the Accordion control which you can try changing them to know how the Accordion works. &lt;br /&gt;
+        ///The remaing panes just show example contents for the Accordion demonstration..
+        /// </summary>
+        public static string Index_Text2 {
+            get {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
             }
         }
     }

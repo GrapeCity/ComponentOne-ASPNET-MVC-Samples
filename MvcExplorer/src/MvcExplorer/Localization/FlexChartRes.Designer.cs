@@ -852,7 +852,7 @@ namespace MvcExplorer.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to Uses &lt;b&gt;Legend.MaxSize&lt;/b&gt; to Gets or sets the maximum legend size (width for left or right position and height for top or bottom position).
-        ///The size can be specified in pixels: maxSize = &apos;100px&apos; or percents: maxSize = &apos;50%&apos;..
+        ///The size can be specified in pixels: MaxSize = &apos;100px&apos; or percents: MaxSize = &apos;50%&apos;..
         /// </summary>
         public static string Index_Text4 {
             get {

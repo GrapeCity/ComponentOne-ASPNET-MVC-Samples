@@ -174,8 +174,8 @@
     <comment>~/Content/css/gcicons.css</comment>
   </data>
   <data name="Index_Text0" xml:space="preserve">
-    <value>ビュー定義を保存または復元するには、&lt;b&gt;viewDefinition&lt;/b&gt;プロパティを使用できます。次に例を示します。</value>
-    <comment>You can use the &lt;b&gt;viewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</comment>
+    <value>ビュー定義を保存または復元するには、&lt;b&gt;ViewDefinition&lt;/b&gt;プロパティを使用できます。次に例を示します。</value>
+    <comment>You can use the &lt;b&gt;ViewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</comment>
   </data>
   <data name="Index_Text2" xml:space="preserve">
     <value>&lt;b&gt;PivotGrid&lt;/b&gt;コントロールは、&lt;b&gt;FlexGrid&lt;/b&gt;コントロールの拡張です。したがって、&lt;/br&gt;&lt;b&gt;FlexGrid&lt;/b&gt;に付属する拡張モジュールでサポートされている形式であれば、どの形式にもエクスポートできます。&lt;/br&gt;サポートされている形式には、.xlsx、.csv、.pdfなどがあります。</value>
@@ -373,7 +373,31 @@
     <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
   </data>
   <data name="Index_Text10" xml:space="preserve">
-    <value>&lt;b&gt;PivotGrid&lt;/b&gt;の&lt;b&gt;OutlineMode&lt;/b&gt;プロパティを使用すると、画面に表示される余白を小さくすることができます。&lt;br /&gt;1つの値フィールドしか使用できない場合でも、&lt;b&gt;showValueFieldHeaders&lt;/b&gt;プロパティを使用して、&lt;b&gt;PivotGrid&lt;/b&gt;に値フィールドのヘッダーを強制的に表示することもできます。</value>
-    <comment>You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;showValueFieldHeaders&lt;/b&gt; property even only one value field available.</comment>
+    <value>&lt;b&gt;PivotGrid&lt;/b&gt;の&lt;b&gt;OutlineMode&lt;/b&gt;プロパティを使用すると、画面に表示される余白を小さくすることができます。&lt;br /&gt;1つの値フィールドしか使用できない場合でも、&lt;b&gt;ShowValueFieldHeaders&lt;/b&gt;プロパティを使用して、&lt;b&gt;PivotGrid&lt;/b&gt;に値フィールドのヘッダーを強制的に表示することもできます。</value>
+    <comment>You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;ShowValueFieldHeaders&lt;/b&gt; property even only one value field available.</comment>
+  </data>
+  <data name="CalculatedAggregates_Text0" xml:space="preserve">
+    <value>PivotEngineのPivotField オブジェクトは、各要約行に対して集計フィールドを計算するGetAggregateValue関数をサポートしています。</value>
+    <comment>The PivotEngine support GetAggregateValue function in PivotField to calculate aggregate field for each summary row.</comment>
+  </data>
+  <data name="CalculatedAggregates_Text1" xml:space="preserve">
+    <value>PivotField オブジェクトには、カスタム計算をサポートする2つのプロパティがあり、関数として使用されます。</value>
+    <comment>PivotField objects have two properties as function that support custom calculations:</comment>
+  </data>
+  <data name="CalculatedAggregates_Text2" xml:space="preserve">
+    <value>GetValue関数は、データ項目をパラメータとして受け取り、データ項目の他のプロパティに基づいて計算された値を返します。この関数は、集計情報にアクセスできません。</value>
+    <comment>The GetValue function takes a data item as a parameter and returns a value that is calculated based on other properties of the data item. The function has no access to any aggregate information.</comment>
+  </data>
+  <data name="CalculatedAggregates_Text3" xml:space="preserve">
+    <value>GetAggregateValue関数は、要約行をパラメータとして受け取り、フィールドの集計として表示される値を返します。 この関数は、実際のデータ項目にアクセスできません。</value>
+    <comment>The GetAggregateValue function takes a summary row as a parameter and returns a value to be displayed as an aggregate for the field. The function has no access to the individual/raw data items.</comment>
+  </data>
+  <data name="CalculatedAggregates_Text4" xml:space="preserve">
+    <value>このサンプルでは、GetValue関数を使用して、実際の売上を「高」、「中」、「低」の3つのレベルに分類する売上範囲フィールドを計算します。</value>
+    <comment>This sample uses the GetValue function to calculate a Range field that categorizes raw sales value into three levels: "High", "Medium", or "Low".</comment>
+  </data>
+  <data name="CalculatedAggregates_Text5" xml:space="preserve">
+    <value>また、GetAggregateValue関数を使用して、各要約行の売上／ダウンロード率を示すコンバージョンフィールドを計算します。</value>
+    <comment>And uses GetAggregateValue function to calculate a Conversion field that shows the Sales/Downloads ratio for each summary row.</comment>
   </data>
 </root>

@@ -26,6 +26,7 @@ namespace MvcExplorer.Controllers
                 {"ShowTickText", new object[]{ false, true}},
                 {"NeedleShape", new object[]{ "None", "Triangle", "Diamond", "Hexagon", "Rectangle", "Arrow", "WideArrow", "Pointer", "WidePointer", "Outer"}},
                 {"NeedleLength", new object[]{ "Outer", "Middle", "Inner"}},
+                {"HandleWheel", new object[]{true, false }}
             };
 
             return settings;

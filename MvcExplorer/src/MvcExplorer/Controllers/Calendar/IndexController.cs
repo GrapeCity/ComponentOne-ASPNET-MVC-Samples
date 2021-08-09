@@ -26,7 +26,8 @@ namespace MvcExplorer.Controllers
                 {"ShowHeader", new object[]{true, false}},
                 {"MonthView", new object[]{true, false}},
                 {"RepeatButtons", new object[]{true, false}},
-                {"ShowYearPicker", new object[]{true, false}}
+                {"ShowYearPicker", new object[]{true, false}},
+                {"HandleWheel", new object[]{true, false}}
             };
 
             return settings;

@@ -23,8 +23,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>MonthlyProjectCostTracking</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
@@ -1356,8 +1356,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSourceType>Text</RecordSourceType>
         <RecordSource>SELECT MonthlyProjectCostTracking.ExpenseCategory, MonthlyProjectCostTracking.OperationName, Sum(MonthlyProjectCostTracking.HrsForWeek1) AS SumOfHrsForWeek1, Sum(MonthlyProjectCostTracking.HrsForWeek2) AS SumOfHrsForWeek2, Sum(MonthlyProjectCostTracking.HrsForWeek3) AS SumOfHrsForWeek3, Sum(MonthlyProjectCostTracking.HrsForWeek4) AS SumOfHrsForWeek4, Sum(MonthlyProjectCostTracking.HrsForWeek5) AS SumOfHrsForWeek5, 
 Sum(MonthlyProjectCostTracking.HrsForWeek6) AS SumOfHrsForWeek6

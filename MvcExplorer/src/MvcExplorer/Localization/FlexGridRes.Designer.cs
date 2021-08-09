@@ -100,7 +100,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to This page show how the &lt;b&gt;AutoGenerateColumns&lt;/b&gt; property works with the static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt;.&lt;br /&gt;The static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt; allow to set the default width of auto-generate columns based on their data-type.&lt;br /&gt;It&apos;s &quot;static property&quot;, means only need to set it for any grid once then it will affect to all grids which are created following in the page..
+        ///   Looks up a localized string similar to This page show how the &lt;b&gt;auto-generate-columns&lt;/b&gt; property works with the static property &lt;b&gt;default-type-width&lt;/b&gt;.&lt;br /&gt;The static property &lt;b&gt;default-type-width&lt;/b&gt; allow to set the default width of auto-generate columns based on their data-type.&lt;br /&gt;It&apos;s &quot;static property&quot;, means only need to set it for any grid once then it will affect to all grids which are created following in the page..
         /// </summary>
         public static string AutoGenerateColumns_Text1 {
             get {
@@ -109,7 +109,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to The following settings are for the first grid only, the second grid is always set AutoGenerateColumns to true:.
+        ///   Looks up a localized string similar to The following settings are for the first grid only, the second grid is always set auto-generate-columns to true:.
         /// </summary>
         public static string AutoGenerateColumns_Text2 {
             get {
@@ -450,9 +450,9 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///    Looks up a localized string similar to  The FlexGrid has a client columnLayout property that gets or sets a JSON string containing a list of grid columns and their properties,
+        ///    Looks up a localized string similar to  The FlexGrid has a client ColumnLayout property that gets or sets a JSON string containing a list of grid columns and their properties,
         ///    It doesn&apos;t support the datamap column.
-        ///    This sample uses the client columnLayout property to persist the column layout to the browser&apos;s localStorage. FlexGrid also supports server-side saving\loading of column layout,
+        ///    This sample uses the client ColumnLayout property to persist the column layout to the browser&apos;s localStorage. FlexGrid also supports server-side saving\loading of column layout,
         ///    this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Please refer &quot;Col [rest of string was truncated]&quot;;.
         /// </summary>
         public static string ColumnLayout_Text0
@@ -1119,7 +1119,7 @@ namespace MvcExplorer.Localization
         /// <summary>
         ///    Looks up a localized string similar to If for some reason you don&apos;t like the Excel-style editing and prefer to add editing
         ///    buttons to every row (typical of editable HTML tables), you can accomplish that
-        ///    using a &lt;b&gt;cellFormatter&lt;/b&gt; and a few controller methods..
+        ///    using a &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods..
         /// </summary>
         public static string Editing_Text13
         {
@@ -1553,7 +1553,7 @@ namespace MvcExplorer.Localization
         ///        You can config group description by GroupBy method in view.
         ///        To add grouping by Javascript, add one or more GroupDescription
         ///        objects to the collectionView.groupDescriptions property. And ensure
-        ///        that the grid&apos;s showGroups property is set to true..
+        ///        that the grid&apos;s ShowGroups property is set to true..
         /// </summary>
         public static string Grouping_Text0
         {
@@ -1565,11 +1565,11 @@ namespace MvcExplorer.Localization
 
         /// <summary>
         ///    Looks up a localized string similar to  You can customize the text that is displayed in group header rows using
-        ///        the grid&apos;s groupHeaderFormat property. By default, this displays the name
+        ///        the grid&apos;s GroupHeaderFormat property. By default, this displays the name
         ///        of the group, for example, ShipCountry, followed by the current group and the
-        ///        number of items in the group. Use the format property on each Column object
+        ///        number of items in the group. Use the Format property on each Column object
         ///        to format aggregated data displayed in the group header for that column.
-        ///        Notice how we use the column&apos;s aggregate property to specify how to aggregate
+        ///        Notice how we use the column&apos;s Aggregate property to specify how to aggregate
         ///        the dat [rest of string was truncated]&quot;;.
         /// </summary>
         public static string Grouping_Text1
@@ -1619,6 +1619,14 @@ namespace MvcExplorer.Localization
         public static string GroupPanel_Text1 {
             get {
                 return ResourceManager.GetString("GroupPanel_Text1", resourceCulture);
+            }
+        }
+        /// <summary>
+        ///   Looks up a localized string similar to Setting &lt;b&gt;ShowDragGlyphs&lt;/b&gt; to true or false enables to show or hide drag glyphs of the group marker elements..
+        /// </summary>
+        public static string GroupPanel_Text2 {
+            get {
+                return ResourceManager.GetString("GroupPanel_Text2", resourceCulture);
             }
         }
         /// <summary>
@@ -2623,7 +2631,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to The Visible property allows you to set row or column is visible.(Grid is set AutoGenerateColumns to false).
+        ///   Looks up a localized string similar to The Visible property allows you to set row or column is visible.(Grid is set auto-generate-columns to false).
         /// </summary>
         public static string ColumnVisibility_Text0
         {
@@ -2645,7 +2653,7 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to The selectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all..
+        ///   Looks up a localized string similar to The SelectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all..
         /// </summary>
         public static string SelectionMode_Text0
         {
@@ -2674,6 +2682,17 @@ namespace MvcExplorer.Localization
             get
             {
                 return ResourceManager.GetString("EnterTextSearch_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;..
+        /// </summary>
+        public static string Searching_SearchAllColumns
+        {
+            get
+            {
+                return ResourceManager.GetString("Searching_SearchAllColumns", resourceCulture);
             }
         }
 

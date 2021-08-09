@@ -22,22 +22,24 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\Database1.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database1.db</ConnectionString>
         <RecordSource>ProjectType</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
       <DataSource>
         <Name>DataSource2</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\Database2.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database2.db</ConnectionString>
         <RecordSource>ProjectCost</RecordSource>
         <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
       <DataSource>
         <Name>DataSource3</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\Database3.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database3.db</ConnectionString>
         <RecordSource>ProjectHours</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>

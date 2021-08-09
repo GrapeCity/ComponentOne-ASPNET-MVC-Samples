@@ -6,17 +6,20 @@
 
 
 <div>
-    <c1-calendar id="DemoControl" value="@today" min="@minDate" max="@maxDate" width="300px" range-end="@today" selection-mode="Range" range-end-changed="onClientRangeEndChanged">
+    <c1-calendar id="DemoControl" value="@today" min="@minDate" max="@maxDate" width="300px" range-end="@today" selection-mode="Range"
+                 range-end-changed="onClientRangeEndChanged" range-changed="onClientRangeChanged">
     </c1-calendar>
 </div>
 <p>
-    @Html.Raw(CalendarRes.Ranges_CurrentSelection) <b><span id="dateRange"></span></b>.
+    @Html.Raw(CalendarRes.Ranges_RangeEnd): <b><span id="rangeEnd"></span></b>
+    <br />
+    @Html.Raw(CalendarRes.Ranges_CurrentSelection) <b><span id="dateRange"></span></b>
 </p>
 
 @section Settings{
     <div style="padding: 4px 8px">
 
-        <label style="font-weight:700; display:inline-block; width: 100px">@Html.Raw(CalendarRes.Ranges_RangeMin)</></label>
+        <span style="display:inline-block; width: 100px">@Html.Raw(CalendarRes.Ranges_RangeMin)</></span>
 
         <c1-input-number width="150" min="0" max="10" step="1" value="0" format="n0" value-changed="rangeMinChanged">
         </c1-input-number>
@@ -24,7 +27,7 @@
     </div>
     <div style="padding: 4px 8px">
 
-        <label style="font-weight:700; display:inline-block; width: 100px">@Html.Raw(CalendarRes.Ranges_RangeMax)</></label>
+        <span style="display:inline-block; width: 100px">@Html.Raw(CalendarRes.Ranges_RangeMax)</></span>
 
         <c1-input-number width="150" min="0" max="10" step="1" value="0" format="n0" value-changed="rangeMaxChanged">
         </c1-input-number>
@@ -35,11 +38,34 @@
 
 @section Scripts{
     <script>
-        function onClientRangeEndChanged(s, e) {
-            if (s.rangeEnd != null) {
-                let el = document.querySelector('#dateRange');
-                el.textContent = wijmo.format('from {value:d} to {rangeEnd:d}', s);
+        document.readyState === 'complete' ? onLoaded() : window.onload = onLoaded;
+
+        function showRangeEnd(calendar) {
+            let rangEndSpan = document.querySelector('#rangeEnd');
+            rangEndSpan.textContent = wijmo.format('{rangeEnd:d}', calendar);
+        }
+
+        function showRange(calendar) {
+            let dateRangeSpan = document.querySelector('#dateRange');
+            dateRangeSpan.textContent = wijmo.format('from {value:d} to {rangeEnd:d}', calendar);
+        }
+
+        function onLoaded() {
+            let calendar = wijmo.Control.getControl('#DemoControl');
+
+            showRangeEnd(calendar);
+
+            if (calendar.rangeEnd) {
+                showRange(calendar);
             }
+        }
+
+        function onClientRangeEndChanged(sender, e) {
+            showRangeEnd(sender);
+        }
+
+        function onClientRangeChanged(sender, e) {
+            showRange(sender);
         }
 
         function rangeMinChanged(sender, args) {

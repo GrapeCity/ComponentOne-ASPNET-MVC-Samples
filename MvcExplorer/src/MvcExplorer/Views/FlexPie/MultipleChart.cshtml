@@ -22,7 +22,7 @@
     <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
 </c1-flex-pie>
 
-<label style="display:inline;margin: 1em;">@Html.Raw(FlexPieRes.Multiple_Text1)</label>
+<p style="display:inline;margin: 1em;">@Html.Raw(FlexPieRes.Multiple_Text1)</p>
 @(Html.C1().InputNumber().Min(0).Max(4).Step(1).Value(0).Format("n0").OnClientValueChanged("chartsPerLineChanged"))
 
 @section Description{

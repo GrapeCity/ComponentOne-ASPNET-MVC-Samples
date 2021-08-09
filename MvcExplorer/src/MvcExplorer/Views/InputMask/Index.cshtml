@@ -1,4 +1,9 @@
-﻿@section Scripts{
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
     <style>
         .invalid-tooltip {
             background-color: red;
@@ -44,17 +49,20 @@
         @InputMaskRes.Index_Text
         @Html.Raw(InputMaskRes.Index_Text12)
     </label>
-    <c1-input-mask id="invalidInput" mask="000-00-0000" title="Mask: 000-00-0000" value="012342678" 
-        invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-mask>
+    <c1-input-mask id="invalidInput" mask="000-00-0000" title="Mask: 000-00-0000" value="012342678"
+                   overwrite-mode="@Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue)"
+                   invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-mask>
 </div>
 <div>
     <label>@Html.Raw(InputMaskRes.Index_PhoneNumber)</label>
-    <c1-input-mask mask="(999) 000-0000" title="Mask: (999) 000-0000"></c1-input-mask>
+    <c1-input-mask mask="(999) 000-0000" title="Mask: (999) 000-0000"
+                   overwrite-mode="@Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue)"></c1-input-mask>
 </div>
 <div>
     <label>@Html.Raw(InputMaskRes.Index_TryYourOwn)</label>
     <c1-input-mask id="imCustomInput" placeholder="@InputMaskRes.Index_EnterAnInputMask" value-changed="valueChanged"></c1-input-mask>
-    <c1-input-mask id="imCustomTrial" placeholder="@InputMaskRes.Index_TryYourInputMask"></c1-input-mask>
+    <c1-input-mask id="imCustomTrial" placeholder="@InputMaskRes.Index_TryYourInputMask"
+                   overwrite-mode="@Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue)"></c1-input-mask>
 </div>
 <div>
     <label>@Html.Raw(InputMaskRes.Index_InputDateWithMask)</label>
@@ -70,15 +78,24 @@
 
     <p>
         @Html.Raw(InputMaskRes.Index_Text7)
-        <c1-input-mask placeholder="@InputMaskRes.Index_Placeholder3" input-type="password" title="InputType: password"></c1-input-mask>
+        <c1-input-mask placeholder="@InputMaskRes.Index_Placeholder3" input-type="password" title="InputType: password"
+                       overwrite-mode="@Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue)"></c1-input-mask>
     </p>
     <p>
         @Html.Raw(InputMaskRes.Index_Text10)
-        <c1-input-mask mask="(999) 000-0000" input-type="tel" title="InputType: tel, Mask: (999) 000-0000"></c1-input-mask>
+        <c1-input-mask mask="(999) 000-0000" input-type="tel" title="InputType: tel, Mask: (999) 000-0000"
+                       overwrite-mode="@Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue)"></c1-input-mask>
     </p>
 </div>
 
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
 @section Description{
     <p>@Html.Raw(InputMaskRes.Index_Text0)</p>
-    <p>@Html.Raw(InputMaskRes.Index_Text11)</p>
+    <ul>
+        <li>@Html.Raw(InputMaskRes.Index_Text11)</li>
+        <li>@Html.Raw(InputMaskRes.Index_Text14)</li>
+    </ul>
 }

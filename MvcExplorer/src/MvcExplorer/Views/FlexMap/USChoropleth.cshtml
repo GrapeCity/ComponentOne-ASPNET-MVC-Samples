@@ -1,0 +1,52 @@
+﻿@using System.Drawing
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            window.dataMap = new Map();
+            wijmo.httpRequest('@Url.Content("~/Content/data/temp.json")', {
+                success: function(xhr) {
+                    JSON.parse(xhr.responseText).forEach(function (el) { dataMap.set(el.State, parseFloat(el.AverageTemperature)); });
+                }
+            });
+        });
+
+        function geoMapItemsSourceChanged(layer, a) {
+            var map = wijmo.Control.getControl("#flexMap");
+            map.zoomTo(layer.getGeoBBox());
+        }
+
+        function colorScale(v) {
+            return 1 - v;
+        }
+
+        function colorScaleBinding(o) {
+            return dataMap.get(o.properties.name)
+        }
+
+        function tooltipPopup(tt, e) {
+            if (!wijmo.isFunction(tt.content)) {
+                tt.content = function (f) {
+                    return f.name + ' ' + dataMap.get(f.name) + '°F';
+                }
+                e.cancel = true;
+            }
+        }
+    </script>
+}
+
+<c1-flex-map id="flexMap" header="Average Temperature By State" height="600px">
+    <c1-geo-map-layer url="@Url.Content("~/Content/data/US.json")" items-source-changed="geoMapItemsSourceChanged">
+        <c1-color-scale colors="@C1.Web.Mvc.Chart.Palettes.Diverging.RdYlGn" scale="colorScale" binding="colorScaleBinding" format="@("n0\"°F\"")"></c1-color-scale>
+    </c1-geo-map-layer>
+    <c1-flex-chart-tooltip content="<b>{name}</b>" popup="tooltipPopup"></c1-flex-chart-tooltip>
+    <c1-chart-legend position="@C1.Web.Mvc.Chart.Position.Left"></c1-chart-legend>
+</c1-flex-map>
+
+@section Summary{
+    @Html.Raw(FlexMapRes.USChoropleth_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(FlexMapRes.USChoropleth_Text1)</p>
+}

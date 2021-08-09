@@ -3,6 +3,7 @@
     ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
     var innerRadius = demoSettingsModel.GetFloat("InnerRadius", 0f);
     var innerTextStyle = new SVGStyle { FontSize = 28, FontWeight = "400", Fill = "#2244ff", Stroke = "#0099ff", StrokeWidth = 1, StrokeOpacity = 0.6 };
+    object[] palettesModel = ViewBag.Palettes;
 }
 
 <c1-flex-pie id="@demoSettingsModel.ControlId" header="Sales" inner-radius="@innerRadius" inner-text="" inner-text-style="innerTextStyle"
@@ -10,6 +11,13 @@
     <c1-items-source source-collection="Model"></c1-items-source>
     <c1-flex-pie-datalabel content="{value}"></c1-flex-pie-datalabel>
 </c1-flex-pie>
+
+@section Settings{
+    <br />
+    <c1-menu id="paletteMenu" header="Palette: <b>Standard</b>" show-drop-down-button="true" sub-items-path="Items" item-clicked="itemPaletteClicked">
+        <c1-items-source source-collection="@palettesModel"></c1-items-source>
+    </c1-menu>
+}
 
 @section Scripts{
     <script>
@@ -26,6 +34,24 @@
             } else {
                 control.header = control.innerText;
                 control.innerText = "";
+            }
+        }
+
+        function itemPaletteClicked(sender) {
+            if (sender.selectedItem) {
+                let flexPie = wijmo.Control.getControl("#@demoSettingsModel.ControlId")
+                if (flexPie) {
+                    flexPie.palette = sender.selectedItem.Value;
+                    flexPie.invalidate();
+                }
+                let menu = wijmo.Control.getControl("#paletteMenu");
+                if (sender.selectedItem.GroupName && sender.selectedItem.GroupName.length) {
+                    menu.header = "Palette: <b>" + sender.selectedItem.GroupName + "." + sender.selectedItem.Header + "<b/>";
+                }
+                else {
+                    menu.header = "Palette: <b>" + sender.selectedItem.Header + "<b/>";
+                }
+                sender.invalidate();
             }
         }
     </script>

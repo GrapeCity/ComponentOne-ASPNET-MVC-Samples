@@ -23,7 +23,9 @@ namespace MvcExplorer.Controllers
                 {"IsAnimated",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}},
                 {"AutoCollapse", new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}},
                 {"ExpandOnClick",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}},
-                {"ExpandOnLoad",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}}
+                {"CollapseOnClick",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "False"}},
+                {"ExpandOnLoad",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}},
+                {"CollapseWhenDisabled",new OptionItem{Values = new List<string> { "True", "False"},CurrentValue = "True"}}
             }
         };
     }

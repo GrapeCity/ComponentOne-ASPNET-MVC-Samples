@@ -23,7 +23,8 @@ namespace MvcExplorer.Controllers
                 {"IsReadOnly", new object[]{false, true }},
                 {"Step", new object[]{0.5, 1, 2}},
                 {"ShowTicks", new object[]{ false, true}},
-                {"ShowTickText", new object[]{ false, true}}
+                {"ShowTickText", new object[]{ false, true}},
+                {"HandleWheel", new object[]{true, false }}
             };
 
             return settings;

@@ -159,9 +159,9 @@
   </data>
   <data name="Checkboxes_Text5" xml:space="preserve">
     <value>チェックボックスは、TreeView が遅延ノードなしで動作する場合にのみ表示されます。
-        つまり、「&lt;b&gt;lazy-load-action-url&lt;/b&gt;」属性と「&lt;b&gt;lazy-load-function&lt;/b&gt;」属性が設定されていない場合です。</value>
+        つまり、「&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;」属性と「&lt;b&gt;lazy-load-function&lt;/b&gt;」属性が設定されていない場合です。</value>
     <comment>The checkboxes are only shown when TreeView works without lazy nodes.
-        That's to say, the "&lt;b&gt;lazy-load-action-url&lt;/b&gt;" attribute and the "&lt;b&gt;lazy-load-function&lt;/b&gt;" attribute are not set.</comment>
+        That's to say, the "&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;" attribute and the "&lt;b&gt;lazy-load-function&lt;/b&gt;" attribute are not set.</comment>
   </data>
   <data name="CustomNodeContent_Text0" xml:space="preserve">
     <value>このビューは、TreeView コントロール内のノードコンテンツをカスタマイズする方法を示します。</value>
@@ -269,7 +269,7 @@
             &lt;li&gt;&lt;b&gt;child-items-path&lt;/b&gt;&lt;/li&gt;
             子ノードの配列を含む、項目内のプロパティの名前を定義します。デフォルトでは、このプロパティは文字列「items」に設定されています。
         &lt;/ul&gt;
-        ノード画像、チェックボックス、折りたたみ状態を &lt;b&gt;source&lt;/b&gt; 配列に連結するためのプロパティもあります。</value>
+    </value>
     <comment>To create trees, you will normally have to set three attributes:
         &lt;ul class="normal"&gt;
             &lt;li&gt;&lt;b&gt;source&lt;/b&gt;&lt;/li&gt;
@@ -279,7 +279,11 @@
             &lt;li&gt;&lt;b&gt;child-items-path&lt;/b&gt;&lt;/li&gt;
             It defines the name of the property in the items that contains the array of child nodes. By default, this property is set to the string 'items'.
         &lt;/ul&gt;
-        There are also properties for binding node images, checkboxes, and collapsed state to the &lt;b&gt;source&lt;/b&gt; array.</comment>
+    </comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>ノード画像、チェックボックスを<b>Source</b>配列に連結するために<b>ImageMemberPath</b>と<b>CheckedMemberPath</b>プロパティ、およびツリービューの動作をカスタマイズするために<b>IsAnimated</b>、<b>AutoCollapse</b>、<b>ExpandOnClick</b>、<b>CollapseOnClick</b>、<b>ExpandOnLoad</b>、<b>CollapseWhenDisabled</b>プロパティもあります。</value>
+    <comment>There are also properties for binding node images, checkboxes the &lt;b&gt;Source&lt;/b&gt; array: &lt;b&gt;ImageMemberPath, CheckedMemberPath&lt;/b&gt; and properties for controlling treeview behavior: &lt;b&gt;IsAnimated, AutoCollapse, ExpandOnClick, CollapseOnClick, ExpandOnLoad, CollapseWhenDisabled&lt;/b&gt;.</comment>
   </data>
   <data name="LazyLoading_Text0" xml:space="preserve">
     <value>このビューは、子ノードを動的に TreeView にロードする方法を示します。</value>
@@ -364,8 +368,8 @@
     <comment>Allow dropping into empty nodes</comment>
   </data>
   <data name="LazyLoading_Li1" xml:space="preserve">
-    <value>「&lt;b&gt;lazy-load-action-url&lt;/b&gt;」属性に、遅延ノードのデータを取得するための URL を設定します。</value>
-    <comment>Set the "&lt;b&gt;lazy-load-action-url&lt;/b&gt;" attribute to a url where you can get the lazy nodes data.</comment>
+    <value>「&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;」属性に、遅延ノードのデータを取得するための URL を設定します。</value>
+    <comment>Set the "&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;" attribute to a url where you can get the lazy nodes data.</comment>
   </data>
   <data name="LazyLoading_Text6" xml:space="preserve">
     <value>子ノードに子がある場合は、「"&lt;b&gt;child-items-path&lt;/b&gt;」属性が表す名前のフィールドに空の配列を設定できます。

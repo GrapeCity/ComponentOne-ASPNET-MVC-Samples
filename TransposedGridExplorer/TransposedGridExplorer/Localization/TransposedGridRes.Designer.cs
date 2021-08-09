@@ -349,5 +349,25 @@ namespace TransposedGridExplorer.Localization {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how you can create row groups by initializing the transposed grid&apos;s row set as hierarchical rows.&lt;br /&gt;
+        ///        The row groups may be collapsible and configured to show any of the child rows when the group is collapsed.&lt;br /&gt;
+        ///        You can use CSS to animate the row groups as they expand or collapse..
+        /// </summary>
+        public static string RowGroups_Descriptions {
+            get {
+                return ResourceManager.GetString("RowGroups_Descriptions", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The row groups feature allow a row contains child rows and the row groups can be collapsible and expandable..
+        /// </summary>
+        public static string RowGroups_Summary {
+            get {
+                return ResourceManager.GetString("RowGroups_Summary", resourceCulture);
+            }
+        }
     }
 }

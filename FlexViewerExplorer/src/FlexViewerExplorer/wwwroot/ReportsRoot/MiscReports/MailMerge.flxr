@@ -19,13 +19,13 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT TOP 50
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>SELECT
 Customers.CustomerID, Customers.CompanyName, 
 Customers.ContactName, Customers.Address, 
 Customers.City, Customers.Region, Customers.Country, Customers.PostalCode, Orders.OrderID, Orders.OrderDate, [Order Subtotals].Subtotal
-FROM Customers INNER JOIN ([Order Subtotals] INNER JOIN Orders ON [Order Subtotals].OrderID = Orders.OrderID) ON Customers.CustomerID = Orders.CustomerID ORDER BY Orders.OrderDate DESC</RecordSource>
+FROM Customers INNER JOIN ([Order Subtotals] INNER JOIN Orders ON [Order Subtotals].OrderID = Orders.OrderID) ON Customers.CustomerID = Orders.CustomerID ORDER BY Orders.OrderDate DESC LIMIT 50</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>

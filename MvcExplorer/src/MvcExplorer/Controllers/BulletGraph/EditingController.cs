@@ -21,7 +21,8 @@ namespace MvcExplorer.Controllers
             var settings = new Dictionary<string, object[]>
             {
                 {"IsReadOnly", new object[]{false, true }},
-                {"Step", new object[]{0.5, 1, 2}}
+                {"Step", new object[]{0.5, 1, 2}},
+                {"HandleWheel", new object[]{true, false }}
             };
 
             return settings;

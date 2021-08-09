@@ -2,9 +2,11 @@
     ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
 }
 
-<c1-bullet-graph id="@demoSettingsModel.ControlId" min="0" max="10" good="3" bad="4" value="5" target="6" format="" is-read-only="false" step="0.5" show-text="All" width="500px">
+<c1-bullet-graph id="@demoSettingsModel.ControlId" min="0" max="10" good="3" bad="4" value="5" target="6" format="" is-read-only="false" step="0.5" show-text="All" width="500px" handle-wheel="true">
 </c1-bullet-graph>
 
 @section Description{
     @Html.Raw(BulletGraphRes.Editing_Text0)
+    <br />
+    @Html.Raw(BulletGraphRes.Editing_Text1)
 }

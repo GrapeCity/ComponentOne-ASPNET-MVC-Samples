@@ -2,6 +2,7 @@
     var today = DateTime.Now.Date;
     var minDate = new DateTime(today.Year, 1, 1);
     var maxDate = new DateTime(today.Year, 12, 31);
+    var handleWheelOptions = new List<string> { "True", "False" };
 }
 
 @section Scripts{
@@ -23,6 +24,15 @@
     function monthCountChanged(sender, args) {
         var inputDate = wijmo.Control.getControl('#idcInputDate');
         inputDate.monthCount = sender.value;
+    }
+
+    function handleWheelChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        if (sender.selectedValue === "True") {
+            inputDate.handleWheel = true;
+        } else {
+            inputDate.handleWheel = false;
+        }
     }
 </script>
 }
@@ -47,9 +57,16 @@
     <c1-input-number min="0" max="10" Step="1" value="0" format="n0" value-changed="weekAfterChanged" />
 
     <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.MonthCount_Text0)</label>
-    <c1-input-number min="1" max="5" step="1" value="1" format="n0" value-changed="monthCountChanged"/>
+    <c1-input-number min="1" max="5" step="1" value="1" format="n0" value-changed="monthCountChanged" />
+
+    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.HandleWheel_Text0)</label>
+    <c1-combo-box selected-index-changed="handleWheelChanged">
+        <c1-items-source source-collection="@handleWheelOptions"></c1-items-source>
+    </c1-combo-box>
 </fieldset>
 
 @section Description{
     @Html.Raw(InputDateRes.Index_Text0)
+    <br />
+    @Html.Raw(InputDateRes.HandleWheel_Text1)
 }

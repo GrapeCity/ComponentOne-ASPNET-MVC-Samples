@@ -51,7 +51,7 @@ namespace MultiRowExplorer.Models
                 b.HasKey("SupplierID");
                 b.HasAnnotation("Relational:TableName", "Suppliers");
             });
-            modelBuilder.ForSqlServerUseIdentityColumns();
+            //modelBuilder.ForSqlServerUseIdentityColumns();//C1WEB-28027: change database by use Sqlite.
         }
     }
 

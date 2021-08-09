@@ -123,6 +123,15 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When HandleWheel is &lt;b&gt;true&lt;/b&gt;, the user can edit the value using the mouse wheel..
+        /// </summary>
+        public static string HandleWheelDescription_Text0 {
+            get {
+                return ResourceManager.GetString("HandleWheelDescription_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Enter a number....
         /// </summary>
         public static string Index_EnterANumber {
@@ -150,7 +159,7 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Bound with min (0), max (10), step, and &quot;c2&quot; format.
+        ///   Looks up a localized string similar to Bound with Min(0), Max(10), Step, and &quot;c2&quot; Format.
         /// </summary>
         public static string Index_Text2 {
             get {
@@ -159,7 +168,7 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Unbound with placeholder and is-required=&quot;false&quot;.
+        ///   Looks up a localized string similar to Unbound with placeholder and IsRequired=&quot;false&quot;.
         /// </summary>
         public static string Index_Text3 {
             get {

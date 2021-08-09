@@ -380,8 +380,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT *
 FROM InventoryManagement where Sold_Date&gt;=[prmStartDate] and Sold_Date&lt;=[prmEndDate]</RecordSource>
         <Filter>Iif(prmCustomer="All Customer",1=1,Customer_Name=prmCustomer) and Iif(prmCategory="All Category",1=1,Item_Category=prmCategory)</Filter>
@@ -898,18 +898,19 @@ FROM InventoryManagement where Sold_Date&gt;=[prmStartDate] and Sold_Date&lt;=[p
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT * FROM (SELECT TOP 5 *
-FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement
- group by Item_Category)  AS t
-ORDER BY TotalRevenue DESC) AS t1
-UNION select 'Remaining Categories',(select Sum(NetRevenue) from InventoryManagement where  Item_Category not In (SELECT TOP 5 Item_Category
-FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement group by Item_Category)  AS t
-ORDER BY TotalRevenue DESC)) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement;</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>
+            SELECT * FROM (SELECT *
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement
+            group by Item_Category LIMIT 5)  AS t
+            ORDER BY TotalRevenue DESC) AS t1
+            UNION select 'Remaining Categories',(select Sum(NetRevenue) from InventoryManagement where  Item_Category not In (SELECT Item_Category
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement LIMIT 5) as total
+            FROM InventoryManagement group by Item_Category)  AS t
+            ORDER BY TotalRevenue DESC)) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement;</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1079,18 +1080,19 @@ FROM InventoryManagement;</RecordSource>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>SELECT * FROM (SELECT TOP 5 *
-FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement
- group by Item_Category)  AS t
-ORDER BY TotalRevenue DESC) AS t1
-UNION select 'Remaining Categories',(select Sum(NetRevenue) from InventoryManagement where  Item_Category not In (SELECT TOP 5 Item_Category
-FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement group by Item_Category)  AS t
-ORDER BY TotalRevenue DESC)) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
-FROM InventoryManagement;</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>
+            SELECT * FROM (SELECT *
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement
+            group by Item_Category LIMIT 5)  AS t
+            ORDER BY TotalRevenue DESC) AS t1
+            UNION select 'Remaining Categories',(select Sum(NetRevenue) from InventoryManagement where  Item_Category not In (SELECT Item_Category
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement LIMIT 5) as total
+            FROM InventoryManagement group by Item_Category)  AS t
+            ORDER BY TotalRevenue DESC)) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement;</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>

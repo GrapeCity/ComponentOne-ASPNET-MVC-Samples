@@ -8,14 +8,16 @@
 <div>
     <label>@Html.Raw(ComboBoxRes.Index_NonEditable)</label>
     <c1-combo-box selected-index="0" is-editable="false" max-drop-down-width="55"
-                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)"
+                  handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)">
         <c1-items-source source-collection="@countries"></c1-items-source>
     </c1-combo-box>
 </div>
 <div>
     <label>@Html.Raw(ComboBoxRes.Index_Editable)</label>
     <c1-combo-box selected-index="0" is-editable="true"
-                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+                  case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)"
+                  handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)">
         <c1-items-source source-collection="@cities"></c1-items-source>
     </c1-combo-box>
 </div>
@@ -28,4 +30,6 @@
     @Html.Raw(ComboBoxRes.Index_Text0)
     <br />
     @Html.Raw(ComboBoxRes.CaseSensitiveSearchDescription_Text0)
+    <br />
+    @Html.Raw(ComboBoxRes.HandleWheelDescription_Text0)
 }

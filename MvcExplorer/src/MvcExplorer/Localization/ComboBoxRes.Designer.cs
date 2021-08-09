@@ -127,6 +127,15 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to When HandleWheel is &lt;b&gt;true&lt;/b&gt;, the user can use the mouse wheel to change the currently selected item..
+        /// </summary>
+        public static string HandleWheelDescription_Text0 {
+            get {
+                return ResourceManager.GetString("HandleWheelDescription_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editable.
         /// </summary>
         public static string Index_Editable {

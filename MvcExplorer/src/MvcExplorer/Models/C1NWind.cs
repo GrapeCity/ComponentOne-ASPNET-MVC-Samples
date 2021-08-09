@@ -55,7 +55,7 @@ namespace MvcExplorer.Models
                 b.HasKey("ProductID");
                 b.HasAnnotation("Relational:TableName", "Products");
             });
-            modelBuilder.ForSqlServerUseIdentityColumns();
+            //modelBuilder.ForSqlServerUseIdentityColumns();//C1WEB-28027: change database by use Sqlite.
         }
     }
 

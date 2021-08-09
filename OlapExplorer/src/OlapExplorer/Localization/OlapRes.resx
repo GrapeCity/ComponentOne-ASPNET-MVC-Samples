@@ -160,7 +160,7 @@
     <value>~/Content/css/gcicons.css</value>
   </data>
   <data name="Index_Text0" xml:space="preserve">
-    <value>You can use the &lt;b&gt;viewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</value>
+    <value>You can use the &lt;b&gt;ViewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</value>
   </data>
   <data name="Index_Text2" xml:space="preserve">
     <value>The &lt;b&gt;PivotGrid&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so you can export it to any of&lt;/br&gt;the formats supported by the extension modules provided with the &lt;b&gt;FlexGrid&lt;/b&gt;. The&lt;/br&gt;list of the supported formats includes .xlsx, .csv, and .pdf.</value>
@@ -304,6 +304,24 @@
     <value>https://www.grapecity.com/en/download/componentone-studio</value>
   </data>
   <data name="Index_Text10" xml:space="preserve">
-    <value>You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;showValueFieldHeaders&lt;/b&gt; property even only one value field available.</value>
+    <value>You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;ShowValueFieldHeaders&lt;/b&gt; property even only one value field available.</value>
+  </data>
+  <data name="CalculatedAggregates_Text0" xml:space="preserve">
+    <value>The PivotEngine support GetAggregateValue function in PivotField to calculate aggregate field for each summary row.</value>
+  </data>
+  <data name="CalculatedAggregates_Text1" xml:space="preserve">
+    <value>PivotField objects have two properties as function that support custom calculations:</value>
+  </data>
+  <data name="CalculatedAggregates_Text2" xml:space="preserve">
+    <value>The GetValue function takes a data item as a parameter and returns a value that is calculated based on other properties of the data item. The function has no access to any aggregate information.</value>
+  </data>
+  <data name="CalculatedAggregates_Text3" xml:space="preserve">
+    <value>The GetAggregateValue function takes a summary row as a parameter and returns a value to be displayed as an aggregate for the field. The function has no access to the individual/raw data items.</value>
+  </data>
+  <data name="CalculatedAggregates_Text4" xml:space="preserve">
+    <value>This sample uses the GetValue function to calculate a Range field that categorizes raw sales value into three levels: "High", "Medium", or "Low".</value>
+  </data>
+  <data name="CalculatedAggregates_Text5" xml:space="preserve">
+    <value>And uses GetAggregateValue function to calculate a Conversion field that shows the Sales/Downloads ratio for each summary row.</value>
   </data>
 </root>

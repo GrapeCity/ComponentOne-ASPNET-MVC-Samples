@@ -60,7 +60,25 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This sample shows the basic usage of the InputDate control..
+        ///   Looks up a localized string similar to HandleWheel.
+        /// </summary>
+        public static string HandleWheel_Text0 {
+            get {
+                return ResourceManager.GetString("HandleWheel_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can edit the current value using the mouse wheel..
+        /// </summary>
+        public static string HandleWheel_Text1 {
+            get {
+                return ResourceManager.GetString("HandleWheel_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows the basic usage of the InputDate control..
         /// </summary>
         public static string Index_Text0 {
             get {
@@ -191,7 +209,7 @@ namespace MvcExplorer.Localization {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Ranges are defined by the &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;rangeEnd&lt;/b&gt; properties..
+        ///   Looks up a localized string similar to Ranges are defined by the &lt;b&gt;Value&lt;/b&gt; and &lt;b&gt;RangeEnd&lt;/b&gt; properties..
         /// </summary>
         public static string Range_Text4
         {
@@ -202,7 +220,7 @@ namespace MvcExplorer.Localization {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to To select a date range with the mouse, the user should click the starting date &lt;b&gt;value&lt;/b&gt; and then the ending date &lt;b&gt;rangeEnd&lt;/b&gt;..
+        ///   Looks up a localized string similar to To select a date range with the mouse, the user should click the starting date &lt;b&gt;Value&lt;/b&gt; and then the ending date &lt;b&gt;RangeEnd&lt;/b&gt;..
         /// </summary>
         public static string Range_Text5
         {

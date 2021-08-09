@@ -269,9 +269,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select Year(OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by Year(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -515,9 +515,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select Year(OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by Year(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -759,9 +759,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select Year(OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by Year(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1001,9 +1001,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select Year(OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by Year(OrderDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1262,9 +1262,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select top 20 * from ScatterPoints</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select * from ScatterPoints limit 20</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1503,9 +1503,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select top 10 * from ScatterPoints</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select * from ScatterPoints limit 10</RecordSource>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1745,9 +1745,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>ScatterPoints</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1990,9 +1991,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>ScatterPoints</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2250,9 +2252,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SystemAdaptability</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2527,9 +2530,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+         <DataProvider>SQLite</DataProvider>
+         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>PolarSample</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2797,9 +2801,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -3336,9 +3341,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>GanttChartData</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -3756,9 +3762,9 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
-        <RecordSource>select * from StockChartData order by Month(PriceDate), Day(PriceDate)</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <RecordSource>select * from StockChartData order by strftime('%m', PriceDate), strftime('%d', PriceDate)</RecordSource>
         <CalculatedFields>
           <CalculatedField>
             <Name>M_Name</Name>
@@ -4280,9 +4286,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -4800,9 +4807,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -5350,9 +5358,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>DoughtNutChartData</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>

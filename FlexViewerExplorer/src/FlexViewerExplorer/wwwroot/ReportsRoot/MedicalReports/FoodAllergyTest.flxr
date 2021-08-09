@@ -19,8 +19,8 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>OLEDB</DataProvider>
-        <ConnectionString>Provider=SQLNCLI11;Integrated Security=SSPI;Data Source=(localdb)\v11.0;Initial File Name=|DataDirectory|\wwwroot\App_Data\C1NWind.mdf;Persist Security Info=False</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT PatientInfo.*, PatientTestResult.*
         FROM PatientInfo INNER JOIN PatientTestResult ON PatientInfo.PatientID = PatientTestResult.PatientID Where PatientInfo.PatientNo='345-35-7305';</RecordSource>
         <CalculatedFields>

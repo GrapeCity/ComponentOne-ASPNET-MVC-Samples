@@ -141,10 +141,10 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Checkboxes_Text4", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///    Looks up a localized string similar to The checkboxes are only shown when TreeView works without lazy nodes.
-        ///        That&apos;s to say, the &quot;&lt;b&gt;lazy-load-action-url&lt;/b&gt;&quot; attribute and the &quot;&lt;b&gt;lazy-load-function&lt;/b&gt;&quot; attribute are not set..
+        ///        That&apos;s to say, the &quot;&lt;b&gt;LazyLoadActionUrl&lt;/b&gt;&quot; attribute and the &quot;&lt;b&gt;lazy-load-function&lt;/b&gt;&quot; attribute are not set..
         /// </summary>
         public static string Checkboxes_Text5 {
             get {
@@ -363,7 +363,18 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_Text2", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to There are also properties for binding node images, checkboxes the &lt;b&gt;Source&lt;/b&gt; array: &lt;b&gt;ImageMemberPath, CheckedMemberPath&lt;/b&gt; and properties for controlling treeview behavior: &lt;b&gt;IsAnimated, AutoCollapse, ExpandOnClick, CollapseOnClick, ExpandOnLoad, CollapseWhenDisabled&lt;/b&gt;..
+        /// </summary>
+        public static string Index_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text3", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to Set the &quot;&lt;b&gt;lazy-load-action-url&lt;/b&gt;&quot; attribute to a url where you can get the lazy nodes data..
         /// </summary>
