@@ -28,7 +28,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>ReportResult</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>
           SELECT BloodReport_Result.ID,

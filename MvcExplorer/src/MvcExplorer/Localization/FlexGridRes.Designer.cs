@@ -1741,6 +1741,28 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Cancel.
+        /// </summary>
+        public static string ODataDeferCommits_Cancel_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ODataDeferCommits_Cancel_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Commit.
+        /// </summary>
+        public static string ODataDeferCommits_Commit_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ODataDeferCommits_Commit_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to The default value for this property is &lt;b&gt;false&lt;/b&gt;, which causes any changes to the data to be immediately committed to the database..
         /// </summary>
         public static string ODataDeferCommits_Description_Text0
@@ -2273,6 +2295,17 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to Right To Left.
+        /// </summary>
+        public static string RightToLeft_RightToLeft
+        {
+            get
+            {
+                return ResourceManager.GetString("RightToLeft_RightToLeft", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///    Looks up a localized string similar to Some languages (Arabic and Hebrew especially) render content from the right
         ///    to the left of the page. HTML accommodates this with the &apos;dir&apos; attribute.
         ///    Setting &apos;dir&apos; to &apos;rtl&apos; on any element causes the element&apos;s content to flow 
@@ -2363,7 +2396,84 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("Searching_Text3", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Columns.
+        /// </summary>
+        public static string ShowCase_Columns_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_Columns_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data Size.
+        /// </summary>
+        public static string ShowCase_DataSize_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_DataSize_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Data.
+        /// </summary>
+        public static string ShowCase_Data_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_Data_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Export.
+        /// </summary>
+        public static string ShowCase_Export_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_Export_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Lazy Render.
+        /// </summary>
+        public static string ShowCase_LazyRender_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_LazyRender_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Rows.
+        /// </summary>
+        public static string ShowCase_Rows_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_Rows_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Search:.
+        /// </summary>
+        public static string ShowCase_Search_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ShowCase_Search_Text0", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to Sorting Field.
         /// </summary>

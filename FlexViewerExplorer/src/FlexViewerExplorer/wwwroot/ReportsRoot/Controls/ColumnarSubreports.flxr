@@ -20,7 +20,7 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from categories
 where categoryid &lt; 17</RecordSource>
@@ -710,7 +710,7 @@ where categoryid &lt; 17</RecordSource>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from categories
 where categoryid &lt; 17</RecordSource>
@@ -1267,7 +1267,7 @@ where categoryid &lt; 17</RecordSource>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Products</RecordSource>
       </DataSource>
@@ -1415,7 +1415,7 @@ where categoryid &lt; 17</RecordSource>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>Products</RecordSource>
       </DataSource>

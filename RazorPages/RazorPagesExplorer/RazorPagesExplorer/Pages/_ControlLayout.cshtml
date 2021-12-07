@@ -30,7 +30,7 @@
             var CurrentPageIndex = @currentPageIndex;
     </script>
     <script src="~/Scripts/ControlLayout.js"></script>
-    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>   
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
     <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
@@ -53,12 +53,12 @@
         <h4 class="semi-bold narrow-screen">@pageText</h4>
         <div class="description">@RenderSection("Summary", false)</div>
     </div>
-    @Html.Partial("_ControlsNav")
+    @await Html.PartialAsync("_ControlsNav")
 </div>
 <div class="col-md-9">
     <div class="padder">
         <div>
-            @{ 
+            @{
                 if (pageName != "/Overview")
                 {
                     <ul id="navList" class="nav nav-tabs">
@@ -78,7 +78,7 @@
                                 <h3 class="semi-bold">Settings</h3>
                                 @if (ViewData["DemoSettingsModel"] != null)
                                 {
-                                    @Html.Partial("_ClientSettingsByMenu", ViewData["DemoSettingsModel"] as ClientSettingsModel)
+                                    @await Html.PartialAsync("_ClientSettingsByMenu", ViewData["DemoSettingsModel"] as ClientSettingsModel)
                                 }
                                 @RenderSection("Settings", false)
                             </div>
@@ -98,7 +98,7 @@
                 </div>
                 <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                     <div class="demo-source">
-                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(pageName))
+                        @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(pageName))
                     </div>
                 </div>
             </div>

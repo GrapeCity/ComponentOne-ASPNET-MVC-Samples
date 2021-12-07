@@ -7,12 +7,28 @@ using System.Linq;
 using Microsoft.EntityFrameworkCore;
 using System.Globalization;
 using Microsoft.AspNetCore.Localization;
+#if NETCORE31 || NET50
+using Microsoft.Extensions.Hosting;
+#endif
 
 namespace MultiRowExplorer
 {
     public class Startup
     {
+
+#if NETCORE31 || NET50
+        public static IWebHostEnvironment Environment { get; set; }
+#else
+        public static IHostingEnvironment Environment { get; set; }
+#endif
+
+        public IConfigurationRoot Configuration { get; set; }
+
+#if NETCORE31 || NET50
+        public Startup(IWebHostEnvironment env)
+#else
         public Startup(IHostingEnvironment env)
+#endif
         {
             Environment = env;
 
@@ -23,10 +39,6 @@ namespace MultiRowExplorer
                 .AddEnvironmentVariables();
             Configuration = builder.Build();
         }
-
-        public IConfigurationRoot Configuration { get; set; }
-
-        public static IHostingEnvironment Environment { get; set; }
 
         // For more information on how to configure your application, visit http://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
@@ -58,7 +70,11 @@ namespace MultiRowExplorer
             return configConnectionString;
         }
 
+#if NETCORE31 || NET50
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+#endif
         {
             var defaultCulture = "en-US";
             var supportedCultures = new[]
@@ -68,6 +84,11 @@ namespace MultiRowExplorer
 
             app.UseStaticFiles();
             app.UseSession();
+
+#if NETCORE31 || NET50
+            app.UseRouting();
+#endif
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -82,18 +103,35 @@ namespace MultiRowExplorer
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
+
+#if NETCORE31 || NET50
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=MultiRow}/{action=Index}/{id?}");
+
+                endpoints.MapControllerRoute(
+                    name: "Validation",
+                    pattern: "{control}/UnobtrusiveValidation",
+                    defaults: new { controller = "Validation", action = "Register" },
+                    constraints: new { control = "(AutoComplete)|(ComboBox)|(MultiSelect)|(^Input.*)" }
+                );
+            });
+#else
             app.UseMvc(r => {
+                r.MapRoute(
+                    name: "default",
+                    template: "{controller=MultiRow}/{action=Index}/{id?}");
+
                 r.MapRoute(
                     name: "Validation",
                     template: "{control}/UnobtrusiveValidation",
                     defaults: new { controller = "Validation", action = "Register" },
                     constraints: new { control = "(AutoComplete)|(ComboBox)|(MultiSelect)|(^Input.*)" }
                 );
-
-                r.MapRoute(
-                    name: "default",
-                    template: "{controller=MultiRow}/{action=Index}/{id?}");
             });
+#endif
         }
     }
 }

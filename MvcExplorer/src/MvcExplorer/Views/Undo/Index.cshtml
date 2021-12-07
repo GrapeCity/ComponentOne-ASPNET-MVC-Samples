@@ -1,0 +1,325 @@
+﻿@model IEnumerable<Sale>
+@{
+    var selectValues = UndoRes.UndoStack_Form_Text4.Split(';');
+    var checkValues = UndoRes.UndoStack_Form_Text6.Split(';');
+    var radioValues = UndoRes.UndoStack_Form_Text7.Split(';');
+}
+
+<div class="container-fluid">
+
+    <!-- Undo/Redo Toolbar -->
+    <div class="toolbar">
+        <button id="undo" class="btn btn-primary" disabled>
+            <span class="arrow">&#x21B6;</span>@Html.Raw(UndoRes.UndoStack_Toolbar_Text0)
+        </button>
+        <button id="redo" class="btn btn-primary" disabled>
+            <span class="arrow">&#x21B7;</span>@Html.Raw(UndoRes.UndoStack_Toolbar_Text1)
+        </button>
+        <button class="btn" disabled>
+            @Html.Raw(UndoRes.UndoStack_Toolbar_Text2)<span id="undo-cnt">0</span>
+        </button>
+        <button id="clear" class="btn btn-default" disabled>
+            @Html.Raw(UndoRes.UndoStack_Toolbar_Text3)
+        </button>
+    </div>
+
+    <!-- Undo/Redo Form -->
+    <form id="undoable-form">
+        <div class="row">
+
+            <!-- HTML Input elements -->
+            <div class="col-md-3">
+                <h3>@Html.Raw(UndoRes.UndoStack_Form_Text0)</h3>
+                <div class="form-group">
+                    <label for="firstName">@Html.Raw(UndoRes.UndoStack_Form_Text1)</label>
+                    <input id="firstName" class="form-control" placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text1)" />
+                </div>
+                <div class="form-group">
+                    <label for="lastName">@Html.Raw(UndoRes.UndoStack_Form_Text2)</label>
+                    <input id="lastName" class="form-control" placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text2)" />
+                </div>
+                <div class="form-group">
+                    <label for="select">@Html.Raw(UndoRes.UndoStack_Form_Text3) (Select)</label>
+                    <select id="select" class="form-control">
+                        @for (int i = 1; i < 4; i++)
+                        {
+                            if (i == 2)
+                            {
+                                <option value=@("value"+i) selected>@selectValues[i - 1]</option>
+                            }
+                            else
+                            {
+                                <option value=@("value"+i)>@selectValues[i - 1]</option>
+                            }
+                        }
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="area">@Html.Raw(UndoRes.UndoStack_Form_Text5) (TextArea)</label>
+                    <textarea id="area" class="form-control" placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text5)"></textarea>
+                </div>
+                <div class="form-group label-indent">
+                    @for (int i = 1; i < 4; i++)
+                    {
+                        <label class="checkbox-inline">
+                            <input type="checkbox" id=@("inlineCheckbox"+i) value=@("option"+i) checked="@(i == 1)">
+                            @checkValues[i - 1]
+                        </label>
+                    }
+                </div>
+                <div class="form-group label-indent">
+                    @for (int i = 1; i < 4; i++)
+                    {
+                        <label class="radio-inline">
+                            <input type="radio" name="inlineRadioOptions" id=@("inlineRadio"+i) value=@("option"+i) checked="@(i == 1)">
+                            @radioValues[i - 1]
+                        </label>
+                    }
+                </div>
+            </div>
+
+            <!-- MVC controls -->
+            <div class="col-md-3">
+                <h3>@Html.Raw(UndoRes.UndoStack_Form_Text10)</h3>
+                <div class="form-group">
+                    <label for="country">@Html.Raw(UndoRes.UndoStack_Form_Text11) (ComboBox)</label>
+                    <c1-combo-box id="country" is-required="false" placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text11)">
+                        <c1-items-source source-collection="@Sale.GetCountries()"></c1-items-source>
+                    </c1-combo-box>
+                </div>
+                <div class="form-group">
+                    <label for="date">@Html.Raw(UndoRes.UndoStack_Form_Text13) (InputDate)</label>
+                    <c1-input-date id="date" value="null" is-required="false" 
+                        placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text13)">
+                    </c1-input-date>
+                </div>
+                <div class="form-group">
+                    <label for="amount">@Html.Raw(UndoRes.UndoStack_Form_Text12) (InputNumber)</label>
+                    <c1-input-number id="amount" format="c2"  min="0" step="10" value="null" is-required="false"
+                        placeholder="@Html.Raw(UndoRes.UndoStack_Form_Text12)">
+                    </c1-input-number>
+                </div>
+                <div class="form-group">
+                    <label for="ac" title="AutoComplete">@Html.Raw(UndoRes.UndoStack_Form_Text14) (AutoComplete)</label>
+                    <c1-auto-complete id="ac">
+                        <c1-items-source source-collection="@Sale.GetColors()"></c1-items-source>
+                    </c1-auto-complete>
+                </div>
+                <div class="form-group">
+                    <label for="colors" title="MultiSelect">@Html.Raw(UndoRes.UndoStack_Form_Text15) (MultiSelect)</label>
+                    <c1-multi-select id="colors">
+                        <c1-items-source source-collection="@Sale.GetColors()"></c1-items-source>
+                    </c1-multi-select>
+                </div>
+                <div class="form-group">
+                    <label for="mac" title="MultiAutoComplete">@Html.Raw(UndoRes.UndoStack_Form_Text15) (MultiAutoComplete)</label>
+                    <c1-multi-auto-complete id="mac">
+                        <c1-items-source source-collection="@Sale.GetColors()"></c1-items-source>
+                    </c1-multi-auto-complete>
+                </div>
+            </div>
+
+            <!-- MVC controls more -->
+            <div class="col-md-6">
+                <h3 class="wide-screen">&nbsp;</h3>
+                <div class="form-group">
+                    <label for="gauge">Gauge</label>
+                    <c1-radial-gauge id="gauge" thickness="0.2" min="0" max="100" value="50" is-read-only="false" tick-spacing="10"
+                        show-ticks="true" show-text="@ShowText.Value" needle-shape="@NeedleShape.Outer" needle-length="@NeedleLength.Inner">
+                    </c1-radial-gauge>
+                </div>
+                <div class="form-group">
+                    <label for="grid">Grid</label>
+                    <c1-flex-grid id="grid" class="grid" auto-generate-columns="false" allow-add-new="true" allow-delete="true">
+                        <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="End"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Country">
+                            <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                                <c1-items-source source-collection="@FullCountry.GetCountries()"></c1-items-source>
+                            </c1-data-map>
+                        </c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Product">
+                            <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                                <c1-items-source source-collection="@ProductObject.GetProductObjects()"></c1-items-source>
+                            </c1-data-map>
+                        </c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Color">
+                            <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                                <c1-items-source source-collection="@ColorObject.GetColorObjects()"></c1-items-source>
+                            </c1-data-map>
+                        </c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
+                        <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
+                        <c1-items-source read-action-url="@Url.Action("UndoStack_Bind")" disable-server-read="true"></c1-items-source>
+                    </c1-flex-grid>
+                    <button id="add-row" class="btn btn-primary">
+                        @Html.Raw(UndoRes.UndoStack_Form_Text17)
+                    </button>
+                    <button id="del-row" class="btn btn-primary">
+                        @Html.Raw(UndoRes.UndoStack_Form_Text18)
+                    </button>
+                    <label class="inline-label">
+                        @Html.Raw(UndoRes.UndoStack_Form_Text19)
+                        <input id="nr-top" class="wj-no-undo" type="checkbox">
+                    </label>
+                </div>
+            </div>
+        </div>
+    </form>
+</div>
+
+@section Styles{
+    <style>
+        .toolbar {
+            position: sticky;
+            top: 0;
+            z-index: 10;
+            padding: 12px;
+            margin-left: -12px;
+            background: #eee;
+            user-select: none;
+            -moz-user-select: none;
+            -webkit-user-select: none;
+            -ms-user-select: none;
+        }
+
+        .arrow {
+            display: inline-block;
+            transform: scale(2);
+            margin-right: 8px;
+        }
+
+        .form-group label {
+            min-width: 100px;
+        }
+
+        .inline-label {
+            display: inline-block;
+            max-width: 100%;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .label-indent {
+            margin-left: 0px;
+        }
+
+            .label-indent label {
+                min-width: 0;
+            }
+
+        .form-control {
+            display: inline-block;
+            width: 100%;
+            max-width: 300px;
+        }
+
+        .btn {
+            outline: none !important;
+        }
+
+        .wj-dropdown, .wj-inputnumber {
+			width: 100%;
+            max-width: 300px;
+        }
+
+        .wj-multi-autocomplete {
+			width: 100%;
+            max-width: 400px;
+        }
+
+        .wj-flexgrid {
+            height: 250px;
+        }
+
+        .wj-radialgauge {
+			display: table;
+			max-width: 100%;
+			margin: 0 auto;
+        }
+
+        .wj-gauge .wj-needle {
+            fill: orangered;
+            stroke: orangered;
+        }
+
+            .wj-gauge .wj-needle .wj-inner-needle-cap {
+                fill: white;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        var selects, checks, radios;
+        c1.documentReady(function () {
+            // Create undo stack
+            let undoStack = new wijmo.undo.UndoStack('#undoable-form', {
+                maxActions: 50,
+                stateChanged: function(s) {
+                    btnUndo.disabled = !s.canUndo;
+                    btnRedo.disabled = !s.canRedo;
+                    btnClear.disabled = !s.actionCount;
+                    cnt.textContent = s.actionCount.toString();
+                },
+            });
+
+            // Config Add/Delete grid row buttons
+            let g = wijmo.Control.getControl("#grid");
+            document.getElementById('add-row').addEventListener('click', function (e) {
+                g.focus();
+                let view = g.editableCollectionView;
+                let newItem = view.addNew();
+                newItem.ID = -1;
+                newItem.Start = new Date();
+                newItem.End = new Date();
+                newItem.active = true;
+                g.onRowAdded(new wijmo.grid.CellRangeEventArgs(g.cells, g.selection)); // create undoable action
+                view.commitNew();
+                e.preventDefault(); // don't submit the form
+            });
+            document.getElementById('del-row').addEventListener('click', function (e) {
+                g.focus();
+                let view = g.editableCollectionView;
+                if (view.items.length) {
+                    let sel = g.selection;
+                    if (sel.row > -1) {
+                        let item = g.rows[sel.row].dataItem;
+                        g.onDeletingRow(new wijmo.grid.CellRangeEventArgs(g.cells, g.selection)); // create undoable action
+                        view.remove(item);
+                    }
+                }
+                e.preventDefault(); // don't submit the form
+            });
+            document.getElementById('nr-top').addEventListener('click', function (e) {
+                g.newRowAtTop = e.target.checked;
+            });
+
+            // Configs undo/redo buttons
+            let btnUndo = document.getElementById('undo');
+            let btnRedo = document.getElementById('redo');
+            let btnClear = document.getElementById('clear');
+            let cnt = document.getElementById('undo-cnt');
+            btnUndo.addEventListener('click', function () {
+                undoStack.undo();
+            });
+            btnRedo.addEventListener('click', function () {
+                undoStack.redo();
+            });
+            btnClear.addEventListener('click', function () {
+                undoStack.clear();
+            });
+        });
+    </script>
+}
+
+@section Summary{
+    <p>@Html.Raw(UndoRes.UndoStack_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(UndoRes.UndoStack_Text1)</p>
+}

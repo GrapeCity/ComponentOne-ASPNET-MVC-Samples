@@ -207,6 +207,72 @@ namespace MvcExplorer.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to The Birthdate field is required..
+        /// </summary>
+        public static string Required_Birthdate_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Birthdate_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Country field is required..
+        /// </summary>
+        public static string Required_Country_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Country_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Email field is required..
+        /// </summary>
+        public static string Required_Email_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Email_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Industry field is required..
+        /// </summary>
+        public static string Required_Industry_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Industry_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Name field is required..
+        /// </summary>
+        public static string Required_Name_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Name_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Phone field is required..
+        /// </summary>
+        public static string Required_Phone_ErrorMessage
+        {
+            get
+            {
+                return ResourceManager.GetString("Required_Phone_ErrorMessage", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Start value must be DateTime..
         /// </summary>
         public static string Start_DataType_ErrorMessage

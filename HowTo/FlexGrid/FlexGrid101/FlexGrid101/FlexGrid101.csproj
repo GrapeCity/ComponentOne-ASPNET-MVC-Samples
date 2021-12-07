@@ -1,0 +1,36 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFrameworks>net5.0</TargetFrameworks>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <AssemblyName>FlexGrid101</AssemblyName>
+    <RootNamespace>FlexGrid101</RootNamespace>
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20213.324" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="project.json" />
+    <Content Remove="project.lock.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Localization\FlexGrid101Res.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>FlexGrid101Res.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\FlexGrid101Res.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>FlexGrid101Res.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

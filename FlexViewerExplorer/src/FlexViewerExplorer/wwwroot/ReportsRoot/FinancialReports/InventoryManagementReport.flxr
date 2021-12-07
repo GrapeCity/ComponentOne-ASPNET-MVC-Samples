@@ -380,7 +380,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT *
 FROM InventoryManagement where Sold_Date&gt;=[prmStartDate] and Sold_Date&lt;=[prmEndDate]</RecordSource>
@@ -898,7 +898,7 @@ FROM InventoryManagement where Sold_Date&gt;=[prmStartDate] and Sold_Date&lt;=[p
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>
             SELECT * FROM (SELECT *
@@ -1080,7 +1080,7 @@ FROM InventoryManagement where Sold_Date&gt;=[prmStartDate] and Sold_Date&lt;=[p
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>
             SELECT * FROM (SELECT *

@@ -8,6 +8,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Sample;
 
+#if NETCORE31
+using Microsoft.Extensions.Hosting;
+#endif
+
 namespace C1.Web.Mvc.Extensions
 {
     public class Startup
@@ -23,16 +27,22 @@ namespace C1.Web.Mvc.Extensions
         public void ConfigureServices(IServiceCollection services)
         {
             C1.Web.Mvc.LicenseManager.Key = License.Key;
-            services.AddMvc();
+            services.AddMvc()
+#if NETCORE31
+                .AddNewtonsoftJson()
+#endif
+            ;
             services.AddSession();
         }
 
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+#if NETCORE31
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+#endif
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -47,12 +57,25 @@ namespace C1.Web.Mvc.Extensions
                 RequestPath = "/Resources"
             });
 
+#if NETCORE31
+            app.UseRouting();
+#endif
+
+#if NETCORE31
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+#else
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+#endif
         }
     }
 }

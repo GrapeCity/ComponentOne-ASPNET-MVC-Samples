@@ -183,7 +183,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Type_Photo
 FROM PriceComparison AS T
@@ -320,7 +320,7 @@ _styleCtr = _styleCtr + 1
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Name, T.Price_2013, T.Price_2014
 FROM PriceComparison AS T
@@ -703,7 +703,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT T.Product_ID, T.Product_Type, T.Product_Name, T.Price_2013, T.Price_2014
 FROM PriceComparison AS T

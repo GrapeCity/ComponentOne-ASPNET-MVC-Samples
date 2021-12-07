@@ -25,10 +25,10 @@ function selectedIndexChanged(sender, e) {
     eleFlexView = tab.pane.querySelector('.wj-viewer');
     flexView = wijmo.Control.getControl(eleFlexView);
     if (selectedIndex == 1) {
-        flexView.filePath = '/Content/Reports/CurrentOpportunitiesData.flxr';
+        flexView.filePath = 'Content/Reports/CurrentOpportunitiesData.flxr';
         flexView.reportName = 'OpportunityItem Report';
     } else if (selectedIndex == 2) {
-        flexView.filePath = '/Content/Reports/ProfitAndSales.flxr';
+        flexView.filePath = 'Content/Reports/ProfitAndSales.flxr';
         flexView.reportName = 'ProfitAndSale Report';
     }
     flexView.refresh();

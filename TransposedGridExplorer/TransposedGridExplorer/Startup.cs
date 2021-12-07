@@ -5,12 +5,28 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Globalization;
+#if NETCORE31 || NET50
+using Microsoft.Extensions.Hosting;
+#endif
 
 namespace TransposedGridExplorer
 {
     public class Startup
     {
+
+#if NETCORE31 || NET50
+        public static IWebHostEnvironment Environment { get; set; }
+#else
+        public static IHostingEnvironment Environment { get; set; }
+#endif
+
+        public IConfigurationRoot Configuration { get; set; }
+
+#if NETCORE31 || NET50
+        public Startup(IWebHostEnvironment env)
+#else
         public Startup(IHostingEnvironment env)
+#endif
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
@@ -23,10 +39,6 @@ namespace TransposedGridExplorer
             Environment = env;
         }
 
-        public IConfigurationRoot Configuration { get; set; }
-
-        public static IHostingEnvironment Environment { get; set; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -35,7 +47,11 @@ namespace TransposedGridExplorer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+#if NETCORE31 || NET50
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#else
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+#endif
         {
             var defaultCulture = "en-US";
             var supportedCultures = new[]
@@ -45,6 +61,11 @@ namespace TransposedGridExplorer
 
             app.UseStaticFiles();
             app.UseSession();
+
+#if NETCORE31 || NET50
+            app.UseRouting();
+#endif
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -55,12 +76,23 @@ namespace TransposedGridExplorer
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
+
+#if NETCORE31 || NET50
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=TransposedGrid}/{action=Index}/{id?}");
+
+            });
+#else
             app.UseMvc(r =>
             {
                 r.MapRoute(
                     name: "default",
                     template: "{controller=TransposedGrid}/{action=Index}/{id?}");
             });
+#endif
         }
     }
 }

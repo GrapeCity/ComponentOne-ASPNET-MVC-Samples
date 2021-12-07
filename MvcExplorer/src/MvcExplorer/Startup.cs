@@ -22,7 +22,7 @@ using Microsoft.AspNet.OData.Builder;
 #endif
 #endif
 
-#if NETCORE30 || NET50
+#if NETCORE31
 using Microsoft.Extensions.Hosting;
 #endif
 
@@ -30,7 +30,7 @@ namespace MvcExplorer
 {
     public class Startup
     {
-#if NETCORE30 || NET50
+#if NETCORE31
         public Startup(IWebHostEnvironment env)
 #else
         public Startup(IHostingEnvironment env)
@@ -48,7 +48,7 @@ namespace MvcExplorer
 
         public IConfigurationRoot Configuration { get; set; }
 
-#if NETCORE30 || NET50
+#if NETCORE31
         public static IWebHostEnvironment Environment { get; set; }
 #else
         public static IHostingEnvironment Environment { get; set; }
@@ -71,11 +71,11 @@ namespace MvcExplorer
 #endif
 #endif
             services.AddMvc()
-#if NETCORE30 || NET50
+#if NETCORE31
                 .AddNewtonsoftJson()
 #endif
             ;
-#if NETCORE30 || NET50
+#if NETCORE31
             services.Configure<IISServerOptions>(options =>
             {
                 options.AllowSynchronousIO = true;
@@ -104,7 +104,7 @@ namespace MvcExplorer
             return dataFolderPath + configConnectionString;
         }
 
-#if NETCORE30 || NET50
+#if NETCORE31
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 #else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -123,7 +123,7 @@ namespace MvcExplorer
 
             app.UseSession();
 
-#if NETCORE30 || NET50
+#if NETCORE31
             app.UseRouting();
 #endif
 
@@ -196,7 +196,7 @@ namespace MvcExplorer
 #endif
 #endif
 
-#if NETCORE30 || NET50
+#if NETCORE31
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

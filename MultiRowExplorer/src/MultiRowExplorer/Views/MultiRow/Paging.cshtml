@@ -47,14 +47,14 @@
 <c1-pager owner="pagingMultiRow"></c1-pager>
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 
 @section Description{
-<p>@Html.Raw(MultiRowRes.Paging_Text0)</p>
+    <p>@Html.Raw(MultiRowRes.Paging_Text0)</p>
 
-<p>@Html.Raw(MultiRowRes.Paging_Text1)</p>
+    <p>@Html.Raw(MultiRowRes.Paging_Text1)</p>
 
-<p>@Html.Raw(MultiRowRes.Paging_Text2)</p>
+    <p>@Html.Raw(MultiRowRes.Paging_Text2)</p>
 
 }

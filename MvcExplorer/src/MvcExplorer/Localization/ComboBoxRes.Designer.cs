@@ -191,7 +191,7 @@ namespace MvcExplorer.Localization {
             }
         }
 		
-		/// <summary>
+		    /// <summary>
         ///   Looks up a localized string similar to When Case Sensitive Search is &lt;b&gt;true&lt;/b&gt;, the user types are searched as case-sensitive.
         /// </summary>
         public static string CaseSensitiveSearchDescription_Text0
@@ -201,5 +201,28 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("CaseSensitiveSearchDescription_Text0", resourceCulture);
             }
         }
-    }
+
+
+        /// <summary>
+        ///   Looks up a localized string similar to The VirtualizationThreshold property allow to enable/disable the virtualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the virtualization makes a huge difference in performance when the ComboBox contains a large number of items (say 1,000 or so)..
+        /// </summary>
+        public static string Index_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Number of real elements corresponding Virtualization Threshold:.
+        /// </summary>
+        public static string Index_VirtualizationThreshold
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_VirtualizationThreshold", resourceCulture);
+            }
+        }
+  }
 }

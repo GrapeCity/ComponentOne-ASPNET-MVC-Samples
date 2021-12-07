@@ -17,6 +17,6 @@ var screenCss = Model ? "narrow-screen" : "wide-screen";
     </li>
     <li class="narrow-screen">
         @Html.Raw(OlapRes._SiteNav_Text4)
-        @Html.Partial("_ThemeList")
+        @await Html.PartialAsync("_ThemeList")
     </li>
 </ul>

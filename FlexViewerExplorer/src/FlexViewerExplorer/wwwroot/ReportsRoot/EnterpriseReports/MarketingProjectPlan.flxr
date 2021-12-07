@@ -23,10 +23,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>MarketingProjectPlanData</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From MarketingProjectPlanData</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
         <CalculatedFields>
           <CalculatedField>
             <Name>CF_Anticipated_StartDate</Name>

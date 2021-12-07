@@ -20,7 +20,7 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>
           SELECT Categories.*, Products.*
@@ -30,10 +30,10 @@
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>Categories</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From Categories</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
         <SortDefinitions>
           <SortDefinition>
             <Expression>

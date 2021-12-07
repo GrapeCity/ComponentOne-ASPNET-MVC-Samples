@@ -22,10 +22,10 @@ namespace MvcExplorer.Models
         [Required(ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Change_Required_ErrorMessage")]
         public double Amount { get; set; }
         [Required(ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Price_Required_ErrorMessage")]
-        [RegularExpression(pattern: @"^[0-9]\d*(\.\d+)?$", ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Price_DataType_ErrorMessage")]
+        [RegularExpression(pattern: @"^\$?[0-9]\d*(\.\d+)?$", ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Price_DataType_ErrorMessage")]
         public double Amount2 { get; set; }
         [Required(ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Discount_Required_ErrorMessage")]
-        [RegularExpression(pattern: @"^[0-9]\d*(\.\d+)?$", ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Discount_DataType_ErrorMessage")]
+        [RegularExpression(pattern: @"^[0-9]\d*(\.\d+)?\%?$", ErrorMessageResourceType = typeof(ValidationRes), ErrorMessageResourceName = "Discount_DataType_ErrorMessage")]
         public double Discount { get; set; }
         public bool Active { get; set; }
         public string Url { get; set; }

@@ -23,7 +23,7 @@ namespace MvcExplorer.Controllers
             _oDataBindSetting.LoadPostData(collection);
             ViewBag.DemoOptions = _oDataBindSetting;
             // NETCORE 3.0 doesn't not fully support ODataServer yet, so the local source is not working.
-#if ODATA_SERVER && !NETCORE30 && !NET50
+#if ODATA_SERVER && !NETCORE31
             ViewBag.IsReadOnly = false;
 #else
             ViewBag.IsReadOnly = true;

@@ -65,19 +65,19 @@
 </head>
 <body>
     <div class="hide">
-        @Html.Partial("_SiteNav", true)
+        @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
         <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
         <a class="logo-container" href="@Html.Raw(OlapRes._Layout_Text9)" target="_blank">
             <i class="gcicon-product-c1"></i>@Html.Raw(OlapRes._Layout_Text0)
         </a>
-        @Html.Partial("_ThemeSelector")
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">@Html.Raw(OlapRes._Layout_Text1)</span>
-            <span class="semi-bold wide-screen">@Html.Raw(OlapRes._Layout_Text2)</span>
-            @Html.Partial("_SiteNav", false)
-        </div>
+        @await Html.PartialAsync("_ThemeSelector")
+    <div class="task-bar">
+        <span class="semi-bold narrow-screen">@Html.Raw(OlapRes._Layout_Text1)</span>
+        <span class="semi-bold wide-screen">@Html.Raw(OlapRes._Layout_Text2)</span>
+        @await Html.PartialAsync("_SiteNav", false)
+    </div>
     </header>
     <div class="main-content">
         <div class="narrow-screen features-bar">
@@ -96,7 +96,7 @@
                 <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
                 <div class="description">@RenderSection("Summary", false)</div>
             </div>
-            @Html.Partial("_ControlsNav")
+            @await Html.PartialAsync("_ControlsNav")
         </div>
         <div class="col-md-9">
             <div class="padder">
@@ -136,7 +136,7 @@
                         </div>
                         <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                             <div class="demo-source">
-                                @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                                @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
                             </div>
                         </div>
                     </div>

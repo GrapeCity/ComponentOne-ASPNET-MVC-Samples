@@ -26,7 +26,7 @@
     <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
 
     <link href="~/Content/css/explorer.css" rel="stylesheet" />
-    <link href="@Url.Content(FlexViewerRes.GcIconsCssPath)" rel="stylesheet" />
+    <link href="@Html.Raw(FlexViewerRes.GcIconsCssPath)" rel="stylesheet" />
     <link href="~/Content/css/app.css" rel="stylesheet" />
     <link href="~/Content/css/site.css" rel="stylesheet" />
     @RenderSection("Styles", false)
@@ -48,7 +48,7 @@
 </head>
 <body>
     <div class="hide">
-        @Html.Partial("_SiteNav", true)
+        @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
         <a class="logo-container" href="@Html.Raw(FlexViewerRes._SiteNav_Text5)" target="_blank">
@@ -57,7 +57,7 @@
         <div class="task-bar">
             <span class="semi-bold narrow-screen">@Html.Raw(FlexViewerRes._Layout_Text7)</span>
             <span class="semi-bold wide-screen">@Html.Raw(FlexViewerRes._Layout_Text8)</span>
-            @Html.Partial("_SiteNav", false)
+            @await Html.PartialAsync("_SiteNav", false)
         </div>
     </header>
 
@@ -69,7 +69,7 @@
                     <div class="home-title wide-screen">
                         <span>ReportViewer - @ReportFiles.SelectedReportTitle</span>
                     </div>
-                    @Html.Partial("_ControlsMobNav")
+                    @await Html.PartialAsync("_ControlsMobNav")
                 </div>
             </div>
             @RenderSection("ContentTitle", false)
@@ -78,7 +78,7 @@
     <div class="main-content">
         <div class="col-md-3 side wide-screen">
             <div class="padder">
-                @Html.Partial("_ControlsNav")
+                @await Html.PartialAsync("_ControlsNav")
             </div>
         </div>
         <div class="col-md-9">
@@ -99,7 +99,7 @@
                         <a class="mob-show-1 tab-title collapse-title" href="#">@Html.Raw(FlexViewerRes._Layout_Text5)<span class="caret"></span></a>
                         <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                             <div class="demo-source">
-                                @Html.Partial("_DemoSource", PageSources.GetPageSources(controllerName, actionName))
+                                @await Html.PartialAsync("_DemoSource", PageSources.GetPageSources(controllerName, actionName))
                             </div>
                         </div>
                         <div class="mob-tab-title mob-show-1"><a class="collapse-title" href=@ViewBag.DocLink target="_blank" style="text-decoration: underline;">@Html.Raw(FlexViewerRes._Layout_Text2)</a></div>

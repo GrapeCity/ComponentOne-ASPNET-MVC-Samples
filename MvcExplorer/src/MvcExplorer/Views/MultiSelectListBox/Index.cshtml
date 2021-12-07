@@ -3,11 +3,12 @@
 @{
     ControlOptions optionsModel = ViewBag.DemoOptions;
     ViewBag.DemoSettings = true;
+    string vThreshold = optionsModel.Options["Virtualization Threshold"].CurrentValue;
 }
 
 <div style="overflow: auto">
     <div class="col-md-5">
-        <div id="multiSelectList" style="width:100%;max-width:400px;height:530px; overflow-y: scroll"></div>
+        <div id="multiSelectList" style="width:100%;max-width:400px;max-height:530px;"></div>
     </div>
     <div class="col-md-7">
         <p>
@@ -18,13 +19,16 @@
             <ul id="checkedItems1" class="col-md-5"></ul>
         </div>
     </div>
+    <p><b>@Html.Raw(ListBoxRes.Index_VirtualizationThreshold) <span id="lbSelVThreshold"></span></b></p>
 </div>
 
 <c1-multi-select-list-box id="multiSelectList" display-member-path="ProductName" checked-member-path="Discontinued"
                           show-select-all-checkbox="@Convert.ToBoolean(optionsModel.Options["Show Select All Checkbox"].CurrentValue)"
                           show-filter-input="@Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue)"
                           checked-items-changed="checkedItemsChanged" selected-index="8"
-                          delay="@Convert.ToInt16(optionsModel.Options["Delay Filter"].CurrentValue)" case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+                          delay="@Convert.ToInt16(optionsModel.Options["Delay Filter"].CurrentValue)"
+                          case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)"
+                          virtualization-threshold="@vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold)">
     <c1-items-source source-collection="Model"></c1-items-source>
 </c1-multi-select-list-box>
 
@@ -33,6 +37,7 @@
         c1.documentReady(function () {
             let multiSelectList = wijmo.Control.getControl("#multiSelectList");
             checkedItemsChanged(multiSelectList);
+            document.getElementById('lbSelVThreshold').innerHTML = document.getElementById("multiSelectList").querySelector("[wj-part='list-box'").childNodes.length;
         })
         // CheckedItemsChanged event handler
         function checkedItemsChanged(sender) {
@@ -42,7 +47,7 @@
                 n = items.length;
             if (n > 40) n = n / 2;
             else if (n > 20) n = 20;
-            items.forEach(function(item) {
+            items.forEach(function (item) {
                 n--;
                 if (n >= 0) {
                     html += "<li>" + item.ProductName + "</li>";
@@ -71,5 +76,7 @@
     @Html.Raw(MultiSelectListBoxRes.Index_Text3)
     <br />
     @Html.Raw(MultiSelectListBoxRes.Index_Text4)
+    <br />
+    @Html.Raw(MultiSelectListBoxRes.Index_Text5)
 
 }

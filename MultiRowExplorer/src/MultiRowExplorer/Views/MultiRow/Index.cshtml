@@ -96,44 +96,44 @@
 }
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
     @if (layoutDefinition == "Traditional")
     {
-<p>@Html.Raw(MultiRowRes.Index_Text0)</p>
+        <p>@Html.Raw(MultiRowRes.Index_Text0)</p>
     }
     @if (layoutDefinition == "Compact")
     {
-<p>@Html.Raw(MultiRowRes.Index_Text1)</p>
+        <p>@Html.Raw(MultiRowRes.Index_Text1)</p>
     }
     @if (layoutDefinition == "Detailed")
     {
-<p>@Html.Raw(MultiRowRes.Index_Text2)</p>
+        <p>@Html.Raw(MultiRowRes.Index_Text2)</p>
     }
 }
 
 @section Summary{
-<p>@Html.Raw(MultiRowRes.Index_Text3)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text3)</p>
 }
 
 @section Description{
-<p>@Html.Raw(MultiRowRes.Index_Text4)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text4)</p>
 
-<p>@Html.Raw(MultiRowRes.Index_Text5)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text5)</p>
 
-<p>@Html.Raw(MultiRowRes.Index_Text6)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text6)</p>
 
-<p>@Html.Raw(MultiRowRes.Index_Text7)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text7)</p>
 
-<h3 class="semi-bold">@Html.Raw(MultiRowRes.Index_Text12)</h3>
-<p>@Html.Raw(MultiRowRes.Index_Text8)</p>
+    <h3 class="semi-bold">@Html.Raw(MultiRowRes.Index_Text12)</h3>
+    <p>@Html.Raw(MultiRowRes.Index_Text8)</p>
 
-<p>
-    @Html.Raw(MultiRowRes.Index_Text9)
-    <img src="@Url.Content(MultiRowRes.Index_Text13)" />
-</p>
+    <p>
+        @Html.Raw(MultiRowRes.Index_Text9)
+        <img src="@Url.Content(MultiRowRes.Index_Text13)" />
+    </p>
 
-<p>@Html.Raw(MultiRowRes.Index_Text10)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text10)</p>
 
-<p>@Html.Raw(MultiRowRes.Index_Text11)</p>
+    <p>@Html.Raw(MultiRowRes.Index_Text11)</p>
 
 }

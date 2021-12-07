@@ -18,18 +18,18 @@
 </div>
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 
 @section Description{
-<p>@Html.Raw(OlapRes.DataSource_Text0)</p>
+    <p>@Html.Raw(OlapRes.DataSource_Text0)</p>
 
-<p>@Html.Raw(OlapRes.DataSource_Text1)</p>
+    <p>@Html.Raw(OlapRes.DataSource_Text1)</p>
 
-<p>@Html.Raw(OlapRes.DataSource_Text2)</p>
+    <p>@Html.Raw(OlapRes.DataSource_Text2)</p>
 
 }
 @section Summary{
-<p>@Html.Raw(OlapRes.DataSource_Text3)</p>
+    <p>@Html.Raw(OlapRes.DataSource_Text3)</p>
 
 }

@@ -1,4 +1,9 @@
-﻿@section Scripts{
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
     <style>
         .invalid-tooltip {
             background-color: red;
@@ -44,8 +49,13 @@
 
 <div>
     <label>@Html.Raw(InputColorRes.Index_Text0)</label>
-    <c1-input-color id="invalidInput" value="White" click-action="Toggle" invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-color>
+    <c1-input-color id="invalidInput" value="White" click-action="Toggle" invalid-input="onInvalidInput" value-changed="onValueChanged"
+        show-color-string="@Convert.ToBoolean(optionsModel.Options["Show Color String"].CurrentValue)"></c1-input-color>
 </div>
+
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
 
 @section Description{
     @Html.Raw(InputColorRes.Index_Text1)

@@ -269,7 +269,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
@@ -515,7 +515,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
@@ -759,7 +759,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
@@ -1001,7 +1001,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select strftime('%Y', OrderDate) as OrderYear, Count(OrderDate) as OrderCount from orders group by strftime('%Y', OrderDate)</RecordSource>
       </DataSource>
@@ -1262,7 +1262,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from ScatterPoints limit 20</RecordSource>
       </DataSource>
@@ -1503,7 +1503,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from ScatterPoints limit 10</RecordSource>
       </DataSource>
@@ -1745,10 +1745,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>ScatterPoints</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From ScatterPoints</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -1991,10 +1991,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>ScatterPoints</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From ScatterPoints</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2252,10 +2252,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SystemAdaptability</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SystemAdaptability</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2530,10 +2530,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-         <DataProvider>SQLite</DataProvider>
+         <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
          <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>PolarSample</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From PolarSample</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>
@@ -2801,10 +2801,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SalesByQuarter</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SalesByQuarter</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -3341,10 +3341,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>GanttChartData</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From GanttChartData</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -3762,7 +3762,7 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from StockChartData order by strftime('%m', PriceDate), strftime('%d', PriceDate)</RecordSource>
         <CalculatedFields>
@@ -4286,10 +4286,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SalesByQuarter</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SalesByQuarter</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -4807,10 +4807,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SalesByQuarter</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SalesByQuarter</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -5358,10 +5358,10 @@ Polar.Degrees: true.</Text>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>DoughtNutChartData</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From DoughtNutChartData</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>

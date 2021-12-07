@@ -8,6 +8,8 @@ namespace RazorPagesExplorer.Models
 {
     public static class ControlPages
     {
+        private static string _prjName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+
         public static List<Page> Pages = new List<Page>() {
             new Page{ Name="Overview", Text="Overview" },
             new Page{ Name="FlexGrid", Text="FlexGrid" },
@@ -45,24 +47,24 @@ namespace RazorPagesExplorer.Models
             pageName = pageName.TrimStart('/');
 
             var pageHtmlFileName = pageName + ".cshtml";
-            var pageHtmlFilePath = "RazorPagesExplorer.Pages." + pageHtmlFileName;
+            var pageHtmlFilePath = _prjName + ".Pages." + pageHtmlFileName;
             var pageHtmlFileContent= GetResourceContent(pageHtmlFilePath);
             pageSources.Add(pageHtmlFileName, pageHtmlFileContent);
 
             var pageCsFileName = pageName + ".cshtml.cs";
-            var pageCsFilePath = "RazorPagesExplorer.Pages." + pageCsFileName;
+            var pageCsFilePath = _prjName + ".Pages." + pageCsFileName;
             var pageCsFileContent = GetResourceContent(pageCsFilePath);
             pageSources.Add(pageCsFileName, pageCsFileContent);
 
             if (pageName == "UnobtrusiveValidation")
             {
                 var modelFileName = "UserInfo.cs";
-                var modelFilePath = string.Format("RazorPagesExplorer.Models.{0}", modelFileName);
+                var modelFilePath = string.Format(_prjName + ".Models.{0}", modelFileName);
                 var modelFileHtml = GetResourceContent(modelFilePath);
                 pageSources.Add(modelFileName, modelFileHtml);
 
                 var viewFileName = "UnobtrusiveValidationPartial.cshtml";
-                var viewFilePath = string.Format("RazorPagesExplorer.Pages.{0}", viewFileName);
+                var viewFilePath = string.Format(_prjName + ".Pages.{0}", viewFileName);
                 var viewFileHtml = GetResourceContent(viewFilePath);
                 pageSources.Add(viewFileName, viewFileHtml);
             }

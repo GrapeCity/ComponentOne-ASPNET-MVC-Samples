@@ -553,4 +553,36 @@ The size can be specified in pixels: MaxSize = '100px' or percents: MaxSize = '5
   <data name="RenderEngine_Description_Text0" xml:space="preserve">
     <value>The sample shows a scatter chart with large data which uses high performance WebGL rendering.</value>
   </data>
+  <data name="EnhancedChart_Description" xml:space="preserve">
+    <value>Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+            to a function that adds elements to show task dependencies
+            and percent complete.</value>
+  </data>
+  <data name="EnhancedGanttChartHeader" xml:space="preserve">
+    <value>Enhanced Gantt Chart</value>
+  </data>
+  <data name="EnhancedGanttChartTitle" xml:space="preserve">
+    <value>Dependencies &amp; Percent Complete</value>
+  </data>
+  <data name="GranttTooltip1" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</value>
+  </data>
+  <data name="GranttTooltip2" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;</value>
+  </data>
+  <data name="SimpleChart_Step1" xml:space="preserve">
+    <value>Initialize the chart (set the ChartType to 'C1.Web.Mvc.Chart.ChartType.Bar' and Bind to the data).</value>
+  </data>
+  <data name="SimpleChart_Step2" xml:space="preserve">
+    <value>Add a series to the chart and set its binding property to the fields Start and End dates.</value>
+  </data>
+  <data name="SimpleChart_Step3" xml:space="preserve">
+    <value>Customize AxisY to hide the major grid and show minor grid.</value>
+  </data>
+  <data name="SimpleGanttChartHeader" xml:space="preserve">
+    <value>Plain Gantt Chart</value>
+  </data>
+  <data name="SimpleGanttChartTitle" xml:space="preserve">
+    <value>Steps for getting started with the FlexChart to customize a GanttChart:</value>
+  </data>
 </root>

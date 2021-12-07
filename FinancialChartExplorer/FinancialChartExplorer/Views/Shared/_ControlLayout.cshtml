@@ -54,7 +54,7 @@
         <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
         <div class="description">@RenderSection("Summary", false)</div>
     </div>
-    @Html.Partial("_ControlsNav")
+    @await Html.PartialAsync("_ControlsNav")
 </div>
 <div class="col-md-9">
     <div class="padder">
@@ -74,7 +74,7 @@
                                 <h3 class="semi-bold">@Resource.ControlLayout_Settings</h3>
                                 @if (ViewBag.DemoSettingsModel != null)
                                 {
-                                    @Html.Partial("_ClientSettingsByMenu", ViewBag.DemoSettingsModel as ClientSettingsModel)
+                                    @await Html.PartialAsync("_ClientSettingsByMenu", ViewBag.DemoSettingsModel as ClientSettingsModel)
                                 }
                                 @RenderSection("Settings", false)
                             </div>
@@ -94,7 +94,7 @@
                 </div>
                 <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                     <div class="demo-source">
-                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                        @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
                     </div>
                 </div>
             </div>

@@ -1,6 +1,6 @@
 using System;
 
-namespace PdfViewer.Core31.Models
+namespace PdfViewer.Models
 {
     public class ErrorViewModel
     {

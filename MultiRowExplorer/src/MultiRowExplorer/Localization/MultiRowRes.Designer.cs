@@ -261,7 +261,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-core-ui-controls.
         /// </summary>
         public static string _SiteNav_Text5 {
             get {
@@ -270,7 +270,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://supportone.componentone.com/login.
+        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
         /// </summary>
         public static string _SiteNav_Text6 {
             get {
@@ -279,7 +279,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/pricing.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
         /// </summary>
         public static string _SiteNav_Text7 {
             get {
@@ -288,7 +288,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/download/componentone-studio.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
         /// </summary>
         public static string _SiteNav_Text8 {
             get {

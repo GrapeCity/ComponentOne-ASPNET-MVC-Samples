@@ -19,7 +19,7 @@ namespace FlexViewerExplorer.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "14.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class FlexViewerRes {
@@ -260,7 +260,7 @@ namespace FlexViewerExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-core-ui-controls.
         /// </summary>
         public static string _SiteNav_Text5 {
             get {
@@ -269,7 +269,7 @@ namespace FlexViewerExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://supportone.componentone.com/login.
+        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
         /// </summary>
         public static string _SiteNav_Text6 {
             get {
@@ -278,7 +278,7 @@ namespace FlexViewerExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/pricing.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
         /// </summary>
         public static string _SiteNav_Text7 {
             get {
@@ -287,7 +287,7 @@ namespace FlexViewerExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/download/componentone-studio.
+        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
         /// </summary>
         public static string _SiteNav_Text8 {
             get {
@@ -305,7 +305,7 @@ namespace FlexViewerExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to ~/Content/css/gcicons.css.
+        ///   Looks up a localized string similar to /Content/css/gcicons.css.
         /// </summary>
         public static string GcIconsCssPath {
             get {

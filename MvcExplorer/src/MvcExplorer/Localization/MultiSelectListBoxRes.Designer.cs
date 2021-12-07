@@ -11,8 +11,8 @@
 namespace MvcExplorer.Localization {
     using System;
     using System.Reflection;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -71,7 +71,7 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The MultiSelectListBox control is the advance of ListBox control which support checkboxes for each item, select all items and posibility to filter . &lt;br&gt;This sample exposes the list of checked items through the checkedItems property..
+        ///   Looks up a localized string similar to The MultiSelectListBox control is an advance ListBox control which supports checkboxes for each item, options for selecting all items and filtering items . &lt;br&gt;This sample exposes the list of checked items through the checkedItems property..
         /// </summary>
         public static string Index_Text1 {
             get {
@@ -103,6 +103,15 @@ namespace MvcExplorer.Localization {
         public static string Index_Text4 {
             get {
                 return ResourceManager.GetString("Index_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;VirtualizationThreshold&lt;/b&gt; property allow to enable/disable the vitualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the vitualization makes a huge difference in performance when the MultiSelectListBox contains a large number of items (say 1,000 or so)..
+        /// </summary>
+        public static string Index_Text5 {
+            get {
+                return ResourceManager.GetString("Index_Text5", resourceCulture);
             }
         }
     }

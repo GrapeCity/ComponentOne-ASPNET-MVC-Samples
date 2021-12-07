@@ -11,11 +11,19 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
+#if NETCORE31
+using Microsoft.Extensions.Hosting;
+#endif
+
 namespace FlightStatistics
 {
     public class Startup
     {
+#if NETCORE31
+      public Startup(IWebHostEnvironment env)
+#else
         public Startup(IHostingEnvironment env)
+#endif
         {
             Environment = env;
 
@@ -27,7 +35,11 @@ namespace FlightStatistics
             Configuration = builder.Build();
         }
         public IConfiguration Configuration { get; }
+#if NETCORE31
+public static IWebHostEnvironment Environment { get; set; }
+#else
         public static IHostingEnvironment Environment { get; set; }
+#endif
 
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
@@ -40,7 +52,17 @@ namespace FlightStatistics
             });
 
             C1.Web.Mvc.LicenseManager.Key = License.Key;
-            services.AddMvc();
+            services.AddMvc(
+#if NETCORE31
+                options => options.EnableEndpointRouting = false
+#endif
+                );
+            services.AddMvc()
+
+#if NETCORE31
+               .AddNewtonsoftJson()
+#endif
+            ;
         }
 
         private string GetConnectionString()
@@ -64,11 +86,15 @@ namespace FlightStatistics
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+#if NETCORE31
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+#endif
         {
             if (env.IsDevelopment())
             {
-                app.UseBrowserLink();
+                //app.UseBrowserLink();
                 app.UseDeveloperExceptionPage();
             }
             else
@@ -91,13 +117,25 @@ namespace FlightStatistics
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
+#if NETCORE31
+            app.UseRouting();
+#endif
 
+#if NETCORE31
+            app.UseEndpoints(endpoints =>
+            {
+               endpoints.MapControllerRoute(
+                   name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+#else
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+#endif
         }
     }
 }

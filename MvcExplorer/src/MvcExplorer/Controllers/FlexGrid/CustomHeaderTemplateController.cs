@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
 using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
-#if !NETCORE30 && !NET50
+#if !NETCORE31
 using Microsoft.AspNetCore.Http.Internal;
 #endif
 using Microsoft.Extensions.Primitives;

@@ -21,7 +21,8 @@ namespace MvcExplorer.Controllers
                     {"Show Select All Checkbox", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "True"}},
                     {"Show Filter Input", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "True"}},
                     {"Case Sensitive Search", new OptionItem {Values = new List<string> {"True", "False"}, CurrentValue = "false"}},
-                    {"Delay Filter", new OptionItem {Values = new List<string> {"500", "1000", "2000"}, CurrentValue = "500"}}
+                    {"Delay Filter", new OptionItem {Values = new List<string> {"500", "1000", "2000"}, CurrentValue = "500"}},
+                    {"Virtualization Threshold",new OptionItem{ Values = new List<string> { "Disable" , "0" }, CurrentValue = "Disable"}}
                 }
         };
 

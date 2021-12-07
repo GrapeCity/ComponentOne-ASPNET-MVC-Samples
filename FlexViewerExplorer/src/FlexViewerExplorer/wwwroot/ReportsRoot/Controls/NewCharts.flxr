@@ -235,10 +235,10 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SalesByQuarter</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SalesByQuarter</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -789,7 +789,7 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>GanttChartData</RecordSource>
       </DataSource>
@@ -1220,7 +1220,7 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select * from StockChartData order by Month(PriceDate), Day(PriceDate)</RecordSource>
         <CalculatedFields>
@@ -1735,10 +1735,10 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SalesByQuarter</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From SalesByQuarter</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -2233,7 +2233,7 @@
     <DataSources>
       <DataSource>
         <Name>DataSource1</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SalesByQuarter</RecordSource>
       </DataSource>
@@ -2781,7 +2781,7 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>DoughtNutChartData</RecordSource>
       </DataSource>

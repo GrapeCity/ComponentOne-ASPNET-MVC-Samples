@@ -16,7 +16,7 @@
 
 <c1-flex-chart id="@demoSettingModel.ControlId" binding-x="Name"
                chart-type="@chartType" stacking="@stacking" rotated="@rotated" palette="C1.Web.Mvc.Chart.Palettes.Standard"
-               legend-position="Bottom" legend-orientation="@orientationType" legend-max-size="100px">
+               legend-position="Bottom" legend-orientation="@orientationType">
     <c1-flex-chart-tooltip></c1-flex-chart-tooltip>
     <c1-items-source source-collection="Model"></c1-items-source>
     <c1-flex-chart-series binding="MarPrice" name="March">
@@ -44,15 +44,8 @@
         function customChangeTooltipPosition(control, value) {
             control.tooltip.position = value;
         }
-        function setChartOption(value) {
-            var chart = wijmo.Control.getControl('#@demoSettingModel.ControlId');
-            if (chart) {
-                chart.legend.maxSize = value;
-                chart.refresh(true);
-            }
-        }
-        function maxSizeChanged(sender, args) {
-            setChartOption(sender.value);
+        function customChangeMaxSize(control, value) {
+            control.legend.maxSize = value;
         }
 
         function itemPaletteClicked(sender) {
@@ -76,13 +69,9 @@
 }
 
 @section Settings{
-    <br />
     <c1-menu id="paletteMenu" header="Palette: <b>Standard</b>" show-drop-down-button="true"  sub-items-path="Items" item-clicked="itemPaletteClicked">
         <c1-items-source source-collection="@palettesModel"></c1-items-source>
     </c1-menu>
-    <br />
-    <label style="display: inline-block; font-weight: normal">Legend Maxsize</label>
-    <c1-input-number step="1" value="100" value-changed="maxSizeChanged" width="150px"></c1-input-number>
 }
 
 @section Description{

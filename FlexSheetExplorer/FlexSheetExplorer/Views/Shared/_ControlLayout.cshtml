@@ -61,7 +61,7 @@
         <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
         <div class="description">@RenderSection("Summary", false)</div>
     </div>
-    @Html.Partial("_ControlsNav")
+    @await Html.PartialAsync("_ControlsNav")
 </div>
 <div class="col-md-9">
     <div class="padder">
@@ -77,7 +77,7 @@
                 </div>
                 <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                     <div class="demo-source">
-                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                        @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
                     </div>
                 </div>
             </div>

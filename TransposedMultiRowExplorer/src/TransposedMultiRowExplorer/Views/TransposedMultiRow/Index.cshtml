@@ -1,5 +1,5 @@
 @model IEnumerable<Orders.Order>
-    <script src="~/Scripts/jszip.js"></script>
+<script src="~/Scripts/jszip.js"></script>
 @{
     var cities = Orders.GetCities().ToValues();
     ControlOptions optionsModel = ViewBag.DemoOptions;
@@ -235,7 +235,7 @@
 }
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
     @if (layoutDefinition == "Traditional")
     {
         <p>@Html.Raw(TransposedMultiRowRes.Index_Text0)</p>

@@ -19,10 +19,10 @@
         <c1-multi-row-cell binding="Customer.State" name="CustomerState" header="State" />
     </c1-multi-row-cell-group>
     <c1-multi-row-cell-group header="Order" colspan="3">
-        <c1-multi-row-cell binding="Id" header="ID" class="id" rowspan="2"/>
-        <c1-multi-row-cell binding="Date" header="Ordered" width="150" rowspan="2"/>
-        <c1-multi-row-cell binding="Amount" header="Amount" format="c" class="amount"  width="150"/>
-        <c1-multi-row-cell binding="ShippedDate" header="Shipped"  width="150"/>
+        <c1-multi-row-cell binding="Id" header="ID" class="id" rowspan="2" />
+        <c1-multi-row-cell binding="Date" header="Ordered" width="150" rowspan="2" />
+        <c1-multi-row-cell binding="Amount" header="Amount" format="c" class="amount" width="150" />
+        <c1-multi-row-cell binding="ShippedDate" header="Shipped" width="150" />
     </c1-multi-row-cell-group>
 
     <c1-multi-row-cell-group header="Shipper" colspan="3">
@@ -34,7 +34,7 @@
 
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 
 @section Summary{

@@ -32,19 +32,19 @@
 </head>
 <body>
     <div class="hide">
-        @Html.Partial("_SiteNav", true)
+        @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
         <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
         <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
             <i class="gcicon-product-c1"></i>ComponentOne
         </a>
-        @Html.Partial("_ThemeSelector")
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">MVC Razor Pages Explorer</span>
-            <span class="semi-bold wide-screen">ASP.NET MVC Edition Razor Pages Explorer</span>
-            @Html.Partial("_SiteNav", false)
-        </div>
+        @await Html.PartialAsync("_ThemeSelector")
+    <div class="task-bar">
+        <span class="semi-bold narrow-screen">MVC Razor Pages Explorer</span>
+        <span class="semi-bold wide-screen">ASP.NET MVC Edition Razor Pages Explorer</span>
+        @await Html.PartialAsync("_SiteNav", false)
+    </div>
     </header>
     <div class="main-content">
         @RenderBody()

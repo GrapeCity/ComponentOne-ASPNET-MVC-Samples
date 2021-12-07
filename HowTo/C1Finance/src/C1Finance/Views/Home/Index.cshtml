@@ -23,7 +23,7 @@
         </div>
         <c1-items-source read-action-url="@Url.Action("GetPortfolio")" id="cv" update-action-url="@Url.Action("GridUpdate")" delete-action-url="@Url.Action("GridDelete")" query-data="collectStockNames"></c1-items-source>
         <c1-flex-grid id="PortfolioFGrid" selection-mode="Cell" headers-visibility="Column" item-formatter="PortfolioFGrid_ItemFormatter" items-source-id="cv"
-                       allow-sorting="true" auto-generate-columns="false">
+                      sorting-type="SingleColumn" auto-generate-columns="false">
             <c1-flex-grid-column binding="Color" header="Name" is-read-only="true" width="2*">
                 <c1-flex-grid-cell-template cell-type="Cells">
                     <span style="background-color:  {{Color}} ;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>&nbsp;&nbsp;{{Name}}</c1-flex-grid-cell-template>

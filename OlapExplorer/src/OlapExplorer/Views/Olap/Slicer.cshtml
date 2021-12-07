@@ -22,9 +22,15 @@
     @Html.Raw(OlapRes.Slicer_Text0)
 </p>
 
-@Html.Raw(OlapRes.Slicer_Text1)&nbsp;<input id="showHeader" type="checkbox" checked="checked" onchange="showHeader()" /><br />
-@Html.Raw(OlapRes.Slicer_Text2)&nbsp;<input id="showCheckbox" type="checkbox" checked="checked" onchange="showCheckbox()" /><br />
-@Html.Raw(OlapRes.Slicer_Text3)&nbsp;<input id="multiSelect" type="checkbox" onchange="setMultiSelect()" /><br />
+@Html.Raw(OlapRes.Slicer_Text1)&nbsp;
+<input id="showHeader" type="checkbox" checked="checked" onchange="showHeader()" />
+<br />
+@Html.Raw(OlapRes.Slicer_Text2)&nbsp;
+<input id="showCheckbox" type="checkbox" checked="checked" onchange="showCheckbox()" />
+<br />
+@Html.Raw(OlapRes.Slicer_Text3)&nbsp;
+<input id="multiSelect" type="checkbox" onchange="setMultiSelect()" />
+<br />
 
 <p></p>
 
@@ -61,7 +67,7 @@
     </script>
 }
 @section Settings{
-        @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 @section Description{
     @Html.Raw(OlapRes.Slicer_Desc)

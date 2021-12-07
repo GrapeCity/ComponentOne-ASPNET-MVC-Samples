@@ -11,8 +11,8 @@
 namespace MvcExplorer.Localization {
     using System;
     using System.Reflection;
-
-
+    
+    
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -538,6 +538,35 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+        ///            to a function that adds elements to show task dependencies
+        ///            and percent complete..
+        /// </summary>
+        public static string EnhancedChart_Description {
+            get {
+                return ResourceManager.GetString("EnhancedChart_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enhanced Gantt Chart.
+        /// </summary>
+        public static string EnhancedGanttChartHeader {
+            get {
+                return ResourceManager.GetString("EnhancedGanttChartHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dependencies &amp; Percent Complete.
+        /// </summary>
+        public static string EnhancedGanttChartTitle {
+            get {
+                return ResourceManager.GetString("EnhancedGanttChartTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ErrorBar helps you see margins of error and standard deviations at a glance. They can be shown as a standard error amount, a percentage, or a standard deviation. You can also set your own values to display the exact error amounts you want..
         /// </summary>
         public static string ErrorBar_Text0 {
@@ -665,6 +694,24 @@ namespace MvcExplorer.Localization {
         public static string Gradients_Text6 {
             get {
                 return ResourceManager.GetString("Gradients_Text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}.
+        /// </summary>
+        public static string GranttTooltip1 {
+            get {
+                return ResourceManager.GetString("GranttTooltip1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;.
+        /// </summary>
+        public static string GranttTooltip2 {
+            get {
+                return ResourceManager.GetString("GranttTooltip2", resourceCulture);
             }
         }
         
@@ -881,7 +928,7 @@ namespace MvcExplorer.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to In this example, the &lt;b&gt;ItemFormatter&lt;/b&gt; property is a function that sets the
-        ///        &lt;b&gt;fill&lt;/b&gt; property of the chart&apos;s rendering engine to a value calculated based
+        ///        &lt;b&gt;Fill&lt;/b&gt; property of the chart&apos;s rendering engine to a value calculated based
         ///        on the value of the data point being plotted..
         /// </summary>
         public static string ItemFormatter_Text1 {
@@ -996,6 +1043,15 @@ namespace MvcExplorer.Localization {
         public static string RemoteBind_Text0 {
             get {
                 return ResourceManager.GetString("RemoteBind_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The sample shows a scatter chart with large data which uses high performance WebGL rendering..
+        /// </summary>
+        public static string RenderEngine_Description_Text0 {
+            get {
+                return ResourceManager.GetString("RenderEngine_Description_Text0", resourceCulture);
             }
         }
         
@@ -1205,6 +1261,51 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Initialize the chart (set the ChartType to &apos;C1.Web.Mvc.Chart.ChartType.Bar&apos; and Bind to the data)..
+        /// </summary>
+        public static string SimpleChart_Step1 {
+            get {
+                return ResourceManager.GetString("SimpleChart_Step1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Add a series to the chart and set its binding property to the fields Start and End dates..
+        /// </summary>
+        public static string SimpleChart_Step2 {
+            get {
+                return ResourceManager.GetString("SimpleChart_Step2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Customize AxisY to hide the major grid and show minor grid..
+        /// </summary>
+        public static string SimpleChart_Step3 {
+            get {
+                return ResourceManager.GetString("SimpleChart_Step3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Plain Gantt Chart.
+        /// </summary>
+        public static string SimpleGanttChartHeader {
+            get {
+                return ResourceManager.GetString("SimpleGanttChartHeader", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Steps for getting started with the FlexChart to customize a GanttChart:.
+        /// </summary>
+        public static string SimpleGanttChartTitle {
+            get {
+                return ResourceManager.GetString("SimpleGanttChartTitle", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This demo shows line, symbols and area step charts. Step charts are useful to display any type of data that has changes at irregular intervals of time, for example, interest rates vs time..
         /// </summary>
         public static string StepChart_Text0 {
@@ -1251,7 +1352,7 @@ namespace MvcExplorer.Localization {
         
         /// <summary>
         ///   Looks up a localized string similar to Set the porperty &quot;OnClientRendering&quot; for &lt;b&gt;FlexChart&lt;/b&gt; as a client function name,
-        ///        the zones will be drawn in &lt;b&gt;rendering&lt;/b&gt; event of FlexChart in client-side..
+        ///        the zones will be drawn in &lt;b&gt;Rendering&lt;/b&gt; event of FlexChart in client-side..
         /// </summary>
         public static string Zones_Text1 {
             get {
@@ -1267,17 +1368,5 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Zones_Zones", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to The sample shows a scatter chart with large data which uses high performance WebGL rendering..
-        /// </summary>
-        public static string RenderEngine_Description_Text0
-        {
-            get
-            {
-                return ResourceManager.GetString("RenderEngine_Description_Text0", resourceCulture);
-            }
-        }
-
     }
 }

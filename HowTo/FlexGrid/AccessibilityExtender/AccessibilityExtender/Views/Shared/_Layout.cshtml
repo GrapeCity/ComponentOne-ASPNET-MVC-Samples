@@ -26,7 +26,7 @@
 </head>
 <body>
     <div class="hide">
-        @Html.Partial("_SiteNav", true)
+        @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
         <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
@@ -36,7 +36,7 @@
         <div class="task-bar">
             <span class="semi-bold narrow-screen">@Resource.Layout_ShortTitle</span>
             <span class="semi-bold wide-screen">@Resource.Layout_LongTitle</span>
-            @Html.Partial("_SiteNav", false)
+            @await Html.PartialAsync("_SiteNav", false)
         </div>
     </header>
     <div class="container">

@@ -19,10 +19,10 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>Invoices</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From Invoices</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
         <Filter>OrderID&gt;11072</Filter>
       </DataSource>
     </DataSources>

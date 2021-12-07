@@ -15,16 +15,26 @@
 <link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.css" rel="stylesheet" />
 <link href="~/Content/css/showcase.css" rel="stylesheet" />
 
+<script>
+    // override the validation functions of jquery.validate.js
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /^\$?[0-9]\d*(\.\d+)?\%?$/.test(value);
+    }
+</script>
+
 <c1-tab-panel class="control-nav-tabs nav nav-tabs ui-helper-clearfix mob-hide-1">
     <div>
-        <a>Data</a>
+        <a>@Html.Raw(FlexGridRes.ShowCase_Data_Text0)</a>
         <div class="tab-pane pane-content mob-hide-1">
             <div class="flex-container">
                 <div>@await Html.PartialAsync("_OptionsMenu", optionsModel)</div>
-                <div>Search: <span id="theSearch" style="width:300px;"></span></div>
+                <div>@Html.Raw(FlexGridRes.ShowCase_Search_Text0) <span id="theSearch" style="width:300px;"></span></div>
                 <div class="seperate"></div>
                 <div>
-                    <div><img src="~/Content/images/icons/Columns.png" width="20" height="20" class="export-img" id="column-picker" />Columns</div>
+                    <div>
+                        <img src="~/Content/images/icons/Columns.png" width="20" height="20" class="export-img" id="column-picker" />
+                        @Html.Raw(FlexGridRes.ShowCase_Columns_Text0)
+                    </div>
                     <div style="display:none">
                         <div id="theColumnPicker" class="column-picker"></div>
                     </div>
@@ -33,7 +43,7 @@
         </div>
     </div>
     <div>
-        <a>Export</a>
+        <a>@Html.Raw(FlexGridRes.ShowCase_Export_Text0)</a>
         <div class="tab-pane pane-content mob-hide-1">
             <div class="flex-container">
                 <div>
@@ -51,7 +61,7 @@
 </c1-tab-panel>
 
 <c1-flex-grid id="theFlexGrid" pinning-type="SingleColumn" auto-generate-columns="false"
-              sorting-type="SingleColumn" selection-mode="CellRange" class="grid"
+              sorting-type="SingleColumn" selection-mode="CellRange" class="grid" cell-edit-ended="cellEditEnded"
               copy-headers="Column" big-checkboxes="true" lazy-render="@Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue)" refresh-on-edit="true">
     <c1-flex-grid-group-panel max-groups="3"
                               placeholder="@Html.Raw(FlexGridRes.GroupPanel_Placeholder1)">
@@ -139,6 +149,11 @@
 @section Scripts{
 
     <script>
+        function cellEditEnded(sender, e) {
+            if (e.col === 2) { //Reload CountryFlag from server when Country change
+                sender.collectionView.commitEdit();
+            }
+        }
 
         function collectingQueryData(sender, e) {
             if (e.extraRequestData == null) {

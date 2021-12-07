@@ -12,7 +12,7 @@ using Microsoft.AspNetCore.Localization;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Newtonsoft.Json.Serialization;
-#if NETCORE30 || NET50
+#if NETCORE31
 using C1.AspNetCore.Api;
 #endif
 
@@ -20,7 +20,7 @@ namespace CloudFileExplorer
 {
     public class Startup
     {
-#if NETCORE30 || NET50
+#if NETCORE31
         public Startup(IWebHostEnvironment env)
 #else
         public Startup(IHostingEnvironment env)
@@ -38,7 +38,7 @@ namespace CloudFileExplorer
 
         public IConfiguration Configuration { get; }
 
-#if NETCORE30 || NET50
+#if NETCORE31
         public static IWebHostEnvironment Environment { get; set; }
 #else
         public static IHostingEnvironment Environment { get; set; }
@@ -48,7 +48,7 @@ namespace CloudFileExplorer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc()
-#if NETCORE30 || NET50
+#if NETCORE31
                 .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
 #else
                 .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
@@ -63,19 +63,19 @@ namespace CloudFileExplorer
             });
 
             services.Configure<FormOptions>(options => options.ValueLengthLimit = int.MaxValue);
-#if NETCORE30 || NET50
+#if NETCORE31
             services.AddC1Api();
 #endif
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-#if NETCORE30 || NET50
+#if NETCORE31
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
 #else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 #endif
         {
-#if NETCORE30 || NET50
+#if NETCORE31
             app.UseC1Api();
 #endif
             var defaultCulture = "en-US";
@@ -89,13 +89,13 @@ namespace CloudFileExplorer
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
-#if !NETCORE30 && !NET50
+#if !NETCORE31
             app.UseMvc();
 #endif
             app.UseStaticFiles();
             app.UseSession();
 
-#if NETCORE30 || NET50
+#if NETCORE31
             app.UseRouting();
 #endif
 
@@ -125,7 +125,7 @@ namespace CloudFileExplorer
 
 #endregion
 
-#if NETCORE30 || NET50
+#if NETCORE31
             app.UseEndpoints(endpoints =>
             {
                 endpoints.MapControllerRoute(

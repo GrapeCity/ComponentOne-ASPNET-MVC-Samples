@@ -22,24 +22,24 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database1.db</ConnectionString>
-        <RecordSource>ProjectType</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From ProjectType</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
       <DataSource>
         <Name>DataSource2</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database2.db</ConnectionString>
-        <RecordSource>ProjectCost</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From ProjectCost</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
       <DataSource>
         <Name>DataSource3</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\Database3.db</ConnectionString>
-        <RecordSource>ProjectHours</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From ProjectHours</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>

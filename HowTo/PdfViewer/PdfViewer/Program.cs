@@ -7,7 +7,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace PdfViewer.Core31
+namespace PdfViewer
 {
     public class Program
     {

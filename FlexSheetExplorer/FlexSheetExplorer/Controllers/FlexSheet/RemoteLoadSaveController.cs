@@ -12,7 +12,11 @@ namespace FlexSheetExplorer.Controllers
         private const string FILE_PATH = "Content\\xlsxFile\\RemoteSave.xlsx";
         private readonly string _webRootPath;
 
+#if NETCORE31
+        public FlexSheetController(IWebHostEnvironment hostingEnvironment)
+#else
         public FlexSheetController(IHostingEnvironment hostingEnvironment)
+#endif
         {
             _webRootPath = hostingEnvironment.WebRootPath;
         }

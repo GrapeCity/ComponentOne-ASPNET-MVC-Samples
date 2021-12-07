@@ -61,6 +61,6 @@
         </c1-flex-grid>
     </div>
     <div>
-        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+        @await Html.PartialAsync("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
     </div>
 </div>

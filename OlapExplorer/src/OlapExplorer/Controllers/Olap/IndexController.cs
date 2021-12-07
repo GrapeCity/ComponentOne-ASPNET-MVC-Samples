@@ -33,6 +33,7 @@ namespace OlapExplorer.Controllers.Olap
         public ActionResult Index()
         {
             OlapModel.ControlId = "indexPanel";
+            OlapModel.Settings.Add("DeferredUpdate", new object[] { false, true });
             ViewBag.DemoOptions = OlapModel;
             return View(Data);
         }

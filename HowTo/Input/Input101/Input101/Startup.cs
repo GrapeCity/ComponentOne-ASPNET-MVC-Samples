@@ -7,11 +7,19 @@ using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Globalization;
 
+#if NETCORE31
+using Microsoft.Extensions.Hosting;
+#endif
+
 namespace Input101
 {
     public class Startup
     {
+#if NETCORE31
+        public Startup(IWebHostEnvironment env)
+#else
         public Startup(IHostingEnvironment env)
+#endif
         {
             var builder = new ConfigurationBuilder()
                 .SetBasePath(env.ContentRootPath)
@@ -26,21 +34,40 @@ namespace Input101
         public void ConfigureServices(IServiceCollection services)
         {
             // Add MVC services to the services container.
-            services.AddMvc();
+            services.AddMvc()
+#if NETCORE31
+                .AddNewtonsoftJson()
+#endif
+            ;
         }
 
-        // Configure is called after ConfigureServices is called.
+#if NETCORE31
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+#else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerfactory)
+#endif
         {
             app.UseStaticFiles();
-            // Add MVC to the request pipeline.
+
+#if NETCORE31
+            app.UseRouting();
+#endif
+
+#if NETCORE31
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+#else
             app.UseMvc(routes =>
             {
                 routes.MapRoute(
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
-
+#endif
 
             // do not change the name of defaultCulture
             var defaultCulture = "en-US";

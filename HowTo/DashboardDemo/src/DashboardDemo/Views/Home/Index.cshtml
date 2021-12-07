@@ -144,6 +144,6 @@
         <c1-dashboard-layout id="dashboard" allow-resize="false"></c1-dashboard-layout>
     </div>
     <div>
-        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+        @await Html.PartialAsync("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
     </div>
 </div>

@@ -8,10 +8,33 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 
+#if NETCORE31
+using Microsoft.Extensions.Hosting;
+#endif
+
 namespace C1.Web.Mvc.Extensions
 {
     public class Program
     {
+#if NETCORE31
+        public static void Main(string[] args)
+        {
+            CreateHostBuilder(args).Build().Run();
+        }
+
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+                .ConfigureWebHostDefaults(webBuilder =>
+                {
+                    webBuilder.ConfigureKestrel(serverOptions =>
+                    {
+                        // Set properties and call methods on options
+                    })
+                    .UseContentRoot(Directory.GetCurrentDirectory())
+                    .UseIISIntegration()
+                    .UseStartup<Startup>();
+                });
+#else
         public static void Main(string[] args)
         {
             var host = new WebHostBuilder()
@@ -23,6 +46,7 @@ namespace C1.Web.Mvc.Extensions
 
             host.Run();
         }
+#endif
     }
 
 }

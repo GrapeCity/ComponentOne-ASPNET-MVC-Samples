@@ -33,19 +33,19 @@
 </head>
 <body>
     <div class="hide">
-        @Html.Partial("_SiteNav", true)
+        @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
         <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
         <a class="logo-container" href="@Html.Raw(TransposedGridRes._Layout_Text9)" target="_blank">
             <i class="gcicon-product-c1"></i>@Html.Raw(TransposedGridRes._Layout_Text0)
         </a>
-        @Html.Partial("_ThemeSelector")
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">@Html.Raw(TransposedGridRes._Layout_Text1)</span>
-            <span class="semi-bold wide-screen">@Html.Raw(TransposedGridRes._Layout_Text2)</span>
-            @Html.Partial("_SiteNav", false)
-        </div>
+        @await Html.PartialAsync("_ThemeSelector")
+    <div class="task-bar">
+        <span class="semi-bold narrow-screen">@Html.Raw(TransposedGridRes._Layout_Text1)</span>
+        <span class="semi-bold wide-screen">@Html.Raw(TransposedGridRes._Layout_Text2)</span>
+        @await Html.PartialAsync("_SiteNav", false)
+    </div>
     </header>
     <div class="main-content">
         @RenderBody()

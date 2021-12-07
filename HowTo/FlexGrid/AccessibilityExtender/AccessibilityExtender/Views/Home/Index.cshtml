@@ -16,7 +16,7 @@
     <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
     <input type="text" class="form-control" id="filter" placeholder="filter">
 </div>
-<c1-flex-grid id="theGrid" selection-mode="ListBox" show-alternating-rows="false"
+<c1-flex-grid id="theGrid" selection-mode="ListBox" alternating-row-step="0"
               sorted-column="sortedColumn" is-read-only="true">
     <c1-items-source source-collection="Model" disable-server-read="true"></c1-items-source>
 </c1-flex-grid>

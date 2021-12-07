@@ -24,7 +24,8 @@
 <div>
     <label>@Html.Raw(AutoCompleteRes.Index_Text3)</label>
     <p>@Html.Raw(AutoCompleteRes.Index_Text1)</p>
-    <c1-auto-complete css-match="highlight" case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)">
+    <c1-auto-complete css-match="highlight" case-sensitive-search="@Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue)"
+                      begins-with-search="@Convert.ToBoolean(optionsModel.Options["Begins With Search"].CurrentValue)">
         <c1-items-source source-collection="@countries">
         </c1-items-source>
     </c1-auto-complete>

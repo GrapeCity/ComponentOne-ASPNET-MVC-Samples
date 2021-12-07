@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using TransposedGridExplorer.Models;
 using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
-#if !NETCORE30
+#if !NETCORE31 && !NET50
 using Microsoft.AspNetCore.Http.Internal;
 #endif
 using Microsoft.Extensions.Primitives;

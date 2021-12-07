@@ -11,11 +11,11 @@ namespace MvcExplorer.Models
         }
         public int Id { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Name_ErrorMessage")]
         [RegularExpression(pattern: "^[a-zA-Z0-9]{4,10}$", ErrorMessageResourceType =typeof(Localization.ValidationRes), ErrorMessageResourceName = "Register_Name_ErrorMessage")]
         public string Name { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Email_ErrorMessage")]
         [EmailAddress]
         public string Email { get; set; }
 
@@ -28,18 +28,18 @@ namespace MvcExplorer.Models
         [Compare("Password")]
         public string ConfirmPassword { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Phone_ErrorMessage")]
         [MinLength(8)]
         [MaxLength(11)]
         public string Phone { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Country_ErrorMessage")]
         public string Country { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Industry_ErrorMessage")]
         public string Industry { get; set; }
 
-        [Required]
+        [Required(ErrorMessageResourceType = typeof(Localization.ValidationRes), ErrorMessageResourceName = "Required_Birthdate_ErrorMessage")]
         public DateTime Birthdate { get; set; }
 
         [Required]

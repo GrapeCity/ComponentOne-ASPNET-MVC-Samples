@@ -61,7 +61,7 @@
     </c1-annotation-layer>
 </c1-financial-chart>
 
-@Html.Partial("_RangeSelector")
+@await Html.PartialAsync("_RangeSelector")
 
 @section Description{
     <p>@Html.Raw(Home.EventAnnotations_Text0)</p>

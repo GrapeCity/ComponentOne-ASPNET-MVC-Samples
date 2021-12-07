@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace PdfViewer.Core31.Localization {
+namespace PdfViewer.Localization {
     using System;
     
     
@@ -39,7 +39,7 @@ namespace PdfViewer.Core31.Localization {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PdfViewer.Core31.Localization.PdfViewerRes", typeof(PdfViewerRes).Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("PdfViewer.Localization.PdfViewerRes", typeof(PdfViewerRes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;

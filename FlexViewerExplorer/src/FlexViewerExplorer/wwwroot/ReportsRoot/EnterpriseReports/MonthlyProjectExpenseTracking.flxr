@@ -23,10 +23,10 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>MonthlyProjectCostTracking</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <RecordSource>Select * From MonthlyProjectCostTracking</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Groups>
@@ -1356,7 +1356,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSourceType>Text</RecordSourceType>
         <RecordSource>SELECT MonthlyProjectCostTracking.ExpenseCategory, MonthlyProjectCostTracking.OperationName, Sum(MonthlyProjectCostTracking.HrsForWeek1) AS SumOfHrsForWeek1, Sum(MonthlyProjectCostTracking.HrsForWeek2) AS SumOfHrsForWeek2, Sum(MonthlyProjectCostTracking.HrsForWeek3) AS SumOfHrsForWeek3, Sum(MonthlyProjectCostTracking.HrsForWeek4) AS SumOfHrsForWeek4, Sum(MonthlyProjectCostTracking.HrsForWeek5) AS SumOfHrsForWeek5, 

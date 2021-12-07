@@ -38,8 +38,8 @@
     }
     </script>
 }
-<input type="button" value="Commit" class="btn" onclick="commitEdits()" />
-<input type="button" value="Cancel" class="btn" onclick="cancelChanges()" />
+<input type="button" value="@Html.Raw(FlexGridRes.ODataDeferCommits_Commit_Text0)" class="btn" onclick="commitEdits()" />
+<input type="button" value="@Html.Raw(FlexGridRes.ODataDeferCommits_Cancel_Text0)" class="btn" onclick="cancelChanges()" />
 <span id="queryMessage"></span>
 <c1-flex-grid id="oDataDeferCommits" auto-generate-columns="false">
     <c1-flex-grid-column binding="@("@odata.id")" header="OData Id" is-read-only="true"></c1-flex-grid-column>

@@ -735,4 +735,48 @@ The size can be specified in pixels: MaxSize = '100px' or percents: MaxSize = '5
     <value>このサンプルは、WebGLでGPUを使用して大きなデータの散布図を高速に描画する方法を示しています。</value>
     <comment>The sample shows a scatter chart with large data which uses high performance WebGL rendering.</comment>
   </data>
+  <data name="EnhancedChart_Description" xml:space="preserve">
+    <value>タスクの依存関係と完了割合を表示するための要素を追加する関数を
+            &lt;b&gt;ItemFormatter&lt;/b&gt;プロパティに設定して、チャートを
+            カスタマイズします。</value>
+    <comment>Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+            to a function that adds elements to show task dependencies
+            and percent complete.</comment>
+  </data>
+  <data name="EnhancedGanttChartHeader" xml:space="preserve">
+    <value>強化版ガントチャート</value>
+    <comment>Enhanced Gantt Chart</comment>
+  </data>
+  <data name="EnhancedGanttChartTitle" xml:space="preserve">
+    <value>依存関係と完了割合</value>
+    <comment>Dependencies &amp; Percent Complete</comment>
+  </data>
+  <data name="GranttTooltip1" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</comment>
+  </data>
+  <data name="GranttTooltip2" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;完了割合: {Percent}%&lt;/i&gt;</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;</comment>
+  </data>
+  <data name="SimpleChart_Step1" xml:space="preserve">
+    <value>チャートを初期化します（ChartTypeを'C1.Web.Mvc.Chart.ChartType.Bar'に設定し、データに連結します）。</value>
+    <comment>Initialize the chart (set the ChartType to 'C1.Web.Mvc.Chart.ChartType.Bar' and Bind to the data).</comment>
+  </data>
+  <data name="SimpleChart_Step2" xml:space="preserve">
+    <value>チャートに系列を追加し、系列の連結プロパティを開始日付と終了日付のフィールドに設定します。</value>
+    <comment>Add a series to the chart and set its binding property to the fields Start and End dates.</comment>
+  </data>
+  <data name="SimpleChart_Step3" xml:space="preserve">
+    <value>AxisYをカスタマイズして、主グリッド線を非表示にし、副グリッド線を表示します。</value>
+    <comment>Customize AxisY to hide the major grid and show minor grid.</comment>
+  </data>
+  <data name="SimpleGanttChartHeader" xml:space="preserve">
+    <value>単純なガントチャート</value>
+    <comment>Plain Gantt Chart</comment>
+  </data>
+  <data name="SimpleGanttChartTitle" xml:space="preserve">
+    <value>FlexChartを使用してガントチャートをカスタマイズする手順</value>
+    <comment>Steps for getting started with the FlexChart to customize a GanttChart:</comment>
+  </data>
 </root>

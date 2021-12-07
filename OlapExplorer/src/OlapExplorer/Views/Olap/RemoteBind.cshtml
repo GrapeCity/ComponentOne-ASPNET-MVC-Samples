@@ -3,7 +3,7 @@
     ClientSettingsModel optionsModel = ViewBag.DemoOptions;
 }
 
-<c1-pivot-engine id="remoteEngine"  show-row-totals="Subtotals" show-column-totals="Subtotals">
+<c1-pivot-engine id="remoteEngine" show-row-totals="Subtotals" show-column-totals="Subtotals">
     <c1-items-source read-action-url="@Url.Action("RemoteBind_Read")"></c1-items-source>
     <c1-view-field-collection c1-property="RowFields" items="Country"></c1-view-field-collection>
     <c1-view-field-collection c1-property="ColumnFields" items="Product"></c1-view-field-collection>
@@ -20,16 +20,16 @@
 </div>
 
 @section Settings{
-    @Html.Partial("_OptionsMenu", optionsModel)
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
 }
 
 @section Description{
-<p>@Html.Raw(OlapRes.RemoteBind_Text0)</p>
+    <p>@Html.Raw(OlapRes.RemoteBind_Text0)</p>
 
-<p>@Html.Raw(OlapRes.RemoteBind_Text1)</p>
+    <p>@Html.Raw(OlapRes.RemoteBind_Text1)</p>
 
 }
 @section Summary{
-<p>@Html.Raw(OlapRes.RemoteBind_Text2)</p>
+    <p>@Html.Raw(OlapRes.RemoteBind_Text2)</p>
 
 }

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -26,6 +27,8 @@ namespace FlightStatistics.Models
         public double AverageDelay { get; set; }
         public string Region { get; set; }
         public int UserRating { get; set; }
+
+        [NotMapped]
         public IEnumerable<AirportMonthlyData> MonthlyData { get; set; }
     }
 

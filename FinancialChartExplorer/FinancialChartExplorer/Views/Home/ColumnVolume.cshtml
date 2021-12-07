@@ -17,7 +17,7 @@
     <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
 </c1-financial-chart>
 
-@Html.Partial("_RangeSelector")
+@await Html.PartialAsync("_RangeSelector")
 
 @section Description{
     <p>@Html.Raw(Home.ColumnVolume_Text0)</p>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup Label="Globals">
+</PropertyGroup>
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Models\UserInfo.cs;Pages\*.cshtml;Pages\*.cshtml.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Pages\FlexGrid1.cshtml.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="Pages\FlexGrid1.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.0" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20212.322" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\Content\images\" />
+  </ItemGroup>
+</Project>

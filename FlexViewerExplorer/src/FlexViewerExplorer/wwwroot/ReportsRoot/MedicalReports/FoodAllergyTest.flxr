@@ -19,7 +19,7 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT PatientInfo.*, PatientTestResult.*
         FROM PatientInfo INNER JOIN PatientTestResult ON PatientInfo.PatientID = PatientTestResult.PatientID Where PatientInfo.PatientNo='345-35-7305';</RecordSource>

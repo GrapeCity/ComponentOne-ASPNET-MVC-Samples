@@ -35,7 +35,11 @@ namespace DynamicDashboard.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedName")
+#if NETCORE31
+                        .HasDatabaseName("RoleNameIndex");
+#else
                         .HasName("RoleNameIndex");
+#endif
 
                     b.ToTable("AspNetRoles");
                 });
@@ -166,10 +170,18 @@ namespace DynamicDashboard.Data.Migrations
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
+#if NETCORE31
+                        .HasDatabaseName("EmailIndex");
+#else
                         .HasName("EmailIndex");
+#endif
 
                     b.HasIndex("NormalizedUserName")
+#if NETCORE31
+                        .HasDatabaseName("UserNameIndex");
+#else
                         .HasName("UserNameIndex");
+#endif
 
                     b.ToTable("AspNetUsers");
                 });

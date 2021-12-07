@@ -188,7 +188,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>
             SELECT MonthlyBudget.Tran_Type, MonthlyBudget.Tran_Name, MonthlyBudget.Estimated_Value, MonthlyBudget.Actual_Value, iif(MonthlyBudget.Tran_Type = 'Income' ,MonthlyBudget.Actual_Value- MonthlyBudget.Estimated_Value,MonthlyBudget.Estimated_Value-MonthlyBudget.Actual_Value) AS Deference
@@ -585,7 +585,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>SELECT MonthlyBudget.Tran_MainType,Sum(MonthlyBudget.Estimated_Value) As Estimated, Sum(MonthlyBudget.Actual_Value) As Actual, Sum( iif(MonthlyBudget.Tran_Type = 'Income' ,MonthlyBudget.Actual_Value- MonthlyBudget.Estimated_Value,MonthlyBudget.Estimated_Value-MonthlyBudget.Actual_Value)) AS Deference
 FROM MonthlyBudget group by MonthlyBudget.Tran_MainType ;</RecordSource>
@@ -1279,7 +1279,7 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSource>select Tran_Name,Actual_Value,ExpensesTotal from MonthlyBudget as t1 inner join (SELECT MonthlyBudget.Tran_MainType,Sum(MonthlyBudget.Actual_Value) as ExpensesTotal
 FROM MonthlyBudget group by MonthlyBudget.Tran_MainType) as t on  t1.Tran_MainType=t.Tran_MainType

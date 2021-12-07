@@ -12,7 +12,7 @@ This sample uses the "ColumnGroupProvider" class to create multi-level,
 merged headers based on a JavaScript object that describes the column
 hierarchy.
 
-For exmaple, you could create a table like this one:
+For example, you could create a table like this one:
 
 <pre>
     /-----------------------------------------\

@@ -181,6 +181,24 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;VirtualizationThreshold&lt;/b&gt; property allow to enable/disable the vitualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the vitualization makes a huge difference in performance when the ListBox contains a large number of items (say 1,000 or so)..
+        /// </summary>
+        public static string Index_Text2 {
+            get {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Number of real elements corresponding Virtualization Threshold: .
+        /// </summary>
+        public static string Index_VirtualizationThreshold {
+            get {
+                return ResourceManager.GetString("Index_VirtualizationThreshold", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to C1 MVC controls.
         /// </summary>
         public static string ItemTemplate_C1MVCControls {

@@ -5,12 +5,28 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using System.Globalization;
+#if NETCORE31
+using Microsoft.Extensions.Hosting;
+#endif
 
 namespace FlexSheetExplorer
 {
     public class Startup
     {
+
+#if NETCORE31
+        public static IWebHostEnvironment Environment { get; set; }
+#else
+        public static IHostingEnvironment Environment { get; set; }
+#endif
+
+        public IConfigurationRoot Configuration { get; set; }
+
+#if NETCORE31
+        public Startup(IWebHostEnvironment env)
+#else
         public Startup(IHostingEnvironment env)
+#endif
         {
             // Set up configuration sources.
             var builder = new ConfigurationBuilder()
@@ -24,10 +40,6 @@ namespace FlexSheetExplorer
             Environment = env;
         }
 
-        public IConfigurationRoot Configuration { get; set; }
-
-        public static IHostingEnvironment Environment { get; set; }
-
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
@@ -38,7 +50,11 @@ namespace FlexSheetExplorer
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
+#if NETCORE31
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, ILoggerFactory loggerFactory)
+#else
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
+#endif
         {
             var defaultCulture = "en-US";
             var supportedCultures = new[]
@@ -48,6 +64,11 @@ namespace FlexSheetExplorer
 
             app.UseStaticFiles();
             app.UseSession();
+
+#if NETCORE31
+            app.UseRouting();
+#endif
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -58,12 +79,22 @@ namespace FlexSheetExplorer
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
-            app.UseMvc(r =>
+
+#if NETCORE31
+            app.UseEndpoints(endpoints =>
             {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=FlexSheet}/{action=Intro}/{id?}");
+
+            });
+#else
+            app.UseMvc(r => {
                 r.MapRoute(
                     name: "default",
                     template: "{controller=FlexSheet}/{action=Intro}/{id?}");
             });
+#endif  
         }
     }
 }

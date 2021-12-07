@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
 using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
-#if !NETCORE30 && !NET50
+#if !NETCORE31
 using Microsoft.AspNetCore.Http.Internal;
 #endif
 using Microsoft.Extensions.Primitives;
@@ -20,7 +20,10 @@ namespace MvcExplorer.Controllers
         {
             Options = new OptionDictionary
             {
-                {"Data Size",new OptionItem{Values = new List<string> {"5 Rows", "50 Rows", "500 Rows", "5000 Rows", "50000 Rows", "100000 Rows"},CurrentValue = "500 Rows"}},
+                {"Data Size",new OptionItem{Values = new List<string> {"5 " + Localization.FlexGridRes.ShowCase_Rows_Text0,
+                    "50 " + Localization.FlexGridRes.ShowCase_Rows_Text0, "500 " + Localization.FlexGridRes.ShowCase_Rows_Text0,
+                    "5000 " + Localization.FlexGridRes.ShowCase_Rows_Text0, "50000 " + Localization.FlexGridRes.ShowCase_Rows_Text0,
+                    "100000 " + Localization.FlexGridRes.ShowCase_Rows_Text0},CurrentValue = "500 " + Localization.FlexGridRes.ShowCase_Rows_Text0}},
                 {"Lazy Render",new OptionItem{Values = new List<string> {"True", "False"},CurrentValue = "True"}}
             }
         };
@@ -61,6 +64,7 @@ namespace MvcExplorer.Controllers
                     fSale.Amount2 = sale.Amount2;
                     fSale.Color = sale.Color;
                     fSale.Discount = sale.Discount;
+                    fSale.Rank = sale.Rank;
                 }
                 catch (Exception e)
                 {
@@ -78,35 +82,7 @@ namespace MvcExplorer.Controllers
 
         private int getDataSize()
         {
-            int dataSize = 0;
-            var dataSizeOption = _showcaseOption.Options["Data Size"].CurrentValue;
-            switch (dataSizeOption)
-            {
-                case "5 Rows":
-                    dataSize = 5;
-                    break;
-                case "50 Rows":
-                    dataSize = 50;
-                    break;
-                case "500 Rows":
-                    dataSize = 500;
-                    break;
-                case "5000 Rows":
-                    dataSize = 5000;
-                    break;
-                case "50000 Rows":
-                    dataSize = 50000;
-                    break;
-                case "100000 Rows":
-                    dataSize = 100000;
-                    break;
-                case "500000 Rows":
-                    dataSize = 500000;
-                    break;
-                case "1000000 Rows":
-                    dataSize = 1000000;
-                    break;
-            }
+            int dataSize = Int32.Parse(_showcaseOption.Options["Data Size"].CurrentValue.Split(' ')[0]);
             return dataSize;
         }
     }

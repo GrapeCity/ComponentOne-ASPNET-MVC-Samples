@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace MvcExplorer.Controllers
 {
-#if !NETCORE30 && !NET50
+#if !NETCORE31
 #if NETCORE10
     [Route("MyNorthWind/Categories")]
 #endif

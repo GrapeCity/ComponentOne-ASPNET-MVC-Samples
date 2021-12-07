@@ -1,6 +1,6 @@
 ﻿using System.IO;
 using Microsoft.AspNetCore.Hosting;
-#if NETCORE30 || NET50
+#if NETCORE31
 using Microsoft.Extensions.Hosting;
 #endif
 
@@ -8,7 +8,7 @@ namespace MvcExplorer
 {
     public class Program
     {
-#if NETCORE30 || NET50
+#if NETCORE31
         public static void Main(string[] args)
         {
             CreateHostBuilder(args).Build().Run();

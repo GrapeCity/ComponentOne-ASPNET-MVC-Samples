@@ -7,24 +7,20 @@
     <!-- Known Issue of NetCore 3.0 ref: https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-known-issues.md-->
     <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+	<DefineConstants>TRACE;NETCOREAPP1_0;RELOAD_ON_ERROR;ODATA_SERVER;NETCORE31</DefineConstants>
   </PropertyGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
-    <DefineConstants>TRACE;DEBUG;NETCOREAPP1_0;NETCOREAPP2_0;NETCOREAPP3_0;NET5_0;RELOAD_ON_ERROR;ODATA_SERVER</DefineConstants>
+    <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
-    <DefineConstants>TRACE;RELEASE;NETCOREAPP1_0;NETCOREAPP2_0;NETCOREAPP3_0;NET5_0;RELOAD_ON_ERROR;ODATA_SERVER</DefineConstants>
+    <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
   </PropertyGroup>
-
-  <PropertyGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
-    <DefineConstants>$(DefineConstants);NET50</DefineConstants>
-  </PropertyGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="fb.json;fb2.json;Models\UserInfo.cs;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20212.315" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20213.324" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />

@@ -22,7 +22,7 @@ Report.Tag = Avg(UnitPrice)</OnOpen>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
         <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
         <RecordSourceType>Text</RecordSourceType>
         <RecordSource>SELECT Categories.*, Products.*
