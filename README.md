@@ -1,12 +1,12 @@
-## ComponentOne AspNetCore MVC Samples
+# ComponentOne ASP.NET MVC Edition Samples
 
-There are several different projects that are organized in sub-folders. These sub-folders are organized similarly to the organization of the docs for .NET.
+Deliver highly interactive web and mobile applications with essential UI controls for ASP.NET Core MVC.
 
-Issues are turned off on this repository. File issues using SupportOne .
+This repository contains the samples for [ComponentOne ASP.NET MVC Edition](https://www.grapecity.com/componentone/aspnet-core-ui-controls). These samples provide complete implementation details for the ASP.NET Core control features. They are also included with the full download and install from grapecity.com/componentone. 
 
-The code in this repository represents programs that demonstrate application or library scenarios. Each sample has a readme.md file that explains the sample.
+The samples reference, but do not include, the control packages. The control packages can be downloaded from nuget.org.
 
-## Building a sample
+## Building a Sample
 
 * .NET Framework samples require VS2012 and above.
 * .NET Core samples will require VS2019 and above.
@@ -16,7 +16,13 @@ You can also build any .NET Core sample using the .NET Core CLI, which is instal
 dotnet build 
 dotnet run 
 ```
-These will install any needed dependencies, build the project, and run the project respectively.
+This will install any needed dependencies, build the project, and run the project respectively.
 
-## Product Documentation
-To know more about the product, refer [documentation](https://www.grapecity.com/componentone/docs/mvc/online-mvc-core/overview.html) 
+## Resources
+
+* Product Details: https://www.grapecity.com/componentone/aspnet-core-ui-controls
+* Live Demos: https://www.grapecity.com/componentone/demos/aspnet/5/mvcexplorer
+* Documentation: https://www.grapecity.com/componentone/docs/mvc/online-mvc-core/overview.html
+* Support Forum: https://www.grapecity.com/forums/mvc-edition
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](https://github.com/dotnet/winforms/blob/master/LICENSE.TXT)
