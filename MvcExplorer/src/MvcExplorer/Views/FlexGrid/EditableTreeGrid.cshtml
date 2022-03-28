@@ -33,20 +33,26 @@
 @section Scripts{
 <script>
     c1.documentReady(function () {
-        wijmo.Control.getControl("#grid").rows.defaultSize = 25;
+        wijmo.Control.getControl("#grid").rows.defaultSize = 25;        
     });
+
+    function setEditableRows(s, e) {
+            s.rows.forEach(function (row) {
+                row.isReadOnly = false;
+            });
+        }
 </script>
 }
 
-<label>@Html.Raw(FlexGridRes.TreeView_Text0)</label>
+<label>@Html.Raw(FlexGridRes.TreeGrid_Text0)</label>
 <c1-flex-grid id="grid" class="custom-flex-grid" width="500px"
-              child-items-path="Children" is-read-only="true" auto-generate-columns="false"
-              allow-resizing="None" headers-visibility="None" selection-mode="ListBox">
+              child-items-path="Children" auto-generate-columns="false"
+              allow-resizing="None" headers-visibility="Column" selection-mode="Row" loaded-rows="setEditableRows">
     <c1-items-source source-collection="list"></c1-items-source>
     <c1-flex-grid-column binding="Header" width="*"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Size" width="80" align="center"></c1-flex-grid-column>
 </c1-flex-grid>
 
 @section Description {
-    @Html.Raw(FlexGridRes.TreeView_Text1)
+    @Html.Raw(FlexGridRes.TreeGrid_Editable_Description)
 }

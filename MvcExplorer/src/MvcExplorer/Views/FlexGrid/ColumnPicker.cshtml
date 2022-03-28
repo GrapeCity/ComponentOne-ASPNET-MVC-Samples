@@ -1,0 +1,232 @@
+﻿@model IEnumerable<Sale>
+
+@section Styles{
+    <style>
+        .column-picker-icon {
+            cursor: pointer;
+        }
+
+        .wj-multiselectlistbox.column-picker {
+            box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+        }
+
+        .wj-multiselectlistbox .wj-listbox-item > label {
+            display: block;
+            margin: 0 0 3px 0;
+        }
+
+        .wj-multiselectlistbox .wj-listbox-item.wj-state-selected {
+            background: transparent;
+            color: inherit;
+        }
+
+        .wj-multiselectlistbox .wj-listbox-item:hover {
+            background: rgba(0,0,0,.05);
+        }
+
+        .wj-multiselectlistbox .drop-marker {
+            position: absolute;
+            background: #0085c7;
+            opacity: 0.5;
+            pointer-events: none;
+            z-index: 1000;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            // Create the Column-picker dropdown list
+            var grid = wijmo.Control.getControl('#gridColumnPicker');
+            let theColumnPicker = new wijmo.input.MultiSelectListBox('#theColumnPicker', {
+                itemsSource: grid.columns,
+                checkedMemberPath: 'visible',
+                displayMemberPath: 'header',
+                showFilterInput: true,
+                showSelectAllCheckbox: true,
+                lostFocus: function () { wijmo.hidePopup(theColumnPicker.hostElement) },
+                checkedItemsChanged: function (sender) {
+                    grid.columns.forEach(function (item) { item.visible = false; });
+                    sender.checkedItems.forEach(function (item) {
+                        grid.columns.getColumn(item.binding).visible = true;
+                    });
+                }
+            });
+
+            // Config drag & drop for the Column-picker
+            configDragDropForColumnPicker(grid, theColumnPicker);
+
+            // Prepare for column-picker button
+            var tempBtnColPicker = document.getElementById('column-picker-icon');
+            tempBtnColPicker._columnPicker = theColumnPicker;
+            tempBtnColPicker._grid = grid;
+        });
+
+        function formatItem(panel, r, c, cell) {
+            if (panel.cellType == wijmo.grid.CellType.TopLeft) {
+                var tempBtnColPicker = document.getElementById('column-picker-icon'),
+                    btnColPicker = tempBtnColPicker.cloneNode(true),
+                    theColumnPicker = tempBtnColPicker._columnPicker,
+                    grid = tempBtnColPicker._grid;
+
+                // Show the column picker when the user clicks at the corner top-left cell
+                btnColPicker.addEventListener("click", function (e) {
+                    let host = theColumnPicker.hostElement;
+                    if (host.offsetHeight) {
+                        wijmo.hidePopup(host, true, true);
+                        grid.focus();
+                    }
+                    else {
+                        wijmo.showPopup(host, e.target, false, true, false);
+                        theColumnPicker.focus();
+                    }
+                    e.preventDefault();
+                });
+
+                btnColPicker.addEventListener("mousedown", function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                });
+
+                cell.appendChild(btnColPicker);
+                                
+                if (theColumnPicker.hostElement.style.display != 'none') {
+                    wijmo.showPopup(theColumnPicker.hostElement, btnColPicker, false, true, false);
+                }
+            }
+        }
+
+        // Config Column-picker's drag & drop
+        function configDragDropForColumnPicker(theGrid, theColumnPicker) {
+            var isDragEnabled = false,
+                dragSrc = null,
+                dragDst = null,
+                theColumnPickerListBox = theColumnPicker.listBox,
+                dragCheckbox = document.getElementById('enableDrag');
+
+            dragCheckbox.addEventListener('click', function (e) {
+                var element = e.target;
+                isDragEnabled = element.checked;
+                var host = theColumnPickerListBox.hostElement;
+                var items = host.getElementsByClassName('wj-listbox-item');
+                for (var i = 0; i < items.length; i++) {
+                    enableDragItem(items[i], isDragEnabled);
+                }
+            });
+            theColumnPickerListBox.formatItem.addHandler(function (s, e) {
+                enableDragItem(e.item, isDragEnabled);
+            });
+            var theColumnPickerHost = theColumnPickerListBox.hostElement;
+            theColumnPickerHost.addEventListener('dragstart', handleDragStart);
+            theColumnPickerHost.addEventListener('dragover', handleDragOver);
+            theColumnPickerHost.addEventListener('drop', handleDrop);
+            theColumnPickerHost.addEventListener('dragend', handleDragEnd);
+            function enableDragItem(item, enabled) {
+                item.setAttribute('draggable', enabled);
+            }
+            function handleDragStart(e) {
+                dragSrc = wijmo.closest(e.target, '.wj-listbox-item');
+                if (dragSrc) {
+                    e.dataTransfer.setData('text', dragSrc.innerHTML);
+                    e.dataTransfer.effectAllowed = 'move';
+                }
+            }
+            function handleDragOver(e) {
+                // C1WEB-28851: Fix getting wrong target in IE
+                var target = document.elementFromPoint(e.clientX, e.clientY),
+                    dragOver = wijmo.closest(target, '.wj-listbox-item');
+                if (dragDst && dragDst !== dragOver) {
+                    removeDropMarker();
+                }
+                if (dragOver && dragOver !== dragSrc) {
+                    e.preventDefault();
+                    e.dataTransfer.dropEffect = 'move';
+                    dragDst = dragOver;
+                    var src = getElementIndex(dragSrc);
+                    var dst = getElementIndex(dragDst);
+                    removeDropMarker();
+                    addDropMarker(dst > src);
+                }
+                else {
+                    dragDst = null;
+                }
+            }
+            function handleDrop(e) {
+                if (dragSrc && dragDst) {
+                    e.preventDefault();
+                    var src = theGrid.getColumn(dragSrc.innerText.trim()).index,
+                        dst = theGrid.getColumn(dragDst.innerText.trim()).index;
+                    theGrid.columns.moveElement(src, dst);
+                }
+                handleDragEnd();
+            }
+            function handleDragEnd() {
+                dragSrc = null;
+                dragDst = null;
+                removeDropMarker();
+            }
+            function getElementIndex(element) {
+                var parent = element.parentElement;
+                var siblings = Array.prototype.slice.call(parent.children);
+                return siblings.indexOf(element);
+            }
+            function removeDropMarker() {
+                wijmo.removeChild(wijmo.getElement('.drop-marker'));
+            }
+            function addDropMarker(isAfterPos) {
+                const height = 4;
+                const margin = 2;
+                var width = dragDst.clientWidth - margin;
+                var leftPos = margin;
+                var topPos = isAfterPos
+                    ? (dragDst.offsetTop + dragDst.clientHeight - height)
+                    : (dragDst.offsetTop);
+                // C1WEB-28851: IE does not recornize the code, hence change to this
+                var html = '<div class="drop-marker" style="top:' + topPos + 'px;left:' + leftPos + 'px;height:' + height + 'px;width:' + width + 'px"></div>';
+                wijmo.createElement(html, theColumnPicker.hostElement);
+            }
+        }
+
+        // Save columns' layout to localStorage
+        function saveLayout() {
+            var grid = wijmo.Control.getControl("#gridColumnPicker");
+            localStorage['columns'] = grid.columnLayout;
+        }
+        // Restore columns' layout from localStorage
+        function loadLayout() {
+            var grid = wijmo.Control.getControl("#gridColumnPicker"),
+                columnLayout = localStorage['columns'];
+            if (columnLayout) {
+                grid.columnLayout = columnLayout;
+            }
+        }
+    </script>
+}
+
+<c1-flex-grid id="gridColumnPicker" auto-generate-columns="true" class="grid" is-read-only="true" item-formatter="formatItem">
+    <c1-items-source initial-items-count="100" source-collection="Model"></c1-items-source>
+</c1-flex-grid>
+
+<div class="checkbox">
+    <label>
+        <input id="enableDrag" type="checkbox"> @Html.Raw(FlexGridRes.ColumnPicker_Text2)
+    </label>
+</div>
+<div style="display:none">
+    <img id="column-picker-icon" class="column-picker-icon" src="~/Content/images/icons/Columns.png" width="20" height="20" />
+    <div id="theColumnPicker" class="column-picker" style="display:none"></div>
+</div>
+
+<input type="button" value="@FlexGridRes.ColumnPicker_Text4" class="btn" onclick="saveLayout()" />
+<input type="button" value="@FlexGridRes.ColumnPicker_Text5" class="btn" onclick="loadLayout()" />
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.ColumnPicker_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(FlexGridRes.ColumnPicker_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.ColumnPicker_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.ColumnPicker_Text3)</p>
+}

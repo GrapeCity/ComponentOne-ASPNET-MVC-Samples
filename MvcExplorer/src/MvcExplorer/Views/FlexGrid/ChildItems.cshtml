@@ -1,0 +1,78 @@
+﻿@model IEnumerable<ITreeItem>
+@{
+    ChildItems items = new ChildItems();
+    var Parents = items.Parents;
+    var Workers = items.Workers;
+}
+
+@section Styles{
+    <style>
+        .custom-flex-grid {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+        .custom-flex-grid .wj-cell {
+            background-color: #fff;
+            border-bottom: 1px solid #eee;
+            font-size: 10pt;
+        }
+
+        .custom-flex-grid .wj-state-selected {
+            background: #000;
+            color: #fff;
+        }
+
+        .custom-flex-grid .wj-state-multi-selected {
+            background: #222;
+            color: #fff;
+        }
+    </style>
+}
+
+@section Scripts{
+<script>
+    c1.documentReady(function () {
+            var family = wijmo.Control.getControl("#homogenous");
+            var worker = wijmo.Control.getControl("#heterogeneous");
+
+            worker.childItemsPath = ["checks", "earning"];
+
+            // toggle family tree
+            document.getElementById('asTree').addEventListener('click', function (e) {
+                family.childItemsPath = e.target.checked ? 'children' : '';
+            });
+        });
+</script>
+}
+
+<c1-flex-grid id="homogenous" class="custom-flex-grid" width="500px" 
+              child-items-path="children" auto-generate-columns="false"
+              headers-visibility="None" selection-mode="Row">
+    <c1-items-source source-collection="Parents"></c1-items-source>
+    <c1-flex-grid-column binding="name" width="*"></c1-flex-grid-column>
+</c1-flex-grid>
+<div class="checkbox">
+  <label for="asTree">
+    <input id="asTree" type="checkbox" checked="checked"> @Html.Raw(FlexGridRes.TreeGrid_ChildItems_Text)
+  </label>
+</div>
+<p>
+  @Html.Raw(FlexGridRes.TreeGrid_ChildItems_Text1)
+</p>
+<p>
+  @Html.Raw(FlexGridRes.TreeGrid_ChildItems_Text2)  
+</p>
+
+<c1-flex-grid id="heterogeneous" class="custom-flex-grid" width="500px"
+              auto-generate-columns="false"
+              headers-visibility="Column" selection-mode="Row">
+    <c1-items-source source-collection="Workers"></c1-items-source>
+    <c1-flex-grid-column binding="name" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="hours" width="80" align="center"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="rate" width="80" align="center"></c1-flex-grid-column>
+</c1-flex-grid>
+@section Description {
+    @Html.Raw(FlexGridRes.TreeGrid_ChildItems_Description)
+}

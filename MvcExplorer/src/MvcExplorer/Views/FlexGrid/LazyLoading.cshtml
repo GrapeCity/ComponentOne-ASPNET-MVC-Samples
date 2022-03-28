@@ -1,0 +1,131 @@
+﻿@model List<MvcExplorer.Controllers.LazyLoadingItems>
+
+@section Styles{
+<style>
+    .custom-flex-grid {
+        height: 400px;
+        background-color: white;
+        box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 12px;
+        max-height: 220px;
+        margin: 6px 0;
+    }
+
+        .custom-flex-grid .wj-cell {
+            background-color: #fff;
+            border: 1px solid #dad8d8;
+            font-size: 10pt;
+        }
+
+        .custom-flex-grid .wj-header {
+            background: #eee;
+        }
+
+        .custom-flex-grid .wj-state-selected {
+            background: #000;
+            color: #fff;
+        }
+
+        .custom-flex-grid .wj-state-multi-selected {
+            background: #222;
+            color: #fff;
+        }
+
+        .custom-flex-grid .wj-cell.wj-group {
+            border: 1px solid #dad8d8;
+        }
+
+            .custom-flex-grid .wj-cell.wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+                background-color: white;
+            }
+
+    .id-column {
+        font-style: italic;
+    }
+</style>
+}
+
+@section Scripts{
+<script>
+    var maxId=0;//countains the value of max id of node
+         c1.documentReady(function () {
+             var theGrid = wijmo.Control.getControl("#grid");
+
+             // start collapsed
+             theGrid.collapseGroupsToLevel(0);
+
+             updateRowCount(theGrid);
+
+         });
+         // update row when items are loaded
+         function updateRowCount(grid) {
+             document.getElementById('rowCount').textContent = wijmo.Globalize.format(grid.rows.length, 'n0');
+         }
+         // load data when collapse node is expanded
+         function groupCollapsedChanged(s, e) {
+             var row = s.rows[e.row], item = row.dataItem;
+             // did we just expand a node with a dummy child?
+             if (!row.isCollapsed && item.children.length == 1 && item.children[0].name == '') {
+                 // can't lazy load while updating rows
+                 if (s.rows.isUpdating) {
+                     row.isCollapsed = true;
+                     return;
+                 }
+                 // replace the dummy child with actual nodes
+                 item.children.length = 0;
+                 var cnt = Math.round(Math.random() * 5) + 1;
+                 maxId = maxId == 0 ? Math.max.apply(Math, s.collectionView.items.map(function (o) { return o.id; })) : maxId;
+                 for (var i = 0; i < cnt; i++) {
+                     createNode(item, maxId);
+                 }
+                 s.collectionView._disableServerRead = true;
+                 // refresh the view
+                 s.collectionView.refresh();
+                 // collapse the new item's child items
+                 for (var i = row.index + 1; i < s.rows.length; i++) {
+                     var childRow = s.rows[i];
+                     if (childRow.level <= row.level) {
+                         break;
+                     }
+                     childRow.isCollapsed = true;
+                 }
+                 // update row count
+                 updateRowCount(s);
+             }
+         }
+         function createNode(item, nodeId) {
+             //call action to create new node
+             $.ajax({
+                 async: false,
+                 method: 'GET',
+                 url: '@Url.Action("GetTreeNodes", "FlexGrid")',
+                 dataType: "json",
+                 data: {id: nodeId},
+                 contentType: 'application/json; ',
+                 success: function (result) {
+                     var data = JSON.parse(result);
+                     //push new item
+                     item.children.push(data);
+                     maxId = data.id;
+                 },
+                 error: function (xhr) {
+                     alert(xhr.responseText);
+                 }
+             });
+         }
+</script>
+}
+
+<c1-flex-grid id="grid" class="custom-flex-grid" width="500px"
+              child-items-path="children" auto-generate-columns="false"
+              headers-visibility="Column" selection-mode="Row" group-collapsed-changed="groupCollapsedChanged">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-flex-grid-column binding="name" header="Customer Name" width="2*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="id" header="ID" width="1*" align="center" css-class-all="id-column"></c1-flex-grid-column>
+</c1-flex-grid>
+<p>
+  @Html.Raw(FlexGridRes.TreeGrid_LazyLoading_Text) <b id="rowCount"></b> @Html.Raw(FlexGridRes.TreeGrid_LazyLoading_Text1)
+</p>
+@section Description {
+    @Html.Raw(FlexGridRes.TreeGrid_LazyLoading_Description)
+}

@@ -1,16 +1,25 @@
 @section Scripts{
-<script src="~/Scripts/wijmo.io/webapiclient.min.js"></script>
-<script src="~/Scripts/flexSheet/excelService.js"></script>
-<script>
+
+    @{
+        string webApiClient;
+#if NETCORE31
+        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclientCore22.min.js'></script>";
+#else
+        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclient.min.js'></script>";
+#endif
+    }
+    @Html.Raw(webApiClient)
+    <script src="~/Scripts/flexSheet/excelService.js"></script>
+    <script>
     ctx.serverUrl = '@AppSettings.GetWebApiServiceUrl()';
-</script>
+    </script>
 }
 <div>
     <div class="copy">
         <h3>
             @Html.Raw(FlexSheetRes.ExcelService_Text2)
         </h3>
-<p>@Html.Raw(FlexSheetRes.ExcelService_Text0)</p>
+        <p>@Html.Raw(FlexSheetRes.ExcelService_Text0)</p>
 
         <c1-flex-sheet id="excelServiceSheet" class="flexSheet" file-path="~/Content/xlsxFile/example1.xlsx"></c1-flex-sheet>
 
@@ -37,6 +46,6 @@
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.ExcelService_Text1)</p>
+    <p>@Html.Raw(FlexSheetRes.ExcelService_Text1)</p>
 
 }

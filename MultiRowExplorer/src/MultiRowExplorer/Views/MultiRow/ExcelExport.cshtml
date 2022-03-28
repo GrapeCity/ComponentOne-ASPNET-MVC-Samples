@@ -29,7 +29,7 @@
 
         function exportXlsx() {
             if (multiRow) {
-                wijmo.grid.xlsx.FlexGridXlsxConverter.save(multiRow, { includeCellStyles: false, includeColumnHeaders: true }, 'MultiRow.xlsx');
+                wijmo.grid.xlsx.FlexGridXlsxConverter.save(multiRow, { includeStyles: false, includeColumnHeaders: true }, 'MultiRow.xlsx');
             }
         }
 

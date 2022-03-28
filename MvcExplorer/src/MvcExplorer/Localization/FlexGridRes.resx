@@ -749,10 +749,10 @@ Note that you have to update the details view when the current item changes. To 
     <value>This sample shows how you can use XAML-style star sizing to implement flexible layouts
     with the FlexGrid. Star sizing is specified in the width property of the object.</value>
   </data>
-  <data name="TreeView_Text0" xml:space="preserve">
+  <data name="TreeGrid_Text0" xml:space="preserve">
     <value>The file structure of this sample project</value>
   </data>
-  <data name="TreeView_Text1" xml:space="preserve">
+  <data name="TreeGrid_Text1" xml:space="preserve">
     <value>This sample shows how to use FlexGrid to display a tree view.</value>
   </data>
   <data name="UnobtrusiveValidation_Text3" xml:space="preserve">
@@ -980,5 +980,74 @@ Note that you have to update the details view when the current item changes. To 
   </data>
   <data name="RightToLeft_RightToLeft" xml:space="preserve">
     <value>Right To Left</value>
+  </data>
+  <data name="HeaderTooltips_Text0" xml:space="preserve">
+    <value>This sample shows how you can add tooltips to the grid's column headers.</value>
+  </data>
+  <data name="ColumnPicker_Text0" xml:space="preserve">
+    <value>This sample shows how to implement a column-picker for FlexGrid.</value>
+  </data>
+  <data name="ColumnPicker_Text1" xml:space="preserve">
+    <value>Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display.</value>
+  </data>
+  <data name="ColumnPicker_Text2" xml:space="preserve">
+    <value>Enable drag-and-drop on column-picker to change columns' order to display.</value>
+  </data>
+  <data name="DataMap_DynamicDataMap" xml:space="preserve">
+    <value>Dynamic Data Map</value>
+  </data>
+  <data name="DataMap_Text6" xml:space="preserve">
+    <value>You can also use DataMap dynamically as filtering the values in the drop-down list if it depends on some conditions.</value>
+  </data>
+  <data name="DataMap_Text7" xml:space="preserve">
+    <value>For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item's country.</value>
+  </data>
+  <data name="PDFExport_Text9" xml:space="preserve">
+    <value>This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree.</value>
+  </data>
+  <data name="PDFExport_Title4" xml:space="preserve">
+    <value>Tags Support</value>
+  </data>
+  <data name="TreeGrid_BindingXml_Description" xml:space="preserve">
+    <value>This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid control. It loads a XML document into a XElement object and loops through the XElement to build a list with "category" items, each with a "products" list. The list is used as an itemsSource and the ChildItemsPath property is used to show the products for each category as a tree.</value>
+  </data>
+  <data name="TreeGrid_Editable_Description" xml:space="preserve">
+    <value>If you use FlexGrid's ChildItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &lt;b&gt;OnClientLoadedRows&lt;/b&gt; event to set the IsReadOnly property of every row to false.</value>
+  </data>
+  <data name="TreeGrid_Unbound_Description" xml:space="preserve">
+    <value>If you prefer to work in unbound mode, you can still build TreeGrid by adding rows and columns in code.</value>
+  </data>
+  <data name="PDFExport_Text10" xml:space="preserve">
+    <value>Note: Tagged PDF requires document version 1.4 or higher.</value>
+  </data>
+  <data name="ColumnPicker_Text3" xml:space="preserve">
+    <value>You can also save and restore columns' layout of the FlexGrid. Please try changing columns' layout as you want, click the button 'Save Layout' to save it. Now, you can change columns' layout freely and then can click the button 'Load Layout' to restore the columns' layout which was saved.</value>
+  </data>
+  <data name="ColumnPicker_Text4" xml:space="preserve">
+    <value>Save Layout</value>
+  </data>
+  <data name="ColumnPicker_Text5" xml:space="preserve">
+    <value>Restore Layout</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Description" xml:space="preserve">
+    <value>If your data items contain collections of child items, you may use FlexGrid's ChildItemsPath to show the data as a tree. For example, consider a list of 'person' objects which have a 'children' property. The 'children' property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the ChildItemsPath property to 'children'.</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Description" xml:space="preserve">
+    <value>In the TreeGrid below, collapsed nodes have a single dummy child. When a node is expanded, more nodes are loaded on demand. This is a common pattern known as 'lazy-loading', and is done by utilizing the OnClientGroupCollapsedChanged event.</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text" xml:space="preserve">
+    <value>Show as Tree</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text1" xml:space="preserve">
+    <value>There are also 'heterogeneous' hierarchies, where items at different levels have different types and different child item properties.</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text2" xml:space="preserve">
+    <value>For example, the grid below is bound to a collection of 'worker' objects which receive 'checks' which list 'earnings':</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Text" xml:space="preserve">
+    <value>The grid currently has</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Text1" xml:space="preserve">
+    <value>rows.</value>
   </data>
 </root>

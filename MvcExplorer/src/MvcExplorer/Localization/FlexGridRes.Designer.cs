@@ -473,7 +473,61 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("ColumnLayout_Text1", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to implement a column-picker for FlexGrid..
+        /// </summary>
+        public static string ColumnPicker_Text0 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display..
+        /// </summary>
+        public static string ColumnPicker_Text1 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Enable drag-and-drop on column-picker to change columns&apos; order to display..
+        /// </summary>
+        public static string ColumnPicker_Text2 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text2", resourceCulture);
+            }
+        }
+                
+        /// <summary>
+        ///   Looks up a localized string similar to You can also save and restore columns&apos; layout of the FlexGrid. Please try changing columns&apos; layout as you want, click the button &apos;Save Layout&apos; to save it. Now, you can change columns&apos; layout freely and then can click the button &apos;Load Layout&apos; to restore the columns&apos; layout which was saved..
+        /// </summary>
+        public static string ColumnPicker_Text3 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Save Layout.
+        /// </summary>
+        public static string ColumnPicker_Text4 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Restore Layout.
+        /// </summary>
+        public static string ColumnPicker_Text5 {
+            get {
+                return ResourceManager.GetString("ColumnPicker_Text5", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///    Looks up a localized string similar to This view shows the FlexGrid control&apos;s custom cells features..
         /// </summary>
@@ -769,7 +823,16 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("DataMap_DataMap", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Dynamic Data Map.
+        /// </summary>
+        public static string DataMap_DynamicDataMap {
+            get {
+                return ResourceManager.GetString("DataMap_DynamicDataMap", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///    Looks up a localized string similar to Multi-column Data Map.
         /// </summary>
@@ -844,7 +907,25 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("DataMap_Text5", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can also use DataMap dynamically as filtering the values in the drop-down list if it depends on some conditions..
+        /// </summary>
+        public static string DataMap_Text6 {
+            get {
+                return ResourceManager.GetString("DataMap_Text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item&apos;s country..
+        /// </summary>
+        public static string DataMap_Text7 {
+            get {
+                return ResourceManager.GetString("DataMap_Text7", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///    Looks up a localized string similar to Adding a row details section enables you to group some data in a template that is optionally visible or collapsed.&lt;br /&gt;
         ///	For example, you can add row details to a FlexGrid that presents only a summary of the data for each row, but presents more data when the user selects a row.&lt;br /&gt;
@@ -1629,6 +1710,16 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("GroupPanel_Text2", resourceCulture);
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how you can add tooltips to the grid&apos;s column headers..
+        /// </summary>
+        public static string HeaderTooltips_Text0 {
+            get {
+                return ResourceManager.GetString("HeaderTooltips_Text0", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to This view shows FlexGrid&apos;s basic features..
         /// </summary>
@@ -2166,7 +2257,16 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("PDFExport_Text1", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: Tagged PDF requires document version 1.4 or higher..
+        /// </summary>
+        public static string PDFExport_Text10 {
+            get {
+                return ResourceManager.GetString("PDFExport_Text10", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///    Looks up a localized string similar to In this sample, you can change the following export settings using the menus above:.
         /// </summary>
@@ -2242,6 +2342,24 @@ namespace MvcExplorer.Localization
         public static string PDFExport_Text8 {
             get {
                 return ResourceManager.GetString("PDFExport_Text8", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree..
+        /// </summary>
+        public static string PDFExport_Text9 {
+            get {
+                return ResourceManager.GetString("PDFExport_Text9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Tags Support.
+        /// </summary>
+        public static string PDFExport_Title4 {
+            get {
+                return ResourceManager.GetString("PDFExport_Title4", resourceCulture);
             }
         }
         
@@ -2627,24 +2745,124 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
-        ///    Looks up a localized string similar to The file structure of this sample project.
+        ///    Looks up a localized string similar to This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid..
         /// </summary>
-        public static string TreeView_Text0
+        public static string TreeGrid_BindingXml_Description
         {
             get
             {
-                return ResourceManager.GetString("TreeView_Text0", resourceCulture);
+                return ResourceManager.GetString("TreeGrid_BindingXml_Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to If your data items contain collections of child items, you may use FlexGrid&apos;s childItemsPath to show the data as a tree. For example, consider a list of &apos;person&apos; objects which have a &apos;children&apos; property. The &apos;children&apos; property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the childItemsPath property to &apos;children&apos;:.
+        /// </summary>
+        public static string TreeGrid_ChildItems_Description
+        {
+            get
+            {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to If you use FlexGrid&apos;s childItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &lt;b&gt;OnClientLoadedRows&lt;/b&gt; event to set the isReadOnly property of every row to false..
+        /// </summary>
+        public static string TreeGrid_Editable_Description
+        {
+            get
+            {
+                return ResourceManager.GetString("TreeGrid_Editable_Description", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to In the TreeGrid below, collapsed nodes have a single dummy child. When a node is expanded, more nodes are loaded on demand. This is a common pattern known as &apos;lazy-loading&apos;, and is done by utilizing the groupCollapsedChanged event..
+        /// </summary>
+        public static string TreeGrid_LazyLoading_Description
+        {
+            get
+            {
+                return ResourceManager.GetString("TreeGrid_LazyLoading_Description", resourceCulture);
+            }
+        }
+		
+        /// <summary>
+        ///    Looks up a localized string similar to Show as Tree.
+        /// </summary>
+        public static string TreeGrid_ChildItems_Text {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are also &apos;heterogeneous&apos; hierarchies, where items at different levels have different types and different child item properties..
+        /// </summary>
+        public static string TreeGrid_ChildItems_Text1 {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For example, the grid below is bound to a collection of &apos;worker&apos; objects which receive &apos;checks&apos; which list &apos;earnings&apos;:.
+        /// </summary>
+        public static string TreeGrid_ChildItems_Text2 {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text2", resourceCulture);
+            }
+        }
+              
+        /// <summary>
+        ///   Looks up a localized string similar to The grid currently has.
+        /// </summary>
+        public static string TreeGrid_LazyLoading_Text {
+            get {
+                return ResourceManager.GetString("TreeGrid_LazyLoading_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to rows..
+        /// </summary>
+        public static string TreeGrid_LazyLoading_Text1 {
+            get {
+                return ResourceManager.GetString("TreeGrid_LazyLoading_Text1", resourceCulture);
+            }
+        }
+		
+        /// <summary>
+        ///    Looks up a localized string similar to The file structure of this sample project.
+        /// </summary>
+        public static string TreeGrid_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("TreeGrid_Text0", resourceCulture);
             }
         }
 
         /// <summary>
         ///    Looks up a localized string similar to This sample shows how to use FlexGrid to display a tree view..
         /// </summary>
-        public static string TreeView_Text1
+        public static string TreeGrid_Text1
         {
             get
             {
-                return ResourceManager.GetString("TreeView_Text1", resourceCulture);
+                return ResourceManager.GetString("TreeGrid_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to If you prefer to work in unbound mode, you can still build TreeGrid by adding rows and columns in code..
+        /// </summary>
+        public static string TreeGrid_Unbound_Description
+        {
+            get
+            {
+                return ResourceManager.GetString("TreeGrid_Unbound_Description", resourceCulture);
             }
         }
 

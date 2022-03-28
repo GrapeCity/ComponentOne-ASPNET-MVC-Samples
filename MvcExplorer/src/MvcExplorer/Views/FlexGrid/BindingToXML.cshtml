@@ -1,0 +1,45 @@
+﻿
+@section Styles{
+<style>
+    .custom-flex-grid {
+        height: 400px;
+        background-color: white;
+        box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 12px;
+    }
+
+    .custom-flex-grid .wj-cell {
+        background-color: #fff;
+        border-bottom: none;
+        font-size: 10pt;
+    }
+
+    .custom-flex-grid .wj-state-selected {
+        background: #000;
+        color: #fff;
+    }
+
+    .custom-flex-grid .wj-state-multi-selected {
+        background: #222;
+        color: #fff;
+    }
+
+    .custom-flex-grid .wj-header {
+        background-color: #d0cccc;
+        font-size: 10pt;
+    }
+</style>
+}
+
+<c1-flex-grid id="grid" class="custom-flex-grid" width="700px"
+              child-items-path="Products" auto-generate-columns="false"
+             headers-visibility="Column" selection-mode="Row" tree-indent="25">
+    <c1-items-source read-action-url="@Url.Action("GetProductsByCategory")"></c1-items-source>
+    <c1-flex-grid-column binding="Name" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Id" width="80" align="center"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Price" width="80" align="center"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Description {
+    @Html.Raw(FlexGridRes.TreeGrid_BindingXml_Description)
+} 

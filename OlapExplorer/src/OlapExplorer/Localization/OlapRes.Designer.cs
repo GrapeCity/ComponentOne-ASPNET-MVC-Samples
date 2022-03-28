@@ -251,7 +251,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The PivotEngine support GetAggregateValue function in PivotField to calculate aggregate field for each summary row..
+        ///   Looks up a localized string similar to The PivotEngine supports GetAggregateValue function in PivotField to calculate aggregate field for each summary row..
         /// </summary>
         public static string CalculatedAggregates_Text0 {
             get {
@@ -631,7 +631,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show the  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show the  [rest of string was truncated]&quot;;.
         /// </summary>
         public static string SSAS_Text1 {
             get {

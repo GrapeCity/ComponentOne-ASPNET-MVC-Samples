@@ -369,7 +369,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample shows how to edit cell data with various ways..
+        ///   Looks up a localized string similar to This sample shows how to edit cell data in various ways..
         /// </summary>
         public static string BatchEditing_Text25 {
             get {
@@ -630,7 +630,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample use the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid..
+        ///   Looks up a localized string similar to This sample uses the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid..
         /// </summary>
         public static string CustomEditors_Text15 {
             get {
@@ -711,7 +711,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column&apos;s &lt;b&gt;ShowDropDown&lt;/b&gt; property to false..
+        ///   Looks up a localized string similar to Data maps provide the grid with automatic look-up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column&apos;s &lt;b&gt;ShowDropDown&lt;/b&gt; property to false..
         /// </summary>
         public static string DataMap_Text0 {
             get {
@@ -765,7 +765,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample shows the data map feature which provides the MultiRow with automatic look up capabilities..
+        ///   Looks up a localized string similar to This sample shows the data map feature which provides the MultiRow with automatic look-up capabilities..
         /// </summary>
         public static string DataMap_Text6 {
             get {
@@ -783,7 +783,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.&lt;/br&gt;And the text like &quot;Loading...&quot; is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the &quot;Loading...&quot; text will be shown..
+        ///   Looks up a localized string similar to When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done on the client side.&lt;/br&gt;And the text like &quot;Loading...&quot; is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the &quot;Loading...&quot; text will be shown..
         /// </summary>
         public static string DisableServerRead_Text1 {
             get {
@@ -972,7 +972,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample shows how to edit cell data with various ways..
+        ///   Looks up a localized string similar to This sample shows how to edit cell data in various ways..
         /// </summary>
         public static string Editing_Text25 {
             get {
@@ -1377,7 +1377,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt;All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;..
+        ///   Looks up a localized string similar to This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt; All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;..
         /// </summary>
         public static string Paging_Text0 {
             get {
@@ -1679,7 +1679,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number which is greater than 0..
+        ///   Looks up a localized string similar to To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number that is greater than 0..
         /// </summary>
         public static string VirtualScrolling_Text1 {
             get {

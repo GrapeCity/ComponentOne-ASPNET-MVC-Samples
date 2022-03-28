@@ -40,7 +40,7 @@
     function exportGrid() {
         if (grid) {
             var isIncludeColumnHeaders = colHeaderCheckBox.checked;
-            wijmo.grid.xlsx.FlexGridXlsxConverter.save(grid, { includeCellStyles: false, includeColumnHeaders: isIncludeColumnHeaders }, 'FlexGrid.xlsx');
+            wijmo.grid.xlsx.FlexGridXlsxConverter.save(grid, { includeStyles: false, includeColumnHeaders: isIncludeColumnHeaders }, 'FlexGrid.xlsx');
         }
     }
 

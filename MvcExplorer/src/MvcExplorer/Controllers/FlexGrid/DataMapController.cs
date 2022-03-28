@@ -18,6 +18,9 @@ namespace MvcExplorer.Controllers.FlexGrid
             ViewBag.Products = CustomerSale.PRODUCTS;
             ViewBag.Colors = CustomerSale.COLORS;
             ViewBag.Ranks = CustomerSale.RANKS;
+            ViewBag.FullCountries = FullCountry.GetCountries();
+            ViewBag.Cities = CitySale.GetCities();
+            ViewBag.CitiesSales = CitySale.GetData(28);
             return View(SALES);
         }
 

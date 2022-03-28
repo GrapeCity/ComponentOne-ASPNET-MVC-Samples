@@ -4,6 +4,13 @@
 }
 <c1-pivot-engine id="cubeEngine" show-row-totals="Subtotals" show-column-totals="Subtotals">
     <c1-cube-service url="https://ssrs.componentone.com/OLAP/msmdpump.dll" cube="Adventure Works"></c1-cube-service>
+    <c1-pivot-field-collection>
+        <c1-cube-field header="Customer" dimension-type="Dimension">
+            <c1-cube-field binding="[Customer].[Country]" header="Country" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+            <c1-cube-field binding="[Customer].[Occupation]" header="Occupation" type="DataType.String" dimension-type="Hierarchy"></c1-cube-field>
+            <c1-cube-field binding="[Measures].[Customer Count]" header="Customer Count" type="DataType.Number" dimension-type="Measure"></c1-cube-field>
+        </c1-cube-field>
+    </c1-pivot-field-collection>
     <c1-view-field-collection c1-property="RowFields" items="[Customer].[Country]"></c1-view-field-collection>
     <c1-view-field-collection c1-property="ColumnFields" items="[Customer].[Occupation]"></c1-view-field-collection>
     <c1-view-field-collection c1-property="ValueFields" items="[Measures].[Customer Count]"></c1-view-field-collection>

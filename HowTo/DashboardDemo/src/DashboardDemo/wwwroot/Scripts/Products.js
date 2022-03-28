@@ -54,7 +54,8 @@ function buildGrid(target, data) {
     }
 
     if (basePath.length > 0) {
-        host += '/' + basePath;
+      var separator = basePath.indexOf('/')==0 ? '' : '/';
+      host += separator + basePath;
     }
 
     var items = data.items;

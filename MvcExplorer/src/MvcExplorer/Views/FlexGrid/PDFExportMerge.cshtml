@@ -1,0 +1,317 @@
+﻿@using C1.Web.Mvc.Grid
+@{
+    IEnumerable<Sale> mergedFlexGridData = ViewBag.MergedFlexGridData;
+}
+
+@section Styles{
+    <style>
+        .fixed-top {
+            z-index: 999;
+            position: fixed;
+            top: 0px;
+        }
+
+        .reduce {
+            padding-bottom: 0px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        var mergedGrid, exportSettings, settingsDiv, securitySettingsDiv;
+
+        c1.documentReady(function () {
+            mergedGrid = wijmo.Control.getControl("#mergingFlexGrid");
+            settingsDiv = document.getElementById("exportSettingsDiv");
+            securitySettingsDiv = document.getElementById("securitySettingsDiv");
+            exportSettings = {
+                exportMode: wijmo.grid.pdf.ExportMode.All,
+                orientation: wijmo.pdf.PdfPageOrientation.Portrait,
+                scaleMode: wijmo.grid.pdf.ScaleMode.ActualSize,
+                version: "v1_4",
+            };
+            updateHeaders();
+        });
+
+        function updateHeaders() {
+            var flex = wijmo.Control.getControl("#mergingFlexGrid");
+            if (flex) {
+                // insert new row if not yet
+                if (flex.columnHeaders.rows.length === 1) {
+                    flex.columnHeaders.rows.insert(0, new wijmo.grid.Row());
+                }
+                flex.columnHeaders.rows[0].allowMerging = true;
+
+                // set headings so the cells merge
+                for (var i = 0; i < flex.columns.length; i++) {
+                    var hdr = 'String';
+                    switch (flex.columns[i].binding) {
+                        case 'ID':
+                        case 'Amount':
+                        case 'Discount':
+                            hdr = 'Number';
+                            break;
+                        case 'Active':
+                            hdr = 'Boolean';
+                            break;
+                    }
+                    flex.columnHeaders.setCellData(0, i, hdr);
+                }
+            }
+        }
+
+        function setScaleMode(menu) {
+            menu.header = "@(FlexGridRes.PDFExport_ScaleMode): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.scaleMode = wijmo.grid.pdf.ScaleMode[menu.selectedItem.Header];
+        }
+
+        function setOrientation(menu) {
+            menu.header = "@(FlexGridRes.PDFExport_Orientation): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.orientation = wijmo.pdf.PdfPageOrientation[menu.selectedItem.Header];
+        }
+
+        function setExportMode(menu) {
+            menu.header = "@(FlexGridRes.PDFExport_ExportMode): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.exportMode = wijmo.grid.pdf.ExportMode[menu.selectedItem.Header];
+        }
+
+        function onAllowMergingChanged(menu) {
+            var mergingHeader = menu.selectedItem.Header;
+            menu.header = "@(FlexGridRes.PDFExport_AllowMerging): <b>" + mergingHeader + "</b>";
+            mergedGrid.allowMerging = menu.selectedItem.CommandParameter;
+        }
+
+        function setPermissionPrinting(menu) {
+            menu.header = "@FlexGridRes.PDFExport_Printing: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.permissionPrinting = menu.selectedItem.Header;
+        }
+
+		function setVersion(menu) {
+            menu.header = "PDF version: <b>" + menu.selectedItem.Header + "</b>";
+            switch (menu.selectedItem.Header) {
+                case "1.3":
+                    exportSettings.version = "v1_3";
+                    break;
+                case "1.4":
+                    exportSettings.version = "v1_4";
+                    break;
+                case "1.5":
+                    exportSettings.version = "v1_5";
+                    break;
+                case "1.6":
+                    exportSettings.version = "v1_6";
+                    break;
+                case "1.7":
+                    exportSettings.version = "v1_7";
+                    break;
+                case "1.7 ExtensionLevel 3":
+                    exportSettings.version = "v1_7Ext3";
+                    break;
+            }
+        }
+
+        function getPassword(user) {
+            return document.querySelector('#tb' + user + 'Password').value;
+        }
+
+        function getPermission(permissionName) {
+            if (permissionName == 'Printing') {
+                return exportSettings.permissionPrinting || 'NotAllowed';
+            } else {
+                return document.querySelector('#cb' + permissionName).checked;
+            }
+        }
+
+        function exportMergedGrid() {
+            var fontFile = { source: 'https://demo.grapecity.com/wijmo/sample/fonts/ipaexg.ttf', name: 'ipaexg' },
+                font = new wijmo.pdf.PdfFont('ipaexg');
+            wijmo.grid.pdf.FlexGridPdfConverter.export(mergedGrid, 'FlexGrid.pdf', {
+                maxPages: 10,
+                exportMode: exportSettings.exportMode,
+                scaleMode: exportSettings.scaleMode,
+                documentOptions: {
+                    userPassword: getPassword('User'),
+                    ownerPassword: getPassword('Owner'),
+                    version: exportSettings.version,
+                    permissions: {
+                        annotating: getPermission('Annotating'),
+                        contentAccessibility: getPermission('ContentAccessibility'),
+                        copying: getPermission('Copying'),
+                        documentAssembly: getPermission('DocumentAssembly'),
+                        fillingForms: getPermission('FillingForms'),
+                        modifying: getPermission('Modifying'),
+                        printing: getPermission('Printing')
+                    },
+
+                    pageSettings: {
+                        layout: exportSettings.orientation
+                    },
+                    header: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\theader\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    footer: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\tfooter\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    info: {
+                        author: 'C1',
+                        title: 'PdfDocument sample',
+                        keywords: 'PDF, C1, sample',
+                        subject: 'PdfDocument'
+                    }
+                },
+                embeddedFonts: [fontFile],
+                styles: {
+                    cellStyle: {
+                        backgroundColor: '#ffffff',
+                        borderColor: '#c6c6c6',
+                        font: font
+                    },
+                    altCellStyle: {
+                        backgroundColor: '#f9f9f9'
+                    },
+                    groupCellStyle: {
+                        backgroundColor: '#dddddd'
+                    },
+                    headerCellStyle: {
+                        backgroundColor: '#eaeaea'
+                    }
+                }
+            });
+        }
+    </script>
+}
+
+<div class="copy well" id="exportSettingsDiv">
+    <b>@Html.Raw(FlexGridRes.PDFExport_ExportSettings)</b>
+    <c1-menu header="@(FlexGridRes.PDFExport_ScaleMode + " <b>ActualSize</b>")" item-clicked="setScaleMode">
+        <c1-menu-item header="ActualSize"></c1-menu-item>
+        <c1-menu-item header="PageWidth"></c1-menu-item>
+        <c1-menu-item header="SinglePage"></c1-menu-item>
+    </c1-menu>
+
+    <c1-menu header="@(FlexGridRes.PDFExport_Orientation + " <b>Portrait</b>")" item-clicked="setOrientation">
+        <c1-menu-item header="Portrait"></c1-menu-item>
+        <c1-menu-item header="Landscape"></c1-menu-item>
+    </c1-menu>
+
+    <c1-menu header="@(FlexGridRes.PDFExport_ExportMode + " <b>All</b>")" item-clicked="setExportMode">
+        <c1-menu-item header="All"></c1-menu-item>
+        <c1-menu-item header="Selection"></c1-menu-item>
+    </c1-menu>
+
+    <c1-menu header="@(FlexGridRes.PDFExport_AllowMerging + " <b>All</b>")" display-member-path="Header"
+             command-parameter-path="CommandParameter" item-clicked="onAllowMergingChanged">
+        <c1-menu-item header="All" command-parameter="AllowMerging.All"></c1-menu-item>
+        <c1-menu-item header="None" command-parameter="AllowMerging.None"></c1-menu-item>
+        <c1-menu-item header="AllHeaders" command-parameter="AllowMerging.AllHeaders"></c1-menu-item>
+        <c1-menu-item header="Cells" command-parameter="AllowMerging.Cells"></c1-menu-item>
+        <c1-menu-item header="ColumnHeaders" command-parameter="AllowMerging.ColumnHeaders"></c1-menu-item>
+        <c1-menu-item header="RowHeaders" command-parameter="AllowMerging.RowHeaders"></c1-menu-item>
+    </c1-menu>
+
+    <div id="securitySettingsDiv">
+        <p></p>
+        <b>@Html.Raw(FlexGridRes.PDFExport_SecuritySettings)</b>
+        <div class="panel-body reduce">
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="text" id="tbUserPassword" class="form-control" placeholder="@FlexGridRes.PDFExport_UserPassword" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" id="tbOwnerPassword" class="form-control" placeholder="@FlexGridRes.PDFExport_OwnerPassword" />
+                </div>
+            </div>
+			<br />
+			<div class="row">
+				<div class="col-sm-3">
+                    <c1-menu header="PDF version: <b>1.4</b>" item-clicked="setVersion" selected-index="1">
+                        <c1-menu-item header="1.3"></c1-menu-item>
+                        <c1-menu-item header="1.4"></c1-menu-item>
+                        <c1-menu-item header="1.5"></c1-menu-item>
+                        <c1-menu-item header="1.6"></c1-menu-item>
+                        <c1-menu-item header="1.7"></c1-menu-item>
+                        <c1-menu-item header="1.7 ExtensionLevel 3"></c1-menu-item>
+                    </c1-menu>
+				</div>
+			</div>
+            <div class="panel-body reduce">
+                <div class="row">
+                    <div class="col">
+                        <b>@FlexGridRes.PDFExport_Permissions</b> (<i>@FlexGridRes.PDFExport_PermissionsNote</i>)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbAnnotating" />@FlexGridRes.PDFExport_Annotating</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbContentAccessibility" />@FlexGridRes.PDFExport_ContentAccessibility</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbCopying" />@FlexGridRes.PDFExport_Copying</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbDocumentAssembly" />@FlexGridRes.PDFExport_DocumentAssembly</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbFillingForms" />@FlexGridRes.PDFExport_FillingForms</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbModifying" />@FlexGridRes.PDFExport_Modifying</label>
+                        </div>
+                    </div>
+                </div>
+
+                <c1-menu header="@(FlexGridRes.PDFExport_Printing + " <b>NotAllowed</b>")" item-clicked="setPermissionPrinting">
+                    <c1-menu-item header="NotAllowed"></c1-menu-item>
+                    <c1-menu-item header="AllowLowResolution"></c1-menu-item>
+                    <c1-menu-item header="AllowHighResolution"></c1-menu-item>
+                </c1-menu>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-default" onclick="exportMergedGrid()">@Html.Raw(FlexGridRes.PDFExport_Export)</button>
+<br />
+<c1-flex-grid id="mergingFlexGrid" allow-dragging="None" allow-merging="All"
+                class="grid" auto-generate-columns="false">
+    <c1-flex-grid-column binding="ID" align="right"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" allow-merging="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" header="Amount22" format="n0" aggregate="Sum" c1-data-type="DataType.Number" align="right"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Discount" format="p0" aggregate="Avg" c1-data-type="DataType.Number" align="right"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" allow-merging="true" c1-data-type="DataType.Boolean" align="center"></c1-flex-grid-column>
+    <c1-items-source source-collection="mergedFlexGridData"></c1-items-source>
+</c1-flex-grid>
+   
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.PDFExport_Summary) @Html.Raw(FlexGridRes.PDFExport_MergingSupport).</p>
+}
+
+@section Description{
+    <p><b>@Html.Raw(FlexGridRes.PDFExport_Text4)</b></p>
+
+    <p>@Html.Raw(FlexGridRes.PDFExport_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.PDFExport_Text1)</p>
+    <ul>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li1)</li>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li2)</li>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li3)</li>
+    </ul>
+    <p>@Html.Raw(FlexGridRes.PDFExport_Text2)</p>
+    <ul>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li4)</li>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li5)</li>
+        <li>@Html.Raw(FlexGridRes.PDFExport_Li6)</li>
+    </ul>
+    <p>@Html.Raw(FlexGridRes.PDFExport_Text8)</p>
+}

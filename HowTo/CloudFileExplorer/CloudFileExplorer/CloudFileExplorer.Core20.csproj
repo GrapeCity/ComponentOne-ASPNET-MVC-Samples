@@ -3,6 +3,7 @@
   <PropertyGroup>
     <TargetFramework>net452</TargetFramework>
     <RuntimeIdentifier>win7-x86</RuntimeIdentifier>
+    <RootNamespace>CloudFileExplorer</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
@@ -14,9 +15,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20212.302" />
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20212.322" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="1.0.20213.310" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20213.330" />
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="1.1.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.0.8" />
@@ -29,5 +30,5 @@
     <PackageReference Include="Microsoft.Azure.KeyVault.Core" Version="3.0.5" />
     <PackageReference Include="WindowsAzure.Storage" Version="8.7.0" />
   </ItemGroup>
-  
+
 </Project>

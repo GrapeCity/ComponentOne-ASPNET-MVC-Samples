@@ -24,7 +24,8 @@ namespace MvcExplorer.Controllers
             ViewBag.DemoOptions = _oDataBindSetting;
             // NETCORE 3.0 doesn't not fully support ODataServer yet, so the local source is not working.
 #if ODATA_SERVER && !NETCORE31
-            ViewBag.IsReadOnly = false;
+            // C1WEB-28691: Set to ReadOnly for all like in Wijmo sample, due to adding/updating/deleting doesn't work properly for all.
+            ViewBag.IsReadOnly = true;
 #else
             ViewBag.IsReadOnly = true;
 #endif

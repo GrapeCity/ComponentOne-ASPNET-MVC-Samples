@@ -276,7 +276,7 @@
   </data>
   <data name="SSAS_Text1" xml:space="preserve">
     <value>このサンプルでは、&lt;b&gt;PivotEngine&lt;/b&gt;コンポーネントをキューブDataEngineデータに接続します。&lt;/br&gt;キューブDataEngineデータは、アプリケーションのStatupファイルで設定されます。&lt;/br&gt;キューブデータのフィールドをカスタマイズする場合は、&lt;c1-pivot-field-collection /&gt;タグに&lt;c1-cube-field /&gt;フィールドを追加する必要があります。&lt;/br&gt;&lt;b&gt;PivotPanel&lt;/b&gt;コントロールでビュー定義を変更できます。&lt;/br&gt;集計データは、サービスから取得されます。&lt;/br&gt;その結果、&lt;b&gt;PivotGrid&lt;/b&gt;コントロールと&lt;b&gt;PivotChart&lt;/b&gt;コントロールに集計データが表示されます。&lt;/br&gt;&lt;b&gt;PivotGrid&lt;/b&gt;コントロール内のセルをダブルクリックすると、詳細な生データがグリッドに表示されます。</value>
-    <comment>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</comment>
+    <comment>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</comment>
   </data>
   <data name="SSAS_Text2" xml:space="preserve">
     <value>データ行数が10,000を超える場合は、パフォーマンスを向上させるために、&lt;c1-pivot-engine /&gt;タグのservice-url属性を設定することをお勧めします。&lt;/br&gt;それ以外の場合は、&lt;a href="/Olap/Index"&gt;Index&lt;/a&gt;ページと&lt;a href="/Olap/RemoteBind"&gt;RemoteBind&lt;/a&gt;ページで使用される&lt;c1-items-source /&gt;タグのsource-collection属性またはread-action-url属性を設定してください。</value>
@@ -378,7 +378,7 @@
   </data>
   <data name="CalculatedAggregates_Text0" xml:space="preserve">
     <value>PivotEngineのPivotField オブジェクトは、各要約行に対して集計フィールドを計算するGetAggregateValue関数をサポートしています。</value>
-    <comment>The PivotEngine support GetAggregateValue function in PivotField to calculate aggregate field for each summary row.</comment>
+    <comment>The PivotEngine supports GetAggregateValue function in PivotField to calculate aggregate field for each summary row.</comment>
   </data>
   <data name="CalculatedAggregates_Text1" xml:space="preserve">
     <value>PivotField オブジェクトには、カスタム計算をサポートする2つのプロパティがあり、関数として使用されます。</value>

@@ -135,7 +135,7 @@
   </data>
   <data name="BatchEditing_Text25" xml:space="preserve">
     <value>このサンプルでは、さまざまな方法でセルデータを編集する方法を示します。</value>
-    <comment>This sample shows how to edit cell data with various ways.</comment>
+    <comment>This sample shows how to edit cell data in various ways.</comment>
   </data>
   <data name="BatchEditing_Text26" xml:space="preserve">
     <value>編集</value>
@@ -275,7 +275,7 @@
   </data>
   <data name="DataMap_Text0" xml:space="preserve">
     <value>データマップは、グリッドに自動検索機能を提供します。たとえば、顧客のIDの代わりに顧客名、RGB値の代わりに色名を表示できます。&lt;br /&gt;&lt;/br&gt;関連付けられたデータマップを持つ列は、連結値の代わりにマップされた表示値に基づいてソートすることができます。&lt;br /&gt;&lt;/br&gt;関連付けられたデータマップを持つ列には、クイック編集に使用できるドロップダウンボタンが表示されます。ドロップダウンボタンを表示しない場合は、列の&lt;b&gt;ShowDropDown&lt;/b&gt;プロパティをfalseに設定します。</value>
-    <comment>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</comment>
+    <comment>Data maps provide the grid with automatic look-up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</comment>
   </data>
   <data name="DataMap_Text1" xml:space="preserve">
     <value />
@@ -298,7 +298,7 @@
   </data>
   <data name="DataMap_Text6" xml:space="preserve">
     <value>このサンプルは、MultiRowに自動検索機能を提供するデータマップ機能を示します。</value>
-    <comment>This sample shows the data map feature which provides the MultiRow with automatic look up capabilities.</comment>
+    <comment>This sample shows the data map feature which provides the MultiRow with automatic look-up capabilities.</comment>
   </data>
   <data name="DisableServerRead_Text0" xml:space="preserve">
     <value>このサンプルは、&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティがどのように機能するかを示します。</value>
@@ -306,7 +306,7 @@
   </data>
   <data name="DisableServerRead_Text1" xml:space="preserve">
     <value>このプロパティをTrueに設定した場合は、すべての項目がクライアント側に転送されます。ソート、ページング、またはフィルタ処理はクライアント側で実行されます。&lt;/br&gt;この場合、スクロールバーをスクロールしたときに、データをロードするために「ロード中...」のようなメッセージは表示されません。&lt;/br&gt;そうでない場合、ソート、ページング、またはフィルタ処理はサーバー側で実行されます。この場合は、「ロード中...」というメッセージが表示されることもあります。</value>
-    <comment>When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.&lt;/br&gt;And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</comment>
+    <comment>When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done on the client side.&lt;/br&gt;And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</comment>
   </data>
   <data name="DisableServerRead_Text2" xml:space="preserve">
     <value>ページングを使用しないMultiRow</value>
@@ -514,7 +514,7 @@
   </data>
   <data name="Paging_Text0" xml:space="preserve">
     <value>このサンプルは、&lt;b&gt;MultiRow&lt;/b&gt;を使用して、ページ付きビューを実装する方法を示します。&lt;/br&gt;すべての作業は、グリッドのデータソースとして使用される&lt;b&gt;CollectionView&lt;/b&gt;クラスによって行われます。&lt;/br&gt;ページングを有効にするには、&lt;b&gt;MultiRow&lt;/b&gt;または&lt;b&gt;CollectionViewService&lt;/b&gt;の&lt;b&gt;PageSize&lt;/b&gt;プロパティを設定します。&lt;/br&gt;ページを切り替えるには、&lt;b&gt;Pager&lt;/b&gt;コントロールを使用し、&lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt;プロパティを&lt;b&gt;MultiRow&lt;/b&gt;または&lt;b&gt;CollectionViewService&lt;/b&gt;のIDに設定します。</value>
-    <comment>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt;All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</comment>
+    <comment>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt; All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</comment>
   </data>
   <data name="Paging_Text1" xml:space="preserve">
     <value>この例では、サーバー側でページングが行われます。これは、この&lt;b&gt;CollectionView&lt;/b&gt;がサービスのように動作して、サーバーデータと同期するためです。&lt;/br&gt; &lt;b&gt;CollectionView&lt;/b&gt;は、内部的にajax呼び出しを行って次のデータセットを取得します。クライアント側のページングについては、@Html.ActionLink("「サーバー読み取りの無効化」", "DisableServerRead")サンプルを参照してください。</value>
@@ -636,7 +636,7 @@ You can also specify the sorting order in the second list.</comment>
   </data>
   <data name="VirtualScrolling_Text1" xml:space="preserve">
     <value>この機能を有効にするには、&lt;b&gt;DisableServerRead&lt;/b&gt;プロパティがfalse（デフォルト）である必要があります。&lt;/br&gt;次に、&lt;b&gt;InitialItemsCount&lt;/b&gt;プロパティに0より大きい数字を設定する必要があります。</value>
-    <comment>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number which is greater than 0.</comment>
+    <comment>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number that is greater than 0.</comment>
   </data>
   <data name="_ControlLayout_Text0" xml:space="preserve">
     <value>サンプル</value>
@@ -774,7 +774,7 @@ You can also specify the sorting order in the second list.</comment>
   </data>
   <data name="CustomEditors_Text15" xml:space="preserve">
     <value>このサンプルでは、&lt;b&gt;NewRowAtTop&lt;/b&gt;プロパティを使用して、グリッドの上部または下部に新しい行を追加できるようにします。</value>
-    <comment>This sample use the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</comment>
+    <comment>This sample uses the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</comment>
   </data>
   <data name="Grouping_Text4" xml:space="preserve">
     <value>&lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; プロパティは、グループヘッダーに単一のヘッダー行ではなく複数の行を含めるかどうかを決定します。これは、グループヘッダーに集計値を表示する場合に便利です。</value>
@@ -826,7 +826,7 @@ You can also specify the sorting order in the second list.</comment>
   </data>
   <data name="Editing_Text25" xml:space="preserve">
     <value>このサンプルでは、さまざまな方法でセルデータを編集する方法を示します。</value>
-    <comment>This sample shows how to edit cell data with various ways.</comment>
+    <comment>This sample shows how to edit cell data in various ways.</comment>
   </data>
   <data name="Editing_Text26" xml:space="preserve">
     <value>Excel形式の編集</value>

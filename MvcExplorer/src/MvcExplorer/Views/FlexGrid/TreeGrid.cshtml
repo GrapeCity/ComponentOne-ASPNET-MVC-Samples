@@ -1,0 +1,52 @@
+﻿@model IEnumerable<ITreeItem>
+@{ 
+    var list = Folder.Create(Startup.Environment.ContentRootPath).Children;
+}
+
+@section Styles{
+<style>
+    .custom-flex-grid {
+        height: 400px;
+        background-color: white;
+        box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 12px;
+    }
+
+    .custom-flex-grid .wj-cell {
+        background-color: #fff;
+        border: none;
+        font-size: 10pt;
+    }
+
+    .custom-flex-grid .wj-state-selected {
+        background: #000;
+        color: #fff;
+    }
+
+    .custom-flex-grid .wj-state-multi-selected {
+        background: #222;
+        color: #fff;
+    }
+</style>
+}
+
+@section Scripts{
+<script>
+    c1.documentReady(function () {
+        wijmo.Control.getControl("#grid").rows.defaultSize = 25;
+    });
+</script>
+}
+
+<label>@Html.Raw(FlexGridRes.TreeGrid_Text0)</label>
+<c1-flex-grid id="grid" class="custom-flex-grid" width="500px"
+              child-items-path="Children" is-read-only="true" auto-generate-columns="false"
+              allow-resizing="None" headers-visibility="None" selection-mode="ListBox">
+    <c1-items-source source-collection="list"></c1-items-source>
+    <c1-flex-grid-column binding="Header" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Size" width="80" align="center"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Description {
+    @Html.Raw(FlexGridRes.TreeGrid_Text1)
+}

@@ -1,0 +1,58 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+
+<style>
+    .hdr-tip {
+        background: black;
+        color: lightblue;
+        padding: 1em 2em;
+        margin: .5em;
+        border-radius: 1em;
+    }
+
+        .hdr-tip .col-header {
+            color: orange;
+            font-weight: bold;
+            font-size: 150%;
+        }
+</style>
+
+@section Scripts{
+    <script type="text/javascript">
+        var hdrTips;
+        c1.documentReady(function () {
+            // Column header tooltips
+            hdrTips = new wijmo.Tooltip({
+                position: wijmo.PopupPosition.RightTop,
+                showAtMouse: true,
+                showDelay: 600,
+                cssClass: 'hdr-tip'
+            });
+        });
+
+        function formatItem(panel, r, c, cell) {
+            if (panel.cellType == wijmo.grid.CellType.ColumnHeader) {
+                hdrTips.setTooltip(cell, 'This is column<br/>' +
+                    '<span class="col-header">' + panel.columns[c].header + '</span>');
+            }
+        }
+        function loadingRows() {
+            if (hdrTips) {
+                hdrTips.dispose();
+            }
+        }
+    </script>
+}
+
+<c1-flex-grid id="gridHeaderTooltips" auto-generate-columns="true" class="grid" is-read-only="true" 
+    item-formatter="formatItem" loading-rows="loadingRows">
+    <c1-items-source read-action-url="@Url.Action("HeaderTooltips_Bind")"></c1-items-source>
+</c1-flex-grid>
+
+@section Summary{
+    <p>@Html.Raw(FlexGridRes.HeaderTooltips_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(FlexGridRes.HeaderTooltips_Text0)
+}

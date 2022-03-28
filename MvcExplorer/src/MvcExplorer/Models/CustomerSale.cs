@@ -110,4 +110,67 @@ namespace MvcExplorer.Models
             public int Name { get; set; }
         }
     }
+
+    public class CitySale
+    {
+        private static List<CitySale> CITIES = new List<CitySale> {
+            new CitySale{ Id= 0, Country= 0, Name= "Washington" },
+            new CitySale{ Id= 1, Country= 0, Name= "Miami" },
+            new CitySale{ Id= 2, Country= 0, Name= "Seattle" },
+            new CitySale{ Id= 3, Country= 1, Name= "London" },
+            new CitySale{ Id= 4, Country= 1, Name= "Oxford" },
+            new CitySale{ Id= 5, Country= 1, Name= "Bath" },
+            new CitySale{ Id= 6, Country= 2, Name= "Ottawa" },
+            new CitySale{ Id= 7, Country= 2, Name= "Edmonton" },
+            new CitySale{ Id= 8, Country= 2, Name= "Victoria" },
+            new CitySale{ Id= 9, Country= 3, Name= "Tokyo" },
+            new CitySale{ Id= 10, Country= 3, Name= "Sendai" },
+            new CitySale{ Id= 11, Country= 3, Name= "Kobe" },
+            new CitySale{ Id= 12, Country= 4, Name= "Beijing" },
+            new CitySale{ Id= 13, Country= 4, Name= "Shanghai" },
+            new CitySale{ Id= 14, Country= 5, Name= "Paris" },
+            new CitySale{ Id= 15, Country= 5, Name= "Marseille" },
+            new CitySale{ Id= 16, Country= 5, Name= "Lyon" },
+            new CitySale{ Id= 17, Country= 6, Name= "Bonn" },
+            new CitySale{ Id= 18, Country= 6, Name= "Munich" },
+            new CitySale{ Id= 19, Country= 6, Name= "Berlin" },
+            new CitySale{ Id= 20, Country= 7, Name= "Rome" },
+            new CitySale{ Id= 21, Country= 7, Name= "Florence" },
+            new CitySale{ Id= 22, Country= 7, Name= "Milan" },
+            new CitySale{ Id= 23, Country= 8, Name= "Seoul" },
+            new CitySale{ Id= 24, Country= 8, Name= "Incheon" },
+            new CitySale{ Id= 25, Country= 8, Name= "Sejong" },
+            new CitySale{ Id= 26, Country= 9, Name= "Melbourne" },
+            new CitySale{ Id= 27, Country= 9, Name= "Sydney" },
+            new CitySale{ Id= 28, Country= 9, Name= "Brisbane" }
+        };
+        public int Id { get; set; }
+        public int Country { get; set; }
+        public string Name { get; set; }
+        public double Sales { get; set; }
+        public double Expenses { get; set; }
+
+        public static IEnumerable<CitySale> GetData(int total)
+        {
+            total = Math.Min(total, CITIES.Count);
+            var rand = new Random(0);
+            var list = Enumerable.Range(0, total).Select(i =>
+            {
+                return new CitySale
+                {
+                    Id = CITIES[i].Id,
+                    Name = CITIES[i].Name,
+                    Country = CITIES[i].Country,
+                    Sales = Math.Round(rand.NextDouble() * 10000, 2),
+                    Expenses = Math.Round(rand.NextDouble() * 5000, 2)
+                };
+            });
+            return list;
+        }
+
+        public static List<CitySale> GetCities()
+        {
+            return CITIES;
+        }
+    }
 }

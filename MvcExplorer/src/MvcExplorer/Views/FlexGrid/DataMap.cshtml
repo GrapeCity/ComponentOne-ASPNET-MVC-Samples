@@ -1,9 +1,14 @@
-﻿@model IEnumerable<Sale>
+﻿@using Newtonsoft.Json;
+@model IEnumerable<Sale>
 @{
     var countries = ViewBag.Countries;
     var products = ViewBag.Products;
     var colors = ViewBag.Colors;
     var ranks = ViewBag.Ranks;
+    var fullCountries = ViewBag.FullCountries;
+    var cities = ViewBag.Cities;
+    var citiesSales = ViewBag.CitiesSales;
+    var jsonCities = JsonConvert.SerializeObject(cities, Formatting.Indented);
     ViewBag.DemoDescription = false;
 }
 <h3>
@@ -69,6 +74,43 @@
     <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
     <c1-items-source source-collection="Model" initial-items-count="100" update-action-url="ProductsUpdate"></c1-items-source>
 </c1-flex-grid>
+<h4>
+    @Html.Raw(FlexGridRes.DataMap_DynamicDataMap)
+</h4>
+<p>@Html.Raw(FlexGridRes.DataMap_Text6)</p>
+<p>@Html.Raw(FlexGridRes.DataMap_Text7)</p>
+<c1-flex-grid id="gridDynamicDataMap" auto-generate-columns="false" class="grid" is-read-only="false">
+    <c1-flex-grid-column binding="Country">
+        <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+            <c1-items-source source-collection="fullCountries"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Id" header="City">
+        <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+            <c1-items-source source-collection="cities"></c1-items-source>
+        </c1-data-map>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Sales" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Expenses" format="c"></c1-flex-grid-column>
+    <c1-items-source source-collection="citiesSales"></c1-items-source>
+</c1-flex-grid>
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#gridDynamicDataMap'),
+                cityCol = grid.columns.getColumn("Id"),
+                cities = @Html.Raw(jsonCities),
+                cityMap = cityCol.dataMap;
+
+            // Override cityMap's getDisplayValues method to get only cities belong to the current item's country
+            cityMap.getDisplayValues = function (dataItem) {
+                var validCities = cities.filter(function (city) { return city.Country == dataItem.Country; });
+                return validCities.map(function (city) { return city.Name; });
+            };
+        });
+    </script>
+}
 
 <style>
     .wj-radio-map label {

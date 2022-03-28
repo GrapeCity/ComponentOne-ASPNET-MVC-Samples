@@ -1,0 +1,246 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    string tabOrder = optionsModel.Options["Tab Order"].CurrentValue;
+}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 col-md-offset-2" style="text-align:center">
+            @if (tabOrder == "Customized")
+            {
+                <table class="input-form">
+                    <tr>
+                        <th></th>
+                        <th>Customer Order</th>
+                        <th>Customer Sale</th>
+                    </tr>
+                    <tr>
+                        <th>Country*</th>
+                        <td>
+                            <c1-combo-box id="orderCountry" is-required="true" tab-order="1">
+                                <c1-items-source source-collection="@Countries.GetCountries()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                        <td>
+                            <c1-combo-box id="saleCountry" is-required="true" tab-order="5">
+                                <c1-items-source source-collection="@Countries.GetCountries()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Product*</th>
+                        <td>
+                            <c1-combo-box id="orderProduct" is-required="true" tab-order="2">
+                                <c1-items-source source-collection="@Products.GetProducts()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                        <td>
+                            <c1-combo-box id="saleProduct" is-required="true" tab-order="6">
+                                <c1-items-source source-collection="@Products.GetProducts()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Price*</th>
+                        <td>
+                            <c1-input-number id="orderPrice" min="0" step="10" value="0" format="c0" is-required="true" tab-order="3">
+                            </c1-input-number>
+                        </td>
+                        <td>
+                            <c1-input-number id="salePrice" min="0" step="10" value="0" is-required="true" tab-order="7">
+                            </c1-input-number>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>
+                            <c1-input-date id="orderDate" value="@DateTime.Today" is-required="false" tab-order="4">
+                            </c1-input-date>
+                        </td>
+                        <td>
+                            <c1-input-date id="saleDate" value="@DateTime.Today" is-required="false" tab-order="8">
+                            </c1-input-date>
+                        </td>
+                    </tr>
+                </table>
+            }
+            else
+            {
+                <table class="input-form">
+                    <tr>
+                        <th></th>
+                        <th>Customer Order</th>
+                        <th>Customer Sale</th>
+                    </tr>
+                    <tr>
+                        <th>Country*</th>
+                        <td>
+                            <c1-combo-box id="orderCountry" is-required="true">
+                                <c1-items-source source-collection="@Countries.GetCountries()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                        <td>
+                            <c1-combo-box id="saleCountry" is-required="true">
+                                <c1-items-source source-collection="@Countries.GetCountries()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Product*</th>
+                        <td>
+                            <c1-combo-box id="orderProduct" is-required="true">
+                                <c1-items-source source-collection="@Products.GetProducts()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                        <td>
+                            <c1-combo-box id="saleProduct" is-required="true">
+                                <c1-items-source source-collection="@Products.GetProducts()"></c1-items-source>
+                            </c1-combo-box>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Price*</th>
+                        <td>
+                            <c1-input-number id="orderPrice" min="0" step="10" value="0" format="c0" is-required="true">
+                            </c1-input-number>
+                        </td>
+                        <td>
+                            <c1-input-number id="salePrice" min="0" step="10" value="0" is-required="true">
+                            </c1-input-number>
+                        </td>
+                    </tr>
+                    <tr>
+                        <th>Date</th>
+                        <td>
+                            <c1-input-date id="orderDate" value="@DateTime.Today" is-required="false">
+                            </c1-input-date>
+                        </td>
+                        <td>
+                            <c1-input-date id="saleDate" value="@DateTime.Today" is-required="false">
+                            </c1-input-date>
+                        </td>
+                    </tr>
+                </table>
+            } <br />
+            <button id="add-row" class="btn btn-primary col-sm-offset-2">
+                <b><i class="glyphicon-plus"></i> Add Data</b>
+            </button>
+            <br />
+        </div>
+        <br />
+        <br />
+        <div class="col-md-12">
+            <div class="col-md-6">
+                <label>Customer order</label>
+                <c1-flex-grid id="order" class="grid" auto-generate-columns="false" allow-add-new="true" height="200px"
+                              selection-mode="Row" is-read-only="true">
+                    <c1-flex-grid-column binding="ID" width="40"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="OrderTime" width="100"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" width="100">
+                        <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                        </c1-data-map>
+                    </c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product" width="100">
+                        <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                        </c1-data-map>
+                    </c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Price" format="c" width="100"></c1-flex-grid-column>
+                    <c1-items-source read-action-url="@Url.Action("GetCustomerOrder")" disable-server-read="true"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+
+            <div class="col-md-6">
+                <label>Customer Sale</label>
+                <c1-flex-grid id="sale" class="grid" auto-generate-columns="false" allow-add-new="true" height="200px"
+                              selection-mode="Row" is-read-only="true">
+                    <c1-flex-grid-column binding="ID" width="40"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Start" width="100"></c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Country" width="100">
+                        <c1-data-map display-member-path="Name" selected-value-path="Name" sort-by-display-values="true">
+                            <c1-items-source source-collection="@FullCountry.GetCountries()"></c1-items-source>
+                        </c1-data-map>
+                    </c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Product" width="100">
+                        <c1-data-map display-member-path="Name" selected-value-path="Id" sort-by-display-values="true">
+                            <c1-items-source source-collection="@CustomerSale.PRODUCTS"></c1-items-source>
+                        </c1-data-map>
+                    </c1-flex-grid-column>
+                    <c1-flex-grid-column binding="Amount" format="c" width="100"></c1-flex-grid-column>
+                    <c1-items-source read-action-url="@Url.Action("GetCustomerSale")" disable-server-read="true"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+</div>
+@section Styles{
+    <style>
+        .input-form td, th {
+            padding: 0.5rem;
+        }
+
+        .input-form td:nth-child(even) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+
+        .input-form td:nth-child(odd) {
+            padding-left: 3rem;
+        }
+    </style>
+}
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            let cOrderGrid = wijmo.Control.getControl("#order")
+            let orderCountry = wijmo.Control.getControl("#orderCountry");
+            let orderProduct = wijmo.Control.getControl("#orderProduct");
+            let orderPrice = wijmo.Control.getControl("#orderPrice");
+            let orderDate = wijmo.Control.getControl("#orderDate");
+
+            let cSaleGrid = wijmo.Control.getControl("#sale");
+            let saleCountry = wijmo.Control.getControl("#saleCountry");
+            let saleProduct = wijmo.Control.getControl("#saleProduct");
+            let salePrice = wijmo.Control.getControl("#salePrice");
+            let saleDate = wijmo.Control.getControl("#saleDate");
+
+            document.getElementById('add-row').addEventListener('click', function (e) {
+                //add new row to Order grid
+                cOrderGrid.focus();
+                let oview = cOrderGrid.editableCollectionView;
+                let onewItem = oview.addNew();
+                onewItem.ID = oview.items.length;
+                onewItem.OrderTime = orderDate.value;
+                onewItem.Country = orderCountry.selectedValue;
+                onewItem.Product = orderProduct.selectedValue;
+                onewItem.Price = orderPrice.value;
+                oview.commitNew();
+
+                //add new row to Sale grid
+                cSaleGrid.focus();
+                let sview = cSaleGrid.editableCollectionView;
+                let snewItem = sview.addNew();
+                snewItem.ID = sview.items.length;
+                snewItem.Start = saleDate.value;
+                snewItem.Country = saleCountry.selectedValue;
+                snewItem.Product = saleProduct.selectedValue;
+                snewItem.Amount = salePrice.value;
+                sview.commitNew();
+
+                e.preventDefault(); // don't submit the form
+            });
+        })
+    </script>
+}
+@section Settings{
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(TabOrderRes.TabOrder_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(TabOrderRes.TabOrder_Description_Text0)</p>
+    <p>@Html.Raw(TabOrderRes.TabOrder_Description_Text1)</p>
+    <p>@Html.Raw(TabOrderRes.TabOrder_Description_Text2)</p>
+}

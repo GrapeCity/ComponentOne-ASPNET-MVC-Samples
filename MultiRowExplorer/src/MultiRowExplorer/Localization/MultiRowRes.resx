@@ -214,7 +214,7 @@
     <value>Use grid's internal editor.</value>
   </data>
   <data name="DataMap_Text0" xml:space="preserve">
-    <value>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</value>
+    <value>Data maps provide the grid with automatic look-up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</value>
   </data>
   <data name="DataMap_Text1" xml:space="preserve">
     <value />
@@ -229,7 +229,7 @@
     <value>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for.</value>
   </data>
   <data name="DisableServerRead_Text1" xml:space="preserve">
-    <value>When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.&lt;/br&gt;And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</value>
+    <value>When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done on the client side.&lt;/br&gt;And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</value>
   </data>
   <data name="DisableServerRead_Text2" xml:space="preserve">
     <value>MultiRow without paging</value>
@@ -337,7 +337,7 @@
     <value>The same process is applied to every group in the &lt;b&gt;LayoutDefinition&lt;/b&gt; object.</value>
   </data>
   <data name="Paging_Text0" xml:space="preserve">
-    <value>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt;All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</value>
+    <value>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt; All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</value>
   </data>
   <data name="Paging_Text1" xml:space="preserve">
     <value>In this example, the paging happens server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink("Disable Server Reading", "DisableServerRead") sample for client-side paging.</value>
@@ -406,7 +406,7 @@
     <value>This sample shows how to make grid work in virtual scrolling mode.</value>
   </data>
   <data name="VirtualScrolling_Text1" xml:space="preserve">
-    <value>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number which is greater than 0.</value>
+    <value>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be false(default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set a number that is greater than 0.</value>
   </data>
   <data name="BatchEditing_Text10" xml:space="preserve">
     <value>This sample shows the BatchEditing mode for editing the data.</value>
@@ -418,7 +418,7 @@
     <value>Multi-column Data Map</value>
   </data>
   <data name="DataMap_Text6" xml:space="preserve">
-    <value>This sample shows the data map feature which provides the MultiRow with automatic look up capabilities.</value>
+    <value>This sample shows the data map feature which provides the MultiRow with automatic look-up capabilities.</value>
   </data>
   <data name="Editing_Text14" xml:space="preserve">
     <value>Edit Item</value>
@@ -546,7 +546,7 @@ You can also specify the sorting order in the second list.</value>
     <value>Edit Theme &amp;gt;</value>
   </data>
   <data name="BatchEditing_Text25" xml:space="preserve">
-    <value>This sample shows how to edit cell data with various ways.</value>
+    <value>This sample shows how to edit cell data in various ways.</value>
   </data>
   <data name="BatchEditing_Text26" xml:space="preserve">
     <value>Editing</value>
@@ -579,7 +579,7 @@ You can also specify the sorting order in the second list.</value>
     <value>https://www.grapecity.com/componentone/download</value>
   </data>
   <data name="Editing_Text25" xml:space="preserve">
-    <value>This sample shows how to edit cell data with various ways.</value>
+    <value>This sample shows how to edit cell data in various ways.</value>
   </data>
   <data name="Editing_Text26" xml:space="preserve">
     <value>Excel-Style editing</value>
@@ -627,7 +627,7 @@ You can also specify the sorting order in the second list.</value>
     <value>New row at top:</value>
   </data>
   <data name="CustomEditors_Text15" xml:space="preserve">
-    <value>This sample use the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</value>
+    <value>This sample uses the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</value>
   </data>
   <data name="Grouping_Text4" xml:space="preserve">
     <value>The &lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; property determines whether group headers should have multiple rows instead of a single header row, which is useful when you want to display aggregate values in the group headers.</value>

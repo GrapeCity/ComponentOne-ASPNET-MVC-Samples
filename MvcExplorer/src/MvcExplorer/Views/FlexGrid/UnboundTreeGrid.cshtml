@@ -1,0 +1,84 @@
+﻿@model IEnumerable<ITreeItem>
+@{ 
+    var list = Folder.Create(Startup.Environment.ContentRootPath).Children;
+}
+
+@section Styles{
+<style>
+    .custom-flex-grid {
+        height: 400px;
+        background-color: white;
+        box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 12px;
+    }
+
+    .custom-flex-grid .wj-cell {
+        background-color: #fff;
+        border: none;
+        font-size: 10pt;
+    }
+
+    .custom-flex-grid .wj-state-selected {
+        background: #000;
+        color: #fff;
+    }
+
+    .custom-flex-grid .wj-state-multi-selected {
+        background: #222;
+        color: #fff;
+    }
+</style>
+}
+
+@section Scripts{
+<script>
+    c1.documentReady(function () {
+        let grid = wijmo.Control.getControl("#ubgrid");
+        grid.rows.defaultSize = 25;
+        // add columns
+        grid.columns.push(new wijmo.grid.Column({ header: 'Header', width: '2*' }));
+        grid.columns.push(new wijmo.grid.Column({ header: 'Size' }));
+
+        let data = @Html.Raw(Json.Serialize(list));
+        // add rows
+        for (let r = 0; r < data.length; r++) {
+            // add header
+            var header = data[r];
+            var row = new wijmo.grid.GroupRow();
+            row.dataItem = header;
+            row.isReadOnly = false;
+            row.level = 0;
+            grid.rows.push(row);
+            grid.setCellData(row.index, 0, header.header);
+            if (header.children) {
+                addChild(grid, header, 1);
+            }
+        }
+    });
+    function addChild(grid, parent, level){
+        for (var c = 0; c < parent.children.length; c++) {
+            // add children
+            var child = parent.children[c];
+            row = new wijmo.grid.GroupRow();
+            row.dataItem = child;
+            row.isReadOnly = false;
+            row.level = level;
+            grid.rows.push(row);
+            grid.setCellData(row.index, 0, child.header);
+            grid.setCellData(row.index, 1, child.size);
+            if (child.children) {
+                addChild(grid, child, level+1);
+            }
+        }
+    }
+</script>
+}
+
+<label>@Html.Raw(FlexGridRes.TreeGrid_Text0)</label>
+<c1-flex-grid id="ubgrid" class="custom-flex-grid" width="500px"
+              auto-generate-columns="false" headers-visibility="Column" selection-mode="Row">
+</c1-flex-grid>
+
+@section Description {
+    @Html.Raw(FlexGridRes.TreeGrid_Unbound_Description)
+}

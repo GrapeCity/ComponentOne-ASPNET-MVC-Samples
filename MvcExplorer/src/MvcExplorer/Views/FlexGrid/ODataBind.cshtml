@@ -7,7 +7,7 @@
 {
     <h4>ODataCollectionView</h4>
     <p id="itemCount"></p>
-    <c1-flex-grid id="ODataCollectionView" allow-add-new="false" allow-delete="false" style="height:400px" loaded-rows="oDataCVLoaded">
+    <c1-flex-grid id="ODataCollectionView" is-read-only="true" allow-add-new="false" allow-delete="false" style="height:400px" loaded-rows="oDataCVLoaded">
         <c1-odata-source service-url="https://services.odata.org/Northwind/Northwind.svc" table-name="Orders" keys="OrderID"
                          sort-on-server="@(Convert.ToBoolean(optionsModel.Options["Sort On Server"].CurrentValue))"
                          filter-on-server="@(Convert.ToBoolean(optionsModel.Options["Filter On Server"].CurrentValue))"></c1-odata-source>
@@ -16,7 +16,7 @@
 
     <h4>ODataVirtualCollectionView</h4>
     <p id="totalItemCount"></p>
-    <c1-flex-grid id="ODataVirtualCollectionView" allow-add-new="false" allow-delete="false" style="height:400px" scroll-position-changed="scrollPositionChanged" loaded-rows="oDataVCVLoaded">
+    <c1-flex-grid id="ODataVirtualCollectionView" is-read-only="true" allow-add-new="false" allow-delete="false" style="height:400px" scroll-position-changed="scrollPositionChanged" loaded-rows="oDataVCVLoaded">
         <c1-odata-virtual-source service-url="https://services.odata.org/Northwind/Northwind.svc" table-name="Orders" keys="OrderID"></c1-odata-virtual-source>
         <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
     </c1-flex-grid>

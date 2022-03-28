@@ -7,7 +7,7 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <VersionPrefix>1.0.0.0</VersionPrefix>
     <Authors>GrapeCity, Inc.</Authors>
-    <TargetFrameworks>netcoreapp3.1</TargetFrameworks>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
     <DefineConstants>$(DefineConstants);ASPNETCORE;</DefineConstants>
     <AssemblyName>C1.Web.Mvc.Extensions</AssemblyName>
     <SignAssembly>false</SignAssembly>
@@ -48,7 +48,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20213.324" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20221.333" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
