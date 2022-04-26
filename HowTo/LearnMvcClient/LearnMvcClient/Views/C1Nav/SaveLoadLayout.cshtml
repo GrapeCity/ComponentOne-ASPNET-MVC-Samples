@@ -1,0 +1,26 @@
+@model DashboardData
+
+<h1>
+    @Html.Raw(Resources.C1Nav.SaveLoadLayout_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.SaveLoadLayout_Text1)
+</p>
+<br/>
+<input type="button" value="Save Layout" class="btn" onclick="saveLayout()" />
+<input type="button" value="Load Layout" class="btn" onclick="loadLayout()" />
+
+@Html.Partial("_DashboardLayoutElements", Model)
+@(Html.C1().DashboardLayout().Id("saveLoadDashboard")
+        .AttachFlowLayout(flb => flb.Direction(FlowDirection.LeftToRight)
+        .Items(isb =>
+        {
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.C1Nav.SalesDashboard, Model.SalesDashboardStr))
+                .Content("#salesDashboardFGrid").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.C1Nav.KPIs, Model.KPIsStr))
+                .Content("#kpiGauges").Height(303).Width(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.C1Nav.CostBudget, Model.CostBudgetingStr))
+                .Content("#costBudgetingChart").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.C1Nav.Countrywise, Model.CountrywiseSalesStr))
+                .Content("#countrywiseSalesChart").Width(303).Height(303));
+        })))

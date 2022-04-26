@@ -1,0 +1,17 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ListBox_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ListBox_Text1)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-4">
+        @(Html.C1().ListBox<Gdp>().Id("theListBox").Bind(Model).DisplayMemberPath("Country").Height(150))
+    </div>
+    <div class="col-xs-8">
+        <p id="selectedItem"></p>
+    </div>
+</div>

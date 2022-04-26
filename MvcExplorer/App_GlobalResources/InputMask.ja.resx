@@ -1,0 +1,176 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>社会保障番号</value>
+    <comment>Social Security Number</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>電話番号</value>
+    <comment>Phone Number</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>ご自身のものを入力</value>
+    <comment>Try your own</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>Mask を設定した InputDate</value>
+    <comment>InputDate with Mask</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>Mask を設定した InputTime</value>
+    <comment>InputTime with Mask</comment>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>このサンプルは、InputMask コントロールの基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the InputMask control.</comment>
+  </data>
+  <data name="Index_Placeholder1" xml:space="preserve">
+    <value>入力マスクを入力...</value>
+    <comment>Enter an input mask...</comment>
+  </data>
+  <data name="Index_Placeholder2" xml:space="preserve">
+    <value>入力マスクを試す...</value>
+    <comment>Try your input mask...</comment>
+  </data>
+  <data name="Index_Placeholder3" xml:space="preserve">
+    <value>パスワードを入力する...</value>
+    <comment>Enter password...</comment>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>テンキーキーボードを使った電話番号の入力（携帯、タブレット、iPadのみ）</value>
+    <comment>Phone number along with number-pad keyboard (on mobile, tablet, iPad only)</comment>
+  </data>
+  <data name="Index_Text11" xml:space="preserve">
+    <value>高度な設定では、携帯電話、タブレット、iPadなどで適切なソフトキーボードの種類を表示するだけでなく、より多くのマスクに&lt;b&gt;InputType&lt;/b&gt;プロパティを使用することもできます。</value>
+    <comment>In advanced, you can also use along with &lt;b&gt;InputType&lt;/b&gt; property for more masks as well as showing appropriate soft keyboard type on mobile phone, tablet, iPad etc.</comment>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>&lt;i&gt;InputType&lt;/i&gt;プロパティを使用してマスクします：</value>
+    <comment>Masks using &lt;i&gt;InputType&lt;/i&gt; property:</comment>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>パスワード</value>
+    <comment>Password</comment>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>週</value>
+    <comment>Week</comment>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>月</value>
+    <comment>Month</comment>
+  </data>
+  <data name="Mask_Input_Date" xml:space="preserve">
+    <value>9999/99/99</value>
+    <comment>Default format for date in JP is yyyy/MM/dd</comment>
+  </data>
+  <data name="Index_Text12" xml:space="preserve">
+    <value>（9桁の番号が必要）。InvalidInput イベントを使用して無効な文字を確認します。</value>
+    <comment>(required 9 digits), check invalid value using InvalidInput event</comment>
+  </data>
+  <data name="Index_Text13" xml:space="preserve">
+    <value>無効な値です。9桁の数字を入力してください。</value>
+    <comment>Invalid input, required full of 9 digits.</comment>
+  </data>
+  <data name="Index_Text14" xml:space="preserve">
+    <value>&lt;b&gt;OverwriteMode&lt;/b&gt;では、入力したすべての文字がカーソル位置に表示されます。 文字がすでにその位置に存在する場合、それは置き換えられます。</value>
+    <comment>In &lt;b&gt;OverwriteMode&lt;/b&gt;, every character you type is displayed at the cursor position. If a character is already at that position, it is replaced.</comment>
+  </data>
+</root>

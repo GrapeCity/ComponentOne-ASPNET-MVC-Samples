@@ -1,0 +1,20 @@
+<h1>
+    @Html.Raw(Resources.C1Input.ClearButtons_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ClearButtons_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ClearButtons_Text2)
+</p>
+
+@Html.C1().InputDate().Id("theInputDate").IsRequired(false)
+<br>
+@Html.C1().InputTime().Id("theInputTime").IsRequired(false)
+<br>
+@Html.C1().InputDateTime().Id("theInputDateTime").IsRequired(false)
+<br>
+@Html.C1().InputNumber().Id("theInputNumber").IsRequired(false).Step(1).Value(1234).Format("n2")
+<br>
+@Html.C1().ComboBox().Id("theComboBox").IsRequired(false).Bind(new[] { "apples", "oranges" })

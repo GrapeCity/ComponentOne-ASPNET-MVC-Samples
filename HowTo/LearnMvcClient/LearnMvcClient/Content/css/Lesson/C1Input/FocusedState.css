@@ -1,0 +1,31 @@
+﻿.center {
+  text-align: center;
+  max-width: 3in;
+  margin: 12px auto;
+}
+.wj-gauge {
+  margin-bottom: 16px;
+}
+.wj-radialgauge {
+  height: 120px;
+}
+.wj-gauge .wj-face path {
+    fill: #e0e0e0;
+    stroke: none;
+}
+.wj-gauge .wj-pointer {
+    fill: #404040;
+    stroke: none;
+}
+.wj-lineargauge.wj-state-focused .wj-thumb {
+    stroke: orange;
+    fill: orange;
+    stroke-width: 12px;
+    transition: ease-in stroke-width .4s;
+}
+.wj-radialgauge.wj-state-focused .wj-thumb {
+    stroke: orange;
+    fill: orange;
+    stroke-width: 6px;
+    transition: ease-in stroke-width .4s;
+}

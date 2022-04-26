@@ -1,0 +1,63 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Customer>
+
+@section Scripts{
+<script type="text/javascript">
+    var grid, cv, detail, cvDetail, currentItem;
+    c1.documentReady(function () {
+        grid = wijmo.Control.getControl("#Customer");
+        cv = grid.collectionView;
+        cv.currentChanged.addHandler(getOrders);
+        cv.moveCurrentToFirst();
+    });
+
+    function getOrders() {
+        detail = wijmo.Control.getControl("#Orders");
+        cvDetail = detail.collectionView;
+        cvDetail.refresh();
+    }
+   
+    function getCustomer(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        grid = wijmo.Control.getControl("#Customer");
+        if (grid) {
+            currentItem = grid.collectionView.currentItem;
+            e.extraRequestData["CustomerID"] = currentItem ? currentItem.CustomerID : "";
+        }
+    }
+</script>
+}
+<h4>@Html.Raw(Resources.FlexGrid.MasterDetail_Text1)</h4>
+@(Html.C1().FlexGrid().Id("Customer").AutoGenerateColumns(false).IsReadOnly(true).SelectionMode(SelectionMode.Row)
+.Bind(Model)
+.Columns(cs =>
+    cs.Add(c => c.Binding("CustomerID").Width("*"))
+    .Add(c => c.Binding("CompanyName").Width("2*"))
+    .Add(c => c.Binding("Country").Width("2*"))
+    .Add(c => c.Binding("City").Width("2*"))
+))
+<br/>
+<h4>@Html.Raw(Resources.FlexGrid.MasterDetail_Text2)</h4>
+@(Html.C1().FlexGrid().Id("Orders").AutoGenerateColumns(false).IsReadOnly(true)
+.Bind(i => i.Bind(Url.Action("DetailData")).OnClientQueryData("getCustomer"))
+.Columns(cs =>
+    cs.Add(c => c.Binding("OrderID"))
+    .Add(c => c.Binding("EmployeeID"))
+    .Add(c => c.Binding("OrderDate"))
+    .Add(c => c.Binding("ShippedDate"))
+    .Add(c => c.Binding("RequiredDate"))
+    .Add(c => c.Binding("Freight"))
+    .Add(c => c.Binding("ShipVia"))
+    .Add(c => c.Binding("ShipName"))
+    .Add(c => c.Binding("ShipCountry"))
+    .Add(c => c.Binding("ShipCity"))
+    .Add(c => c.Binding("ShipAddress"))
+    .Add(c => c.Binding("ShipPostalCode"))
+))
+
+@section Description{
+@Html.Raw(Resources.FlexGrid.MasterDetail_Text0)
+}

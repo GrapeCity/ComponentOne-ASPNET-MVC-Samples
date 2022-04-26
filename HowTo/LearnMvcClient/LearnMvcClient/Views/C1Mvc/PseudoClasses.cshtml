@@ -1,0 +1,47 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Text3)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Mvc.PseudoClasses_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Mvc.PseudoClasses_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Mvc.PseudoClasses_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Mvc.PseudoClasses_Text7)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Mvc.PseudoClasses_Text8)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Text9)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PseudoClasses_Text10)
+</p>
+
+@(Html.C1().RadialGauge().Id("theRadialGauge")
+    .Value(50).Max(100).IsReadOnly(false).ThumbSize(6)
+    .Face(f => f.Thickness(0.08))
+    .Pointer(p => p.Thickness(0.08))
+)
+@(Html.C1().LinearGauge().Id("theLinearGauge")
+    .Value(50).Max(100).IsReadOnly(false)
+    .ThumbSize(10)
+    .Face(f => f.Thickness(0.25))
+    .Pointer(p => p.Thickness(0.25))
+)

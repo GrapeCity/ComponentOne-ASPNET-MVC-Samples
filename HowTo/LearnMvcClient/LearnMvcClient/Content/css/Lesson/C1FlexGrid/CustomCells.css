@@ -1,0 +1,15 @@
+﻿.wj-cell .v-center {
+  position: relative;
+  top: 50%;
+	transform: translateY(-50%);
+  white-space: pre-wrap;
+}
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .diff-none {
+  color: #d8b400;
+}
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .diff-up {
+  color: #4c8f00;
+}
+.wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) .diff-down {
+  color: #9f0000;
+}

@@ -1,0 +1,68 @@
+<h1>
+    @Html.Raw(Resources.C1Input.AlertsPrompts_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.AlertsPrompts_Text1)
+</p>
+
+<div class="demo-settings">
+    <label for="btnShow">@Html.Raw(Resources.C1Input.AlertsPrompts_Text2)</label>
+    <button id="btnShow" class="btn btn-primary">@Resources.Resource.Btn_ShowPopup</button>
+</div>
+
+<div class="row demo-settings">
+
+    <div class="col-xs-6">
+
+        <!-- important options -->
+        <label for="type">@Html.Raw(Resources.C1Input.AlertsPrompts_Text3)</label>
+        @Html.C1().ComboBox().Id("type").Bind(new[] { "Alert", "Prompt" })
+        <br />
+        <label for="header">@Html.Raw(Resources.C1Input.AlertsPrompts_Text4)</label>
+        @Html.C1().ComboBox().Id("header").Text("Header").ShowDropDownButton(false)
+        <br />
+        <label for="body">@Html.Raw(Resources.C1Input.AlertsPrompts_Text5)</label>
+        @Html.C1().ComboBox().Id("body").Text("Dialog message.").ShowDropDownButton(false)
+        <br />
+        <label for="defVal">@Html.Raw(Resources.C1Input.AlertsPrompts_Text6)</label>
+        @Html.C1().ComboBox().Id("defVal").Text("Default value").ShowDropDownButton(false)
+        <br />
+        <label for="small">@Html.Raw(Resources.C1Input.AlertsPrompts_Text7)</label>
+        <input id="small" type="checkbox">
+        <br />
+        <label for="ok">@Html.Raw(Resources.C1Input.AlertsPrompts_Text8)</label>
+        @Html.C1().ComboBox().Id("ok").Text("OK").ShowDropDownButton(false)
+        <br />
+        <label for="cancel">@Html.Raw(Resources.C1Input.AlertsPrompts_Text9)</label>
+        @Html.C1().ComboBox().Id("cancel").Text("Cancel").ShowDropDownButton(false)
+        <br />
+    </div>
+
+    <div class="col-xs-6">
+
+        <!-- details -->
+        <label for="clsDialog">@Html.Raw(Resources.C1Input.AlertsPrompts_Text10)</label>
+        @Html.C1().ComboBox().Id("clsDialog").Text("modal-dialog").ShowDropDownButton(false)
+        <br />
+        <label for="clsHeader">@Html.Raw(Resources.C1Input.AlertsPrompts_Text11)</label>
+        @Html.C1().ComboBox().Id("clsHeader").Text("modal-header").ShowDropDownButton(false)
+        <br />
+        <label for="clsBody">@Html.Raw(Resources.C1Input.AlertsPrompts_Text12)</label>
+        @Html.C1().ComboBox().Id("clsBody").Text("modal-body").ShowDropDownButton(false)
+        <br />
+        <label for="clsInput">@Html.Raw(Resources.C1Input.AlertsPrompts_Text13)</label>
+        @Html.C1().ComboBox().Id("clsInput").Text("form-control").ShowDropDownButton(false)
+        <br />
+        <label for="clsFooter">@Html.Raw(Resources.C1Input.AlertsPrompts_Text14)</label>
+        @Html.C1().ComboBox().Id("clsFooter").Text("modal-footer").ShowDropDownButton(false)
+        <br />
+        <label for="clsOK">@Html.Raw(Resources.C1Input.AlertsPrompts_Text15)</label>
+        @Html.C1().ComboBox().Id("clsOK").Text("btn btn-primary").ShowDropDownButton(false)
+        <br />
+        <label for="clsCancel">@Html.Raw(Resources.C1Input.AlertsPrompts_Text16)</label>
+        @Html.C1().ComboBox().Id("clsCancel").Text("btn btn-default").ShowDropDownButton(false)
+        <br />
+    </div>
+</div>
+
+@Html.C1().Popup().Id("popup")

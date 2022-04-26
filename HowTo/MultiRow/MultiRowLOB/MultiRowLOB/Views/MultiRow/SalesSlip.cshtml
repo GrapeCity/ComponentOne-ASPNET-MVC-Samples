@@ -1,0 +1,47 @@
+﻿@using MultiRowLOB.Localization
+@model  IEnumerable<DataService.Sale>
+
+@section Scripts{
+    <script src="~/Scripts/controllers/salesSlipCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.SalesSlip_Title</h2>
+
+    @(Html.C1().MultiRow<DataService.Sale>()
+        .Id("salesSlip")
+        .Bind(b => b.Bind(Model).DisableServerRead(true).PageSize(5))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell=>cell.Binding("Id").Header(Resources.SalesSlip_Field_Id).Width("60"));
+            });
+            ld.Add().Colspan(5).Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("ProductId").Header(Resources.SalesSlip_Field_ProductId).Width("80"));
+                cells.Add(cell => cell.Binding("ProductName").Header(Resources.SalesSlip_Field_ProductName).Colspan(3));
+                cells.Add(cell => cell.Binding("Marker").Header(Resources.SalesSlip_Field_Marker).Align("center"));
+                cells.Add(cell => cell.Binding("Quantity").Header(Resources.SalesSlip_Field_Quantity).Width("80").Align("right"));
+                cells.Add(cell => cell.Binding("Unit").Header(Resources.SalesSlip_Field_Unit));
+                cells.Add(cell => cell.Binding("UnitPrice").Header(Resources.SalesSlip_Field_UnitPrice).Format("c2").Colspan(2));
+                cells.Add(cell => cell.Binding("SalesAmount").Header(Resources.SalesSlip_Field_SalesAmount).Format("c2").IsReadOnly(true));
+                cells.Add(cell => cell.Binding("ProfitUnitPrice").Header(Resources.SalesSlip_Field_ProfitUnitPrice).Format("c2").Colspan(2));
+                cells.Add(cell => cell.Binding("TotalProfit").Header(Resources.SalesSlip_Field_TotalProfit).Format("c2").Colspan(2).IsReadOnly(true).CssClass("profit-cell"));
+                cells.Add(cell => cell.Binding("ProfitRate").Header(Resources.SalesSlip_Field_ProfitRate).Format("p2").IsReadOnly(true).CssClass("profit-cell"));
+            });
+        })
+    )
+
+    <div class="pull-right btn-group">
+        @(Html.C1().Pager().Owner("salesSlip"))
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

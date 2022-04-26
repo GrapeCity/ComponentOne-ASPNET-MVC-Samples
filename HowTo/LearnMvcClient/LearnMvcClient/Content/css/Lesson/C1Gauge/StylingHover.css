@@ -1,0 +1,17 @@
+﻿.wj-gauge {
+  width: 50%;
+  margin: 20px auto;
+}
+.wj-gauge .wj-face path {
+  fill: #fefefe;
+  stroke: #e0e0e0;
+}
+.wj-gauge:hover .wj-pointer {
+  fill: orange;
+  stroke: orange;
+  stroke-width: 4px;
+  transition: fill stroke stroke-width .3s;
+}
+.wj-radialgauge {
+  height: 120px;
+}

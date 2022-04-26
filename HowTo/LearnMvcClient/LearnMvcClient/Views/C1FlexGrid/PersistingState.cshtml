@@ -1,0 +1,22 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.PersistingState_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.PersistingState_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.PersistingState_Text2)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .Filterable(f=>f.Id("theGridFilter"))
+)
+
+<button id="btnSave" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.PersistingState_Text3)
+</button>
+<button id="btnRestore" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.PersistingState_Text4)
+</button>

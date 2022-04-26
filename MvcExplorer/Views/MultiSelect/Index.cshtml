@@ -1,0 +1,61 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    List<string> countries = ViewBag.Countries;
+}
+@section Scripts{
+<script>
+    var checkedItemsChanged = function (sender, e) {
+        var i, result = document.getElementById("result"),
+            items = sender.checkedItems;
+
+        if (result) {
+            result.innerHTML = "";
+        }
+
+        for (i = 0; i < items.length; i++) {
+            result.innerHTML += "<span>" + (i + 1) + ". " + items[i] + "<\/span><br>";
+        }
+    }
+
+    function delayChanged(sender, args) {
+        var multiselect = wijmo.Control.getControl('#multiselect');
+        multiselect.delay = sender.value;
+    }
+</script>
+}
+
+<div>
+    <label>@Html.Raw(Resources.MultiSelect.Index_Text0)</label>
+
+    @(Html.C1().MultiSelect()
+    .Name("countries")
+    .Id("multiselect")
+    .Bind(countries)
+    .Placeholder(Resources.MultiSelect.Index_Placeholder)
+    .FilterInputPlaceholder(Resources.MultiSelect.Index_FilterInputPlaceholder)
+    .HeaderFormat(Resources.MultiSelect.Index_HeaderFormat)
+    .ShowFilterInput(Convert.ToBoolean(optionsModel.Options["Show Filter Input"].CurrentValue))
+    .CheckOnFilter(Convert.ToBoolean(optionsModel.Options["Check On Filter"].CurrentValue))
+    .OnClientCheckedItemsChanged("checkedItemsChanged")
+    .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
+    )
+
+    <label>@Html.Raw(Resources.MultiSelect.Index_SelectResults)</label>
+
+    <div id="result"></div>
+</div>
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+
+    <label style="font-weight:normal;margin-top:10px;">@Html.Raw(Resources.MultiSelect.Delay_Text0)</label>
+    @(Html.C1().InputNumber().Min(0).Max(10000).Step(100).Value(500).Format("n0").Width(200).OnClientValueChanged("delayChanged"))
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.MultiSelect.Index_Text1)</p>
+    <p>@Html.Raw(Resources.MultiSelect.Index_Text2)</p>
+    <p>@Html.Raw(Resources.MultiSelect.Index_Text3)</p>
+    <p>@Html.Raw(Resources.MultiSelect.CaseSensitiveSearchDescription_Text0)</p>
+    <p>@Html.Raw(Resources.MultiSelect.Delay_Text1)</p>
+}

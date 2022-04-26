@@ -1,0 +1,19 @@
+<h1>
+    @Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Text2)
+</p>
+
+<label for="theAutoComplete">@Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Text3)</label>
+@Html.C1().AutoComplete().Id("theAutoComplete").Placeholder(Resources.C1Input.AutoCompleteAsyncLoading_Text4).DisplayMemberPath("ProductName")
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteAsyncLoading_Text6)
+</p>

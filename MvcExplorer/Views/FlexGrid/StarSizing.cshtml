@@ -1,0 +1,64 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+
+<h4>
+        @Html.Raw(Resources.FlexGrid.StarSizing_Example1)</h4>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text1)</p>
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("Start").Width("80").MaxWidth(160).MinWidth(40));
+        columns.Add(column => column.Binding("Product").Width("2*").AllowResizing(false));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+    })
+    .Bind(Model)
+)
+    <br />
+    <br />
+<h4>
+        @Html.Raw(Resources.FlexGrid.StarSizing_Example2)</h4>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text2)</p>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text3)</p>
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("Start").Width("80"));
+        columns.Add(column => column.Binding("Product").Width("*").MinWidth(100).AllowResizing(false));
+        columns.Add(column => column.Binding("Amount").Format("c").Width("120"));
+    })
+    .Bind(Model)
+)
+    <br />
+    <br />
+<h4>
+        @Html.Raw(Resources.FlexGrid.StarSizing_Example3)</h4>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text4)</p>
+    <p>@Html.Raw(Resources.FlexGrid.StarSizing_Text5)</p>
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("Start").Width("*"));
+        columns.Add(column => column.Binding("Product").Width("*").MinWidth(100));
+        columns.Add(column => column.Binding("Amount").Format("c").Width("*"));
+        columns.Add(column => column.Binding("Amount2").Format("c").Width("*"));
+    })
+    .Bind(Model)
+)
+@section Description{
+    @Html.Raw(Resources.FlexGrid.StarSizing_Text6)
+}
+

@@ -1,0 +1,16 @@
+<h1>
+    @Html.Raw(Resources.C1Input.Colors_Title)
+  <div id="output">
+    @Html.Raw(Resources.C1Input.Colors_Text1)
+  </div>
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.Colors_Text2)
+</p>
+@Html.C1().InputColor().Id("theInputColor").Placeholder(Resources.C1Input.Colors_Text3)
+
+<p>
+    @Html.Raw(Resources.C1Input.Colors_Text4)
+</p>
+@Html.C1().ColorPicker().Id("theColorPicker")

@@ -1,0 +1,1173 @@
+﻿#PnlPage{
+}
+
+#ProcessSpinner {
+    font-size:50px;
+    display:none;
+    position:absolute;
+    top:50%;
+    left:50%;
+    width:100%;
+    height:100%;
+    z-index:1000;
+ }
+
+.maincontainer{
+	width:940px;
+	margin:0 auto;
+    height:100%;
+}
+
+
+#PageTitle{
+    color:rgb(30, 136, 229);
+    font-size:20pt;
+    font-weight:normal;
+    font-family:Calibri;
+}
+
+#HomePageTitle{
+    margin-top:10%;
+    padding-top:10px;
+    width:30%;
+    color:rgb(30, 136, 229);
+    font-size:20pt;
+    font-weight:normal;
+    font-family:Calibri;
+}
+
+.DivHeader{
+    color:rgb(30, 136, 229);
+    font-size:16pt;
+    font-weight:normal;
+    font-family:Calibri;
+}
+
+.MyRow{
+    padding-top:10px;
+    clear:both;
+}
+
+
+#PnlHomePage{
+    width:835px;
+}
+
+#PnlHomeSearch{
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom:30px;
+    background-color: rgba(255,255,255,0.7);    
+}
+
+#HomePageTitle{
+    padding-left:30px;
+    background-color: rgba(255,255,255,0.7);    
+}
+
+
+#PnlRecentSearches{
+    padding-left:30px;
+    padding-right:30px;
+    padding-bottom:30px;
+    background-color: rgba(255,255,255,0.5);    
+}
+
+.IDCustom .wj-input-group-btn:last-child>.wj-btn {
+  border-left-width: 0px !important;
+}
+
+.INCustom .wj-input-group-btn:last-child>.wj-btn {
+  border-left:none !important;
+}
+
+.flightdirection {    
+    text-align:center;    
+    color: rgb(30, 136, 229);
+    font-size: 16pt;
+    font-weight: bolder;
+    font-family:Calibri;
+    float:left; 
+    padding-left:24px;   
+    padding-right:24px;
+}
+
+.TextBCK{
+    background-color:white;
+    border:1px solid rgb(191, 191, 191);    
+    padding-left:10px;
+    padding-top:2px;
+    padding-right:2px;
+    width:335px;
+    height:40px; 
+    float:left;     
+}
+
+.TextBCK #Title{    
+    color:rgb(30, 136, 229);
+    font-size:15pt;
+    font-weight:normal;
+}
+
+.DateBCK{
+    background-color:white;
+    margin-right:5px;
+    background-image:url(../images/BCKCal.PNG);
+    background-repeat:no-repeat;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:38px;
+    padding-right:2px;
+    width:165px;
+    height:40px;
+    float:left;    
+}
+
+.PSGRTypeBCK{
+    background-color:white;
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:100px;
+    height:40px; 
+    float:left;       
+}
+
+    .PSGRTypeBCK .BottomText {
+        font-size: 8pt;
+        color: rgb(176,176,176);
+    }
+
+.AdultBCK{
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:100px;
+    height:40px; 
+    float:left;       
+}
+
+.ChildBCK{
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:100px;
+    height:40px; 
+    float:left;             
+}
+
+.InfantBCK{
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:100px;
+    height:40px; 
+    float:left;          
+}
+
+.ClassBCK{
+    background-color:white;
+    float:right;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:120px;
+    height:40px;     
+           
+}
+
+.RetDateMsgClass {
+    margin-right:5px;
+    padding-left:5px;
+    padding-top:10px;
+    padding-right:5px;
+    width:165px;
+    height:40px;
+    float:left;
+    color: white;
+    text-align: center;    
+    display: none;
+    font-weight:bold;
+    font-size:9pt;
+    background-color:green;
+}
+
+
+.TextBCK2{
+    border:1px solid rgb(191, 191, 191);    
+    padding-left:10px;
+    padding-right:2px;
+    width:400px;
+    height:40px; 
+    float:left;     
+}
+
+.TextBCK2 #Title{    
+    color:rgb(30, 136, 229);
+    font-size:15pt;
+    font-weight:normal;
+}
+
+.flightdirection2 {    
+    text-align:center;    
+    color: rgb(30, 136, 229);
+    font-size: 16pt;
+    font-weight: bolder;
+    font-family:Calibri;
+    float:left;     
+    padding-left:10px;
+}
+
+
+.DateBCK2{
+    margin-right:5px;
+    background-image:url(../images/BCKCal.PNG);
+    background-repeat:no-repeat;
+    border:1px solid rgb(191, 191, 191);        
+    padding-left:40px;
+    padding-right:2px;
+    width:195px;
+    height:40px;
+    float:left;
+}
+
+.LeftPnl {
+    float: left;
+    color:rgb(102, 102, 102);
+    font-size:10pt;
+    font-weight:normal;
+    width:50%;
+}
+
+.RightPnl {
+    float: right;
+    color:rgb(102, 102, 102);
+    font-size:10pt;
+    font-weight:normal;
+    width:50%;
+}
+
+.PnlDestFF{
+    padding-left:5px;
+    padding-top:6px;
+    height:40px;
+    float:left;    
+}
+
+.DateBCKFF{
+    border:1px solid rgb(191, 191, 191);
+    margin-right:2px;    
+    padding-left:5px;
+    padding-top:4px;
+    padding-right:2px;
+    width:220px;
+    height:40px;
+    float:left;    
+}
+
+.DateBCKFF .Title{    
+    color:rgb(30, 136, 229);
+}
+
+.DateBCKFF .Ctrl{
+}
+
+.PSGRTypeBCK2{
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:100px;
+    height:40px; 
+    float:left;       
+}
+
+    .PSGRTypeBCK2 .BottomText {
+        font-size: 8pt;
+        color: rgb(176,176,176);
+    }
+
+.ClassBCK2{
+    float:right;
+    border:1px solid rgb(191, 191, 191);
+    padding-left:2px;
+    padding-right:2px;
+    width:163px;
+    height:40px;     
+           
+}
+
+
+.RetDateMsgClass2 {
+    margin-right:5px;
+    padding-left:5px;
+    padding-top:10px;
+    padding-right:5px;
+    width:195px;
+    height:40px;
+    float:left;
+    color: white;
+    text-align: center;    
+    display: none;
+    font-weight:bold;
+    background-color:green;
+}
+
+.PnlTopBCK{
+    height:76px;
+    background-image: url(../images/mainbgd.png);
+	background-repeat: repeat-x;
+}
+
+
+
+.topbar{
+    height:49px;
+}
+
+.topmenu{
+    margin-top:5px;
+    float:right;
+}
+
+.topmenu #LblUserName{
+    width:500px;
+}
+
+.footer {
+    margin-top:20px;
+    clear: both;
+    font-size: 11pt;
+    color: gray;
+    font-weight: bold;
+    text-align: left;
+    bottom: 20px;
+}
+
+input[type="radio"] {
+  display: none;
+}
+
+input[type="radio"] + label {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+}
+
+input[type="radio"] + label span {
+  display: inline-block;
+  width: 19px;
+  height: 19px;
+  margin: -1px 4px 0 0;
+  vertical-align: middle;
+  cursor: pointer;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+}
+
+input[type="radio"] + label span {
+  background-color: lightgray;  
+}
+
+input[type="radio"]:checked + label span {
+  background-color: rgb(30, 136, 229);
+}
+
+#PnlHomeSearch input[type="radio"] + label span {  
+  background-color: white;
+}
+
+#PnlHomeSearch input[type="radio"]:checked + label span {
+  background-color: rgb(30, 136, 229);
+}
+
+
+input[type="radio"] + label span,
+input[type="radio"]:checked + label span {
+  -webkit-transition: background-color 0.4s linear;
+  -o-transition: background-color 0.4s linear;
+  -moz-transition: background-color 0.4s linear;
+  transition: background-color 0.4s linear;
+}
+
+.mybtn {
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: #ffffff;
+  background: #2088e3;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.mybtn:hover {
+  background: #3882c2;
+  text-decoration: none;
+  color: #ffffff;
+  cursor:pointer;
+}
+
+.myaddbtn {
+    font-weight:normal;
+    font-size:12pt;
+  -webkit-border-radius: 5;
+  -moz-border-radius: 5;
+  border-radius: 5px;
+  color: rgb(102,102,102);
+  background: white;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: solid 1px rgb(208,208,208);
+}
+
+.myaddbtn:hover {
+  cursor:pointer;
+}
+
+
+.RecentS_MainDivClass {
+    background-color: rgba(255,255,255,0.0);
+    padding-left: 10px;
+    border-bottom: 1px gray dotted;
+    padding-right: 10px;
+    padding-top: 20px;
+    padding-bottom: 50px;
+    clear: both;
+}
+
+.RecentS_DestClass{
+    font-size:14pt;
+    color:rgb(30, 136, 229);
+    font-weight:bold;
+    float:left;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.RecentS_DatesClass{
+    text-align:center;
+    font-size:12pt;
+    color:darkslategray;
+    font-weight:normal;
+    float:left;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+.RecentS_FareClass{
+    text-align:right;
+    font-size:14pt;
+    color:black;
+    font-weight:bold;
+    float:right;
+    padding-left:30px;
+}
+
+.BookFilterPnl{
+    width:200px;
+    float:left;
+    padding:0px 5px 70px 0px;
+}
+
+.BookResultPnl{
+    padding-top:20px;
+    width:740px;
+    float:left;
+    padding-left:10px;
+    padding-bottom:70px;
+}
+
+
+#ModifyPnl{
+    width:940px;
+    float:right;
+}
+
+#ModifyPnlFull{
+    width:940px;
+    clear:both;
+    margin-top:70px;
+    padding-top:20px;
+    padding-bottom:40px;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+#PnlFareFinder{
+    left:-512px;
+    width:940px;
+    clear:both;
+    padding-top:20px;
+    padding-bottom:40px;
+    padding-left:30px;
+    padding-right:30px;
+}
+
+
+#FromToDest{
+    float:left;
+    text-align:center;
+    padding-top:13px;
+    height:70px;
+    width:408px;
+    background-color:rgb(216,234,255);
+    color:rgb(102,102,102);
+    font-size:15pt;
+    font-weight:bold;
+}
+
+#FromToDest .FromTo{
+    width:175px;
+    float:left;
+}
+
+#FromToDest .City{
+    font-size:10pt;  
+    font-weight:normal;  
+}
+
+#FromToDest .Dir{
+    width:50px;
+    float:left;
+}
+
+
+.DepartReturnDate{
+    margin-left:2px;
+    padding-top:13px;
+    float:left;
+    text-align:center;
+    height:70px;
+    width:20%;
+    background-color:rgb(216,234,255);
+    color:rgb(30, 136, 229);
+    font-size:15pt;
+    font-weight:bold;
+}
+.DepartReturnDate .Date{
+    font-size:10pt;  
+    font-weight:normal;
+}
+
+#ModifyBtn{
+    float:right;
+    background-image: url(../images/ModifySearch.png);
+	background-repeat: no-repeat;
+    height:70px;
+    width:150px;
+}
+
+.BookFilterPnl{
+    padding-top:20px;
+}
+
+.FilterGroup{
+    font-size:12pt;
+    color:rgb(28,52,94);
+    font-weight:bold;
+}
+
+.FilterGroup .FilterHead{
+    padding-top:2px;
+    padding-bottom:2px;
+    font-size:10pt;
+    color:rgb(28,52,94);
+    font-weight:normal;
+}
+
+.FilterGroup .FilterDetails{
+    font-size:10pt;
+    color:rgb(28,52,94);
+    font-weight:normal;
+}
+
+.FilterGroup .Control
+{
+    padding-top:20px;
+    padding-bottom:5px;
+}
+
+    .FilterGroup .GaugeMin {
+        margin-top:5px;
+        float: left;
+        font-size: 10pt;
+        color: rgb(28,52,94);
+        font-weight: normal;
+    }
+
+    .FilterGroup .GaugeMax {
+        margin-top:5px;
+        float: right;
+        font-size: 10pt;
+        color: rgb(28,52,94);
+        font-weight: normal;
+    }
+
+    .FilterGroup .GaugeMaxIn {
+        float: right;
+        font-size: 10pt;
+        color: rgb(28,52,94);
+        font-weight: normal;
+    }
+
+    .FilterGroup .SelMin {
+        float: left;
+        font-size: 10pt;
+        color: rgb(28,52,94);
+        font-weight: normal;
+    }
+
+    
+    .FilterGroup .SelMax {
+        font-size: 10pt;
+        color: rgb(28,52,94);
+        font-weight: normal;
+    }
+    
+
+.AirlinesList{
+    padding-top:5px;
+    padding-bottom:5px;
+    font-size:10pt;
+    font-weight:normal;
+}
+
+.PnlTop {
+}
+.tabdata{
+    width:100%;
+    height:90px;
+    border:1px solid #ddd;    
+    border-top:none;
+    padding-top:12px;
+    padding-bottom:15px;
+}
+
+.tabdata .FlightData{    
+    padding-top:15px;
+    float:left;    
+    padding-left:15px;
+    font-size:9pt;
+    color:black;
+    font-weight:lighter;
+}
+
+    .tabdata .FlightData .FlightIcon {
+        float: left;
+        width:50px;
+    }
+    .tabdata .FlightData .FlightDataDiv1 {
+        font-weight: bold;
+        font-size: 11pt;
+        float: left;
+        padding-left: 5px;
+        color: rgb(82,82,79);
+    }
+
+        .tabdata .FlightData .FlightDataDiv1 .FlightTimes {
+            clear: none;
+            font-size: 11pt;
+            font-weight: normal;
+            color: rgb(30, 136, 229);
+        }
+
+    .tabdata .FlightData .FlightDataDiv2 {
+        clear: both;
+        padding-left: 5px;
+        font-size: 9pt;
+        font-weight: normal;
+        color: rgb(102,102,102);
+    }
+
+
+    .tabdata .FlightData .FlightDataDiv2 .FlightNo{
+        font-weight: bold;
+    }
+
+
+        .tabdata .FlightData .FlightDataDiv2 .FlightDuration {
+            padding-left: 5px;
+            color: rgb(136,136,136);
+        }
+
+
+
+    .tabdata .FareBook_S {
+        float: right;
+        padding-top:15px;
+        padding-right:15px;
+    }
+
+    .tabdata .FareBook_D {
+        float: right;
+        width:15%;
+        padding-right:10px;
+    }
+
+    .tabdata .FareBook_S .TotalFare{    
+    color:rgb(51,51,51);
+    font-size:15pt;
+    font-weight:bold;
+    min-width:100px;
+    text-align:right;
+    margin-right:20px;
+    
+}
+
+.tabdata FareBook_S .BookBtn{    
+    padding-top:10px;
+    padding-right:10px;
+    text-align:right;
+}
+
+
+.tabdata .FareBook_D .TotalFare{    
+    float:right;
+    color:rgb(51,51,51);
+    font-size:15pt;
+    font-weight:bold;
+    min-width:100px;
+    text-align:right;
+    margin-bottom:10px;
+}
+
+.tabdata FareBook_D .BookBtn{    
+   clear:both;
+    float:right;
+    text-align:right;
+}
+
+.tabdata .FareSummaryLink{    
+    padding-top:10px;
+    color:rgb(66,165,245);
+    font-size:10pt;
+    font-weight:normal;
+}
+
+
+.FlightListHeader   {
+     color:rgb(51,51,51);
+     font-weight:normal;
+     font-size:10pt;
+ }
+
+ .FlightListTopRow   {
+     padding-left:5px;
+     float:left;
+     color:rgb(0,0,0);
+     font-weight:normal;
+     font-size:10pt;     
+     width:100%;
+ }
+
+ .FlightListBottomRow   {     
+     padding-left:5px;
+     float:left;
+     color:rgb(119,119,119);
+     font-weight:normal;
+     font-size:8pt;     
+ }
+
+ .FlightListFlightNo   {
+     padding-left:5px;
+     float:left;     
+     color:rgb(51,51,51);
+     font-weight:normal;
+     font-size:8pt;
+ }
+
+.PnlResultGrid {
+    width: 100%;
+    padding-top: 5px;
+}
+
+.PnlResultGrid #PnlDepartGrid {
+        float: left;
+        width: 50%;
+}
+
+.PnlResultGrid #PnlReturnGrid {
+        float: right;
+        width: 50%;        
+}
+ 
+.Flight-FGrid .wj-header.wj-cell {
+    background-color: white;
+    font-weight:bold;
+    text-align:center;
+    align-self:center;
+    border-right: solid 2px rgb(238,238,238);
+}
+.Flight-FGrid .wj-cell {
+    height:100px;
+    border: 1px solid rgb(238,238,238);    
+    border-left:none;
+    border-right:none;
+    border-top:none;
+}
+.Flight-FGrid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+}
+.Flight-FGrid .wj-state-selected {
+    border: 2px solid rgb(238,238,238);    
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    background: rgb(245,245,245);
+    color: rgb(0,0,0);
+}
+.Flight-FGrid .wj-state-multi-selected {
+    border: 2px solid rgb(238,238,238);    
+    border-left:none;
+    border-right:none;
+    border-top:none;
+    background: rgb(245,245,245);
+    color: rgb(0,0,0);
+}
+
+.FilterGauge .wj-value{
+    color:white !important;
+}
+
+.FilterGauge .wj-pointer{
+    fill:rgb(28,52,94) !important;
+}
+
+.CollapseArrow {
+    float:right;
+    background-image: url(../images/ArrowDown.PNG);
+	background-repeat: no-repeat;
+    width:20px;
+    height:20px;
+}
+
+.PnlBookingData {
+    width: 100%;
+    border: rgb(234,232,212) solid 1px;
+    color: rgb(102,102,102);
+    font-size: 9pt;
+    font-weight: normal;
+    padding-left: 20px;
+    padding-right: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;    
+    margin-bottom:20px;
+}
+
+.PnlBookingData .RefNo {
+    clear: both;
+    float: right;
+}
+
+.PnlBookingData .DepartDate {
+    margin-left: 55px;
+    float: left;
+    clear: both;
+}
+
+.PnlBookingData .BookDate {
+    float: right;
+}
+
+.PnlBookingData .DestNames {
+    font-size: 18pt;
+    clear: both;
+}
+
+.PnlBookingData .PlaneImgSpan {
+    text-align: left;
+    margin-right: 30px;
+}
+
+.PnlBookingData .PlaneImg {
+    width: 20px;
+}
+
+.PnlBookingData .class {
+    clear: both;
+    margin-left: 55px;
+}
+
+.PnlBookingData .PrintInvoice {
+    float: right;
+    clear: both;
+}
+
+.CListBox-Custom{
+padding-top:30px;
+}
+
+.CListBox-Custom .wj-state-selected {
+    background-color: #fff;
+    color:black;    
+}
+
+.CListBox-Custom .wj-content {
+}
+
+.CListBox-Flights {
+    padding-top: 10px!important;
+    border-radius: 0px!important;
+    border: solid rgb(219, 219, 219) 1px!important;
+}
+
+.CListBox-Flights .wj-listbox-item {    
+    border-bottom:solid rgb(219, 219, 219) 1px !important;
+}
+
+.CListBox-Flights .wj-state-selected {
+    background-color: #fff!important;
+    color:black!important;
+    border:solid rgb(17,123,192) 1px!important;
+}
+
+
+.CListBox-Flights .wj-content {
+    border-radius: 0px;
+}
+
+.LinkDiv {
+    cursor: pointer;
+    color: rgb(17,123,192);
+}
+
+.TravelersListTemplate{
+    padding-right:20px;
+    color:rgb(102,102,102);
+    font-size:13pt;
+}
+
+.TravelersListTemplate .Name{
+    color:rgb(30,136,229);
+    font-size:13pt;
+}
+
+.TravelersListTemplate .Icons{
+    cursor:pointer;
+    float:right;    
+    font-size:16pt;
+    
+}
+
+.SuccessMsgClass {
+    color: green;
+    font-weight: normal;
+}
+
+.NormalMsgClass {
+    color: gray;
+    font-weight: normal;
+}
+
+.FailMsgClass {
+    color: red;
+    font-weight: bold; 
+    visibility: visible;   
+}
+.HiddenMsgClass {
+    visibility: hidden;    
+}
+
+.PFLLeftPnl {
+    float: left;
+    width:120px;
+    margin-right:10px;
+}
+
+.PFLRightPnl{
+    float:left;
+}
+
+.CTRLBCK{    
+    float:left;
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);    
+    padding-left:10px;
+    padding-top:3px;
+    padding-right:2px;
+    height:40px; 
+    font-size:12pt;
+}
+
+
+.CTRLBCK .Title{    
+    color:rgb(30, 136, 229);
+    font-size:12pt;
+    font-weight:normal;
+}
+
+.TXTAREABCK{    
+    float:left;
+    margin-right:5px;
+    border:1px solid rgb(191, 191, 191);    
+    padding-left:10px;
+    padding-top:3px;
+    padding-right:2px;
+    height:120px; 
+    font-size:12pt;
+}
+
+
+.GroupHead{    
+    margin-top:35px;
+    padding-top:35px;
+    color:rgb(30, 136, 229);
+    font-size:15pt;
+    font-weight:normal;
+}
+
+.TravelerList {
+    width: 100%;
+    padding-left: 10px;
+    font-size: 10pt;
+}
+
+.PnlTravelers {
+    width: 75%;
+    float: left;
+    border: rgba(191, 191, 191, 0.47) 1px solid;
+    font-size:8pt;
+    color: rgb(102,102,102);
+    margin-bottom:20px;
+    padding-bottom:5px;
+}
+
+    .PnlTravelers #Title {
+        padding-left: 10px;
+        padding-top: 5px;
+        height: 40px;
+        font-size: 15pt;
+        font-weight: bold;
+        background-color: rgb(216,234,255);
+        color: rgb(102,102,102);
+        border-bottom: rgba(191, 191, 191, 0.47) 1px solid;
+    }
+
+    .PnlTravelers .SuccessMsg {
+        padding-top: 10px;
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom:10px;
+        font-size:12pt;
+        font-weight:normal;
+    }
+
+    .PnlTravelers .Content {
+            padding-top: 20px;
+            padding-left: 20px;            
+            padding-right: 20px;
+            padding-bottom:20px;
+            font-size:12pt;
+        }
+
+    .PnlTravelers <lbl{
+        width:150px;
+    }
+
+.PnlBookingSummary {
+    margin-bottom:20px;
+    padding-bottom: 5px;
+    border: rgba(191, 191, 191, 0.47) 1px solid;
+    font-size: 10pt;
+    color: rgb(102,102,102);
+}
+
+        .PnlBookingSummary .Content {
+            padding-top: 10px;
+            padding-left: 5px;            
+            padding-right: 5px;
+        }
+
+    .PnlBookingSummary #Title {
+        padding-left: 10px;
+        padding-top: 5px;
+        height: 40px;
+        font-size: 15pt;
+        font-weight: bold;
+        background-color: rgb(216,234,255);
+        color: rgb(102,102,102);
+        border-bottom: rgba(191, 191, 191, 0.47) 1px solid;
+    }
+
+    #PnlFareDetails{
+        font-size:12pt;
+    }
+
+
+.TravelerInputs {        
+    height: 28px;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: 4px;
+    background-color: #fff;
+    box-sizing: border-box;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+
+::-ms-fill-lower {
+    background: rgb(255,205,0);
+}
+::-ms-fill-upper {
+    background: rgb(255,205,0);
+}
+
+::-ms-thumb {
+    background: steelblue;
+}
+
+::-ms-track {    
+    border:none !important;
+    color: rgb(255,205,0);
+}
+
+.FlightHeaders {
+    width: 100%;
+    font-size: 9pt;
+    font-weight: bold;
+}
+
+    .FlightHeaders .FH_Airline {
+        float: left;
+        width: 24%;
+        text-align: center;
+        border: solid rgb(212,212,212) 1px;
+        height: 30px;
+        padding-top: 5px;
+    }
+
+    .FlightHeaders .FH_Depart {
+        float: left;
+        width: 16%;
+        text-align: center;
+        border: solid rgb(212,212,212) 1px;
+        height: 30px;
+        padding-top: 5px;
+    }
+
+    .FlightHeaders .FH_Arrive {
+        float: left;
+        width: 16%;
+        text-align: center;
+        border: solid rgb(212,212,212) 1px;
+        height: 30px;
+        padding-top: 5px;
+    }
+
+    .FlightHeaders .FH_Duration {
+        float: left;
+        width: 20%;
+        text-align: center;
+        border: solid rgb(212,212,212) 1px;
+        height: 30px;
+        padding-top: 5px;
+    }
+
+    .FlightHeaders .FH_Fare {
+        float: left;
+        width: 24%;
+        text-align: right;
+        border: solid rgb(212,212,212) 1px;
+        height: 30px;
+        padding-top: 5px;
+    }

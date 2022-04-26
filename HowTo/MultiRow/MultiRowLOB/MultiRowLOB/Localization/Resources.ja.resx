@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action_TransferSlip" xml:space="preserve">
+    <value>振替伝票</value>
+  </data>
+    <data name="Action_OrdersSlip" xml:space="preserve">
+    <value>受注伝票</value>
+  </data>
+    <data name="Action_OrderDetail" xml:space="preserve">
+    <value>受注明細照会</value>
+  </data>
+    <data name="Action_PurchaseSlip" xml:space="preserve">
+    <value>仕入伝票</value>
+  </data>
+    <data name="Action_OrderManagement" xml:space="preserve">
+    <value>受注管理</value>
+  </data>
+    <data name="Action_SalesSlip" xml:space="preserve">
+    <value>売上伝票</value>
+  </data>
+  <data name="ExportPDF" xml:space="preserve">
+    <value>Export to PDF</value>
+  </data>
+  <data name="ExportXlsx" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="OrderDetail_Title" xml:space="preserve">
+    <value>受注明細照会</value>
+  </data>
+  <data name="OrderDetail_Field_Accepted" xml:space="preserve">
+    <value>受注</value>
+  </data>
+  <data name="OrderDetail_Field_Company" xml:space="preserve">
+    <value>得意先</value>
+  </data>
+  <data name="OrderDetail_Field_Completed" xml:space="preserve">
+    <value>完納</value>
+  </data>
+  <data name="OrderDetail_Field_DeliveryDate" xml:space="preserve">
+    <value>客先納期</value>
+  </data>
+  <data name="OrderDetail_Field_HandlingId" xml:space="preserve">
+    <value>取区</value>
+  </data>
+  <data name="OrderDetail_Field_OrderDate" xml:space="preserve">
+    <value>受注日</value>
+  </data>
+  <data name="OrderDetail_Field_OrderId" xml:space="preserve">
+    <value>受注番号</value>
+  </data>
+  <data name="OrderDetail_Field_PackingRequest" xml:space="preserve">
+    <value>梱包要求</value>
+  </data>
+  <data name="OrderDetail_Field_PartId" xml:space="preserve">
+    <value>部品コード</value>
+  </data>
+  <data name="OrderDetail_Field_PartName" xml:space="preserve">
+    <value>部品名</value>
+  </data>
+  <data name="OrderDetail_Field_Person" xml:space="preserve">
+    <value>取引先担当者</value>
+  </data>
+  <data name="OrderDetail_Field_ProcessingDate" xml:space="preserve">
+    <value>加工納期</value>
+  </data>
+  <data name="OrderDetail_Field_ProcessingStatus" xml:space="preserve">
+    <value>加工状況</value>
+  </data>
+  <data name="OrderDetail_Field_PurchaseId" xml:space="preserve">
+    <value>発注番号</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity1" xml:space="preserve">
+    <value>受注数1</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity2" xml:space="preserve">
+    <value>受注数2</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity3" xml:space="preserve">
+    <value>受注数3</value>
+  </data>
+  <data name="OrderDetail_Field_ShippingDate" xml:space="preserve">
+    <value>出荷予定日</value>
+  </data>
+  <data name="OrderDetail_Field_Unit" xml:space="preserve">
+    <value>単位</value>
+  </data>
+  <data name="OrderManagement_DataMap_Warehouses" xml:space="preserve">
+    <value>東京倉庫, 京都倉庫, 大阪倉庫, 九州倉庫</value>
+  </data>
+  <data name="OrderManagement_Field_Amount" xml:space="preserve">
+    <value>金額</value>
+  </data>
+  <data name="OrderManagement_Field_DeliveryDate" xml:space="preserve">
+    <value>納品日</value>
+  </data>
+  <data name="OrderManagement_Field_OnHold" xml:space="preserve">
+    <value>保留</value>
+  </data>
+  <data name="OrderManagement_Field_OrderDate" xml:space="preserve">
+    <value>受注日</value>
+  </data>
+  <data name="OrderManagement_Field_OrderId" xml:space="preserve">
+    <value>契約書NO</value>
+  </data>
+  <data name="OrderManagement_Field_ProductId" xml:space="preserve">
+    <value>商品ID</value>
+  </data>
+  <data name="OrderManagement_Field_ProductName" xml:space="preserve">
+    <value>商品名</value>
+  </data>
+  <data name="OrderManagement_Field_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="OrderManagement_Field_ShippingWarehouse" xml:space="preserve">
+    <value>出荷倉庫</value>
+  </data>
+  <data name="OrderManagement_Field_SpecialNote" xml:space="preserve">
+    <value>特記事項</value>
+  </data>
+  <data name="OrderManagement_Field_UnitPrice" xml:space="preserve">
+    <value>単価</value>
+  </data>
+  <data name="OrderManagement_Title" xml:space="preserve">
+    <value>受注管理</value>
+  </data>
+  <data name="OrdersSlip_Field_Amount" xml:space="preserve">
+    <value>明細金額</value>
+  </data>
+  <data name="OrdersSlip_Field_Category" xml:space="preserve">
+    <value>商品区分</value>
+  </data>
+  <data name="OrdersSlip_Field_CategoryId" xml:space="preserve">
+    <value>区分コード</value>
+  </data>
+  <data name="OrdersSlip_Field_Description" xml:space="preserve">
+    <value>商品説明</value>
+  </data>
+  <data name="OrdersSlip_Field_Discontinued" xml:space="preserve">
+    <value>生産中止</value>
+  </data>
+  <data name="OrdersSlip_Field_PackageUnit" xml:space="preserve">
+    <value>梱包単位</value>
+  </data>
+  <data name="OrdersSlip_Field_ProductId" xml:space="preserve">
+    <value>商品コード</value>
+  </data>
+  <data name="OrdersSlip_Field_ProductName" xml:space="preserve">
+    <value>商品名</value>
+  </data>
+  <data name="OrdersSlip_Field_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="OrdersSlip_Field_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="OrdersSlip_Field_ShippingId" xml:space="preserve">
+    <value>運送区分</value>
+  </data>
+  <data name="OrdersSlip_Field_UnitPrice" xml:space="preserve">
+    <value>単価</value>
+  </data>
+  <data name="OrdersSlip_Title" xml:space="preserve">
+    <value>受注伝票</value>
+  </data>
+  <data name="PurchaseSlip_AmountSummary" xml:space="preserve">
+    <value>金額合計</value>
+  </data>
+  <data name="PurchaseSlip_DataMap_Cases" xml:space="preserve">
+    <value>小,中,大</value>
+  </data>
+  <data name="PurchaseSlip_Field_Case" xml:space="preserve">
+    <value>ケース</value>
+  </data>
+  <data name="PurchaseSlip_Field_Color" xml:space="preserve">
+    <value>色</value>
+  </data>
+  <data name="PurchaseSlip_Field_Cost" xml:space="preserve">
+    <value>原価金額</value>
+  </data>
+  <data name="PurchaseSlip_Field_Deal" xml:space="preserve">
+    <value>引合</value>
+  </data>
+  <data name="PurchaseSlip_Field_Id" xml:space="preserve">
+    <value>区分</value>
+  </data>
+  <data name="PurchaseSlip_Field_PackageUnit" xml:space="preserve">
+    <value>入数</value>
+  </data>
+  <data name="PurchaseSlip_Field_Price" xml:space="preserve">
+    <value>売価</value>
+  </data>
+  <data name="PurchaseSlip_Field_ProductId" xml:space="preserve">
+    <value>商品コード</value>
+  </data>
+  <data name="PurchaseSlip_Field_ProductName" xml:space="preserve">
+    <value>品名・規格</value>
+  </data>
+  <data name="PurchaseSlip_Field_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="PurchaseSlip_Field_Remarks" xml:space="preserve">
+    <value>備考</value>
+  </data>
+  <data name="PurchaseSlip_Field_Size" xml:space="preserve">
+    <value>サイズ</value>
+  </data>
+  <data name="PurchaseSlip_Field_UnitCost" xml:space="preserve">
+    <value>原単価</value>
+  </data>
+  <data name="PurchaseSlip_Summary" xml:space="preserve">
+    <value>合計</value>
+  </data>
+  <data name="PurchaseSlip_Title" xml:space="preserve">
+    <value>仕入伝票</value>
+  </data>
+  <data name="SalesSlip_Field_Id" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="SalesSlip_Field_Marker" xml:space="preserve">
+    <value>メーカー</value>
+  </data>
+  <data name="SalesSlip_Field_ProductId" xml:space="preserve">
+    <value>品番</value>
+  </data>
+  <data name="SalesSlip_Field_ProductName" xml:space="preserve">
+    <value>商品名</value>
+  </data>
+  <data name="SalesSlip_Field_ProfitRate" xml:space="preserve">
+    <value>利益率</value>
+  </data>
+  <data name="SalesSlip_Field_ProfitUnitPrice" xml:space="preserve">
+    <value>利益単価</value>
+  </data>
+  <data name="SalesSlip_Field_Quantity" xml:space="preserve">
+    <value>数量</value>
+  </data>
+  <data name="SalesSlip_Field_SalesAmount" xml:space="preserve">
+    <value>売上金額</value>
+  </data>
+  <data name="SalesSlip_Field_TotalProfit" xml:space="preserve">
+    <value>合計利益</value>
+  </data>
+  <data name="SalesSlip_Field_Unit" xml:space="preserve">
+    <value>単位</value>
+  </data>
+  <data name="SalesSlip_Field_UnitPrice" xml:space="preserve">
+    <value>単価</value>
+  </data>
+  <data name="SalesSlip_Title" xml:space="preserve">
+    <value>売上伝票</value>
+  </data>
+  <data name="TransferSlip_DataMap_CreditorAccounts" xml:space="preserve">
+    <value>普通預金,預り金,立替金,Accounts payable</value>
+  </data>
+  <data name="TransferSlip_DataMap_CreditorTypes" xml:space="preserve">
+    <value>ぶどう銀行,みかん銀行,りんご銀行,ぶどうカード</value>
+  </data>
+  <data name="TransferSlip_DataMap_DebtorAccounts" xml:space="preserve">
+    <value>給料手当,旅費交通費,接待交際費,消耗品費,支払手数料</value>
+  </data>
+  <data name="TransferSlip_DataMap_DebtorTypes" xml:space="preserve">
+    <value>(指定なし)</value>
+  </data>
+  <data name="TransferSlip_Date" xml:space="preserve">
+    <value>日付</value>
+  </data>
+  <data name="TransferSlip_DebtorCreditorBalanceTitle" xml:space="preserve">
+    <value>バランス</value>
+  </data>
+  <data name="TransferSlip_DebtorSumTitle" xml:space="preserve">
+    <value>貸方合計</value>
+  </data>
+  <data name="TransferSlip_Field_Brief" xml:space="preserve">
+    <value>摘要</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorAccount" xml:space="preserve">
+    <value>貸方勘定</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorAmount" xml:space="preserve">
+    <value>貸方金額</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorTax" xml:space="preserve">
+    <value>貸方消費税</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorTaxCategory" xml:space="preserve">
+    <value>貸方税区分</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorType" xml:space="preserve">
+    <value>貸方補助</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorAccount" xml:space="preserve">
+    <value>借方勘定</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorAmount" xml:space="preserve">
+    <value>借方金額</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorTax" xml:space="preserve">
+    <value>借方消費税</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorTaxCategory" xml:space="preserve">
+    <value>借方税区分</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorType" xml:space="preserve">
+    <value>借方補助</value>
+  </data>
+  <data name="TransferSlip_Field_Note" xml:space="preserve">
+    <value>付箋</value>
+  </data>
+  <data name="TransferSlip_SettlementTitle" xml:space="preserve">
+    <value>決算</value>
+  </data>
+  <data name="TransferSlip_SlipNo" xml:space="preserve">
+    <value>伝票No</value>
+  </data>
+  <data name="TransferSlip_Title" xml:space="preserve">
+    <value>振替伝票</value>
+  </data>
+  <data name="TransferSlip_CreditorSumTitle" xml:space="preserve">
+    <value>借方合計</value>
+  </data>
+</root>

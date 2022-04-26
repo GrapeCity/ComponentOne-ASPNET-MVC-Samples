@@ -1,0 +1,370 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accordion_Text0" xml:space="preserve">
+    <value>このビューは、TreeView コントロールを使用してアコーディオンコントロールを作成する方法を示します。</value>
+    <comment>This view shows how to make an Accordion control using TreeView control.</comment>
+  </data>
+  <data name="Accordion_Text1" xml:space="preserve">
+    <value>アコーディオンは、一度に 1 つのパネルのみを展開したままにするマルチペインパネルです。ナビゲーションによく使用されます。</value>
+    <comment>Accordions are multi-pane panels that keep only one panel expanded at a time. They are commonly used for navigation.</comment>
+  </data>
+  <data name="Accordion_Text2" xml:space="preserve">
+    <value>TreeView コントロールを使用してアコーディオンを実装できます。</value>
+    <comment>You can use the TreeView control to implement accordions.</comment>
+  </data>
+  <data name="Accordion_Text3" xml:space="preserve">
+    <value>ヘッダーの表示をカスタマイズして、折りたたみ/展開グリフを非表示にするには、CSS を使用します。アクティブでないパネルが自動的に折りたたまれるように、&lt;b&gt;AutoCollapse&lt;/b&gt; プロパティは true に設定してください（デフォルト）。</value>
+    <comment>Use CSS to customize the header display and to hide the collapse/expand glyphs, and make sure the &lt;b&gt;AutoCollapse&lt;/b&gt; property is set to true (the default), so non-active panels are automatically collapsed.</comment>
+  </data>
+  <data name="Checkboxes_Text1" xml:space="preserve">
+    <value>このビューは、TreeView コントロールにチェックボックスを表示する方法を示します。</value>
+    <comment>This view shows how to show checkboxes in a TreeView control.</comment>
+  </data>
+  <data name="Checkboxes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ShowCheckboxes&lt;/b&gt; プロパティを true に設定すると、TreeView の各ノードにチェックボックスが追加されます。</value>
+    <comment>Set the &lt;b&gt;ShowCheckboxes&lt;/b&gt; property to true and the TreeView will add checkboxes to each node.</comment>
+  </data>
+  <data name="Checkboxes_Text3" xml:space="preserve">
+    <value>チェックボックスが表示されると、TreeView コントロールがその階層を管理し、チェックボックスがオンまたはオフにされると、
+        新しい値がすべての子ノードに自動的に適用され、親ノードの状態に反映されます。</value>
+    <comment>When checkboxes are displayed, the TreeView manages their hierarchy so that when a checkbox is checked or cleared, 
+        the new value is automatically applied to all child nodes, and reflected on the state of the parent nodes.</comment>
+  </data>
+  <data name="Checkboxes_Text4" xml:space="preserve">
+    <value>項目をオンまたはオフにすると、&lt;b&gt;OnClientCheckedItemsChanged&lt;/b&gt;イベントが生成され、
+        クライアント TreeView オブジェクトの checkedItems プロパティに含まれる現在オンの項目のリストが更新されます。</value>
+    <comment>When items are checked or unchecked, the &lt;b&gt;OnClientCheckedItemsChanged&lt;/b&gt; event is raised, 
+        and the checkedItems property of the client TreeView object is updated with a list of the items that are currently checked.</comment>
+  </data>
+  <data name="Checkboxes_Text5" xml:space="preserve">
+    <value>チェックボックスは、TreeView が遅延ノードなしで動作する場合にのみ表示されます。
+        これは、&lt;b&gt;Bind&lt;/b&gt; メソッドの 2 番目のパラメータ &lt;b&gt;LazyLoadActionUrl&lt;/b&gt; と &lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; プロパティが設定されていない場合です。</value>
+    <comment>The checkboxes are only shown when TreeView works without lazy nodes.
+        That's to say, the second parameter &lt;b&gt;LazyLoadActionUrl&lt;/b&gt; in the &lt;b&gt;Bind&lt;/b&gt; method and the &lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; property are not set.</comment>
+  </data>
+  <data name="CustomNodeContent_Text0" xml:space="preserve">
+    <value>このビューは、TreeView コントロール内のノードコンテンツをカスタマイズする方法を示します。</value>
+    <comment>This view shows how to customize the node content in a TreeView control.</comment>
+  </data>
+  <data name="CustomNodeContent_Text1" xml:space="preserve">
+    <value>TreeView ノードのコンテンツは、formatItem イベントを使用してカスタマイズすることができます。イベントハンドラのパラメータには、ノードとレンダリングされるデータ項目を表す要素が含まれます。</value>
+    <comment>You can customize the content of the TreeView nodes using the formatItem event. The event handler parameters include the element that represents the node and the data item being rendered.</comment>
+  </data>
+  <data name="CustomNodeContent_Text2" xml:space="preserve">
+    <value>この例では、&lt;b&gt;OnClientFormatItem&lt;/b&gt; イベントを使用して、ツリーの新しい項目の右に「New」バッジを追加します。</value>
+    <comment>The example uses the &lt;b&gt;OnClientFormatItem&lt;/b&gt; event to add a "new" badge to the right of new items on the tree.</comment>
+  </data>
+  <data name="DragDrop_Text0" xml:space="preserve">
+    <value>このビューは、TreeView コントロール内のノードをドラッグアンドドロップ方法を示します。</value>
+    <comment>This view shows how to drag and drop the nodes in a TreeView control.</comment>
+  </data>
+  <data name="DragDrop_Text1" xml:space="preserve">
+    <value>&lt;b&gt;AllowDragging&lt;/b&gt; プロパティを true に設定すると、TreeView 内でノードを新しい位置にドラッグすることができます。</value>
+    <comment>Set the &lt;b&gt;AllowDragging&lt;/b&gt; property to true to allow users to drag nodes to new positions within the TreeView.</comment>
+  </data>
+  <data name="DragDrop_Text2" xml:space="preserve">
+    <value>ドラッグが許可されると、ツリー内の任意のノードを任意の位置にドラッグできます。この動作は、TreeView のドラッグイベントとドロップイベントを処理することでカスタマイズできます。
+        &lt;ul class="normal"&gt;
+            &lt;li&gt;&lt;b&gt;OnClientDragStart&lt;/b&gt;：&lt;/li&gt;
+            ドラッグまたはドロップ操作を開始しようとしたときに発生します。イベントの cancel パラメータを true に設定することで、ドラッグしようとしているノードを調べて操作をキャンセルすることができます。
+            &lt;li&gt;&lt;b&gt;OnClientDragOver&lt;/b&gt;：&lt;/li&gt;
+            ノードをツリーの他のノード上にドラッグしているときに発生します。イベントの cancel パラメータと position パラメータを設定することで、現在のターゲットノードとドロップ位置を調べて、ドロップを防いだり、場所を変更することができます。
+            &lt;li&gt;&lt;b&gt;OnClientDrop&lt;/b&gt;：&lt;/li&gt;
+            ノードを別の場所にドロップしたときに発生します。イベントの cancel パラメータと position パラメータを設定することで、現在のターゲットノードとドロップ位置を調べて、ドロップを防いだり、場所を変更することができます。
+            &lt;li&gt;&lt;b&gt;OnClientDragEnd&lt;/b&gt;：&lt;/li&gt;
+            ドラッグ/ドロップ操作が終了した後に、操作がキャンセルされたりソースノードが移動されなかった場合でも、発生します。
+        &lt;/ul&gt;</value>
+    <comment>When dragging is allowed, users may drag any node to any position within the tree. You can customize this behavior by handling the TreeView drag/drop events:
+        &lt;ul class="normal"&gt;
+            &lt;li&gt;&lt;b&gt;OnClientDragStart&lt;/b&gt;:&lt;/li&gt;
+            Occurs when a drag/drop operation is about to start. You may examine the node about to be dragged and cancel the operation by setting the event's cancel parameter to true.
+            &lt;li&gt;&lt;b&gt;OnClientDragOver&lt;/b&gt;:&lt;/li&gt;
+            Occurs while the user drags the node over other nodes on the tree. You may examine the current target node and drop position and prevent the drop or modify its location setting the event's cancel and position parameters.
+            &lt;li&gt;&lt;b&gt;OnClientDrop&lt;/b&gt;:&lt;/li&gt;
+            Occurs when the user drops the node into its new location. You may examine the current target node and drop position and prevent the drop or modify its location setting the event's cancel and position parameters.
+            &lt;li&gt;&lt;b&gt;OnClientDragEnd&lt;/b&gt;:&lt;/li&gt;
+            Occurs after the drag/drop operation is finished, even if it was canceled and the source node was not moved.
+        &lt;/ul&gt;</comment>
+  </data>
+  <data name="DragDrop_Text3" xml:space="preserve">
+    <value>この例は、TreeView コントロールで標準およびカスタマイズされたドラッグ/ドロップ操作を提供する方法を示します。</value>
+    <comment>The example shows how to provide standard and customized drag/drop operations on a TreeView control.</comment>
+  </data>
+  <data name="EditingNodes_Text0" xml:space="preserve">
+    <value>このビューは、TreeView コントロール内のノードを編集方法を示します。</value>
+    <comment>This view shows how to edit the nodes in a TreeView control.</comment>
+  </data>
+  <data name="EditingNodes_Text1" xml:space="preserve">
+    <value>TreeView コントロールは編集がサポートされています。&lt;b&gt;IsReadOnly&lt;/b&gt; プロパティを false に設定すると、［F2］キーを押してノードのコンテンツを編集することができます。</value>
+    <comment>The TreeView control provides editing support. Set the &lt;b&gt;IsReadOnly&lt;/b&gt; property to false and users will be able to edit the content of the nodes by pressing the F2 key.</comment>
+  </data>
+  <data name="EditingNodes_Text2" xml:space="preserve">
+    <value>ノードのコンテンツに行われた編集は、&lt;b&gt;DisplayMemberPath&lt;/b&gt; プロパティによって指定されたプロパティを使用して、&lt;b&gt;Source&lt;/b&gt; 配列内の項目に自動的に適用されます。</value>
+    <comment>Edits made to node contents are automatically applied to the items in the &lt;b&gt;Source&lt;/b&gt; array using the properties specified by the &lt;b&gt;DisplayMemberPath&lt;/b&gt; property.</comment>
+  </data>
+  <data name="EditingNodes_Text3" xml:space="preserve">
+    <value>OnClientNodeEditStarting、OnClientNodeEditStarted、OnClientNodeEditEnding、OnClientNodeEditEnded の各イベントを使用して、編集動作をカスタマイズできます。</value>
+    <comment>You may customize the editing behavior using the following events: OnClientNodeEditStarting, OnClientNodeEditStarted, OnClientNodeEditEnding, and OnClientNodeEditEnded.</comment>
+  </data>
+  <data name="EditingNodes_Text4" xml:space="preserve">
+    <value>次の例では、子を持たないノードに対してのみ編集を有効にします。編集するには、ノードを選択し、［F2］を押します。</value>
+    <comment>In the example below, we enable editing only for nodes that contain no children. To edit, select a node and press F2.</comment>
+  </data>
+  <data name="Images_Text0" xml:space="preserve">
+    <value>このビューは、TreeView コントロール内のノードに画像を追加する方法を示します。</value>
+    <comment>This view shows how to add images to the nodes in a TreeView control.</comment>
+  </data>
+  <data name="Images_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ImageMemberPath&lt;/b&gt; プロパティを使用して、画像 URL を含むデータ項目のプロパティの名前を指定することで、ノードに画像を追加します。</value>
+    <comment>Use the &lt;b&gt;ImageMemberPath&lt;/b&gt; property to add images to nodes by specifying the name of a property on the data items that contains an image URL.</comment>
+  </data>
+  <data name="Images_Text2" xml:space="preserve">
+    <value>このサンプルのソースには、画像 URL を値として持つ Image フィールドが含まれます。
+        「Image」は、&lt;b&gt;ImageMemberPath&lt;/b&gt; プロパティに設定されます。</value>
+    <comment>In this sample, the source contains the Image field, which value is an image url.
+        "Image" is set to the &lt;b&gt;ImageMemberPath&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューは、TreeView for ASP.NET MVC の基本機能を示します。</value>
+    <comment>This view shows basic features of TreeView for ASP.NET MVC.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>TreeView コントロールは、テキスト、チェックボックス、画像、または任意の HTML コンテンツから成る階層リストを表示します。
+        通常、TreeView は、階層として表示すると便利なドキュメントの見出し、
+        インデックス項目、ディスク内のファイルやディレクトリ
+        などの情報を表示するために使用されます。</value>
+    <comment>The TreeView control displays a hierarchical list which may contain text, checkboxes, images, or arbitrary HTML content.
+        A TreeView is typically used to display the headings in a document,
+        the entries in an index, the files and directories on a disk,
+        or any other kind of information that might usefully be displayed as a hierarchy.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>ツリーを作成するには、通常 3 つのプロパティを設定する必要があります。
+        &lt;ul class="normal"&gt;
+            &lt;li&gt;&lt;b&gt;Source&lt;/b&gt;&lt;/li&gt;
+            これは、階層化データを含む配列です。配列の各項目には、ノードおよび（オプションで）子ノードの配列に関する情報が含まれます。
+            &lt;li&gt;&lt;b&gt;DisplayMemberPath&lt;/b&gt;&lt;/li&gt;
+            ツリーノードに表示されるテキストを含む、項目内のプロパティの名前を定義します。デフォルトでは、このプロパティは文字列「header」に設定されています。
+            &lt;li&gt;&lt;b&gt;ChildItemsPath&lt;/b&gt;&lt;/li&gt;
+            子ノードの配列を含む、項目内のプロパティの名前を定義します。デフォルトでは、このプロパティは文字列「items」に設定されています。
+        &lt;/ul&gt;
+    </value>
+    <comment>To create trees, you will normally have to set three properties:
+        &lt;ul class="normal"&gt;
+            &lt;li&gt;&lt;b&gt;Source&lt;/b&gt;&lt;/li&gt;
+            It is an array that contains the hierarchical data. Each item in the array contains information about a node and (optionally) an array of child nodes.
+            &lt;li&gt;&lt;b&gt;DisplayMemberPath&lt;/b&gt;&lt;/li&gt;
+            It defines the name of the property in the items that contains the text to be displayed in the tree nodes. By default, this property is set to the string 'header'.
+            &lt;li&gt;&lt;b&gt;ChildItemsPath&lt;/b&gt;&lt;/li&gt;
+            It defines the name of the property in the items that contains the array of child nodes. By default, this property is set to the string 'items'.
+        &lt;/ul&gt;
+     </comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>ノード画像、チェックボックスを&lt;b&gt;Source&lt;/b&gt;配列に連結するために&lt;b&gt;ImageMemberPath&lt;/b&gt;と&lt;b&gt;CheckedMemberPath&lt;/b&gt;プロパティ、およびツリービューの動作をカスタマイズするために&lt;b&gt;IsAnimated&lt;/b&gt;、&lt;b&gt;AutoCollapse&lt;/b&gt;、&lt;b&gt;ExpandOnClick&lt;/b&gt;、&lt;b&gt;CollapseOnClick&lt;/b&gt;、&lt;b&gt;ExpandOnLoad&lt;/b&gt;、&lt;b&gt;CollapseWhenDisabled&lt;/b&gt;プロパティもあります。</value>
+    <comment>There are also properties for binding node images, checkboxes the &lt;b&gt;Source&lt;/b&gt; array: &lt;b&gt;ImageMemberPath, CheckedMemberPath&lt;/b&gt; and properties for controlling treeview behavior: &lt;b&gt;IsAnimated, AutoCollapse, ExpandOnClick, CollapseOnClick, ExpandOnLoad, CollapseWhenDisabled&lt;/b&gt;.</comment>
+  </data>
+  <data name="LazyLoading_Text0" xml:space="preserve">
+    <value>このビューは、子ノードを動的に TreeView にロードする方法を示します。</value>
+    <comment>This view shows how to load the child nodes dynamically in TreeView.</comment>
+  </data>
+  <data name="LazyLoading_Text1" xml:space="preserve">
+    <value>大きな階層化データソースを扱う場合、データセット全体を
+        一度にロードする際の遅延を避けるには、遅延ロードが役立ちます。</value>
+    <comment>Lazy loading is useful when you are dealing with large hierarchical data sources
+        and would like to avoid the delays involved in loading the entire data set at once.</comment>
+  </data>
+  <data name="LazyLoading_Text2" xml:space="preserve">
+    <value>TreeView コントロールは遅延ロードを極めて容易にしています。
+        2 番目のパラメータ &lt;b&gt;LazyLoadActionUrl&lt;/b&gt; を設定し、URL を提供するだけで、遅延ノードデータを取得できます。
+        子ノードが子を持つ場合は、&lt;b&gt;ChildItemsPath&lt;/b&gt; プロパティが表す
+        名前のフィールドに空の配列を設定できます。
+        そうでない場合は、null にします。</value>
+    <comment>The TreeView control makes lazy-loading super easy.
+        Only set the second parameter &lt;b&gt;LazyLoadActionUrl&lt;/b&gt; and provide a url to obtain the lazy nodes data.
+        If the child node has children, you can set an empty array to the field which name is what the
+        &lt;b&gt;ChildItemsPath&lt;/b&gt; property stands for.
+        Otherwise, let it to be null.</comment>
+  </data>
+  <data name="LazyLoading_Text3" xml:space="preserve">
+    <value>遅延ロードを JavaScript で使用する場合は、TreeView の &lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; プロパティに、
+        ノードを展開したときに呼び出される関数を設定します。この関数は、2 つのパラメータとして、親ノードと、
+        データが利用可能になったときに呼び出されるコールバック関数を受け取ります。</value>
+    <comment>If you wants to use lazy-loading with javascript, you can set the TreeView's &lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; property to a function to be called
+        when the user expands the node. This function takes two parameters: the parent node
+        and a callback function to be invoked when the data becomes available.</comment>
+  </data>
+  <data name="LazyLoading_Text4" xml:space="preserve">
+    <value>次の例のツリーでは、最初に 3 つの遅延ロードノードが表示されます。
+        ノードを展開すると、&lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; が呼び出されます。この関数は、
+        setTimeout を使用して http の遅延をシミュレーションし、3 つの子ノードのデータを返します。
+        その子ノードの 1 つも遅延ロードノードです。</value>
+    <comment>The tree in example below starts with three lazy-loaded nodes.
+        When you expand them, the &lt;b&gt;OnClientLazyLoadFunction&lt;/b&gt; is invoked. The function
+        uses a setTimeout to simulate an http delay and returns data for three child nodes,
+        one of which is also a lazy-loaded node.</comment>
+  </data>
+  <data name="LazyLoading_Text5" xml:space="preserve">
+    <value>この例では、いくつかの CSS を使用して、ロード中のノードアイコンをアニメーション
+        表示します。</value>
+    <comment>The example also uses some CSS to animate the node icons while they are being
+        loaded.</comment>
+  </data>
+  <data name="Navigation_Text0" xml:space="preserve">
+    <value>このビューは、TreeView for ASP.NET MVC でナビゲーションを行う方法を示します。</value>
+    <comment>This view shows how to do navigation in TreeView for ASP.NET MVC.</comment>
+  </data>
+  <data name="Navigation_Text1" xml:space="preserve">
+    <value>TreeView コントロールの最も単純で一般的な用途はナビゲーションです。TreeView の階層構造と自動検索機能により、目的の項目へのドリルダウンと検索を容易に行うことができます。</value>
+    <comment>The simplest and most common use for the TreeView control is navigation. The TreeView's hierarchical structure and auto-search functionality make it easy for users to drill-down and find the items they are interested in.</comment>
+  </data>
+  <data name="Navigation_Text2" xml:space="preserve">
+    <value>ナビゲーションには、&lt;b&gt;OnClientSelectedItemChanged&lt;/b&gt; イベントまたは &lt;b&gt;OnClientItemClicked&lt;/b&gt; イベントを使用できます。両者の違いは、キーボードを使用して選択項目を移動したときには &lt;b&gt;OnClientSelectedItemChanged&lt;/b&gt; が発生するのに対して、項目をクリックするか［Enter］キーを押したときには &lt;b&gt;OnClientItemClicked&lt;/b&gt; が発生する点です。</value>
+    <comment>You can use the &lt;b&gt;OnClientSelectedItemChanged&lt;/b&gt; or &lt;b&gt;OnClientItemClicked&lt;/b&gt; events for navigation. The difference is that &lt;b&gt;OnClientSelectedItemChanged&lt;/b&gt; occurs when the user moves the selection with the keyboard, and &lt;b&gt;OnClientItemClicked&lt;/b&gt; occurs when the user clicks an item or presses the Enter key.</comment>
+  </data>
+  <data name="Navigation_Text3" xml:space="preserve">
+    <value>この例では、&lt;b&gt;OnClientItemClicked&lt;/b&gt; イベントを使用します。</value>
+    <comment>This example uses the &lt;b&gt;OnClientItemClicked&lt;/b&gt; event.</comment>
+  </data>
+  <data name="Navigation_NavigatingInfo" xml:space="preserve">
+    <value>&lt;b&gt;*** {0} ***&lt;/b&gt; への移動</value>
+    <comment>Navigating to &lt;b&gt;*** {0} ***&lt;/b&gt;</comment>
+  </data>
+  <data name="RemoteLoading_Text0" xml:space="preserve">
+    <value>このビューは、リモート URL から TreeView for ASP.NET MVC にノード項目をロードする方法を示します。</value>
+    <comment>This view shows how to load the node items from a remote url in TreeView for ASP.NET MVC.</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>このビューは、CSS を使用して TreeView for ASP.NET MVC の外観をカスタマイズする方法を示します。</value>
+    <comment>This view shows how to customize the appearance of TreeView for ASP.NET MVC using CSS.</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>CSS を使用して TreeView の外観をカスタマイズできます。</value>
+    <comment>You can customize the appearance of the TreeView using CSS.</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>この例では、折りたたみ/展開アイコンを変更し、ノードレベルに応じて異なるフォントサイズを使用し、レベル 1 のノードの左側に縦棒を追加しています。</value>
+    <comment>This example changes the collapse/expand icons, uses different font sizes depending on node level, and adds a vertical bar to the left of the level one nodes.</comment>
+  </data>
+  <data name="Checkboxes_CheckedItems" xml:space="preserve">
+    <value>チェックされた項目：</value>
+    <comment>Checked Items:</comment>
+  </data>
+  <data name="DragDrop_Text4" xml:space="preserve">
+    <value>親ノードのドラッグを許可する</value>
+    <comment>Allow dragging parent nodes</comment>
+  </data>
+  <data name="DragDrop_Text5" xml:space="preserve">
+    <value>空のノードへのドロップを許可する</value>
+    <comment>Allow dropping into empty nodes</comment>
+  </data>
+  <data name="RemoteLoading_Text1" xml:space="preserve">
+    <value>&lt;b&gt;Bind(string loadActionUrl)&lt;/b&gt; メソッドを使用して、リモート URL からノード項目をロードできます。</value>
+    <comment>You can load the node items from a remote url using the &lt;b&gt;Bind(string loadActionUrl)&lt;/b&gt; method.</comment>
+  </data>
+  <data name="Checkboxes_Text6" xml:space="preserve">
+    <value>The &lt;b&gt;CheckOnClick&lt;/b&gt;プロパティを 'true'に設定すると、チェックボックスだけでなくアイテム全体をクリックしたときにチェックを切り替えることができます。</value>
+    <comment>The &lt;b&gt;CheckOnClick&lt;/b&gt; property set to 'true' enables toggling check when click on entire item, not only on checkbox.</comment>
+  </data>
+  <data name="Checkboxes_Text7" xml:space="preserve">
+    <value>&lt;b&gt;CheckedMemberPath&lt;/b&gt;プロパティは、チェックボックスの値によって割り当てられる、TreeViewのデータ項目のどのプロパティ（「NewItem」など）かを決定します。</value>
+    <comment>The &lt;b&gt;CheckedMemberPath&lt;/b&gt; property determines which property of TreeView's data items, for example 'NewItem', being assigned by checkboxes value.</comment>
+  </data>  
+</root>

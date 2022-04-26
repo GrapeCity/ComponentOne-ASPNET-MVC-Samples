@@ -1,0 +1,51 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Order>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+@(Html.C1().FlexGrid<Order>().Id(controlId)
+    .Bind(Model)
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.None)
+    .GroupBy("ShipCountry", "ShipCity").ShowGroups(true)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("OrderID").Header("Id");
+        columns.Add().Binding("ShipCountry").Header("Ship Country");
+        columns.Add().Binding("ShipCity").Header("Ship City");
+        columns.Add().Binding("ShippedDate").Header("Shipped Date");
+        columns.Add().Binding("ShipAddress").Header("Ship Address").Width("*");
+        columns.Add().Binding("Freight").Header("Freight").Format("c2").Aggregate(Aggregate.Sum);
+    })
+    .Height(500)
+    .Selector(sb => sb.ShowCheckAll(true))       
+)
+
+@section Settings{
+    <script>
+        function customChangeCheckboxColumn(grid, name) {
+            let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+            if (name == "Header") {
+                selector.column = grid;
+            } else {
+                selector.column = grid.getColumn(name);
+            }            
+            grid.endUpdate();
+        }
+        function customChangeShowCheckAll(grid, value) {
+            let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+            selector.showCheckAll = value == "False" ? false : true;
+            grid.endUpdate();
+        }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.CheckboxSelection_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.CheckboxSelection_Text1)</p>
+}

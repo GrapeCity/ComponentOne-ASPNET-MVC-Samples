@@ -1,0 +1,29 @@
+@model IEnumerable<InputData.Sale>
+
+@{ 
+    IEnumerable<string> countries = ViewBag.Countries;
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBox_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ComboBox_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBox_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBox_Text3)
+</p>
+<label for="theComboString">@Html.Raw(Resources.C1Input.ComboBox_Text4)</label>
+@Html.C1().ComboBox().Id("theComboString").Bind(countries)
+<p>
+    @Html.Raw(Resources.C1Input.ComboBox_Text5)
+</p>
+<label for="theComboObject">@Html.Raw(Resources.C1Input.ComboBox_Text6)</label>
+@(Html.C1().ComboBox<InputData.Sale>().Id("theComboObject").Bind(Model).DisplayMemberPath("Country"))
+<p>
+    @Html.Raw(Resources.C1Input.ComboBox_Text7)
+</p>

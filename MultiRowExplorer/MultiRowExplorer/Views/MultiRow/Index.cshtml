@@ -1,0 +1,68 @@
+@model IEnumerable<Orders.Order>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+
+    var layoutDefinition = optionsModel.Options["Layout Definition"].CurrentValue;
+    Action<ListItemFactory<CellGroup, CellGroupBuilder>> layoutDefinitionBuilder;
+    if (layoutDefinition == "Traditional")
+    {
+        layoutDefinitionBuilder = LayoutDefinitionsBuilders.OneLine;
+    }
+    else if (layoutDefinition == "Compact")
+    {
+        layoutDefinitionBuilder = LayoutDefinitionsBuilders.TwoLines;
+    }
+    else
+    {
+        layoutDefinitionBuilder = LayoutDefinitionsBuilders.ThreeLines;
+    }
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id("ovMultiRow")
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
+    .CssClass("multirow")
+    .LayoutDefinition(layoutDefinitionBuilder)
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    @if (layoutDefinition == "Traditional")
+    {
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text0)</p>
+    }
+    @if (layoutDefinition == "Compact")
+    {
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text1)</p>
+    }
+    @if (layoutDefinition == "Detailed")
+    {
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text2)</p>
+    }
+}
+
+@section Summary{
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text3)</p>
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text4)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text5)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text6)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text7)</p>
+
+<h3 class="semi-bold">@Html.Raw(Resources.MultiRowExplorer.Index_Text12)</h3>
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text8)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text9)
+    <img src="@Url.Content(Resources.MultiRowExplorer.Index_Text13)" />
+</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text10)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Index_Text11)</p>
+
+}

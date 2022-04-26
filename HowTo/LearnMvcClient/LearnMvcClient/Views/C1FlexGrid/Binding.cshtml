@@ -1,0 +1,23 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Binding_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Binding_Text1)
+</p>
+
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Binding_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGridAutoGen").ShowAlternatingRows(false).Height(200)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Binding_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Binding_Text4)
+</p>
+@Html.C1().FlexGrid().Id("theGridExplicitCols").ShowAlternatingRows(false).Height(200)

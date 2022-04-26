@@ -1,0 +1,27 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.InitialState_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.InitialState_Text1)
+</p>
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+
+<h2>
+    @Html.Raw(Resources.C1Nav.InitialState_Title1)
+</h2>
+<p>
+    @Html.Raw(Resources.C1Nav.InitialState_Text2)
+</p>
+@Html.C1().TreeView().Id("theTreeSelected").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+
+<h2>
+    @Html.Raw(Resources.C1Nav.InitialState_Title2)
+</h2>
+<p>
+    @Html.Raw(Resources.C1Nav.InitialState_Text3)
+</p>
+@Html.C1().TreeView().Id("theTreeCollapsed").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+@Html.C1().TreeView().Id("theTreeExpanded").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")

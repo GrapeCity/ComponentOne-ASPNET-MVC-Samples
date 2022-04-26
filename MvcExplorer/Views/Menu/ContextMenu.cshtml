@@ -1,0 +1,50 @@
+﻿@section Styles{
+<style>
+    .context {
+        margin: 10px;
+        padding: 20px;
+        color: white;
+        display: inline-block;
+    }
+</style>
+}
+
+@section Scripts{
+<script>
+    function setColor(arg) {
+        wijmo.Control.getControl("#ctxMenu").owner.style.background = arg;
+    }
+</script>
+}
+
+<label>@Html.Raw(Resources.Menu.ContextMenu_Text0)</label>
+
+<div class="context" style="background:#f0a0a0">
+    @Html.Raw(Resources.Menu.ContextMenu_Text1)
+</div>
+<div class="context" style="background:#a0f0a0">
+    @Html.Raw(Resources.Menu.ContextMenu_Text2)
+</div>
+<div class="context" style="background:#a0a0f0">
+    @Html.Raw(Resources.Menu.ContextMenu_Text3)
+</div>
+
+@(Html.C1().Menu().Header(Resources.Menu.ContextMenu_Text4)
+        .Id("ctxMenu")
+        .Command("setColor")
+        .MenuItems(items =>
+        {
+            items.Add(Resources.Menu.ContextMenu_ColorPink, "#f0a0a0");
+            items.Add(Resources.Menu.ContextMenu_ColorAqua, "#a0f0a0");
+            items.Add(Resources.Menu.ContextMenu_ColorPurple, "#a0a0f0");
+            items.Add(Resources.Menu.ContextMenu_ColorBlue, "blue");
+            items.Add(Resources.Menu.ContextMenu_ColorRed, "red");
+            items.Add(Resources.Menu.ContextMenu_ColorYellow, "yellow");
+        })
+    .CssStyle("display", "none")
+    .Owner(".context")
+)
+
+@section Description{
+    @Html.Raw(Resources.Menu.ContextMenu_Text5)
+}

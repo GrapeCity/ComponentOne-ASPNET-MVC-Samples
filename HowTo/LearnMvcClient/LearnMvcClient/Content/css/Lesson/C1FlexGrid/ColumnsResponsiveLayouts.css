@@ -1,0 +1,16 @@
+﻿/* set grid height */
+.wj-flexgrid {
+    height: 350px;
+    -moz-user-select: none;
+}
+/* disable alternating rows */
+.wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background: #fff;
+}
+/* format detail cells */
+.item-header {
+    font-weight: bold;
+    font-size: 150%;    
+}
+.item-detail {
+    margin-left: 12px;

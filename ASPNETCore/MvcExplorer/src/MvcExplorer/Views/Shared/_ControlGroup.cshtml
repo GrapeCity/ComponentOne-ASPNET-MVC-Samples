@@ -1,0 +1,28 @@
+﻿@model ControlGroup
+
+@{
+    if (Model == null || !Model.Visible)
+    {
+        return;
+    }
+}
+<li class="control-group">
+    <h3 class="semi-bold">@Model.GroupName</h3>
+    <ul>
+        @foreach (var control in Model.Controls)
+        {
+            if (control.ControlName == "FlexGrid")
+            {
+                <li>@Html.ActionLink(control.Text, "ShowCase", control.ControlNameEn)</li>
+            }
+            else if (string.IsNullOrEmpty(control.Link))
+            {
+                <li>@Html.ActionLink(control.Text, "Index", control.ControlNameEn)</li>
+            }
+            else
+            {
+                <li><a target="_blank" href="@control.Link">@control.Text</a></li>
+            }
+        }
+    </ul>
+</li>

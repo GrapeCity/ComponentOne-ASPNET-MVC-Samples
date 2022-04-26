@@ -1,0 +1,60 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.GridPanels_Text7)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Text8)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Text9)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .ShowAlternatingRows(false)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Active").Header("Active").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+        cs.Add().Binding("Downloads").Header("Downloads (K)").Format("n0").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+        cs.Add().Binding("Sales").Header("Sales (K)").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+        cs.Add().Binding("Expenses").Header("Expenses (K)").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+    })
+)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Text10)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GridPanels_Text11)
+</p>
+@(Html.C1().ComboBox().Id("headersVisibility")
+    .Bind(new[] { "None", "Row", "Column", "All" })
+    .Text("All")
+)

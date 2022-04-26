@@ -1,7 +1,9 @@
-﻿@model List<Fruit>
+﻿@using MultipleControlsBinding.Models;
+@using C1.Web.Mvc;
+@model List<Fruit>
 
 @{
-    ViewBag.Title = "ASP.NET Core Multiple Controls Binding";
+    ViewBag.Title = "ASP.NET MVC Multiple Controls Binding";
     Layout = "~/Views/Shared/_Layout.cshtml";
     var settings = (Dictionary<string, object[]>)ViewBag.Settings;
 }
@@ -12,10 +14,10 @@
             <i class="gcicon-product-c1"></i>
         </a>
         <h1>
-            ASP.NET Core Multiple Controls Binding
+            ASP.NET MVC Multiple Controls Binding
         </h1>
         <p>
-            This page shows how to bind one CollectionView to multiple controls in ASP.NET Core.
+            This page shows how to bind one CollectionView to multiple controls.
         </p>
     </div>
 </div>
@@ -31,54 +33,66 @@
             Steps for getting started with the Multiple Controls Binding in MVC application:
         </p>
         <ol>
-            <li>Create a CollectionViewService by using @("<c1-items-source>") tag and set id for it.</li>
+            <li>Create a CollectionViewService and set id for it.</li>
             <li>Create a FlexGrid control and set it's ItemsSourceId to the id of CollectionViewService.</li>
             <li>Create a FlexChart control and set the same ItemsSourceId with FlexGrid.</li>
         </ol>
         <p>
             This will create a FlexGrid and a FlexChart and they will bind to the same CollectionView, so if
-            we change the data of FlexGrid, we can see the data also changed in FlexChart.
+            we change the data of FlexGrid, we can see the data also changes in FlexChart.
         </p>
-        <c1-items-source id="fruitsSales" source-collection="Model" update-action-url="/Home/Update"
-                         delete-action-url="/Home/Delete" create-action-url="/Home/Create">
-        </c1-items-source>
+        @(Html.C1().CollectionViewService<Fruit>().Id("fruitsSales")
+                                .Bind(Model).Update(Url.Action("Update", "Home"))
+                                .Delete(Url.Action("Delete", "Home"))
+                                .Create(Url.Action("Create", "Home")))
         <div class="row">
             <div class="col-md-5">
                 <h4>FlexGrid :</h4>
-                <c1-flex-grid id="flexGrid" is-read-only="false" auto-generate-columns="false"
-                              allow-add-new="true" allow-delete="true" items-source-id="fruitsSales" 
-                              selection-mode="Row">
-                    <c1-flex-grid-column binding="ID" width="*" is-read-only="true"></c1-flex-grid-column>
-                    <c1-flex-grid-column binding="Name" width="*"></c1-flex-grid-column>
-                    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
-                    <c1-flex-grid-column binding="MarPrice" width="*"></c1-flex-grid-column>
-                    <c1-flex-grid-column binding="AprPrice" width="*"></c1-flex-grid-column>
-                    <c1-flex-grid-column binding="MayPrice" width="*"></c1-flex-grid-column>
-                </c1-flex-grid>
+                @(Html.C1().FlexGrid<Fruit>().Id("flexGrid")
+                        .Columns(cls =>
+                        {
+                            cls.Add(col => col.Binding("ID").Visible(true).IsReadOnly(true).Width("40"));
+                            cls.Add(col => col.Binding("Name").Width("*"));
+                            cls.Add(col => col.Binding("Country").Width("*"));
+                            cls.Add(col => col.Binding("MarPrice").Width("*"));
+                            cls.Add(col => col.Binding("AprPrice").Width("*"));
+                            cls.Add(col => col.Binding("MayPrice").Width("*"));
+                        })
+                    .IsReadOnly(true)
+                    .AllowSorting(true)
+                    .ItemsSourceId("fruitsSales")
+                    .AutoGenerateColumns(false)
+                    .IsReadOnly(false)
+                    .AllowAddNew(true)
+                    .AllowDelete(true)
+                    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+                )
             </div>
             <div class="col-md-7">
                 <h4>FlexChart :</h4>
-                <c1-flex-chart id="flexChart" items-source-id="fruitsSales" binding-x="Name"
-                               selection-mode="Point" header="Fruits Sales">
-                    <c1-flex-chart-series binding="MarPrice" name="March"></c1-flex-chart-series>
-                    <c1-flex-chart-series binding="AprPrice" name="April"></c1-flex-chart-series>
-                    <c1-flex-chart-series binding="MayPrice" name="May"></c1-flex-chart-series>
-                </c1-flex-chart>
+                @(Html.C1().FlexChart().Id("flexChart").Header("Fruits Sales")
+                            .ItemsSourceId("fruitsSales").BindingX("Name").Series(sers =>
+                    {
+                        sers.Add().Binding("MarPrice").Name("March");
+                        sers.Add().Binding("AprPrice").Name("April");
+                        sers.Add().Binding("MayPrice").Name("May");
+                    }).SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Point)
+                )
                 <div class="form-horizontal">
                     <div class="form-group">
                         <label class="col-md-2 control-label">Chart Type</label>
                         <div class="col-md-4">
-                            <c1-combo-box id="typeMenu" text="Column"
-                                          selected-index-changed="typeMenu_SelectedIndexChanged">
-                                <c1-items-source source-collection="@(settings["ChartType"])"></c1-items-source>
-                            </c1-combo-box>
+                            @(Html.C1().ComboBox().Id("typeMenu")
+                                    .Bind(settings["ChartType"]).Text("Column")
+                                    .OnClientSelectedIndexChanged("typeMenu_SelectedIndexChanged")
+                            )
                         </div>
                         <label class="col-md-2 control-label">Rotated</label>
                         <div class="col-md-4">
-                            <c1-combo-box id="rotatedMenu" text="False"
-                                          selected-index-changed="rotatedMenu_SelectedIndexChanged">
-                                <c1-items-source source-collection="@(settings["Rotated"])"></c1-items-source>
-                            </c1-combo-box>
+                            @(Html.C1().ComboBox().Id("rotatedMenu")
+                                     .Bind(settings["Rotated"]).Text("False")
+                                     .OnClientSelectedIndexChanged("rotatedMenu_SelectedIndexChanged")
+                            )
                         </div>
                     </div>
                 </div>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<CustomerWithOrders>
+@section Scripts{
+<script>
+    function hasDetail(row) {
+        return row.dataItem.Country.length > 5;
+    }
+</script>
+}
+
+<script id="detailTemplate" type="text/template">
+    @(Html.C1().FlexGrid()
+        .Height("200px")
+        .AutoGenerateColumns(false)
+        .IsReadOnly(true)
+        .TemplateBind("ItemsSource", "Orders")
+        .Columns(columns =>
+        {
+            columns.Add(column => column.Binding("ShippedDate").Width("*"));
+            columns.Add(column => column.Binding("Freight").Width("*").Align("Center"));
+            columns.Add(column => column.Binding("ShipVia").Width("*").Align("Center"));
+        })
+        .ToTemplate()
+    )
+</script>
+
+@(Html.C1().FlexGrid()
+    .ShowDetailRow(d => d.DetailRowTemplateId("detailTemplate").RowHasDetail("hasDetail").DetailVisibilityMode(C1.Web.Mvc.Grid.DetailVisibilityMode.ExpandMulti).IsAnimated(true))
+    .Id("detailRowFlexGrid")
+    .AutoGenerateColumns(false)
+    .IsReadOnly(true)
+    .Bind(Model)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("CustomerID").Width("*"));
+        columns.Add(column => column.Binding("CompanyName").Width("2*").Align("Center"));
+        columns.Add(column => column.Binding("Country").Width("2*").Align("Center"));
+        columns.Add(column => column.Binding("City").Width("2*").Align("Center"));
+    })
+)
+@section Description{
+    @Html.Raw(Resources.FlexGrid.DetailRow_Text0)
+}

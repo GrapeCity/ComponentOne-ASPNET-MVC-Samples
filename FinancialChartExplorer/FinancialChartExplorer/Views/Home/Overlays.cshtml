@@ -1,11 +1,12 @@
+@using FinancialChartExplorer.Models
+
 @model List<FinanceData>
 @{
     ViewBag.DemoSettings = true;
-    var overlays = new List<AnalysisType> {
+    var overlays = new List<AnalysisType> { 
         new AnalysisType{Name = "Bollinger Bands", Abbreviation = "bollinger"},
         new AnalysisType{Name = "Envelopes", Abbreviation = "envelopes" }
     };
-    var envelopeTypes = new List<string> { "Simple", "Exponential" };
 }
 
 <script type="text/javascript">
@@ -88,7 +89,7 @@
     function envelopeTypeChanged(menu) {
         var chart = wijmo.Control.getControl('#overlays');
 
-        menu.header = 'Type: <b>' + menu.selectedItem.Header + '</b>';
+        menu.header = '@Html.Raw(Resources.Home.Overlays_TypeLabel) <b>' + menu.selectedItem.Header + '</b>';
         if (chart) {
             chart.series[2].type = wijmo.chart.finance.analytics.MovingAverageType[menu.selectedItem.CommandParameter];
         }
@@ -108,61 +109,68 @@
 </script>
 
 
-<c1-financial-chart id="overlays" symbol-size="6" binding-x="X" chart-type="Candlestick">
-    <c1-items-source source-collection="@Model"></c1-items-source>
-    <c1-financial-chart-series binding="High,Low,Open,Close" name="BOX"></c1-financial-chart-series>
-    <c1-flex-chart-bollinger-bands binding="Close" period="20" multiplier="2" name="Bollinger Bands"></c1-flex-chart-bollinger-bands>
-    <c1-flex-chart-envelopes binding="Close" period="20" size="0.03" type="Simple" name="Envelopes"></c1-flex-chart-envelopes>
-    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
-</c1-financial-chart>
+@(Html.C1().FinancialChart()
+.Id("overlays")
+.Bind(Model)
+.BindingX("X")
+.SymbolSize(6)
+.ChartType(C1.Web.Mvc.Finance.ChartType.Candlestick)
+.Series(sers =>
+    {
+        sers.Add().Binding("High,Low,Open,Close").Name("BOX");
+        sers.AddBollingerBands().Binding("Close").Period(20).Multiplier(2).Name("Bollinger Bands");
+        sers.AddEnvelopes().Binding("Close").Period(20).Size(0.03).Type(C1.Web.Mvc.Finance.MovingAverageType.Simple).Name("Envelopes").Visibility(C1.Web.Mvc.Chart.SeriesVisibility.Hidden);
+    })
+.Tooltip(t => t.Content("tooltip")))
 
 @section Settings{
-    <div class="panel-body">
-        <!-- Overlay Selector -->
-        <ul class="list-inline">
-            <li>
-                <label>@Html.Raw(Home.Overlays_Overlay)</label>
-                <c1-combo-box id="overlayComboBox" selected-value-path="Abbreviation" display-member-path="Name" selected-index-changed="updateOverlayType" is-editable="false">
-                    <c1-items-source source-collection="overlays"></c1-items-source>
-                </c1-combo-box>
-            </li>
-        </ul>
+<div class="panel-body">
+    <!-- Overlay Selector -->
+    <ul class="list-inline">
+        <li>
+            <label>@Html.Raw(Resources.Home.Overlays_Overlay)</label>
+            @(Html.C1().ComboBox().Id("overlayComboBox").Bind(overlays).SelectedValuePath("Abbreviation").DisplayMemberPath("Name").OnClientSelectedIndexChanged("updateOverlayType").IsEditable(false))
+        </li>
+    </ul>
 
-        <!-- Bollinger Bands Properties -->
-        <ul class="list-inline" id="bollinger">
-            <li>
-                <label>@Html.Raw(Home.Overlays_Period)</label>
-                <c1-input-number value="20" min="2" step="1" max="@(Model.Count - 1)" format="n0" value-changed="updateBBPeriod"></c1-input-number>
-            </li>
-            <li>
-                <label>@Html.Raw(Home.Overlays_Multiplier)</label>
-                <c1-input-number value="2" min="1" step="1" max="100" format="n0" value-changed="updateBBMultiplier"></c1-input-number>
-            </li>
-        </ul>
+    <!-- Bollinger Bands Properties -->
+    <ul class="list-inline" id="bollinger">
+        <li>
+            <label>@Html.Raw(Resources.Home.Overlays_Period)</label>
+            @(Html.C1().InputNumber().Value(20).Min(2).Step(1).Max((Model.Count - 1)).Format("n0").OnClientValueChanged("updateBBPeriod"))
+        </li>
+        <li>
+            <label>@Html.Raw(Resources.Home.Overlays_Multiplier)</label>
+            @(Html.C1().InputNumber().Value(2).Min(1).Step(1).Max(100).Format("n0").OnClientValueChanged("updateBBMultiplier"))
+        </li>
+    </ul>
 
-        <!-- Envelope Properties -->
-        <ul class="list-inline" id="envelopes">
-            <li>
-                <label>@Html.Raw(Home.Overlays_Period)</label>
-                <c1-input-number value="20" min="2" step="1" max="@(Model.Count - 1)" format="n0" value-changed="updateEnvelopePeriod"></c1-input-number>
-            </li>
-            <li>
-                <label>@Html.Raw(Home.Overlays_Size)</label>
-                <c1-input-number value="0.03" min="0" step="0.01" max="1" format="p0" value-changed="updateEnvelopeSize"></c1-input-number>
-            </li>
-            <li>
-                <c1-menu header="Type: <b>Simple</b>" item-clicked="envelopeTypeChanged">
-                    <c1-menu-item header="@envelopeTypes[0]" command-parameter="@envelopeTypes[0]"></c1-menu-item>
-                    <c1-menu-item header="@envelopeTypes[1]" command-parameter="@envelopeTypes[1]"></c1-menu-item>
-                </c1-menu>
-            </li>
-        </ul>
-    </div>
+    <!-- Envelope Properties -->
+    <ul class="list-inline" id="envelopes">
+        <li>
+            <label>@Html.Raw(Resources.Home.Overlays_Period)</label>
+            @(Html.C1().InputNumber().Value(20).Min(2).Step(1).Max((Model.Count - 1)).Format("n0").OnClientValueChanged("updateEnvelopePeriod"))
+        </li>
+        <li>
+            <label>@Html.Raw(Resources.Home.Overlays_Size)</label>
+            @(Html.C1().InputNumber().Value(0.03).Min(0).Step(0.01).Max(1).Format("p0").OnClientValueChanged("updateEnvelopeSize"))
+        </li>
+        <li>
+            @(Html.C1().Menu().Header(Resources.Home.Overlays_TypeBSimpleHeader)
+            .MenuItems(mifb =>
+            {
+                mifb.Add().Header(Resources.Home.Overlays_TypeSimple).CommandParameter("Simple");
+                mifb.Add().Header(Resources.Home.Overlays_TypeExponential).CommandParameter("Exponential");
+            })
+            .OnClientItemClicked("envelopeTypeChanged"))
+        </li>
+    </ul>
+</div>
 }
 
 @section Description{
-<p>@Html.Raw(Home.Overlays_Text0)</p>
+    <p>@Html.Raw(Resources.Home.Overlays_Text0)</p>
 }
 @section Summary{
-    <p>@Html.Raw(Home.Overlays_Text1)</p>
+    <p>@Html.Raw(Resources.Home.Overlays_Text1)</p>
 }

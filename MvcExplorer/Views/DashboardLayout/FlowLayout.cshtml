@@ -1,0 +1,31 @@
+﻿@model DashboardData
+
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsAtTop = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@Html.Partial("_DashboardElements", Model)
+@(Html.C1().DashboardLayout().Id(demoSettingsModel.ControlId)
+        .AttachFlowLayout(flb => flb.Direction(FlowDirection.LeftToRight)
+        .Items(isb =>
+        {
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.SalesDashboard, Model.SalesDashboardStr))
+                .Content("#salesDashboardFGrid").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.KPIs, Model.KPIsStr))
+                .Content("#kpiGauges").Height(303).Width(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.CostBudget, Model.CostBudgetingStr))
+                .Content("#costBudgetingChart").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.Countrywise, Model.CountrywiseSalesStr))
+                .Content("#countrywiseSalesChart").Width(303).Height(303));
+        }))
+)
+
+@section Summary{
+    @Html.Raw(Resources.DashboardLayout.FlowLayout_Summary)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.DashboardLayout.FlowLayout_Desc)</p>
+}

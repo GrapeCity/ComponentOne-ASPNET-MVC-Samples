@@ -1,22 +1,22 @@
-﻿@model bool
+@model bool
 @{
 var screenCss = Model ? "narrow-screen" : "wide-screen";
 }
 <ul class="site-nav @screenCss">
     <li>
-        <a href="@Html.Raw(FlexSheetRes._SiteNav_Text5)" target="_blank">@Html.Raw(FlexSheetRes._SiteNav_Text0)</a>
+        <a href="@Html.Raw(Resources.FlexSheet._SiteNav_Text5)" target="_blank">@Html.Raw(Resources.FlexSheet._SiteNav_Text0)</a>
     </li>
     <li>
-        <a href="@Html.Raw(FlexSheetRes._SiteNav_Text6)" target="_blank">@Html.Raw(FlexSheetRes._SiteNav_Text1)</a>
+        <a href="@Html.Raw(Resources.FlexSheet._SiteNav_Text6)" target="_blank">@Html.Raw(Resources.FlexSheet._SiteNav_Text1)</a>
     </li>
     <li>
-        <a href="@Html.Raw(FlexSheetRes._SiteNav_Text7)" target="_blank">@Html.Raw(FlexSheetRes._SiteNav_Text2)</a>
+        <a href="@Html.Raw(Resources.FlexSheet._SiteNav_Text7)" target="_blank">@Html.Raw(Resources.FlexSheet._SiteNav_Text2)</a>
     </li>
     <li class="bold">
-        <a href="@Html.Raw(FlexSheetRes._SiteNav_Text8)" target="_blank">@Html.Raw(FlexSheetRes._SiteNav_Text3)</a>
+        <a href="@Html.Raw(Resources.FlexSheet._SiteNav_Text8)" target="_blank">@Html.Raw(Resources.FlexSheet._SiteNav_Text3)</a>
     </li>
     <li class="narrow-screen">
-        @Html.Raw(FlexSheetRes._SiteNav_Text4)
-        @await Html.PartialAsync("_ThemeList")
+        @Html.Raw(Resources.FlexSheet._SiteNav_Text4)
+        @Html.Partial("_ThemeList")
     </li>
 </ul>

@@ -1,0 +1,12 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxMasterDetail_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxMasterDetail_Text1)
+</p>
+
+<label for="theCombo">@Html.Raw(Resources.C1Input.ComboBoxMasterDetail_Text2)</label>
+@(Html.C1().ComboBox<Gdp>().Id("theCombo").Bind(Model).DisplayMemberPath("Country"))
+<p id="detail"></p>

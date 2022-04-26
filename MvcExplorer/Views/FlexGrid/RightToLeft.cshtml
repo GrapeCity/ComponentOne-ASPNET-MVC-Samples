@@ -1,0 +1,28 @@
+﻿@model IEnumerable<Sale>
+
+<h3>
+    @Html.Raw(Resources.FlexGrid.RightToLeft_RightToLeft)</h3>
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .Bind(bl => bl.Bind(Model))
+    .IsReadOnly(true)
+    .CssClass("grid")
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+    .HtmlAttribute("dir", "rtl")
+)
+
+@section Description{
+
+<p>@Html.Raw(Resources.FlexGrid.RightToLeft_Text0)</p>
+<p>@Html.Raw(Resources.FlexGrid.RightToLeft_Text1)</p>
+<p>@Html.Raw(Resources.FlexGrid.RightToLeft_Text2)</p>
+<p>@Html.Raw(Resources.FlexGrid.RightToLeft_Text3)</p>
+}

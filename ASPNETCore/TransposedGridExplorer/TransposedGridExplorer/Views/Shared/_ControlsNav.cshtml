@@ -1,0 +1,11 @@
+﻿<script id="navTemplate" type="text/template">
+    <a href="{{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+<h4 class="semi-bold wide-screen">@Html.Raw(TransposedGridRes._ControlsNav_Text0)</h4>
+<c1-list-box id="controlNav" class="page-nav wide-screen" display-member-path="Text">
+    <c1-input-item-template id="navTemplate"></c1-input-item-template>
+    <c1-items-source source-collection="(IEnumerable<ControlPage>)ViewBag.Pages" ></c1-items-source>
+</c1-list-box>

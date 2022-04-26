@@ -1,0 +1,40 @@
+﻿@{
+    List<string> countries = ViewBag.Countries;
+    List<string> cities = ViewBag.Cities;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    string vThreshold = optionsModel.Options["Virtualization Threshold"].CurrentValue;
+}
+
+<div>
+    <label>@Html.Raw(Resources.ComboBox.Index_NonEditable)</label>
+    @(Html.C1().ComboBox().Bind(countries)
+        .SelectedIndex(0).IsEditable(false)
+        .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold)))
+</div>
+<div>
+    <label>@Html.Raw(Resources.ComboBox.Index_Editable)</label>
+    @(Html.C1().ComboBox().Bind(cities)
+        .SelectedIndex(0).IsEditable(true)
+        .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold)))
+
+</div>
+
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.ComboBox.Index_Text0)
+    <br />
+    @Html.Raw(Resources.ComboBox.CaseSensitiveSearchDescription_Text0)
+    <br />
+    @Html.Raw(Resources.ComboBox.HandleWheelDescription_Text0)
+    <br />
+    @Html.Raw(Resources.ComboBox.Index_Text1)
+}

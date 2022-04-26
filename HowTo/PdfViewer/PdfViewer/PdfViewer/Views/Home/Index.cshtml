@@ -1,0 +1,43 @@
+﻿@{
+    ViewBag.Title = "PdfViewer";
+}
+
+<div class="header ">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            PdfViewer
+        </h1>
+        <p>
+            This page shows how to view a local pdf file in C1 PdfViewer.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with this application:
+        </p>
+        <ol>
+            <li>Register a disk storage provider in Startup.</li>
+            <li>Add a file input for uploading file to the storage by C1 Web API storage service.</li>
+            <li>Create a PdfViewer control and set its FilePath to uploaded file path.</li>
+            <li>Remove the uploaded file by storage service when view another pdf file or close the browser window.</li>
+        </ol>
+        <div class="row">
+            <label>Select a Pdf file: <input type="file" onchange="uploadPdf(this, '@Url.Content("~")')" accept=".pdf" /></label>
+            <label id="message" class="errormessage hidden">(Please select a file with extension ".pdf".)</label>
+        </div>
+        <div class="row">
+            @Html.C1().PdfViewer().Id("pdfViewer").Width("100%").IsDisabled(true)
+        </div>
+    </div>
+</div>

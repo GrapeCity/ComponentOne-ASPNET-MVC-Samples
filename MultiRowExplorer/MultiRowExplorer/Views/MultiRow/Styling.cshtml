@@ -1,0 +1,24 @@
+@model IEnumerable<Orders.Order>
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/CustomMultiRow.css" />
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id("stylingMultiRow")
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
+    .CssClass("multirow multirow-css")
+    .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+)
+
+@section Summary{
+<p>@Html.Raw(Resources.MultiRowExplorer.Styling_Text0)</p>
+
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.Styling_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Styling_Text2)</p>
+
+}

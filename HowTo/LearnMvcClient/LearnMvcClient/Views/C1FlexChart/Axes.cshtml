@@ -1,0 +1,55 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+@{ 
+    var tooltipContent = "<b>{Date:MMM dd}</b><br/>" +
+        "<table>" +
+        "<tr><td>high</td><td>{High:n2}</td><tr/>" +
+        "<tr><td>low</td><td>{Low:n2}</td><tr/>" +
+        "<tr><td>open</td><td>{Open:n2}</td><tr/>" +
+        "<tr><td>close</td><td>{Close:n2}</td><tr/>" +
+        "</table>";
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Axes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Axes_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.Axes_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.Axes_Text3)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Axes_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Axes_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Axes_Text6)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Axes_Text7)
+</p>
+
+<div class="demo-settings">
+    <label for="showAxes">@Html.Raw(Resources.C1FlexChart.Axes_Text8)</label>
+    <input id="showAxes" type="checkbox" checked="checked">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .Bind("Date", Model)
+    .Header(Resources.C1FlexChart.Axes_Text9)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Series(sb=>sb.Add().Binding("High,Low,Open,Close").Name(Resources.C1FlexChart.Axes_Text10))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .Tooltip(t=>t.Content(tooltipContent))
+)
+<div id="theChart" class="custom-gridlines"></div>

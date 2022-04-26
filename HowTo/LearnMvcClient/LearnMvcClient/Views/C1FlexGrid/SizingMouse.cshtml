@@ -1,0 +1,13 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.SizingMouse_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingMouse_Text1) 
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(200)
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingMouse_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGridNoHeaders").Bind(Model).Height(200)

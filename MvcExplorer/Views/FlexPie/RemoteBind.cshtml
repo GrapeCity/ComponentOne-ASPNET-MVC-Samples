@@ -1,0 +1,5 @@
+﻿@(Html.C1().FlexPie().Bind("Country", "Count", Url.Action("RemoteBind_Read")))
+
+@section Description{
+    @Html.Raw(Resources.FlexPie.RemoteBind_Text0)
+}

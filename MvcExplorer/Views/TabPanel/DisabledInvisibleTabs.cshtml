@@ -1,0 +1,83 @@
+﻿@{
+    ClientSettingsModel demoSettingModel = ViewBag.DemoSettingsModel;
+    ViewBag.DemoSettings = true;
+}
+
+<script>
+    function customChangeDisableEurope(control, value) {
+        control.getTab('tab-europe').isDisabled = value;
+    }
+
+    function customChangeShowOceania(control, value) {
+        control.getTab('tab-oceania').isVisible = value;
+    }
+</script>
+
+<div id="@demoSettingModel.ControlId">
+    <div>
+        <a>Africa</a>
+        <div>
+            <ul>
+                <li>Algeria</li>
+                <li>Angola</li>
+                <li>Benin</li>
+                <li>Botswana</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>America</a>
+        <div>
+            <ul>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>Mexico</li>
+                <li>United States</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div>
+            <ul>
+                <li>China</li>
+                <li>Korea</li>
+                <li>India</li>
+                <li>Japan</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="tab-europe" class="wj-state-disabled">Europe</a>
+        <div>
+            <ul>
+                <li>Austria</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+                <li>Netherlands</li>
+                <li>Switzerland</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="tab-oceania">Oceania</a>
+        <div>
+            <ul>
+                <li>Australia</li>
+                <li>Fiji</li>
+                <li>New Zealand</li>
+                <li>Samoa</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#" + demoSettingModel.ControlId)
+
+@section Summary{
+    <p>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text1)</p>
+}

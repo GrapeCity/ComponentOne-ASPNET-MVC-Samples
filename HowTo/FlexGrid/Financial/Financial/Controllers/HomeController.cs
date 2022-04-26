@@ -1,12 +1,12 @@
-﻿using System.Collections.Generic;
-using Microsoft.AspNetCore.Mvc;
-using Financial.Models;
+﻿using Financial.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
 
 namespace Financial.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             ViewBag.Intervals = new List<object> { 1000, 500, 100, 10, 1 };
             ViewBag.BatchSizes = new List<object> { 100, 50, 10, 5, 1 };

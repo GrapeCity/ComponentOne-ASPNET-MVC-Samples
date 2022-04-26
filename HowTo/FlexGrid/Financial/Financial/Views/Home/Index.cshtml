@@ -1,10 +1,10 @@
-﻿@using C1.Web.Mvc.Grid
+﻿@using Financial.Models
+@using C1.Web.Mvc.Grid
 @model IEnumerable<Company>
 @{
-    ViewData["Title"] = "ASP.NET Core C1 FlexGrid with dynamic updates";
-    List<object> intervals = ViewBag.Intervals;
-    List<object> batchSizes = ViewBag.BatchSizes;
+    ViewBag.Title = "ASP.NET MVC FlexGrid with dynamic updates";
 }
+
 <script type="text/template" id="template1">
     <div id="{{uid}}">
         <div class="value"></div>
@@ -33,36 +33,41 @@
 </label>
 <label>
     Update Interval (ms)
-    <c1-combo-box id="updateInterval" selected-value="100"
-                  is-editable="false" selected-index-changed="updateInterval_SelectedIndexChanged">
-        <c1-items-source source-collection="@intervals"></c1-items-source>
-    </c1-combo-box>
+    @(Html.C1().ComboBox()
+        .Id("updateInterval")
+        .Bind((List<object>)ViewBag.Intervals)
+        .SelectedValue(100).IsEditable(false)
+        .OnClientSelectedIndexChanged("updateInterval_SelectedIndexChanged"))
 </label>
 <label>
     Batch Size (#items)
-    <c1-combo-box id="batchSize" selected-value="5" 
-                  is-editable="false" selected-index-changed="batchSize_SelectedIndexChanged">
-        <c1-items-source source-collection="@batchSizes"></c1-items-source>
-    </c1-combo-box>
+    @(Html.C1().ComboBox()
+        .Id("batchSize")
+        .Bind((List<object>)ViewBag.BatchSizes)
+        .SelectedValue(5).IsEditable(false)
+        .OnClientSelectedIndexChanged("batchSize_SelectedIndexChanged"))
 </label>
-<c1-flex-grid id="theGrid" auto-generate-columns="false"
-              is-read-only="true" selection-mode="Row"
-              sorting-type="None" format-item="formatItem" updating-view="updatingView">
-    <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-flex-grid-column binding="Name" width="220"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Bid" width="220" format="n2">
-        <c1-flex-grid-cell-template id="template1"></c1-flex-grid-cell-template>
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Ask" width="220" format="n2">
-        <c1-flex-grid-cell-template id="template1"></c1-flex-grid-cell-template>
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="LastSale" header="Last Sale" width="220" format="n2">
-        <c1-flex-grid-cell-template id="template1"></c1-flex-grid-cell-template>
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="BidSize" header="Bid Size" format="n0"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="AskSize" header="Ask Size" format="n0"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="LastSize" header="Last Size" format="n0"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Volume" format="n0"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="QuoteTime" header="Quote Time" format="hh:mm:ss" align="center"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="TradeTime" header="Trade Time" format="hh:mm:ss" align="center"></c1-flex-grid-column>
-</c1-flex-grid>
+
+@(Html.C1().FlexGrid<Company>()
+    .Id("theGrid")
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("Name").Width("220"));
+        columns.Add(column => column.Binding("Bid").Format("n2").Width("220").CellTemplate(ctb => ctb.TemplateId("template1")));
+        columns.Add(column => column.Binding("Ask").Format("n2").Width("220").CellTemplate(ctb => ctb.TemplateId("template1")));
+        columns.Add(column => column.Binding("LastSale").Header("Last Sale").Format("n2").Width("220").CellTemplate(ctb => ctb.TemplateId("template1")));
+        columns.Add(column => column.Binding("BidSize").Header("Bid Size").Format("n0"));
+        columns.Add(column => column.Binding("AskSize").Header("Ask Size").Format("n0"));
+        columns.Add(column => column.Binding("LastSize").Header("Last Size").Format("n0"));
+        columns.Add(column => column.Binding("Volume").Header("Volume").Format("n0"));
+        columns.Add(column => column.Binding("QuoteTime").Header("Quote Time").Format("hh:mm:ss").Align("center"));
+        columns.Add(column => column.Binding("TradeTime").Header("Trade Time").Format("hh:mm:ss").Align("center"));
+    })
+    .SelectionMode(SelectionMode.Row)
+    .SortingType(AllowSorting.None)
+    .OnClientFormatItem("formatItem")
+    .OnClientUpdatingView("updatingView")
+)

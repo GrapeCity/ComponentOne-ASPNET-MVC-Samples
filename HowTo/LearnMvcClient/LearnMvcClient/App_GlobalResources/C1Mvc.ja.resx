@@ -1,0 +1,2126 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Index_Title" xml:space="preserve">
+    <value>ComponentOne MVC クライアントを学ぶ</value>
+    <comment>Learn C1 MVC Client</comment>
+  </data>
+  <data name="Index_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    このアプリケーションでは、一連の例を使用して、ComponentOne MVC コントロールの主な機能を説明します。
+&lt;/p&gt;
+&lt;p&gt;
+    左ペインでトピックを参照すると、さまざまな機能の実際の動作を確認したり、コードやマークアップを学習することができます。いくつかのサンプルを通して MVC クライアントの基本を理解することができるほか、サンプルを深く掘り下げることでエキスパートの域に達することも可能です。
+&lt;/p&gt;
+&lt;p&gt;
+    特定のコントロールまたはプロパティの詳細については、MVC コントロールの&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/Overview.html" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。
+&lt;/p&gt;
+&lt;p&gt;
+    探している事柄が見つからない場合や、MVC コントロールまたはこのチュートリアルに関してご意見ご要望をお持ちの場合は、&lt;a href="https://www.grapecity.co.jp/developer/support" target="_blank"&gt;こちらまで&lt;/a&gt;ご連絡ください。お客様のご要件を満足するように最善を尽くします。
+&lt;/p&gt;</value>
+    <comment>&lt;p&gt;
+    This application demonstrates main features of C1 MVC
+    controls with the help of a series of samples.
+&lt;/p&gt;
+&lt;p&gt;
+    Browse the topics in the left pane to see various features
+    in action and learn by browsing the code and markup.
+    After navigating through a few samples, you should be able
+    to understand MVC client basics and eventually become 
+    an expert as you dig in further.
+&lt;/p&gt;
+&lt;p&gt;
+    For more details on a specific control or property, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html" target="_blank"&gt;online documentation&lt;/a&gt; of MVC controls.
+&lt;/p&gt;
+&lt;p&gt;
+    If you can't find something you are looking for, or have
+    feedback regarding MVC controls or this tutorial, 
+    please &lt;a href="https://www.grapecity.com/en/support/contact" target="_blank"&gt;write&lt;/a&gt; to us and we will try our best to meet your requirements.
+&lt;/p&gt;</comment>
+  </data>
+  <data name="CreateControls_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    すべての MVC コントロールは、ページ内でそれをホストする HTML 要素に関連付けられています。コントロールを作成するには、次の 3 とおりの方法があります。
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;コントロール Html ヘルパーをビューに直接追加します。&lt;/li&gt;
+    &lt;li&gt;最初にビューに div 要素を追加し、次にコントロール Html ヘルパーを追加して div 要素に連結します。&lt;/li&gt;
+    &lt;li&gt;最初にビューに div 要素を追加し、次に JavaScript コードを使用してコントロールをインスタンス化し、それをホスト要素に連結します。&lt;/li&gt;
+&lt;/ul&gt;</value>
+    <comment>&lt;p&gt;
+    Every MVC control is associated with an HTML element that hosts
+    it on the page. There are three ways to create a control:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Add the control htmlhelper in the view directly.&lt;/li&gt;
+    &lt;li&gt;Start by adding a div element to the view, then add the control htmlhelper to bind it.&lt;/li&gt;
+    &lt;li&gt;Start by adding a div element to the view, then use JavaScript code to instantiate the
+    control and bind it to the host element.&lt;/li&gt;
+&lt;/ul&gt;</comment>
+  </data>
+  <data name="CreateControls_FlexChart" xml:space="preserve">
+    <value>&lt;p&gt;これは、2 番目の方法で作成された FlexChart です。&lt;/p&gt;</value>
+    <comment>&lt;p&gt;This is a FlexChart created using the second method:&lt;/p&gt;</comment>
+  </data>
+  <data name="CreateControls_FlexGrid" xml:space="preserve">
+    <value>&lt;p&gt;これは、最初の方法で作成された FlexGrid です。&lt;/p&gt;</value>
+    <comment>&lt;p&gt;This is a FlexGrid created using the first method:&lt;/p&gt;</comment>
+  </data>
+  <data name="CreateControls_InputDate" xml:space="preserve">
+    <value>&lt;p&gt;これは、3 番目の方法で作成された InputDate です。&lt;/p&gt;</value>
+    <comment>&lt;p&gt;And, this is an InputDate created using the third method:&lt;/p&gt;</comment>
+  </data>
+  <data name="CreateControls_Title" xml:space="preserve">
+    <value>ComponentOne MVC コントロールの作成</value>
+    <comment>Creating C1 MVC Controls</comment>
+  </data>
+  <data name="Reference_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    MVC アプリケーションで ComponentOne MVC コントロールを使用するには、次の手順に従います。
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;
+        &lt;b&gt;ASP.NET MVC Edition のインストール&lt;/b&gt;&lt;br /&gt;
+        ユーザーマシンにインストーラ（&lt;a href="https://www.grapecity.co.jp/developer/download"&gt;C1StudioInstaller.exe&lt;/a&gt;）をダウンロードします。インストールウィザードの手順に従って、ASP.NET MVC Edition 用の .NET DLL およびパッケージをインストールします。このインストーラによって ComponentOne ASP.NET MVC Web Application テンプレートもインストールされます。これらのテンプレートを Visual Studio に付属する MVC テンプレートの代わりに使用すると、ComponentOne コントロールをさらに簡単に利用できます。
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;製品のライセンス&lt;/b&gt;&lt;br /&gt;
+        ComponentOne 製品をダウンロードしてインストールするときに、ライセンスをアクティブ化するかどうかを尋ねられます。購入する前に当社の製品を評価する場合には、ライセンスをアクティブ化するプロセスを省略できます。その場合、30 日間の評価期間が提供されます。この期間内は、ComponentOne 製品のすべての機能を使用できるようになります。30 日の評価期間が終わると、ライセンスされていない ComponentOne コントロールを含むアプリケーションはビルドできなくなります。その時点で、ライセンスを購入してアクティブ化するか、さらに 30 日の評価期間を承認するための評価キーを要求できます。評価キーを入手したら、C:\Program Files (x86)\ComponentOne\C1StartMenu にある ComponentOne License Activation ユーティリティを使用してアクティブ化することができます。
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;アプリケーションの構成&lt;/b&gt;&lt;br /&gt;
+        Visual Studio で、ComponentOne テンプレートまたは Visual Studio テンプレートを使用してアプリケーションを作成できます。ComponentOne テンプレートを使用した場合は、アセンブリまたはパッケージの参照が自動的にアプリケーションに追加されます。一方、Visual Studio テンプレートを使用してアプリケーションを作成した場合は、これらを手動で追加する必要があります。
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;ビューへのリソースの登録&lt;/b&gt;&lt;br /&gt;
+        ComponentOne テンプレートを使用してアプリケーションを作成した場合は、提供されているコントロールを使用するために必要なリソースも自動的に登録されます。一方、標準の Visual Studio テンプレートを使用してアプリケーションを作成した場合は、リソースを手動で登録する必要があります。
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    これで、アプリケーションで MVC コントロールを使用できます。ビューに MVC コントロールを追加するか、または JavaScript コードを使用してクライアント MVC コントロールを作成することができます。詳細については、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#GettingStarted.html" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。
+&lt;/p&gt;</value>
+    <comment>&lt;p&gt;
+    To use C1 MVC controls in your MVC application, follow these steps:
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;
+        &lt;b&gt;Install ASP.NET MVC Edition&lt;/b&gt;&lt;br /&gt;
+        Download the installer(&lt;a href="https://www.grapecity.com/en/download"&gt;C1StudioInstaller.exe&lt;/a&gt;) in your machine. 
+        Follow the steps through the installation wizard to install the
+        .NET DLLs and packages for ASP.NET MVC Edition. The installer 
+        also installs C1 ASP.NET MVC Web Application templates which 
+        can be used in place of the MVC templates provided by Visual 
+        Studio, to make working with ComponentOne controls easier.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;License the product&lt;/b&gt;&lt;br /&gt;
+        When you download and install ComponentOne products, you are
+        presented with a chance to activate the license. If you want 
+        to evaluate our tools before purchase, you can skip the license 
+        activation process. In that case, you will get a 30-day 
+        evaluation period. During this period, you will be able to use 
+        all the features of ComponentOne products. After 30-day evaluation
+        period is over, you will not be able to build applications that 
+        include unlicensed ComponentOne controls. You can purchase and 
+        activate a license at that point or you can request an evaluation 
+        key that will grant you another 30-day evaluation period. Once 
+        you have the evaluation key, you can activate it through the 
+        ComponentOne License Activation utility found in 
+        C:\Program Files (x86)\ComponentOne\C1StartMenu.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Configure your application&lt;/b&gt;&lt;br /&gt;
+        You can create your application using ComponentOne template or 
+        Visual Studio template in Visual Studio. On using ComponentOne
+         template, references of the assemblies or the packages are added
+         automatically to your application. While, for an application 
+        created using Visual Studio template, these have to be added manually.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Register the resources in view&lt;/b&gt;&lt;br /&gt;
+        For applications created using ComponentOne template, all the 
+        resources required to use the available controls also get 
+        registered automatically. However, you need to manually register 
+        the resources in case of applications created using standard 
+        Visual Studio template.
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    Now, you can use MVC controls in your application. You can add 
+    an MVC control in the view or create a client MVC control by using 
+    javascript code. For more information, please refer the 
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#GettingStarted.html" target="_blank"&gt;online documentation&lt;/a&gt;.
+&lt;/p&gt;</comment>
+  </data>
+  <data name="Reference_Title" xml:space="preserve">
+    <value>アプリケーションでの MVC コントロールの参照</value>
+    <comment>Referencing MVC Controls in your Application</comment>
+  </data>
+  <data name="Clipboard_Text1" xml:space="preserve">
+    <value>&lt;b&gt;Clipboard&lt;/b&gt; クラスを使用すると、クリップボードの動作をカスタマイズできます。それには、静的メソッド &lt;b&gt;copy&lt;/b&gt; および &lt;b&gt;paste&lt;/b&gt; を使用して、クリップボードのコンテンツを変更します。</value>
+    <comment>The &lt;b&gt;Clipboard&lt;/b&gt; class allows you to customize the
+    behavior of the clipboard by modifying its contents using
+    the static methods &lt;b&gt;copy&lt;/b&gt; and &lt;b&gt;paste&lt;/b&gt;.</comment>
+  </data>
+  <data name="Clipboard_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Clipboard&lt;/b&gt; クラスでクリップボードの操作を開始することはできません。ユーザーによって操作が開始された後に、クリップボードのコンテンツを変更することのみ可能です。</value>
+    <comment>Note that the &lt;b&gt;Clipboard&lt;/b&gt; class cannot initiate
+    clipboard operations; it can only modify the contents of
+    the clipboard after an operation has been initiated by a user.</comment>
+  </data>
+  <data name="Clipboard_Text3" xml:space="preserve">
+    <value>この例では、クリップボードのコンテンツに列ヘッダーを追加することで、FlexGrid からの &lt;b&gt;copy&lt;/b&gt; 操作をカスタマイズしています。その動作を確認するには、FlexGrid でいずれかの範囲をコピーして、Excel シートに貼り付けてください。</value>
+    <comment>This example customizes &lt;b&gt;copy&lt;/b&gt; operations from a
+    FlexGrid by adding column headers to the clipboard content.
+    To see how it works, copy a range from the FlexGrid and paste
+    into an Excel sheet.</comment>
+  </data>
+  <data name="Clipboard_Text4" xml:space="preserve">
+    <value>ヘッダーを含める</value>
+    <comment>Include Headers</comment>
+  </data>
+  <data name="Clipboard_Title" xml:space="preserve">
+    <value>クリップボード</value>
+    <comment>Clipboard</comment>
+  </data>
+  <data name="CollectionView_Text1" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt; クラスは、MVC コントロールの中核となるデータプロバイダです。&lt;b&gt;sourceCollection&lt;/b&gt; 配列を受け取り、ソート、フィルタ処理、グループ化、ページング、通知、変更の追跡、現在の項目管理などの機能を持つデータビューを提供します。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt;
+    class is the core data provider for our MVC controls.
+    It takes a &lt;b&gt;sourceCollection&lt;/b&gt; array and provides
+    data views with sorting, filtering, grouping, paging,
+    notifications, change tracking, currency management,
+    and more.</comment>
+  </data>
+  <data name="CollectionView_Text2" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; によって作成されたビューは、&lt;b&gt;items&lt;/b&gt; プロパティとして公開されます。これには、&lt;b&gt;sourceCollection&lt;/b&gt; 配列から作成されてソート/フィルタ処理/グループ化/ページングが行われた配列が含まれています。</value>
+    <comment>The views created by the &lt;b&gt;CollectionView&lt;/b&gt; are exposed
+    through the &lt;b&gt;items&lt;/b&gt; property, which contains an
+    array with sorted/filtered/grouped/paged items from the
+    &lt;b&gt;sourceCollection&lt;/b&gt; array.</comment>
+  </data>
+  <data name="CollectionView_Text3" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; プロパティを持つコントロールは、通常の配列だけでなく &lt;b&gt;CollectionView&lt;/b&gt; オブジェクトを受け入れます。通常の配列が使用された場合、コントロールは、元のデータをラップする内部 &lt;b&gt;CollectionView&lt;/b&gt; を自動的に作成します。この内部 &lt;b&gt;CollectionView&lt;/b&gt; は、コントロールの &lt;b&gt;collectionView&lt;/b&gt; プロパティとして公開されます。</value>
+    <comment>Controls that have an &lt;b&gt;itemsSource&lt;/b&gt; property
+    accept &lt;b&gt;CollectionView&lt;/b&gt; objects as well as regular
+    arrays. If regular arrays are used, the control automatically
+    creates an internal &lt;b&gt;CollectionView&lt;/b&gt; to wrap the original
+    data. This internal &lt;b&gt;CollectionView&lt;/b&gt; is exposed by the
+    control's &lt;b&gt;collectionView&lt;/b&gt; property.</comment>
+  </data>
+  <data name="CollectionView_Text4" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、コントロールが一貫した方法でデータを処理するためのさまざまな機能を提供します。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; class provides extensive functionality
+    and a consistent way for controls to deal with data.</comment>
+  </data>
+  <data name="CollectionView_Text5" xml:space="preserve">
+    <value>ComponentOne MVC には、追加サービスを提供するために &lt;b&gt;CollectionView&lt;/b&gt; を拡張したクラスが含まれます。よい例として、&lt;a href="http://www.odata.org/" target="_blank"&gt;OData&lt;/a&gt; ソースへのアクセスを提供する &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.odata.ODataCollectionView.Class.html" target="_blank"&gt;ODataCollectionView&lt;/a&gt; があります。</value>
+    <comment>C1 MVC includes classes that extend &lt;b&gt;CollectionView&lt;/b&gt; to
+    provide additional services. The best example is
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.odata.ODataCollectionView.Class.html" target="_blank"&gt;ODataCollectionView&lt;/a&gt;,
+    which provides access to
+    &lt;a href="http://www.odata.org/" target="_blank"&gt;OData&lt;/a&gt; sources.</comment>
+  </data>
+  <data name="CollectionView_Title" xml:space="preserve">
+    <value>CollectionView</value>
+    <comment>CollectionView</comment>
+  </data>
+  <data name="Color_Text1" xml:space="preserve">
+    <value>&lt;b&gt;Color&lt;/b&gt; クラスは、CSS 文字列として指定された色を解析し、その赤、緑、青、およびアルファチャンネルを読み取り/書き込み可能なプロパティとして公開します。</value>
+    <comment>The &lt;b&gt;Color&lt;/b&gt; class parses colors specified as CSS strings
+    and exposes their red, green, blue, and alpha channels as read-write
+    properties.</comment>
+  </data>
+  <data name="Color_Text2" xml:space="preserve">
+    <value>また、RGB の代わりに HSB および HSL カラーモデルを使用して色を作成するために &lt;b&gt;fromHsb&lt;/b&gt; メソッドと &lt;b&gt;fromHsl&lt;/b&gt; メソッドを提供し、またそれらのカラーモデルを使用して色成分を取得するために &lt;b&gt;getHsb&lt;/b&gt; メソッドと &lt;b&gt;getHsl&lt;/b&gt; メソッドを提供します。</value>
+    <comment>It also provides &lt;b&gt;fromHsb&lt;/b&gt; and &lt;b&gt;fromHsl&lt;/b&gt; methods for creating
+    colors using the HSB and HSL color models instead of RGB, as well as
+    &lt;b&gt;getHsb&lt;/b&gt; and &lt;b&gt;getHsl&lt;/b&gt; methods for retrieving the color
+    components using those color models.</comment>
+  </data>
+  <data name="Color_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Color&lt;/b&gt; クラスには、HSL モデルを使用して 2 色間を補間することによって色を作成する &lt;b&gt;interpolate&lt;/b&gt; メソッドがあります。このメソッドは、&lt;b&gt;animate&lt;/b&gt; メソッドでカラーアニメーションを作成する場合に特に便利です。</value>
+    <comment>The &lt;b&gt;Color&lt;/b&gt; class also has an &lt;b&gt;interpolate&lt;/b&gt; method that creates
+    colors by interpolating between two colors using the HSL model. This
+    method is especially useful for creating color animations with the
+    &lt;b&gt;animate&lt;/b&gt; method.</comment>
+  </data>
+  <data name="Color_Text4" xml:space="preserve">
+    <value>次に具体例を示します。</value>
+    <comment>The example below illustrates:</comment>
+  </data>
+  <data name="Color_Title" xml:space="preserve">
+    <value>色</value>
+    <comment>Color</comment>
+  </data>
+  <data name="ControlsElements_Text1" xml:space="preserve">
+    <value>すべての MVC コントロールは、ページ内でそれをホストする HTML 要素に関連付けられています。</value>
+    <comment>Every MVC control is associated with an HTML element that
+    hosts it on the page.</comment>
+  </data>
+  <data name="ControlsElements_Text2" xml:space="preserve">
+    <value>コントロールをホストする要素への参照を取得するには、（すべての ComponentOne MVC コントロールが持つ）&lt;b&gt;hostElement&lt;/b&gt; プロパティを使用します。ある要素によってホストされているコントロールへの参照を取得するには、静的メソッド &lt;b&gt;wijmo.Control.getControl(element)&lt;/b&gt; を使用します。</value>
+    <comment>To get a reference to the element hosting the control, use the
+    &lt;b&gt;hostElement&lt;/b&gt; property (available in every C1 MVC control).
+    Use the static method &lt;b&gt;wijmo.Control.getControl(element)&lt;/b&gt;
+    to get a reference to the control being hosted by an element.</comment>
+  </data>
+  <data name="ControlsElements_Text3" xml:space="preserve">
+    <value>タブコントロールまたは動的ビューを持つアプリケーションでは、ホスト要素のサイズまたは表示/非表示が変更され、それがコントロールに通知されない場合に、コントロールのレイアウトが無効になることがよくあります。</value>
+    <comment>In applications having tab controls or dynamic views, the control
+   layout often becomes invalid if the size or visibility of the host
+    element is changed and the control is not notified about the same.</comment>
+  </data>
+  <data name="ControlsElements_Text4" xml:space="preserve">
+    <value>しかし、MVC コントロールの場合は、すべてのコントロールのレイアウトがそのホスト要素のサイズに従って更新されます。MVC コントロールには、ホスト要素に行われた変更をコントロールに通知する &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Control.Class.html#invalidateAll"&gt; wijmo.Control.invalidateAll&lt;/a&gt; メソッドが用意されており、これに基づいてレイアウトが更新されます。</value>
+    <comment>However, in case of MVC controls, layout of all the controls is
+    updated according to the size of their host elements. MVC controls
+    provide &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Control.Class.html#invalidateAll"&gt;
+        wijmo.Control.invalidateAll
+    &lt;/a&gt; method to notify the controls about change in their host element, 
+    so that the controls update their layout accordingly.</comment>
+  </data>
+  <data name="ControlsElements_Text5" xml:space="preserve">
+    <value>たとえば、以下のボタンを使用して、2 つの場合についてグリッドのサイズ変更動作を確認してください。一方は &lt;b&gt;invalidateAll&lt;/b&gt; メソッドを使用しない（誤った）方法、もう一方は &lt;b&gt;invalidateAll&lt;/b&gt; メソッドを使用する（正しい）方法です。</value>
+    <comment>For example, use the buttons below to observe resizing in the grid in
+    two cases; without using &lt;b&gt;invalidateAll&lt;/b&gt; method (WRONG way) and the case 
+    using &lt;b&gt;invalidateAll&lt;/b&gt; method (RIGHT way):</comment>
+  </data>
+  <data name="ControlsElements_Text6" xml:space="preserve">
+    <value>フォントの切り替え</value>
+    <comment>Toggle Font</comment>
+  </data>
+  <data name="ControlsElements_Text7" xml:space="preserve">
+    <value>サイズの切り替え（誤り）</value>
+    <comment>Toggle Size (WRONG)</comment>
+  </data>
+  <data name="ControlsElements_Text8" xml:space="preserve">
+    <value>サイズの切り替え（正しい）</value>
+    <comment>Toggle Size (RIGHT)</comment>
+  </data>
+  <data name="ControlsElements_Title" xml:space="preserve">
+    <value>コントロールと要素</value>
+    <comment>Controls and Elements</comment>
+  </data>
+  <data name="CustomGlyphs_Text1" xml:space="preserve">
+    <value>多くの ComponentOne MVC コントロールには、「グリフ」と呼ばれる小さな画像が含まれています。たとえば、&lt;b&gt;ComboBox&lt;/b&gt; は、項目リストを表示するボタンでグリフを使用します。&lt;b&gt;FlexGrid&lt;/b&gt; は、ソート、編集、展開された/折りたたまれたノードなどを示すさまざまな状態インジケータを表示するためにグリフを使用します。</value>
+    <comment>Many C1 MVC controls include small images called 'glyphs'.
+    For example, the &lt;b&gt;ComboBox&lt;/b&gt; uses a glyph in the button
+    used to show the item list. The &lt;b&gt;FlexGrid&lt;/b&gt; uses glyphs
+    to show various state indicators, including sort, editing,
+    expanded/collapsed nodes, etc.</comment>
+  </data>
+  <data name="CustomGlyphs_Text2" xml:space="preserve">
+    <value>ComponentOne MVC コントロールで使用されるグリフはすべて CSS ベースです。したがって、コードではなく CSS ルールを使用して、すべてのコントロールまたは特定のコントロールのグリフをオーバーライドできます。</value>
+    <comment>All glyphs used in C1 MVC controls are CSS-based, which means
+    you can override them on all or specific controls using CSS
+    rules and no code.</comment>
+  </data>
+  <data name="CustomGlyphs_Text3" xml:space="preserve">
+    <value>次の例は、&lt;b&gt;FlexGrid&lt;/b&gt; のグリフを Bootstrap のアイコンや標準の画像に置き換える方法を示しています。</value>
+    <comment>This example shows how you can replace the &lt;b&gt;FlexGrid&lt;/b&gt;
+    glyphs with Bootstrap icons and with regular images.</comment>
+  </data>
+  <data name="CustomGlyphs_Title" xml:space="preserve">
+    <value>カスタムグリフ</value>
+    <comment>Custom Glyphs</comment>
+  </data>
+  <data name="Customization_Text1" xml:space="preserve">
+    <value>&lt;b&gt;FlexGridFilter&lt;/b&gt; クラスはローカライズ可能であり、この機能を利用して UI 文字列を変更したり、条件と演算子のリストを変更することもできます。</value>
+    <comment>The &lt;b&gt;FlexGridFilter&lt;/b&gt; class is localizable, and
+    you can take advantage of this feature for modifying the 
+    UI strings and also the lists of conditions and operators.</comment>
+  </data>
+  <data name="Customization_Text2" xml:space="preserve">
+    <value>この例では、フィルタの &lt;b&gt;stringOperators&lt;/b&gt;、&lt;b&gt;numberOperators&lt;/b&gt;、&lt;b&gt;dateOperators&lt;/b&gt;、および &lt;b&gt;booleanOperators&lt;/b&gt; にカスタム配列を割り当てることで、演算子のリストをカスタマイズしました。</value>
+    <comment>In this sample, we customized the list of operators by
+    assigning custom arrays to the filter's &lt;b&gt;stringOperators&lt;/b&gt;,
+    &lt;b&gt;numberOperators&lt;/b&gt;, &lt;b&gt;dateOperators&lt;/b&gt;, and
+    &lt;b&gt;booleanOperators&lt;/b&gt;.</comment>
+  </data>
+  <data name="Customization_Title" xml:space="preserve">
+    <value>グローバリゼーションとカスタム UI</value>
+    <comment>Globalization and Custom UIs</comment>
+  </data>
+  <data name="CVAddingRemoving_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; は、&lt;b&gt;addNew&lt;/b&gt;、&lt;b&gt;commitNew&lt;/b&gt;、&lt;b&gt;cancelNew&lt;/b&gt; の各メソッドを使用して項目の追加をサポートします。項目は &lt;b&gt;remove&lt;/b&gt; メソッドを使用して削除されます。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; provides support for adding
+    items with the methods &lt;b&gt;addNew&lt;/b&gt;, &lt;b&gt;commitNew&lt;/b&gt;,
+    and &lt;b&gt;cancelNew&lt;/b&gt;. Items are removed using the
+    &lt;b&gt;remove&lt;/b&gt; method.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text2" xml:space="preserve">
+    <value>&lt;b&gt;addNew&lt;/b&gt; メソッドは、コレクションに空の項目を追加し、新しい項目への参照を返します。呼び出し元は、この戻り値を使用して新しい項目を初期化することができます。または、新しい項目を作成して初期化する &lt;b&gt;CollectionView.newItemCreator&lt;/b&gt; 関数を提供することもできます。</value>
+    <comment>The &lt;b&gt;addNew&lt;/b&gt; method adds an empty item to the
+    collection and returns a reference to the new item.
+    The caller can use this return value to initialize
+    the new item. Alternatively, you can provide a
+    &lt;b&gt;CollectionView.newItemCreator&lt;/b&gt; function to
+    create and initialize the new items.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text3" xml:space="preserve">
+    <value>&lt;b&gt;addNew&lt;/b&gt; メソッドは、コレクションを「追加」モードにし、ソートとフィルタ処理を一時停止して、コミットされるまで新しい項目の位置を維持します。</value>
+    <comment>The &lt;b&gt;addNew&lt;/b&gt; method also puts the collection in
+    'add' mode, suspending sorting and filtering to keep
+    the new item in place until it is committed.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text4" xml:space="preserve">
+    <value>&lt;b&gt;commitNew&lt;/b&gt; メソッドは、コレクションの「追加モード」を終了し、コレクションをリフレッシュして、ソートとフィルタ処理を再開します。</value>
+    <comment>The &lt;b&gt;commitNew&lt;/b&gt; method causes the collection
+    to exit 'add mode', refreshes the collection and 
+    restores sorting and filtering.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text5" xml:space="preserve">
+    <value>&lt;b&gt;cancelNew&lt;/b&gt; メソッドは、コレクションから新しい項目を削除し、「追加モード」を終了します。</value>
+    <comment>The &lt;b&gt;cancelNew&lt;/b&gt; method removes the new item from
+    the collection and exits 'add mode'.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text6" xml:space="preserve">
+    <value>次のグリッドに項目を追加して、どのように動作するかを確認してください。</value>
+    <comment>Add items in the grid below to observe how this works.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text7" xml:space="preserve">
+    <value>項目を追加するには、選択範囲を最後の行に移動します。行ヘッダーにアスタリスクがあるこの行を「新しい項目テンプレート」と呼びます。新しい項目を通常どおり編集し、［Enter］キーを押すか、選択範囲を別の行に移動すると、新しい行がコミットされます。</value>
+    <comment>To add an item, move the selection to the last
+    row, the "New Item Template" (having an asterisk on
+    the row header). Edit the new item as usual, and
+    press Enter or move the selection to a different row
+    to commit the new row.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text8" xml:space="preserve">
+    <value>追加をキャンセルするには、新しい行の編集中に［Esc］キーを押します。行がコレクションから削除されます。</value>
+    <comment>To cancel the addition, press the Escape key while editing
+    the new row. The row will be removed from the collection.</comment>
+  </data>
+  <data name="CVAddingRemoving_Text9" xml:space="preserve">
+    <value>項目を削除するには、行ヘッダーをクリックして行全体を選択し、［Del］キーを押します。グリッドがコレクションの &lt;b&gt;remove&lt;/b&gt; メソッドを呼び出し、その項目が削除されます。</value>
+    <comment>To remove items, select an entire row by clicking
+    the row header, and then press the Delete key. The grid
+    will call the collection's &lt;b&gt;remove&lt;/b&gt; method
+    and the item will be removed from the collection.</comment>
+  </data>
+  <data name="CVAddingRemoving_Title" xml:space="preserve">
+    <value>CollectionView：項目の追加と削除</value>
+    <comment>CollectionView Adding and Removing Items</comment>
+  </data>
+  <data name="CVChaining_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView.filter&lt;/b&gt; プロパティでは、各コレクションに対してフィルタ処理関数を 1 つ指定できます。</value>
+    <comment>The &lt;b&gt;CollectionView.filter&lt;/b&gt; property allows you
+    to specify one filtering function for each collection.</comment>
+  </data>
+  <data name="CVChaining_Text2" xml:space="preserve">
+    <value>場合によっては、2 つ以上の独立したフィルタ関数を使用したいことがあります。たとえば、入力データに 1 つのフィルタを適用し、さらにそのデータに &lt;b&gt;FlexGridFilter&lt;/b&gt; で第 2 レベルのフィルタ処理を行う場合です。</value>
+    <comment>In some cases, you may want to use two or more independent
+    filter functions. For example, you may want to apply a filter
+    on the incoming data and let the &lt;b&gt;FlexGridFilter&lt;/b&gt;
+    apply a second level of filtering to the data.</comment>
+  </data>
+  <data name="CVChaining_Text3" xml:space="preserve">
+    <value>それには、複数の &lt;b&gt;CollectionView&lt;/b&gt; オブジェクトを連結して、最初のコレクションの出力が次のコレクションの入力になるようにします。</value>
+    <comment>To achieve this, you can chain multiple &lt;b&gt;CollectionView&lt;/b&gt;
+    objects so the output of one collection serves as input for
+    the next.</comment>
+  </data>
+  <data name="CVChaining_Text4" xml:space="preserve">
+    <value>この例では、入力フィールドに基づくフィルタで &lt;b&gt;view&lt;/b&gt; コレクションを作成し、最初のコレクションの出力に基づいて 2 番目の &lt;b&gt;view2&lt;/b&gt; コレクションを作成しています。独立した追加フィルタを持つ 2 番目のコレクションにグリッドを連結します。</value>
+    <comment>This example creates a &lt;b&gt;view&lt;/b&gt; collection with a filter
+    based on an input field, and a second &lt;b&gt;view2&lt;/b&gt; collection
+    based on the first collection's output. It binds a grid to
+    second collection which has an additional, independent
+    filter:</comment>
+  </data>
+  <data name="CVChaining_Text6" xml:space="preserve">
+    <value>結果（&lt;span id="cnt"&gt;&lt;/span&gt; 項目）：</value>
+    <comment>Result (&lt;span id="cnt"&gt;&lt;/span&gt; items):</comment>
+  </data>
+  <data name="CVChaining_Title" xml:space="preserve">
+    <value>フィルタの連結</value>
+    <comment>Chaining Filters</comment>
+  </data>
+  <data name="CVCreatingViews_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、データコレクションをグループ化、ソート、フィルタ処理、およびナビゲートするためのビューを表します。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; class represents a view for
+    grouping, sorting, filtering, and navigating data
+    collections.</comment>
+  </data>
+  <data name="CVCreatingViews_Text10" xml:space="preserve">
+    <value>&lt;b&gt;items&lt;/b&gt; 配列を使用して出力ビューを取得します。</value>
+    <comment>Use the &lt;b&gt;items&lt;/b&gt; array to get the output view.</comment>
+  </data>
+  <data name="CVCreatingViews_Text11" xml:space="preserve">
+    <value>&lt;b&gt;currentItem&lt;/b&gt; プロパティを使用して現在選択されている項目への参照を取得し、&lt;b&gt;currentChanged&lt;/b&gt; イベントを使用して選択範囲の変更を検出します。</value>
+    <comment>Use the &lt;b&gt;currentItem&lt;/b&gt; property to get a reference
+        to the item that is currently selected, and use the
+        &lt;b&gt;currentChanged&lt;/b&gt; event to detect a change in selection.</comment>
+  </data>
+  <data name="CVCreatingViews_Text2" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスで使用されるオブジェクトモデルは、.NET の &lt;b&gt;ICollectionView&lt;/b&gt; および &lt;b&gt;IPagedCollectionView&lt;/b&gt; インタフェースによって定義されるオブジェクトモデルに類似しています。</value>
+    <comment>The object model used in the &lt;b&gt;CollectionView&lt;/b&gt;
+    class is similar to the one defined by .NET's
+    &lt;b&gt;ICollectionView&lt;/b&gt; and &lt;b&gt;IPagedCollectionView&lt;/b&gt;
+    interfaces.</comment>
+  </data>
+  <data name="CVCreatingViews_Text3" xml:space="preserve">
+    <value>データビューを作成するには、次の手順に従います。</value>
+    <comment>To create data views, follow these steps:</comment>
+  </data>
+  <data name="CVCreatingViews_Text4" xml:space="preserve">
+    <value>新しい &lt;b&gt;CollectionView&lt;/b&gt; を作成します。</value>
+    <comment>Create a new &lt;b&gt;CollectionView&lt;/b&gt;.</comment>
+  </data>
+  <data name="CVCreatingViews_Text5" xml:space="preserve">
+    <value>&lt;b&gt;sourceCollection&lt;/b&gt; に、生データを含む配列を設定します。</value>
+    <comment>Set the &lt;b&gt;sourceCollection&lt;/b&gt; to an array containing
+        the raw data.</comment>
+  </data>
+  <data name="CVCreatingViews_Text6" xml:space="preserve">
+    <value>（オプション）データをどのようにソートするかを定義する &lt;b&gt;sortDescriptions&lt;/b&gt; 配列に項目を追加します。</value>
+    <comment>(Optional) Add items to the &lt;b&gt;sortDescriptions&lt;/b&gt; array
+        to define how the data should be sorted.</comment>
+  </data>
+  <data name="CVCreatingViews_Text7" xml:space="preserve">
+    <value>（オプション）データをどのようにグループ化するかを定義する &lt;b&gt;groupDescriptions&lt;/b&gt; 配列に項目を追加します。</value>
+    <comment>(Optional) Add items to the &lt;b&gt;groupDescriptions&lt;/b&gt; array
+        to define how the data should be grouped.</comment>
+  </data>
+  <data name="CVCreatingViews_Text8" xml:space="preserve">
+    <value>（オプション）&lt;b&gt;filter&lt;/b&gt; プロパティに、ビューに含まれる項目を選択するための述語関数を設定します。</value>
+    <comment>(Optional) Set the &lt;b&gt;filter&lt;/b&gt; property to a predicate
+        function that selects the items that should be included
+        in the view.</comment>
+  </data>
+  <data name="CVCreatingViews_Text9" xml:space="preserve">
+    <value>（オプション）&lt;b&gt;pageSize&lt;/b&gt; プロパティを設定してビュー内の項目数を定義し、&lt;b&gt;moveToPage&lt;/b&gt; メソッドを使用して現在のページを選択します。</value>
+    <comment>(Optional) Set the &lt;b&gt;pageSize&lt;/b&gt; property to define the
+        number of items in the view, and use the &lt;b&gt;moveToPage&lt;/b&gt;
+        method to select the current page.</comment>
+  </data>
+  <data name="CVCreatingViews_Title" xml:space="preserve">
+    <value>データビュー</value>
+    <comment>Data Views</comment>
+  </data>
+  <data name="CVCurrency_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; には、現在アクティブな項目を識別する &lt;b&gt;currentItem&lt;/b&gt; プロパティがあります。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; has a &lt;b&gt;currentItem&lt;/b&gt; property that
+    identifies the item that is currently active.</comment>
+  </data>
+  <data name="CVCurrency_Text2" xml:space="preserve">
+    <value>このプロパティは、リストへの連結と選択をサポートするコントロール（FlexGrid、FlexChart、ListBox、ComboBox など）によって使用されます。</value>
+    <comment>This property is used by controls that support binding
+    to lists and selection (including FlexGrid, FlexChart, ListBox,
+    ComboBox, etc).</comment>
+  </data>
+  <data name="CVCurrency_Text3" xml:space="preserve">
+    <value>次の例は、単純なマスター/詳細画面を実装しています。&lt;b&gt;ComboBox&lt;/b&gt; から国を選択すると、現在の項目が変更されます。これによって &lt;b&gt;currentChanged&lt;/b&gt; イベントが発生し、このイベントを使用して、現在の項目の詳細を表示する要素が更新されます。</value>
+    <comment>The example below implements a simple master/detail screen.
+    Select a country from the &lt;b&gt;ComboBox&lt;/b&gt; to change the current
+    item. This raises the &lt;b&gt;currentChanged&lt;/b&gt; event which is used to
+    update the elements that show details of the current item.</comment>
+  </data>
+  <data name="CVCurrency_Text4" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="CVCurrency_Text5" xml:space="preserve">
+    <value>ダウンロード数</value>
+    <comment>Downloads</comment>
+  </data>
+  <data name="CVCurrency_Text6" xml:space="preserve">
+    <value>売上</value>
+    <comment>Sales</comment>
+  </data>
+  <data name="CVCurrency_Text7" xml:space="preserve">
+    <value>経費</value>
+    <comment>Expenses</comment>
+  </data>
+  <data name="CVCurrency_Title" xml:space="preserve">
+    <value>CollectionView：現在の項目</value>
+    <comment>CollectionView Currency</comment>
+  </data>
+  <data name="CVDataProviders_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、データ項目の配列を保持する &lt;b&gt;sourceCollection&lt;/b&gt; に依存しています。通常、このコレクションには、サーバーからデータを取得するための http 要求によってデータが挿入されます。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; class relies on a &lt;b&gt;sourceCollection&lt;/b&gt;
+    that contains an array of data items. This collection is typically
+    populated with http requests that retrieve data from a server.</comment>
+  </data>
+  <data name="CVDataProviders_Text2" xml:space="preserve">
+    <value>場合によっては、サーバーから公開されている機能を利用するために、&lt;b&gt;CollectionView&lt;/b&gt; クラスを拡張した方が便利なことがあります。たとえば、ComponentOne MVC に含まれる &lt;b&gt;RemoteCollectionView&lt;/b&gt; は、データサービスから取得した結果オブジェクトをデータソースとして使用できます。また、完全な CRUD のサポートやリアルタイム更新に加えて、ソート、フィルタ処理、ページング、グループ化、編集などの CollectionView 機能を自動的に取得できます。</value>
+    <comment>In some cases, it may be advantageous to extend the &lt;b&gt;CollectionView&lt;/b&gt;
+    class in order to take advantage of functionality exposed by the
+    server. For example, C1 MVC includes a &lt;b&gt;RemoteCollectionView&lt;/b&gt;
+    that can use the result objects from the data service as data sources,
+    and in addition to full CRUD support and real-time updates you automatically get
+    CollectionView features including sorting, filtering, paging, grouping, and editing.</comment>
+  </data>
+  <data name="CVDataProviders_Title" xml:space="preserve">
+    <value>データプロバイダ</value>
+    <comment>Data Providers</comment>
+  </data>
+  <data name="CVEditingViews_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; は、.NET の &lt;b&gt;IEditableCollectionView&lt;/b&gt; インタフェースにあるメソッドと同様に、&lt;b&gt;editItem&lt;/b&gt;、&lt;b&gt;commitEdit&lt;/b&gt;、および &lt;b&gt;cancelEdit&lt;/b&gt; を使用して項目の編集をサポートします。</value>
+    <comment>&lt;b&gt;CollectionView&lt;/b&gt; provides support for editing items
+    with the help of methods similar to those found in .NET's
+    &lt;b&gt;IEditableCollectionView&lt;/b&gt; interface:
+    &lt;b&gt;editItem&lt;/b&gt;, &lt;b&gt;commitEdit&lt;/b&gt;, and &lt;b&gt;cancelEdit&lt;/b&gt;.</comment>
+  </data>
+  <data name="CVEditingViews_Text2" xml:space="preserve">
+    <value>&lt;b&gt;editItem&lt;/b&gt; メソッドは、項目のコピーを保存し、コレクションを「編集モード」にします。編集モードの間はビューがリフレッシュされません。つまり、編集処理中は、項目はソートされず、フィルタ処理によってビューから外されることもありません。</value>
+    <comment>The &lt;b&gt;editItem&lt;/b&gt; method saves a copy of the item and
+    puts the collection in 'edit mode'. While in edit mode,
+    the view is not refreshed, so items are not sorted
+    or filtered out of view during the edit process.</comment>
+  </data>
+  <data name="CVEditingViews_Text3" xml:space="preserve">
+    <value>&lt;b&gt;commitEdit&lt;/b&gt; メソッドは編集モードを終了し、ソートやフィルタ処理が再度アクティブになります。項目が変化すると、連結コントロール内の変更を反映して &lt;b&gt;collectionChanged&lt;/b&gt; イベントが発生します。</value>
+    <comment>The &lt;b&gt;commitEdit&lt;/b&gt; method exits the edit mode so that sorting
+    and filtering become active again. If the item has changed,
+    the &lt;b&gt;collectionChanged&lt;/b&gt; event is fired to reflect the 
+    changes in the bound controls.</comment>
+  </data>
+  <data name="CVEditingViews_Text4" xml:space="preserve">
+    <value>&lt;b&gt;cancelEdit&lt;/b&gt; メソッドは、元のデータを復元して編集モードを終了します。</value>
+    <comment>The &lt;b&gt;cancelEdit&lt;/b&gt; method restores the original data
+    and exits the edit mode.</comment>
+  </data>
+  <data name="CVEditingViews_Text5" xml:space="preserve">
+    <value>次のグリッドを編集して、どのように動作するかを確認してください。</value>
+    <comment>Edit the grid below to observe how this works.</comment>
+  </data>
+  <data name="CVEditingViews_Text6" xml:space="preserve">
+    <value>グリッドを編集するには、セルをダブルクリックします。編集を開始すると、行ヘッダーに鉛筆アイコンが表示されて、コレクションが編集モードであることを示します。</value>
+    <comment>To edit the grid, double click a cell. When editing 
+	starts, a pencil icon appears on the
+    row header to indicate that the collection is in edit
+    mode.</comment>
+  </data>
+  <data name="CVEditingViews_Text7" xml:space="preserve">
+    <value>編集処理をキャンセルするには、編集中に［Esc］キーを押して元のデータに戻します。</value>
+    <comment>To cancel the editing process, press the Escape key
+    while editing and restore the original data.</comment>
+  </data>
+  <data name="CVEditingViews_Text8" xml:space="preserve">
+    <value>編集をコミットするには、選択範囲を別の行に移動するか、グリッドからフォーカスを外します。この時点でコレクションがリフレッシュされ、新しい値を使用してアクティブなフィルタ処理/ソートが再度適用されます。</value>
+    <comment>To commit the edits, move the selection to 
+    a different row, or move the focus away from the grid. 
+    At this point, the collection is refreshed and any
+    active filtering/sorting is applied again using the
+    new values.</comment>
+  </data>
+  <data name="CVEditingViews_Title" xml:space="preserve">
+    <value>CollectionView：編集</value>
+    <comment>CollectionView Editing</comment>
+  </data>
+  <data name="CVFiltering_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView.filter&lt;/b&gt; プロパティを使用して、どの項目がビューに含まれるかを定義するフィルタ関数を指定します。</value>
+    <comment>Use the &lt;b&gt;CollectionView.filter&lt;/b&gt; property to specify
+    a filter function that defines which items should be
+    included in the view.</comment>
+  </data>
+  <data name="CVFiltering_Text2" xml:space="preserve">
+    <value>オプションを選択して実際の動作を確認してください。</value>
+    <comment>Choose one of the options to see it in action:</comment>
+  </data>
+  <data name="CVFiltering_Text3" xml:space="preserve">
+    <value>フィルタなし</value>
+    <comment>No Filter</comment>
+  </data>
+  <data name="CVFiltering_Text4" xml:space="preserve">
+    <value>US のみ</value>
+    <comment>US only</comment>
+  </data>
+  <data name="CVFiltering_Text5" xml:space="preserve">
+    <value>売上 &gt; 50,000</value>
+    <comment>Sales &gt; 50,000</comment>
+  </data>
+  <data name="CVFiltering_Text6" xml:space="preserve">
+    <value>ダウンロード数 &gt; 150,000</value>
+    <comment>Downloads &gt; 150,000</comment>
+  </data>
+  <data name="CVFiltering_Text7" xml:space="preserve">
+    <value>結果（&lt;span id="cnt"&gt;&lt;/span&gt; 項目）：</value>
+    <comment>Result (&lt;span id="cnt"&gt;&lt;/span&gt; items):</comment>
+  </data>
+  <data name="CVFiltering_Title" xml:space="preserve">
+    <value>CollectionView：フィルタ処理</value>
+    <comment>CollectionView Filtering</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text1" xml:space="preserve">
+    <value>このサンプルでは、データのロード中であることを示すスピナーを FlexGrid コントロールに追加します。基本的な考え方として、データのロードを開始するときにグリッドにスピナー要素を追加し、グリッドにデータを表示するときにスピナーを削除します。</value>
+    <comment>This sample shows how you can add spinners to the FlexGrid control
+    to indicate the process of loading data. The basic idea is to add a spinner
+    element to the grid when you start loading the data, and remove the
+    spinner when you get the data displayed on the grid.</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text2" xml:space="preserve">
+    <value>この例では、グリッドのロード中に、アニメーション GIF を表示します。</value>
+    <comment>This example shows an animated GIF while the grid is loading:</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text3" xml:space="preserve">
+    <value>GIF スピナーを使用したグリッドのロード</value>
+    <comment>Load Grid Using GIF Spinner</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text4" xml:space="preserve">
+    <value>&lt;img src="/Content/images/spin.gif"&gt;</value>
+    <comment>&lt;img src="/Content/images/spin.gif"&gt;</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text5" xml:space="preserve">
+    <value>この例では、グリッドのロード中に、アニメーション RadialGauge を表示します。</value>
+    <comment>This example shows an animated RadialGauge while the grid is loading:</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text6" xml:space="preserve">
+    <value>ゲージスピナーを使用したグリッドのロード</value>
+    <comment>Load Grid Using Gauge Spinner</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Text7" xml:space="preserve">
+    <value>FlexGrid が、リモート連結モードを使用する CollectionViewService に連結されている場合は、リモートサーバーからデータをロードする間に、"ロード中" というテキストを含むマスクが表示されます。c1-grid-mask CSS クラスをオーバーライドすることで、このマスクをカスタマイズできます。</value>
+    <comment>When FlexGrid binds to a CollectionViewService which uses remote bind mode,
+    it shows a mask with text "Loading..." while loading data from the remote server.
+    You can customize the mask by overriding the c1-grid-mask CSS class.</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Title" xml:space="preserve">
+    <value>FlexGrid のスピナー</value>
+    <comment>FlexGrid Spinners</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Title1" xml:space="preserve">
+    <value>GIF スピナー</value>
+    <comment>GIF Spinners</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Title2" xml:space="preserve">
+    <value>ゲージスピナー</value>
+    <comment>Gauge Spinners</comment>
+  </data>
+  <data name="CVFlexGridSpinners_Title3" xml:space="preserve">
+    <value>ロード中マスク</value>
+    <comment>Loading Mask</comment>
+  </data>
+  <data name="CVGrouping_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView.groupDescriptions&lt;/b&gt; プロパティを使用して、どのフィールドをグループ化するかを指定します。</value>
+    <comment>Use the &lt;b&gt;CollectionView.groupDescriptions&lt;/b&gt; property to specify
+    which fields should be grouped.</comment>
+  </data>
+  <data name="CVGrouping_Text2" xml:space="preserve">
+    <value>オプションを選択して実際の動作を確認してください。</value>
+    <comment>Choose one of the options to see it in action:</comment>
+  </data>
+  <data name="CVGrouping_Text3" xml:space="preserve">
+    <value>グループ化なし</value>
+    <comment>No Grouping</comment>
+  </data>
+  <data name="CVGrouping_Text4" xml:space="preserve">
+    <value>国でグループ化</value>
+    <comment>By Country</comment>
+  </data>
+  <data name="CVGrouping_Text5" xml:space="preserve">
+    <value>国と製品でグループ化</value>
+    <comment>By Country and by Product</comment>
+  </data>
+  <data name="CVGrouping_Text6" xml:space="preserve">
+    <value>国、製品、売上でグループ化</value>
+    <comment>By Country, Product, and Sales</comment>
+  </data>
+  <data name="CVGrouping_Text7" xml:space="preserve">
+    <value>結果：</value>
+    <comment>Result:</comment>
+  </data>
+  <data name="CVGrouping_Text8" xml:space="preserve">
+    <value>コンソールに表示</value>
+    <comment>Show on Console</comment>
+  </data>
+  <data name="CVGrouping_Title" xml:space="preserve">
+    <value>CollectionView：グループ化</value>
+    <comment>CollectionView Grouping</comment>
+  </data>
+  <data name="CVLoadingData_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; へのデータのロードは単純です。</value>
+    <comment>Loading data into a &lt;b&gt;CollectionView&lt;/b&gt; is straightforward.</comment>
+  </data>
+  <data name="CVLoadingData_Text2" xml:space="preserve">
+    <value>既にデータが配列としてある場合は、その配列をコンストラクタのパラメータとして使用するか、&lt;b&gt;sourceCollection&lt;/b&gt; プロパティにその配列を設定できます。</value>
+    <comment>If you already have the data in an array, you can use that
+    array as a constructor parameter, or set the &lt;b&gt;sourceCollection&lt;/b&gt;
+    property to that array:</comment>
+  </data>
+  <data name="CVLoadingData_Text3" xml:space="preserve">
+    <value>データがサーバー上にある場合は、&lt;b&gt;httpRequest&lt;/b&gt; メソッドを使用してデータを取得できます。サーバーから応答を取得したら、&lt;b&gt;sourceCollection&lt;/b&gt; 配列に応答値を設定するか、&lt;b&gt;sourceCollection&lt;/b&gt; 配列に新しいデータを付加します。</value>
+    <comment>If the data is on a server, you can retrieve it by using the
+    &lt;b&gt;httpRequest&lt;/b&gt; method. When you get a response from
+    the server, set the &lt;b&gt;sourceCollection&lt;/b&gt; array to the
+    response value or append new data to the
+    &lt;b&gt;sourceCollection&lt;/b&gt; array:</comment>
+  </data>
+  <data name="CVLoadingData_Text4" xml:space="preserve">
+    <value>サーバー側の CollectionViewService コントロールがクライアント側の CollectionView インスタンスを作成します。このインスタンスは、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/c1.Module.html#getService" target="_blank"&gt;c1.getService&lt;/a&gt; メソッドから取得できます。</value>
+    <comment>The server side CollectionViewService control constructs
+    a client side CollectionView instance. You can get the
+    instance by
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/c1.Module.html#getService" target="_blank"&gt;c1.getService&lt;/a&gt;
+    method.</comment>
+  </data>
+  <data name="CVLoadingData_Text5" xml:space="preserve">
+    <value>使用しているデータサービスの API がフィルタ処理、ソート、ページングなどのコマンドをサポートする場合は、&lt;b&gt;httpRequest&lt;/b&gt; 呼び出しにパラメータを追加して、これらの機能を使用できます。&lt;b&gt;CollectionView&lt;/b&gt; を拡張したカスタムクラスにサーバー API をカプセル化することもできます。</value>
+    <comment>If your data service API supports commands such as filtering,
+    sorting, and paging, you can add parameters to your
+    &lt;b&gt;httpRequest&lt;/b&gt; calls to support these features. You can even
+    encapsulate the server API into a custom class that extends
+    &lt;b&gt;CollectionView&lt;/b&gt;.</comment>
+  </data>
+  <data name="CVLoadingData_Title" xml:space="preserve">
+    <value>データのロード</value>
+    <comment>Loading Data</comment>
+  </data>
+  <data name="CVLoadingData_Title1" xml:space="preserve">
+    <value>クライアントでのロード</value>
+    <comment>Loading on the Client</comment>
+  </data>
+  <data name="CVLoadingData_Title2" xml:space="preserve">
+    <value>サーバーからのロード</value>
+    <comment>Loading from the Server</comment>
+  </data>
+  <data name="CVLoadingData_Title3" xml:space="preserve">
+    <value>サーバーでの構築</value>
+    <comment>Construct in Server</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Text1" xml:space="preserve">
+    <value>JSON は、データをシリアライズするための優れた形式ですが、残念ながら日付をサポートしていません。</value>
+    <comment>JSON is a great format for serializing data, but unfortunately
+    it does not support dates.</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Text2" xml:space="preserve">
+    <value>日付フィールドを含むオブジェクトを JSON.stringify を使用してシリアライズすると、日付は文字列に変換されます。次に、JSON.parse を使用して同じオブジェクトを解析すると、日付フィールドは文字列のままになります。</value>
+    <comment>If you serialize an object that contains date fields using
+    JSON.stringify, the dates will be converted to strings.
+    If you then parse the same object back using JSON.parse,
+    they will remain strings.</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Text3" xml:space="preserve">
+    <value>次の例で、日付列には文字列が含まれていることに注意してください。</value>
+    <comment>Note how the "Date" column contains strings in the example below:</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Text4" xml:space="preserve">
+    <value>この問題の解決策としては、文字列を調べて、日付と考えられる文字列を日付オブジェクトに変換するための「復活」関数を JSON.parse 呼び出し内で使用します。</value>
+    <comment>The solution for this problem is to use a 'reviver' function
+    in the call to JSON.parse that will inspect the strings
+    and convert those that look like dates into date objects.</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Text5" xml:space="preserve">
+    <value>次のグリッドには同じデータが表示されていますが、今回は、日付復活関数を使用して解析されています。</value>
+    <comment>Following is a grid showing the same data, this time parsed
+    with a date reviver function:</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Title" xml:space="preserve">
+    <value>JSON の日付のロード</value>
+    <comment>Loading JSON Dates</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Title1" xml:space="preserve">
+    <value>問題</value>
+    <comment>The Problem</comment>
+  </data>
+  <data name="CVLoadingJsonDates_Title2" xml:space="preserve">
+    <value>解決策</value>
+    <comment>The Solution</comment>
+  </data>
+  <data name="CVPaging_Text1" xml:space="preserve">
+    <value>ページングは、大規模なデータを処理する際によく使用される技術です。</value>
+    <comment>Paging is a common technique for dealing with large collections
+    of data.</comment>
+  </data>
+  <data name="CVPaging_Text2" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、クライアント側のページングをデフォルトでサポートします。これにより、適切な量のデータのみを含むグリッドやテーブルを生成できます。ページングを有効にするには &lt;b&gt;pageSize&lt;/b&gt; プロパティを設定し、表示するページを選択するには &lt;b&gt;moveToPage&lt;/b&gt; メソッドを使用します。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; class supports client-side paging
+    by default. This enables you to generate grids and tables that contain
+    only a reasonable amount of data. To enable paging, set the
+    &lt;b&gt;pageSize&lt;/b&gt; property and to select the page you want to display, 
+    use the &lt;b&gt;moveToPage&lt;/b&gt; method.</comment>
+  </data>
+  <data name="CVPaging_Text3" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="CVPaging_Text4" xml:space="preserve">
+    <value>サーバー側のページングは、一度に 1 ページ分のデータを取り込む要求を作成して行います。実際にデータを取得するコマンドは、サーバーから公開される API に依存します。</value>
+    <comment>Server-side paging consists of making requests that bring in
+    one page of data at a time. The actual commands used to retrieve
+    the data depend on the API exposed by the server.</comment>
+  </data>
+  <data name="CVPaging_Text5" xml:space="preserve">
+    <value>MVC Edition には、サーバーベースのページング（およびソートとフィルタ処理）を実装する &lt;b&gt;CollectionViewService&lt;/b&gt; が含まれています。</value>
+    <comment>MVC Edition includes &lt;b&gt;CollectionViewService&lt;/b&gt; that implements
+    server-based paging (as well as sorting and filtering).</comment>
+  </data>
+  <data name="CVPaging_Text6" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="CVPaging_Title" xml:space="preserve">
+    <value>CollectionView：ページング</value>
+    <comment>CollectionView Paging</comment>
+  </data>
+  <data name="CVPaging_Title1" xml:space="preserve">
+    <value>クライアント側のページング</value>
+    <comment>Client-Side Paging</comment>
+  </data>
+  <data name="CVPaging_Title2" xml:space="preserve">
+    <value>サーバー側のページング</value>
+    <comment>Server-Side Paging</comment>
+  </data>
+  <data name="CVPerformance_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、高度に最適化されています。事実上あらゆる状況において、大規模なデータセットを効率的にソート、フィルタ処理、グループ化、およびページングすることができます。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; class is highly optimized.
+    It sorts, filters, groups, and paginates large data
+    sets efficiently in virtually every situation.</comment>
+  </data>
+  <data name="CVPerformance_Text2" xml:space="preserve">
+    <value>場合によっては、&lt;b&gt;deferUpdate&lt;/b&gt; メソッドを使用して、バッチ処理中にリフレッシュを一時停止することで、さらにパフォーマンスを向上させることができます。</value>
+    <comment>In some cases, you may be able to improve performance
+    even more by using the &lt;b&gt;deferUpdate&lt;/b&gt; method to
+    suspend refreshes while performing batch operations.</comment>
+  </data>
+  <data name="CVPerformance_Text3" xml:space="preserve">
+    <value>これは、ソート、グループ化、またはフィルタ処理されたコレクションに項目を追加する場合に特に重要です。更新を遅延しないと、項目の追加ごとにリフレッシュが行われます。</value>
+    <comment>This is especially important when adding items to collections
+    that are sorted, grouped, or filtered. Without deferred
+    updates, each addition causes a refresh.</comment>
+  </data>
+  <data name="CVPerformance_Text4" xml:space="preserve">
+    <value>たとえば、以下のボタンをクリックすると、3 とおりの方法を使用して &lt;b&gt;CollectionView&lt;/b&gt; に 1,000 項目を追加できます。</value>
+    <comment>For example, click the buttons below to add 1,000
+    items to a &lt;b&gt;CollectionView&lt;/b&gt; using three
+    different methods:</comment>
+  </data>
+  <data name="CVPerformance_Text5" xml:space="preserve">
+    <value>addNew</value>
+    <comment>addNew</comment>
+  </data>
+  <data name="CVPerformance_Text6" xml:space="preserve">
+    <value>push</value>
+    <comment>push</comment>
+  </data>
+  <data name="CVPerformance_Text7" xml:space="preserve">
+    <value>push + deferUpdate</value>
+    <comment>push + defer updates</comment>
+  </data>
+  <data name="CVPerformance_Title" xml:space="preserve">
+    <value>CollectionView：通知とパフォーマンス</value>
+    <comment>CollectionView Notifications and Performance</comment>
+  </data>
+  <data name="CVSorting_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView.sortDescriptions&lt;/b&gt; プロパティを使用して、どのフィールドをどの方向にソートするかを指定します。</value>
+    <comment>Use the &lt;b&gt;CollectionView.sortDescriptions&lt;/b&gt; property to specify
+    which fields should be sorted and in which direction.</comment>
+  </data>
+  <data name="CVSorting_Text2" xml:space="preserve">
+    <value>オプションを選択して実際の動作を確認してください。</value>
+    <comment>Choose one of the options to see it in action:</comment>
+  </data>
+  <data name="CVSorting_Text3" xml:space="preserve">
+    <value>ソートなし</value>
+    <comment>No Sort</comment>
+  </data>
+  <data name="CVSorting_Text4" xml:space="preserve">
+    <value>国でソート</value>
+    <comment>Sort by Country</comment>
+  </data>
+  <data name="CVSorting_Text5" xml:space="preserve">
+    <value>国と売上でソート</value>
+    <comment>Sort by Country and Sales</comment>
+  </data>
+  <data name="CVSorting_Text6" xml:space="preserve">
+    <value>国、売上、ダウンロード数でソート</value>
+    <comment>Sort by Country, Sales, and Downloads</comment>
+  </data>
+  <data name="CVSorting_Text7" xml:space="preserve">
+    <value>結果：</value>
+    <comment>Result:</comment>
+  </data>
+  <data name="CVSorting_Title" xml:space="preserve">
+    <value>CollectionView：ソート</value>
+    <comment>CollectionView Sorting</comment>
+  </data>
+  <data name="CVStableSort_Text1" xml:space="preserve">
+    <value>CollectionView クラスの "stableSort" プロパティを使用すると、データオブジェクト内の任意のフィールドでソートするときに、項目の元の順序を維持することができます。</value>
+    <comment>The CollectionView class has a "stableSort" property that allows
+    you to keep the original sequence of items when sorting by
+    any fields in the data objects.</comment>
+  </data>
+  <data name="CVStableSort_Text2" xml:space="preserve">
+    <value>たとえば、次のサンプルは、国と ID でソートされた項目のリストに基づいて CollectionView を作成しています。このグリッドをいずれかのプロパティ（たとえば、Active）でソートすると、同じソートプロパティ値を持つ項目は、（国と ID でソートされた後の）元の順序に従ってソートされます。</value>
+    <comment>For example, this sample creates a CollectionView based on
+    a list of items sorted by Country and ID. If you sort the
+    grid by any property (e.g. Active), items with the same
+    sort property value will be sorted according to the original
+    order (sorted by Country and ID):</comment>
+  </data>
+  <data name="CVStableSort_Text3" xml:space="preserve">
+    <value>"stableSort" プロパティは、パフォーマンスコストがかかります。したがって、デフォルトでは "false" に設定されており、必要な場合にのみ "true" に設定してください。</value>
+    <comment>The "stableSort" property does have a performance cost. 
+    Therefore, it is set to "false" by default and should be
+    set to "true" only when needed.</comment>
+  </data>
+  <data name="CVStableSort_Title" xml:space="preserve">
+    <value>安定したソート</value>
+    <comment>Stable Sort</comment>
+  </data>
+  <data name="CVTrackingChanges_Text1" xml:space="preserve">
+    <value>Web アプリケーションは、データをサーバーからダウンロードし、ローカルで変更してから、変更内容でサーバーを更新するというパターンをよく使用します。</value>
+    <comment>Web applications often use a pattern of downloading
+    some data from the server, making changes locally,
+    and updating the server with the changes later.</comment>
+  </data>
+  <data name="CVTrackingChanges_Text2" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; では、追加、削除、変更された項目を追跡して管理できるため便利です。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; can help by keeping track
+    of items that have been added, removed, or modified.</comment>
+  </data>
+  <data name="CVTrackingChanges_Text3" xml:space="preserve">
+    <value>この機能を使用するには、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.collections.CollectionView.Class.html#trackChanges" target="_blank"&gt;trackChanges&lt;/a&gt; プロパティに true を設定します。これで、&lt;b&gt;CollectionView&lt;/b&gt; は、&lt;b&gt;itemsAdded&lt;/b&gt;、&lt;b&gt;itemsRemoved&lt;/b&gt;、および &lt;b&gt;itemsEdited&lt;/b&gt; コレクションに項目を追加します。準備が整うと、変更をサーバーに送信し、&lt;b&gt;clearChanges&lt;/b&gt; メソッドを呼び出して変更追跡コレクションをリセットします。</value>
+    <comment>To use this feature, set the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.collections.CollectionView.Class.html#trackChanges" target="_blank"&gt;trackChanges&lt;/a&gt;
+    property to true. Once you do that, the &lt;b&gt;CollectionView&lt;/b&gt;
+    will add items to its &lt;b&gt;itemsAdded&lt;/b&gt;, &lt;b&gt;itemsRemoved&lt;/b&gt;,
+    and &lt;b&gt;itemsEdited&lt;/b&gt; collections. When you are ready, send
+    the changes to the server and call the &lt;b&gt;clearChanges&lt;/b&gt;
+    method to reset the change-tracking collections.</comment>
+  </data>
+  <data name="CVTrackingChanges_Text4" xml:space="preserve">
+    <value>次のグリッドで項目を編集/追加/削除して、動作を確認してください。</value>
+    <comment>Edit/add/remove items in the grid below to observe how it works:</comment>
+  </data>
+  <data name="CVTrackingChanges_Title" xml:space="preserve">
+    <value>CollectionView：変更の追跡</value>
+    <comment>CollectionView Change Tracking</comment>
+  </data>
+  <data name="CVTrackingChanges_Title1" xml:space="preserve">
+    <value>項目の編集：</value>
+    <comment>Edited Items:</comment>
+  </data>
+  <data name="CVTrackingChanges_Title2" xml:space="preserve">
+    <value>項目の追加：</value>
+    <comment>Added Items:</comment>
+  </data>
+  <data name="CVTrackingChanges_Title3" xml:space="preserve">
+    <value>項目の削除：</value>
+    <comment>Removed Items:</comment>
+  </data>
+  <data name="CVValidation_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; には、検証をサポートする &lt;b&gt;getError&lt;/b&gt; プロパティがあります。これを使用するには、&lt;b&gt;getError&lt;/b&gt; に、検証されるデータ項目および検証するプロパティを含む 2 つのパラメータを受け取り、エラー状態を記述する文字列またはエラーがない場合は null を返す関数を設定します。</value>
+    <comment>The &lt;b&gt;CollectionView&lt;/b&gt; has a &lt;b&gt;getError&lt;/b&gt; property
+    that provides validation support.
+    To use it, set &lt;b&gt;getError&lt;/b&gt; to a function that takes
+    two parameters containing the data item being validated
+    and the property to validate, and returns a string describing
+    the error condition or null if there are no errors.</comment>
+  </data>
+  <data name="CVValidation_Text2" xml:space="preserve">
+    <value>&lt;b&gt;getError&lt;/b&gt; プロパティは、値自体（最小値、最大値、必須、パターンなど）に基づいて基本 HTML5 を超える検証を行います。複数のプロパティを含む条件を指定できます。</value>
+    <comment>The &lt;b&gt;getError&lt;/b&gt; property goes beyond basic HTML5 validation
+    based only on the value itself (such as min, max, required,
+    pattern, etc). It allows you to specify conditions that involve
+    multiple properties.</comment>
+  </data>
+  <data name="CVValidation_Text3" xml:space="preserve">
+    <value>&lt;b&gt;getError&lt;/b&gt; プロパティを使用すると、項目の編集に使用される UI ではなく、コレクション自体に検証ロジックを含めることができます。その後、入力フォームや &lt;b&gt;FlexGrid&lt;/b&gt; などのコントロールで同じメソッドを使用できます。</value>
+    <comment>The &lt;b&gt;getError&lt;/b&gt; property allows you to include the
+    validation logic in the collection itself, rather than
+    in the UI used for editing items.
+    The same method can then be used by input forms or by
+    controls such as &lt;b&gt;FlexGrid&lt;/b&gt;.</comment>
+  </data>
+  <data name="CVValidation_Text4" xml:space="preserve">
+    <value>&lt;b&gt;FlexGrid&lt;/b&gt; は、デフォルトで &lt;b&gt;CollectionView.getError&lt;/b&gt; プロパティを使用します。無効な国または負の数値を入力して、グリッドがエラーを識別し、無効な入力がコミットされないことを確認してみてください。</value>
+    <comment>&lt;b&gt;FlexGrid&lt;/b&gt; uses the &lt;b&gt;CollectionView.getError&lt;/b&gt;
+    property by default. Try entering an invalid country or a
+    negative number to see how the grid identifies the error
+    and prevents the invalid entry from being committed:</comment>
+  </data>
+  <data name="CVValidation_Text5" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView.getError&lt;/b&gt; プロパティを使用してフォームも検証できます。それには、この関数を呼び出した結果を、HTML5 検証 API に含まれる &lt;b&gt;setCustomValidity&lt;/b&gt; メソッドを使用して適切な入力要素に適用するだけです。</value>
+    <comment>You can use the the &lt;b&gt;CollectionView.getError&lt;/b&gt; property
+    to validate forms as well. Simply call the function and
+    apply the result to the appropriate input element using the
+    &lt;b&gt;setCustomValidity&lt;/b&gt; method that is part of the HTML5
+    validation API.</comment>
+  </data>
+  <data name="CVValidation_Text6" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="CVValidation_Text7" xml:space="preserve">
+    <value>ダウンロード数</value>
+    <comment>Downloads</comment>
+  </data>
+  <data name="CVValidation_Text8" xml:space="preserve">
+    <value>売上</value>
+    <comment>Sales</comment>
+  </data>
+  <data name="CVValidation_Title" xml:space="preserve">
+    <value>CollectionView：検証</value>
+    <comment>CollectionView Validation</comment>
+  </data>
+  <data name="CVValidation_Title1" xml:space="preserve">
+    <value>FlexGrid の検証</value>
+    <comment>FlexGrid Validation</comment>
+  </data>
+  <data name="CVValidation_Title2" xml:space="preserve">
+    <value>フォームの検証</value>
+    <comment>Forms Validation</comment>
+  </data>
+  <data name="Events_Text1" xml:space="preserve">
+    <value>HTML5 には、HTML 要素に対して機能するイベントメカニズムがあります。しかし、これを使用して、コントロールやコレクションなどの任意のオブジェクトにイベントを追加することはできません。</value>
+    <comment>HTML5 has an eventing mechanism that works for HTML elements.
+    But, it cannot be used to add events to arbitrary objects,
+    such as controls and collections.</comment>
+  </data>
+  <data name="Events_Text2" xml:space="preserve">
+    <value>イベントを処理するには、&lt;b&gt;Event&lt;/b&gt; クラスを定義します。任意のクラスで、イベントをフィールドとして宣言することで、イベントを定義できます。また、任意のクラスで、イベントの &lt;b&gt;addHandler&lt;/b&gt; メソッドと &lt;b&gt;removeHandler&lt;/b&gt; メソッドを使用して、イベントハンドラの追加や削除を行うことができます。</value>
+    <comment>To handle this, we defined an &lt;b&gt;Event&lt;/b&gt; class. Any class
+    may define events by declaring them as fields, and any class may
+    add or remove event handlers using the event's &lt;b&gt;addHandler&lt;/b&gt;
+    and &lt;b&gt;removeHandler&lt;/b&gt; methods.</comment>
+  </data>
+  <data name="Events_Text3" xml:space="preserve">
+    <value>任意の MVC コントロールの &lt;b&gt;initialize&lt;/b&gt; メソッドで、イベントハンドラを &lt;b&gt;options&lt;/b&gt; として宣言することもできます。</value>
+    <comment>You may also declare event handlers as &lt;b&gt;options&lt;/b&gt; in the 
+    &lt;b&gt;initialize&lt;/b&gt; method of any MVC control.</comment>
+  </data>
+  <data name="Events_Text4" xml:space="preserve">
+    <value>これらのイベントハンドラは、&lt;b&gt;sender&lt;/b&gt; と &lt;b&gt;args&lt;/b&gt; の 2 つのパラメータを受け取ります。&lt;b&gt;Sender&lt;/b&gt; パラメータはイベントを発生させたオブジェクト、&lt;b&gt;args&lt;/b&gt; パラメータはイベントパラメータを含むオブジェクトです。</value>
+    <comment>These event handlers take two parameters: &lt;b&gt;sender&lt;/b&gt;
+    and &lt;b&gt;args&lt;/b&gt;.
+    &lt;b&gt;Sender&lt;/b&gt; is an object that raised the event, and &lt;b&gt;args&lt;/b&gt;
+    is an object that contains the event parameters.</comment>
+  </data>
+  <data name="Events_Text5" xml:space="preserve">
+    <value>以下に、イベントハンドラがアタッチされた入力コントロールをいくつか示します。</value>
+    <comment>Below are some input controls with the event handlers
+    attached to them:</comment>
+  </data>
+  <data name="Events_Text6" xml:space="preserve">
+    <value>ComponentOne MVC イベントと HTML イベントの詳細については、ブログ記事「&lt;a href="http://wijmo.com/blog/html-and-wijmo-events/" target="_blank"&gt;HTML イベントと Wijmo イベント&lt;/a&gt;」を参照してください。</value>
+    <comment>For more details on C1 MVC and HTML events, please refer to
+        our blog on
+        &lt;a href=http://wijmo.com/blog/html-and-wijmo-events/" target="_blank"&gt;HTML and Wijmo Events&lt;/a&gt;."</comment>
+  </data>
+  <data name="Events_Title" xml:space="preserve">
+    <value>イベント</value>
+    <comment>Events</comment>
+  </data>
+  <data name="Extenders_Text1" xml:space="preserve">
+    <value>コントロールの機能を拡張するためにエクステンダが使用されます。以下は、ASP.NET MVC Edition で提供されるいくつかのエクステンダ、およびそれぞれを使用可能なコントロールのリストです。</value>
+    <comment>Extenders are used to extend the funtionality of a control. Following is the list of some extenders provided with ASP.NET MVC Edition and the controls they can be used with.</comment>
+  </data>
+  <data name="Extenders_Text10" xml:space="preserve">
+    <value>AnnotationLayer</value>
+    <comment>AnnotationLayer</comment>
+  </data>
+  <data name="Extenders_Text11" xml:space="preserve">
+    <value>ChartAnimation</value>
+    <comment>ChartAnimation</comment>
+  </data>
+  <data name="Extenders_Text12" xml:space="preserve">
+    <value>ChartGestures</value>
+    <comment>ChartGestures</comment>
+  </data>
+  <data name="Extenders_Text13" xml:space="preserve">
+    <value>LineMarker</value>
+    <comment>LineMarker</comment>
+  </data>
+  <data name="Extenders_Text14" xml:space="preserve">
+    <value>RangeSelector</value>
+    <comment>RangeSelector</comment>
+  </data>
+  <data name="Extenders_Text15" xml:space="preserve">
+    <value>以下のエクステンダは、FlexSheet コントロールで使用できます。</value>
+    <comment>The following extender can be used with the FlexSheet control.</comment>
+  </data>
+  <data name="Extenders_Text16" xml:space="preserve">
+    <value>FormulaBar</value>
+    <comment>FormulaBar</comment>
+  </data>
+  <data name="Extenders_Text17" xml:space="preserve">
+    <value>エクステンダは、次の 2 つの方法で使用されます。</value>
+    <comment>There are two ways to use the extenders.</comment>
+  </data>
+  <data name="Extenders_Text18" xml:space="preserve">
+    <value>コントロールエクステンダビルダを使用してエクステンダを作成する</value>
+    <comment>Create extender using control extender builder</comment>
+  </data>
+  <data name="Extenders_Text19" xml:space="preserve">
+    <value>クライアントエクステンダコンストラクタを使用してエクステンダを作成する</value>
+    <comment>Create extender using client extender constructor</comment>
+  </data>
+  <data name="Extenders_Text2" xml:space="preserve">
+    <value>以下のエクステンダは、FlexGrid コントロールで使用できます。</value>
+    <comment>The following extenders can be used with the FlexGrid control.</comment>
+  </data>
+  <data name="Extenders_Text20" xml:space="preserve">
+    <value>コントロールエクステンダビルダを使用してエクステンダを作成する場合は、以下のどちらの方法でも使用できます。</value>
+    <comment>If the extender is created using control extender builder, we can get the same in following ways:</comment>
+  </data>
+  <data name="Extenders_Text21" xml:space="preserve">
+    <value>&lt;code&gt;c1.getExtenders(control, extenderType?)&lt;/code&gt;&lt;br/&gt;
+        オーナーとタイプを指定してエクステンダを取得します。</value>
+    <comment>&lt;code&gt;c1.getExtenders(control, extenderType?)&lt;/code&gt;&lt;br/&gt;
+        Gets the extenders with specified owner and type.</comment>
+  </data>
+  <data name="Extenders_Text22" xml:space="preserve">
+    <value>&lt;code&gt;c1.getExtender(control, id)&lt;/code&gt; &lt;br/&gt;
+        オーナーと id を指定してエクステンダを取得します。</value>
+    <comment>&lt;code&gt;c1.getExtender(control, id)&lt;/code&gt; &lt;br/&gt;
+        Gets the extender with specified owner and id.</comment>
+  </data>
+  <data name="Extenders_Text23" xml:space="preserve">
+    <value>以下のサンプルは、エクステンダを作成、取得、およびカスタマイズする方法を示しています。</value>
+    <comment>The samples below show how to create, get and customize an extender.</comment>
+  </data>
+  <data name="Extenders_Text24" xml:space="preserve">
+    <value>コントロールビルダを使用して、直接エクステンダを追加します。&lt;br/&gt;</value>
+    <comment>Use the control builder to add an extender directly.&lt;br/&gt;</comment>
+  </data>
+  <data name="Extenders_Text25" xml:space="preserve">
+    <value>JavaScript コードを使用して、クライアントにエクステンダを追加します。&lt;br/&gt;</value>
+    <comment>Use javascript code to add an extender in the client.&lt;br/&gt;</comment>
+  </data>
+  <data name="Extenders_Text3" xml:space="preserve">
+    <value>FlexGridDetailProvider</value>
+    <comment>FlexGridDetailProvider</comment>
+  </data>
+  <data name="Extenders_Text4" xml:space="preserve">
+    <value>FlexGridFilter</value>
+    <comment>FlexGridFilter</comment>
+  </data>
+  <data name="Extenders_Text5" xml:space="preserve">
+    <value>FlexGridGroupPanel</value>
+    <comment>FlexGridGroupPanel</comment>
+  </data>
+  <data name="Extenders_Text6" xml:space="preserve">
+    <value>以下のエクステンダは、MultiRow コントロールで使用できます。</value>
+    <comment>The following extenders can be used with the MultiRow control.</comment>
+  </data>
+  <data name="Extenders_Text7" xml:space="preserve">
+    <value>FlexGridFilter</value>
+    <comment>FlexGridFilter</comment>
+  </data>
+  <data name="Extenders_Text8" xml:space="preserve">
+    <value>FlexGridGroupPanel</value>
+    <comment>FlexGridGroupPanel</comment>
+  </data>
+  <data name="Extenders_Text9" xml:space="preserve">
+    <value>以下のエクステンダは、チャートで使用できます。</value>
+    <comment>The following extenders can be used with charts.</comment>
+  </data>
+  <data name="Extenders_Title" xml:space="preserve">
+    <value>ComponentOne MVC エクステンダ</value>
+    <comment>C1 MVC Extenders</comment>
+  </data>
+  <data name="FlexGridFocus_Text1" xml:space="preserve">
+    <value>FlexGrid は、選択されたセルに "wj-state-selected" クラスを追加します。</value>
+    <comment>FlexGrid adds a "wj-state-selected" class to the selected cells.</comment>
+  </data>
+  <data name="FlexGridFocus_Text2" xml:space="preserve">
+    <value>これと、グリッドに追加された "wj-state-focused" クラスを組み合わせて、グリッドにフォーカスがあるときに選択範囲を強調表示するスタイルを作成できます。</value>
+    <comment>You can combine this with the "wj-state-focused" class added to
+    the grid to create styles for highlighting
+    the selection when grid has the focus:</comment>
+  </data>
+  <data name="FlexGridFocus_Title" xml:space="preserve">
+    <value>FlexGrid フォーカス</value>
+    <comment>FlexGrid Focus</comment>
+  </data>
+  <data name="Formatting_Text1" xml:space="preserve">
+    <value>アプリケーションをグローバル化するには、ComponentOne MVC スクリプトを登録する際に該当するカルチャを登録します。&lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;MVC に付属する 40 以上のカルチャファイルからカルチャを選択できます。&lt;/a&gt;</value>
+    <comment>To globalize your application, register the appropriate culture
+    while registering the C1 MVC scripts.
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        MVC includes over 40 culture files you can choose from.
+    &lt;/a&gt;</comment>
+  </data>
+  <data name="Formatting_Text10" xml:space="preserve">
+    <value>完全な日時パターン（長い時刻）</value>
+    <comment>Full Date/Time Pattern (long time)</comment>
+  </data>
+  <data name="Formatting_Text11" xml:space="preserve">
+    <value>短い時刻パターン</value>
+    <comment>Short Time Pattern</comment>
+  </data>
+  <data name="Formatting_Text12" xml:space="preserve">
+    <value>長い時刻パターン</value>
+    <comment>Long Time Pattern</comment>
+  </data>
+  <data name="Formatting_Text13" xml:space="preserve">
+    <value>四半期/年</value>
+    <comment>Quarter/Year</comment>
+  </data>
+  <data name="Formatting_Text14" xml:space="preserve">
+    <value>カスタム書式</value>
+    <comment>Custom format</comment>
+  </data>
+  <data name="Formatting_Text15" xml:space="preserve">
+    <value>MVC コントロールは、標準の .NET 書式指定子のほかに、四半期 'Q/q'、会計四半期 'U/u'、会計年度 'EEEE/eeee' などの追加指定子をいくつかサポートしています。</value>
+    <comment>In addition to the standard .NET format specifiers, our MVC controls support
+        a few additional specifiers including 'Q/q' for quarter, 'U/u' for
+        fiscal quarter, and 'EEEE/eeee' for fiscal year.</comment>
+  </data>
+  <data name="Formatting_Text16" xml:space="preserve">
+    <value>数値は、&lt;b&gt;Globalize.formatNumber&lt;/b&gt; 関数を使用して書式設定されます。書式文字列の詳細については、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。</value>
+    <comment>Numbers are formatted using the &lt;b&gt;Globalize.formatNumber&lt;/b&gt;
+    function.
+    For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</comment>
+  </data>
+  <data name="Formatting_Text17" xml:space="preserve">
+    <value>値</value>
+    <comment>Value</comment>
+  </data>
+  <data name="Formatting_Text18" xml:space="preserve">
+    <value>小数位</value>
+    <comment>Precision</comment>
+  </data>
+  <data name="Formatting_Text19" xml:space="preserve">
+    <value>指定子</value>
+    <comment>Specifier</comment>
+  </data>
+  <data name="Formatting_Text2" xml:space="preserve">
+    <value>カルチャを選択してください</value>
+    <comment>Please select a culture</comment>
+  </data>
+  <data name="Formatting_Text20" xml:space="preserve">
+    <value>数値</value>
+    <comment>Number</comment>
+  </data>
+  <data name="Formatting_Text21" xml:space="preserve">
+    <value>数値（千単位）</value>
+    <comment>Number (thousands)</comment>
+  </data>
+  <data name="Formatting_Text22" xml:space="preserve">
+    <value>数値（百万単位）</value>
+    <comment>Number (millions)</comment>
+  </data>
+  <data name="Formatting_Text23" xml:space="preserve">
+    <value>固定小数点</value>
+    <comment>Fixed-point</comment>
+  </data>
+  <data name="Formatting_Text24" xml:space="preserve">
+    <value>標準（末尾のゼロなし）</value>
+    <comment>General (no trailing zeros)</comment>
+  </data>
+  <data name="Formatting_Text25" xml:space="preserve">
+    <value>10 進数（整数）</value>
+    <comment>Decimal (integers)</comment>
+  </data>
+  <data name="Formatting_Text26" xml:space="preserve">
+    <value>16 進数（整数）</value>
+    <comment>Hexadecimal (integers)</comment>
+  </data>
+  <data name="Formatting_Text27" xml:space="preserve">
+    <value>通貨</value>
+    <comment>Currency</comment>
+  </data>
+  <data name="Formatting_Text28" xml:space="preserve">
+    <value>通貨記号（通貨記号を明示）</value>
+    <comment>Currency (explicit currency symbol)</comment>
+  </data>
+  <data name="Formatting_Text29" xml:space="preserve">
+    <value>通貨記号（通貨記号なし）</value>
+    <comment>Currency (no currency symbol)</comment>
+  </data>
+  <data name="Formatting_Text3" xml:space="preserve">
+    <value>日付は、&lt;b&gt;Globalize.formatDate&lt;/b&gt; 関数を使用して書式設定されます。書式文字列の詳細については、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。</value>
+    <comment>Dates are formatted using the
+    &lt;b&gt;Globalize.formatDate&lt;/b&gt; function.
+    For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</comment>
+  </data>
+  <data name="Formatting_Text30" xml:space="preserve">
+    <value>パーセント</value>
+    <comment>Percent</comment>
+  </data>
+  <data name="Formatting_Text31" xml:space="preserve">
+    <value>数値書式では、現在のカルチャの通貨記号に代えて、通貨記号を明示的に含めることができます。たとえば、英語のアプリケーションでも、金額のリストをドル、ユーロ、および円単位で生成しなければならない場合があります。</value>
+    <comment>Our numeric formats allow you to include an explicit currency symbol
+        instead of the symbol of current culture.
+        For example, an English application may need to generate lists with
+        amounts in Dollars, Euros, and Yens.</comment>
+  </data>
+  <data name="Formatting_Text4" xml:space="preserve">
+    <value>書式</value>
+    <comment>Format</comment>
+  </data>
+  <data name="Formatting_Text5" xml:space="preserve">
+    <value>説明</value>
+    <comment>Description</comment>
+  </data>
+  <data name="Formatting_Text6" xml:space="preserve">
+    <value>結果</value>
+    <comment>Result</comment>
+  </data>
+  <data name="Formatting_Text7" xml:space="preserve">
+    <value>短い日付パターン</value>
+    <comment>Short Date Pattern</comment>
+  </data>
+  <data name="Formatting_Text8" xml:space="preserve">
+    <value>長い日付パターン</value>
+    <comment>Long Date Pattern</comment>
+  </data>
+  <data name="Formatting_Text9" xml:space="preserve">
+    <value>完全な日時パターン（短い時刻）</value>
+    <comment>Full Date/Time Pattern (short time)</comment>
+  </data>
+  <data name="Formatting_Title" xml:space="preserve">
+    <value>日付と数値の書式設定</value>
+    <comment>Formatting Dates and Numbers</comment>
+  </data>
+  <data name="Formatting_Title1" xml:space="preserve">
+    <value>日付</value>
+    <comment>Dates</comment>
+  </data>
+  <data name="Formatting_Title2" xml:space="preserve">
+    <value>数値</value>
+    <comment>Numbers</comment>
+  </data>
+  <data name="Globalization_Text1" xml:space="preserve">
+    <value>デフォルトでは、MVC コントロールは、アメリカ英語カルチャを使用してデータの書式設定と解析を行います。小数点記号はピリオド、桁区切りはカンマ、曜日は「Sunday」から「Saturday」です。</value>
+    <comment>By default, MVC controls format and parse the data using
+    American English culture. The decimal symbol is a period,
+    the thousand separator is a comma, and the days of the week
+    are Sunday" through "Saturday"."</comment>
+  </data>
+  <data name="Globalization_Text2" xml:space="preserve">
+    <value>アプリケーションが他のカルチャをターゲットとする場合は、HTML ページに MVC スクリプトを登録することで、該当するカルチャを登録します。MVC Edition には 40 以上のカルチャが付属します（&lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;すべてのリスト&lt;/a&gt;を参照）。</value>
+    <comment>If your application targets other cultures, register the appropriate culture
+    by registering the MVC scripts in your HTML pages.
+    MVC edition includes over 40 cultures (see
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        the complete list
+    &lt;/a&gt;
+    ).</comment>
+  </data>
+  <data name="Globalization_Text3" xml:space="preserve">
+    <value>たとえば、ドイツ語カルチャ向けにアプリケーションをローカライズする場合は、スクリプトの登録時に "de" カルチャを登録します。</value>
+    <comment>For example, to localize an application for the German culture,
+    register the de" culture while registering the scripts:"</comment>
+  </data>
+  <data name="Globalization_Title" xml:space="preserve">
+    <value>アプリケーションのグローバル化</value>
+    <comment>Globalizing Applications</comment>
+  </data>
+  <data name="Glyphs_Text1" xml:space="preserve">
+    <value>ComponentOne MVC CSS には、複数のグリフが純粋な CSS として定義されています。これらのグリフは、ComponentOne MVC コントロールおよび拡張機能によって使用され、アプリケーションでも使用できます。</value>
+    <comment>The C1 MVC CSS includes several glyphs defined
+    as pure CSS.
+    The glyphs are used by the C1 MVC controls and extensions,
+    and your applications may also use them.</comment>
+  </data>
+  <data name="Glyphs_Text2" xml:space="preserve">
+    <value>CSS を使用してグリフを定義すると、余分なフォントファイルや画像ファイルを配布する必要がなくなり、また現在のテーマによって定義されている前景色やフォントサイズを使用して画像がレンダリングされることが保証されます。</value>
+    <comment>Using CSS to define glyphs eliminates the need to deploy
+    extra font or image files, and ensures the images are
+    rendered using the foreground color and font size defined
+    by the current theme.</comment>
+  </data>
+  <data name="Glyphs_Text3" xml:space="preserve">
+    <value>アプリケーションで ComponentOne MVC グリフを使用するには、マークアップにスパン要素を追加して、そのクラスにグリフ名を設定します。次に例を示します。</value>
+    <comment>To use C1 MVC glyphs in your applications, add a span
+    element to your markup and set its class to the glyph
+    name. For example:</comment>
+  </data>
+  <data name="Glyphs_Text4" xml:space="preserve">
+    <value>CSS を使用して、ComponentOne MVC コントロール内で使用されるグリフの外観をカスタマイズできます。たとえば、次の CSS を使用すると、&lt;b&gt;FlexGrid&lt;/b&gt; で行が編集モードであることを示すために使用される鉛筆グリフを非表示にしたり、その外観を変更することができます。</value>
+    <comment>You can use CSS to customize the appearance of the glyphs
+    used in the C1 MVC controls.
+    For example, you could use the CSS below to hide or
+    modify the appearance of the pencil glyph used by
+    the &lt;b&gt;FlexGrid&lt;/b&gt; to indicate rows in edit mode:</comment>
+  </data>
+  <data name="Glyphs_Text5" xml:space="preserve">
+    <value>次の表に、ComponentOne MVC CSS で定義されているグリフを示します。</value>
+    <comment>The table below shows the glyphs defined in the
+    C1 MVC CSS:</comment>
+  </data>
+  <data name="Glyphs_Title" xml:space="preserve">
+    <value>グリフ</value>
+    <comment>Glyphs</comment>
+  </data>
+  <data name="HtmlEvents_Text1" xml:space="preserve">
+    <value>ComponentOne MVC イベントは、HTML イベントに代わるものではありません。たとえば、マウスイベントやキーボードイベントは、コントロールの &lt;b&gt;hostElement&lt;/b&gt; にアタッチされた通常の HTML ハンドラを使用して検出および処理する必要があります。</value>
+    <comment>C1 MVC events do not replace HTML events. For example,
+    mouse and keyboard events must be detected and handled
+    using regular HTML handlers attached to the control's
+    &lt;b&gt;hostElement&lt;/b&gt;.</comment>
+  </data>
+  <data name="HtmlEvents_Text2" xml:space="preserve">
+    <value>HTML イベントを使いやすくするために、MVC の &lt;b&gt;Control&lt;/b&gt; クラスには &lt;b&gt;addEventListener&lt;/b&gt; メソッドと &lt;b&gt;removeEventListener&lt;/b&gt; メソッドが用意されています。これらは、コントロールが破棄されたときに自動的にクリーンアップを行ってメモリリークを防ぎます。</value>
+    <comment>&lt;b&gt;Control&lt;/b&gt; class of MVC makes HTML event easier to
+    use by providing &lt;b&gt;addEventListener&lt;/b&gt; and
+    &lt;b&gt;removeEventListener&lt;/b&gt; methods that automatically
+    clean up when a control is destroyed, which helps in avoiding
+    memory leaks.</comment>
+  </data>
+  <data name="HtmlEvents_Text3" xml:space="preserve">
+    <value>以下に、HTML イベントハンドラがアタッチされた入力コントロールをいくつか示します。</value>
+    <comment>Below are some input controls with the HTML event handlers
+    attached to them:</comment>
+  </data>
+  <data name="HtmlEvents_Text4" xml:space="preserve">
+    <value>コントロール上にマウスを置いてください。</value>
+    <comment>Please move the mouse over the controls.</comment>
+  </data>
+  <data name="HtmlEvents_Text5" xml:space="preserve">
+    <value>ComponentOne MVC イベントと HTML イベントの詳細については、ブログ記事「&lt;a href="http://wijmo.com/blog/html-and-wijmo-events/"&gt;HTML イベントと Wijmo イベント&lt;/a&gt;」を参照してください。</value>
+    <comment>For more details on C1 MVC and HTML events, please refer to
+        our blog on
+        &lt;a href=http://wijmo.com/blog/html-and-wijmo-events/"&gt;HTML and Wijmo Events&lt;/a&gt;."</comment>
+  </data>
+  <data name="HtmlEvents_Title" xml:space="preserve">
+    <value>MVC イベントと HTML イベント</value>
+    <comment>MVC and HTML Events</comment>
+  </data>
+  <data name="OtherServices_Text1" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Module.html" target="_blank"&gt;wijmo&lt;/a&gt; モジュールは、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Control.Class.html" target="_blank"&gt;Control&lt;/a&gt; クラス、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Event.Class.html" target="_blank"&gt;Event&lt;/a&gt; クラス、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt; クラスなどの基本的なクラスを実装することに加えて、次のように多数の便利なサービスとクラスを提供します。</value>
+    <comment>In addition to implementing fundamental classes such as
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Control.Class.html" target="_blank"&gt;Control&lt;/a&gt;,
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Event.Class.html" target="_blank"&gt;Event&lt;/a&gt;, and
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt; classes,
+    the &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Module.html" target="_blank"&gt;wijmo&lt;/a&gt;
+    module provides many other useful services and classes including:</comment>
+  </data>
+  <data name="OtherServices_Text2" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Tooltip.Class.html" target="_blank"&gt;Tooltip&lt;/a&gt;：ページ内の要素に関する追加情報を表示するポップアップウィンドウを提供するクラス。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Tooltip.Class.html" target="_blank"&gt;Tooltip&lt;/a&gt;:
+        Class that provides pop-up windows that display additional information about elements on the page.</comment>
+  </data>
+  <data name="OtherServices_Text3" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Clipboard.Class.html" target="_blank"&gt;Clipboard&lt;/a&gt;：クリップボードの操作中にクリップボードの内容をカスタマイズするために、アプリケーションやコントロールで使用できる静的な &lt;b&gt;copy&lt;/b&gt; メソッドと &lt;b&gt;paste&lt;/b&gt; メソッドを提供するクラス。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Clipboard.Class.html" target="_blank"&gt;Clipboard&lt;/a&gt;:
+        Class that provides static &lt;b&gt;copy&lt;/b&gt; and &lt;b&gt;paste&lt;/b&gt; methods that can be used by applications
+        and controls to customize the clipboard content during clipboard operations.</comment>
+  </data>
+  <data name="OtherServices_Text4" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.PrintDocument.Class.html" target="_blank"&gt;PrintDocument&lt;/a&gt;：印刷用または PDF エクスポート用のドキュメントを簡単に作成するクラス。大部分のブラウザでは、ページサイズ、方向、マージン、およびページヘッダーとフッターを含むかどうかを選択できます。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.PrintDocument.Class.html" target="_blank"&gt;PrintDocument&lt;/a&gt;:
+        Class that makes it easy to create documents for printing or exporting to PDF.
+        Most browsers allow you to select the paper size, orientation, margins,
+        and whether to include page headers and footers.</comment>
+  </data>
+  <data name="OtherServices_Text5" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.Color.Class.html" target="_blank"&gt;Color&lt;/a&gt;：CSS 文字列として指定された色を解析し、その赤、緑、青、およびアルファチャンネルを読み取り/書き込み可能なプロパティとして公開するクラス。また、カラースペース変換および補間を行うためのメソッドを提供します。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Color.Class.html" target="_blank"&gt;Color&lt;/a&gt;:
+        Class that parses colors specified as CSS strings and exposes their red, green, blue,
+        and alpha channels as read-write properties. Also provides methods for converting
+        color spaces and interpolating.</comment>
+  </data>
+  <data name="OtherServices_Text6" xml:space="preserve">
+    <value>グリフ</value>
+    <comment>Glyphs</comment>
+  </data>
+  <data name="OtherServices_Text7" xml:space="preserve">
+    <value>ComponentOne MVC CSS には、Wijmo コントロールによって使用されるグリフが含まれます。これらのグリフは外部のフォントファイルまたは外部の画像に依存せず、アプリケーションでも使用できます。</value>
+    <comment>The C1 MVC CSS includes several glyphs used by the Wijmo controls. These glyphs
+        do not depend on any font files or external images, and you may use them in your
+        applications as well.</comment>
+  </data>
+  <data name="OtherServices_Text8" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Module.html#httpRequest" target="_blank"&gt;httpRequest&lt;/a&gt;：http 要求をサーバーに送信するために使用される静的メソッド。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#httpRequest" target="_blank"&gt;httpRequest&lt;/a&gt;:
+        Static method used to submit http requests to the server.</comment>
+  </data>
+  <data name="OtherServices_Text9" xml:space="preserve">
+    <value>&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Module.html#animate" target="_blank"&gt;animate&lt;/a&gt;：タイマーのプロパティを設定することによってアニメーションの作成に使用される静的メソッド。</value>
+    <comment>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#animate" target="_blank"&gt;animate&lt;/a&gt;:
+        Static method used to create animations by setting properties on a timer.</comment>
+  </data>
+  <data name="OtherServices_Title" xml:space="preserve">
+    <value>その他のクラスとサービス</value>
+    <comment>Other Classes and Services</comment>
+  </data>
+  <data name="Parsing_Text1" xml:space="preserve">
+    <value>アプリケーションをグローバル化するには、ComponentOne MVC スクリプトを登録する際に該当するカルチャを登録します。&lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;Wijmo に付属する 40 以上のカルチャファイルからカルチャを選択できます。&lt;/a&gt;</value>
+    <comment>To globalize your application, register the appropriate culture
+    while registering the C1 MVC scripts.
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        Wijmo includes over 40 culture files you can choose from.
+    &lt;/a&gt;</comment>
+  </data>
+  <data name="Parsing_Text10" xml:space="preserve">
+    <value>入力形式</value>
+    <comment>Input format</comment>
+  </data>
+  <data name="Parsing_Text11" xml:space="preserve">
+    <value>入力文字列</value>
+    <comment>Input string</comment>
+  </data>
+  <data name="Parsing_Text12" xml:space="preserve">
+    <value>数値の解析</value>
+    <comment>Parse Number</comment>
+  </data>
+  <data name="Parsing_Text2" xml:space="preserve">
+    <value>カルチャを選択してください</value>
+    <comment>Please select a culture</comment>
+  </data>
+  <data name="Parsing_Text3" xml:space="preserve">
+    <value>日付は、&lt;b&gt;Globalize.parseDate&lt;/b&gt; 関数を使用して解析されます。書式文字列には、日付の書式設定と同じものが使用されます。書式文字列の詳細については、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。</value>
+    <comment>Dates are parsed using the
+    &lt;b&gt;Globalize.parseDate&lt;/b&gt; function.
+    The format strings are the same used to format dates. For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</comment>
+  </data>
+  <data name="Parsing_Text4" xml:space="preserve">
+    <value>次のサンプルを使用して、解析を試してみてください。</value>
+    <comment>Try it yourself with the help of the sample below:</comment>
+  </data>
+  <data name="Parsing_Text5" xml:space="preserve">
+    <value>入力形式</value>
+    <comment>Input format</comment>
+  </data>
+  <data name="Parsing_Text6" xml:space="preserve">
+    <value>入力文字列</value>
+    <comment>Input string</comment>
+  </data>
+  <data name="Parsing_Text7" xml:space="preserve">
+    <value>日付の解析</value>
+    <comment>Parse Date</comment>
+  </data>
+  <data name="Parsing_Text8" xml:space="preserve">
+    <value>数値は、&lt;b&gt;Globalize.parseFloat&lt;/b&gt; 関数を使用して解析されます。書式文字列には、数値の書式設定と同じものが使用されます。書式文字列の詳細については、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;を参照してください。</value>
+    <comment>Numbers are parsed using the &lt;b&gt;Globalize.parseFloat&lt;/b&gt; function.
+    The format strings are the same used to format numbers. For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</comment>
+  </data>
+  <data name="Parsing_Text9" xml:space="preserve">
+    <value>次のサンプルを使用して、解析を試してみてください。</value>
+    <comment>Try it yourself with the help of the sample below:</comment>
+  </data>
+  <data name="Parsing_Title" xml:space="preserve">
+    <value>日付と数値の解析</value>
+    <comment>Parsing Dates and Numbers</comment>
+  </data>
+  <data name="Parsing_Title1" xml:space="preserve">
+    <value>日付</value>
+    <comment>Dates</comment>
+  </data>
+  <data name="Parsing_Title2" xml:space="preserve">
+    <value>数値</value>
+    <comment>Numbers</comment>
+  </data>
+  <data name="Pluralization_Text1" xml:space="preserve">
+    <value>項目数に基づいて、カスタムメッセージを表示したい場合があります。これは、ポーランド語などのカルチャでは特に重要です。</value>
+    <comment>There may be cases where you want to display custom messages
+    based on the item count. This is especially important
+    in certain cultures such as Polish.</comment>
+  </data>
+  <data name="Pluralization_Text2" xml:space="preserve">
+    <value>これをサポートするために、&lt;b&gt;format&lt;/b&gt; メソッドは、JSON オブジェクトとしてエンコードされた複数形ルールを含む書式文字列を受け取ります。</value>
+    <comment>The &lt;b&gt;format&lt;/b&gt; method supports that by accepting format
+    strings that contain pluralization rules encoded as JSON
+    objects.</comment>
+  </data>
+  <data name="Pluralization_Text3" xml:space="preserve">
+    <value>例として、項目数を選択し、書式設定された出力を下で確認してください。</value>
+    <comment>For example, choose the number of items and see the
+    formatted output below:</comment>
+  </data>
+  <data name="Pluralization_Title" xml:space="preserve">
+    <value>複数形</value>
+    <comment>Pluralization</comment>
+  </data>
+  <data name="PrintDocument_Text1" xml:space="preserve">
+    <value>&lt;b&gt;PrintDocument&lt;/b&gt; クラスを使用すると、印刷用または PDF へのエクスポート用のドキュメントを簡単に作成できます。大部分のブラウザでは、ページサイズ、方向、マージン、およびページヘッダーとフッターを含むかどうかを選択できます。</value>
+    <comment>The &lt;b&gt;PrintDocument&lt;/b&gt; class makes it easy to create documents
+    for printing or exporting to PDF. Most browsers allow you to select
+    the paper size, orientation, margins, and whether to include page
+    headers and footers.</comment>
+  </data>
+  <data name="PrintDocument_Text2" xml:space="preserve">
+    <value>PrintDocument で印刷</value>
+    <comment>Print with PrintDocument</comment>
+  </data>
+  <data name="PrintDocument_Text3" xml:space="preserve">
+    <value>直接印刷</value>
+    <comment>Print directly</comment>
+  </data>
+  <data name="PrintDocument_Text4" xml:space="preserve">
+    <value>次に、円形ゲージを並べたテーブルがあります。このテーブルが &lt;b&gt;PrintDocument&lt;/b&gt; に追加されます。</value>
+    <comment>Here is a table with some radial gauges. The table will be included
+    in the &lt;b&gt;PrintDocument&lt;/b&gt;.</comment>
+  </data>
+  <data name="PrintDocument_Text5" xml:space="preserve">
+    <value>次に、&lt;b&gt;FlexGrid&lt;/b&gt; コントロールの例を示します。これを直接印刷すると、スクロールバーと、表示されている部分のコンテンツが印刷されます。&lt;b&gt;PrintDocument&lt;/b&gt; クラスを使用すると、これをプリンタフレンドリバージョンのグリッドに置き換えることができます。</value>
+    <comment>And here is a &lt;b&gt;FlexGrid&lt;/b&gt; control. Printing it directly would show
+    the scrollbars and the part of the content that is visible.
+    The &lt;b&gt;PrintDocument&lt;/b&gt; class allows us to replace that with a
+    printer-friendly version of the grid.</comment>
+  </data>
+  <data name="PrintDocument_Title" xml:space="preserve">
+    <value>PrintDocument</value>
+    <comment>PrintDocument</comment>
+  </data>
+  <data name="PropertiesEnums_Text1" xml:space="preserve">
+    <value>多くの MVC コントロールに、列挙値を取るプロパティがあります。</value>
+    <comment>A number of MVC controls have properties that take enumeration values.</comment>
+  </data>
+  <data name="PropertiesEnums_Text2" xml:space="preserve">
+    <value>たとえば、FlexChart の &lt;b&gt;chartType&lt;/b&gt; プロパティは、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.chart.ChartType.Enum.html" target="_blank"&gt;wijmo.chart.ChartType&lt;/a&gt; 型の値を取ります。</value>
+    <comment>For example, the FlexChart's &lt;b&gt;chartType&lt;/b&gt; property takes
+    values of type
+    &lt;a href=http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.chart.ChartType.Enum.html" target="_blank"&gt;wijmo.chart.ChartType&lt;/a&gt;."</comment>
+  </data>
+  <data name="PropertiesEnums_Text3" xml:space="preserve">
+    <value>列挙プロパティは、列挙シンボル、数値、または名前を使用して設定できます。たとえば、次の 3 つの方法は等価です。</value>
+    <comment>You can set enumeration properties using the enum symbol,
+    numeric value, or name. For example, following three ways are 
+    equivalent:</comment>
+  </data>
+  <data name="PropertiesEnums_Text4" xml:space="preserve">
+    <value>使用する方法に関係なく、代入を行うと、MVC が値を正しい列挙に変換し、変換後の値を格納します。変換が失敗すると、例外が生成されます。次に例を示します。</value>
+    <comment>Regardless of the method used, when you make the assignment
+    MVC will convert the values into proper enumeration and 
+    store the converted value. If the conversion fails, an exception
+    will be thrown. For example:</comment>
+  </data>
+  <data name="PropertiesEnums_Text5" xml:space="preserve">
+    <value>現在のチャートタイプは、&lt;b&gt;&lt;span id="currentType"&gt;&lt;/span&gt;&lt;/b&gt; です。次のコンボボックスを使用して、チャートタイプを切り替えることができます。</value>
+    <comment>The current chart type is &lt;b&gt;&lt;span id="currentType"&gt;&lt;/span&gt;&lt;/b&gt;.
+    Use the following combobox to switch to other chart type.</comment>
+  </data>
+  <data name="PropertiesEnums_Text6" xml:space="preserve">
+    <value>チャートタイプ：</value>
+    <comment>Chart Type:</comment>
+  </data>
+  <data name="PropertiesEnums_Title" xml:space="preserve">
+    <value>プロパティと列挙</value>
+    <comment>Properties and Enums</comment>
+  </data>
+  <data name="PropertiesEnums_Title1" xml:space="preserve">
+    <value>ライブサンプル：</value>
+    <comment>Live example:</comment>
+  </data>
+  <data name="PseudoClasses_Text1" xml:space="preserve">
+    <value>CSS 疑似クラスは、選択可能な要素の特別な状態を指定するためにセレクタに追加されるキーワードです。たとえば、疑似クラス :hover は、セレクタによって指定された要素の上にユーザーがマウスポインタを置いたときにスタイルを適用します。</value>
+    <comment>CSS pseudo-classes are keywords added to selectors that
+    specify special states of the element to be selected.
+    For example, pseudo-class :hover will apply a style when user
+    hovers over the element specified by the selector.</comment>
+  </data>
+  <data name="PseudoClasses_Text10" xml:space="preserve">
+    <value>下のゲージをクリックして現在の値を変更したり、それぞれのスクロールボックスがどのように変化するかを確認してください。</value>
+    <comment>Click the gauges below to change the current value and watch how
+    their respective thumbs change:</comment>
+  </data>
+  <data name="PseudoClasses_Text2" xml:space="preserve">
+    <value>標準的な疑似クラスの一部は特定の要素にしか適用されず、また要素の祖先に適用されないため、利用に限界があります。たとえば、入力要素を含む ComponentOne MVC 入力コントロールは多数ありますが、それらの入力要素がフォーカスを得ると :focus 疑似クラスを取得しますが、そのコントロールを保持するホストは取得しません。</value>
+    <comment>Some standard pseudo-classes have limited use 
+    because they get applied to specific elements only,
+    and not to their ancestors. For example,
+    a number of MVC input controls contain input elements.
+    When input elements have the focus, they get the pseudo-class :focus,
+    but the control host that contains it does not get the same.</comment>
+  </data>
+  <data name="PseudoClasses_Text3" xml:space="preserve">
+    <value>これに対処するために、いくつかの独自疑似クラスを追加して、効果的なフォームを容易に構築できるようにしています。</value>
+    <comment>To handle this, we added some pseudo-classes of our
+    own to make it easier to build effective forms:</comment>
+  </data>
+  <data name="PseudoClasses_Text4" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-focused&lt;/b&gt;：コントロールにアクティブな要素が含まれる場合にコントロールホスト要素に追加されます（ホスト要素がアクティブな要素である必要はありません）。</value>
+    <comment>&lt;b&gt;wj-state-focused&lt;/b&gt;:
+        Added to control host elements when control contains
+        the active element (not necessarily when the host element
+        is the active element).</comment>
+  </data>
+  <data name="PseudoClasses_Text5" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-invalid&lt;/b&gt;：コントロールに無効状態の入力要素が含まれる場合にコントロールホスト要素に追加されます。</value>
+    <comment>&lt;b&gt;wj-state-invalid&lt;/b&gt;:
+        Added to control host elements when control contains
+        input elements in an invalid state.</comment>
+  </data>
+  <data name="PseudoClasses_Text6" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-empty&lt;/b&gt;：コントロールにコンテンツがない入力要素が含まれる場合にコントロールホスト要素に追加されます。これは、子を持たない要素に適用される :empty 疑似クラスとは異なります。</value>
+    <comment>&lt;b&gt;wj-state-empty&lt;/b&gt;:
+        Added to control host elements when control contains
+        an input element with no content (this is different from
+        the :empty pseudo-class which is applied to elements that
+        have no children.</comment>
+  </data>
+  <data name="PseudoClasses_Text7" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-readonly&lt;/b&gt;：コントロールの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティが true に設定されている場合にコントロールホスト要素に追加されます。</value>
+    <comment>&lt;b&gt;wj-state-readonly&lt;/b&gt;:
+        Added to control host elements when &lt;b&gt;isReadOnly&lt;/b&gt;
+        property of control is set to true.</comment>
+  </data>
+  <data name="PseudoClasses_Text8" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-disabled&lt;/b&gt;：コントロールの &lt;b&gt;isDisabled&lt;/b&gt; プロパティが true に設定されている場合にコントロールホスト要素に追加されます。これは、コントロールのホスト要素に "disabled" 属性を追加することに相当します。</value>
+    <comment>&lt;b&gt;wj-state-disabled&lt;/b&gt;:
+        Added to control host elements when &lt;b&gt;isDisabled&lt;/b&gt; property
+        of control is set to true (which corresponds to adding 
+        a disabled" attribute to the control's host element)."</comment>
+  </data>
+  <data name="PseudoClasses_Text9" xml:space="preserve">
+    <value>次の例は、直線型ゲージと円形ゲージがフォーカスを取得したときに、&lt;b&gt;wj-state-focused&lt;/b&gt; 疑似クラスを使用して、スクロールボックス要素に CSS アニメーションを適用する例を示します。</value>
+    <comment>This example shows how you can use the &lt;b&gt;wj-state-focused&lt;/b&gt;
+    pseudo-class to apply CSS animations to the thumb element of
+    linear and radial gauges when they get the focus.</comment>
+  </data>
+  <data name="PseudoClasses_Title" xml:space="preserve">
+    <value>疑似クラス</value>
+    <comment>Pseudo Classes</comment>
+  </data>
+  <data name="Services_Text1" xml:space="preserve">
+    <value>サービスは、追加機能を提供するために定義されるオブジェクトです。現在、ASP.NET MVC Edition は、次の 2 つのサービスを提供しています。</value>
+    <comment>Service is an object defined to provide additional functionality. 
+    Currently, ASP.NET MVC Edition provides following two services:</comment>
+  </data>
+  <data name="Services_Text2" xml:space="preserve">
+    <value>&lt;code&gt;c1.mvc.collections.RemoteCollectionView&lt;/code&gt;</value>
+    <comment>&lt;code&gt;c1.mvc.collections.RemoteCollectionView&lt;/code&gt;</comment>
+  </data>
+  <data name="Services_Text3" xml:space="preserve">
+    <value>&lt;code&gt;c1.mvc.olap.PivotEngine&lt;/code&gt;</value>
+    <comment>&lt;code&gt;c1.mvc.olap.PivotEngine&lt;/code&gt;</comment>
+  </data>
+  <data name="Services_Text4" xml:space="preserve">
+    <value>サービスオブジェクトは、&lt;code&gt;c1.getService(serviceId)&lt;/code&gt; を使用して取得できます。</value>
+    <comment>The service object can be obtained using &lt;code&gt;c1.getService(serviceId)&lt;/code&gt;.</comment>
+  </data>
+  <data name="Services_Text5" xml:space="preserve">
+    <value>次のサンプルは、RemoteCollectionView サービスを作成してカスタマイズする方法を示しています。</value>
+    <comment>The sample shows how to create a RemoteCollectionView service and customize it.</comment>
+  </data>
+  <data name="Services_Text6" xml:space="preserve">
+    <value>前のページ</value>
+    <comment>Previous Page</comment>
+  </data>
+  <data name="Services_Text7" xml:space="preserve">
+    <value>次のページ</value>
+    <comment>Next Page</comment>
+  </data>
+  <data name="Services_Title" xml:space="preserve">
+    <value>ComponentOne MVC サービス</value>
+    <comment>C1 MVC Services</comment>
+  </data>
+  <data name="Themes_Text1" xml:space="preserve">
+    <value>MVC コントロールは、CSS を使用してスタイル設定されます。デフォルトの外観は、スタイルを登録することによって提供されます。20 以上の美しいテーマが用意されており、次のように登録できます。</value>
+    <comment>MVC controls are styled using CSS.
+    The default look is provided by registering the styles,
+    and over 20 beautiful themes that can be registered as follows:</comment>
+  </data>
+  <data name="Themes_Text2" xml:space="preserve">
+    <value>MVC Edition に付属する CSS に加えて、標準の CSS セレクタを使用して任意のコントロールの外観をカスタマイズできます。</value>
+    <comment>In addition to the CSS included in the MVC edition, you can use
+    standard CSS selectors to customize the look of any control.</comment>
+  </data>
+  <data name="Themes_Text3" xml:space="preserve">
+    <value>テーマを選択してください：</value>
+    <comment>Please select a theme:</comment>
+  </data>
+  <data name="Themes_Text4" xml:space="preserve">
+    <value>以下に、いくつかの入力コントロールを示します。</value>
+    <comment>Below are some input controls:</comment>
+  </data>
+  <data name="Themes_Text5" xml:space="preserve">
+    <value>これは FlexGrid です。</value>
+    <comment>This is a FlexGrid:</comment>
+  </data>
+  <data name="Themes_Title" xml:space="preserve">
+    <value>テーマ</value>
+    <comment>Themes</comment>
+  </data>
+  <data name="Tooltip_Text1" xml:space="preserve">
+    <value>ツールチップは、ComponentOne MVC コアによって提供されます。これらはコントロールではなく、HTML を含むポップアップです。指定された要素上にマウスを置くと表示されます。</value>
+    <comment>Tooltips are provided by the C1 MVC core. They are not controls,
+    but popups containing HTML that appear when the mouse hovers
+    over designated elements.</comment>
+  </data>
+  <data name="Tooltip_Text2" xml:space="preserve">
+    <value>&lt;b id="setTooltip"&gt;Tooltip.setTooltip&lt;/b&gt; メソッドを使用して、1 つのツールチップをページ内の 1 つ以上の要素に関連付けることができます。</value>
+    <comment>You can associate a tooltip with one or more elements on the
+    page using the &lt;b id=setTooltip"&gt;Tooltip.setTooltip&lt;/b&gt; method."</comment>
+  </data>
+  <data name="Tooltip_Text3" xml:space="preserve">
+    <value>この段落には、ここに&lt;b id="theSpan"&gt;ツールチップを含むスパン&lt;/b&gt;と、もう 1 つここに&lt;i id="theOtherSpan"&gt;ツールチップを含むスパン&lt;/i&gt;があります。</value>
+    <comment>And this paragraph has a &lt;b id="theSpan"&gt;span with a tooltip&lt;/b&gt;
+    and another &lt;i id="theOtherSpan"&gt;span with a different tooltip&lt;/i&gt;.</comment>
+  </data>
+  <data name="Tooltip_Text4" xml:space="preserve">
+    <value>以下のボタンにもツールチップがあります。</value>
+    <comment>The buttons below also have tooltips:</comment>
+  </data>
+  <data name="Tooltip_Text5" xml:space="preserve">
+    <value>addNew</value>
+    <comment>addNew</comment>
+  </data>
+  <data name="Tooltip_Text6" xml:space="preserve">
+    <value>push</value>
+    <comment>push</comment>
+  </data>
+  <data name="Tooltip_Text7" xml:space="preserve">
+    <value>push + deferUpdate</value>
+    <comment>push + defer updates</comment>
+  </data>
+  <data name="Tooltip_Text8" xml:space="preserve">
+    <value>&lt;b&gt;setTooltip&lt;/b&gt; メソッドは、ページ内の指定された要素にツールチップコンテンツを割り当てます。</value>
+    <comment>The &lt;b&gt;setTooltip&lt;/b&gt; method a ssigns tooltip content to given elements on the page.</comment>
+  </data>
+  <data name="Tooltip_Text9" xml:space="preserve">
+    <value>同じツールチップを使用して、ページ内の任意の数の要素に情報を表示できます。要素からツールチップを削除するには、&lt;b&gt;setTooltip&lt;/b&gt; メソッドを呼び出して、コンテンツに null を指定します。</value>
+    <comment>The same tooltip may be used to display information for any number
+            of elements on the page. To remove the tooltip from an element,
+            call the &lt;b&gt;setTooltip&lt;/b&gt; method and specify null for the content.</comment>
+  </data>
+  <data name="Tooltip_Title" xml:space="preserve">
+    <value>ツールチップ</value>
+    <comment>Tooltips</comment>
+  </data>
+  <data name="WijmoAnimate_Text1" xml:space="preserve">
+    <value>アニメーションによって Web アプリケーションをより魅力的かつ直感的なものにすることができます。たとえば、ページから項目を削除するときに項目を縮小して消し去ると、単に非表示にするより、どの項目が削除されたかがわかりやすくなります。</value>
+    <comment>Animations can make web applications more attractive and intuitive.
+    For example, removing an item from the page by making it shrink
+    away lets the user see which item is being removed more easily
+    that if it was simply hidden.</comment>
+  </data>
+  <data name="WijmoAnimate_Text2" xml:space="preserve">
+    <value>多くの JavaScript ツールキットおよびフレームワークは、アニメーションを作成するために独自のラッパーを備えています。たとえば、Angular には &lt;a href="https://docs.angularjs.org/api/ng/service/$animate" target="_blank"&gt;$animate&lt;/a&gt; サービスがあり、jQuery には &lt;a href="http://api.jquery.com/animate/"&gt;animate()&lt;/a&gt; メソッドがあります。好みのラッパーがある場合は、それを ComponentOne MVC で使用できます。</value>
+    <comment>Many JavaScript toolkits and frameworks have their own wrappers
+    for creating animations. For example, Angular has an
+    &lt;a href="https://docs.angularjs.org/api/ng/service/$animate" target="_blank"&gt;$animate&lt;/a&gt; service,
+    and jQuery has an
+    &lt;a href="http://api.jquery.com/animate/"&gt;animate()&lt;/a&gt; method.
+    If you have a favorite you can use that with C1 MVC.</comment>
+  </data>
+  <data name="WijmoAnimate_Text3" xml:space="preserve">
+    <value>外部のツールキットやフレームワークへの依存度を低下させたい場合は、代わりに Wijmo の単純かつ柔軟な &lt;b&gt;animate&lt;/b&gt; メソッドを使用できます。</value>
+    <comment>If you want to reduce dependencies on external toolkits and
+    frameworks, you can use Wijmo's simple and flexible
+    &lt;b&gt;animate&lt;/b&gt; method instead.</comment>
+  </data>
+  <data name="WijmoAnimate_Text4" xml:space="preserve">
+    <value>次の例は、FlexGrid を紙のフリップのように回転させるアニメーションです。&lt;b&gt;animate&lt;/b&gt; メソッドは、アニメーション全体を制御する単一のコールバックを受け取ります。</value>
+    <comment>The example below illustrates by rotating a FlexGrid like
+    a flip card. The &lt;b&gt;animate&lt;/b&gt; method has a single callback
+    that controls the entire animation:</comment>
+  </data>
+  <data name="WijmoAnimate_Text5" xml:space="preserve">
+    <value>グリッドをフリップ</value>
+    <comment>Flip the Grid</comment>
+  </data>
+  <data name="WijmoAnimate_Title" xml:space="preserve">
+    <value>wijmo.animate メソッド</value>
+    <comment>The wijmo.animate Method</comment>
+  </data>
+  <data name="WijmoFormat_Text1" xml:space="preserve">
+    <value>JavaScript では、書式設定されたデータから文字列を作成することが困難な作業になる場合があります。ES2016 は、&lt;a href="https://developers.google.com/web/updates/2015/01/ES6-Template-Strings" target="_blank"&gt;テンプレート文字列&lt;/a&gt;を導入することで、その制限に対応しています。</value>
+    <comment>Creating strings based on formatted data can be challenging in JavaScript.
+    ES2016 addressed that limitation by introducing
+    &lt;a href=https://developers.google.com/web/updates/2015/01/ES6-Template-Strings" target="_blank"&gt;Template Strings&lt;/a&gt;."</comment>
+  </data>
+  <data name="WijmoFormat_Text2" xml:space="preserve">
+    <value>残念ながら、その解決策に対するブラウザのサポートはまだ限定的です。そのため、ブラウザに関係なく動作する &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Module.html#format" target="_blank"&gt;format&lt;/a&gt; 関数を提供しています。&lt;b&gt;format&lt;/b&gt; 関数は、変数名と書式指定子から成るプレースホルダを含む書式文字列、および変数を提供するデータオブジェクトを受け取ります。</value>
+    <comment>Unfortunately, browser support is still limited for that solution. Hence,
+    we provide the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#format" target="_blank"&gt;format&lt;/a&gt;
+    function that works regardless of browser. The &lt;b&gt;format&lt;/b&gt; function takes a
+    format string with placeholders that contain variable names and format
+    specifiers, and a data object that supplies the variables.</comment>
+  </data>
+  <data name="WijmoFormat_Text3" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="WijmoFormat_Text4" xml:space="preserve">
+    <value>結果を表示</value>
+    <comment>Show Result</comment>
+  </data>
+  <data name="WijmoFormat_Text5" xml:space="preserve">
+    <value>もう 1 つ例を示します。</value>
+    <comment>Another example:</comment>
+  </data>
+  <data name="WijmoFormat_Title" xml:space="preserve">
+    <value>wijmo.format メソッド</value>
+    <comment>The wijmo.format Method</comment>
+  </data>
+  <data name="WijmoHttpRequest_Text1" xml:space="preserve">
+    <value>HTTP 要求は、サーバーとデータを交換するために Web アプリケーションで使用される基本的なメカニズムです。</value>
+    <comment>HTTP requests are the basic mechanism used by web applications
+    to exchange data with the server.</comment>
+  </data>
+  <data name="WijmoHttpRequest_Text2" xml:space="preserve">
+    <value>多くの JavaScript ツールキットおよびフレームワークは、HTTP 要求を作成するために独自のラッパーを備えています。たとえば、Angular には &lt;a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank"&gt;$http&lt;/a&gt; サービスがあり、jQuery には &lt;a href="http://api.jquery.com/jquery.ajax/"&gt;ajax()&lt;/a&gt; メソッドがあります。好みのラッパーがある場合は、それを ComponentOne MVC で使用できます。</value>
+    <comment>Many JavaScript toolkits and frameworks have their own wrappers
+    for making HTTP requests. For example, Angular has an
+    &lt;a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank"&gt;$http&lt;/a&gt; service,
+    and jQuery has an
+    &lt;a href="http://api.jquery.com/jquery.ajax/"&gt;ajax()&lt;/a&gt; method.
+    If you have a favorite you can use that with C1 MVC.</comment>
+  </data>
+  <data name="WijmoHttpRequest_Text3" xml:space="preserve">
+    <value>外部のツールキットやフレームワークへの依存度を低下させたい場合は、代わりに ComponentOne MVC の単純かつ柔軟な &lt;b&gt;httpRequest&lt;/b&gt; メソッドを使用できます。</value>
+    <comment>If you want to reduce dependencies on external toolkits and
+    frameworks, you can use C1 MVC's simple and flexible
+    &lt;b&gt;httpRequest&lt;/b&gt; method instead.</comment>
+  </data>
+  <data name="WijmoHttpRequest_Text4" xml:space="preserve">
+    <value>次の例では、Microsoft の Northwind OData サンプルサービスからデータを取得し、それを使用して FlexGrid にデータを挿入しています。</value>
+    <comment>The example below illustrates by retrieving some data from
+    Microsoft's Northwind OData sample service and using that
+    to populate a FlexGrid:</comment>
+  </data>
+  <data name="WijmoHttpRequest_Title" xml:space="preserve">
+    <value>wijmo.httpRequest メソッド</value>
+    <comment>The wijmo.httpRequest Method</comment>
+  </data>
+  <data name="WijmoShowPopup_Text1" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;columns&lt;/b&gt; プロパティ、&lt;b&gt;ListBox&lt;/b&gt; コントロール、および ComponentOne MVC の &lt;b&gt;showPopup&lt;/b&gt; メソッドと &lt;b&gt;hidePopup&lt;/b&gt; メソッドを使用すると、列ピッカー UI を簡単に実装できます。</value>
+    <comment>You can easily implement a column-picker UI by using the
+    grid's &lt;b&gt;columns&lt;/b&gt; property, a &lt;b&gt;ListBox&lt;/b&gt; control,
+    and C1 MVC's &lt;b&gt;showPopup&lt;/b&gt; and &lt;b&gt;hidePopup&lt;/b&gt;
+    methods.</comment>
+  </data>
+  <data name="WijmoShowPopup_Text2" xml:space="preserve">
+    <value>たとえば、次のグリッドには、自動生成された一連の列がロードされます。左上のセルにある歯車のアイコンをクリックすると、&lt;b&gt;リストボックス&lt;/b&gt;が表示され、表示する列を選択できます。</value>
+    <comment>For example, the grid below loads with an auto-generated
+    set of columns. Click the gear icon at the top-left cell to
+    show a &lt;b&gt;ListBox&lt;/b&gt; where you can select the columns
+    you want to display.</comment>
+  </data>
+  <data name="WijmoShowPopup_Text3" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;columnLayout&lt;/b&gt; プロパティを使用して、ユーザーが列のレイアウトを保存および復元できるようにすることができます。以下のボタンをクリックすると動作を確認できます。</value>
+    <comment>You can use the grid's &lt;b&gt;columnLayout&lt;/b&gt; property to allow users
+    to save and restore column layouts. Click the buttons below
+    to see how this works.</comment>
+  </data>
+  <data name="WijmoShowPopup_Text4" xml:space="preserve">
+    <value>レイアウトの保存</value>
+    <comment>Save Layout</comment>
+  </data>
+  <data name="WijmoShowPopup_Text5" xml:space="preserve">
+    <value>レイアウトの復元</value>
+    <comment>Restore Layout</comment>
+  </data>
+  <data name="WijmoShowPopup_Title" xml:space="preserve">
+    <value>ポップアップ列ピッカー</value>
+    <comment>Popup Column Picker</comment>
+  </data>
+  <data name="CVChaining_Text5" xml:space="preserve">
+    <value>国フィルタ</value>
+    <comment>country filter</comment>
+  </data>
+</root>

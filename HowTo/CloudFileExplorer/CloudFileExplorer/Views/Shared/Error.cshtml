@@ -1,7 +1,9 @@
-﻿@{
-    ViewData["Title"] = "Error";
+﻿@model System.Web.Mvc.HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
 }
 
-<h1 class="text-danger">@Html.Raw(CloudFileRes.Error_Text0)</h1>
-<h2 class="text-danger">@Html.Raw(CloudFileRes.Error_Text1)</h2>
+<h1 class="text-danger">Error.</h1>
+<h2 class="text-danger">An error occurred while processing your request.</h2>
 

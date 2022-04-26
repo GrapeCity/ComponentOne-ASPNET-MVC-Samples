@@ -1,0 +1,144 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    List<CustomerSale.NamedCountry> countries = ViewBag.Countries;
+    List<CustomerSale.NamedProduct> products = ViewBag.Products;
+    List<NamedColor> colors = ViewBag.Colors;
+    List<CustomerSale.NamedRank> ranks = ViewBag.Ranks;
+    List<FullCountry> fullCountries = ViewBag.FullCountries;
+    List<CitySale> cities = ViewBag.Cities;
+    IEnumerable<CitySale> citiesSales = ViewBag.CitiesSales;
+    ViewBag.DemoDescription = false;
+}
+
+<h3>
+    @Html.Raw(Resources.FlexGrid.DataMap_DataMap)
+</h3>
+<p>
+    @Html.Raw(Resources.FlexGrid.DataMap_Text0)
+    @Html.Raw(Resources.FlexGrid.DataMap_Text1)
+</p>
+@(Html.C1().FlexGrid<Sale>()
+    .Id("ovFlexGrid")
+    .AutoGenerateColumns(false)
+    .Bind(bl => bl.Bind(Url.Action("RemoteBindCustomerSale_Read")).Update(Url.Action("ProductsUpdate")))
+    .CssClass("grid")
+    .IsReadOnly(false)
+    .Columns(bl =>
+    {
+    bl.Add(cb => cb.Binding("ID").Visible(false));
+    bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+    bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+    bl.Add(cb => cb.Binding("Country").DataMapEditor(DataMapEditor.AutoComplete)
+        .DataMap(dm => dm.DisplayMemberPath("Name")
+            .SelectedValuePath("Name")
+            .SortByDisplayValues(true)
+            .Bind(countries)));
+        bl.Add(cb => cb.Binding("Product").DataMapEditor(DataMapEditor.DropDownList)
+        .DataMap(dm => dm.DisplayMemberPath("Name")
+            .SelectedValuePath("Id")
+            .SortByDisplayValues(true)
+            .Bind(products)));
+        bl.Add(cb => cb.Binding("Color").DataMapEditor(DataMapEditor.DropDownList)
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Value")
+                .SortByDisplayValues(true)
+                .Bind(colors)));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+        bl.Add(cb => cb.Binding("Rank").Width("250").Align("center").DataMapEditor(DataMapEditor.RadioButtons)
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Name")
+                .SortByDisplayValues(true)
+                .Bind(ranks)));
+    })
+)
+&nbsp;
+<h4>
+    @Html.Raw(Resources.FlexGrid.DataMap_MultiColumnDataMap)
+</h4>
+<p>@Html.Raw(Resources.FlexGrid.DataMap_Text2)</p>
+<p>@Html.Raw(Resources.FlexGrid.DataMap_Text3)</p>
+@(Html.C1().FlexGrid<Sale>()
+    .Id("multiColumns")
+    .AutoGenerateColumns(false)
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model).Update(Url.Action("ProductsUpdate")))
+    .CssClass("grid")
+    .IsReadOnly(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Visible(false));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+        bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product")
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Id")
+                .SortByDisplayValues(true)
+                .Bind(products)));
+        bl.Add(cb => cb.Binding("Color")
+            .DropDownCssClass("multi-column")
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Value")
+                .SortByDisplayValues(true)
+                .Bind(colors)));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+&nbsp;
+<h4>
+    @Html.Raw(Resources.FlexGrid.DataMap_DynamicDataMap)
+</h4>
+<p>@Html.Raw(Resources.FlexGrid.DataMap_Text6)</p>
+<p>@Html.Raw(Resources.FlexGrid.DataMap_Text7)</p>
+@(Html.C1().FlexGrid<CitySale>()
+    .Id("gridDynamicDataMap")
+    .AutoGenerateColumns(false)
+    .Bind(citiesSales)
+    .CssClass("grid")
+    .IsReadOnly(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("Country")
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Id")
+                .SortByDisplayValues(true)
+                .Bind(fullCountries)));
+        bl.Add(cb => cb.Binding("Id").Header("City")
+            .DataMap(dm => dm.DisplayMemberPath("Name")
+                .SelectedValuePath("Id")
+                .SortByDisplayValues(true)
+                .Bind(cities)));
+        bl.Add(cb => cb.Binding("Sales").Format("c"));
+        bl.Add(cb => cb.Binding("Expenses").Format("c"));
+    })
+)
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#gridDynamicDataMap'),
+                cityCol = grid.columns.getColumn("Id"),
+                cities = @Html.Raw(Json.Encode(cities)),
+                cityMap = cityCol.dataMap;
+
+            // Override cityMap's getDisplayValues method to get only cities belong to the current item's country
+            cityMap.getDisplayValues = function (dataItem) {
+                var validCities = cities.filter(function (city) { return city.Country == dataItem.Country; });
+                return validCities.map(function (city) { return city.Name; });
+            };
+        });
+    </script>
+}
+
+<style>
+    .wj-radio-map label {
+        padding: 0 0 0 0;
+    }
+</style>

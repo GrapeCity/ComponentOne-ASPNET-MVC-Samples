@@ -1,23 +1,23 @@
-﻿@model IDictionary<string, string>
-@if (Model != null)
-{
-    <ul id="sourceTab" class="nav nav-tabs ui-helper-clearfix mob-hide-1" role="tablist">
-        @foreach (var pageSource in Model)
-        {
-            <li><a>@pageSource.Key</a></li>
-        }
-    </ul>
-    <div id="sourcePanel" class="tab-content">
-        @foreach (var pageSource in Model)
-        {
-            var className = "brush:c#;";
-            if (pageSource.Key.Contains(".cshtml"))
+﻿@model IDictionary<string,string>
+    @if (Model != null)
+    {
+        <ul id="sourceTab" class="nav nav-tabs ui-helper-clearfix mob-hide-1" role="tablist">
+            @foreach (var pageSource in Model)
             {
-                className = "brush:js;html-script:true;";
+                <li><a>@pageSource.Key</a></li>
             }
-            <div class="tab-pane pane-content mob-hide-1">
-                <pre class=@className>@pageSource.Value</pre>
-            </div>
-        }
-    </div>
-}
+        </ul>
+        <div id="sourcePanel" class="tab-content">
+            @foreach (var pageSource in Model)
+            {
+                var className = "brush:c#;";
+                if (pageSource.Key.Contains(".cshtml"))
+                {
+                    className = "brush:js;html-script:true;";
+                }
+                <div class="tab-pane pane-content mob-hide-1">
+                    <pre class=@className>@pageSource.Value</pre>
+                </div>
+            }
+        </div>
+    }

@@ -1,0 +1,8 @@
+﻿<span class="theme wide-screen">
+    <c1-combo-box id="themeSelector" is-editable="false" display-member-path="DisplayText" selected-index="@Theme.GetCurrentThemeIndex(Context)">
+        <c1-items-source source-collection="@Theme.GetAll()"></c1-items-source>
+        <c1-input-item-template>
+            <a href="{{Path}}" class="theme-selector-link">{{DisplayText}}</a>
+        </c1-input-item-template>
+    </c1-combo-box>
+</span>

@@ -1,0 +1,14 @@
+﻿@model bool
+
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+    var selector = string.Format(".{0}.{1}", screenCss, "lesson-nav");
+}
+
+@(Html.C1().TreeView(selector)
+    .Bind((IEnumerable<Lesson>)ViewBag.Lessons)
+    .DisplayMemberPath("DisplayText")
+    .ChildItemsPath("SubLessons")
+    .OnClientFormatItem("formatItem")
+    .OnClientLoadedItems("itemsLoaded"))
+

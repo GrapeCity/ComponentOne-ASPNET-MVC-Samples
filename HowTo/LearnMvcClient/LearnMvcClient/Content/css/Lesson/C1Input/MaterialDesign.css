@@ -1,0 +1,113 @@
+﻿form {
+  background-color: white;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  max-width: 900px;
+}
+.wj-dialog-body {
+  display: flex;
+  flex-wrap: wrap;
+}
+.wj-dialog-body > .wj-labeled-input {
+  width: 160px;
+  margin: 0 .15in;
+}
+
+/* wj-labeled-input: adapted from MDL styles */
+
+/* underline access keys */
+.wj-labeled-input .accesskey {
+    text-decoration: underline;
+}
+
+/* label input container */
+.wj-labeled-input {
+    position: relative;
+    font-size: 16px;
+    display: inline-block;
+    box-sizing: border-box;
+    width: 300px;
+    max-width: 100%;
+    margin: 0 20px;
+    padding: 20px 0;
+}
+
+    /* Wijmo control in the container */
+    .wj-labeled-input .wj-control.wj-content {
+        margin: 0;
+        width: 100%;
+        background-color: transparent;
+        border: none;
+        border-bottom: 1px solid rgba(0,0,0,.1);
+    }
+    .wj-labeled-input .wj-control.wj-content button {
+        opacity: 0.75;
+        border-color: rgba(0,0,0,.1);
+    }
+
+    /* label in the container (must come after the control) */
+    .wj-labeled-input label {
+        font-size: 16px;
+        top: 24px;
+        bottom: 0;
+        margin: 0;
+        pointer-events: none;
+        position: absolute;
+        display: block;
+        width: 100%;
+        overflow: hidden;
+        white-space: nowrap;
+        text-align: left;
+        color: rgba(0, 0, 0, 0.258824);
+        transition-duration: .2s;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+    }
+    
+    /* move label out of the way when control is focused or not empty */
+    .wj-static-labels .wj-labeled-input :not(.wj-state-focused) + label,
+    .wj-labeled-input .wj-state-focused + label,
+    .wj-labeled-input :not(.wj-state-empty) + label {
+        font-size: 12px;
+        top: 4px;
+        color: rgb(63,81,181);
+        visibility: visible;
+    }
+    .wj-labeled-input .wj-state-invalid + label {
+        color: #d50000;
+    }
+
+    /* underline label */
+    .wj-labeled-input label:after {
+        background-color: rgb(63,81,181);
+        bottom: 20px;
+        content: '';
+        height: 2px;
+        left: 45%;
+        position: absolute;
+        transition-duration: .2s;
+        transition-timing-function: cubic-bezier(.4,0,.2,1);
+        visibility: hidden;
+        width: 10px;
+    }
+
+    /* show underline when focused */
+    .wj-labeled-input .wj-state-focused + label:after {
+        left: 0;
+        visibility: visible;
+        width: 100%;
+    }
+    .wj-labeled-input .wj-state-invalid + label:after {
+        background-color: #d50000;
+    }
+
+    /* validation message */
+    .wj-labeled-input .wj-error {
+        color: #d50000;
+        position: absolute;
+        font-size: 12px;
+        margin-top: 3px;
+        visibility: hidden;
+        display: block;
+    }
+    .wj-labeled-input .wj-control.wj-state-invalid ~ .wj-error {
+        visibility: visible;
+    }

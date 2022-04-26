@@ -1,0 +1,26 @@
+﻿@model bool
+@{
+var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="https://www.grapecity.com/componentone/aspnet-mvc-ui-controls" target="_blank">About</a>
+    </li>
+    <li>
+        <a href="https://www.grapecity.com/my-account/my-support" target="_blank">Support</a>
+    </li>
+    <li>
+        <a href="https://www.grapecity.com/componentone/pricing" target="_blank">Pricing</a>
+    </li>
+    <li class="bold">
+        <a href="https://www.grapecity.com/componentone/download" target="_blank">FREE TRIAL</a>
+    </li>
+    <li class="narrow-screen">
+        Edit Theme &gt;
+        @Html.Partial("_ThemeList")
+    </li>
+    <li class="narrow-screen">
+        Select Culture &gt;
+        @Html.Partial("_CultureList")
+    </li>
+</ul>

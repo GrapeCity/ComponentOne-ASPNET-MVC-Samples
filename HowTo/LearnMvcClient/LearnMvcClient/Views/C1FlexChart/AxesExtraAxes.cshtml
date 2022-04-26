@@ -1,0 +1,35 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Text4)
+</p>
+
+<div class="demo-settings">
+    <label for="secondaryAxis">@Html.Raw(Resources.C1FlexChart.AxesExtraAxes_Text5)</label>
+    <input id="secondaryAxis" type="checkbox" checked="checked">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads").ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols);
+    })
+    .AxisY(y=>y.Format("n0,").Title("Sales/Expenses (US$ k)").AxisLine(true))
+)

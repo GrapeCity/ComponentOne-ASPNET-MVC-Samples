@@ -1,0 +1,1696 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project=".\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project=".\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('.\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EF6577D7-8532-4759-BD71-A4DBB767FC1F}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>MvcExplorer</RootNamespace>
+    <AssemblyName>MvcExplorer</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.C1Excel.4.5.2">
+      <HintPath>packages\C1.C1Excel.4.5.20221.548\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Pdf.4.5.2">
+      <HintPath>packages\C1.C1Pdf.4.5.20221.548\lib\net452\C1.C1Pdf.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.C1Zip.4.5.2">
+      <HintPath>packages\C1.C1Zip.4.5.20221.548\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+		<Reference Include="C1.Web.Mvc">
+			<HintPath>packages\C1.Web.Mvc.4.5.20221.333\lib\net45\C1.Web.Mvc.dll</HintPath>
+			<Private>True</Private>
+		</Reference>
+    <Reference Include="C1.Win.4.5.2">
+      <HintPath>packages\C1.Win.4.5.20221.548\lib\net452\C1.Win.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.Bitmap.4.5.2">
+      <HintPath>packages\C1.Win.Bitmap.4.5.20221.548\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="C1.Win.C1DX.4.5.2">
+      <HintPath>packages\C1.Win.C1DX.4.5.20221.548\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.OData.Core, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.OData.Core.6.11.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Core.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.OData.Edm, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.OData.Edm.6.11.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.OData.Edm.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.Spatial, Version=6.11.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.Spatial.6.11.0\lib\portable-net40+sl5+wp8+win8+wpa\Microsoft.Spatial.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.EF6, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.EF6.1.0.113.0\lib\net451\System.Data.SQLite.EF6.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Data.SQLite.Linq, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
+      <HintPath>packages\System.Data.SQLite.Linq.1.0.113.0\lib\net451\System.Data.SQLite.Linq.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Http, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.AspNet.WebApi.Core.5.2.4\lib\net45\System.Web.Http.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.Http.WebHost, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.AspNet.WebApi.WebHost.5.2.4\lib\net45\System.Web.Http.WebHost.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Web.OData, Version=5.6.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>.\packages\Microsoft.AspNet.OData.5.6.0\lib\net45\System.Web.OData.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>.\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>.\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>.\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>.\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>.\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\Accordion.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accordion.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Accordion.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Accordion.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Barcode.ja.designer.cs">
+      <DependentUpon>Barcode.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Barcode.designer.cs">
+      <DependentUpon>Barcode.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\CollectionView.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CollectionView.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\CollectionView.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CollectionView.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\DashboardLayout.designer.cs">
+      <DependentUpon>DashboardLayout.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\AutoComplete.designer.cs">
+      <DependentUpon>AutoComplete.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\DashboardLayout.ja.designer.cs">
+      <DependentUpon>DashboardLayout.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\AutoComplete.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>AutoComplete.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\BulletGraph.designer.cs">
+      <DependentUpon>BulletGraph.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\BulletGraph.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>BulletGraph.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Calendar.designer.cs">
+      <DependentUpon>Calendar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Calendar.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Calendar.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ColorPicker.designer.cs">
+      <DependentUpon>ColorPicker.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ColorPicker.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ColorPicker.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ComboBox.designer.cs">
+      <DependentUpon>ComboBox.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ComboBox.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ComboBox.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Excel.designer.cs">
+      <DependentUpon>Excel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Excel.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Excel.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexMap.designer.cs">
+      <DependentUpon>FlexMap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexChart.designer.cs">
+      <DependentUpon>FlexChart.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexMap.ja.designer.cs">
+      <DependentUpon>FlexMap.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexChart.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlexChart.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexGrid.designer.cs">
+      <DependentUpon>FlexGrid.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexGrid.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlexGrid.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexPie.designer.cs">
+      <DependentUpon>FlexPie.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexPie.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlexPie.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexRadar.designer.cs">
+      <DependentUpon>FlexRadar.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\FlexRadar.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>FlexRadar.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Home.designer.cs">
+      <DependentUpon>Home.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Home.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Home.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputColor.designer.cs">
+      <DependentUpon>InputColor.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputColor.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputColor.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDateRange.designer.cs">
+      <DependentUpon>InputDateRange.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDate.designer.cs">
+      <DependentUpon>InputDate.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDateRange.ja.designer.cs">
+      <DependentUpon>InputDateRange.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDate.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputDate.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDateTime.designer.cs">
+      <DependentUpon>InputDateTime.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputDateTime.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputDateTime.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputMask.designer.cs">
+      <DependentUpon>InputMask.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputMask.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputMask.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputNumber.designer.cs">
+      <DependentUpon>InputNumber.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputNumber.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputNumber.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputTime.designer.cs">
+      <DependentUpon>InputTime.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\InputTime.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InputTime.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\LinearGauge.designer.cs">
+      <DependentUpon>LinearGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\LinearGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LinearGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\ListBox.designer.cs">
+      <DependentUpon>ListBox.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\ListBox.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>ListBox.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Menu.designer.cs">
+      <DependentUpon>Menu.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Menu.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Menu.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiAutoComplete.designer.cs">
+      <DependentUpon>MultiAutoComplete.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiAutoComplete.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiAutoComplete.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiSelect.designer.cs">
+      <DependentUpon>MultiSelect.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiSelect.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiSelect.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiSelectListBox.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiSelectListBox.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\MultiSelectListBox.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MultiSelectListBox.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\PDF.designer.cs">
+      <DependentUpon>PDF.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\PDF.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PDF.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Popup.designer.cs">
+      <DependentUpon>Popup.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Popup.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Popup.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\RadialGauge.designer.cs">
+      <DependentUpon>RadialGauge.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\RadialGauge.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>RadialGauge.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Sunburst.designer.cs">
+      <DependentUpon>Sunburst.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Sunburst.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sunburst.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TabOrder.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TabOrder.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TabOrder.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TabOrder.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TabPanel.designer.cs">
+      <DependentUpon>TabPanel.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TabPanel.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TabPanel.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TreeMap.designer.cs">
+      <DependentUpon>TreeMap.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TreeMap.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeMap.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\TreeView.designer.cs">
+      <DependentUpon>TreeView.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\TreeView.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TreeView.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Undo.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Undo.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Undo.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Undo.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Validation.designer.cs">
+      <DependentUpon>Validation.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Validation.ja.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Validation.ja.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\ODataConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\Accordion\IndexController.cs" />
+    <Compile Include="Controllers\AutoComplete\ComplexTypeController.cs" />
+    <Compile Include="Controllers\AutoComplete\CustomActionController.cs" />
+    <Compile Include="Controllers\AutoComplete\IndexController.cs" />
+    <Compile Include="Controllers\Barcode\IndexController.cs" />
+    <Compile Include="Controllers\BulletGraph\DirectionController.cs" />
+    <Compile Include="Controllers\BulletGraph\EditingController.cs" />
+    <Compile Include="Controllers\BulletGraph\IndexController.cs" />
+    <Compile Include="Controllers\BulletGraph\RangesController.cs" />
+    <Compile Include="Controllers\BulletGraph\ShowTextController.cs" />
+    <Compile Include="Controllers\BulletGraph\StylingController.cs" />
+    <Compile Include="Controllers\Calendar\IndexController.cs" />
+    <Compile Include="Controllers\Calendar\RangesController.cs" />
+    <Compile Include="Controllers\Calendar\ValidationController.cs" />
+    <Compile Include="Controllers\CollectionView\CalculatedFieldsController.cs" />
+    <Compile Include="Controllers\CollectionView\CollectionViewNavigatorController.cs" />
+    <Compile Include="Controllers\CollectionView\IndexController.cs" />
+    <Compile Include="Controllers\CollectionView\SortingController.cs" />
+    <Compile Include="Controllers\ComboBox\GroupingController.cs" />
+    <Compile Include="Controllers\DashboardLayout\AutoGridLayoutController.cs" />
+    <Compile Include="Controllers\DashboardLayout\CustomTileController.cs" />
+    <Compile Include="Controllers\DashboardLayout\FlowLayoutController.cs" />
+    <Compile Include="Controllers\DashboardLayout\IndexController.cs" />
+    <Compile Include="Controllers\DashboardLayout\ManualGridLayoutController.cs" />
+    <Compile Include="Controllers\DashboardLayout\SaveLoadLayoutController.cs" />
+    <Compile Include="Controllers\Enhancements\IndexController.cs" />
+    <Compile Include="Controllers\FlexChart\BreakEvenController.cs" />
+    <Compile Include="Controllers\FlexChart\GanttController.cs" />
+    <Compile Include="Controllers\FlexChart\ScatterController.cs" />
+    <Compile Include="Controllers\FlexChart\StepChartController.cs" />
+    <Compile Include="Controllers\FlexChart\RangeAreaController.cs" />
+    <Compile Include="Controllers\FlexChart\TooltipsController.cs" />
+    <Compile Include="Controllers\FlexChart\SeriesCustomizationController.cs" />
+    <Compile Include="Controllers\FlexGrid\AntiForgeryController.cs" />
+    <Compile Include="Controllers\FlexGrid\AutoGenerateColumnsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ChildItemsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ColumnPickerController.cs" />
+	<Compile Include="Controllers\FlexGrid\EditableTreeGridController.cs" />
+    <Compile Include="Controllers\FlexGrid\HeaderTooltipsController.cs" />
+    <Compile Include="Controllers\FlexGrid\BindingToXMLController.cs" />
+    <Compile Include="Controllers\FlexGrid\LazyLoadingController.cs" />
+    <Compile Include="Controllers\FlexGrid\ODataDeferCommitsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ColumnGroupsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ColumnPinningController.cs" />
+    <Compile Include="Controllers\FlexGrid\BooleanCheckerController.cs" />
+    <Compile Include="Controllers\FlexGrid\CustomHeaderTemplateController.cs" />
+    <Compile Include="Controllers\DashboardLayout\SplitLayoutController.cs" />
+    <Compile Include="Controllers\FlexGrid\CheckboxSelectionController.cs" />
+    <Compile Include="Controllers\FlexGrid\PreserveWhiteSpaceController.cs" />
+    <Compile Include="Controllers\FlexGrid\SearchingController.cs" />
+    <Compile Include="Controllers\FlexGrid\ShowCaseController.cs" />
+	<Compile Include="Controllers\FlexGrid\TreeGridController.cs" />
+    <Compile Include="Controllers\FlexGrid\UnboundTreeGridController.cs" />
+    <Compile Include="Controllers\FlexMap\BubbleMapController.cs" />
+    <Compile Include="Controllers\FlexMap\USChoroplethController.cs" />
+    <Compile Include="Controllers\FlexMap\IndexController.cs" />
+    <Compile Include="Controllers\FlexPie\MultipleChartController.cs" />
+    <Compile Include="Controllers\InputDateRange\IndexController.cs" />
+    <Compile Include="Controllers\MultiSelectListBox\IndexController.cs" />
+    <Compile Include="Controllers\ListBox\GroupingController.cs" />
+    <Compile Include="Controllers\Menu\CustomizeController.cs" />
+    <Compile Include="Controllers\OData\CategoriesController.cs" />
+    <Compile Include="Controllers\ColorPicker\IndexController.cs" />
+    <Compile Include="Controllers\ComboBox\ComplexTypeController.cs" />
+    <Compile Include="Controllers\ComboBox\IndexController.cs" />
+    <Compile Include="Controllers\ComboBox\ItemTemplateController.cs" />
+    <Compile Include="Controllers\ComboBox\MultiColumnDropDownController.cs" />
+    <Compile Include="Controllers\Excel\IndexController.cs" />
+    <Compile Include="Controllers\Excel\LoadingWorkSheetsController.cs" />
+    <Compile Include="Controllers\FlexChart\AnnotationController.cs" />
+    <Compile Include="Controllers\FlexChart\AxesController.cs" />
+    <Compile Include="Controllers\FlexChart\BindingController.cs" />
+    <Compile Include="Controllers\FlexChart\BoxWhiskerController.cs" />
+    <Compile Include="Controllers\FlexChart\BubbleController.cs" />
+    <Compile Include="Controllers\FlexChart\ChartAnimationController.cs" />
+    <Compile Include="Controllers\FlexChart\ErrorBarController.cs" />
+    <Compile Include="Controllers\FlexChart\FinancialChartController.cs" />
+    <Compile Include="Controllers\FlexChart\GradientsController.cs" />
+    <Compile Include="Controllers\FlexChart\FunnelController.cs" />
+    <Compile Include="Controllers\FlexChart\HeaderFooterController.cs" />
+    <Compile Include="Controllers\FlexChart\HitTestController.cs" />
+    <Compile Include="Controllers\FlexChart\IndexController.cs" />
+    <Compile Include="Controllers\FlexChart\ItemFormatterController.cs" />
+    <Compile Include="Controllers\FlexChart\LabelsController.cs" />
+    <Compile Include="Controllers\FlexChart\MarkerController.cs" />
+    <Compile Include="Controllers\FlexChart\PanningAndScalingController.cs" />
+    <Compile Include="Controllers\FlexChart\PlotAreasController.cs" />
+    <Compile Include="Controllers\FlexChart\RemoteBindController.cs" />
+    <Compile Include="Controllers\FlexChart\ScalingController.cs" />
+    <Compile Include="Controllers\FlexChart\SelectionController.cs" />
+    <Compile Include="Controllers\FlexChart\SeriesBindingController.cs" />
+    <Compile Include="Controllers\FlexChart\WaterfallController.cs" />
+    <Compile Include="Controllers\FlexChart\ZonesController.cs" />
+    <Compile Include="Controllers\FlexGrid\BatchEditingController.cs" />
+    <Compile Include="Controllers\FlexGrid\BuiltInValidationController.cs" />
+    <Compile Include="Controllers\FlexGrid\ColumnLayoutController.cs" />
+    <Compile Include="Controllers\FlexGrid\CustomCellsController.cs" />
+    <Compile Include="Controllers\FlexGrid\CustomEditorsController.cs" />
+    <Compile Include="Controllers\FlexGrid\CustomFootersController.cs" />
+    <Compile Include="Controllers\FlexGrid\DataMapController.cs" />
+    <Compile Include="Controllers\FlexGrid\DetailRowController.cs" />
+    <Compile Include="Controllers\FlexGrid\DisableServerReadController.cs" />
+    <Compile Include="Controllers\FlexGrid\EditingController.cs" />
+    <Compile Include="Controllers\FlexGrid\ExcelImportExportController.cs" />
+    <Compile Include="Controllers\FlexGrid\GlobalizationController.cs" />
+    <Compile Include="Controllers\FlexGrid\FilterController.cs" />
+    <Compile Include="Controllers\FlexGrid\FrozenCellsController.cs" />
+    <Compile Include="Controllers\FlexGrid\GroupingController.cs" />
+    <Compile Include="Controllers\FlexGrid\GroupPanelController.cs" />
+    <Compile Include="Controllers\FlexGrid\MasterDetailController.cs" />
+    <Compile Include="Controllers\FlexGrid\MergeCellsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ODataBindController.cs" />
+    <Compile Include="Controllers\FlexGrid\PagingController.cs" />
+    <Compile Include="Controllers\FlexGrid\PDFExportTreeViewController.cs" />
+    <Compile Include="Controllers\FlexGrid\PDFExportTagsController.cs" />
+    <Compile Include="Controllers\FlexGrid\PDFExportMergeController.cs" />
+    <Compile Include="Controllers\FlexGrid\PDFExportGroupController.cs" />
+    <Compile Include="Controllers\FlexGrid\RemoteBindController.cs" />
+    <Compile Include="Controllers\FlexGrid\RightToLeftController.cs" />
+    <Compile Include="Controllers\FlexGrid\SortingController.cs" />
+    <Compile Include="Controllers\FlexGrid\StarSizingController.cs" />
+    <Compile Include="Controllers\FlexGrid\UnobtrusiveValidationController.cs" />
+    <Compile Include="Controllers\FlexGrid\VirtualScrollingController.cs" />
+    <Compile Include="Controllers\FlexPie\ChartAnimationController.cs" />
+    <Compile Include="Controllers\FlexPie\IndexController.cs" />
+    <Compile Include="Controllers\FlexPie\ItemFormatterController.cs" />
+    <Compile Include="Controllers\FlexPie\RemoteBindController.cs" />
+    <Compile Include="Controllers\FlexPie\SelectionController.cs" />
+    <Compile Include="Controllers\FlexRadar\IndexController.cs" />
+    <Compile Include="Controllers\FlexRadar\PolarController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\InputColor\IndexController.cs" />
+    <Compile Include="Controllers\InputDateTime\IndexController.cs" />
+    <Compile Include="Controllers\InputDateTime\ValidationController.cs" />
+    <Compile Include="Controllers\InputDate\IndexController.cs" />
+    <Compile Include="Controllers\InputDate\RangesController.cs" />
+    <Compile Include="Controllers\InputDate\ValidationController.cs" />
+    <Compile Include="Controllers\InputMask\IndexController.cs" />
+    <Compile Include="Controllers\InputNumber\EditorTemplatesController.cs" />
+    <Compile Include="Controllers\InputNumber\FormController.cs" />
+    <Compile Include="Controllers\InputNumber\IndexController.cs" />
+    <Compile Include="Controllers\InputNumber\ModelBindingController.cs" />
+    <Compile Include="Controllers\InputTime\CustomTimeController.cs" />
+    <Compile Include="Controllers\InputTime\IndexController.cs" />
+    <Compile Include="Controllers\LinearGauge\DirectionController.cs" />
+    <Compile Include="Controllers\LinearGauge\EditingController.cs" />
+    <Compile Include="Controllers\LinearGauge\IndexController.cs" />
+    <Compile Include="Controllers\LinearGauge\RangesController.cs" />
+    <Compile Include="Controllers\LinearGauge\ScalingController.cs" />
+    <Compile Include="Controllers\LinearGauge\ShowTextController.cs" />
+    <Compile Include="Controllers\LinearGauge\StylingController.cs" />
+    <Compile Include="Controllers\ListBox\ComplexTypeController.cs" />
+    <Compile Include="Controllers\ListBox\IndexController.cs" />
+    <Compile Include="Controllers\ListBox\ItemTemplateController.cs" />
+    <Compile Include="Controllers\ListBox\MultiColumnController.cs" />
+    <Compile Include="Controllers\ListBox\MultiSelectController.cs" />
+    <Compile Include="Controllers\Menu\BindModeController.cs" />
+    <Compile Include="Controllers\Menu\ContextMenuController.cs" />
+    <Compile Include="Controllers\Menu\IndexController.cs" />
+    <Compile Include="Controllers\MultiAutoComplete\ComplexTypeController.cs" />
+    <Compile Include="Controllers\MultiAutoComplete\CustomActionController.cs" />
+    <Compile Include="Controllers\MultiAutoComplete\IndexController.cs" />
+    <Compile Include="Controllers\MultiSelect\ComplexTypeController.cs" />
+    <Compile Include="Controllers\MultiSelect\FormController.cs" />
+    <Compile Include="Controllers\MultiSelect\IndexController.cs" />
+    <Compile Include="Controllers\MultiSelect\MultiColumnDropDownController.cs" />
+    <Compile Include="Controllers\OData\OrdersController.cs" />
+    <Compile Include="Controllers\PDF\AcroformController.cs" />
+    <Compile Include="Controllers\PDF\IndexController.cs" />
+    <Compile Include="Controllers\PDF\RichGraphicsController.cs" />
+    <Compile Include="Controllers\PDF\TableOfContentsController.cs" />
+    <Compile Include="Controllers\Popup\ContentController.cs" />
+    <Compile Include="Controllers\Popup\PopupPositionController.cs" />
+    <Compile Include="Controllers\Popup\IndexController.cs" />
+    <Compile Include="Controllers\Popup\PopupDialogController.cs" />
+    <Compile Include="Controllers\RadialGauge\AutoScaleController.cs" />
+    <Compile Include="Controllers\RadialGauge\EditingController.cs" />
+    <Compile Include="Controllers\RadialGauge\IndexController.cs" />
+    <Compile Include="Controllers\RadialGauge\RangesController.cs" />
+    <Compile Include="Controllers\RadialGauge\ScalingController.cs" />
+    <Compile Include="Controllers\RadialGauge\ShowTextController.cs" />
+    <Compile Include="Controllers\RadialGauge\StylingController.cs" />
+    <Compile Include="Controllers\Sunburst\IndexController.cs" />
+    <Compile Include="Controllers\Sunburst\LegendAndTitlesController.cs" />
+    <Compile Include="Controllers\Sunburst\SelectionController.cs" />
+    <Compile Include="Controllers\Sunburst\ThemingController.cs" />
+    <Compile Include="Controllers\TabOrder\IndexController.cs" />
+    <Compile Include="Controllers\TabPanel\HostingControlsController.cs" />
+    <Compile Include="Controllers\TabPanel\CreatingProgrammaticallyController.cs" />
+    <Compile Include="Controllers\TabPanel\StylingController.cs" />
+    <Compile Include="Controllers\TabPanel\DisabledInvisibleTabsController.cs" />
+    <Compile Include="Controllers\TabPanel\DetachedPanelsController.cs" />
+    <Compile Include="Controllers\TabPanel\AccessibilityController.cs" />
+    <Compile Include="Controllers\TabPanel\RightToLeftController.cs" />
+    <Compile Include="Controllers\TabPanel\IndexController.cs" />
+    <Compile Include="Controllers\TreeMap\GroupCollectionController.cs" />
+    <Compile Include="Controllers\TreeMap\IndexController.cs" />
+    <Compile Include="Controllers\TreeMap\MaxDepthController.cs" />
+    <Compile Include="Controllers\TreeMap\ThemingController.cs" />
+    <Compile Include="Controllers\TreeView\DragDropController.cs" />
+    <Compile Include="Controllers\TreeView\CustomNodeContentController.cs" />
+    <Compile Include="Controllers\TreeView\EditingNodesController.cs" />
+    <Compile Include="Controllers\TreeView\ImagesController.cs" />
+    <Compile Include="Controllers\TreeView\CheckboxesController.cs" />
+    <Compile Include="Controllers\TreeView\IndexController.cs" />
+    <Compile Include="Controllers\TreeView\LazyLoadingController.cs" />
+    <Compile Include="Controllers\TreeView\RemoteLoadingController.cs" />
+    <Compile Include="Controllers\TreeView\NavigationController.cs" />
+    <Compile Include="Controllers\TreeView\AccordionController.cs" />
+    <Compile Include="Controllers\TreeView\StylingController.cs" />
+    <Compile Include="Controllers\Undo\IndexController.cs" />
+    <Compile Include="Controllers\Validation\RegisterController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\AVDRelation.cs" />
+    <Compile Include="Models\C1NWind.Context.cs" />
+    <Compile Include="Models\C1NWindEntities.cs" />
+    <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\ChartOptions.cs" />
+    <Compile Include="Models\ChildItems.cs" />
+    <Compile Include="Models\Cities.cs" />
+    <Compile Include="Models\ClientSettingsModel.cs" />
+    <Compile Include="Models\ControlOptions.cs" />
+    <Compile Include="Models\ControlPages.cs" />
+    <Compile Include="Models\Countries.cs" />
+    <Compile Include="Models\Culture.cs" />
+    <Compile Include="Models\Customer.cs" />
+    <Compile Include="Models\CustomerOrder.cs" />
+    <Compile Include="Models\CustomerProduct.cs" />
+    <Compile Include="Models\CustomerSale.cs" />
+    <Compile Include="Models\CustomerWithOrders.cs" />
+    <Compile Include="Models\DashboardData.cs" />
+    <Compile Include="Models\Dot.cs" />
+    <Compile Include="Models\DrillDataPoints.cs" />
+    <Compile Include="Models\Employee.cs" />
+    <Compile Include="Models\EmployeeEx.cs" />
+    <Compile Include="Models\EnhancedControlPages.cs" />
+    <Compile Include="Models\FinanceData.cs" />
+    <Compile Include="Models\FoodSale.cs" />
+    <Compile Include="Models\Fruit.cs" />
+    <Compile Include="Models\HierarchicalData.cs" />
+    <Compile Include="Models\JsonDataReader.cs" />
+    <Compile Include="Models\MapData.cs" />
+    <Compile Include="Models\MenuItemData.cs" />
+    <Compile Include="Models\NamedColor.cs" />
+    <Compile Include="Models\Order.cs" />
+    <Compile Include="Models\Product.cs" />
+    <Compile Include="Models\SaleShowCase.cs" />
+    <Compile Include="Models\StatisticMessage.cs" />
+    <Compile Include="Models\Population.cs" />
+    <Compile Include="Models\PopulationByCountry.cs" />
+    <Compile Include="Models\Products.cs" />
+    <Compile Include="Models\ProductSales.cs" />
+    <Compile Include="Models\Property.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\SalesAnalysis.cs" />
+    <Compile Include="Models\SalesData.cs" />
+    <Compile Include="Models\Supplier.cs" />
+    <Compile Include="Models\Task.cs" />
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\ThingSale.cs" />
+    <Compile Include="Models\TreeItem.cs" />
+    <Compile Include="Models\UserInfo.cs" />
+    <Compile Include="Models\UsersData.cs" />
+    <Compile Include="Models\WaterfallData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\ControlPages.xml" />
+    <Content Include="Content\css\AdvancedAnnotation.css" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\barcode.css" />
+    <Content Include="Content\css\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\explorer.css" />
+    <Content Include="Content\css\gcicons.css" />
+    <Content Include="Content\css\gcicons.ja.css" />
+    <Content Include="Content\css\images\icons\30\facebook.png" />
+    <Content Include="Content\css\images\icons\30\google.png" />
+    <Content Include="Content\css\images\icons\32\picons33.png" />
+    <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\showcase.css" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCore.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCoreEclipse.css" />
+    <Content Include="Content\data\ProductCategories.xml" />
+    <Content Include="Content\favicon\android-chrome-192x192.png" />
+    <Content Include="Content\favicon\android-chrome-256x256.png" />
+    <Content Include="Content\favicon\apple-touch-icon.png" />
+    <Content Include="Content\favicon\favicon-16x16.png" />
+    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\safari-pinned-tab.svg" />
+    <Content Include="Content\images\c1icon.png" />
+    <Content Include="Content\images\divide.png" />
+    <Content Include="Content\images\down.png" />
+    <Content Include="Content\images\electronics.png" />
+    <Content Include="Content\images\excelWorkSheets.PNG" />
+    <Content Include="Content\images\flag.png" />
+    <Content Include="Content\images\home.png" />
+    <Content Include="Content\images\icon_export.png" />
+    <Content Include="Content\images\new.png" />
+    <Content Include="Content\images\phones.png" />
+    <Content Include="Content\images\room.png" />
+    <Content Include="Content\images\icons\Columns.png" />
+    <Content Include="Content\images\icons\ConditionalFormating.png" />
+    <Content Include="Content\images\icons\Csv.png" />
+    <Content Include="Content\images\icons\Excel.png" />
+    <Content Include="Content\images\icons\pdf.png" />
+    <Content Include="Content\images\th.png" />
+    <Content Include="Content\images\toys.png" />
+    <Content Include="Content\images\up.png" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\fb.json" />
+    <Content Include="Content\fb2.json" />
+    <Content Include="Models\Houston.xlsx" />
+    <Content Include="Scripts\advancedAnnotation.js" />
+    <Content Include="Scripts\AxisScrollbar.js" />
+    <Content Include="Scripts\BootStrap\bootstrap.js" />
+    <Content Include="Scripts\ControlLayout.js" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\fonts\fira\FiraSans-Bold.ttf" />
+    <Content Include="Content\fonts\fira\FiraSans-Regular.ttf" />
+    <Content Include="Content\fonts\fira\LICENSE" />
+    <Content Include="Content\fonts\controls.woff" />
+    <Content Include="Scripts\jquery-1.8.2.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jszip.js" />
+    <Content Include="Scripts\Layout.js" />
+    <Content Include="Scripts\MultiLevelMenu.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushCSharp.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushJScript.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushXml.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shCore.js" />
+    <Content Include="Views\FlexGrid\AntiForgery.cshtml" />
+    <Content Include="Views\FlexGrid\Searching.cshtml" />
+    <Content Include="Web.config" />
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config" />
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\AutoComplete\ComplexType.cshtml" />
+    <Content Include="Views\AutoComplete\CustomAction.cshtml" />
+    <Content Include="Views\AutoComplete\Index.cshtml" />
+    <Content Include="Views\BulletGraph\Direction.cshtml" />
+    <Content Include="Views\BulletGraph\Editing.cshtml" />
+    <Content Include="Views\BulletGraph\Index.cshtml" />
+    <Content Include="Views\BulletGraph\Ranges.cshtml" />
+    <Content Include="Views\BulletGraph\ShowText.cshtml" />
+    <Content Include="Views\BulletGraph\Styling.cshtml" />
+    <Content Include="Views\Calendar\Index.cshtml" />
+    <Content Include="Views\Calendar\Validation.cshtml" />
+    <Content Include="Views\ColorPicker\Index.cshtml" />
+    <Content Include="Views\ComboBox\ComplexType.cshtml" />
+    <Content Include="Views\ComboBox\Index.cshtml" />
+    <Content Include="Views\ComboBox\ItemTemplate.cshtml" />
+    <Content Include="Views\ComboBox\MultiColumnDropDown.cshtml" />
+    <Content Include="Views\Excel\Index.cshtml" />
+    <Content Include="Views\Excel\LoadingWorkSheets.cshtml" />
+    <Content Include="Views\FlexChart\Annotation.cshtml" />
+    <Content Include="Views\FlexChart\Axes.cshtml" />
+    <Content Include="Views\FlexChart\Binding.cshtml" />
+    <Content Include="Views\FlexChart\Bubble.cshtml" />
+    <Content Include="Views\FlexChart\ChartAnimation.cshtml" />
+    <Content Include="Views\FlexChart\FinancialChart.cshtml" />
+    <Content Include="Views\FlexChart\HeaderFooter.cshtml" />
+    <Content Include="Views\FlexChart\HitTest.cshtml" />
+    <Content Include="Views\FlexChart\Index.cshtml" />
+    <Content Include="Views\FlexChart\ItemFormatter.cshtml" />
+    <Content Include="Views\FlexChart\Labels.cshtml" />
+    <Content Include="Views\FlexChart\Marker.cshtml" />
+    <Content Include="Views\FlexChart\PanningAndScaling.cshtml" />
+    <Content Include="Views\FlexChart\PlotAreas.cshtml" />
+    <Content Include="Views\FlexChart\RemoteBind.cshtml" />
+    <Content Include="Views\FlexChart\Scaling.cshtml" />
+    <Content Include="Views\FlexChart\Selection.cshtml" />
+    <Content Include="Views\FlexChart\SeriesBinding.cshtml" />
+    <Content Include="Views\FlexChart\Waterfall.cshtml" />
+    <Content Include="Views\FlexChart\Zones.cshtml" />
+    <Content Include="Views\FlexGrid\BatchEditing.cshtml" />
+    <Content Include="Views\FlexGrid\ColumnLayout.cshtml" />
+    <Content Include="Views\FlexGrid\CustomCells.cshtml" />
+    <Content Include="Views\FlexGrid\CustomEditors.cshtml" />
+    <Content Include="Views\FlexGrid\CustomFooters.cshtml" />
+    <Content Include="Views\FlexGrid\DataMap.cshtml" />
+    <Content Include="Views\FlexGrid\DetailRow.cshtml" />
+    <Content Include="Views\FlexGrid\DisableServerRead.cshtml" />
+    <Content Include="Views\FlexGrid\Editing.cshtml" />
+    <Content Include="Views\FlexGrid\ExcelImportExport.cshtml" />
+    <Content Include="Views\FlexGrid\Filter.cshtml" />
+    <Content Include="Views\FlexGrid\FrozenCells.cshtml" />
+    <Content Include="Views\FlexGrid\Grouping.cshtml" />
+    <Content Include="Views\FlexGrid\GroupPanel.cshtml" />
+    <Content Include="Views\FlexGrid\MasterDetail.cshtml" />
+    <Content Include="Views\FlexGrid\MergeCells.cshtml" />
+    <Content Include="Views\FlexGrid\Paging.cshtml" />
+    <Content Include="Views\FlexGrid\PDFExportGroup.cshtml" />
+    <Content Include="Views\FlexGrid\PDFExportMerge.cshtml" />
+    <Content Include="Views\FlexGrid\PDFExportTags.cshtml" />
+    <Content Include="Views\FlexGrid\PDFExportTreeView.cshtml" />
+    <Content Include="Views\FlexGrid\RemoteBind.cshtml" />
+    <Content Include="Views\FlexGrid\RightToLeft.cshtml" />
+    <Content Include="Views\FlexGrid\Sorting.cshtml" />
+    <Content Include="Views\FlexGrid\StarSizing.cshtml" />
+    <Content Include="Views\FlexGrid\UnobtrusiveValidation.cshtml" />
+    <Content Include="Views\FlexGrid\VirtualScrolling.cshtml" />
+    <Content Include="Views\FlexPie\ChartAnimation.cshtml" />
+    <Content Include="Views\FlexPie\Index.cshtml" />
+    <Content Include="Views\FlexPie\ItemFormatter.cshtml" />
+    <Content Include="Views\FlexPie\RemoteBind.cshtml" />
+    <Content Include="Views\FlexPie\Selection.cshtml" />
+    <Content Include="Views\Home\Index.cshtml" />
+    <Content Include="Views\InputColor\Index.cshtml" />
+    <Content Include="Views\InputDate\Index.cshtml" />
+    <Content Include="Views\InputDate\Ranges.cshtml" />
+    <Content Include="Views\InputDate\Validation.cshtml" />
+    <Content Include="Views\InputDateTime\Index.cshtml" />
+    <Content Include="Views\InputDateTime\Validation.cshtml" />
+    <Content Include="Views\InputDateRange\Index.cshtml" />
+    <Content Include="Views\InputMask\Index.cshtml" />
+    <Content Include="Views\InputNumber\EditorTemplates.cshtml" />
+    <Content Include="Views\InputNumber\Form.cshtml" />
+    <Content Include="Views\InputNumber\Index.cshtml" />
+    <Content Include="Views\InputNumber\ModelBinding.cshtml" />
+    <Content Include="Views\InputTime\CustomTime.cshtml" />
+    <Content Include="Views\InputTime\Index.cshtml" />
+    <Content Include="Views\LinearGauge\Direction.cshtml" />
+    <Content Include="Views\LinearGauge\Editing.cshtml" />
+    <Content Include="Views\LinearGauge\Index.cshtml" />
+    <Content Include="Views\LinearGauge\Ranges.cshtml" />
+    <Content Include="Views\LinearGauge\Scaling.cshtml" />
+    <Content Include="Views\LinearGauge\ShowText.cshtml" />
+    <Content Include="Views\LinearGauge\Styling.cshtml" />
+    <Content Include="Views\ListBox\ComplexType.cshtml" />
+    <Content Include="Views\ListBox\Index.cshtml" />
+    <Content Include="Views\ListBox\ItemTemplate.cshtml" />
+    <Content Include="Views\ListBox\MultiColumn.cshtml" />
+    <Content Include="Views\ListBox\MultiSelect.cshtml" />
+    <Content Include="Views\Menu\BindMode.cshtml" />
+    <Content Include="Views\Menu\ContextMenu.cshtml" />
+    <Content Include="Views\Menu\Index.cshtml" />
+    <Content Include="Views\MultiSelect\ComplexType.cshtml" />
+    <Content Include="Views\MultiSelect\Form.cshtml" />
+    <Content Include="Views\MultiSelect\Index.cshtml" />
+    <Content Include="Views\MultiSelect\MultiColumnDropDown.cshtml" />
+    <Content Include="Views\PDF\Acroform.cshtml" />
+    <Content Include="Views\PDF\Index.cshtml" />
+    <Content Include="Views\PDF\RichGraphics.cshtml" />
+    <Content Include="Views\PDF\TableOfContents.cshtml" />
+    <Content Include="Views\Popup\Content.cshtml" />
+    <Content Include="Views\Popup\Index.cshtml" />
+    <Content Include="Views\Popup\PopupDialog.cshtml" />
+    <Content Include="Views\RadialGauge\AutoScale.cshtml" />
+    <Content Include="Views\RadialGauge\Editing.cshtml" />
+    <Content Include="Views\RadialGauge\Index.cshtml" />
+    <Content Include="Views\RadialGauge\Ranges.cshtml" />
+    <Content Include="Views\RadialGauge\Scaling.cshtml" />
+    <Content Include="Views\RadialGauge\ShowText.cshtml" />
+    <Content Include="Views\RadialGauge\Styling.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_BreadcrumbNav.cshtml" />
+    <Content Include="Views\Shared\_ClientSettingsByMenu.cshtml" />
+    <Content Include="Views\Shared\_ControlGroup.cshtml" />
+    <Content Include="Views\Shared\_ControlLayout.cshtml" />
+    <Content Include="Views\Shared\_ControlsNav.cshtml" />
+    <Content Include="Views\Shared\_DemoSource.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_Logger.cshtml" />
+    <Content Include="Views\Shared\_OptionsMenu.cshtml" />
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
+    <Content Include="Views\Shared\_ThemeList.cshtml" />
+    <Content Include="Views\Shared\_ThemeSelector.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Color.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Date.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Decimal.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Double.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Time.cshtml" />
+    <Content Include="Views\Sunburst\Index.cshtml" />
+    <Content Include="Views\Sunburst\LegendAndTitles.cshtml" />
+    <Content Include="Views\Sunburst\Selection.cshtml" />
+    <Content Include="Views\Sunburst\Theming.cshtml" />
+    <Content Include="Views\Validation\Register.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\BoxWhisker.cshtml" />
+    <Content Include="Views\FlexChart\ErrorBar.cshtml" />
+    <Content Include="Views\FlexChart\Funnel.cshtml" />
+    <Content Include="Views\FlexRadar\Index.cshtml" />
+    <Content Include="Views\FlexRadar\Polar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\data\airports.json" />
+    <Content Include="Content\data\europe.json" />
+    <Content Include="Content\data\land.json" />
+    <Content Include="Content\data\US.json" />
+    <Content Include="Content\data\temp.json" />
+    <Content Include="packages.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\FlexMap\Index.cshtml" />
+    <Content Include="Views\FlexMap\BubbleMap.cshtml" />
+    <Content Include="Views\FlexMap\USChoropleth.cshtml" />
+    <Content Include="Views\Undo\Index.cshtml" />
+    <Content Include="Views\FlexGrid\HeaderTooltips.cshtml" />
+    <Content Include="Views\FlexGrid\ColumnPicker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Validation.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Validation.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexRadar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexRadar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiAutoComplete.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiAutoComplete.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Popup.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Popup.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\RadialGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>RadialGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Sunburst.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Sunburst.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TabPanel.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TabPanel.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TreeMap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TreeMap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TreeView.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TreeView.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\AutoComplete.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>AutoComplete.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\BulletGraph.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>BulletGraph.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Calendar.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Calendar.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ColorPicker.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ColorPicker.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ComboBox.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ComboBox.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Excel.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Excel.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexChart.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexChart.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexGrid.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexGrid.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexPie.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexPie.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Home.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Home.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputColor.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputColor.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDate.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDate.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDateTime.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDateTime.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputMask.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputMask.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputNumber.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputNumber.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputTime.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputTime.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\LinearGauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LinearGauge.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ListBox.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ListBox.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Menu.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Menu.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiSelect.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiSelect.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\PDF.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>PDF.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\AutoComplete.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>AutoComplete.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\BulletGraph.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>BulletGraph.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Calendar.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Calendar.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ColorPicker.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ColorPicker.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ComboBox.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ComboBox.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Excel.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Excel.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexChart.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexChart.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexGrid.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexGrid.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexPie.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexPie.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexRadar.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexRadar.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Home.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Home.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputColor.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputColor.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDate.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDate.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDateTime.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDateTime.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputMask.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputMask.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputNumber.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputNumber.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputTime.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputTime.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\LinearGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>LinearGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\ListBox.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>ListBox.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Menu.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Menu.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiAutoComplete.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiAutoComplete.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiSelect.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiSelect.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\PDF.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>PDF.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Popup.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Popup.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\RadialGauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>RadialGauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Sunburst.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Sunburst.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TabPanel.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TabPanel.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TreeMap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TreeMap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TreeView.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TreeView.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Validation.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Validation.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\DashboardLayout.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DashboardLayout.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\DashboardLayout.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>DashboardLayout.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\CollectionView.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>CollectionView.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\CollectionView.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>CollectionView.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiSelectListBox.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiSelectListBox.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\MultiSelectListBox.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>MultiSelectListBox.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Barcode.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Barcode.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Barcode.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Barcode.ja.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\Accordion.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Accordion.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Accordion.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Accordion.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDateRange.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDateRange.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\InputDateRange.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>InputDateRange.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexMap.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexMap.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\FlexMap.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexMap.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Undo.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Undo.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Undo.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Undo.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TabOrder.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TabOrder.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\TabOrder.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TabOrder.ja.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\BuiltInValidation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\Navigation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\RemoteLoading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\LazyLoading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\Styling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\Images.cshtml" />
+    <Content Include="Views\TreeView\Checkboxes.cshtml" />
+    <Content Include="Views\TreeView\CustomNodeContent.cshtml" />
+    <Content Include="Views\TreeView\DragDrop.cshtml" />
+    <Content Include="Views\TreeView\EditingNodes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeView\Accordion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MultiAutoComplete\ComplexType.cshtml" />
+    <Content Include="Views\MultiAutoComplete\CustomAction.cshtml" />
+    <Content Include="Views\MultiAutoComplete\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\Gradients.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeMap\MaxDepth.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeMap\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeMap\Theming.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TreeMap\GroupCollection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\gcicons.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\favicon\manifest.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\Globalization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_CultureSelector.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ODataBind.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\RightToLeft.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\HostingControls.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\CreatingProgrammatically.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\Styling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\DisabledInvisibleTabs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\DetachedPanels.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabPanel\Accessibility.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_ControlPage.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\fonts\grapecity-dev.ttf" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DashboardElements.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\DashboardLayout\AutoGridLayout.cshtml" />
+    <Content Include="Views\DashboardLayout\CustomTile.cshtml" />
+    <Content Include="Views\DashboardLayout\FlowLayout.cshtml" />
+    <Content Include="Views\DashboardLayout\Index.cshtml" />
+    <Content Include="Views\DashboardLayout\ManualGridLayout.cshtml" />
+    <Content Include="Views\DashboardLayout\SaveLoadLayout.cshtml" />
+    <Content Include="Views\DashboardLayout\SplitLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ComboBox\Grouping.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\ListBox\Grouping.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\CustomHeaderTemplate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Menu\Customize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\Tooltips.cshtml" />
+    <Content Include="Views\FlexChart\SeriesCustomization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Enhancements\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_EnhancedControlGroup.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexPie\MultipleChart.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\RangeArea.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\CollectionView\Index.cshtml" />
+    <Content Include="Views\CollectionView\CollectionViewNavigator.cshtml" />
+    <Content Include="Views\CollectionView\Sorting.cshtml" />
+    <Content Include="Views\CollectionView\CalculatedFields.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\StepChart.cshtml" />
+    <Content Include="Views\FlexChart\BreakEven.cshtml" />
+		<Content Include="Views\FlexChart\Gantt.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\AutoGenerateColumns.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ColumnGroups.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ColumnPinning.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\PreserveWhiteSpace.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\MultiSelectListBox\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\CheckboxSelection.cshtml" />
+    <Content Include="Views\FlexGrid\BooleanChecker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ODataDeferCommits.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Popup\PopupPosition.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexChart\Scatter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Barcode\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ShowCase.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Accordion\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Calendar\Ranges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_Data\C1NWind.db" />
+    <Content Include="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\TabOrder\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\BindingToXML.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\EditableTreeGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\TreeGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\UnboundTreeGrid.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\ChildItems.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\LazyLoading.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>33962</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:33962/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('.\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '.\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+    <Error Condition="!Exists('packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\Stub.System.Data.SQLite.Core.NetFramework.targets'))" />
+  </Target>
+  <Import Project="TargetFiles\Stub.System.Data.SQLite.Core.NetFramework.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

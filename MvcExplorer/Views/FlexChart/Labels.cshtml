@@ -1,0 +1,21 @@
+﻿@model ClientSettingsModel
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoSettingsModel = Model;
+
+    IEnumerable<Fruit> fruits = Fruit.GetFruitsSales();
+}
+
+@(Html.C1().FlexChart().Id(Model.ControlId).Bind("Name", fruits).Series(sers =>
+{
+    sers.Add().Binding("MarPrice").Name("March");
+    sers.Add().Binding("AprPrice").Name("April");
+    sers.Add().Binding("MayPrice").Name("May");
+}).DataLabel(dl => dl.Position(C1.Web.Mvc.Chart.LabelPosition.Top).Content("{y}")))
+
+@section Description{
+    <h3>
+        @Html.Raw(Resources.FlexChart.Labels_Labels)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.Labels_Text0)</p>
+}

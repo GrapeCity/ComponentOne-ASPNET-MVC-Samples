@@ -1,0 +1,135 @@
+﻿@model IEnumerable<Sale>
+@using C1.Web.Mvc.Grid;
+
+@section Scripts{
+<script>
+    // class used to identify group footer rows
+    var ROW_FOOTER_CLASS = 'wj-groupfooter';
+
+    function grouping(groupBy) {
+        var flex = wijmo.Control.getControl('#grid'), data = flex.collectionView;
+        flex.beginUpdate();
+        data.groupDescriptions.clear();
+        var groups = groupBy ? groupBy.split(',') : [];
+        for (var i = 0; i < groups.length; i++) {
+            data.groupDescriptions.push(new wijmo.collections.PropertyGroupDescription(groups[i]));
+        }
+        flex.endUpdate();
+    }
+
+    function onLoadedRows() {
+        var flex = wijmo.Control.getControl('#grid');
+        if (flex.collectionView.groupDescriptions.length) {
+            addGroupFooters();
+        }
+    }
+
+    // add group footers
+    function addGroupFooters() {
+        var flex = wijmo.Control.getControl('#grid');
+        flex.beginUpdate();
+        for (var r = 0; r < flex.rows.length; r++) {
+            var row = flex.rows[r];
+            if (row instanceof wijmo.grid.GroupRow && row.cssClass != ROW_FOOTER_CLASS) {
+
+                // create footer row to match this group row
+                var newRow = new wijmo.grid.GroupRow();
+                newRow.level = row.level;
+                newRow.cssClass = ROW_FOOTER_CLASS;
+
+                // add footer row to the grid
+                var index = findFooterIndex(r);
+                flex.rows.insert(index, newRow);
+
+                // add some content to footer row
+                var group = row.dataItem;
+                flex.setCellData(index, 0, 'f(' + group.name + ')', false);
+            }
+        }
+        flex.endUpdate();
+    }
+
+    // find the index where the group footer should be inserted
+    function findFooterIndex(r) {
+        var flex = wijmo.Control.getControl('#grid');
+        var level = flex.rows[r].level;
+        for (var i = r + 1; i < flex.rows.length; i++) {
+            var row = flex.rows[i];
+            if (row instanceof wijmo.grid.GroupRow) {
+
+                // if this is *not* a footer and the level is <=, insert here
+                if (row.cssClass != ROW_FOOTER_CLASS && row.level <= level) {
+                    return i;
+                }
+
+                // if this *is* a footer and the level is <, insert here
+                if (row.cssClass == ROW_FOOTER_CLASS && row.level < level) {
+                    return i;
+                }
+            }
+        }
+
+        // insert at the bottom
+        return flex.rows.length;
+    }
+</script>
+}
+
+<style>
+    .wj-control .wj-btn-group {
+        border: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .wj-control .wj-btn-group * {
+        color: black !important;
+    }
+    .wj-control .wj-btn-group > *:not(:first-child) {
+        border-left: 1px solid rgba(0, 0, 0, 0.2);
+    }
+    .wj-control .wj-btn-group > .wj-btn.wj-btn-default:hover,
+    .wj-control .wj-btn-group > .wj-btn.wj-btn-default:focus {
+        background: #eee !important;
+    }
+</style>
+
+<label>@Html.Raw(Resources.FlexGrid.CustomFooters_Text1)</label>
+<div class="wj-btn-group">
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('')">@Html.Raw(Resources.FlexGrid.CustomFooters_None)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Country')">@Html.Raw(Resources.FlexGrid.CustomFooters_Country)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Product')">@Html.Raw(Resources.FlexGrid.CustomFooters_Product)</button>
+    <button type="button" class="wj-btn wj-btn-default" onclick="grouping('Product,Color')">@Html.Raw(Resources.FlexGrid.CustomFooters_ProductAndColor)</button>
+</div>
+
+<label>@Html.Raw(Resources.FlexGrid.CustomFooters_Text2)</label>
+<div class="multi-grid">
+    @(Html.C1().FlexGrid<Sale>().Id("grid").IsReadOnly(true)
+        .AutoGenerateColumns(false)
+        .ShowGroups(true)
+        .Bind(b => b.Bind(Model).DisableServerRead(true)) // disable server read to use grouping
+        .CssClass("grid")
+        .OnClientLoadedRows("onLoadedRows")
+        .Columns(columns =>
+        {
+            columns.Add(column => column.Binding("ID").Width("70"));
+            columns.Add(column => column.Binding("Start"));
+            columns.Add(column => column.Binding("End"));
+            columns.Add(column => column.Binding("Country"));
+            columns.Add(column => column.Binding("Product"));
+            columns.Add(column => column.Binding("Color"));
+            columns.Add(column => column.Binding("Amount2").Format("c").Aggregate(Aggregate.Sum));
+            columns.Add(column => column.Binding("Discount").Width("100").Format("p0").Aggregate(Aggregate.Avg));
+            columns.Add(column => column.Binding("Active").Width("80"));
+        }).ShowColumnFooters()
+    )
+</div>
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.CustomFooters_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.CustomFooters_Text0)</p>
+    <ol>
+        <li>@Html.Raw(Resources.FlexGrid.CustomFooters_Li1)</li>
+        <li>@Html.Raw(Resources.FlexGrid.CustomFooters_Li2)</li>
+    </ol>
+}

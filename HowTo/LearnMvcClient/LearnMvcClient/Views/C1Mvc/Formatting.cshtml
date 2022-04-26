@@ -1,0 +1,159 @@
+﻿<h1>
+    @Html.Raw(Resources.C1Mvc.Formatting_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text1)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text2)
+    @Html.Partial("_CultureSelector")
+</label>
+
+<h2>
+    @Html.Raw(Resources.C1Mvc.Formatting_Title1)
+</h2>
+<p>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text3)
+</p>
+<table id="tblDates" class="table table-condensed">
+    <thead>
+    <th>@Html.Raw(Resources.C1Mvc.Formatting_Text4)</th>
+    <th>@Html.Raw(Resources.C1Mvc.Formatting_Text5)</th>
+    <th>@Html.Raw(Resources.C1Mvc.Formatting_Text6)</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>d</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text7)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>D</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text8)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>f</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text9)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>F</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text10)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>t</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text11)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>T</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text12)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>'Q'Q yyyy</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text13)</td>
+            <td>xx</td>
+        </tr>
+        <tr>
+            <td><b>MMMM dd, yyyy</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text14)</td>
+            <td>xx</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1Mvc.Formatting_Text15)
+    </div>
+</div>
+
+<h2>
+    @Html.Raw(Resources.C1Mvc.Formatting_Title2)
+</h2>
+<p>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text16)
+</p>
+<label>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text17)
+    @Html.C1().InputNumber().Id("theValue").Value(1234.5678).Step(1)
+</label>
+<label>
+    @Html.Raw(Resources.C1Mvc.Formatting_Text18)
+    @Html.C1().InputNumber().Id("thePrecision").Value(2).Step(1).Min(0).Max(10)
+</label>
+
+<table id="tblNumbers" class="table table-condensed">
+    <thead>
+    <th>@Html.Raw(Resources.C1Mvc.Formatting_Text19)</th>
+    <th>@Html.Raw(Resources.C1Mvc.Formatting_Text5)</th>
+    <th class="text-right">@Html.Raw(Resources.C1Mvc.Formatting_Text6)</th>
+    </thead>
+    <tbody>
+        <tr>
+            <td><b>n*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text20)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>n*,</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text21)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>n*,,</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text22)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>f*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text23)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>g*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text24)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>d*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text25)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>x*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text26)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>c*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text27)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>c*€</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text28)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>c*&#x200b;</b></td> <!-- &#x200b; is a zero-width space -->
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text29)</td>
+            <td class="text-right">xx</td>
+        </tr>
+        <tr>
+            <td><b>p*</b></td>
+            <td>@Html.Raw(Resources.C1Mvc.Formatting_Text30)</td>
+            <td class="text-right">xx</td>
+        </tr>
+    </tbody>
+</table>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1Mvc.Formatting_Text31)
+    </div>
+</div>

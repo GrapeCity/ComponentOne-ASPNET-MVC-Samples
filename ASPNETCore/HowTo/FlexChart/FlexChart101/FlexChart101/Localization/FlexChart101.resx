@@ -1,0 +1,333 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="TXT_Chart_Types" xml:space="preserve">
+    <value>Chart Types</value>
+  </data>
+  <data name="TXT_Chart_Types_0" xml:space="preserve">
+    <value>The FlexChart control has three properties that allow you to customize the chart type:</value>
+  </data>
+  <data name="TXT_Chart_Types_1" xml:space="preserve">
+    <value>&lt;b&gt;ChartType&lt;/b&gt;: Selects the default chart type to be used for all series.
+                Individual series may override this.</value>
+  </data>
+  <data name="TXT_Chart_Types_2" xml:space="preserve">
+    <value>&lt;b&gt;Stacking&lt;/b&gt;: Determines whether series are plotted independently,
+                stacked, or stacked so their sum is 100%.</value>
+  </data>
+  <data name="TXT_Chart_Types_3" xml:space="preserve">
+    <value>&lt;b&gt;Rotated&lt;/b&gt;: Flips the X and Y axes so X becomes vertical and Y horizontal.</value>
+  </data>
+  <data name="TXT_Chart_Types_4" xml:space="preserve">
+    <value>The example below allows you to see what happens when you change these properties:</value>
+  </data>
+  <data name="TXT_Customizing_Axes" xml:space="preserve">
+    <value>Customizing Axes</value>
+  </data>
+  <data name="TXT_Customizing_Axes_0" xml:space="preserve">
+    <value>Use axis properties to customize the chart's axes, including ranges (minimum and maximum),
+            label format, tickmark spacing, and gridlines.</value>
+  </data>
+  <data name="TXT_Customizing_Axes_1" xml:space="preserve">
+    <value>The &lt;b&gt;Axis&lt;/b&gt; class has boolean properties that allow you to turn features on
+            or off (&lt;b&gt;AxisLine&lt;/b&gt;, &lt;b&gt;MajorTickMarks&lt;/b&gt; and &lt;b&gt;MajorGrid&lt;/b&gt;.)
+            You can style the appearance of the features that are turned on using CSS.</value>
+  </data>
+  <data name="TXT_Downloads" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="TXT_Expenses" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="TXT_FlexChart_Header" xml:space="preserve">
+    <value>ASP.NET MVC FlexChart 101</value>
+  </data>
+  <data name="TXT_FlexChart_Header_0" xml:space="preserve">
+    <value>This page shows how to get started with ASP.NET MVC's FlexChart control.</value>
+  </data>
+  <data name="TXT_FreeTrial" xml:space="preserve">
+    <value>Download Free Trial</value>
+  </data>
+  <data name="TXT_Getting_Started" xml:space="preserve">
+    <value>Getting Started</value>
+  </data>
+  <data name="TXT_Getting_Started_0" xml:space="preserve">
+    <value>Steps for getting started with the FlexChart control in MVC applications:</value>
+  </data>
+  <data name="TXT_Getting_Started_1" xml:space="preserve">
+    <value>Create a new MVC project using the C1 ASP.NET MVC application template.</value>
+  </data>
+  <data name="TXT_Getting_Started_2" xml:space="preserve">
+    <value>Add controller and corresponding view to the project.</value>
+  </data>
+  <data name="TXT_Getting_Started_3" xml:space="preserve">
+    <value>Initialize the Chart control in view using razor syntax.</value>
+  </data>
+  <data name="TXT_Getting_Started_4" xml:space="preserve">
+    <value>(Optional) Add some CSS to customize the FlexChart control's appearance.</value>
+  </data>
+  <data name="TXT_Legend_and_Titles" xml:space="preserve">
+    <value>Legend and Titles</value>
+  </data>
+  <data name="TXT_Legend_and_Titles_0" xml:space="preserve">
+    <value>Use the &lt;b&gt;Legend&lt;/b&gt; properties to customize the appearance of the chart legend, and
+            the &lt;b&gt;Header&lt;/b&gt;, &lt;b&gt;Footer&lt;/b&gt;, and axis &lt;b&gt;Title&lt;/b&gt; properties to add titles
+            to your charts.</value>
+  </data>
+  <data name="TXT_Legend_and_Titles_1" xml:space="preserve">
+    <value>You can style the legend and titles using CSS. The CSS tab below shows the rules
+            used to customize the appearance of the legend and titles. Notice that these are
+            SVG elements, so you have to use CSS attributes such as "fill" instead of "color."</value>
+  </data>
+  <data name="TXT_Mixed_Chart_Types" xml:space="preserve">
+    <value>Mixed Chart Types</value>
+  </data>
+  <data name="TXT_Mixed_Chart_Types_0" xml:space="preserve">
+    <value>You can use different chart types for each chart series by setting the &lt;b&gt;ChartType&lt;/b&gt;
+            property on the series itself. This overrides the chart's default chart type.</value>
+  </data>
+  <data name="TXT_Mixed_Chart_Types_1" xml:space="preserve">
+    <value>In the example below, the chart's &lt;b&gt;ChartType&lt;/b&gt; property is set to &lt;b&gt;Column&lt;/b&gt;,
+            but the &lt;b&gt;Downloads&lt;/b&gt; series overrides that to use the &lt;b&gt;LineSymbols&lt;/b&gt; chart type:</value>
+  </data>
+  <data name="TXT_Result_Live" xml:space="preserve">
+    <value>Result (live):</value>
+  </data>
+  <data name="TXT_Sales" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="TXT_SelectionModes" xml:space="preserve">
+    <value>Selection Modes</value>
+  </data>
+  <data name="TXT_SelectionModes_0" xml:space="preserve">
+    <value>The FlexChart allows you to select series or data points by clicking or touching them.
+            Use the &lt;b&gt;SelectionMode&lt;/b&gt; property to specify whether you want to allow selection
+            by series, by data point, or no selection at all (selection is off by default.)</value>
+  </data>
+  <data name="TXT_SelectionModes_1" xml:space="preserve">
+    <value>Setting the &lt;b&gt;SelectionMode&lt;/b&gt; property to &lt;b&gt;Series&lt;/b&gt; or &lt;b&gt;Point&lt;/b&gt; causes
+            the FlexChart to update the &lt;b&gt;Selection&lt;/b&gt; property when the user clicks the
+            mouse, and to apply the "wj-state-selected" class to selected chart elements.</value>
+  </data>
+  <data name="TXT_SelectionModes_2" xml:space="preserve">
+    <value>The &lt;b&gt;Selection&lt;/b&gt; property returns the currently selected series. To get the
+            currently selected data point, get the currently selected item within the
+            selected series using the &lt;b&gt;Series.collectionView.currentItem&lt;/b&gt; property
+            as shown in the example.</value>
+  </data>
+  <data name="TXT_Styling_Series" xml:space="preserve">
+    <value>Styling Series</value>
+  </data>
+  <data name="TXT_Styling_Series_0" xml:space="preserve">
+    <value>The FlexChart automatically picks colors for each series based on a default
+            palette, which you can override by setting the &lt;b&gt;Palette&lt;/b&gt; property.
+            But you can also override the default settings by setting the &lt;b&gt;Style&lt;/b&gt;
+            property of any series to an object that specifies SVG styling attributes,
+            including &lt;b&gt;Fill&lt;/b&gt;, &lt;b&gt;Stroke&lt;/b&gt;, &lt;b&gt;StrokeThickness&lt;/b&gt;, and so on.</value>
+  </data>
+  <data name="TXT_Styling_Series_1" xml:space="preserve">
+    <value>The &lt;b&gt;Series.Style&lt;/b&gt; property is an exception to the general rule that
+            all styling in MVC Controls is done through CSS. The exception reflects the fact
+            that many charts have dynamic series, which would be impossible to style
+            in advance. For example, a stock chart may show series selected by the
+            user while running the application.</value>
+  </data>
+  <data name="TXT_Styling_Series_2" xml:space="preserve">
+    <value>The chart in this example uses the &lt;b&gt;Style&lt;/b&gt; and &lt;b&gt;SymbolStyle&lt;/b&gt; properties
+            to select style attributes for each series:</value>
+  </data>
+  <data name="TXT_Theming" xml:space="preserve">
+    <value>Theming</value>
+  </data>
+  <data name="TXT_Theming_0" xml:space="preserve">
+    <value>The appearance of the FlexChart is defined in CSS. In addition to the default theme, we
+            include about a dozen professionally designed themes that customize the appearance of
+            all MVC controls to achieve a consistent, attractive look.</value>
+  </data>
+  <data name="TXT_Theming_1" xml:space="preserve">
+    <value>To customize the appearance of the chart, inspect the elements you want to style and
+            create some CSS rules that apply to those elements.</value>
+  </data>
+  <data name="TXT_Theming_2" xml:space="preserve">
+    <value>For example, if you right-click one of the labels on the X axis in IE or Chrome, you
+            will see that it is an element with the "wj-label" class, that it is contained in an
+            element with the "wj-axis-x" class, which is contained in the the top-level control
+            element, which has the "wj-flexchart" class. The first CSS rule in this example uses
+            this information to customize the X labels. The rule selector adds the additional
+            requirement that the parent element must be have the "wj-flexchart" &lt;b&gt;and&lt;/b&gt; the
+            "custom-flex-chart" classes. Without this, the rule would apply to all charts on the
+            page.</value>
+  </data>
+  <data name="TXT_Toggle_Series" xml:space="preserve">
+    <value>Toggle Series</value>
+  </data>
+  <data name="TXT_Toggle_Series_0" xml:space="preserve">
+    <value>The &lt;b&gt;Series&lt;/b&gt; class has a &lt;b&gt;Visibility&lt;/b&gt; property that allows you to
+            determine whether a series should be shown in the chart and in the legend,
+            only in the legend, or completely hidden.</value>
+  </data>
+  <data name="TXT_Toggle_Series_1" xml:space="preserve">
+    <value>This sample shows how you can use the &lt;b&gt;Visibility&lt;/b&gt; property to toggle
+            the visibility of a series using two methods:</value>
+  </data>
+  <data name="TXT_Toggle_Series_2" xml:space="preserve">
+    <value>Clicking on legend entries:&lt;br /&gt;
+                The chart sets the chart's &lt;b&gt;option.legendToggle&lt;/b&gt; property to true,
+                which toggles the &lt;b&gt;Visibility&lt;/b&gt; property of a series when its legend entry is
+                clicked.</value>
+  </data>
+  <data name="TXT_Toggle_Series_3" xml:space="preserve">
+    <value>Using checkboxes:&lt;br /&gt;
+                When the &lt;b&gt;checked&lt;/b&gt; state changed, it will set the &lt;b&gt;Visibility&lt;/b&gt; property of each series by the &lt;b&gt;checked&lt;/b&gt; state.</value>
+  </data>
+  <data name="TXT_Tooltips" xml:space="preserve">
+    <value>Tooltips</value>
+  </data>
+  <data name="TXT_Tooltips_0" xml:space="preserve">
+    <value>The FlexChart has built-in support for tooltips. By default, the control displays
+            tooltips when the user touches or hovers the mouse on a data point.</value>
+  </data>
+  <data name="TXT_Tooltips_1" xml:space="preserve">
+    <value>The tooltip content is generated using a template that may contain the following
+            parameters:</value>
+  </data>
+  <data name="TXT_Tooltips_2" xml:space="preserve">
+    <value>&lt;b&gt;SeriesName&lt;/b&gt;: The name of the series that contains the chart element.</value>
+  </data>
+  <data name="TXT_Tooltips_3" xml:space="preserve">
+    <value>&lt;b&gt;PointIndex&lt;/b&gt;: The index of the chart element within the series.</value>
+  </data>
+  <data name="TXT_Tooltips_4" xml:space="preserve">
+    <value>&lt;b&gt;AxisX&lt;/b&gt;: The &lt;b&gt;x&lt;/b&gt; value of the chart element.</value>
+  </data>
+  <data name="TXT_Tooltips_5" xml:space="preserve">
+    <value>&lt;b&gt;AxisY&lt;/b&gt;: The &lt;b&gt;y&lt;/b&gt; value of the chart element.</value>
+  </data>
+  <data name="TXT_Tooltips_6" xml:space="preserve">
+    <value>By default, the tooltip template is set to
+            &lt;code&gt;&amp;lt;b&amp;gt;{seriesName}&amp;lt;/b&amp;gt;&amp;lt;br/&amp;gt;{x} {y}&lt;/code&gt;,
+            and you can see how that works in the  charts above.
+            In this example, we set the tooltip template to
+            &lt;code&gt;&amp;lt;b&amp;gt;{seriesName}&amp;lt;/b&amp;gt; &amp;lt;img src='"+@@Url.Content("~/Content/images/{x}.png")+"'/&amp;gt;&amp;lt;br/&amp;gt;{y}&lt;/code&gt;,
+            which replaces the country name with the country's flag.</value>
+  </data>
+  <data name="TXT_Tooltips_7" xml:space="preserve">
+    <value>You can disable the chart tooltips by setting the template to an empty string.</value>
+  </data>
+</root>

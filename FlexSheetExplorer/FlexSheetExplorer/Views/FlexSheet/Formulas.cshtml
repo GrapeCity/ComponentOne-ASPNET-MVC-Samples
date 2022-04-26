@@ -1,35 +1,28 @@
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/formulas.js"></script>}
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/FlexSheet/formulas.js"></script>
+}
+
 <div>
     <div class="copy">
-<h3>@Html.Raw(FlexSheetRes.Formulas_Text2)</h3>
+<h3>@Html.Raw(Resources.FlexSheet.Formulas_Text2)</h3>
 
-<p>@Html.Raw(FlexSheetRes.Formulas_Text0)</p>
+<p>@Html.Raw(Resources.FlexSheet.Formulas_Text0)</p>
 
     </div>
     <div>
-        <c1-flex-sheet id="formulaSheet" class="flexSheet">
-            <c1-unbound-sheet name="Basic Operators" row-count="35" 
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Math" row-count="90"
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Logical" row-count="30"
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Text" row-count="80"
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Aggregate" row-count="170"
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Date" row-count="60"
-                              column-count="9"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Lookup & Reference" row-count="55"
-                              column-count="10"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Financial" row-count="20"
-                              column-count="8"></c1-unbound-sheet>
-            <c1-unbound-sheet name="Summary" row-count="20"
-                              column-count="8"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("formulaSheet")
+        .AddUnboundSheet("Basic Operators", 35, 8)
+        .AddUnboundSheet("Math", 90, 8)
+        .AddUnboundSheet("Logical", 30, 8)
+        .AddUnboundSheet("Text", 80, 8)
+        .AddUnboundSheet("Aggregate", 170, 8)
+        .AddUnboundSheet("Date", 60, 9)
+        .AddUnboundSheet("Lookup & Reference", 55, 10)
+        .AddUnboundSheet("Financial", 20, 8)
+        .AddUnboundSheet("Summary", 20, 8))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.Formulas_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.Formulas_Text1)</p>
 
 }

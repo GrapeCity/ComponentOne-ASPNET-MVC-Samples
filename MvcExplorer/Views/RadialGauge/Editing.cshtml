@@ -1,0 +1,41 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@section Styles{
+    <style>
+        .wj-gauge .wj-tick-text text {
+            opacity: 1;
+            font-family: Courier;
+            font-size: 8pt;
+            fill: purple;
+        }
+        .wj-gauge .wj-needle {
+            fill: orangered;
+            stroke: orangered;
+        }
+        .wj-gauge .wj-needle .wj-inner-needle-cap {
+            fill: white;
+        }
+    </style>
+}
+
+@(Html.C1().RadialGauge().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Value(5).Format("")
+    .IsReadOnly(false).Step(0.5)
+    .Width(300).Height(250).CssStyle("padding-left","25px").CssStyle("overflow", "inherit")
+    .ShowTicks(false).ShowTickText(false)
+    .ShowText(ShowText.None)
+    .NeedleShape(NeedleShape.None)
+    .NeedleLength(NeedleLength.Outer)
+    .HandleWheel(true)
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text0)</p>
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text1)</p>
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text2)</p>
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text3)</p>
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text4)</p>
+    <p>@Html.Raw(Resources.RadialGauge.Editing_Text5)</p>
+}

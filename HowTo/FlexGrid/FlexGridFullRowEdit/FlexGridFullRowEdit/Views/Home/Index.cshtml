@@ -1,0 +1,321 @@
+﻿@using FlexGridFullRowEdit.Models
+@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+
+<script type="text/javascript">
+    var inlineEditCV, inlineEditGrid, countries, products,
+    editIndex = -1;
+
+    var curRowEdit,
+        curRowDelete;
+
+    c1.mvc.Utils.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+
+        inlineEditGrid = wijmo.Control.getControl("#gFlexGrid");
+        inlineEditGrid.rows.defaultSize = 40;
+        inlineEditCV = inlineEditGrid.collectionView;
+
+        //retrieve Countries list
+        $.ajax({
+            url: '@Url.Action("/GetCountries")',
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+                countries = result;
+            }
+        });
+
+        //retrieve Products list
+        $.ajax({
+            url: '@Url.Action("/GetProducts")',
+            type: 'POST',
+            dataType: 'json',
+            success: function (result) {
+                products = result;
+            }
+        });
+    });
+
+    function itemFormatter(panel, r, c, cell) {
+        var col, html, hasUpdated = false, inputHtml;
+        if (panel.cellType == wijmo.grid.CellType.Cell) {
+            col = panel.columns[c];
+            if (r == editIndex) {
+                var data = panel.getCellData(r, c, false);
+                switch (col.name) {
+                    case 'Start':
+                        var inputStart = document.createElement("input");
+                        inputStart.id = "inputStart";
+
+                        cell.innerHTML = "";
+                        cell.appendChild(inputStart);
+
+                        var d = new wijmo.input.InputDate(inputStart,
+                            {
+                                value: new Date(data)
+                            });
+
+                        hasUpdated = true;
+                        break;
+
+                    case 'Amount':
+                        var inputAmount = document.createElement("input");
+                        inputAmount.id = "inputAmount";
+
+                        cell.innerHTML = "";
+                        cell.appendChild(inputAmount);
+
+                        var d = new wijmo.input.InputNumber(inputAmount,
+                            {
+                                showSpinner: true,
+                                value: parseFloat(data)
+                            });
+
+                        hasUpdated = true;
+                        break;
+
+                    case 'Country':
+                        var inputCountry = document.createElement("input");
+                        inputCountry.id = "inputCountry";
+                        cell.innerHTML = "";
+                        cell.appendChild(inputCountry);
+
+                        var d = new wijmo.input.ComboBox(inputCountry,
+                            {
+                                itemsSource: countries,
+                                selectedValue: data
+                            });
+
+                        hasUpdated = true;
+                        break;
+
+                    case 'Product':
+                        var inputProduct = document.createElement("input");
+                        inputProduct.id = "inputProduct";
+                        cell.innerHTML = "";
+                        cell.appendChild(inputProduct);
+
+                        var d = new wijmo.input.ComboBox(inputProduct,
+                            {
+                                itemsSource: products,
+                                selectedValue: data
+                            });
+
+                        hasUpdated = true;
+                        break;
+
+                    case 'Active':
+                        var inputActive = document.createElement("input");
+                        inputActive.type = "checkbox";
+                        inputActive.id = "inputActive";
+                        inputActive.checked = (data === true);
+                        var newDiv = document.createElement("div");
+                        newDiv.appendChild(inputActive);
+
+                        cell.innerHTML = "";
+                        cell.appendChild(newDiv);
+
+                        hasUpdated = true;
+                        break;
+
+                    case 'Buttons':
+
+                        html = '<div>' +
+                               '&nbsp;&nbsp;' +
+                               '<button class="btn btn-primary btn-sm" onclick="commitRow(' + r + ')" >' +
+                                   '<span class="glyphicon glyphicon-ok"></span> OK' +
+                               '</button>' +
+                               '&nbsp;&nbsp;' +
+                               '<button class="btn btn-warning btn-sm" onclick="cancelRow(' + r + ')" >' +
+                                   '<span class="glyphicon glyphicon-ban-circle"></span> Cancel' +
+                               '</button>' +
+                           '</div>';
+                        hasUpdated = true;
+                        break;
+                }
+            }
+            else {
+                switch (col.name) {
+                    case 'Buttons':
+                        html = '<div>' +
+                               '&nbsp;&nbsp;' +
+                               '<button class="btn btn-default btn-sm" onmousedown="editMouseDown(' + r + ')" onmouseup="editMouseUp(' + r + ')" >' +
+                                   '<span class="glyphicon glyphicon-pencil"></span> Edit' +
+                               '</button>' +
+                               '&nbsp;&nbsp;' +
+                               '<button class="btn btn-default btn-sm" onmousedown="deleteMouseDown(' + r + ')" onmouseup="deleteMouseUp(' + r + ')" >' +
+                                   '<span class="glyphicon glyphicon-remove"></span> Delete' +
+                               '</button>' +
+                           '</div>';
+                        
+
+                        hasUpdated = true;
+                        break;
+                }
+            }
+
+            if (hasUpdated) {
+                if (html) {
+                    cell.innerHTML = html;
+                }
+                cell.style.padding = '3px';
+            }
+        }
+    }
+
+    function editMouseDown(r) {
+        if (-1 < r) {
+            curRowDelete = -1;
+            curRowEdit = r;
+        }
+    }
+    function editMouseUp(r) {
+        if (r < 0 || r != curRowEdit)
+            return;
+        editRow(curRowEdit);
+        curRowEdit = -1;
+    }
+
+    function deleteMouseDown(r) {
+        if (-1 < r) {
+            curRowEdit = -1;
+            curRowDelete = r;
+        }
+    }
+    function deleteMouseUp(r) {
+        if (r < 0 || r != curRowDelete)
+            return;
+        deleteRow(curRowDelete);
+        curRowDelete = -1;
+    }
+
+    function keyDown(e) {
+        e.stopPropagation();
+    }
+
+    function editRow(rowIndex) {
+        if (!inlineEditGrid || !inlineEditCV) {
+            return;
+        }
+        editIndex = rowIndex;
+        inlineEditGrid.invalidate();
+        inlineEditCV.editItem(inlineEditCV.items[rowIndex]);
+    }
+
+    function deleteRow(rowIndex) {
+        if (!inlineEditCV) {
+            return;
+        }
+        cancelEditingMode();
+        inlineEditCV.removeAt(rowIndex);
+        inlineEditCV.commitEdit();
+    }
+
+    function commitRow(rowIndex) {
+        var country, product, start, amount, active;
+
+        if (!inlineEditCV) {
+            return;
+        }
+
+        //update the data
+        editItem = inlineEditCV.currentEditItem;
+        if (!editItem) {
+            return;
+        }
+
+        start = wijmo.Control.getControl("#inputStart");
+        amount = wijmo.Control.getControl("#inputAmount");
+        country = wijmo.Control.getControl("#inputCountry");
+        product = wijmo.Control.getControl("#inputProduct");
+        active = document.getElementById("inputActive");
+
+        editItem.Start = start.value;
+        editItem.Amount = amount.value;
+        editItem.Country = country.selectedValue;
+        editItem.Active = active.checked;
+        editItem.Product = product.selectedValue;
+
+        editIndex = -1;
+        inlineEditCV.commitEdit();
+    }
+
+    function scrollPositionChanged() {
+        cancelEditingMode();
+    }
+
+    function resizingColumn() {
+        cancelEditingMode();
+    }
+
+    function draggingColumn() {
+        cancelEditingMode();
+    }
+
+    function sortingColumn() {
+        cancelEditingMode();
+    }
+
+    function addedRow() {
+        cancelEditingMode();
+    }
+
+    function cancelEditingMode() {
+        if (editIndex > -1) {
+            cancelRow(editIndex);
+        }
+    }
+
+    function cancelRow() {
+        editIndex = -1;
+        inlineEditCV.cancelEdit();
+        inlineEditGrid.invalidate();
+    }
+
+    function cellEditEnding(grid, cellRangeEventArgs) {
+        if (cellRangeEventArgs.panel.cellType == wijmo.grid.CellType.Cell) {
+            updateCellValue(grid, cellRangeEventArgs);
+        }
+        cellRangeEventArgs.cancel = true;
+    }
+
+</script>
+
+<div class="container">
+    <div>
+        <h4>FlexGrid - Custom Editors with Full Row Edit</h4>
+        @(Html.C1().FlexGrid<Sale>()
+        .Id("gFlexGrid")
+        .AutoGenerateColumns(false)
+        .SortingType(AllowSorting.SingleColumn)
+        .OnClientSortingColumn("sortingColumn")
+        .AllowAddNew(false)
+        .OnClientRowAdded("addedRow")
+        .AllowDelete(true)
+        .OnClientDraggingColumn("draggingColumn")
+        .OnClientResizingColumn("resizingColumn")
+        .OnClientScrollPositionChanged("scrollPositionChanged")
+        .IsReadOnly(true)
+        .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.None)
+        .Bind(bl => bl.Update(Url.Action("GridEditorsUpdate")).Bind(Model))
+        .Bind(bl => bl.Delete(Url.Action("GridEditorsDelete")).Bind(Model))
+                    .Height(500)
+                    .CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Width("0.4*").IsReadOnly(true));
+                        bl.Add(cb => cb.Binding("Active").Header("Active").Width("*").Name("Active"));
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*").Name("Country"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product").Width("*").Name("Product"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Width("*").Name("Start"));
+                        bl.Add(cb => cb.Binding("Amount").Header("Amount").Format("n0").Width("*").Name("Amount"));
+                        bl.Add().Name("Buttons").Width("170");
+                    })
+                    .ItemFormatter("itemFormatter")
+        )
+    </div>
+</div>

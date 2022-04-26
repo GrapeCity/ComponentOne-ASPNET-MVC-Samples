@@ -1,0 +1,54 @@
+﻿@using System.Drawing;
+@model IEnumerable<FoodSale>
+
+@{
+    ViewBag.DemoSettings = false;
+    var colors = new List<string> { "#88bde6", "#fbb258", "#90cd97", "#f6aac9", "#bfa554", "#bc99c7", "#eddd46", "#f07e6e", "#8c8c8c" };
+}
+
+@(Html.C1().TreeMap()
+    .Binding("Sales")
+    .BindingName("Category", "SubCategory")
+    .Bind(Model)
+    .Palette(tmissb => tmissb
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#00277d"))
+                        .MaxColor(Color.FromArgb(179, 0, 39, 125))
+                        .MinColor(Color.FromArgb(179, 168, 187, 230)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#7d1f00"))
+                        .MaxColor(Color.FromArgb(179, 125, 21, 0))
+                        .MinColor(Color.FromArgb(179, 230, 183, 168)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#007d27"))
+                        .MaxColor(Color.FromArgb(179, 0, 125, 39))
+                        .MinColor(Color.FromArgb(179, 168, 230, 188)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#7d003c"))
+                        .MaxColor(Color.FromArgb(179, 125, 0, 60))
+                        .MinColor(Color.FromArgb(179, 230, 168, 198)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#7d4300"))
+                        .MaxColor(Color.FromArgb(179, 125, 67, 0))
+                        .MinColor(Color.FromArgb(179, 230, 201, 168)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#51007d"))
+                        .MaxColor(Color.FromArgb(179, 81, 0, 125))
+                        .MinColor(Color.FromArgb(179, 209, 170, 230)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#7d7400"))
+                        .MaxColor(Color.FromArgb(179, 125, 116, 0))
+                        .MinColor(Color.FromArgb(179, 230, 226, 168)))
+            .Add(tmisb => tmisb.TitleColor(ColorTranslator.FromHtml("#970000"))
+                        .MaxColor(Color.FromArgb(179, 151, 0, 0))
+                        .MinColor(Color.FromArgb(179, 230, 169, 169))))
+    .Tooltip(t => t.Content("<b>{name}</b><br />{value:c}"))
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}")))
+
+@(Html.C1().TreeMap()
+    .Binding("Sales")
+    .BindingName("Category", "SubCategory")
+    .Bind(Model)
+    .Palette(colors.Select(ColorTranslator.FromHtml).ToList())
+    .Tooltip(t => t.Content("<b>{name}</b><br />{value:c}"))
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}")))
+
+
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeMap.Theming_Text0)</p>
+    <p>@Html.Raw(Resources.TreeMap.Theming_Text1)</p>
+}

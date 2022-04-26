@@ -1,0 +1,30 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Text1)
+</p>
+<h3>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Text2)
+</p>
+@Html.C1().RadialGauge().Id("theRadialGauge").Min(0).Max(100).Value(75)
+<h3>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Title2)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Text3)
+</p>
+@Html.C1().LinearGauge().Id("theLinearGauge").Min(0).Max(100).Value(75)
+<h3>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Title3)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeTypes_Text5)
+</p>
+@Html.C1().BulletGraph().Id("theBulletGraph").Min(0).Max(100).Value(75).Target(60).Bad(50).Good(70)

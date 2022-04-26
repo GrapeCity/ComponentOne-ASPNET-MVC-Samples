@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Styles{
+<style>
+    .customGrid {
+        margin-top:5px;
+    }
+</style>
+}
+
+@(Html.C1().CollectionViewService<Sale>().Bind(Model).Id("collectionViewService")
+.PageSize(Convert.ToInt32(optionsModel.Options["PageSize"].CurrentValue)))
+
+@(Html.C1().Pager().Owner("collectionViewService"))
+
+@(Html.C1().FlexGrid<Sale>().Id("pagingGrid").Height(300).CssClass("customGrid")
+    .ItemsSourceId("collectionViewService").IsReadOnly(true)
+)
+
+@(Html.C1().Pager().Owner("pagingGrid"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.Paging_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Paging_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Paging_Text2)</p>
+}

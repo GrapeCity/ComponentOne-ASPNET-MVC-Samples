@@ -1,0 +1,16 @@
+@model IEnumerable<Sale>
+
+@(Html.C1().MultiRow<Sale>()
+    .Id("virtualScrollingMultiRow")
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model))
+    .IsReadOnly(true)
+    .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+    .CssClass("multirow")
+)
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.VirtualScrolling_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.VirtualScrolling_Text1)</p>
+
+}

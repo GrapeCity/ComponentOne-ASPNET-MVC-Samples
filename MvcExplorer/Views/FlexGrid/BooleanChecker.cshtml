@@ -1,0 +1,51 @@
+﻿@model IEnumerable<Sale>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+
+@section Scripts{
+<script type="text/javascript">
+    function customChangeShowCheckAll(grid, value) {
+        let selector = c1.getExtenders(grid, wijmo.grid.selector.Selector)[0];
+        selector.showCheckAll = (value == 'False' ? false : true);
+        grid.endUpdate();
+    }
+    function customChangeShowCheckGroups(grid, value) {
+        grid.getColumn('Active').aggregate = (value == 'True' ? 'First' : 'None');
+        grid.endUpdate();
+    }
+</script>
+}
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id(controlId)
+    .AutoGenerateColumns(false)
+    .Bind(bl => bl.Update(Url.Action("GridBooleanCheckerUpdate"))
+        .Bind(Model))
+    .GroupBy("Country").ShowGroups(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Width("0.4*").IsReadOnly(true));
+        bl.Add(cb => cb.Binding("Start").Header("Date").Width("*").Format("d"));
+        bl.Add(cb => cb.Binding("End").Header("Time").Width("*").Format("t"));
+        bl.Add(cb => cb.Binding("Country").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Product").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Amount").Format("n2").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Amount2").Format("n2").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Color").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Active").Width("1.5*").Aggregate(C1.Web.Mvc.Grid.Aggregate.First));
+    })
+    .CssStyle("height", "500px")
+    .BooleanChecker(bc => bc.Column("Active"))
+    .BigCheckboxes(true)
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.BooleanChecker_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.BooleanChecker_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.BigCheckboxes_Text0)</p>
+}

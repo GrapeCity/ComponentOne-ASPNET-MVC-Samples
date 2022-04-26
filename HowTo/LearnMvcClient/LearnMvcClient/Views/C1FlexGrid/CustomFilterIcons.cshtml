@@ -1,0 +1,20 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.CustomFilterIcons_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomFilterIcons_Text1)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1FlexGrid.CustomFilterIcons_Title1)
+</h3>
+<div id="theGrid" class="custom-icons"></div>
+@Html.C1().FlexGrid("#theGrid").Bind(b=>b.Bind(Model).DisableServerRead(true)).Filterable()
+
+<h3>
+    @Html.Raw(Resources.C1FlexGrid.CustomFilterIcons_Title2)
+</h3>
+<div id="theOtherGrid" class="custom-colors"></div>
+@Html.C1().FlexGrid("#theOtherGrid").Bind(b=>b.Bind(Model).DisableServerRead(true)).Filterable()

@@ -1,0 +1,44 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text6)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text7)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text8)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVAddingRemoving_Text9)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)

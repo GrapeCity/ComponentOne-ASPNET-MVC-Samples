@@ -19,7 +19,7 @@ namespace TransposedGridExplorer.Models
 
         public static List<ProductSheet> GetData()
         {
-            return new List<ProductSheet>() 
+            return new List<ProductSheet>()
             {
                 new ProductSheet() {
                     Name = "OPPO A5 (2020) 64GB",

@@ -1,0 +1,17 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.AutoColumnWidths_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AutoColumnWidths_Text1)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(300)
+    .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("id").Header("ID").MinWidth(60).IsReadOnly(true);
+        cs.Add().Binding("countries").Header("Countries");
+        cs.Add().Binding("sales").Header("Sales").MinWidth(80);
+        cs.Add().Binding("expenses").Header("Expenses").MinWidth(80);
+    })
+)

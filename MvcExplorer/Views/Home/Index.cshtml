@@ -1,0 +1,91 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var groups = ControlPages.ControlGroups;
+
+    var allGroups = new List<ControlGroup>();
+    allGroups.Add(ControlPages.NewGroup);
+    allGroups.Add(ControlPages.PopularGroup);
+    allGroups.AddRange(groups);
+}
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var controlsNav = document.querySelector('.controls-nav');
+            for (var i = 0, l = controlsNav.children.length; i < l; i++){
+                var li = controlsNav.children[i];
+                if (!li.tagName || li.tagName.toLowerCase() !== 'li') {
+                    continue;
+                }
+
+                var title = li.querySelector('h3'),
+                    content = li.querySelector('ul'),
+                    downIcon = document.createElement('span');
+                downIcon.className = 'wj-glyph-down';
+                title.style.cursor = 'pointer';
+                title.innerHTML += ' ';
+                title.appendChild(downIcon);
+                $(title).on('click',function () {
+                    var uls = controlsNav.querySelectorAll('ul');
+                    for (var ulIndex = 0; ulIndex < uls.length; ulIndex++) {
+                        uls[ulIndex].classList.add('hide');
+                    }
+                    this.parentElement.querySelector('ul').classList.remove('hide');
+                });
+
+                content.classList.add('hide');
+            }
+        });
+
+    </script>
+}
+
+<div class="narrow-screen">
+    <section class="description">
+        <p>@Html.Raw(Resources.Home.Index_Text0)</p>
+    </section>
+    <ul class="controls-nav">
+        @foreach (var group in allGroups)
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 first wide-screen">
+    <section class="description">
+        <p>@Html.Raw(Resources.Home.Index_Text1)</p>
+    </section>
+    <ul>
+        @Html.Partial("_ControlGroup", @ControlPages.ControlGroups.Skip(7).First())
+        @Html.Partial("_ControlGroup", @ControlPages.NewGroup)
+        @Html.Partial("_ControlGroup", @ControlPages.PopularGroup)
+        @Html.Partial("_ControlGroup", @ControlPages.ControlGroups.Skip(8).First())
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Take(3))
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Skip(3).Take(4))
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @foreach (var group in groups.Skip(9))
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+</div>

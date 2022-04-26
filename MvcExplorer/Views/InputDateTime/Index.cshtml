@@ -1,0 +1,12 @@
+﻿@{
+    var today = DateTime.Now.Date;
+}
+
+<div>
+    <label>@Html.Raw(Resources.InputDateTime.Index_Text0)</label>
+    @Html.C1().InputDateTime().Value(today)
+</div>
+
+@section Description{
+    @Html.Raw(Resources.InputDateTime.Index_Text1)
+}

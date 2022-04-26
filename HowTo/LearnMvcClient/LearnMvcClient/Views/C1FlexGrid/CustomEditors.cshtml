@@ -1,0 +1,21 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.CustomEditors_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomEditors_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomEditors_Text2)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("id").Header("ID").Width("40").IsReadOnly(true);
+        cs.Add().Binding("date").Header("Date").Format("d");
+        cs.Add().Binding("time").Header("Time").Format("t");
+        cs.Add().Binding("country").Header("Country");
+        cs.Add().Binding("product").Header("Product");
+        cs.Add().Binding("amount").Header("Amount").Format("n2");
+    })
+)

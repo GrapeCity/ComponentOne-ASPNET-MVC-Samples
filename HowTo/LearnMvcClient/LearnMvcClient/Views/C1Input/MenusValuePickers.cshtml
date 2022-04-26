@@ -1,0 +1,14 @@
+<h1>
+    @Html.Raw(Resources.C1Input.MenusValuePickers_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.MenusValuePickers_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.MenusValuePickers_Text2)
+</p>
+
+@(Html.C1().Menu().Id("valuePicker")
+    .DisplayMemberPath("header")
+    .SelectedValuePath("value")
+)

@@ -1,0 +1,98 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+}
+
+
+<div>
+    @(Html.C1().Calendar().Id("DemoControl")
+        .Value(today).Min(minDate).Max(maxDate).Width(300)
+        .SelectionMode(DateSelectionMode.Range)
+        .RangeEnd(today)
+        .OnClientRangeEndChanged("onClientRangeEndChanged")
+        .OnClientRangeChanged("onClientRangeChanged"))
+
+</div>
+<p>
+    @Html.Raw(Resources.Calendar.Ranges_RangeEnd): <b><span id="rangeEnd"></span></b>
+    <br />
+    @Html.Raw(Resources.Calendar.Ranges_CurrentSelection) <b><span id="dateRange"></span></b>
+</p>
+
+@section Settings{
+    <div style="padding: 4px 8px">
+
+        <span style="display:inline-block; width: 100px">@Html.Raw(Resources.Calendar.Ranges_RangeMin)</></span>
+
+        @(Html.C1().InputNumber().Width(150).Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("rangeMinChanged"))
+
+    </div>
+    <div style="padding: 4px 8px">
+
+        <span style="display:inline-block; width: 100px">@Html.Raw(Resources.Calendar.Ranges_RangeMax)</></span>
+
+        @(Html.C1().InputNumber().Width(150).Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("rangeMaxChanged"))
+
+    </div>
+
+}
+
+@section Scripts{
+    <script>
+        document.readyState === 'complete' ? onLoaded() : window.onload = onLoaded;
+
+        function showRangeEnd(calendar) {
+            let rangEndSpan = document.querySelector('#rangeEnd');
+            rangEndSpan.textContent = wijmo.format('{rangeEnd:d}', calendar);
+        }
+
+        function showRange(calendar) {
+            let dateRangeSpan = document.querySelector('#dateRange');
+            dateRangeSpan.textContent = wijmo.format('from {value:d} to {rangeEnd:d}', calendar);
+        }
+
+        function onLoaded() {
+            let calendar = wijmo.Control.getControl('#DemoControl');
+
+            showRangeEnd(calendar);
+
+            if (calendar.rangeEnd) {
+                showRange(calendar);
+            }
+        }
+
+        function onClientRangeEndChanged(sender, e) {
+            showRangeEnd(sender);
+        }
+
+        function onClientRangeChanged(sender, e) {
+            showRange(sender);
+        }
+
+        function rangeMinChanged(sender, args) {
+
+            var calenderControl = wijmo.Control.getControl('#DemoControl');
+            if (calenderControl != null) {
+                calenderControl.rangeMin = sender.value;
+                calenderControl.invalidate();
+            }
+        }
+
+        function rangeMaxChanged(sender, args) {
+
+            var calenderControl = wijmo.Control.getControl('#DemoControl');
+            if (calenderControl != null) {
+                calenderControl.rangeMax = sender.value;
+                calenderControl.invalidate();
+            }
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.Calendar.Ranges_Description)</p>
+    <p>@Html.Raw(Resources.Calendar.Ranges_Description1)</p>
+    <p>@Html.Raw(Resources.Calendar.Ranges_Description2)</p>
+
+}

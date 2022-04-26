@@ -1,0 +1,11 @@
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxChainingCombos_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxChainingCombos_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxChainingCombos_Text2)
+</p>
+@Html.C1().ComboBox().Id("cmbCountry").DisplayMemberPath("name")
+@Html.C1().ComboBox().Id("cmbCity").DisplayMemberPath("name")

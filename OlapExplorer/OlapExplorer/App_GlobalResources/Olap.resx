@@ -1,0 +1,330 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Cube_Text0" xml:space="preserve">
+    <value>The PivotEngine allows to connect directly to OLAP cubes provided by SSAS servers.</value>
+  </data>
+  <data name="Cube_Text1" xml:space="preserve">
+    <value>Set the CubeService.&lt;b&gt;Url&lt;/b&gt; and CubeService.&lt;b&gt;Cube&lt;/b&gt; properties that specify how the component should access the service.</value>
+  </data>
+  <data name="Cube_Text2" xml:space="preserve">
+    <value>The PivotEngine component connects directly to OLAP cube provided by SSAS server.</value>
+  </data>
+  <data name="DataEngine_Text0" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html"&gt;documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="DataEngine_Text1" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to the DataEngine data.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control display the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</value>
+  </data>
+  <data name="DataEngine_Text2" xml:space="preserve">
+    <value>When the data row count is greater than 10,000, in order to get good performance, we recommend you use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url).</value>
+  </data>
+  <data name="DataEngine_Text3" xml:space="preserve">
+    <value>The PivotEngine component binds to DataEngine Web API and DataEngine data.</value>
+  </data>
+  <data name="DataSource_Text0" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;where the data engine is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service, in the DataEngine Web API &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html"&gt;documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="DataSource_Text1" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to the DataEngine data.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control shows the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</value>
+  </data>
+  <data name="DataSource_Text2" xml:space="preserve">
+    <value>When the data row count is greater than 10,000, in order to get good performance, we recommend you deploy a DataEngine Web API and use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url).</value>
+  </data>
+  <data name="DataSource_Text3" xml:space="preserve">
+    <value>The PivotEngine component binds to a DataEngine Web API and an in-memory data.</value>
+  </data>
+  <data name="Error_Text0" xml:space="preserve">
+    <value>Error.</value>
+  </data>
+  <data name="Error_Text1" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.css</value>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>You can use the &lt;b&gt;ViewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;PivotGrid&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so you can export it to any of&lt;/br&gt;the formats supported by the extension modules provided with the &lt;b&gt;FlexGrid&lt;/b&gt;. The&lt;/br&gt;list of the supported formats includes .xlsx, .csv, and .pdf.</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>For example, clicking the button below creates an Excel file with two sheets: the current view and a transposed version of the current view:</value>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to an IEnumerable object which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control binds the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</value>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>When the data row count is lower than 10,000, you can use Bind(data) or Bind(url) mode.&lt;/br&gt;Otherwise, please use BindService(url) mode.</value>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>The PivotEngine component binds to an IEnumerable object.</value>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>Save View</value>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>Load View</value>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>Export to XLSX</value>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to a remote action url which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</value>
+  </data>
+  <data name="RemoteBind_Text1" xml:space="preserve">
+    <value>When the data row count is lower than 10,000, you can use Bind(data) or Bind(url) mode.&lt;/br&gt;Otherwise, please use BindService(url) mode.</value>
+  </data>
+  <data name="RemoteBind_Text2" xml:space="preserve">
+    <value>The PivotEngine component binds to a remote action url which provides the data.</value>
+  </data>
+  <data name="Slicer_Desc" xml:space="preserve">
+    <value>&lt;p&gt;
+        The &lt;b&gt;Slicer&lt;/b&gt; control provides a quick way to edit filters
+        applied to &lt;b&gt;PivotField&lt;/b&gt; objects.
+    &lt;/p&gt;
+
+    &lt;p&gt;
+        It provides buttons the user can click to filter data based on
+        values and indicates the current filtering state, which makes
+        it easy to understand what is shown in filtered &lt;b&gt;PivotGrid&lt;/b&gt;
+        and &lt;b&gt;PivotChart&lt;/b&gt; controls.
+    &lt;/p&gt;</value>
+  </data>
+  <data name="Slicer_Summary" xml:space="preserve">
+    <value>The &lt;b&gt;Slicer&lt;/b&gt; control provides a quick way to edit filters
+        applied to &lt;b&gt;PivotField&lt;/b&gt; objects.</value>
+  </data>
+  <data name="Slicer_Text0" xml:space="preserve">
+    <value>You can customize the &lt;b&gt;Slicer&lt;/b&gt; control to hide or show
+    a header, to hide or show checkboxes next to each item, and to allow select multi item or not :</value>
+  </data>
+  <data name="Slicer_Text1" xml:space="preserve">
+    <value>Show Header</value>
+  </data>
+  <data name="Slicer_Text2" xml:space="preserve">
+    <value>Show Checkboxes</value>
+  </data>
+  <data name="Slicer_Text3" xml:space="preserve">
+    <value>Allow multi select</value>
+  </data>
+  <data name="Slicer_Text4" xml:space="preserve">
+    <value>Select to filter</value>
+  </data>
+  <data name="SSAS_Text0" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html"&gt;documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="SSAS_Text1" xml:space="preserve">
+    <value>In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to use the AddCubeField method to add a cube field.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control displays the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by double-clicking a cell in the &lt;b&gt;PivotGrid&lt;/b&gt; control.</value>
+  </data>
+  <data name="SSAS_Text2" xml:space="preserve">
+    <value>When the data row count is greater than 10,000, in order to get good performance, we recommend you deploy a DataEngine Web API and use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url).</value>
+  </data>
+  <data name="SSAS_Text3" xml:space="preserve">
+    <value>The PivotEngine component binds to a DataEngine Web API and cube data.</value>
+  </data>
+  <data name="_ControlLayout_Text0" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="_ControlLayout_Text1" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="_ControlLayout_Text2" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="_ControlLayout_Text3" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="_ControlLayout_Text4" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="_ControlLayout_Text5" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="_ControlsNav_Text0" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="_Layout_Text0" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners.</value>
+  </data>
+  <data name="_Layout_Text1" xml:space="preserve">
+    <value>ComponentOne</value>
+  </data>
+  <data name="_Layout_Text2" xml:space="preserve">
+    <value>MVC Olap Explorer</value>
+  </data>
+  <data name="_Layout_Text3" xml:space="preserve">
+    <value>ASP.NET MVC Edition Olap Explorer</value>
+  </data>
+  <data name="_Layout_Text4" xml:space="preserve">
+    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+  </data>
+  <data name="_Layout_Text5" xml:space="preserve">
+    <value>C1 ASP.NET MV</value>
+  </data>
+  <data name="_SiteNav_Text0" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="_SiteNav_Text1" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="_SiteNav_Text2" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="_SiteNav_Text3" xml:space="preserve">
+    <value>FREE TRIAL</value>
+  </data>
+  <data name="_SiteNav_Text4" xml:space="preserve">
+    <value>Edit Theme &amp;gt;</value>
+  </data>
+  <data name="_SiteNav_Text5" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/aspnet-mvc-ui-controls</value>
+  </data>
+  <data name="_SiteNav_Text6" xml:space="preserve">
+    <value>https://www.grapecity.com/my-account/my-support</value>
+  </data>
+  <data name="_SiteNav_Text7" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/pricing</value>
+  </data>
+  <data name="_SiteNav_Text8" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/download</value>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>You can use &lt;b&gt;OutlineMode&lt;/b&gt; property of &lt;b&gt;PivotGrid&lt;/b&gt; to compact the amount of white space shown on the screen.&lt;br /&gt;You can also force showing headers of value fields in &lt;b&gt;PivotGrid&lt;/b&gt; by using &lt;b&gt;ShowValueFieldHeaders&lt;/b&gt; property even if only one value field available.</value>
+  </data>
+  <data name="CalculatedAggregates_Text0" xml:space="preserve">
+    <value>The PivotEngine supports GetAggregateValue function in PivotField to calculate aggregate field for each summary row.</value>
+  </data>
+  <data name="CalculatedAggregates_Text1" xml:space="preserve">
+    <value>PivotField objects have two properties as function that support custom calculations:</value>
+  </data>
+  <data name="CalculatedAggregates_Text2" xml:space="preserve">
+    <value>The GetValue function takes a data item as a parameter and returns a value that is calculated based on other properties of the data item. The function has no access to any aggregate information.</value>
+  </data>
+  <data name="CalculatedAggregates_Text3" xml:space="preserve">
+    <value>The GetAggregateValue function takes a summary row as a parameter and returns a value to be displayed as an aggregate for the field. The function has no access to the individual/raw data items.</value>
+  </data>
+  <data name="CalculatedAggregates_Text4" xml:space="preserve">
+    <value>This sample uses the GetValue function to calculate a Range field that categorizes raw sales value into three levels: "High", "Medium", or "Low".</value>
+  </data>
+  <data name="CalculatedAggregates_Text5" xml:space="preserve">
+    <value>And uses GetAggregateValue function to calculate a Conversion field that shows the Sales/Downloads ratio for each summary row.</value>
+  </data>
+</root>

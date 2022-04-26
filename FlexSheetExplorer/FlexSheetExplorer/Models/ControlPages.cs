@@ -1,8 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
 using System.Linq;
-using System.Reflection;
+using System.Web;
 using System.Xml.Linq;
 
 namespace FlexSheetExplorer.Models
@@ -13,37 +12,41 @@ namespace FlexSheetExplorer.Models
         private static List<ControlPage> _pages;
         private static List<ControlGroup> _controlGroups;
         private static IDictionary<string, ControlPage> _pageDic;
+        private const string PagesFileInServer = "~/Content/ControlPages.xml";
         private static readonly object _locker = new object();
-
-        public static string MapPath
-        {
-            get
-            {
-                return Startup.Environment.ContentRootPath;
-            }
-        }
 
         public static IDictionary<string, string> GetPageSources(string controllerName, string actionName)
         {
             var pageSources = new Dictionary<string, string>();
 
             var controllerFileName = actionName + "Controller.cs";
-            var controllerFilePath = string.Format("FlexSheetExplorer.Controllers.{0}.{1}", controllerName, controllerFileName);
-            var controllerFileHtml = GetResourceContent(controllerFilePath);
+            var controllerFilePath = HttpContext.Current.Server.MapPath(
+                string.Format("~/Controllers/{0}/{1}", controllerName, controllerFileName));
+            var controllerFileHtml = GetFileAsHtmlContent(controllerFilePath);
             pageSources.Add(controllerFileName, controllerFileHtml);
 
             var viewFileName = actionName + ".cshtml";
-            var viewFilePath = Path.Combine(MapPath,
-                string.Format("Views/{0}/{1}", controllerName, viewFileName));
+            var viewFilePath = HttpContext.Current.Server.MapPath(
+                string.Format("~/Views/{0}/{1}", controllerName, viewFileName));
             var viewFileHtml = GetFileAsHtmlContent(viewFilePath);
             pageSources.Add(viewFileName, viewFileHtml);
 
             if (controllerName == "Validation" || actionName == "UnobtrusiveValidation")
             {
                 var modelFileName = "UserInfo.cs";
-                var modelFilePath = string.Format("FlexSheetExplorer.Models.{0}", modelFileName);
-                var modelFileHtml = GetResourceContent(modelFilePath);
+                var modelFilePath = HttpContext.Current.Server.MapPath(
+                    string.Format("~/Models/{0}", modelFileName));
+                var modelFileHtml = GetFileAsHtmlContent(modelFilePath);
                 pageSources.Add(modelFileName, modelFileHtml);
+            }
+
+            if (controllerName == "DashboardLayout" && actionName != "CustomTile")
+            {
+                var dlViewFileName = "_DashboardElements.cshtml";
+                var dlViewFilePath = HttpContext.Current.Server.MapPath(
+                    string.Format("~/Views/Shared/{0}", dlViewFileName));
+                var dlViewFileHtml = GetFileAsHtmlContent(dlViewFilePath);
+                pageSources.Add(dlViewFileName, dlViewFileHtml);
             }
 
             return pageSources;
@@ -129,59 +132,55 @@ namespace FlexSheetExplorer.Models
                     return;
                 }
 
-                using (var stream = GetPageConfigStream())
+                var root = XElement.Load(HttpContext.Current.Server.MapPath(PagesFileInServer));
+                _controlGroups = new List<ControlGroup>();
+                _pages = new List<ControlPage>();
+                _pageGroups = new List<ControlPageGroup>();
+                foreach (var controlElement in root.Elements("ControlGroup"))
                 {
-                    var root = XElement.Load(stream);
-                    _controlGroups = new List<ControlGroup>();
-                    _pages = new List<ControlPage>();
-                    _pageGroups = new List<ControlPageGroup>();
-                    foreach (var controlElement in root.Elements("ControlGroup"))
+                    var pageGroups = new List<ControlPageGroup>();
+                    var visibleAttr = controlElement.Attribute("visible");
+                    var visible = visibleAttr == null || visibleAttr.Value != "false";
+                    ControlGroup controlGroup = new ControlGroup
                     {
-                        var pageGroups = new List<ControlPageGroup>();
-                        var visibleAttr = controlElement.Attribute("visible");
-                        var visible = visibleAttr == null || visibleAttr.Value != "false";
-                        ControlGroup controlGroup = new ControlGroup
+                        GroupNameEn = controlElement.Attribute("name").Value,
+                        GroupNameJp = controlElement.Attribute("name.ja")?.Value,
+                        Visible = visible,
+                        Controls = pageGroups
+                    };
+
+                    foreach (var pageElement in controlElement.Elements("Control"))
+                    {
+                        var currentControl = pageElement.Attribute("name").Value;
+                        var currentControlJa = pageElement.Attribute("name.ja")?.Value;
+                        var docElement = pageElement.Attribute("documentation");
+                        var documentation = docElement == null ? null : docElement.Value;
+                        var documentationJa = pageElement.Attribute("documentation.ja")?.Value;
+                        var linkAttr = pageElement.Attribute("link");
+                        var linkJa = pageElement.Attribute("link.ja")?.Value;
+
+                        var pages = GetControlPagesFromXEle(pageElement, currentControl);
+                        _pages.AddRange(pages);
+                        var controlPageGroup = new ControlPageGroup
                         {
-                            GroupNameEn = controlElement.Attribute("name").Value,
-                            GroupNameJp = controlElement.Attribute("name.ja")?.Value,
-                            Visible = visible,
-                            Controls = pageGroups
+                            ControlNameEn = currentControl,
+                            ControlNameJp = currentControlJa,
+                            ControlGroupName = controlGroup.GroupName,
+                            DocumentationEn = documentation,
+                            DocumentationJp = documentationJa,
+                            Pages = pages,
+                            LinkEn = linkAttr != null ? linkAttr.Value : null,
+                            LinkJp = linkJa
                         };
 
-                        foreach (var pageElement in controlElement.Elements("Control"))
-                        {
-                            var currentControl = pageElement.Attribute("name").Value;
-                            var currentControlJa = pageElement.Attribute("name.ja")?.Value;
-                            var docElement = pageElement.Attribute("documentation");
-                            var documentation = docElement == null ? null : docElement.Value;
-                            var documentationJa = pageElement.Attribute("documentation.ja")?.Value;
-                            var linkAttr = pageElement.Attribute("link");
-                            var linkJa = pageElement.Attribute("link.ja")?.Value;
-
-                            var pages = GetControlPagesFromXEle(pageElement, currentControl);
-                            _pages.AddRange(pages);
-                            var controlPageGroup = new ControlPageGroup
-                            {
-                                ControlNameEn = currentControl,
-                                ControlNameJp = currentControlJa,
-                                ControlGroupName = controlGroup.GroupName,
-                                DocumentationEn = documentation,
-                                DocumentationJp = documentationJa,
-                                Pages = pages,
-                                LinkEn = linkAttr != null ? linkAttr.Value : null,
-                                LinkJp = linkJa,
-
-                            };
-
-                            pageGroups.Add(controlPageGroup);
-                        }
-                        _pageGroups.AddRange(pageGroups);
-                        _controlGroups.Add(controlGroup);
+                        pageGroups.Add(controlPageGroup);
                     }
-
-                    _pageDic = new Dictionary<string, ControlPage>(StringComparer.OrdinalIgnoreCase);
-                    EnsurePageDic(_pages);
+                    _pageGroups.AddRange(pageGroups);
+                    _controlGroups.Add(controlGroup);
                 }
+
+                _pageDic = new Dictionary<string, ControlPage>(StringComparer.OrdinalIgnoreCase);
+                EnsurePageDic(_pages);
             }
         }
 
@@ -198,34 +197,6 @@ namespace FlexSheetExplorer.Models
                 if (page.SubPages != null)
                 {
                     EnsurePageDic(page.SubPages);
-                }
-            }
-        }
-
-        private static Stream GetPageConfigStream()
-        {
-            return GetResourceStream("ControlPages.xml");
-        }
-
-        private static Stream GetResourceStream(string name)
-        {
-            var assembly = typeof(ControlPages).GetTypeInfo().Assembly;
-            var res = assembly.GetManifestResourceNames().Where(resName => resName.Contains(name)).ToList();
-            if (res.Count == 0)
-            {
-                throw new ArgumentOutOfRangeException("name");
-            }
-            return assembly.GetManifestResourceStream(res[0]);
-        }
-
-        private static string GetResourceContent(string name)
-        {
-            using (var stream = GetResourceStream(name))
-            {
-                stream.Position = 0;
-                using (var reader = new StreamReader(stream))
-                {
-                    return reader.ReadToEnd();
                 }
             }
         }
@@ -254,7 +225,7 @@ namespace FlexSheetExplorer.Models
             }).ToList();
             return pages;
         }
-
+        
     }
 
     public class ControlGroup
@@ -281,11 +252,7 @@ namespace FlexSheetExplorer.Models
         {
             get
             {
-#if NETCOREAPP1_0
-                var culture = System.Globalization.CultureInfo.CurrentCulture;
-#else
                 var culture = System.Threading.Thread.CurrentThread.CurrentCulture;
-#endif
                 return culture.TwoLetterISOLanguageName == "ja";
             }
         }
@@ -293,36 +260,25 @@ namespace FlexSheetExplorer.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRootEn = "https://www.grapecity.com/componentone/docs/mvc/online-mvc-core/overview.html";
-        private const string DocumentationRootJa = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
+        private const string DocumentationRootEn = "https://www.grapecity.com/componentone/docs/mvc/online-mvc/overview.html";
+        private const string DocumentationRootJp = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
 
         internal string DocumentationEn { get; set; }
         internal string DocumentationJp { get; set; }
+
         public string Documentation
         {
             get
             {
                 if (ControlGroup.IsJpCulture)
                 {
-                    return DocumentationJp ?? DocumentationRootJa;
+                    return DocumentationJp ?? DocumentationRootJp;
                 }
                 else
                 {
                     return DocumentationEn ?? DocumentationRootEn;
                 }
             }
-        }
-
-        public int GetSelectedPageIndex(string actionName)
-        {
-            int sIndex = 0, index = 0;
-            foreach (var page in Pages)
-            {
-                if (page.Name.ToLower() == actionName.ToLower())
-                    return index;
-                index++;
-            }
-            return sIndex;
         }
 
         public IEnumerable<ControlPage> Pages { get; set; }
@@ -341,6 +297,17 @@ namespace FlexSheetExplorer.Models
             return GetPage(Pages, actionName);
         }
 
+        public int GetSelectedPageIndex(string actionName)
+        {
+            int sIndex = 0, index = 0;
+            foreach (var page in Pages)
+            {
+                if (page.Name.ToLower() == actionName.ToLower())
+                    return index;
+                index++;
+            }
+            return sIndex;
+        }
         private ControlPage GetPage(IEnumerable<ControlPage> pages, string name)
         {
             foreach (var page in pages)
@@ -371,7 +338,7 @@ namespace FlexSheetExplorer.Models
             {
                 return ControlGroup.IsJpCulture ? LinkJp ?? LinkEn : LinkEn;
             }
-        }
+        }        
     }
 
     public class ControlPage

@@ -1,0 +1,28 @@
+﻿.custom-gridlines.wj-flexchart .wj-axis-x .wj-tick,
+.custom-gridlines.wj-flexchart .wj-axis-y .wj-tick {
+    stroke: darkgreen;
+}
+.custom-gridlines.wj-flexchart .wj-axis-x .wj-gridline,
+.custom-gridlines.wj-flexchart .wj-axis-y .wj-gridline {
+    opacity: .25;
+    stroke: darkgreen;
+    stroke-width: 1px;
+}
+.custom-gridlines.wj-flexchart .wj-axis-x .wj-gridline-minor,
+.custom-gridlines.wj-flexchart .wj-axis-y .wj-gridline-minor {
+    opacity: .25;
+    stroke: darkgreen;
+    stroke-dasharray: 0;
+    stroke-width: .25px;
+}
+
+.wj-tooltip {
+  padding: 12px;
+}
+.wj-tooltip table tr td {
+  text-align: right;
+  padding-right: 6px;
+}
+.wj-tooltip table tr td:last-child {
+  font-weight: bold;
+}

@@ -1,0 +1,284 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AllTasks_Header" xml:space="preserve">
+    <value>すべてのタスク</value>
+    <comment>All Tasks</comment>
+  </data>
+  <data name="All_Header" xml:space="preserve">
+    <value>すべて</value>
+    <comment>All</comment>
+  </data>
+  <data name="Analysis" xml:space="preserve">
+    <value>分析</value>
+    <comment>Analysis</comment>
+  </data>
+  <data name="AnalysisPage_Title" xml:space="preserve">
+    <value>分析</value>
+    <comment>Analysis</comment>
+  </data>
+  <data name="BudgetVSProfit_Header" xml:space="preserve">
+    <value>今年度利益と前年度利益の比較</value>
+    <comment>Current Year Profit vs. Prior Year Profit</comment>
+  </data>
+  <data name="CategoryRegion_Sale" xml:space="preserve">
+    <value>カテゴリおよび地域別売上</value>
+    <comment>Sales by Category and Region</comment>
+  </data>
+  <data name="CategorySales_Header" xml:space="preserve">
+    <value>カテゴリ別売上と目標の比較</value>
+    <comment>Category Sales vs Goal</comment>
+  </data>
+  <data name="City_Header" xml:space="preserve">
+    <value>都市</value>
+    <comment>City</comment>
+  </data>
+  <data name="Completed_Header" xml:space="preserve">
+    <value>完了</value>
+    <comment>Completed</comment>
+  </data>
+  <data name="CurrentOpportunities_Header" xml:space="preserve">
+    <value>現状見込み客</value>
+    <comment>Current Opportunities</comment>
+  </data>
+  <data name="CurrentYear_Series" xml:space="preserve">
+    <value>今年度</value>
+    <comment>Current Year</comment>
+  </data>
+  <data name="Dashboard" xml:space="preserve">
+    <value>ダッシュボード</value>
+    <comment>Dashboard</comment>
+  </data>
+  <data name="DashboardPage_Title" xml:space="preserve">
+    <value>企業業績 - 主要指標</value>
+    <comment>Company Performance - Key Metrics</comment>
+  </data>
+  <data name="Deferred_Header" xml:space="preserve">
+    <value>延期</value>
+    <comment>Deferred</comment>
+  </data>
+  <data name="InProgress_Header" xml:space="preserve">
+    <value>進行中</value>
+    <comment>In Progress</comment>
+  </data>
+  <data name="MultiUtility_Header" xml:space="preserve">
+    <value>多目的</value>
+    <comment>Multi Utility</comment>
+  </data>
+  <data name="NewEntry_Header" xml:space="preserve">
+    <value>新製品</value>
+    <comment>New Products</comment>
+  </data>
+  <data name="Opportunities_Header" xml:space="preserve">
+    <value>現状見込み客</value>
+    <comment>Current Opportunities</comment>
+  </data>
+  <data name="PriorYear_Series" xml:space="preserve">
+    <value>前年度</value>
+    <comment>Prior Year</comment>
+  </data>
+  <data name="Products" xml:space="preserve">
+    <value>製品</value>
+    <comment>Products</comment>
+  </data>
+  <data name="ProductsPage_Title" xml:space="preserve">
+    <value>製品</value>
+    <comment>Products</comment>
+  </data>
+  <data name="ProductWise_Header" xml:space="preserve">
+    <value>製品売上</value>
+    <comment>Product Sales</comment>
+  </data>
+  <data name="ProfitAndSales_Header" xml:space="preserve">
+    <value>利益および売上</value>
+    <comment>Profit and Sales</comment>
+  </data>
+  <data name="Profit_Series" xml:space="preserve">
+    <value>利益</value>
+    <comment>Profit</comment>
+  </data>
+  <data name="RegionSales_Header" xml:space="preserve">
+    <value>地域別売上と目標の比較</value>
+    <comment>Regional Sales vs. Goal</comment>
+  </data>
+  <data name="RegionWise_Header" xml:space="preserve">
+    <value>地域別売上</value>
+    <comment>Regional Sales</comment>
+  </data>
+  <data name="Reporting" xml:space="preserve">
+    <value>レポート作成</value>
+    <comment>Reporting</comment>
+  </data>
+  <data name="Reporting_Title" xml:space="preserve">
+    <value>レポート作成</value>
+    <comment>Reporting</comment>
+  </data>
+  <data name="ReportsPage_Title" xml:space="preserve">
+    <value>レポート</value>
+    <comment>Reports</comment>
+  </data>
+  <data name="SalesVsProfit_Header" xml:space="preserve">
+    <value>売上と利益の比較</value>
+    <comment>Sales vs. Profits</comment>
+  </data>
+  <data name="Sale_Series" xml:space="preserve">
+    <value>売上</value>
+    <comment>Sale</comment>
+  </data>
+  <data name="Sports_Header" xml:space="preserve">
+    <value>スポーツ</value>
+    <comment>Sports</comment>
+  </data>
+  <data name="TaskPage_Title" xml:space="preserve">
+    <value>タスク</value>
+    <comment>Tasks</comment>
+  </data>
+  <data name="Tasks" xml:space="preserve">
+    <value>タスク</value>
+    <comment>Tasks</comment>
+  </data>
+  <data name="TopSaleCustomer_Header" xml:space="preserve">
+    <value>上顧客</value>
+    <comment>Top Customers</comment>
+  </data>
+  <data name="TopSaleProducts_Header" xml:space="preserve">
+    <value>ベストセラー製品</value>
+    <comment>Top Selling Products</comment>
+  </data>
+  <data name="Unit_Text" xml:space="preserve">
+    <value>単位: 100万</value>
+    <comment>Unit: Million</comment>
+  </data>
+  <data name="Urgent_Header" xml:space="preserve">
+    <value>緊急</value>
+    <comment>Urgent</comment>
+  </data>
+  <data name="Apply_Text" xml:space="preserve">
+    <value>適用</value>
+    <comment>Apply</comment>
+  </data>
+  <data name="Cancel_Text" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Assigned_Task_Placeholder" xml:space="preserve">
+    <value>グループする列をここにドラッグしてください。</value>
+    <comment>Please add columns for grouping here</comment>
+  </data>
+</root>

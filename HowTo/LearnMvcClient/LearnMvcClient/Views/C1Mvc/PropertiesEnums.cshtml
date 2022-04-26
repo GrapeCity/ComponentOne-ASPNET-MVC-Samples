@@ -1,0 +1,48 @@
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Text3)
+</p>
+<pre>// setting the value of an enumeration property
+theChart.chartType = wijmo.chart.ChartType.Line; // best: IntelliSense!
+theChart.chartType = 'Line'; // concise and easy to understand
+theChart.chartType = 3; // concise but hard to understand
+</pre>
+<p>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Text4)
+</p>
+<pre>// errors
+theChart.chartType = wijmo.chart.ChartType.MyType; // bad value
+theChart.chartType = 25; // out of bounds
+theChart.chartType = 'line'; // wrong case</pre>
+
+<h4>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Title1)
+</h4>
+<p>
+    @Html.Raw(Resources.C1Mvc.PropertiesEnums_Text5)
+</p>
+
+<div class="demo-settings">
+    <label for="chartType">@Html.Raw(Resources.C1Mvc.PropertiesEnums_Text6) </label>
+    @(Html.C1().ComboBox().Id("chartType")
+    .Bind(new object[] { "Column", "Bar", "Scatter", "LineSymbols", "Area", "SplineSymbols", 0, 1, 2, 3, 4, 5 })
+    )
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .Bind("Country", Model)
+    .Series(series=> {
+        series.Add().Binding("Sales").Name("Sales");
+        series.Add().Binding("Expenses").Name("Expenses");
+    })
+)

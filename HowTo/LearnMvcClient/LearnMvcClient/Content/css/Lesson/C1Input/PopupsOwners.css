@@ -1,0 +1,21 @@
+﻿.modal-body {
+  min-width: 300px;
+}
+
+input:invalid {
+  border-color: red;
+}
+
+
+/* CSS animations for fading in and out */
+
+.custom-animation {
+  opacity: 0;
+  transform: rotate3d(1, .5, .5, 180deg) scale(0.1);
+  transition: all ease-in .4s;
+}
+
+.custom-animation-visible {
+  opacity: 1;
+  transform: none;
+}

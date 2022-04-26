@@ -1,0 +1,29 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{ 
+    var palettes = new[] { "Standard", "Cocoa", "Coral", "Dark", "HighContrast", "Light", "Midnight", "Modern", "Organic", "Slate", "Zen", "Cyborg", "Superhero", "Flatly", "Darkly", "Cerulan" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Palettes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Palettes_Text1)
+</p>
+
+<div class="demo-settings">
+    <label>@Html.Raw(Resources.C1FlexChart.Palettes_Text2)</label>
+    @Html.C1().ComboBox().Id("thePalette").Bind(palettes)
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

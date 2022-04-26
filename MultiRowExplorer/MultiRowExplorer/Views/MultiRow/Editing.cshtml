@@ -1,0 +1,405 @@
+@model C1NWindContext
+@{
+    ViewBag.DemoDescription = false;
+}
+
+@section Scripts{
+    @Scripts.Render("~/jquery")
+    @Scripts.Render("~/BootStrapJS")
+
+    <script>
+        var editMultiRow, editCV,
+            showEditDialogBtn,
+            idInput, companyNameInput, contactNameInput, contactTitleInput, countryInput, regionInput, cityInput, addressInput;
+
+        c1.documentReady(function () {
+            editMultiRow = wijmo.Control.getControl('#editMultiRow');
+            editCV = editMultiRow.collectionView;
+            showEditDialogBtn = document.getElementById('showEditDialogBtn');
+            idInput = document.getElementById('SupplierID');
+            companyNameInput = document.getElementById('CompanyName');
+            contactNameInput = document.getElementById('ContactName');
+            contactTitleInput = document.getElementById('ContactTitle');
+            countryInput = document.getElementById('Country');
+            regionInput = document.getElementById('Region');
+            cityInput = document.getElementById('City');
+            addressInput = document.getElementById('Address');
+
+            updateButton();
+            editCV.currentChanged.addHandler(updateButton);
+        });
+        function showEditDialog() {
+            var current;
+
+            if (!editCV || !editCV.currentItem) {
+                return;
+            }
+            current = editCV.currentItem;
+            // fill the current item data to the inputs.
+            idInput.value = current.SupplierID || '';
+            companyNameInput.value = current.CompanyName || '';
+            contactNameInput.value = current.ContactName || '';
+            contactTitleInput.value = current.ContactTitle || '';
+            countryInput.value = current.Country || '';
+            regionInput.value = current.Region || '';
+            cityInput.value = current.City || '';
+            addressInput.value = current.Address || '';
+        }
+        function updateButton() {
+            if (!showEditDialogBtn) {
+                return;
+            }
+            if (!editCV || !editCV.currentItem) {
+                showEditDialogBtn.disabled = true;
+            } else {
+                showEditDialogBtn.disabled = false;
+            }
+        }
+        function commitUpdate() {
+            if (!editCV) {
+                return;
+            }
+
+            var editItem = editCV.currentItem;
+
+            // begin to edit the current item
+            editCV.editItem(editItem);
+
+            //update the data
+            editItem.CompanyName = companyNameInput.value;
+            editItem.ContactName = contactNameInput.value;
+            editItem.ContactTitle = contactTitleInput.value;
+            editItem.Country = countryInput.value;
+            editItem.Region = regionInput.value;
+            editItem.City = cityInput.value;
+            editItem.Address = addressInput.value;
+            // commit the edit
+            editCV.commitEdit();
+        }
+
+        var inlineEditMultiRow, inlineEditCV,
+            editIndex = -1;
+        c1.documentReady(function () {
+            inlineEditMultiRow = wijmo.Control.getControl('#inlineEditMultiRow');
+            inlineEditMultiRow.rows.defaultSize = 50;
+            inlineEditCV = inlineEditMultiRow.collectionView;
+        });
+        function itemFormatter(panel, r, c, cell) {
+            var col, html, hasUpdated = false;
+            var rowIndex = Math.floor(r / panel.grid.rowsPerItem);
+            if (panel.cellType == wijmo.grid.CellType.Cell) {
+                col = panel.grid.getBindingColumn(panel, r, c);
+                if (rowIndex == editIndex) {
+                    switch (col.name) {
+                        case "CustomerID":
+                            break;
+                        case 'Buttons':
+                            html = '<div>' +
+                                '&nbsp;&nbsp;' +
+                                '<button class="btn btn-primary btn-sm" style="width:80px;" onclick="commitRow(' + rowIndex + ')">' +
+                                '<span class="glyphicon glyphicon-ok"></span> OK' +
+                                '</button>' +
+                                '<br/>&nbsp;&nbsp;' +
+                                '<button class="btn btn-warning btn-sm" style="width:80px;" onclick="cancelRow(' + rowIndex + ')">' +
+                                '<span class="glyphicon glyphicon-ban-circle"></span> Cancel' +
+                                '</button>' +
+                                '</div>';
+                            hasUpdated = true;
+                            break;
+                        default:
+                            var theId = "the" + col.name;
+                            html = '<input id="' + theId + '" class="form-control" onkeydown="keyDown(event)" value="' + panel.getCellData(r, c, true) + '"/>';
+                            hasUpdated = true;
+                            break;
+                    }
+                }
+                else {
+                    switch (col.name) {
+                        case 'Buttons':
+                            hasUpdated = true;
+                            html = '<div>' +
+                                '&nbsp;&nbsp;' +
+                                '<button class="btn btn-default btn-sm" style="width:80px;" onclick="editRow(' + rowIndex + ')">' +
+                                '<span class="glyphicon glyphicon-pencil"></span> Edit' +
+                                '</button>' +
+                                '<br/>&nbsp;&nbsp;' +
+                                '<button class="btn btn-default btn-sm" style="width:80px;" onclick="deleteRow(' + rowIndex + ')">' +
+                                '<span class="glyphicon glyphicon-remove"></span> Delete' +
+                                '</button>' +
+                                '</div>';
+                            break;
+                    }
+                }
+                if (hasUpdated) {
+                    cell.innerHTML = html;
+                    cell.style.padding = '3px';
+                }
+            }
+        }
+        function scrollPositionChanged() {
+            cancelEditingMode();
+        }
+        function resizingColumn() {
+            cancelEditingMode();
+        }
+        function draggingColumn() {
+            cancelEditingMode();
+        }
+        function sortingColumn() {
+            cancelEditingMode();
+        }
+        function cancelEditingMode() {
+            if (editIndex > -1) {
+                cancelRow(editIndex);
+            }
+        }
+        function keyDown(e) {
+            e.stopPropagation();
+        }
+        function editRow(rowIndex) {
+            if (!inlineEditMultiRow || !inlineEditCV) {
+                return;
+            }
+            editIndex = rowIndex;
+            inlineEditMultiRow.invalidate();
+        }
+        function deleteRow(rowIndex) {
+            if (!inlineEditCV) {
+                return;
+            }
+            editIndex = -1;
+            inlineEditCV.removeAt(rowIndex);
+        }
+        function commitRow(rowIndex) {
+            var countryInput, addressInput, editItem;
+            if (!inlineEditCV) {
+                return;
+            }
+            //update the data
+            inlineEditCV.editItem(inlineEditCV.items[rowIndex]);
+            editItem = inlineEditCV.currentEditItem;
+            if (!editItem) {
+                return;
+            }
+            editItem.CompanyName = document.getElementById('theCompanyName').value;
+            editItem.ContactName = document.getElementById('theContactName').value;
+            editItem.ContactTitle = document.getElementById('theContactTitle').value;
+            editItem.Country = document.getElementById('theCountry').value;
+            editItem.Region = document.getElementById('theRegion').value;
+            editItem.City = document.getElementById('theCity').value;
+            editItem.Address = document.getElementById('theAddress').value;
+            editIndex = -1;
+            inlineEditCV.commitEdit();
+        }
+
+        function cancelRow() {
+            editIndex = -1;
+            inlineEditMultiRow.invalidate();
+        }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.Editing_Text19)
+}
+
+<h3>
+    @Html.Raw(Resources.MultiRowExplorer.Editing_Text18)
+</h3>
+
+<h4>
+    @Html.Raw(Resources.MultiRowExplorer.Editing_Text17)
+</h4>
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text2)</p>
+
+<div class="collapsed-content collapse">
+    <p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text3)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text4)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text5)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text6)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text7)</p>
+
+</div>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text8)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text9)</p>
+
+@(Html.C1().MultiRow<Supplier>()
+        .Id("editMultiRow")
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(c => c.Binding("SupplierID").IsReadOnly(true).Format("d").Align("center"));
+            });
+            ld.Add().Colspan(2).Cells(cells =>
+            {
+                cells.Add(c => c.Binding("CompanyName").Colspan(2))
+                .Add(c => c.Binding("ContactName").Width("150"))
+                .Add(c => c.Binding("ContactTitle").Width("200"));
+            });
+            ld.Add().Colspan(3).Cells(cells =>
+            {
+                cells.Add(c => c.Binding("Country"))
+                .Add(c => c.Binding("Region"))
+                .Add(c => c.Binding("City"))
+                .Add(c => c.Binding("Address").Colspan(3));
+            });
+        })
+        .Bind(
+            ib => ib.Bind(Model.Suppliers)
+            .Update(Url.Action("MultiRowUpdateSupplier"))
+            .Create(Url.Action("MultiRowCreateSupplier"))
+            .Delete(Url.Action("MultiRowDeleteSupplier"))
+        )
+        .AllowAddNew(true)
+        .AllowDelete(true)
+        .CssClass("multirow")
+)
+
+<!-- a dialog for editing item details -->
+<div class="modal fade" id="dlgDetail">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button"
+                        class="close"
+                        data-dismiss="modal"
+                        aria-hidden="true">
+                    &times;
+                </button>
+                <h4 class="modal-title">@Html.Raw(Resources.MultiRowExplorer.Editing_Text30)</h4>
+            </div>
+            <div class="modal-body">
+                <dl class="dl-horizontal">
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text29)</dt>
+                    <dd>
+                        <input id="SupplierID" class="form-control" disabled />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text28)</dt>
+                    <dd>
+                        <input id="CompanyName" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text27)</dt>
+                    <dd>
+                        <input id="ContactName" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text26)</dt>
+                    <dd>
+                        <input id="ContactTitle" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text25)</dt>
+                    <dd>
+                        <input id="Country" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text24)</dt>
+                    <dd>
+                        <input id="Region" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text23)</dt>
+                    <dd>
+                        <input id="City" class="form-control" />
+                    </dd>
+                    <dt>@Html.Raw(Resources.MultiRowExplorer.Editing_Text22)</dt>
+                    <dd>
+                        <input id="Address" class="form-control" />
+                    </dd>
+                </dl>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal"
+                        onclick="commitUpdate()">
+                    <span class="glyphicon glyphicon-ok"></span>
+                    @Html.Raw(Resources.MultiRowExplorer.Editing_Text21)
+                </button>
+                <button type="button" class="btn btn-warning" data-dismiss="modal">
+                    <span class="glyphicon glyphicon-ban-circle"></span>
+                    @Html.Raw(Resources.MultiRowExplorer.Editing_Text31)
+                </button>
+            </div>
+        </div><!-- modal-content -->
+    </div><!-- modal-dialog -->
+</div><!-- modal -->
+
+<div class="well grid-sort-group">
+
+    <!-- edit details in a popup -->
+    <button id="showEditDialogBtn"
+            class="btn btn-default"
+            data-toggle="modal"
+            data-backdrop="static"
+            data-keyboard="false"
+            data-target="#dlgDetail"
+            onclick="showEditDialog()">
+        <span class="glyphicon glyphicon-new-window"></span>
+        @Html.Raw(Resources.MultiRowExplorer.Editing_Text20)
+    </button>
+</div>
+
+<h4>
+    @Html.Raw(Resources.MultiRowExplorer.Editing_Text16)
+</h4>
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text10)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text11)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text12)</p>
+
+<br />
+<h4>
+    @Html.Raw(Resources.MultiRowExplorer.Editing_Text15)
+</h4>
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text13)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Editing_Text14)</p>
+
+@(Html.C1().MultiRow<Customer>()
+        .Id("inlineEditMultiRow")
+        .IsReadOnly(true)
+        .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.None)
+        .Bind(
+            ib => ib.Bind(Model.Customers)
+            .Update(Url.Action("MultiRowUpdateCustomer"))
+            .Create(Url.Action("MultiRowCreateCustomer"))
+            .Delete(Url.Action("MultiRowDeleteCustomer"))
+        )
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(clsb =>
+            {
+                clsb.Add(cb => cb.Binding("CustomerID").Name("CustomerID").Header("ID").Width("80").Align("center").IsReadOnly(true));
+            });
+            ld.Add().Colspan(2).Cells(clsb =>
+            {
+                clsb.Add(cb => cb.Binding("CompanyName").Name("CompanyName").Colspan(2));
+                clsb.Add(cb => cb.Binding("ContactName").Name("ContactName").Width("150"));
+                clsb.Add(cb => cb.Binding("ContactTitle").Name("ContactTitle").Width("150"));
+            });
+            ld.Add().Colspan(3).Cells(clsb =>
+            {
+                clsb.Add(cb => cb.Binding("Country").Name("Country").Width("80"));
+                clsb.Add(cb => cb.Binding("Region").Name("Region").Width("80"));
+                clsb.Add(cb => cb.Binding("City").Name("City"));
+                clsb.Add(cb => cb.Binding("Address").Name("Address").Colspan(3));
+            });
+            ld.Add().Cells(clsb =>
+            {
+                clsb.Add().Name("Buttons").Width("100");
+            });
+        })
+        .ItemFormatter("itemFormatter")
+        .OnClientScrollPositionChanged("scrollPositionChanged")
+        .OnClientResizingColumn("resizingColumn")
+        .OnClientDraggingColumn("draggingColumn")
+        .OnClientSortingColumn("sortingColumn")
+        .CssClass("multirow")
+)

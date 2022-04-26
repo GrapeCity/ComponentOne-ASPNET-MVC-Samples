@@ -1,3 +1,3 @@
-﻿ASP.NET Core MVC Input 101
+﻿ASP.NET MVC Input 101
 ---------------------------------------------
-This sample shows how to get started with ASP.NET Core MVC's C1 Input controls.
+This sample demonstrates how to get started with MVC's Input controls.

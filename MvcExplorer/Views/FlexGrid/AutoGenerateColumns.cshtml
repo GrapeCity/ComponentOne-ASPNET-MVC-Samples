@@ -1,0 +1,89 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+    function collectingQueryData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+
+        @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+        {
+        <text>
+        e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+        </text>
+        }
+    }
+    </script>
+}
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("agcFlexGrid")
+    .AutoGenerateColumns(Convert.ToBoolean(optionsModel.Options["Auto Generate Columns"].CurrentValue))
+    .SortingType(AllowSorting.SingleColumn)
+    .SelectionMode((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))
+    .CopyHeaders((CopyHeader)Enum.Parse(typeof(CopyHeader), optionsModel.Options["Copy Header"].CurrentValue))
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model).OnClientQueryData("collectingQueryData"))
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(bl =>
+    {
+        if (optionsModel.Options["Auto Generate Columns"].CurrentValue == "False")
+        {
+            bl.Add(cb => cb.Binding("ID").Visible(string.Compare(optionsModel.Options["Column Visibility"].CurrentValue, "show", true) == 0));
+            bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+            bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+            bl.Add(cb => cb.Binding("Country").Width("100"));
+            bl.Add(cb => cb.Binding("Product"));
+            bl.Add(cb => cb.Binding("Color"));
+            bl.Add(cb => cb.Binding("Amount").Format("c"));
+            bl.Add(cb => cb.Binding("Amount2").Format("c"));
+            bl.Add(cb => cb.Binding("Discount").Format("p0"));
+            bl.Add(cb => cb.Binding("Active"));
+            bl.Add(cb => cb.Binding("Rank"));
+        }
+    })
+    .DefaultTypeWidth(DataType.Number, Convert.ToInt32(optionsModel.Options["Number Columns Width"].CurrentValue))
+    .DefaultTypeWidth(DataType.Date, Convert.ToInt32(optionsModel.Options["Date Columns Width"].CurrentValue))
+    .DefaultTypeWidth(DataType.String, Convert.ToInt32(optionsModel.Options["String Columns Width"].CurrentValue))
+    .DefaultTypeWidth(DataType.Boolean, Convert.ToInt32(optionsModel.Options["Boolean Columns Width"].CurrentValue))
+    .Height(250)
+    .LazyRender(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))
+)
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("agcFlexGrid1")
+    .AutoGenerateColumns(true)
+    .SortingType(AllowSorting.SingleColumn)
+    .SelectionMode(SelectionMode.Cell)
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model).OnClientQueryData("collectingQueryData"))
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .SelectionMode((SelectionMode)Enum.Parse(typeof(SelectionMode), optionsModel.Options["Selection"].CurrentValue))
+    .CopyHeaders((CopyHeader)Enum.Parse(typeof(CopyHeader), optionsModel.Options["Copy Header"].CurrentValue))
+    .Height(250)
+    .LazyRender(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))
+)
+
+@section Settings{
+    <span style="color:gray">@Html.Raw(Resources.FlexGrid.AutoGenerateColumns_Text2)</span>
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.AutoGenerateColumns_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.AutoGenerateColumns_Text1)</p>    
+    <p>@Html.Raw(Resources.FlexGrid.CopyHeaders_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.SelectionMode_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ColumnVisibility_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.LazyRender_Text0)</p>
+}

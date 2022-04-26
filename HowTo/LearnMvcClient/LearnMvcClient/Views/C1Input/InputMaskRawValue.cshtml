@@ -1,0 +1,25 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputMaskRawValue_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputMaskRawValue_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputMaskRawValue_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="theSSN">@Html.Raw(Resources.C1Input.InputMaskRawValue_Text3)</label>
+    @Html.C1().InputMask().Id("theSSN").Mask("000-00-0000")
+    <span id="theSSNRaw"></span><br>
+    <label for="theZip">@Html.Raw(Resources.C1Input.InputMaskRawValue_Text4)</label>
+    @Html.C1().InputMask().Id("theZip").Mask("00000")
+    <span id="theZipRaw"></span><br>
+    <label for="theZip4">@Html.Raw(Resources.C1Input.InputMaskRawValue_Text5)</label>
+    @Html.C1().InputMask().Id("theZip4").Mask("00000-0000")
+    <span id="theZip4Raw"></span><br>
+    <label for="thePhone">@Html.Raw(Resources.C1Input.InputMaskRawValue_Text6)</label>
+    @Html.C1().InputMask().Id("thePhone").Mask("(999) 000-0000")
+    <span id="thePhoneRaw"></span><br>
+</div>

@@ -1,0 +1,29 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net5.0</TargetFramework>
+        <AssemblyName>FinancialChartExplorer</AssemblyName>
+        <RootNamespace>FinancialChartExplorer</RootNamespace>
+        <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+        <DefineConstants>$(DefineConstants);NET50</DefineConstants>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <EmbeddedResource Include="box.json;fb.json;NDX.json;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    </ItemGroup>
+    <ItemGroup>
+        <Content Remove="project.json" />
+        <Content Remove="project.lock.json" />
+    </ItemGroup>
+    <ItemGroup>
+        <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20221.333" />
+        <PackageReference Include="C1.AspNetCore.Mvc.Finance" Version="3.0.20221.333" />
+        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    </ItemGroup>
+    <ItemGroup>
+        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+    </ItemGroup>
+
+</Project>

@@ -1,0 +1,16 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().BulletGraph().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Good(3).ShowText(ShowText.All)
+    .Bad(4).Value(5).Target(6).Format("")
+    .IsReadOnly(false).Step(0.5).Width(500)
+    .HandleWheel(true)
+)
+
+@section Description{
+    @Html.Raw(Resources.BulletGraph.Editing_Text0)
+    <br />
+    @Html.Raw(Resources.BulletGraph.Editing_Text1)
+}

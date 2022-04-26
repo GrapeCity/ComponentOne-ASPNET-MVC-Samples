@@ -1,0 +1,28 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Ime_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Ime_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Ime_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Ime_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Ime_Text4)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("id").Header("#").IsReadOnly(true).Width("50");
+        cs.Add().Binding("en").Header("English");
+        cs.Add().Binding("ja").Header("Japanese");
+        cs.Add().Binding("pop").Header("Pop (tho)").Format("n0");
+    })
+)

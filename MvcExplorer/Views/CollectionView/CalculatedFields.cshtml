@@ -1,0 +1,56 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+
+<style>
+    .calculated {
+        background-color: honeydew;
+    }
+    .wj-alt.calculated {
+        background-color: #DCF8C6;
+    }
+</style>
+
+@(Html.C1().CollectionViewService()
+    .Id("CVService")
+    .Bind(Model)
+    .CalculatedFields(cfs =>
+    {
+        cfs.Add(cf => cf.Name("Description").Expression("[$.Color,$.Product].join(' ')"));
+        cfs.Add(cf => cf.Name("NetRevenue").Expression("$.Amount2*(1-$.Discount)"));
+        cfs.Add(cf => cf.Name("Tax").Expression("$.NetRevenue*0.1"));
+    })
+)
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("FlexGridCV")
+    .ItemsSourceId("CVService")
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Width("60"));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+        bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Description").CssClass("calculated"));
+        bl.Add(cb => cb.Binding("NetRevenue").Header("Net Revenue").Format("c").CssClass("calculated"));
+        bl.Add(cb => cb.Binding("Tax").Format("c").CssClass("calculated"));
+        bl.Add(cb => cb.Binding("Active").Width("90"));
+    })
+    .SortingType(AllowSorting.SingleColumn)
+    .CssClass("grid")
+    .Height(500)
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.CollectionView.CalculatedFields_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.CollectionView.CalculatedFields_Text1)</p>
+    <p>@Html.Raw(Resources.CollectionView.CalculatedFields_Text2)</p>
+    <p>@Html.Raw(Resources.CollectionView.CalculatedFields_Text3)</p>
+}

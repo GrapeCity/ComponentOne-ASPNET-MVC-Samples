@@ -1,0 +1,29 @@
+﻿.wj-combobox {
+  margin-bottom: 18px;
+}
+
+.cb-flex {
+  display: flex;
+  flex-wrap: wrap;
+  width: 380px;
+}
+  .cb-flex .wj-listbox-item {
+    width: 120px;
+    white-space: pre;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+.wj-listbox-item table {
+  table-layout: fixed;
+}
+.wj-listbox-item td {
+  width: 120px;
+  white-space: pre;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.wj-listbox-item td.number {
+  width: 80px;
+  text-align: right;
+}

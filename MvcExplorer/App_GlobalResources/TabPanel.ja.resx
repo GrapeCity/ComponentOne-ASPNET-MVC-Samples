@@ -1,0 +1,620 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Accessibility_Text0" xml:space="preserve">
+    <value>TabPanel コントロールは、WAI-ARIA アクセシビリティガイドラインを実装します。</value>
+    <comment>The TabPanel control implements WAI-ARIA accessibility guidelines.</comment>
+  </data>
+  <data name="Accessibility_Text1" xml:space="preserve">
+    <value>TabPanel は、WAI-ARIA アクセシビリティガイドラインを実装します。
+        すべてのタブ要素は、適切なロール属性と、適用可能なすべての ARIA 属性を持ちます。</value>
+    <comment>The TabPanel implements WAI-ARIA accessibility guidelines.
+        All tab elements have the proper role attributes as well as all applicable ARIA attributes.</comment>
+  </data>
+  <data name="Accessibility_Text2" xml:space="preserve">
+    <value>次の例では、タブヘッダーとタブペインに一意の ID を割り当てます。
+        TabPanel はこれを使用して自動的に「aria-controls」属性と「aria-labelledby」属性を生成します。</value>
+    <comment>The example below assigns unique IDs to the tab headers and panes,
+        which the TabPanel automatically uses to generate "aria-controls" and "aria-labelledby" attributes.</comment>
+  </data>
+  <data name="Accessibility_Text3" xml:space="preserve">
+    <value>また、マークアップで「America」ペインに「wj-state-active」クラスを追加して、初期状態で選択されるタブを定義します。
+        これを行わない場合は、最初のタブがデフォルトで選択されます。</value>
+    <comment>The example also adds a "wj-state-active" class to the "America" pane in markup to define the tab that is initially selected.
+        Without that, the first tab would have been selected by default.</comment>
+  </data>
+  <data name="Accessibility_Text4" xml:space="preserve">
+    <value>最後に、この例は &lt;b&gt;AutoSwitch&lt;/b&gt; プロパティの効果を示します。
+        このプロパティは、コントロールがタブと矢印キーを処理する方法に影響します。
+        このトピック関する詳細な考察は、
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA Practices&lt;/a&gt; の記事と
+        &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;Simply Accessible&lt;/a&gt; の記事を参照してください。</value>
+    <comment>Finally, the example shows the effect of the &lt;b&gt;AutoSwitch&lt;/b&gt; property,
+        which affects how the control handles the tab and cursor keys.
+        For a detailed discussion of this topic, please see the
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA&lt;/a&gt; practices
+        and &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;SimplyAccessible&lt;/a&gt; article.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text0" xml:space="preserve">
+    <value>このビューは、プログラムで TabPanel コントロールにタブを追加する方法を示します。</value>
+    <comment>This view shows how to programmatically add tabs to TabPanel control.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>HTML マークアップではなくプログラムを使用して TabPanel コントロールにタブを追加したい場合があります。</value>
+    <comment>In some cases, you may want to add tabs to a TabPanel control programmatically rather than using HTML markup.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>それには、TabPanel 内のタブのコレクションへのアクセスを提供する &lt;b&gt;Tabs&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can do this using the &lt;b&gt;Tabs&lt;/b&gt; property, which provides access to the collection of tabs in the TabPanel.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>この例では、&lt;b&gt;Tabs&lt;/b&gt; コレクションにいくつかの Tab オブジェクトを追加しました。各 Tab オブジェクトは、1 つのヘッダーと 1 つのペイン要素で定義されます。</value>
+    <comment>In this example, we add several Tab objects to the &lt;b&gt;Tabs&lt;/b&gt; collection. Each Tab object is defined by a header and a pane elements.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Tabs&lt;/b&gt; プロパティを使用して、TabPanel 内のタブの削除、変更、または並べ替えを行うこともできます。</value>
+    <comment>You can also use the &lt;b&gt;Tabs&lt;/b&gt; property to remove, modify, or reorder the tabs within the TabPanel.</comment>
+  </data>
+  <data name="DetachedPanels_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロール内の組み込みコンテンツ要素を非表示にする方法を示します。</value>
+    <comment>This view shows how to hide built-in content element in TabPanel control.</comment>
+  </data>
+  <data name="DetachedPanels_Text1" xml:space="preserve">
+    <value>TabPanel は、選択されたタブのコンテンツを表示する組み込みパネルを持ちます。
+        このコンテンツを別の要素内に表示したい場合があります。
+        それには、組み込みコンテンツ要素を非表示にし、&lt;b&gt;OnClientSelectedIndexChanged&lt;/b&gt; イベントを使用してコンテンツを更新するだけです。</value>
+    <comment>The TabPanel has a built-in panel that shows the content of the selected tab.
+        In some cases, you may want to display the content in a different element.
+        To do that, simply hide the built-in content element and use the &lt;b&gt;OnClientSelectedIndexChanged&lt;/b&gt; event to update the content.</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロール内の個々のタブを無効または非表示にする方法を示します。</value>
+    <comment>This view shows how to disable or hide individual tabs in TabPanel control.</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>個々のタブを無効または非表示にするには、Tab の &lt;b&gt;IsDisabled&lt;/b&gt; プロパティと &lt;b&gt;IsVisible&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can disable or hide individual tabs using the Tab's &lt;b&gt;IsDisabled&lt;/b&gt; and &lt;b&gt;IsVisible&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="HostingControls_Text0" xml:space="preserve">
+    <value>このビューは、いくつかの ComponentOne MVC コントロールを TabPanel コントロールでホストする例を示します。</value>
+    <comment>This view shows hosting C1 MVC controls in TabPanel control.</comment>
+  </data>
+  <data name="HostingControls_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの主なメリットの 1 つは、新しいタブが選択されると、TabPanel コントロール内の ComponentOne MVC コントロールが自動的に更新されることです。</value>
+    <comment>One of the main benefits of the TabPanel control is that it automatically updates any C1 MVC controls it contains when a new tab is selected.</comment>
+  </data>
+  <data name="HostingControls_Text2" xml:space="preserve">
+    <value>他のタブコントロールを使用する場合は、それらのタブに含まれる ComponentOne MVC コントロールを更新するコードを追加する必要があります。</value>
+    <comment>When using other tab controls, you must add code to refresh any C1 MVC controls contained in the tabs.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューは、HTML マークアップで TabPanel コントロールを作成する方法を示します。</value>
+    <comment>This view shows how to create TabPanel control with HTML markup.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの初期化に使用されるマークアップは、タブごとに 1 つの要素で構成されます。
+        各子要素には、2 つの子（タブヘッダーとタブコンテンツ）が含まれています。</value>
+    <comment>The markup used to initialize TabPanel controls consists of one element per tab.
+        Each child element contains two children: the tab header and the tab content.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>タブヘッダーにはアンカー要素（a タグ）の使用をお勧めします。その方が
+        普通の div 要素より意味的にわかりやすいからです。</value>
+    <comment>We suggest you use anchor elements (tag a) for the tab headers because
+        they are semantically more meaningful than plain div elements.</comment>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>TabPanel コントロールは右から左のレンダリングを自動的にサポートします。</value>
+    <comment>The TabPanel control supports right to left automatically.</comment>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>ページの右から左にコンテンツをレンダリングする言語もあります（典型的な例はアラビア語とヘブライ語）。
+        HTML は、「dir」属性を使用してこれに適応しています。任意の要素で「dir」を「rtl」に設定すると、要素のコンテンツが右から左に配置されます。</value>
+    <comment>Some languages render content from the right to the left of the page (Arabic and Hebrew are typical examples) .
+        HTML accommodates this with the 'dir' attribute. Setting 'dir' to 'rtl' on any element causes the element's content to flow from right to left.</comment>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>TabPanel は、これを自動的にサポートします。コントロールをホストする要素で「dir」属性が「rtl」に設定されている場合は、
+        タブを右から左に揃えてパネルがレンダリングします。コントロールのプロパティを設定する必要はありません。</value>
+    <comment>The TabPanel supports this automatically. If the element hosting the control has the 'dir' attribute set to 'rtl',
+        the panel will render with tabs aligned from right to left. You don't have to set any properties on the control.</comment>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>「dir」属性値は継承されるので、たとえばそれを body タグなどに設定すると、
+        TabPanel を含めたページ全体が右から左にレンダリングされます。</value>
+    <comment>Note that the 'dir' attribute value is inherited, so if you set it on the body tag for example,
+        the entire page will be rendered from right to left, including the TabPanel.</comment>
+  </data>
+  <data name="RightToLeft_Text4" xml:space="preserve">
+    <value>CSS には、「dir」要素属性と同じ機能を持つ「direction」属性もあります。
+        「dir」属性は CSS ルール内で使用できるなどのいくつかの理由で、一般には「dir」属性の方が適切だと考えられています。</value>
+    <comment>Note also that CSS has a 'direction' attribute that performs the same function as the 'dir' element attribute.
+        The 'dir' attribute is generally considered more appropriate for several reasons, including the fact that it can be used in CSS rules.</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロールの外観をカスタマイズする方法を示します。</value>
+    <comment>This view shows how to customize the appearance of TabPanel control.</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>CSS を使用して TabPanel の外観をカスタマイズできます。</value>
+    <comment>You can customize the appearance of the TabPanel using CSS.</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>TabPanel コントロールのレイアウトはシンプルなので、CSS を使用して簡単にスタイルを設定できます。
+        たとえば、タブはデフォルトでコンテンツの上に表示されますが、CSS を使用してその位置を変更し、
+        コンテンツの下に表示したり、左または右に縦に並べて表示することができます。</value>
+    <comment>The TabPanel control has a simple layout, which makes it easy to style using CSS.
+        For example, tabs appear above the content by default, but you can use CSS to change their position
+        and show the below or vertically stacked, to the left or to the right of the content.</comment>
+  </data>
+  <data name="Accessibility_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text0)</comment>
+  </data>
+  <data name="Accessibility_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text1)</comment>
+  </data>
+  <data name="Accessibility_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text2)</comment>
+  </data>
+  <data name="Accessibility_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text3)</comment>
+  </data>
+  <data name="Accessibility_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text4)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text0)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text1)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text2)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text3)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text4)</comment>
+  </data>
+  <data name="DetachedPanels_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DetachedPanels_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DetachedPanels_Text0)</comment>
+  </data>
+  <data name="DetachedPanels_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DetachedPanels_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DetachedPanels_Text1)</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text0)</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text1)</comment>
+  </data>
+  <data name="HostingControls_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text0)</comment>
+  </data>
+  <data name="HostingControls_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text1)</comment>
+  </data>
+  <data name="HostingControls_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text2)</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text0)</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text1)</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text2)</comment>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text0)</comment>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text1)</comment>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text2)</comment>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text3)</comment>
+  </data>
+  <data name="RightToLeft_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text4)</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text0)</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text1)</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text2)</comment>
+  </data>
+  <data name="Accessibility_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text0)</comment>
+  </data>
+  <data name="Accessibility_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text1)</comment>
+  </data>
+  <data name="Accessibility_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text2)</comment>
+  </data>
+  <data name="Accessibility_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text3)</comment>
+  </data>
+  <data name="Accessibility_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Accessibility_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Accessibility_Text4)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text0)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text1)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text2)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text3)</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text4)</comment>
+  </data>
+  <data name="DetachedPanels_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DetachedPanels_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DetachedPanels_Text0)</comment>
+  </data>
+  <data name="DetachedPanels_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DetachedPanels_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DetachedPanels_Text1)</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text0)</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.DisabledInvisibleTabs_Text1)</comment>
+  </data>
+  <data name="HostingControls_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text0)</comment>
+  </data>
+  <data name="HostingControls_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text1)</comment>
+  </data>
+  <data name="HostingControls_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.HostingControls_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.HostingControls_Text2)</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text0)</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text1)</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Index_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Index_Text2)</comment>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text0)</comment>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text1)</comment>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text2)</comment>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text3)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text3)</comment>
+  </data>
+  <data name="RightToLeft_Text4" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.RightToLeft_Text4)</value>
+    <comment>@Html.Raw(Resources.TabPanel.RightToLeft_Text4)</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text0)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text0)</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text1)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text1)</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>@Html.Raw(Resources.TabPanel.Styling_Text2)</value>
+    <comment>@Html.Raw(Resources.TabPanel.Styling_Text2)</comment>
+  </data>
+  <data name="Accessibility_Text0" xml:space="preserve">
+    <value>TabPanel コントロールは、WAI-ARIA アクセシビリティガイドラインを実装します。</value>
+    <comment>The TabPanel control implements WAI-ARIA accessibility guidelines.</comment>
+  </data>
+  <data name="Accessibility_Text1" xml:space="preserve">
+    <value>TabPanel は、WAI-ARIA アクセシビリティガイドラインを実装します。
+        すべてのタブ要素は、適切なロール属性と、適用可能なすべての ARIA 属性を持ちます。</value>
+    <comment>The TabPanel implements WAI-ARIA accessibility guidelines.
+        All tab elements have the proper role attributes as well as all applicable ARIA attributes.</comment>
+  </data>
+  <data name="Accessibility_Text2" xml:space="preserve">
+    <value>次の例では、タブヘッダーとタブペインに一意の ID を割り当てます。
+        TabPanel はこれを使用して自動的に「aria-controls」属性と「aria-labelledby」属性を生成します。</value>
+    <comment>The example below assigns unique IDs to the tab headers and panes,
+        which the TabPanel automatically uses to generate "aria-controls" and "aria-labelledby" attributes.</comment>
+  </data>
+  <data name="Accessibility_Text3" xml:space="preserve">
+    <value>また、マークアップで「America」ペインに「wj-state-active」クラスを追加して、初期状態で選択されるタブを定義します。
+        これを行わない場合は、最初のタブがデフォルトで選択されます。</value>
+    <comment>The example also adds a "wj-state-active" class to the "America" pane in markup to define the tab that is initially selected.
+        Without that, the first tab would have been selected by default.</comment>
+  </data>
+  <data name="Accessibility_Text4" xml:space="preserve">
+    <value>最後に、この例は &lt;b&gt;AutoSwitch&lt;/b&gt; プロパティの効果を示します。
+        このプロパティは、コントロールがタブと矢印キーを処理する方法に影響します。
+        このトピック関する詳細な考察は、
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA Practices&lt;/a&gt; の記事と
+        &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;Simply Accessible&lt;/a&gt; の記事を参照してください。</value>
+    <comment>Finally, the example shows the effect of the &lt;b&gt;AutoSwitch&lt;/b&gt; property,
+        which affects how the control handles the tab and cursor keys.
+        For a detailed discussion of this topic, please see the
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA&lt;/a&gt; practices
+        and &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;SimplyAccessible&lt;/a&gt; article.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text0" xml:space="preserve">
+    <value>このビューは、プログラムで TabPanel コントロールにタブを追加する方法を示します。</value>
+    <comment>This view shows how to programmatically add tabs to TabPanel control.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>HTML マークアップではなくプログラムを使用して TabPanel コントロールにタブを追加したい場合があります。</value>
+    <comment>In some cases, you may want to add tabs to a TabPanel control programmatically rather than using HTML markup.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>それには、TabPanel 内のタブのコレクションへのアクセスを提供する &lt;b&gt;Tabs&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can do this using the &lt;b&gt;Tabs&lt;/b&gt; property, which provides access to the collection of tabs in the TabPanel.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>この例では、&lt;b&gt;Tabs&lt;/b&gt; コレクションにいくつかの Tab オブジェクトを追加しました。各 Tab オブジェクトは、1 つのヘッダーと 1 つのペイン要素で定義されます。</value>
+    <comment>In this example, we add several Tab objects to the &lt;b&gt;Tabs&lt;/b&gt; collection. Each Tab object is defined by a header and a pane elements.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Tabs&lt;/b&gt; プロパティを使用して、TabPanel 内のタブの削除、変更、または並べ替えを行うこともできます。</value>
+    <comment>You can also use the &lt;b&gt;Tabs&lt;/b&gt; property to remove, modify, or reorder the tabs within the TabPanel.</comment>
+  </data>
+  <data name="DetachedPanels_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロール内の組み込みコンテンツ要素を非表示にする方法を示します。</value>
+    <comment>This view shows how to hide built-in content element in TabPanel control.</comment>
+  </data>
+  <data name="DetachedPanels_Text1" xml:space="preserve">
+    <value>TabPanel は、選択されたタブのコンテンツを表示する組み込みパネルを持ちます。
+        このコンテンツを別の要素内に表示したい場合があります。
+        それには、組み込みコンテンツ要素を非表示にし、&lt;b&gt;OnClientSelectedIndexChanged&lt;/b&gt; イベントを使用してコンテンツを更新するだけです。</value>
+    <comment>The TabPanel has a built-in panel that shows the content of the selected tab.
+        In some cases, you may want to display the content in a different element.
+        To do that, simply hide the built-in content element and use the &lt;b&gt;OnClientSelectedIndexChanged&lt;/b&gt; event to update the content.</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロール内の個々のタブを無効または非表示にする方法を示します。</value>
+    <comment>This view shows how to disable or hide individual tabs in TabPanel control.</comment>
+  </data>
+  <data name="DisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>個々のタブを無効または非表示にするには、Tab の &lt;b&gt;IsDisabled&lt;/b&gt; プロパティと &lt;b&gt;IsVisible&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can disable or hide individual tabs using the Tab's &lt;b&gt;IsDisabled&lt;/b&gt; and &lt;b&gt;IsVisible&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="HostingControls_Text0" xml:space="preserve">
+    <value>このビューは、いくつかの ComponentOne MVC コントロールを TabPanel コントロールでホストする例を示します。</value>
+    <comment>This view shows hosting C1 MVC controls in TabPanel control.</comment>
+  </data>
+  <data name="HostingControls_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの主なメリットの 1 つは、新しいタブが選択されると、TabPanel コントロール内の ComponentOne MVC コントロールが自動的に更新されることです。</value>
+    <comment>One of the main benefits of the TabPanel control is that it automatically updates any C1 MVC controls it contains when a new tab is selected.</comment>
+  </data>
+  <data name="HostingControls_Text2" xml:space="preserve">
+    <value>他のタブコントロールを使用する場合は、それらのタブに含まれる ComponentOne MVC コントロールを更新するコードを追加する必要があります。</value>
+    <comment>When using other tab controls, you must add code to refresh any C1 MVC controls contained in the tabs.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューは、HTML マークアップで TabPanel コントロールを作成する方法を示します。</value>
+    <comment>This view shows how to create TabPanel control with HTML markup.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの初期化に使用されるマークアップは、タブごとに 1 つの要素で構成されます。
+        各子要素には、2 つの子（タブヘッダーとタブコンテンツ）が含まれています。</value>
+    <comment>The markup used to initialize TabPanel controls consists of one element per tab.
+        Each child element contains two children: the tab header and the tab content.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>タブヘッダーにはアンカー要素（a タグ）の使用をお勧めします。その方が
+        普通の div 要素より意味的にわかりやすいからです。</value>
+    <comment>We suggest you use anchor elements (tag a) for the tab headers because
+        they are semantically more meaningful than plain div elements.</comment>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>TabPanel コントロールは右から左のレンダリングを自動的にサポートします。</value>
+    <comment>The TabPanel control supports right to left automatically.</comment>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>ページの右から左にコンテンツをレンダリングする言語もあります（典型的な例はアラビア語とヘブライ語）。
+        HTML は、「dir」属性を使用してこれに適応しています。任意の要素で「dir」を「rtl」に設定すると、要素のコンテンツが右から左に配置されます。</value>
+    <comment>Some languages render content from the right to the left of the page (Arabic and Hebrew are typical examples) .
+        HTML accommodates this with the 'dir' attribute. Setting 'dir' to 'rtl' on any element causes the element's content to flow from right to left.</comment>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>TabPanel は、これを自動的にサポートします。コントロールをホストする要素で「dir」属性が「rtl」に設定されている場合は、
+        タブを右から左に揃えてパネルがレンダリングします。コントロールのプロパティを設定する必要はありません。</value>
+    <comment>The TabPanel supports this automatically. If the element hosting the control has the 'dir' attribute set to 'rtl',
+        the panel will render with tabs aligned from right to left. You don't have to set any properties on the control.</comment>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>「dir」属性値は継承されるので、たとえばそれを body タグなどに設定すると、
+        TabPanel を含めたページ全体が右から左にレンダリングされます。</value>
+    <comment>Note that the 'dir' attribute value is inherited, so if you set it on the body tag for example,
+        the entire page will be rendered from right to left, including the TabPanel.</comment>
+  </data>
+  <data name="RightToLeft_Text4" xml:space="preserve">
+    <value>CSS には、「dir」要素属性と同じ機能を持つ「direction」属性もあります。
+        「dir」属性は CSS ルール内で使用できるなどのいくつかの理由で、一般には「dir」属性の方が適切だと考えられています。</value>
+    <comment>Note also that CSS has a 'direction' attribute that performs the same function as the 'dir' element attribute.
+        The 'dir' attribute is generally considered more appropriate for several reasons, including the fact that it can be used in CSS rules.</comment>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>このビューは、TabPanel コントロールの外観をカスタマイズする方法を示します。</value>
+    <comment>This view shows how to customize the appearance of TabPanel control.</comment>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>CSS を使用して TabPanel の外観をカスタマイズできます。</value>
+    <comment>You can customize the appearance of the TabPanel using CSS.</comment>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>TabPanel コントロールのレイアウトはシンプルなので、CSS を使用して簡単にスタイルを設定できます。
+        たとえば、タブはデフォルトでコンテンツの上に表示されますが、CSS を使用してその位置を変更し、
+        コンテンツの下に表示したり、左または右に縦に並べて表示することができます。</value>
+    <comment>The TabPanel control has a simple layout, which makes it easy to style using CSS.
+        For example, tabs appear above the content by default, but you can use CSS to change their position
+        and show the below or vertically stacked, to the left or to the right of the content.</comment>
+  </data>
+  <data name="Styling_Text3" xml:space="preserve">
+    <value>この例では Tab の外観を変更して、タブの配置や、タブを切り替えるときにアニメーションを使用するかどうかを選択できるようにします。</value>
+    <comment>This example changes the appearance of the Tabs and lets you select the tab alignment and whether or not to use animation when switching tabs.</comment>
+  </data>
+</root>

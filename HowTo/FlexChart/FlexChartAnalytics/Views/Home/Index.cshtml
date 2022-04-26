@@ -1,0 +1,794 @@
+﻿@using FlexChartAnalytics.Models
+@using C1.Web.Mvc.Chart
+
+@model FlexChartAnalytics.Models.FlexChartModal
+
+@{
+    ViewBag.Title = "ASP.NET MVC FlexChart Analytics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ASP.NET MVC FlexChart Analytics
+        </h1>
+        <p>
+            This page shows how to use function series and trend lines in ASP.NET MVC's FlexChart control.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the FlexChart Analytics in MVC applications:
+        </p>
+        <ol>
+            <li>Create a new MVC project using the C1 ASP.NET MVC application template.</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Initialize the Chart control in view using razor syntax.</li>
+            <li>(Optional)Create one or more data series, and add each to the FlexChart's series collection.</li>
+            <li>Create one or more trend line or function series, and add each to the FlexChart's series collection.</li>
+            <li>(Optional) Add some CSS to customize the FlexChart control's appearance.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;                                    
+                                
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        @@(Html.C1().FlexChart().Id("gettingStartedChart")
+            .Bind("X", Model.MathPoints10)
+            .Series(ss =&gt;
+            {
+                ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+                ss.AddTrendLine("Trend Line").Binding("Y").SampleCount(100);
+            })
+        )
+
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCss">
+.wj-flexchart {
+	height: 400px;
+	background-color: white;
+	box-shadow: 4px 4px 10px 0 rgba(50, 50, 50, 0.75);
+	padding: 8px;
+	margin-bottom: 12px;
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("gettingStartedChart")
+                    .Bind("X", Model.MathPoints10)
+                    .Series(ss =>
+                    {
+                        ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+                        ss.AddTrendLine("Trend Line").Binding("Y").SampleCount(100);
+                    })
+                 )
+            </div>
+        </div>
+    </div>
+
+    <!-- TrendLine -->
+    <div>
+        <h2>TrendLine</h2>
+        <p>
+            You can use different trendline types by setting the <b>fitType</b> property of TrendLine.
+        </p>
+        <p>
+            The example below allows you to see what happens when you change this property:
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tlHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#tlJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#tlCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="tlHtml">
+@@(Html.C1().FlexChart().Id("trendLineChart")
+    .Bind("X", Model.MathPoints10)
+    .Series(ss =&gt;
+    {
+        ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+        ss.AddTrendLine("Trend Line").Binding("Y").SampleCount(100);
+    })
+)
+
+&lt;div class="form-horizontal"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-md-3 control-label"&gt;Fit Type&lt;/label&gt;
+        &lt;div class="col-md-5"&gt;
+            @@(Html.C1().ComboBox().Id("fitTypeMenu").Width("100%").Bind(Model.Settings["TrendLineFitType"])
+                .SelectedValue("Linear").OnClientSelectedIndexChanged("fitTypeMenu_SelectedIndexChanged")
+            )
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="tlJS">
+function fitTypeMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        var trendLineChart = wijmo.Control.getControl("#trendLineChart");
+        trendLineChart.series[1].fitType = parseInt(sender.selectedIndex);
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="tlCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("trendLineChart")
+                    .Bind("X", Model.MathPoints10)
+                    .Series(ss =>
+                    {
+                        ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+                        ss.AddTrendLine("Trend Line").Binding("Y").SampleCount(100);
+                    })
+                 )
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Fit Type</label>
+                        <div class="col-md-5">
+                            @(Html.C1().ComboBox().Id("fitTypeMenu").Width("100%").Bind(Model.Settings["TrendLineFitType"])
+                                .SelectedValue("Linear").OnClientSelectedIndexChanged("fitTypeMenu_SelectedIndexChanged")
+                            )
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MovingAverage -->
+    <div>
+        <h2>MovingAverage</h2>
+        <p>
+            You can use different moving average types by setting the <b>type</b> property of MovingAverage.
+        </p>
+        <p>
+            The MovingAverage class has a <b>period</b> property that allows you to set the number of periods for computing the average value.
+        </p>
+        <p>
+            The example below allows you to see what happens when you change these properties:
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#maHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#maJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#maCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="maHtml">
+@@(Html.C1().FlexChart().Id("movingAverageChart")
+    .Bind("X", Model.MathPoints40)
+    .Series(ss =&gt;
+    {
+        ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+        ss.AddMovingAverage("MA").Binding("Y").SampleCount(100);
+    })
+)
+
+&lt;div class="form-horizontal"&gt;
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-md-3 control-label"&gt;Type&lt;/label&gt;
+        &lt;div class="col-md-5"&gt;
+            @@(Html.C1().ComboBox().Id("movingAverageTypeEnum").Width("100%")
+                .Bind(Model.Settings["MovingAverageType"]).SelectedValue("Simple")
+                .OnClientSelectedIndexChanged("movingAverageTypeMenu_SelectedIndexChanged")
+        )
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    &lt;div class="form-group"&gt;
+        &lt;label class="col-md-3 control-label"&gt;Period&lt;/label&gt;
+        &lt;div class="col-md-5"&gt;
+            @@(Html.C1().InputNumber().Id("movingAveragePeriodInput").Width("100%")
+                .Min(2).Max(29).Step(1).Value(2).Format("n0")
+                .OnClientValueChanged("movingAveragePeriodInput_ValueChanged")
+            )
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="maJS">
+function movingAverageTypeMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        var movingAverageChart = wijmo.Control.getControl("#movingAverageChart");
+        movingAverageChart.series[1].type = parseInt(sender.selectedIndex);
+    }
+}
+
+function movingAveragePeriodInput_ValueChanged(sender) {
+    if (!checkValue(sender)) {
+        return;
+    }
+
+    var movingAverageChart = wijmo.Control.getControl("#movingAverageChart");
+    movingAverageChart.series[1].period = sender.value;
+}
+
+function checkValue(number) {
+    return number.value &gt;= number.min && number.value &lt;= number.max;
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="maCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("movingAverageChart")
+                    .Bind("X", Model.MathPoints40)
+                    .Series(ss =>
+                    {
+                        ss.Add(ChartType.Scatter, "Origin").Binding("Y");
+                        ss.AddMovingAverage("MA").Binding("Y").SampleCount(100);
+                    })
+                 )
+
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Type</label>
+                        <div class="col-md-5">
+                            @(Html.C1().ComboBox().Id("movingAverageTypeEnum").Width("100%")
+                                .Bind(Model.Settings["MovingAverageType"]).SelectedValue("Simple")
+                                .OnClientSelectedIndexChanged("movingAverageTypeMenu_SelectedIndexChanged")
+                        )
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Period</label>
+                        <div class="col-md-5">
+                            @(Html.C1().InputNumber().Id("movingAveragePeriodInput").Width("100%")
+                                .Min(2).Max(29).Step(1).Value(2).Format("n0")
+                                .OnClientValueChanged("movingAveragePeriodInput_ValueChanged")
+                            )
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- YFunctionSeries -->
+    <div>
+        <h2>YFunctionSeries</h2>
+        <p>
+            This view shows Y Function Series in FlexChart. 
+            The YFunctionSeries allows to plot a function that is defined with formula y=y(x). 
+            Use the <b>func</b> property to specify the function.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#yfsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#yfsJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#yfsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="yfsHtml">
+@@(Html.C1().FlexChart().Id("yFuncSeriesChart")
+    .Series(ss =&gt;
+    {
+        ss.AddYFunctionSeries("YFunc").Min(-10).Max(10).SampleCount(300)
+            .Func("yFuncSeriesFunc");
+    })
+)
+                        </div>
+                        <div class="tab-pane pane-content" id="yfsJS">
+function yFuncSeriesFunc(value) {
+    return Math.sin(4 * value) * Math.cos(3 * value);
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="yfsCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("yFuncSeriesChart")
+                    .Series(ss =>
+                    {
+                        ss.AddYFunctionSeries("YFunc").Min(-10).Max(10).SampleCount(300)
+                            .Func("yFuncSeriesFunc");
+                    })
+                 )
+            </div>
+        </div>
+    </div>
+
+    <!-- ParametricFunctionSeries -->
+    <div>
+        <h2>ParametricFunctionSeries</h2>
+        <p>
+            The ParametricFunctionSeries allows to plot a function that is defined parametrically with formulas x = x(t) and y = y(t). 
+            Use the <b>xFunc</b> and <b>yFunc</b> properties to specify the functions for x and y coordinates.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#pfsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#pfsJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#pfsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="pfsHtml">
+@@(Html.C1().FlexChart().Id("paramFuncSeriesChart")
+    .Series(ss =&gt;
+    {
+        ss.AddParametricFunctionSeries("ParamFunc").Max(2 * Math.PI).SampleCount(1000)
+            .XFunc("paramFuncSeriesXFunc").YFunc("paramFuncSeriesYFunc");
+    })
+)
+                        </div>
+                        <div class="tab-pane pane-content" id="pfsJS">
+function paramFuncSeriesXFunc(value) {
+    return Math.cos(value * 5); 
+}
+
+function paramFuncSeriesYFunc(value) {
+    return Math.sin(value * 7);
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="pfsCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("paramFuncSeriesChart")
+                    .Series(ss =>
+                    {
+                        ss.AddParametricFunctionSeries("ParamFunc").Max(2 * Math.PI).SampleCount(1000)
+                            .XFunc("paramFuncSeriesXFunc").YFunc("paramFuncSeriesYFunc");
+                    })
+                 )
+            </div>
+        </div>
+    </div>
+
+    <!-- Waterfall -->
+    <div>
+        <h2>Waterfall</h2>
+        <p>
+            The Waterfall series is normally used to demonstrate how the starting position either increases or decreases through a series of changes.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#wfHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#wfJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#wfCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="wfHtml">
+@@(Html.C1().FlexChart().Id("waterfallChart")
+    .Bind(Model.MonthSales).BindingX("Name").Binding("Value")
+)
+
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+                &lt;input id="relativeData" type="checkbox"> Is RelativeData?
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div>
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+                &lt;input id="connectorLines" type="checkbox"&gt; Show Connector Lines?
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+                &lt;input id="showTotal" type="checkbox"&gt; Show Total?
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="form-group"&gt;
+    &lt;div class="col-md-offset-3 col-md-9"&gt;
+        &lt;div class="checkbox"&gt;
+            &lt;label&gt;
+                &lt;input id="showIntermediateTotal" type="checkbox"&gt; Show Intermediate Total?
+            &lt;/label&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="wfJS">
+var waterfallChart = wijmo.Control.getControl("#waterfallChart"),
+    relativeData = document.getElementById('relativeData'),
+    connectorLines = document.getElementById('connectorLines'),
+    showTotal = document.getElementById('showTotal'),
+    showIntermediateTotal = document.getElementById('showIntermediateTotal');
+
+var waterfall = new wijmo.chart.analytics.Waterfall();
+waterfall.relativeData = true;
+waterfall.connectorLines = true;
+waterfall.showTotal = true;
+waterfall.start = 1000;
+waterfall.showIntermediateTotal = true;
+waterfall.intermediateTotalPositions = [3, 6, 9, 12];
+waterfall.intermediateTotalLabels = ['Q1', 'Q2', 'Q3', 'Q4'];
+waterfall.name = 'Increase,Decrease,Total';
+waterfall.styles = {
+    connectorLines: {
+        stroke: '#333',
+        'stroke-dasharray': '5 5'
+    },
+    start: {
+        fill: '#7dc7ed'
+    },
+    falling: {
+        fill: '#dd2714',
+        stroke: '#a52714'
+    },
+    rising: {
+        fill: '#0f9d58',
+        stroke: '#0f9d58'
+    },
+    intermediateTotal: {
+        fill: '#7dc7ed'
+    },
+    total: {
+        fill: '#7dc7ed'
+    }
+};
+waterfallChart.series.push(waterfall);
+
+waterfallChart.tooltip.content = function (ht) {
+    if (ht) {
+        return '&lt;b&gt;' + ht.x + '&lt;/b&gt;&lt;br/&gt;value: ' + ht.y;
+    }
+}
+
+// relativeData - initialize checkbox properties
+relativeData.checked = waterfall.relativeData;
+relativeData.addEventListener('change', function () {
+    waterfall.relativeData = this.checked;
+});
+
+// connectorLines - initialize checkbox properties
+connectorLines.checked = waterfall.connectorLines;
+connectorLines.addEventListener('change', function () {
+    waterfall.connectorLines = this.checked;
+});
+
+// showTotal - initialize checkbox properties
+showTotal.checked = waterfall.showTotal;
+showTotal.addEventListener('change', function () {
+    waterfall.showTotal = this.checked;
+});
+
+// showIntermediateTotal - initialize checkbox properties
+showIntermediateTotal.checked = waterfall.showIntermediateTotal;
+showIntermediateTotal.addEventListener('change', function () {
+    waterfall.showIntermediateTotal = this.checked;
+});
+                        </div>
+                        <div class="tab-pane pane-content" id="wfCS">
+using FlexChartAnalytics.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+
+namespace FlexChartAnalytics.Controllers
+{
+    public class HomeController : Controller
+    {
+        //
+        // GET: /Home/
+
+        public ActionResult Index()
+        {
+            FlexChartModal model = new FlexChartModal();
+            model.Settings = CreateIndexSettings();
+            model.MathPoints10 = MathPoint.GetMathPointList(10);
+            model.MathPoints40 = MathPoint.GetMathPointList(40);
+            model.MonthSales = MonthSale.GetData();
+
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"TrendLineFitType", new object[]{"Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY"}},
+                {"MovingAverageType", new object[]{"Simple", "Weighted", "Exponential", "Triangular"}},
+            };
+
+            return settings;
+        }
+    }
+}
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexChart().Id("waterfallChart")
+                    .Bind(Model.MonthSales).BindingX("Name").Binding("Value")
+                 )
+
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="checkbox">
+                            <label>
+                                <input id="relativeData" type="checkbox"> Is RelativeData?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="checkbox">
+                            <label>
+                                <input id="connectorLines" type="checkbox"> Show Connector Lines?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="checkbox">
+                            <label>
+                                <input id="showTotal" type="checkbox"> Show Total?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <div class="col-md-offset-3 col-md-9">
+                        <div class="checkbox">
+                            <label>
+                                <input id="showIntermediateTotal" type="checkbox"> Show Intermediate Total?
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

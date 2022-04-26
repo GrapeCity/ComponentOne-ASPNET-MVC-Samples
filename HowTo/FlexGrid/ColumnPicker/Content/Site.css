@@ -1,0 +1,64 @@
+﻿body {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #333;
+    background-color: #fff;
+}
+
+.container h1 {
+    font-family: inherit;
+    font-weight: 500;
+    line-height: 1.1;
+    color: inherit;
+    font-size: 36px;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+.container p {
+    margin: 0 0 10px;
+}
+
+.grid {
+    height: 350px;
+    border: 2px solid #e0e0e0;
+    margin-top: 6px;
+    margin-bottom: 6px;
+}
+
+.header {
+    padding-bottom: 0.3em;
+}
+
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 1100px;
+}
+
+.wj-col-picker-icon {
+    opacity: 0.8;
+    position: absolute; 
+    top: 0px; 
+    right: 0px;
+}
+
+/* column picker drop-down */
+.wj-col-picker-dropdown {
+    min-width: 100px;
+    min-height: 100px;
+    overflow: auto;
+    padding: 6px;
+    width: 150px;
+    background-color: white;
+    border: 1px solid black;
+    box-shadow: 5px 5px 5px rgba(0,0,0,.3);
+}
+
+/* column picker items */
+.wj-col-picker-item {
+    display:block;
+}

@@ -1,0 +1,489 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Reports>
+
+  <!-- Set default selected Report-->
+  <SelectedReport>
+    <CategoryName>Formatting</CategoryName>
+    <ReportName>AlternateBackground</ReportName>
+  </SelectedReport>
+
+  <Category Name="MedicalReports" Text="Medical Reports" Text.ja="医療レポート" Image="MedicalReports">
+    <Report>
+      <ReportName>FoodAllergyTest</ReportName>
+      <FileName>FoodAllergyTest.flxr</FileName>
+      <ReportTitle>Food Allergy Test</ReportTitle>
+      <ReportTitle.ja>食物アレルギー検査</ReportTitle.ja>
+      <ImageName>FoodAllergyTest.emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>BloodTest</ReportName>
+      <FileName>BloodTestReport.flxr</FileName>
+      <ReportTitle>Blood Test Report</ReportTitle>
+      <ReportTitle.ja>血液検査レポート</ReportTitle.ja>
+      <ImageName>BloodTestReport.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="FinancialReports" Text="Financial Reports" Text.ja="財務レポート" Image="FinancialReports">
+    <Report>
+      <ReportName>MonthlyBudget</ReportName>
+      <FileName>MonthlyBudget.flxr</FileName>
+      <ReportTitle>Monthly Budget</ReportTitle>
+      <ReportTitle.ja>月次予算</ReportTitle.ja>
+      <ImageName>MonthlyBudget.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>InventoryManagementReport</ReportName>
+      <FileName>InventoryManagementReport.flxr</FileName>
+      <ReportTitle>Inventory Management Report</ReportTitle>
+      <ReportTitle.ja>在庫管理レポート</ReportTitle.ja>
+      <ImageName>InventoryManagementReport.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>BalanceSheet</ReportName>
+      <FileName>BalanceSheet.flxr</FileName>
+      <ReportTitle>Balance Sheet</ReportTitle>
+      <ReportTitle.ja>バランスシート</ReportTitle.ja>
+      <ImageName>BalanceSheet.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="EnterpriseReports" Text="Enterprise Reports" Text.ja="企業レポート" Image="EnterpriseReports">
+    <Report>
+      <ReportName>EmpExpenseReport</ReportName>
+      <FileName>EmployeeExpReport.flxr</FileName>
+      <ReportTitle>Employee Expense Report</ReportTitle>
+      <ReportTitle.ja>雇用経費レポート</ReportTitle.ja>
+      <ImageName>EmployeeExpReport.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>MarketingProjectPlan</ReportName>
+      <FileName>MarketingProjectPlan.flxr</FileName>
+      <ReportTitle>Marketing Project Plan</ReportTitle>
+      <ReportTitle.ja>マーケティングプロジェクトプラン</ReportTitle.ja>
+      <ImageName>MarketingProjectPlan.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>MonthlyProjectExpenseTracking</ReportName>
+      <FileName>MonthlyProjectExpenseTracking.flxr</FileName>
+      <ReportTitle>Monthly Project Expense</ReportTitle>
+      <ReportTitle.ja>月次プロジェクト経費</ReportTitle.ja>
+      <ImageName>MonthlyProjectExpenseTracking.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>OrganizationChart</ReportName>
+      <FileName>OrganizationChart.flxr</FileName>
+      <ReportTitle>Organization Chart</ReportTitle>
+      <ReportTitle.ja>組織図</ReportTitle.ja>
+      <ImageName>OrganizationChart.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="TelecomReports" Text="Telecom Reports" Text.ja="通信レポート" Image="TelecomReports">
+    <Report>
+      <ReportName>TelephoneBill</ReportName>
+      <FileName>TelephoneBillReport.flxr</FileName>
+      <ReportTitle>Telephone Bill Report</ReportTitle>
+      <ReportTitle.ja>電話料金レポート</ReportTitle.ja>
+      <ImageName>TelephoneBillReport.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="MiscReports" Text="Misc Reports" Text.ja="その他のレポート" Image="MiscReports">
+    <Report>
+      <ReportName>PriceComparison</ReportName>
+      <FileName>PriceComparison.flxr</FileName>
+      <ReportTitle>Price Comparison</ReportTitle>
+      <ReportTitle.ja>価格比較</ReportTitle.ja>
+      <ImageName>PriceComparison.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Mail Merge</ReportName>
+      <FileName>MailMerge.flxr</FileName>
+      <ReportTitle>Mail Merge</ReportTitle>
+      <ReportTitle.ja>メールマージ</ReportTitle.ja>
+      <ImageName>MailMerge.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Cross-tab Reports</ReportName>
+      <FileName>CrossTab.flxr</FileName>
+      <ReportTitle>Cross Tab Reports</ReportTitle>
+      <ReportTitle.ja>クロス集計レポート</ReportTitle.ja>
+      <ImageName>CrossTab.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="DataBinding" Text="Data Binding" Text.ja="データ連結" Image="DataBinding">
+    <!--<Report>
+      <ReportName>Alphabetical List of Products</ReportName>
+      <FileName>StoredProcedure.flxr</FileName>
+      <ReportTitle>Stored Procedure</ReportTitle>
+      <ReportTitle.ja>ストアドプロシージャ</ReportTitle.ja>
+      <ImageName>StoredProcedure.Emf</ImageName>
+    </Report>-->
+    <Report>
+      <ReportName>Invoice</ReportName>
+      <FileName>Nwind.flxr</FileName>
+      <ReportTitle>NWind</ReportTitle>
+      <ReportTitle.ja>NWind</ReportTitle.ja>
+      <ImageName>NWind.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>MultiDataSource</ReportName>
+      <FileName>MultiDataSource.flxr</FileName>
+      <ReportTitle>Multiple Data Source</ReportTitle>
+      <ReportTitle.ja>複数のデータソース</ReportTitle.ja>
+      <ImageName>MultiDataSource.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="Controls" Text="Controls" Text.ja="コントロール" Image="Controls">
+    <Report>
+      <ReportName>Unbound Images</ReportName>
+      <FileName>UnboundImages.flxr</FileName>
+      <ReportTitle>Unbound Images</ReportTitle>
+      <ReportTitle.ja>非連結画像</ReportTitle.ja>
+      <ImageName>UnboundImages.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Shapes</ReportName>
+      <FileName>Shapes.flxr</FileName>
+      <ReportTitle>Shapes</ReportTitle>
+      <ReportTitle.ja>図形</ReportTitle.ja>
+      <ImageName>Shapes.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>RTFField</ReportName>
+      <FileName>RTFField.flxr</FileName>
+      <ReportTitle>RTF Field</ReportTitle>
+      <ReportTitle.ja>RTF フィールド</ReportTitle.ja>
+      <ImageName>RTFField.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>ParagraphField</ReportName>
+      <FileName>ParagraphField.flxr</FileName>
+      <ReportTitle>Paragraph Field</ReportTitle>
+      <ReportTitle.ja>段落フィールド</ReportTitle.ja>
+      <ImageName>ParagraphField.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Page Headers in Subreports</ReportName>
+      <FileName>PageHeadersInSubreports.flxr</FileName>
+      <ReportTitle>PageHeader In Subreports</ReportTitle>
+      <ReportTitle.ja>サブレポートのページヘッダー</ReportTitle.ja>
+      <ImageName>PageHeadersInSubreports.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>NewCharts</ReportName>
+      <FileName>NewCharts.flxr</FileName>
+      <ReportTitle>New Charts</ReportTitle>
+      <ReportTitle.ja>新規チャート</ReportTitle.ja>
+      <ImageName>NewCharts.Emf</ImageName>
+    </Report>
+    <!--<Report>
+      <ReportName>Customers and Suppliers by City Report</ReportName>
+      <FileName>Maps.flxr</FileName>
+      <ReportTitle>Maps</ReportTitle>
+      <ReportTitle.ja>マップ</ReportTitle.ja>
+      <ImageName>Maps.Emf</ImageName>
+    </Report>-->
+    <Report>
+      <ReportName>ComplexExpressions</ReportName>
+      <FileName>ComplexExpressions.flxr</FileName>
+      <ReportTitle>Complex Expressions</ReportTitle>
+      <ReportTitle.ja>複雑な式</ReportTitle.ja>
+      <ImageName>ComplexExpressions.emf</ImageName>
+    </Report>
+    <!--<Report>
+      <ReportName>Categories 1 Col</ReportName>
+      <FileName>ColumnarSubreports.flxr</FileName>
+      <ReportTitle>Columnar Subreports</ReportTitle>
+      <ReportTitle.ja>単票形式サブレポート</ReportTitle.ja>
+      <ImageName>ColumnarSubreports.Emf</ImageName>
+    </Report>-->
+    <Report>
+      <ReportName>CheckBox</ReportName>
+      <FileName>CheckBox.flxr</FileName>
+      <ReportTitle>Check Box</ReportTitle>
+      <ReportTitle.ja>チェックボックス</ReportTitle.ja>
+      <ImageName>CheckBox.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Charts</ReportName>
+      <FileName>Charts.flxr</FileName>
+      <ReportTitle>Charts</ReportTitle>
+      <ReportTitle.ja>チャート</ReportTitle.ja>
+      <ImageName>Charts.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Bound Images</ReportName>
+      <FileName>BoundImages.flxr</FileName>
+      <ReportTitle>Bound Images</ReportTitle>
+      <ReportTitle.ja>連結画像</ReportTitle.ja>
+      <ImageName>BoundImages.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Shipping Labels (Code 128, Label 5164)</ReportName>
+      <FileName>BarcodeShippingLabels.flxr</FileName>
+      <ReportTitle>Barcode Shipping Labels</ReportTitle>
+      <ReportTitle.ja>バーコード出荷ラベル</ReportTitle.ja>
+      <ImageName>BarcodeShippingLabels.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Product Labels (EAN-13, Label 5096)</ReportName>
+      <FileName>BarcodeProductLabels.flxr</FileName>
+      <ReportTitle>Barcode Product Labels</ReportTitle>
+      <ReportTitle.ja>バーコード製品ラベル</ReportTitle.ja>
+      <ImageName>BarcodeProductLabels.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>AllCharts</ReportName>
+      <FileName>AllCharts.flxr</FileName>
+      <ReportTitle>All Charts</ReportTitle>
+      <ReportTitle.ja>すべてのチャート</ReportTitle.ja>
+      <ImageName>AllCharts.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="DataCalculations" Text="Data Calculations" Text.ja="データ計算" Image="DataCalculations">
+    <Report>
+      <ReportName>Running Sums</ReportName>
+      <FileName>RunningSums.flxr</FileName>
+      <ReportTitle>Running Sums</ReportTitle>
+      <ReportTitle.ja>累計</ReportTitle.ja>
+      <ImageName>RunningSums.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>GroupPageCounts</ReportName>
+      <FileName>GroupPageCounts.flxr</FileName>
+      <ReportTitle>Page Counts</ReportTitle>
+      <ReportTitle.ja>ページ数</ReportTitle.ja>
+      <ImageName>GroupPageCounts.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>CalculatedFields</ReportName>
+      <FileName>CalculatedFields.flxr</FileName>
+      <ReportTitle>Calculated Fields</ReportTitle>
+      <ReportTitle.ja>計算フィールド</ReportTitle.ja>
+      <ImageName>CalculatedFields.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Aggregates</ReportName>
+      <FileName>Aggregates.flxr</FileName>
+      <ReportTitle>Aggregates</ReportTitle>
+      <ReportTitle.ja>集計</ReportTitle.ja>
+      <ImageName>Aggregates.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="DataManipulation" Text="Data Manipulation" Text.ja="データ操作" Image="DataManipulation">
+    <Report>
+      <ReportName>Sorting</ReportName>
+      <FileName>Sorting.flxr</FileName>
+      <ReportTitle>Sorting</ReportTitle>
+      <ReportTitle.ja>ソート</ReportTitle.ja>
+      <ImageName>Sorting.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Parameters</ReportName>
+      <FileName>Parameters.flxr</FileName>
+      <ReportTitle>Parameters</ReportTitle>
+      <ReportTitle.ja>パラメータ</ReportTitle.ja>
+      <ImageName>Parameters.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>MultivalueParameters</ReportName>
+      <FileName>MultivalueParameters.flxr</FileName>
+      <ReportTitle>Multivalue Parameters</ReportTitle>
+      <ReportTitle.ja>複数値パラメータ</ReportTitle.ja>
+      <ImageName>MultivalueParameters.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Cascading Parameters</ReportName>
+      <FileName>CascadingParameters.flxr</FileName>
+      <ReportTitle>Cascading Parameters</ReportTitle>
+      <ReportTitle.ja>カスケードパラメータ</ReportTitle.ja>
+      <ImageName>CascadingParameters.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="Formatting" Text="Formatting" Text.ja="書式設定" Image="Formatting">
+    <Report>
+      <ReportName>Watermark</ReportName>
+      <FileName>Watermark.flxr</FileName>
+      <ReportTitle>Watermark</ReportTitle>
+      <ReportTitle.ja>ウォーターマーク</ReportTitle.ja>
+      <ImageName>Watermark.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>ConditionalFormatting</ReportName>
+      <FileName>ConditionalFormatting.flxr</FileName>
+      <ReportTitle>Conditional Formatting</ReportTitle>
+      <ReportTitle.ja>条件付き書式設定</ReportTitle.ja>
+      <ImageName>ConditionalFormatting.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>AlternateBackground</ReportName>
+      <FileName>AlternateBackground.flxr</FileName>
+      <ReportTitle>Alternating Background</ReportTitle>
+      <ReportTitle.ja>交互表示の背景</ReportTitle.ja>
+      <ImageName>AlternateBackground.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <Category Name="Layout" Text="Layout" Text.ja="レイアウト" Image="Layout">
+    <Report>
+      <ReportName>SubSections</ReportName>
+      <FileName>SubSections.flxr</FileName>
+      <ReportTitle>Sub Sections</ReportTitle>
+      <ReportTitle.ja>サブセクション</ReportTitle.ja>
+      <ImageName>SubSections.Emf</ImageName>
+    </Report>
+    <!--<Report>
+          <ReportName>SplitBehavior</ReportName>
+          <FileName>SplitBehavior.flxr</FileName>
+          <ReportTitle>Split Behavior</ReportTitle>
+      <ReportTitle.ja>分割動作</ReportTitle.ja>
+          <ImageName>SplitBehavior.Emf</ImageName>
+        </Report>-->
+    <Report>
+      <ReportName>Gutter</ReportName>
+      <FileName>Gutter.flxr</FileName>
+      <ReportTitle>Gutter</ReportTitle>
+      <ReportTitle.ja>ガター</ReportTitle.ja>
+      <ImageName>Gutter.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Force Page Breaks</ReportName>
+      <FileName>ForcePageBreaks.flxr</FileName>
+      <ReportTitle>Force Page Breaks</ReportTitle>
+      <ReportTitle.ja>ページ区切りの強制</ReportTitle.ja>
+      <ImageName>ForcePageBreaks.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Dynamic Page Header</ReportName>
+      <FileName>DynamicPH.flxr</FileName>
+      <ReportTitle>Dynamic Page Headers</ReportTitle>
+      <ReportTitle.ja>動的ページヘッダー</ReportTitle.ja>
+      <ImageName>DynamicPH.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Custom Paper Size</ReportName>
+      <FileName>CustomPaperSize.flxr</FileName>
+      <ReportTitle>Custom Paper Size</ReportTitle>
+      <ReportTitle.ja>カスタム用紙サイズ</ReportTitle.ja>
+      <ImageName>CustomPaperSize.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Continued Headers</ReportName>
+      <FileName>ContinuedHeaders.flxr</FileName>
+      <ReportTitle>Continued Headers</ReportTitle>
+      <ReportTitle.ja>継続ヘッダー</ReportTitle.ja>
+      <ImageName>ContinuedHeaders.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Layout</ReportName>
+      <FileName>Layout.flxr</FileName>
+      <ReportTitle>Can Grow/Can Shrink</ReportTitle>
+      <ReportTitle.ja>拡大可能/縮小可能</ReportTitle.ja>
+      <ImageName>Layout.Emf</ImageName>
+    </Report>
+  </Category>
+
+  <!--<Category Name="CustomFields" Text="Custom Fields" Text.ja="Custom Fields" Image="CustomFields">
+    <Report>
+      <ReportName>CustomFields</ReportName>
+      <FileName>CustomFields.flxr</FileName>
+      <ReportTitle>Custom Fields</ReportTitle>
+      <ReportTitle.ja>カスタムフィールド</ReportTitle.ja>
+      <ImageName>CustomFields.Emf</ImageName>
+    </Report>
+  </Category>-->
+
+  <Category Name="JapaneseReports" Text="Japanese Reports" Text.ja="日本語の帳票" Culture="ja" Image="dummy">
+    <!--<Report>
+      <ReportName>Branch_MonthSales レポート</ReportName>
+      <FileName>Dashboard.flxr</FileName>
+      <ReportTitle>Dashboard</ReportTitle>
+      <ReportTitle.ja>ダッシュボード</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>-->
+    <Report>
+      <ReportName>レポート目次01</ReportName>
+      <FileName>ReportCatalog.flxr</FileName>
+      <ReportTitle>Report Catalog</ReportTitle>
+      <ReportTitle.ja>レポート目次</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>価格シール01</ReportName>
+      <FileName>PriceSeal.flxr</FileName>
+      <ReportTitle>Price Seal</ReportTitle>
+      <ReportTitle.ja>価格シール</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>商品カタログ01</ReportName>
+      <FileName>CommodityCatalog.flxr</FileName>
+      <ReportTitle>Commodity Catalog</ReportTitle>
+      <ReportTitle.ja>商品カタログ</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>商品管理シール01</ReportName>
+      <FileName>CommodityManagementSeal.flxr</FileName>
+      <ReportTitle>Commodity Management Seal</ReportTitle>
+      <ReportTitle.ja>商品管理シール</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>商品管理02</ReportName>
+      <FileName>InventoryManagement.flxr</FileName>
+      <ReportTitle>Inventory Management</ReportTitle>
+      <ReportTitle.ja>在庫管理</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>売り上げリスト</ReportName>
+      <FileName>SalesList.flxr</FileName>
+      <ReportTitle>Sales List</ReportTitle>
+      <ReportTitle.ja>売上一覧</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>従業員別売上02</ReportName>
+      <FileName>SalesByEmployee.flxr</FileName>
+      <ReportTitle>Sales by Employee</ReportTitle>
+      <ReportTitle.ja>従業員別売上</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>Employees レポート</ReportName>
+      <FileName>EmplyeeList.flxr</FileName>
+      <ReportTitle>Emplyees List</ReportTitle>
+      <ReportTitle.ja>社員名簿</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>納品書01</ReportName>
+      <FileName>CopyInvoice.flxr</FileName>
+      <ReportTitle>Copy Invoice</ReportTitle>
+      <ReportTitle.ja>複写伝票</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>請求書03</ReportName>
+      <FileName>Invoice.flxr</FileName>
+      <ReportTitle>Invoice</ReportTitle>
+      <ReportTitle.ja>請求書</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+    <Report>
+      <ReportName>連続帳票01</ReportName>
+      <FileName>ContinuousInvoice.flxr</FileName>
+      <ReportTitle>Continuous Invoice</ReportTitle>
+      <ReportTitle.ja>連続帳票</ReportTitle.ja>
+      <ImageName>dummy.Emf</ImageName>
+    </Report>
+  </Category>
+</Reports>

@@ -1,0 +1,42 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text4)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text7)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text8)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text9)
+    </li>
+</ul>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text10)
+</p>
+<button id="btnToggleVis" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.RowsProperties_Text11)
+</button>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(150)

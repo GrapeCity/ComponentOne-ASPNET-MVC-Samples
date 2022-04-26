@@ -3,7 +3,7 @@
 
 @model IEnumerable<Sale>
 @{
-    ViewData["Title"] = "FilterPanel";
+    ViewBag.Title = "FilterPanel";
 }
 
 <div class="container">
@@ -24,13 +24,21 @@
     or all filters.
 </p>
 <div id="filterPanel"></div>
-<c1-flex-grid id="grid" auto-generate-columns="false" is-read-only="true"
-                  selection-mode="Row" sorting-type="SingleColumn">
-    <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-flex-grid-filter default-filter-type="Both" id="gridFilter"></c1-flex-grid-filter>
-    <c1-flex-grid-column binding="ID" width="0.3*"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Active" width="0.3*"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Product" width="*"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Start" width="*"></c1-flex-grid-column>
-</c1-flex-grid>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("grid")
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID").Width("0.3*"));
+        columns.Add(column => column.Binding("Active").Width("0.3*"));
+        columns.Add(column => column.Binding("Country").Width("*"));
+        columns.Add(column => column.Binding("Product").Width("*"));
+        columns.Add(column => column.Binding("Start").Width("*"));
+    })
+    .SelectionMode(SelectionMode.Row)
+    .SortingType(AllowSorting.SingleColumn)
+    .Filterable(f => f.DefaultFilterType(FilterType.Both).Id("gridFilter"))
+)

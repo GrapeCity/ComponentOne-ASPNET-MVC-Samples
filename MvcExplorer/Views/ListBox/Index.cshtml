@@ -1,0 +1,84 @@
+﻿@{
+    List<string> cities = ViewBag.Cities;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    string vThreshold = optionsModel.Options["Virtualization Threshold"].CurrentValue;
+}
+
+<div>
+    <label>@Html.Raw(Resources.ListBox.Index_SelectAnItem)</label>
+    <div class="wj-input" style="margin: 5px 0px">
+        <input type="text" id="searchValue" class="wj-form-control" placeholder="@Html.Raw(Resources.ListBox.EnterTextSearch_Text0)" style="width:250px; height: 30px"/>
+    </div>
+    <div id="list" style="width:250px;height:200px"></div>
+</div>
+<p>
+    <b>@Html.Raw(Resources.ListBox.Index_SearchResult)<span id="lbSelResult"></span></b>
+</p>
+<p>
+    <b>@Html.Raw(Resources.ListBox.Index_SelectedIndex)<span id="lbSelIdx"></span></b>
+</p>
+<p>
+    <b>@Html.Raw(Resources.ListBox.Index_SelectedValue)<span id="lbSelVal"></span></b>
+</p>
+<p>
+    <b>@Html.Raw(Resources.ListBox.Index_VirtualizationThreshold)<span id="lbSelVThreshold"></span></b>
+</p>
+
+@section Scripts{
+<script>
+    // selectedIndexChanged event handler
+    function selectedIndexChanged(sender) {
+
+        // set selectedIndex and selectedValue text
+        document.getElementById('lbSelIdx').innerHTML = sender.selectedIndex;
+        document.getElementById('lbSelVal').innerHTML = sender.selectedValue;
+    }
+
+    c1.documentReady(function () {
+        document.getElementById("searchValue").addEventListener("keyup", function (e) {
+            var listbox = wijmo.Control.getControl('#list');
+            listbox.selectedIndex = -1;
+            listbox._search = this.value;
+            listbox.selectedIndex = listbox._findNext();
+
+            var searchValue = document.getElementById("searchValue").value;
+            if (searchValue === '') {
+                document.getElementById('lbSelResult').innerHTML = null;
+                return;
+            }
+
+            var searchResult;
+            if ('@optionsModel.Options["Case Sensitive Search"].CurrentValue' === 'False') {
+                searchResult = listbox.itemsSource.items.filter(function (c) {
+                    if (c.toLowerCase().indexOf(searchValue.toLowerCase()) == 0) return c;
+                });
+            } else {
+                searchResult = listbox.itemsSource.items.filter(function (c) {
+                    if (c.indexOf(searchValue) == 0) return c;
+                });
+            }
+            document.getElementById('lbSelResult').innerHTML = searchResult.join(", ");
+        });
+
+        document.getElementById('lbSelVThreshold').innerHTML = document.getElementById("list").childNodes.length;
+    });
+</script>
+}
+
+@(Html.C1().ListBox("#list")
+    .Bind(cities).SelectedIndex(0)
+    .OnClientSelectedIndexChanged("selectedIndexChanged")
+    .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
+    .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold))
+)
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.ListBox.Index_Text0)</p>
+    <p>@Html.Raw(Resources.ListBox.CaseSensitiveSearchDescription_Text0)</p>
+    <p>@Html.Raw(Resources.ListBox.Index_Text2)</p>
+}

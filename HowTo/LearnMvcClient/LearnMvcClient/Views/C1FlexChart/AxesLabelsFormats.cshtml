@@ -1,0 +1,39 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{
+    var angles = new[] { 0, 30, 45, 60, 90 };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesLabelsFormats_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesLabelsFormats_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesLabelsFormats_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesLabelsFormats_Text3)
+</p>
+
+<div class="demo-settings">
+    <label for="labelAngle">@Html.Raw(Resources.C1FlexChart.AxesLabelsFormats_Text4)</label>
+    @(Html.C1().ComboBox<int>().Id("labelAngle")
+        .Bind(angles)
+        .Placeholder(Resources.C1FlexChart.AxesLabelsFormats_Text5)
+        .IsRequired(false)
+        .Text("")
+    )
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+    })
+)

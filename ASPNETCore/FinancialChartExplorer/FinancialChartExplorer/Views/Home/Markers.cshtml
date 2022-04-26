@@ -1,0 +1,59 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<script type="text/javascript">
+    function customChangeAlignment(control, value) {
+        var marker = getLineMarker(control);
+        if (marker) {
+            marker.alignment = wijmo.chart.LineMarkerAlignment[value];
+        }
+    }
+
+    function customChangeInteraction(control, value) {
+        var marker = getLineMarker(control);
+        if (marker) {
+            marker.interaction = wijmo.chart.LineMarkerInteraction[value];
+        }
+    }
+
+    function customChangeLines(control, value) {
+        var marker = getLineMarker(control);
+        if (marker) {
+            marker.lines = wijmo.chart.LineMarkerLines[value];
+        }
+    }
+
+    function lineMarkerContent(ht, pt) {
+        var item = ht.series.collectionView.items[ht.pointIndex];
+        if (item) {
+            return 'Date: ' + wijmo.Globalize.format(ht.x, 'MMM-dd') + '<br/>' +
+                                'High: ' + item.High.toFixed() + '<br/>' +
+                                'Low: ' + item.Low.toFixed() + '<br/>' +
+                                'Open: ' + item.Open.toFixed() + '<br/>' +
+                                'Close: ' + item.Close.toFixed() + '<br/>' +
+                                'Volume: ' + item.Volume.toFixed();
+        }
+    }
+
+    function getLineMarker(control) {
+        return c1.getExtender(control, 'LineMarker');
+    }
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" chart-type="Candlestick">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close,Volume" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content=""></c1-flex-chart-tooltip>
+    <c1-line-marker id="LineMarker" alignment="Auto" lines="Both" drag-content="true" interaction="Move" content="lineMarkerContent"></c1-line-marker>
+</c1-financial-chart>
+
+@section Description{
+    <p>@Html.Raw(Home.Markers_Text0)</p>
+    <p>@Html.Raw(Home.Markers_Text1)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.Markers_Text2)</p>
+}

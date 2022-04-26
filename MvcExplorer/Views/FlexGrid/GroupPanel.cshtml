@@ -1,0 +1,73 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+<script type="text/javascript">
+    var europe = ["UK", "France", "German", "Italy"],
+        american = ["US", "Canada"], asian = ["Japan", "China", "Korea"], autralian = ["Australia"];
+    
+    function customGroup(prop) {
+        switch (prop) {
+            case 'Start':
+            case 'End':
+                return new wijmo.collections.PropertyGroupDescription(prop, function (item, prop) {
+                    return wijmo.Globalize.formatDate(item[prop], 'yyyy');
+                });
+                break;
+            case 'Country':
+                return new wijmo.collections.PropertyGroupDescription(prop, function (item, prop) {
+                    if (europe.indexOf(item.Country) > -1) {
+                        return "Europe";
+                    }
+                    else if (american.indexOf(item.Country) > -1) {
+                        return "American";
+                    }
+                    else if (asian.indexOf(item.Country) > -1) {
+                        return "Asian";
+                    } else {
+                        return "Australian";
+                    }
+                });
+                break;
+        }
+    }
+
+</script>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("ovFlexGrid").ShowGroupPanel(s=>s
+        .MaxGroups(Convert.ToInt32(optionsModel.Options["Max Groups"].CurrentValue))
+        .Placeholder(optionsModel.Options["Placeholder"].CurrentValue)
+        .HideGroupedColumns(Convert.ToBoolean(optionsModel.Options["Hide Grouped Columns"].CurrentValue))
+        .GroupDescriptionCreator(Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue) ? "customGroup" : null)
+        .ShowDragGlyphs(Convert.ToBoolean(optionsModel.Options["Show Drag Glyphs"].CurrentValue))
+        )
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+@section Description{
+    @Html.Raw(Resources.FlexGrid.GroupPanel_Text0)
+    <br/>
+    @Html.Raw(Resources.FlexGrid.GroupPanel_Text1)
+    <br />
+    @Html.Raw(Resources.FlexGrid.GroupDescriptionCreator_Text0)
+    <br/>
+    @Html.Raw(Resources.FlexGrid.GroupPanel_Text2)
+}

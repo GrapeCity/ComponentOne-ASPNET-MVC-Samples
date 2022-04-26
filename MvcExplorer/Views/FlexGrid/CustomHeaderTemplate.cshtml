@@ -1,0 +1,66 @@
+﻿@using C1.Web.Mvc.Grid
+@using C1.Web.Mvc
+
+@model  IList<MvcExplorer.Controllers.DataRepresentation>
+
+@section Scripts{
+
+<script>
+    c1.documentReady(function () {
+        var fg = c1.mvc.grid.FlexGrid.getControl("#fnFlexGrid");
+        var columns = fg.columns;
+        for (var i = 0; i < columns.length; ++i) {
+            columns[i].align = 'center';
+        }
+    });
+
+</script>
+
+}
+
+<h2 style="font:bold">
+    @Html.Raw(Resources.FlexGrid.HeaderTemplate_Table_Description)
+</h2>
+<br />
+<br />
+
+@(Html.C1().FlexGrid().Id("fnFlexGrid")
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.None)
+
+        .Columns(bl =>
+        {
+            bl.Add(cb => cb.Binding("name").Width("*").MinWidth(120));
+            bl.Add(cb => cb.Binding("currency"));
+            bl.Add(cb => cb.Binding("ytd"));
+            bl.Add(cb => cb.Binding("m1"));
+            bl.Add(cb => cb.Binding("m6"));
+            bl.Add(cb => cb.Binding("m12"));
+            bl.Add(cb => cb.Binding("stock"));
+            bl.Add(cb => cb.Binding("bond"));
+            bl.Add(cb => cb.Binding("cash"));
+            bl.Add(cb => cb.Binding("other"));
+        })
+        
+        .HeaderTemplate(builder =>
+        {
+            builder.RowCount(2);
+            builder.Cells(c =>
+            {
+                c.Set(0, 0, 2, 1, "Name");
+                c.Set(0, 1, 2, 1, "Currency");
+                c.Set(0, 2, 1, 4, "Performance");
+                c.Set(0, 6, 1, 4, "Allocation");
+            });
+        })
+)
+
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.HeaderTemplate_Sumary)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.HeaderTemplate_Description)
+}

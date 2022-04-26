@@ -1,0 +1,34 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{
+    var tooltipContennt = "<b>{item.Country}</b>:<table class=\"chart-tip\">" +
+        "<tr><td>Sales</td><td>{Sales:c0}</td></tr>" +
+        "<tr><td>Expenses</td><td>{Expenses:c0}</td></tr>" +
+        "<tr><td>Downloads</td><td>{Downloads:n0}</td></tr>" +
+        "</table>";
+})
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.BubbleCharts_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.BubbleCharts_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.BubbleCharts_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.BubbleCharts_Text3)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Sales", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Bubble)
+    .Series(sb=>sb.Add().Binding("Expenses,Downloads"))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .AxisX(ab => ab.Title("Sales").Min(0))
+    .AxisY(ab => ab.Title("Expenses").Min(0))
+    .Tooltip(tb=>tb.Content(tooltipContennt))
+)

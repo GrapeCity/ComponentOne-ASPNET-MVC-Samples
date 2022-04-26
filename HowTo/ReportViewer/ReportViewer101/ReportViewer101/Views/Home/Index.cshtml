@@ -1,0 +1,773 @@
+@using ReportViewer101.Models
+
+@model ReportViewer101Model
+
+@{
+    ViewBag.Title = "ASP.NET MVC ReportViewer Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            The <b>C1.Web.Mvc.FlexViewer</b> assembly contains ReportViewer control that allow you to show reports.
+        </p>
+        <p>
+            Steps for getting started with the ReportViewer control in MVC applications:
+        </p>
+
+        <ol>
+            <li>Create a new MVC project using the C1 ASP.NET MVC application template.</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Initialize a <b>ReportViewer</b> control in view using razor syntax.</li>
+            <li>
+                (Optional) Add some CSS to customize the report viewer control's appearance.
+            </li>
+        </ol>
+
+        <p>
+            The <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ReportServices.html">C1 Web API Report Services</a> uses <a target="_blank" href="https://www.grapecity.com/en/flexreport/">C1FlexReport</a> to render and export report.
+            Please refer to <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Working%20with%20Reports.html">How to Set Up C1 Web API Report Services</a> for details.
+        </p>
+        <p>
+            To show the content of FlexReport from C1 Web API Report Services, set the following basic properties:
+        </p>
+        <ol>
+            <li>
+                <b>serviceUrl:</b> The url of C1 Web API Report Services.
+                For example, '@Model.ServiceUrl'.
+            </li>
+            <li>
+                <b>filePath:</b> The full path to the FlexReport definition file.
+                For example, 'ReportsRoot/Formatting/AlternateBackground.flxr'.
+                <p>
+                    The 'ReportsRoot' is the key of the report provider which is registered at server for locating specified report.
+                    <br />
+                    The 'Formatting/AlternateBackground.flxr' is the relative path of the FlexReport definition file which can be located by the report provider.
+                </p>
+            </li>
+            <li>
+                <b>reportName:</b> The report name defined in the FlexReport definition file.
+                For example, 'AlternateBackground', for the report named 'AlternateBackground' in the AlternateBackground.flxr file.
+            </li>
+        </ol>
+        <div class="col-md-12">
+            <h4>Result (live):</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @(Html.C1().ReportViewer()
+        .Id("gsReportViewer")
+        .ServiceUrl(Model.ServiceUrl)
+        .FilePath("ReportsRoot/Formatting/AlternateBackground.flxr")
+        .ReportName("AlternateBackground"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#gsClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+        @@(Html.C1().ReportViewer()
+            .Id("gsReportViewer")
+            .ServiceUrl(Model.ServiceUrl)
+            .FilePath("ReportsRoot/Formatting/AlternateBackground.flxr")
+            .ReportName("AlternateBackground"))
+    &lt;/body&gt;
+&lt;/html&gt;
+</div>
+                        <div class="tab-pane pane-content" id="gsCss">
+.wj-viewer{
+    width: 100%;
+    height: 600px;
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+using ReportViewer101.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace ReportViewer101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ReportViewer101Model model = new ReportViewer101Model();
+            model.ServiceUrl = "@Model.ServiceUrl";
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="gsClose"  style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+
+
+    <!-- SSRS Reports -->
+    <div>
+        <h2>SSRS Reports</h2>
+        <p>
+            The ReportViewer control can also show <a target="_blank" href="https://msdn.microsoft.com/en-us/library/ms159106.aspx">SSRS</a> report.
+        </p>
+        <p>
+            The <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ReportServices.html">C1 Web API Report Services</a> uses <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/FlexReport/webframe.html#C1.Win.C1Document.4~C1.Win.C1Document.C1SSRSDocumentSource.html">C1SSRSDocumentSource</a> to connect with SSRS server and render the SSRS report.
+            It first fetches data from SSRS server, and then converts to the expected formats (normally HTML5 SVG).
+            Please see <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Working%20with%20Reports.html">How to Set Up C1 Web API Report Services</a> for details.
+        </p>
+        <p>
+            To show the content of SSRS report from C1 Web API Report Services, set the following basic properties:
+        </p>
+        <ol>
+            <li>
+                <b>serviceUrl:</b> The url of C1 Web API Report Services.
+                For example, '@Model.ServiceUrl'.
+            </li>
+            <li>
+                <b>filePath:</b> The full path to the SSRS report on the server.
+                For example, 'c1ssrs/AdventureWorks/Company Sales'.
+                <p>
+                    The 'c1ssrs' is the key of the report provider which is registered at server for specified report.
+                    (For '@Model.ServiceUrl', the 'c1ssrs' is the key of the report provider which links to the SSRS server 'http://ssrs.componentone.com:8000/ReportServer'.)
+                    <br />
+                    The 'AdventureWorks/Company Sales' is the full path to the report which can be located in the SSRS server.
+                </p>
+            </li>
+        </ol>
+        <div class="col-md-12">
+            <h4>Result (live):</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @(Html.C1().ReportViewer()
+        .Id("ssrsReportViewer")
+        .ServiceUrl(Model.ServiceUrl)
+        .FilePath("c1ssrs/AdventureWorks/Company Sales"))
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#cPPHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cPPCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#cPPClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="cPPHtml">
+@@(Html.C1().ReportViewer()
+    .Id("ssrsReportViewer")
+    .ServiceUrl(Model.ServiceUrl)
+    .FilePath("c1ssrs/AdventureWorks/Company Sales"))
+                        </div>
+                        <div class="tab-pane pane-content" id="cPPCS">
+using ReportViewer101.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace ReportViewer101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ReportViewer101Model model = new ReportViewer101Model();
+            model.ServiceUrl = "@Model.ServiceUrl";
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="cPPClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Basic Features -->
+    <div>
+        <h2>Basic Features</h2>
+        <p>
+            The ReportViewer control has the following four basic properties, which allow you to customize its appearance and behavior:
+        </p>
+        <ul>
+            <li>
+                <b>fullScreen</b>:  Indicates whether viewer is under full screen mode.
+            </li>
+            <li>
+                <b>mouseMode</b>:  Indicates the mouse behavior.
+            </li>
+            <li>
+                <b>viewMode</b>:  Indicates how to show the document pages.
+            </li>
+            <li>
+                <b>zoomFactor</b>:  Indicates the current zoom factor to show the document pages.
+            </li>
+        </ul>
+        <p>
+            The example below allows you to see what happens when you change these properties.
+        </p>
+        <div class="col-md-12">
+            <h4>Result (live):</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    @{
+                        var mouseMode = Model.MouseModes.FirstOrDefault();
+                     }
+
+                    @(Html.C1().ReportViewer()
+                        .Id("basicReportViewer")
+                        .ServiceUrl(Model.ServiceUrl)
+                        .FilePath("ReportsRoot/Formatting/AlternateBackground.flxr")
+                        .ReportName("AlternateBackground")
+                        .ZoomFactor(Model.ZoomFactor)
+                        .MouseMode((MouseMode)Enum.Parse(typeof(MouseMode), mouseMode.Value)))
+                   
+                </div>
+                <br />
+                <div class="row">
+                    <div class="form-horizontal">
+                        <div class="form-group">
+                            <div class="col-md-2">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="basicContinuousViewMode" type="checkbox" /> Continuous View Mode?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="form-group">
+                                    <label class="col-md-4 control-label">Mouse Mode</label>
+                                    <div class="col-md-8">
+                                        @(Html.C1().ComboBox()
+                                            .Id("mouseMode")
+                                            .Bind(Model.MouseModes)
+                                            .SelectedValuePath("Value")
+                                            .DisplayMemberPath("Text")
+                                            .SelectedIndex(0)
+                                            .OnClientSelectedIndexChanged("mouseMode_SelectedIndexChanged"))
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-2">
+                                <div class="checkbox">
+                                    <label>
+                                        <input id="basicFullScreen" type="checkbox" /> Full Screen?
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-mod-4">
+                                <label class="col-md-2 control-label">Zoom Factor</label>
+                                <div class="col-md-2">
+                                    @(Html.C1().InputNumber()
+                                        .Id("basicZoomFactor")
+                                        .Value(Model.ZoomFactor)
+                                        .Min(0.05)
+                                        .Max(10)
+                                        .Step(0.1)
+                                        .Format("n2")
+                                        .OnClientValueChanged("basicZoomFactor_ValueChanged"))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#rPCHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#rPCJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#rPCCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#rPCClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="rPCHtml">
+&lt;div class="row"&gt;
+    @@{
+        var mouseMode = Model.MouseModes.FirstOrDefault();
+    }
+    @@(Html.C1().ReportViewer()
+        .Id("basicReportViewer")
+        .ServiceUrl(Model.ServiceUrl)
+        .FilePath("ReportsRoot/Formatting/AlternateBackground.flxr")
+        .ReportName("AlternateBackground")
+        .ZoomFactor(Model.ZoomFactor)
+        .MouseMode((MouseMode)Enum.Parse(typeof(MouseMode), mouseMode.Value)))
+&lt;/div&gt;
+&lt;br /&gt;
+&lt;div class="row"&gt;
+    &lt;div class="form-horizontal"&gt;
+        &lt;div class="form-group"&gt;
+            &lt;div class="col-md-3"&gt;
+                &lt;div class="checkbox"&gt;
+                    &lt;label&gt;
+                        &lt;input id="basicContinuousViewMode" type="checkbox" /&gt; Continuous View Mode?
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-3"&gt;
+                &lt;div class="checkbox"&gt;
+                    &lt;label&gt;
+                        &lt;input id="basicSelectMouseMode" type="checkbox" /&gt; Select Mouse Mode?
+                    &lt;/label&gt;
+                &lt;/div&gt;
+                    &lt;div class="col-md-4"&gt;
+                        &lt;div class="form-group"&gt;
+                            &lt;label class="col-md-4 control-label">Mouse Mode&lt;/label&gt;
+                            &lt;div class="col-md-8"&gt;
+                                @@(Html.C1().ComboBox()
+                                    .Id("mouseMode")
+                                    .Bind(Model.MouseModes)
+                                    .SelectedValuePath("Value")
+                                    .DisplayMemberPath("Text")
+                                    .SelectedIndex(0)
+                                    .OnClientSelectedIndexChanged("mouseMode_SelectedIndexChanged"))
+                            &lt;/div&gt;
+                        &lt;/div&gt;
+                    &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-md-2"&gt;
+                &lt;div class="checkbox"&gt;
+                    &lt;label&gt;
+                        &lt;input id="basicFullScreen" type="checkbox" /&gt; Full Screen?
+                    &lt;/label&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+            &lt;div class="col-mod-4"&gt;
+                &lt;label class="col-md-2 control-label"&gt;Zoom Factor&lt;/label&gt;
+                &lt;div class="col-md-2"&gt;
+                    @@(Html.C1().InputNumber()
+                        .Id("basicZoomFactor")
+                        .Value(Model.ZoomFactor)
+                        .Min(0.05)
+                        .Max(10)
+                        .Step(0.1)
+                        .Format("n2")
+                        .OnClientValueChanged("basicZoomFactor_ValueChanged"))
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="rPCJS">
+// basic features
+var basicReportViewer = null,
+    basicFullScreen = null,
+    basicSelectMouseMode = null,
+    basicZoomFactor = null,
+    basicContinuousViewMode = null;
+
+function InitialControls() {
+    // basic features
+    basicReportViewer = wijmo.Control.getControl('#basicReportViewer');
+    basicFullScreen = document.getElementById('basicFullScreen');
+    basicSelectMouseMode = document.getElementById('basicSelectMouseMode');
+    basicZoomFactor = wijmo.Control.getControl('#basicZoomFactor');
+    basicContinuousViewMode = document.getElementById('basicContinuousViewMode');
+    // fullScreen
+    basicFullScreen.checked = basicReportViewer.fullScreen;
+    basicFullScreen.addEventListener('change', function () {
+        basicReportViewer.fullScreen = this.checked;
+    });
+
+    // continousViewMode
+    basicContinuousViewMode.checked = basicReportViewer.viewMode == wijmo.viewer.ViewMode.Continuous;
+    basicContinuousViewMode.addEventListener('change', function () {
+        basicReportViewer.viewMode = this.checked ? wijmo.viewer.ViewMode.Continuous : wijmo.viewer.ViewMode.Single;
+    });
+};
+
+// basic features
+function basicZoomFactor_ValueChanged(sender) {
+    if (sender.value < sender.min || sender.value > sender.max) {
+        return;
+    }
+    basicReportViewer.zoomFactor = sender.value;
+};
+// mouseMode
+function mouseMode_SelectedIndexChanged(sender){
+    if (!sender.selectedValue)
+        return;
+    basicReportViewer.mouseMode = parseInt(sender.selectedValue);
+};
+                        </div>
+                        <div class="tab-pane pane-content" id="rPCCS">
+                            using ReportViewer101.Models;
+                            using System.Collections.Generic;
+                            using System.Web.Mvc;
+
+                            namespace ReportViewer101.Controllers
+                            {
+                            public class HomeController : Controller
+                            {
+                            public ActionResult Index()
+                            {
+                            ReportViewer101Model model = new ReportViewer101Model();
+                            model.ServiceUrl = "https://www.grapecity.com/componentone/demos/aspnet/c1webapi/latest/api/report";
+                            model.ZoomFactor = 1;
+                            model.ReportNames = GetReportNames();
+                            model.Parameters = GetParameters();
+                            model.MouseModes = GetMouseModes();
+                            return View(model);
+                            }
+
+                            private List<CmbList> GetReportNames()
+                                {
+                                List<CmbList> reportNames = new List<Models.CmbList>();
+                                        reportNames.Add(new CmbList("ReportsRoot/Formatting/AlternateBackground.flxr/AlternateBackground", "Alternating Background"));
+                                        reportNames.Add(new CmbList("ReportsRoot/Controls/AllCharts.flxr/AllCharts", "All Charts"));
+                                        reportNames.Add(new CmbList("ReportsRoot/Controls/CheckBox.flxr/CheckBox", "Check Box"));
+                                        reportNames.Add(new CmbList("ReportsRoot/Controls/Shapes.flxr/Shapes", "Shapes"));
+                                        return reportNames;
+                                        }
+
+                                        private List<CmbList> GetParameters()
+                                            {
+                                            List<CmbList> parameters = new List<Models.CmbList>();
+                                                    parameters.Add(new CmbList("1", "Beverages"));
+                                                    parameters.Add(new CmbList("2", "Condiments"));
+                                                    parameters.Add(new CmbList("3", "Confections"));
+                                                    parameters.Add(new CmbList("4", "Dairy Products"));
+                                                    parameters.Add(new CmbList("5", "Grains/Cereals"));
+                                                    parameters.Add(new CmbList("6", "Meat/Poultry"));
+                                                    parameters.Add(new CmbList("7", "Produce"));
+                                                    parameters.Add(new CmbList("8", "Seafood"));
+                                                    return parameters;
+                                                    }
+
+                                                    private List<CmbList> GetMouseModes()
+                                                        {
+                                                        List<CmbList> mouseModes = new List<Models.CmbList>();
+                                                                mouseModes.Add(new CmbList("0", "Select Tool"));
+                                                                mouseModes.Add(new CmbList("1", "Move Tool"));
+                                                                mouseModes.Add(new CmbList("2", "Rubberband Tool"));
+                                                                mouseModes.Add(new CmbList("3", "Magnifier Tool"));
+                                                                return mouseModes;
+                                                                }
+                                                                }
+                                                                }
+                        </div>
+                        <div class="tab-pane pane-content active" id="rPCClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Report Names -->
+    <div>
+        <h2>Report Names</h2>
+        <p>
+            ReportViewer renders the report if <b>filePath</b> and <b>reportName</b> properties are changed.
+        </p>
+        <div class="col-md-12">
+            <h4>Result (live):</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                @{ 
+                    var selReport = Model.ReportNames.FirstOrDefault();
+                    var reportPath = selReport.Value;
+                    var index = reportPath.LastIndexOf('/');
+                    var filePath = reportPath.Substring(0, index);
+                    var reportName = reportPath.Substring(index + 1);
+                }
+                @(Html.C1().ReportViewer()
+                    .Id("namesReportViewer")
+                    .ServiceUrl(Model.ServiceUrl)
+                    .FilePath(filePath)
+                    .ReportName(reportName))
+                <br />
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Report Path</label>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox()
+                                .Id("namesReportPath")
+                                .Bind(Model.ReportNames)
+                                .SelectedValuePath("Value")
+                                .DisplayMemberPath("Text")
+                                .SelectedIndex(0)
+                                .OnClientSelectedIndexChanged("namesReportPath_SelectedIndexChanged"))
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#vESourceHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#vESourceJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#vESourceCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#vESourceClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="vESourceHtml">
+&lt;div class="row"&gt;
+    &lt;div class="col-md-12"&gt;
+        @@{
+            var selReport = Model.ReportNames.FirstOrDefault();
+            var reportPath = selReport.Value;
+            var index = reportPath.LastIndexOf('/');
+            var filePath = reportPath.Substring(0, index);
+            var reportName = reportPath.Substring(index + 1);
+        }
+        @@(Html.C1().ReportViewer()
+             .Id("namesReportViewer")
+             .ServiceUrl(Model.ServiceUrl)
+             .FilePath(filePath)
+             .ReportName(reportName))
+        &lt;br /&gt;
+        &lt;div class="form-horizontal"&gt;
+            &lt;div class="form-group"&gt;
+                &lt;label class="col-md-3 control-label"&gt;Report Path&lt;/label&gt;
+                &lt;div class="col-md-9"&gt;
+                    @@(Html.C1().ComboBox()
+                        .Id("namesReportPath")
+                        .Bind(Model.ReportNames)
+                        .SelectedValuePath("Value")
+                        .DisplayMemberPath("Text")
+                        .SelectedIndex(0)
+                        .OnClientSelectedIndexChanged("namesReportPath_SelectedIndexChanged"))
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="vESourceJS">
+// report Names
+function namesReportPath_SelectedIndexChanged(sender){
+    if (!sender.selectedValue)
+        return;
+    var namesReportViewer = wijmo.Control.getControl('#namesReportViewer');
+    var reportPath = sender.selectedValue;
+    var index = reportPath.lastIndexOf('/');
+    var filePath = reportPath.substr(0, index);
+    var reportName = reportPath.substr(index + 1);
+    namesReportViewer.filePath = filePath;
+    namesReportViewer.reportName = reportName;
+};
+                        </div>
+                        <div class="tab-pane pane-content" id="vESourceCS">
+using ReportViewer101.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace ReportViewer101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ReportViewer101Model model = new ReportViewer101Model();
+            model.ServiceUrl = "@Model.ServiceUrl";
+            model.ReportNames = GetReportNames();
+            return View(model);
+        }
+
+        private List&lt;Cmblist&gt; GetReportNames()
+        {
+            List&lt;Cmblist&gt; reportNames = new List&lt;Models.Cmblist&gt;();
+            reportNames.Add(new Cmblist("ReportsRoot/Formatting/AlternateBackground.flxr/AlternateBackground", "Alternating Background"));
+            reportNames.Add(new Cmblist("ReportsRoot/Controls/AllCharts.flxr/AllCharts", "All Charts"));
+            reportNames.Add(new Cmblist("ReportsRoot/Controls/CheckBox.flxr/CheckBox", "Check Box"));
+            reportNames.Add(new Cmblist("ReportsRoot/Controls/Shapes.flxr/Shapes", "Shapes"));
+            return reportNames;
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="vESourceClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Setting Parameters in Code -->
+    <div>
+        <h2>Setting Parameters in Code</h2>
+        <div class="col-md-12">
+            <h4>Result (live):</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="row">
+                    @(Html.C1().ReportViewer()
+                        .Id("paramsReportViewer")
+                        .ServiceUrl(Model.ServiceUrl)
+                        .FilePath("ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr")
+                        .ReportName("MultiValue DataBound Parameters"))
+                </div>
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Report Parameters</label>
+                        <div class="col-md-2">
+                            @(Html.C1().MultiSelect()
+                                .Name("parameters")
+                                .Id("paramsMultiselect")
+                                .Bind(Model.Parameters)
+                                .DisplayMemberPath("Text")
+                                .Placeholder("Please select parameters")
+                                .OnClientCheckedItemsChanged("parameters_CheckedItemsChanged")
+                                .CheckedIndexes(0))
+                        </div>
+                        <div class="col-md-3">
+                            <input class="btn" type="button" value="Apply" onclick="applyParameters()" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#reportParemetersHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#reportParemetersJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#reportParemetersCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#reportParemetersClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="reportParemetersHtml">
+&lt;div class=&quot;row&quot;&gt;
+    &lt;div class=&quot;col-md-12&quot;&gt;
+        &lt;div class=&quot;row&quot;&gt;
+            @@(Html.C1().ReportViewer()
+                 .Id(&quot;paramsReportViewer&quot;)
+                 .ServiceUrl(Model.ServiceUrl)
+                 .FilePath(&quot;ReportsRoot/FlexCommonTasks/FlexCommonTasks.flxr&quot;)
+                 .ReportName(&quot;MultiValue DataBound Parameters&quot;))
+        &lt;/div&gt;
+        &lt;div class=&quot;form-horizontal&quot;&gt;
+            &lt;div class=&quot;form-group&quot;&gt;
+                &lt;label class=&quot;col-md-3 control-label&quot;&gt;Report Parameters&lt;/label&gt;
+                &lt;div class=&quot;col-md-2&quot;&gt;
+                    @@(Html.C1().MultiSelect()
+                        .Name(&quot;parameters&quot;)
+                        .Id(&quot;paramsMultiselect&quot;)
+                        .Bind(Model.Parameters)
+                        .DisplayMemberPath(&quot;Text&quot;)
+                        .Placeholder(&quot;Please select parameters&quot;)
+                        .OnClientCheckedItemsChanged(&quot;parameters_CheckedItemsChanged&quot;)
+                        .CheckedIndexes(0))
+                &lt;/div&gt;
+                &lt;div class=&quot;col-md-3&quot;&gt;
+                    &lt;input class=&quot;btn&quot; type=&quot;button&quot; value=&quot;Apply&quot; onclick=&quot;applyParameters()&quot; /&gt;
+                &lt;/div&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="reportParemetersJS">
+// Setting Parameters in Code
+var parameterValues = [1];
+
+function InitialControls() {
+    // parameters features
+    paramsReportViewer = wijmo.Control.getControl('#paramsReportViewer');
+    paramsReportViewer.queryLoadingData.addHandler(function (sender, e) {
+        e.data["parameters.pCategory"] = parameterValues;
+    }, paramsReportViewer);
+};
+
+// parameters
+function parameters_CheckedItemsChanged(sender, e) {
+    var items = sender.checkedItems;
+    parameterValues = [];
+    for (var i = 0; i < items.length; i++) {
+        parameterValues.push(items[i].Value);
+    }
+}
+
+function applyParameters() {
+    paramsReportViewer.reload();
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="reportParemetersCS">
+using ReportViewer101.Models;
+using System.Collections.Generic;
+using System.Web.Mvc;
+
+namespace ReportViewer101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            ReportViewer101Model model = new ReportViewer101Model();
+            model.ServiceUrl = "@Model.ServiceUrl";
+            model.Parameters = GetParameters();
+            return View(model);
+        }
+
+        private List&lt;Cmblist&gt; GetParameters()
+        {
+            List&lt;Cmblist&gt; parameters = new List&lt;Models.Cmblist&gt;();
+            parameters.Add(new Cmblist("1", "Beverages"));
+            parameters.Add(new Cmblist("2", "Condiments"));
+            parameters.Add(new Cmblist("3", "Confections"));
+            parameters.Add(new Cmblist("4", "Dairy Products"));
+            parameters.Add(new Cmblist("5", "Grains/Cereals"));
+            parameters.Add(new Cmblist("6", "Meat/Poultry"));
+            parameters.Add(new Cmblist("7", "Produce"));
+            parameters.Add(new Cmblist("8", "Seafood"));
+            return parameters;
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="reportParemetersClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+    });
+</script>

@@ -1,0 +1,20 @@
+﻿.wj-control {
+  width: 250px;
+  margin-bottom: 12px;
+}
+.wj-clear-input:not(.wj-state-empty) input + .wj-input-group-btn:focus {
+  outline: none;
+}
+/*wi clear input icon style*/
+.wj-clear-input .wj-input-group .wj-clear-input-icon{
+    display: table-cell;
+    width: 15px;
+    vertical-align: middle;
+    height:100%;
+}
+.wj-clear-input:not(.wj-state-empty):hover .wj-clear-input-icon::after {
+  content: '\00d7';
+  font-weight: bold;  
+  cursor: pointer;
+  color: darkred;
+}

@@ -1,19 +1,16 @@
-﻿using System;
-using System.ComponentModel;
-using System.Reflection;
+﻿using System.ComponentModel;
 using C1.Web.Mvc;
-using HtmlHelper = Microsoft.AspNetCore.Mvc.Rendering.IHtmlHelper;
+using System.Web.Mvc;
+using C1.JsonNet;
+using C1.JsonNet.Converters;
 
 namespace C1.Web.Mvc.Extensions
 {
-
-    #region MultiColumnComboBox<T>
-
-    /// <summary>
-    /// MultiColumnComboBox
-    /// </summary>
-    public partial class MultiColumnComboBox<T> : DropDown<T>
-    {
+      /// <summary>
+      /// MultiColumnComboBox
+      /// </summary>
+      public partial class MultiColumnComboBox<T> : DropDown<T>
+      {
 
         /// <summary>
         /// Creates one <see cref="MultiColumnComboBox{T}" /> instance.
@@ -25,12 +22,8 @@ namespace C1.Web.Mvc.Extensions
             Initialize();
         }
 
-        /// <summary>
-        /// create default value for parameters
-        /// </summary>
         private void Initialize()
         {
-            PageSize = 10;
         }
 
         /// <summary>
@@ -52,9 +45,17 @@ namespace C1.Web.Mvc.Extensions
         }
 
         /// <summary>
+        /// Gets or sets the value of the SelectedItem, obtained using the SelectedValuePath.
+        /// </summary>
+        public virtual object SelectedValues
+        {
+            get;
+            set;
+        }
+
+        /// <summary>
         /// Gets or sets a value of The page size.
         /// </summary>
-        [DefaultValue(10)]
         public int PageSize
         {
             get;
@@ -71,10 +72,17 @@ namespace C1.Web.Mvc.Extensions
             set;
         }
 
-        /// <summary>
-        /// Gets or sets a function used to customize the values shown in the drop-down list.
-        /// </summary>
-        public string GridItemFormater
+    /// <summary>
+    /// Gets or sets a function used to customize the values shown in the drop-down list.
+    /// </summary>
+
+    #if MODEL
+            [C1Ignore]
+    #endif
+    #if !MODEL
+        [JsonConverter(typeof(FunctionConverter))]
+    #endif
+    public string GridItemFormater
         {
             get;
             set;
@@ -96,7 +104,5 @@ namespace C1.Web.Mvc.Extensions
             set;
         }
     }
-
-    #endregion
 
 }

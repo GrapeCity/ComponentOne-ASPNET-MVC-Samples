@@ -1,0 +1,26 @@
+﻿.wj-flexgrid {
+  max-height: 250px;
+}
+
+/* show images on filtered columns */
+.custom-icons .wj-glyph-filter {
+    background-image:url('http://icons.iconseeker.com/png/fullsize/aspnet/filter-1.png');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-top: 4px;
+    width: 1em; height: 1em;
+    border: none;
+}
+.custom-icons .wj-glyph-filter:after {
+    display: none;
+}
+/* make active filter images 25% larger */
+.custom-icons .wj-filter-on .wj-glyph-filter {
+    transform: scale(1.25)
+}
+
+/* change the color of the filter glyphs */
+.custom-colors .wj-glyph-filter {
+    color: red;
+    font-size: 125%;
+}

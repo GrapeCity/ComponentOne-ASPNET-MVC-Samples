@@ -1,0 +1,19 @@
+﻿@model ControlPage
+
+@ShowPage(Model)
+
+@helper ShowPage(ControlPage page)
+{
+    <li class="control-page">
+        <a href="@page.Path">@page.Text</a>
+        @if (page.SubPages != null && page.SubPages.Count > 0)
+        {
+            <ul>
+                @foreach (ControlPage subPage in page.SubPages)
+                {
+                    @ShowPage(subPage);
+                }
+            </ul>
+        }
+    </li>
+}

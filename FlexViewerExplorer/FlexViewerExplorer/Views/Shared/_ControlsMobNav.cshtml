@@ -1,0 +1,82 @@
+﻿@using FlexViewerExplorer.Models
+@{
+    var totalCount = Documents.AllItems.Count();
+}
+
+<script type="text/javascript">
+    function mobFlexGrid_MouseDown(e) {
+        if (e.button != 0) {
+            return;
+        }
+
+        var grid = wijmo.Control.getControl('#sNavList'),
+            ht = grid.hitTest(e.pageX, e.pageY);
+        if (ht.cellType != wijmo.grid.CellType.Cell) {
+            return;
+        }
+        var gr = wijmo.tryCast(grid.rows[ht.row], wijmo.grid.GroupRow);
+        if (!gr) {
+            return;
+        }
+
+        var viewerName = "ReportViewer";
+        switch (gr.dataItem["Kind"]) {
+            case "FlexReport":
+                loadFlexReport(gr.dataItem["FullPath"], gr.dataItem["Name"]);
+                break;
+            case "ArReport":
+                loadArReport(gr.dataItem["FullPath"]);
+                break;
+            case "SsrsReport":
+                loadSsrsReport(gr.dataItem["FullPath"]);
+                break;
+            case "Pdf":
+                viewerName = "PdfViewer";
+                loadPdf(gr.dataItem["FullPath"]);
+                break;
+            default:
+                gr.isCollapsed = !gr.isCollapsed;
+                return;
+        }
+
+        updateTitle(viewerName, gr.dataItem["Title"]);
+        addClass(grid.hostElement, 'mob-hide-0');
+    }
+
+    c1.documentReady(function () {
+        var grid = wijmo.Control.getControl('#sNavList');
+        grid.maxUpdateCount = 2;
+        grid.updatedView.addHandler(flexGrid_UpdatedView, grid);
+        grid.hostElement.addEventListener('mousedown', mobFlexGrid_MouseDown)
+    });
+</script>
+
+<div class="sample-navigator mob-show-0 narrow-screen">
+    <a id="sampleNavBtn" class="collapse-title" href="#" target="_self">
+        FlexViewer
+        @if (totalCount > 1)
+        {
+            <span class="caret"></span>
+        }
+    </a>
+    @if (totalCount > 1)
+    {
+        <div id="sNavList" class="controls-menu mob-hide-0 navgrid" role="menu">
+        </div>
+        @(Html.C1().FlexGrid<DocumentItem>("#sNavList")
+                .AutoGenerateColumns(false).IsReadOnly(true)
+                .Bind(Documents.AllItems)
+                .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.None)
+                .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.ListBox)
+                .OnClientFormatItem("flexGrid_ItemFormatter")
+                .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+                .AllowSorting(false)
+                .ChildItemsPath("Children")
+                .TreeIndent(20)
+                .Columns(bl =>
+                {
+                    bl.Add().Binding("Title").Width("*");
+                })
+        )
+    }
+</div>

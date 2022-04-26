@@ -1,13 +1,15 @@
+@using FinancialChartExplorer.Models
+
 @model List<FinanceData>
 @{
     ViewBag.DemoSettings = true;
-    var indicators = new List<AnalysisType> {
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeAtr, Abbreviation = "atr"},
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeRsi, Abbreviation = "rsi" },
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeCci, Abbreviation = "cci" },
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeWilliamsR, Abbreviation = "williamsR" },
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeMacd, Abbreviation = "macd" },
-        new AnalysisType{Name = Home.Indicators_AnalysisTypeStoch, Abbreviation = "stoch" }
+    var indicators = new List<AnalysisType> { 
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeAtr, Abbreviation = "atr"},
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeRsi, Abbreviation = "rsi" },
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeCci, Abbreviation = "cci" },
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeWilliamsR, Abbreviation = "williamsR" },
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeMacd, Abbreviation = "macd" },
+        new AnalysisType{Name = Resources.Home.Indicators_AnalysisTypeStoch, Abbreviation = "stoch" }
     };
 }
 
@@ -275,111 +277,115 @@
     };
 </script>
 
-<c1-financial-chart id="financeChart" binding-x="X" rendered="chartRendered" legend-position="Top">
-    <c1-items-source source-collection="@Model"></c1-items-source>
-    <c1-financial-chart-series binding="Close" name="BOX"></c1-financial-chart-series>
-    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
-</c1-financial-chart>
+@(Html.C1().FinancialChart()
+.Id("financeChart")
+.Bind(Model)
+.BindingX("X")
+.Series(sers =>
+{
+    sers.Add().Binding("Close").Name("BOX");
+})
+.Tooltip(t => t.Content("tooltip"))
+.Legend(C1.Web.Mvc.Chart.Position.Top)
+.OnClientRendered("chartRendered"))
 
-<c1-financial-chart id="indicator" height="200px" binding-x="X" rendered="chartRendered" legend-position="Bottom">
-    <c1-items-source source-collection="@Model"></c1-items-source>
-    <c1-flex-chart-atr binding="High,Low,Open,Close" period="14" name="ATR"></c1-flex-chart-atr>
-    <c1-flex-chart-rsi binding="Close" period="14" name="RSI"></c1-flex-chart-rsi>
-    <c1-flex-chart-cci binding="High,Low,Open,Close" period="20" name="CCI"></c1-flex-chart-cci>
-    <c1-flex-chart-williams-r binding="High,Low,Open,Close" period="14" name="Williams %R"></c1-flex-chart-williams-r>
-    <c1-flex-chart-macd binding="Close" fast-period="12" slow-period="26" smoothing-period="9" name="MACD,Signal">
-        <c1-flex-chart-line-style c1-property="macdLine" stroke="#bfa554"></c1-flex-chart-line-style>
-        <c1-flex-chart-line-style c1-property="signalLine" stroke="#bf8c54"></c1-flex-chart-line-style>
-    </c1-flex-chart-macd>
-    <c1-flex-chart-macd-histogram binding="Close" fast-period="12" slow-period="26" smoothing-period="9" name="MACD Histogram"></c1-flex-chart-macd-histogram>
-    <c1-flex-chart-stochastic binding="High,Low,Open,Close" k-period="14" d-period="3" smoothing-period="1" name="%K,%D">
-        <c1-flex-chart-line-style c1-property="kLine" stroke="#eddd46"></c1-flex-chart-line-style>
-        <c1-flex-chart-line-style c1-property="dLine" stroke="#edb747"></c1-flex-chart-line-style>
-    </c1-flex-chart-stochastic>
-    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
-</c1-financial-chart>
+@(Html.C1().FinancialChart().Height(200)
+.Id("indicator")
+.Bind(Model)
+.BindingX("X")
+.Series(sers =>
+{
+    sers.AddATR().Binding("High,Low,Open,Close").Period(14).Name("ATR");
+    sers.AddRSI().Binding("Close").Period(14).Name("RSI");
+    sers.AddCCI().Binding("High,Low,Open,Close").Period(20).Name("CCI");
+    sers.AddWilliamsR().Binding("High,Low,Open,Close").Period(14).Name("Williams %R");
+    sers.AddMacd().Binding("Close").FastPeriod(12).SlowPeriod(26).SmoothingPeriod(9).SetMacdLineStyle("#bfa554").SetSignalLineStyle("#bf8c54").Name("MACD,Signal");
+    sers.AddMacdHistogram().Binding("Close").FastPeriod(12).SlowPeriod(26).SmoothingPeriod(9).Name("MACD Histogram");
+    sers.AddStochastic().Binding("High,Low,Open,Close").KPeriod(14).DPeriod(3).SmoothingPeriod(1).SetKLineStyle("#eddd46").SetDLineStyle("#edb747").Name("%K,%D");
+})
+.Tooltip(t => t.Content("tooltip"))
+.Legend(C1.Web.Mvc.Chart.Position.Bottom)
+.OnClientRendered("chartRendered"))
 
 @section Settings{
 <div class="panel-body">
     <!-- Indicator Selector -->
     <ul class="list-inline">
         <li>
-            <label>@Html.Raw(Home.Indicators_IndicatorType)</label>
-            <c1-combo-box id="indicatorSel" selected-value-path="Abbreviation" display-member-path="Name" selected-index-changed="updateIndicatorType" is-editable="false">
-                <c1-items-source source-collection="indicators"></c1-items-source>
-            </c1-combo-box>
+            <label>@Html.Raw(Resources.Home.Indicators_IndicatorType)</label>
+            @(Html.C1().ComboBox().Id("indicatorSel").Bind(indicators).SelectedValuePath("Abbreviation").DisplayMemberPath("Name").OnClientSelectedIndexChanged("updateIndicatorType").IsEditable(false))
         </li>
     </ul>
 
     <!-- ATR Properties -->
     <ul class="list-inline" id="atr">
         <li>
-            <label>@Html.Raw(Home.Indicators_Period)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateATRPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_Period)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(14).OnClientValueChanged("updateATRPeriod"))
         </li>
     </ul>
 
     <!-- RSI Properties -->
     <ul class="list-inline" id="rsi">
         <li>
-            <label>@Html.Raw(Home.Indicators_Period)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateRSIPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_Period)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(14).OnClientValueChanged("updateRSIPeriod"))
         </li>
     </ul>
 
     <!-- CCI Properties -->
     <ul class="list-inline" id="cci">
         <li>
-            <label>@Html.Raw(Home.Indicators_Period)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="20" value-changed="updateCCIPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_Period)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(20).OnClientValueChanged("updateCCIPeriod"))
         </li>
     </ul>
 
     <!-- Williams %R Properties -->
     <ul class="list-inline" id="williamsR">
         <li>
-            <label>@Html.Raw(Home.Indicators_Period)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateWilliamsRPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_Period)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(14).OnClientValueChanged("updateWilliamsRPeriod"))
         </li>
     </ul>
 
     <!-- MACD & MACD Histogram Properties -->
     <ul class="list-inline" id="macd">
         <li>
-            <label>@Html.Raw(Home.Indicators_FastPeriod)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="12" value-changed="updateFastPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_FastPeriod)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(12).OnClientValueChanged("updateFastPeriod"))
         </li>
         <li>
-            <label>@Html.Raw(Home.Indicators_SlowPeriod)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="26" value-changed="updateSlowPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_SlowPeriod)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(26).OnClientValueChanged("updateSlowPeriod"))
         </li>
         <li>
-            <label>@Html.Raw(Home.Indicators_SignalSmoothingPeriod)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="9" value-changed="updateSmoothingPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_SignalSmoothingPeriod)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(9).OnClientValueChanged("updateSmoothingPeriod"))
         </li>
     </ul>
 
     <!-- Fast Stochastic Properties -->
     <ul class="list-inline" id="stoch">
         <li>
-            <label>@Html.Raw(Home.Indicators_KPeriod)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateKPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_KPeriod)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(14).OnClientValueChanged("updateKPeriod"))
         </li>
         <li>
-            <label>@Html.Raw(Home.Indicators_DPeriod)</label>
-            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="3" value-changed="updateDPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_DPeriod)</label>
+            @(Html.C1().InputNumber().Min(2).Step(1).Format("n0").Max(Model.Count - 1).Value(3).OnClientValueChanged("updateDPeriod"))
         </li>
         <li>
-            <label>@Html.Raw(Home.Indicators_SmoothingPeriod)</label>
-            <c1-input-number min="1" step="1" format="n0" max="@(Model.Count-1)" value="1" value-changed="updateStochSmoothingPeriod"></c1-input-number>
+            <label>@Html.Raw(Resources.Home.Indicators_SmoothingPeriod)</label>
+            @(Html.C1().InputNumber().Min(1).Step(1).Format("n0").Max(Model.Count - 1).Value(1).OnClientValueChanged("updateStochSmoothingPeriod"))
         </li>
     </ul>
 </div>
 }
 
 @section Description{
-<p>@Html.Raw(Home.Indicators_Text0)</p>
+    <p>@Html.Raw(Resources.Home.Indicators_Text0)</p>
 }
 @section Summary{
-    <p>@Html.Raw(Home.Indicators_Text1)</p>
+    <p>@Html.Raw(Resources.Home.Indicators_Text1)</p>
 }

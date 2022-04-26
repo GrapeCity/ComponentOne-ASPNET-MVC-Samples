@@ -1,0 +1,80 @@
+﻿/* customize Bootstrap header classes */
+.header
+{
+    background-color: #f27c0a;
+    background-position: 0% 0%;
+    background-repeat: repeat-x;
+    padding: 12px 0px;
+    margin-bottom: 14px;
+    color: white;
+}
+
+.header h1 {
+    font-size: 40px;
+    color: white;
+}
+.header a
+{
+    font-weight: bold;
+    color: #ffe44e;
+}
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+/* set font for the document */
+body {
+    font-family: 'Segoe UI', sans-serif;
+	padding-bottom: 75px;
+}
+
+.wj-flexchart {
+    margin: 10px 0;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before {
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+
+    .logo-container .gcicon-product-c1 {
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+
+    .logo-container a {
+        text-decoration: none;
+    }

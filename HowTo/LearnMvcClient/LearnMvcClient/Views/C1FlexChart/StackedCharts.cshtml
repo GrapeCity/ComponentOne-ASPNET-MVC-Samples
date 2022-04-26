@@ -1,0 +1,29 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.StackedCharts_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.StackedCharts_Text1)
+</p>
+
+<div class="chart-holder">
+    @(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChartAmounts")
+        .Bind("Country", Model)
+        .Header(Resources.C1FlexChart.PlotAreas_Text4)
+        .AxisX(x => x.Position(C1.Web.Mvc.Chart.Position.None))
+        .Series(sb =>
+        {
+            sb.Add().Binding("Sales").Name("Sales");
+            sb.Add().Binding("Expenses").Name("Expenses");
+        })
+        .PlotMargin("NaN 120 10 50")
+    )
+    @(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChartQty")
+        .Bind("Country", Model)
+        .Series(sb =>sb.Add().Binding("Downloads").Name("Downloads").ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols))
+        .PlotMargin("10 120 NaN 60")
+    )
+</div>

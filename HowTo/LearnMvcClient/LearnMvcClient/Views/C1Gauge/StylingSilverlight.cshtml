@@ -1,0 +1,84 @@
+<h1>@Html.Raw(Resources.C1Gauge.StylingSilverlight_Title)</h1>
+
+<p>
+    @Html.Raw(Resources.C1Gauge.StylingSilverlight_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.StylingSilverlight_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.StylingSilverlight_Text3)
+</p>
+
+<div class="demo-settings">
+    <label for="showTicks">@Html.Raw(Resources.C1Gauge.StylingSilverlight_Text4)</label>
+    <input id="showTicks" type="checkbox"><br />
+    <label for="animate">@Html.Raw(Resources.C1Gauge.StylingSilverlight_Text5)</label>
+    <input id="animate" type="checkbox">
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>@Html.Raw(Resources.C1Gauge.StylingSilverlight_Text6)</th>
+            <th>@Html.Raw(Resources.C1Gauge.StylingSilverlight_Text7)</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td><img id="slGauge1" style="width:240px"></td>
+            <td>
+                @(Html.C1().RadialGauge().Id("wjGauge1")
+                    .Min(0).Max(120).Step(20).Value(90)
+                    .StartAngle(30).SweepAngle(120).Thickness(0.3)
+                    .HasShadow(false)
+                    .Pointer(p => p.Thickness(0.5).Color(System.Drawing.ColorTranslator.FromHtml("#FF5F38")))
+                    .Ranges(r =>
+                    {
+                        r.Add().Min(0).Max(50).Color(System.Drawing.Color.Red);
+                        r.Add().Min(50).Max(85).Color(System.Drawing.Color.Yellow);
+                        r.Add().Min(85).Max(100).Color(System.Drawing.ColorTranslator.FromHtml("#4CFF00"));
+                        r.Add().Min(100).Max(120).Color(System.Drawing.ColorTranslator.FromHtml("#005F0E"));
+                    })
+                )
+            </td>
+        </tr>
+        <tr>
+            <td><img id="slGauge2" style="width:240px"></td>
+            <td>
+                @(Html.C1().RadialGauge().Id("wjGauge2")
+                    .Min(0).Max(120).Step(20).Value(100)
+                    .StartAngle(-45).SweepAngle(270).Thickness(0.3)
+                    .HasShadow(false)
+                    .AutoScale(false) // to get a round border
+                    .Pointer(p => p.Thickness(0.5).Color(System.Drawing.ColorTranslator.FromHtml("#FF5F38")))
+                    .Ranges(r =>
+                    {
+                        r.Add().Min(0).Max(45).Color(System.Drawing.Color.Red);
+                        r.Add().Min(45).Max(80).Color(System.Drawing.Color.Yellow);
+                        r.Add().Min(80).Max(100).Color(System.Drawing.ColorTranslator.FromHtml("#4CFF00"));
+                        r.Add().Min(100).Max(120).Color(System.Drawing.ColorTranslator.FromHtml("#005F0E"));
+                    })
+                )
+            </td>
+        </tr>
+        <tr>
+            <td><img id="slGauge3" style="width:140px"></td>
+            <td>
+                @(Html.C1().RadialGauge().Id("wjGauge3")
+                    .Min(0).Max(100).Step(20).Value(40)
+                    .StartAngle(100).SweepAngle(160).Thickness(0.3)
+                    .HasShadow(false)
+                    .Pointer(p => p.Thickness(0.5).Color(System.Drawing.ColorTranslator.FromHtml("#FF5F38")))
+                    .Ranges(r =>
+                    {
+                        r.Add().Min(0).Max(50).Color(System.Drawing.Color.Red);
+                        r.Add().Min(50).Max(75).Color(System.Drawing.Color.Yellow);
+                        r.Add().Min(75).Max(90).Color(System.Drawing.ColorTranslator.FromHtml("#4CFF00"));
+                        r.Add().Min(90).Max(100).Color(System.Drawing.ColorTranslator.FromHtml("#005F0E"));
+                    })
+                )
+            </td>
+        </tr>
+    </tbody>
+</table>

@@ -1,0 +1,30 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.TitleStyles_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.TitleStyles_Text1)
+</p>
+
+<div class="demo-settings">
+    <label for="customTitles">@Html.Raw(Resources.C1FlexChart.TitleStyles_Text2) </label>
+    <input id="customTitles" type="checkbox" checked="true">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .CssClass("custom-titles")
+    .Bind("Country", Model)
+    .Header(Resources.C1FlexChart.LegendStyles_Text3)
+    .Footer(Resources.C1FlexChart.LegendStyles_Text4)
+    .AxisX(x=>x.Title("Country"))
+    .AxisY(y=>y.Title("Values/Units"))
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

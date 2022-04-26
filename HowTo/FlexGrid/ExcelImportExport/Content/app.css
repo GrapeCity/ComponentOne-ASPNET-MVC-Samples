@@ -1,0 +1,115 @@
+﻿/* customize Bootstrap header classes */
+.header
+{
+    background-color: #f27c0a;
+    padding: 12px 0px;
+    margin-bottom: 14px;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before{
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+    .logo-container .gcicon-product-c1{
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+    .logo-container a {
+        text-decoration:none;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+.header h1 {
+    font-size: 40px;
+    line-height: 1;
+    margin: 8px 0 5px 0;
+    color: white;
+}
+
+.header img {
+    float: left;
+    margin: 0 10px 5px 0;
+}
+
+/* set font for the document */
+body {
+    font-family: 'Segoe UI', sans-serif;
+	padding-bottom: 75px;
+}
+
+input[type="file"] {
+	height: auto;
+	padding: 3px 12px;
+}
+
+.form-inline .checkbox {
+	padding-left: 15px;
+}
+
+.pane-content {
+    -moz-border-bottom-colors: none;
+    -moz-border-left-colors: none;
+    -moz-border-right-colors: none;
+    -moz-border-top-colors: none;
+    background-color: white;
+    border-color: #dddddd;
+    border-image: none;
+    border-right: 1px solid #dddddd;
+    border-style: none solid solid;
+    border-width: medium 1px 1px;
+    font-family: Monaco,Menlo,Consolas,"Courier New",monospace;
+    font-size: 13px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+}
+
+.appCopy {
+	margin: 30px 0 40px 0;
+}
+
+.appCopy h2 {
+	margin-top: 0;
+}
+
+@media (min-width: 768px) {
+	#importFile {
+		width: 240px;
+	}
+}

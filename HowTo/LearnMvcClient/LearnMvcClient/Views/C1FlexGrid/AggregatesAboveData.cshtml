@@ -1,0 +1,31 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesAboveData_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesAboveData_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.AggregatesAboveData_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.AggregatesAboveData_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.AggregatesAboveData_Text4)
+    </li>
+</ol>
+@(Html.C1().FlexGrid<FlexGridData.Sale>().Id("theGrid").Height(250)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("60").IsReadOnly(true);
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Product").Header("Product");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)

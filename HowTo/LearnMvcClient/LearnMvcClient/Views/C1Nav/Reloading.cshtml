@@ -1,0 +1,22 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.Reloading_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Reloading_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Reloading_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Reloading_Text3)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Nav.Reloading_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Reloading_Text5)
+    </li>
+</ol>
+
+@Html.C1().TreeView().Id("theTree").DisplayMemberPath("header").ChildItemsPath("items").IsContentHtml(true).AllowDragging(true).ExpandOnClick(false).AutoCollapse(false)

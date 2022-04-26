@@ -1,0 +1,33 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Index_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Index_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Index_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Nav.Index_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Index_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Index_Text5)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1Nav.Index_Text6)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Index_Text7)
+</p>
+
+@Html.C1().TreeView().Id("theTree")
+
+<div id="selection"></div>
+<div id="click"></div>

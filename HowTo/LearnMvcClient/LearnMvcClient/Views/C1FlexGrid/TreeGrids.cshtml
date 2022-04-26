@@ -1,0 +1,36 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text1)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text3)
+</p>
+
+<label for="asTree">
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text4)
+    <input id="asTree" type="checkbox" checked="checked">
+</label>
+
+@Html.C1().FlexGrid().Id("familyGrid")
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.TreeGrids_Text6)
+</p>
+@(Html.C1().FlexGrid().Id("workersGrid")
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("name");
+        cs.Add().Binding("hours").DataType(C1.Web.Mvc.Grid.DataType.Number);
+        cs.Add().Binding("rate").DataType(C1.Web.Mvc.Grid.DataType.Number);
+    })
+)

@@ -1,0 +1,13 @@
+﻿@using System.Drawing
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+<div>
+    <label>@Html.Raw(Resources.ColorPicker.Index_ColorPicker)</label>
+    @Html.C1().ColorPicker().Id(settings.ControlId).Palette(Color.Red, Color.Green, Color.Blue).Width(400)
+</div>
+
+@section Description{
+    @Html.Raw(Resources.ColorPicker.Index_Text0)
+}

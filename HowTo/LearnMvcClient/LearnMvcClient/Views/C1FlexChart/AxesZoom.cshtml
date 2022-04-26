@@ -1,0 +1,21 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesZoom_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesZoom_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesZoom_Text2)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .Bind("Date", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Series(sb=>sb.Add().Binding("High,Low,Open,Close").Name("Alphabet Inc"))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+)
+<button id="btnReset" class="btn btn-default">@Resources.Resource.Btn_ResetZoom</button>

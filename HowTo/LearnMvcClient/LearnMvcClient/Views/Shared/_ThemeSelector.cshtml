@@ -1,0 +1,11 @@
+﻿<script id="comboThemeItemTemp" type="text/template">
+    <a href="{{Path}}" class="theme-selector-link">{{DisplayText}}</a>
+</script>
+@{
+    Theme.CurrentTheme = Request.QueryString["theme"];
+}
+@(Html.C1().ComboBox<Theme>().Bind(Theme.GetAll())
+    .IsEditable(false)
+    .DisplayMemberPath("DisplayText")
+    .ItemTemplateId("comboThemeItemTemp")
+    .SelectedIndex(Theme.GetCurrentThemeIndex()))

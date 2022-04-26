@@ -1,0 +1,37 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputNumber_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputNumber_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.InputNumber_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputNumber_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputNumber_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputNumber_Text5)
+    </li>
+</ol>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputNumber_Text6)
+</p>
+<label for="theNumber">@Html.Raw(Resources.C1Input.InputNumber_Text7)</label>
+@Html.C1().InputNumber().Id("theNumber")
+<div>
+    @Html.Raw(Resources.C1Input.InputNumber_Text8)
+</div>
+
+<p></p>
+<p>
+    @Html.Raw(Resources.C1Input.InputNumber_Text9)
+</p>
+<label for="theNumberNotRequired">@Html.Raw(Resources.C1Input.InputNumber_Text10)</label>
+@Html.C1().InputNumber().Id("theNumberNotRequired").IsRequired(false).Value(null).Min(0).Max(100).Placeholder(Resources.C1Input.InputNumber_Text11)

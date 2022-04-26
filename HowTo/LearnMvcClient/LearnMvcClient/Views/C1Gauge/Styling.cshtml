@@ -1,0 +1,13 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.Styling_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.Styling_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.Styling_Text2)
+</p>
+<div id="thePanel"></div>
+@Html.C1().LinearGauge().Id("red")
+@Html.C1().LinearGauge().Id("green")
+@Html.C1().LinearGauge().Id("blue")

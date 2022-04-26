@@ -1,0 +1,21 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.HierarchicalDataFiltering_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.HierarchicalDataFiltering_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.HierarchicalDataFiltering_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.HierarchicalDataFiltering_Text3)
+</p>
+<div class="input-group">
+    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+    <input id="filter" class="form-control" placeholder="@Resources.C1FlexGrid.HierarchicalDataFiltering_Text4">
+</div>
+@Html.C1().FlexGrid().Id("theGrid").HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column).Height(250)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.HierarchicalDataFiltering_Text5)
+</p>

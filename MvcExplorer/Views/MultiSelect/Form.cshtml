@@ -1,0 +1,26 @@
+﻿@using MvcExplorer.Models;
+@model CustomerProduct
+@{
+    String message = ViewBag.Message;
+    List<string> products = ViewBag.Products;
+}
+<label>@Html.Raw(Resources.MultiSelect.Form_Text0)</label>
+<div>
+    @using (Html.BeginForm())
+    {
+        <div>
+            @(Html.C1().MultiSelectFor(model=>model.Products).Bind(products)
+            .Placeholder(Resources.MultiSelect.Form_Placeholder)
+            .HeaderFormat(Resources.MultiSelect.Form_HeaderFormat)
+            )
+        </div>
+        <div style="margin-top: 10px">
+            <input type="submit" class="wj-btn wj-btn-default" value="@(Resources.MultiSelect.Form_Submit)" />
+        </div>
+    }
+    <p>@message</p>
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.MultiSelect.Form_Text1)</p>
+}

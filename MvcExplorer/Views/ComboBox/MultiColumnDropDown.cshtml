@@ -1,0 +1,7 @@
+﻿@model IEnumerable<string>
+
+@Html.C1().ComboBox().Bind(Model).SelectedIndex(0).IsEditable(false).DropDownCssClass("multi-column")
+
+@section Description{
+    @Html.Raw(Resources.ComboBox.MultiColumnDropDown_Text0)
+}

@@ -1,0 +1,43 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.RadialGauges_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.RadialGauges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.RadialGauges_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.RadialGauges_Text3)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="value">@Html.Raw(Resources.C1Gauge.RadialGauges_Text4)</label>
+        @Html.C1().InputNumber().Id("value")
+        <br>
+        <label for="startAngle">@Html.Raw(Resources.C1Gauge.RadialGauges_Text5)</label>
+        @Html.C1().InputNumber().Id("startAngle").Min(-360).Max(360).Step(10)
+        <br>
+        <label for="sweepAngle">@Html.Raw(Resources.C1Gauge.RadialGauges_Text6)</label>
+        @Html.C1().InputNumber().Id("sweepAngle").Min(-360).Max(360).Step(10)
+        <br>
+        <label for="autoScale">@Html.Raw(Resources.C1Gauge.RadialGauges_Text7)</label>
+        <input id="autoScale" type="checkbox" checked="checked"><br>
+
+    </div>
+    <div class="col-xs-6">
+        <div class="gauge-holder">
+            @(Html.C1().RadialGauge().Id("theGauge")
+                .Min(0).Max(100).Step(5).Value(75)
+                .IsReadOnly(false)
+                .ShowRanges(false)
+                .Ranges(r =>
+                {
+                    r.Add().Min(0).Max(33).Color(System.Drawing.Color.Red);
+                    r.Add().Min(33).Max(66).Color(System.Drawing.Color.Yellow);
+                    r.Add().Min(66).Max(100).Color(System.Drawing.Color.Green);
+                })
+            )
+        </div>
+    </div>
+</div>

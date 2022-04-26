@@ -1,0 +1,103 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var grid = wijmo.Control.getControl('#customGridEditorsGrid');
+        grid.hostElement.addEventListener('keydown', function (e) {
+            if (e.keyCode == 32) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    function customChangeKeyActionTab(control, value) {
+        var control = wijmo.Control.getControl("#customGridEditorsGrid");
+        control.keyActionTab = value;
+        control.invalidate();
+    }
+
+    function customChangeKeyActionEnter(control, value) {
+        var control = wijmo.Control.getControl("#customGridEditorsGrid");
+        control.keyActionEnter = value;
+        control.invalidate();
+    }
+</script>
+}
+
+@(Html.C1().InputNumber()
+    .Id("amountEditor")
+    .Format("c2")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+    .Step(10)
+)
+
+@(Html.C1().InputDate()
+        .Id("dateEditor")
+        .Format("d")
+        .IsRequired(false) // add this for new row
+        .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().ComboBox()
+        .Id("countryEditor")
+        .IsEditable(false)
+        .Bind(countries)
+        .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputColor()
+        .Id("colorEditor")
+        .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputTime()
+        .Id("timeEditor")
+        .Step(30)
+        .Format("t")
+        .IsRequired(false) // add this for new row
+        .CssStyle("width", "100%") // full with the cell
+)
+
+<!-- FlexGrid hosting the custom editors -->
+@(Html.C1().FlexGrid<Sale>()
+    .Id("customGridEditorsGrid")
+    .KeyActionTab(C1.Web.Mvc.Grid.KeyAction.CycleEditable)
+    .KeyActionEnter(C1.Web.Mvc.Grid.KeyAction.MoveDown)
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Width("0.4*").IsReadOnly(true));
+        bl.Add(cb => cb.Binding("Start").Header("Date").Width("*").Format("d").Editor("dateEditor"));
+        bl.Add(cb => cb.Binding("End").Header("Time").Width("*").Format("t").Editor("timeEditor"));
+        bl.Add(cb => cb.Binding("Country").Width("1.5*").Editor("countryEditor"));
+        bl.Add(cb => cb.Binding("Product").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Amount").Format("n2").Width("1.5*").Editor("amountEditor"));
+        bl.Add(cb => cb.Binding("Amount2").Format("n2").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Color").Width("1.5*").Editor("colorEditor"));
+        bl.Add(cb => cb.Binding("Active").Width("1.5*"));
+    })
+    .Bind(bl => bl.Update(Url.Action("GridEditorsUpdate"))
+        .Create(Url.Action("GridEditorsCreate"))
+        .Delete(Url.Action("GridEditorsDelete"))
+        .Bind(Model))
+    .CssStyle("height", "500px")
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.CustomEditors_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.CustomEditors_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.CustomEditors_Text2)</p>
+    <p>@Html.Raw(Resources.FlexGrid.CustomEditors_Text13)</p>
+}

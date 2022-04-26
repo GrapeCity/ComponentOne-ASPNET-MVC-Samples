@@ -1,0 +1,47 @@
+﻿@using System.Text.RegularExpressions
+@model ClientSettingsModel
+@{
+    if (Model != null && Model.Settings != null && !string.IsNullOrEmpty(Model.ControlId))
+    {
+        foreach (var setting in Model.Settings)
+        {
+            var menuId = setting.Key.Replace(".", "_").Replace(" ", "");
+            var commandName = "change" + menuId;
+            var customChangeName = "customChange" + menuId;
+            var converterName = "convert" + menuId;
+            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")) + ": ";
+            var propertyPaths = string.Join(".", setting.Key.Replace(" ", "").Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
+            var updateProperty = "update" + menuId;
+            var defaultValue = setting.Value.First();
+            if (Model.DefaultValues != null && Model.DefaultValues.ContainsKey(setting.Key))
+            {
+                defaultValue = Model.DefaultValues[setting.Key];
+            }
+            <script>
+                function @(commandName)(menu) {
+                    menu.header = "@(headerName)<b>" + menu.selectedItem.Header + "</b>";
+                    var control = wijmo.Control.getControl("#@(Model.ControlId)");
+                    var value = menu.selectedItem.CommandParameter;
+                    if(typeof @(customChangeName) === 'function') {
+                        @(customChangeName)(control, value);
+                        return;
+                    }
+
+                    if(typeof @(updateProperty) === 'function') {
+                        @(updateProperty)(control, value);
+                    } else {
+                        control.@(propertyPaths) = (typeof @(converterName) === 'undefined' ? value : @(converterName)(value));
+                        control.invalidate(); @*Controls like Calendar need this.*@
+                    }
+                }
+            </script>
+            @Html.C1().Menu().Id(menuId).Header(headerName + "<b>" + defaultValue + "</b>").MenuItems(items =>
+            {
+                foreach (var option in setting.Value)
+                {
+                    items.Add().Header(option.ToString()).CommandParameter(option);
+                }
+            }).OnClientItemClicked(commandName)
+        }
+    }
+}

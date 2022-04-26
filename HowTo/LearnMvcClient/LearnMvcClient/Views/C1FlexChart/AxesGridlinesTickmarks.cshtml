@@ -1,0 +1,74 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text2)
+</p>
+
+<h4>
+    @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text3)
+</h4>
+
+<div class="row demo-settings">
+    <div class="col-xs-4">
+        <label>
+            <input id="customGridlines" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text4)
+        </label>
+        <label>
+            <input id="customUnits" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text5)
+        </label>
+    </div>
+    <div class="col-xs-4">
+        <label>
+            <input id="x-major" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text6)
+        </label>
+        <label>
+            <input id="x-minor" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text7)
+        </label>
+    </div>
+    <div class="col-xs-4">
+        <label>
+            <input id="y-major" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text8)
+        </label>
+        <label>
+            <input id="y-minor" type="checkbox" checked="checked">
+            @Html.Raw(Resources.C1FlexChart.AxesGridlinesTickmarks_Text9)
+        </label>
+    </div>
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .CssClass("custom-gridlines")
+    .AxisX(x=>x.Format("MMM dd")
+                .MajorGrid(true) // show major gridlines
+                .MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.Cross) // None,Outside,Inside,Cross
+                .MajorUnit(7)
+                .MinorGrid(true) // show minor gridlines
+                .MinorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None) // None,Outside,Inside,Cross
+                .MinorUnit(1))
+    .AxisY(y=>y.Min(790).Max(860)
+                .Format("c0")
+                .AxisLine(true) // show axis line
+                .MajorGrid(true) // show major gridlines
+                .MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.Cross) // None,Outside,Inside,Cross
+                .MajorUnit(20)
+                .MinorGrid(true) // show minor gridlines
+                .MinorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None) // None,Outside,Inside,Cross
+                .MinorUnit(5))
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Bind("Date", Model)
+    .Series(sb=>sb.Add().Binding("High,Low,Open,Close").Name("Alphabet Inc"))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+)

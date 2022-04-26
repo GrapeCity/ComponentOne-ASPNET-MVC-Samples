@@ -1,0 +1,61 @@
+﻿@using System.Drawing
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            window.dataMap = new Map();
+          wijmo.httpRequest('@Url.Content("~/Content/data/temp.json")', {
+                success: function(xhr) {
+                    JSON.parse(xhr.responseText).forEach(function (el) { dataMap.set(el.State, parseFloat(el.AverageTemperature)); });
+                }
+            });
+        });
+
+        function geoMapItemsSourceChanged(layer, a) {
+            var map = wijmo.Control.getControl("#flexMap");
+            map.zoomTo(layer.getGeoBBox());
+        }
+
+        function colorScale(v) {
+            return 1 - v;
+        }
+
+        function colorScaleBinding(o) {
+            return dataMap.get(o.properties.name)
+        }
+
+        function tooltipPopup(tt, e) {
+            if (!wijmo.isFunction(tt.content)) {
+                tt.content = function (f) {
+                    return f.name + ' ' + dataMap.get(f.name) + '°F';
+                }
+                e.cancel = true;
+            }
+        }
+    </script>
+}
+
+@(Html.C1().FlexMap().Id("flexMap")
+        .Header("Average Temperature By State")
+        .Height(600)
+        .Tooltip(tt => tt.Content("<b>{name}</b>").OnClientPopup("tooltipPopup"))
+        .Legend(lg => lg.Position(C1.Web.Mvc.Chart.Position.Left))
+        .Layers(ls =>
+        {
+            ls.AddGeoMapLayer()
+                .Url(Url.Content("~/Content/data/US.json"))
+                .ColorScale(cs => cs.Scale("colorScale")
+                                  .Binding("colorScaleBinding")
+                                  .Format("n0\"°F\"")
+                                  .Colors(C1.Web.Mvc.Chart.Palettes.Diverging.RdYlGn))
+                .OnClientItemsSourceChanged("geoMapItemsSourceChanged");
+        })
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexMap.USChoropleth_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexMap.USChoropleth_Text1)</p>
+}

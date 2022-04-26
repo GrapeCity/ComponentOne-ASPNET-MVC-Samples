@@ -1,0 +1,19 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="@Resources.Calendar.SiteNavAboutLink" target="_blank">@Resources.Calendar.SiteNavAbout</a>
+    </li>
+    <li>
+        <a href="@Resources.Calendar.SiteNavSupportLink" target="_blank">@Resources.Calendar.SiteNavSupport</a>
+    </li>
+    <li>
+        <a href="@Resources.Calendar.SiteNavPricingLink" target="_blank">@Resources.Calendar.SiteNavPricing</a>
+    </li>
+    <li class="bold">
+        <a href="@Resources.Calendar.SiteNavFreeTrialLink" target="_blank">@Resources.Calendar.SiteNavFreeTrial</a>
+    </li>
+</ul>
+

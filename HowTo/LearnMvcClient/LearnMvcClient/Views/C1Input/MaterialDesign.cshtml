@@ -1,0 +1,83 @@
+@{ 
+    var countries = new[] { "US", "UK", "Japan", "Germany", "France", "Italy", "Russia", "China", "India", "Korea", "Spain", "Canada", "Denmark", "Sweden", "Holland", "Norway", "Portugal" };
+    var colors = new[] { "Black", "White", "Grey", "Red", "Green", "Blue", "Yellow", "Pink", "Purple", "Orange" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.MaterialDesign_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.MaterialDesign_Text1)
+</p>
+<form>
+    <div class="wj-dialog-header" tabindex="-1">
+        @Html.Raw(Resources.C1Input.MaterialDesign_Text2)
+    </div>
+    <div class="wj-dialog-body">
+        <!-- personal information -->
+        <div class="wj-labeled-input">
+            <div id="name" autocomplete="name" required accesskey="n">
+            </div>
+            <label for="name">@Html.Raw(Resources.C1Input.MaterialDesign_Text3)</label>
+            <div class="wj-error" tabindex="-1">@Html.Raw(Resources.C1Input.MaterialDesign_Text4)</div>
+            @Html.C1().ComboBox("#name").IsEditable(true).IsRequired(true).ShowDropDownButton(false)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="email" autocomplete="email" required pattern="\S+@Html.Raw("@")\S+\.\S+" accesskey="e">
+            </div>
+            <label for="email">@Html.Raw(Resources.C1Input.MaterialDesign_Text5)</label>
+            <div class="wj-error" tabindex="-1">@Html.Raw(Resources.C1Input.MaterialDesign_Text6)</div>
+            @Html.C1().ComboBox("#email").IsEditable(true).IsRequired(true).ShowDropDownButton(false)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="country" items-source="countries" accesskey="c">
+            </div>
+            <label for="country">@Html.Raw(Resources.C1Input.MaterialDesign_Text7)</label>
+            @Html.C1().ComboBox("#country").Bind(countries).IsRequired(false).IsEditable(true).Text("")
+        </div>
+        <div class="wj-labeled-input">
+            <div id="card" autocomplete="ccnumber" pattern="[0-9]{4} [0-9]{4} [0-9]{4} [0-9]{4}" accesskey="r">
+            </div>
+            <label for="card">@Html.Raw(Resources.C1Input.MaterialDesign_Text8)</label>
+            <div class="wj-error" tabindex="-1">@Html.Raw(Resources.C1Input.MaterialDesign_Text9)</div>
+            @Html.C1().InputMask("#card").IsRequired(false).Value("").Mask("9999 9999 9999 9999")
+        </div>
+
+        <!-- transaction information -->
+        <div class="wj-labeled-input">
+            <div id="date" accesskey="d">
+            </div>
+            <label for="date">@Html.Raw(Resources.C1Input.MaterialDesign_Text10)</label>
+            @Html.C1().InputDate("#date").IsRequired(false).Value(null)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="time" accesskey="t">
+            </div>
+            <label for="time">@Html.Raw(Resources.C1Input.MaterialDesign_Text11)</label>
+            @Html.C1().InputTime("#time").IsRequired(false).Min(new DateTime(1, 1, 1, 8, 0, 0)).Max(new DateTime(1, 1, 1, 18, 0, 0)).Value(null)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="qty" accesskey="q">
+            </div>
+            <label for="quantity">@Html.Raw(Resources.C1Input.MaterialDesign_Text12)</label>
+            @Html.C1().InputNumber("#qty").IsRequired(false).Format("n0").Step(1).Value(null)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="discount" accesskey="i">
+            </div>
+            <label for="discount">@Html.Raw(Resources.C1Input.MaterialDesign_Text13)</label>
+            @Html.C1().InputNumber("#discount").IsRequired(false).Format("p0").Step(0.05).Min(0).Max(0.2).Value(null)
+        </div>
+        <div class="wj-labeled-input">
+            <div id="colors" accesskey="f">
+            </div>
+            <label for="colors">@Html.Raw(Resources.C1Input.MaterialDesign_Text14)</label>
+            @Html.C1().MultiSelect("#colors").Bind(colors).HeaderFormat(Resources.C1Input.MaterialDesign_Text15)
+        </div>
+    </div>
+
+    <div class="wj-dialog-footer">
+        <button class="btn btn-primary" type="submit">@Resources.Resource.Btn_Ok</button>
+        <button class="btn btn-default wj-hide-cancel">@Resources.Resource.Btn_Cancel</button>
+    </div>
+</form>

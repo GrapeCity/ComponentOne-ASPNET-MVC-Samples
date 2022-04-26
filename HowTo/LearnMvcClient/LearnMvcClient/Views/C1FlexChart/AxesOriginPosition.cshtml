@@ -1,0 +1,56 @@
+@using LearnMvcClient.Models
+
+@{ 
+    IEnumerable<FlexChartData.Point> points1 = ViewBag.Points1;
+    IEnumerable<FlexChartData.Point> points2 = ViewBag.Points2;
+    IEnumerable<FlexChartData.Point> points3 = ViewBag.Points3;
+    var xPositions = new[] { "None", "Top", "Bottom", "Auto" };
+    var yPositions = new[] { "None", "Left", "Right", "Auto" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text2)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text4)
+    </li>
+</ul>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label>@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text5)</label><br />
+        <label for="xOrigin">@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text6) </label>
+        <input id="xOrigin" type="checkbox"><br />
+        <label for="xPosition">@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text7) </label>
+        @Html.C1().ComboBox().Id("xPosition").Bind(xPositions).Text("Bottom").Width(100)
+    </div>
+    <div class="col-xs-6">
+        <label>@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text8)</label><br />
+        <label for="yOrigin">@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text9) </label>
+        <input id="yOrigin" type="checkbox"><br />
+        <label for="yPosition">@Html.Raw(Resources.C1FlexChart.AxesOriginPosition_Text10) </label>
+        @Html.C1().ComboBox().Id("yPosition").Bind(yPositions).Text("Left").Width(100)
+    </div>
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Scatter)
+    .AxisY(y=>y.AxisLine(true))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .Series(sb =>
+    {
+        sb.Add().Bind("X", "Y", points1).Name("Experiment 1");
+        sb.Add().Bind("X", "Y", points2).Name("Experiment 2");
+        sb.Add().Bind("X", "Y", points3).Name("Experiment 3");
+    })
+)

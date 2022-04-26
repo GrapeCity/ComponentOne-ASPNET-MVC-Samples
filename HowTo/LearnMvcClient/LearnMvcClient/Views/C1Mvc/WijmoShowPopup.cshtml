@@ -1,0 +1,23 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Height(300)
+<div style="display:none">
+    @Html.C1().ListBox().Id("theColumnPicker").CssClass("column-picker")
+</div>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Text3)
+</p>
+<button id="btnSave" class="btn btn-default">
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Text4)
+</button>
+<button id="btnRestore" class="btn btn-default">
+    @Html.Raw(Resources.C1Mvc.WijmoShowPopup_Text5)
+</button>

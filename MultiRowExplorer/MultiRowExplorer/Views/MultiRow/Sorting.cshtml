@@ -1,0 +1,54 @@
+@model IEnumerable<Sale>
+@{
+    var fields = new[] { "ID", "Start", "End", "Country", "Product", "Color", "Amount", "Amount2", "Discount", "Active" };
+    var orders = new[] { "Ascending", "Descending" };
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsByMenu = false;
+}
+
+@(Html.C1().MultiRow<Sale>()
+                    .Id("sortingMultiRow")
+                    .CssClass("multirow")
+                    .IsReadOnly(true)
+                    .Bind(Model)
+                    .OrderBy("ID")
+                    .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+)
+
+@section Scripts{
+    <script>
+        var field = "ID", order = "Ascending";
+        function sortMultiRow(combo) {
+            var multiRow, ascending, sd;
+            if (combo.hostElement.id === "sortingfield")
+                field = combo.selectedValue;
+            if (combo.hostElement.id === "sortingorder")
+                order = combo.selectedValue;
+
+            if (!field || !order) {
+                return;
+            }
+
+            multiRow = wijmo.Control.getControl("#sortingMultiRow");
+            ascending = order === "Ascending";
+            sd = multiRow.collectionView.sortDescriptions;
+            sdNew = new wijmo.collections.SortDescription(field, ascending);
+
+            // remove any old sort descriptors and add the new one
+            sd.splice(0, sd.length, sdNew);
+        }
+    </script>
+}
+
+@section Settings {
+    @Html.Raw(Resources.MultiRowExplorer.Sorting_Text3) @(Html.C1().ComboBox().Id("sortingfield").Bind(fields).SelectedIndex(0).IsEditable(false).OnClientSelectedIndexChanged("sortMultiRow"))
+    @Html.Raw(Resources.MultiRowExplorer.Sorting_Text2) @(Html.C1().ComboBox().Id("sortingorder").Bind(orders).SelectedIndex(0).IsEditable(false).OnClientSelectedIndexChanged("sortMultiRow"))
+}
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.Sorting_Text1)
+}
+
+@section Description{
+    @Html.Raw(Resources.MultiRowExplorer.Sorting_Text0)
+}

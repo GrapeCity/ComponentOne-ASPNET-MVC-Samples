@@ -1,0 +1,10 @@
+﻿/* de-emphasize selected cells when the grid doesn't contain the focus */
+.wj-flexgrid:not(.wj-state-focused) .wj-state-selected,
+.wj-flexgrid:not(.wj-state-focused) .wj-state-multi-selected {
+  background: #ddd;
+}
+
+.wj-flexgrid.wj-state-focused .wj-cell.wj-state-selected {
+	border: 2px solid orange;
+  transition: all 100ms;
+}

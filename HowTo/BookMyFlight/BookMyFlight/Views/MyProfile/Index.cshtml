@@ -1,0 +1,95 @@
+﻿@model BookMyFlight.Models.MyProfileModel
+
+@{
+    ViewBag.Title = "My Profile";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/MyProfile.js")" type="text/javascript"></script>
+<div id="PnlPage">
+    <div id="LblMsg"></div><br />
+    <div>
+        <div class="PFLLeftPnl">
+            <img src="@Url.Content("~/images/Profile_Default.PNG")" />
+        </div>
+        <div class="PFLRightPnl">
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:200px;">
+                    <span class="Title">Title:&nbsp;</span>
+                    @(Html.C1().ComboBox().Id("CmbTitle").Bind(Model.TitleList).Width("70%").CssStyle("border","none")
+.SelectedValue(Model.UserProfile.Title))
+                </div>
+            </div>
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:48%;">
+                    <span class="Title">First Name:&nbsp;</span>
+                    <input id="FName" type="text" placeholder="First Name" value="@Model.UserProfile.First_Name" style="border:none;width:65%"/>
+                </div>
+                <div class="CTRLBCK" style="width:48%;">
+                    <span class="Title">Last Name:&nbsp;</span>
+                    <input id="LName" type="text" placeholder="Last Name" value="@Model.UserProfile.Last_Name" style="border:none;width:65%" />
+                </div>
+            </div>
+
+            <div class="GroupHead">CONTACT DETAIL</div>
+            <hr />
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:48%;">
+                    <span class="Title">Email:&nbsp;</span>
+                    <input id="Email" type="email" placeholder="Email" value="@Model.UserProfile.Email_ID" style="border:none;width:70%" />
+                </div>
+            </div>
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:15%;">
+                    <input id="ISD" type="text" placeholder="ISD" value="@Model.UserProfile.ISD" style="border:none;width:70%" />
+                </div>
+                <div class="CTRLBCK" style="width:32%;">
+                    <span class="Title">Phone:&nbsp;</span>
+                    <input id="Phone" type="text" placeholder="Phone Number" value="@Model.UserProfile.Contact_No" style="border:none;width:70%" />
+                </div>
+            </div>
+            <div class="MyRow">
+                <div class="TXTAREABCK" style="width:96%;">                    
+                    @Html.TextArea("Address",@Model.UserProfile.Address1,5,80,new {@id="Address",style="border:none;width:100%",placeholder="Address"})                    
+                </div>
+            </div>
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:32%;">
+                    <span class="Title">Country:&nbsp;</span>
+                    @(Html.C1().ComboBox().Id("CmbCountry").DisplayMemberPath("countryName")
+                        .SelectedValuePath("countryName").SelectedValue(@Model.UserProfile.Country).Width("65%").CssStyle("border", "none")
+                    )<input id="SelCountry" type="hidden" value="@Model.UserProfile.Country"/>
+                </div>
+                <div class="CTRLBCK" style="width:31%;">
+                    <span class="Title">State:&nbsp;</span>
+                    <input id="State" value="@Model.UserProfile.State" style="border:none;width:70%" />
+                </div>
+                <div class="CTRLBCK" style="width:31.5%;">
+                    <span class="Title">City:&nbsp;</span>
+                    <input id="City" value="@Model.UserProfile.City"  style="border:none;width:70%" />
+                </div>
+            </div>
+            <div class="MyRow">
+                <div class="CTRLBCK" style="width:32%;">
+                    <span class="Title">Pin:&nbsp;</span>
+                    <input id="PIN" value="@Model.UserProfile.Zip_Code" style="border:none;width:70%" />
+                </div>
+            </div>
+            <div class="MyRow">
+                <input id="CBoxOffers" type="checkbox" value="Offers" checked="checked"/>&nbsp;I would like to be kept informed of special promotions and offers.
+            </div>
+            <br />
+            <div class="MyRow">
+                <a class="mybtn" onclick="CallUpdateProfile();">Update Profile</a>
+            </div>
+            <br /><br />
+
+
+
+
+        </div>
+    </div>
+
+
+</div>
+
+

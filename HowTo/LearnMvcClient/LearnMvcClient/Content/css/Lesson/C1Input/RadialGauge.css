@@ -1,0 +1,25 @@
+﻿.center {
+  text-align: center;
+  max-width: 3in;
+  margin: 12px auto;
+}
+
+.custom-gauge.wj-gauge {
+  height: 100px;
+}
+.custom-gauge.wj-gauge .wj-face path {
+    fill: #d0d0d0;
+    stroke: none;
+}
+.custom-gauge.wj-gauge .wj-pointer path {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge circle.wj-pointer {
+    fill: #404040;
+    stroke: none;
+}
+.custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+    stroke: orange;
+    stroke-width: 4px;
+}

@@ -1,0 +1,66 @@
+﻿@model Property[]
+
+@section Scripts{
+    <script type="text/javascript">
+        var allowDraggingParentNodes = true;
+        var allowDroppingIntoEmpty = true;
+
+        // use OnClientDragStart event to honor the allowDraggingParentNodes setting
+        // by setting the 'cancel' event parameter to true
+        function dragStart(treeview, e) {
+            if (e.node.hasChildren) {
+                if (!allowDraggingParentNodes) {
+                    e.cancel = true; // prevent dragging parent nodes
+                } else {
+                    e.node.isCollapsed = true; // collapse parent nodes when dragging
+                }
+            }
+        }
+
+        // use OnClientDragOver event to honor the allowDroppingIntoEmpty setting
+        // by changing the 'position' event parameter to 'Before'
+        function dragOver(treeview, e) {
+            if (!allowDroppingIntoEmpty &&
+                !e.dropTarget.hasChildren &&
+                 e.position == wijmo.nav.DropPosition.Into) {
+                e.position = wijmo.nav.DropPosition.Before;
+            }
+        }
+
+        c1.documentReady(function () {
+            document.getElementById('allowDraggingParentNodes').addEventListener('change', function (e) {
+                allowDraggingParentNodes = e.target.checked;
+            });
+            document.getElementById('allowDroppingIntoEmpty').addEventListener('change', function (e) {
+                allowDroppingIntoEmpty = e.target.checked;
+            });
+        })
+    </script>
+}
+
+@(Html.C1().TreeView()
+    .Bind(Model)
+    .DisplayMemberPath("Header")
+    .ChildItemsPath("Items")
+    .ImageMemberPath("Image")
+    .ShowCheckboxes(true)
+    .AllowDragging(true)
+    .OnClientDragStart("dragStart")
+    .OnClientDragOver("dragOver"))
+<br />
+<label>
+    <input id="allowDraggingParentNodes" type="checkbox" checked="checked"> @Html.Raw(Resources.TreeView.DragDrop_Text4)
+</label>
+<label>
+    <input id="allowDroppingIntoEmpty" type="checkbox" checked="checked"> @Html.Raw(Resources.TreeView.DragDrop_Text5)
+</label>
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.DragDrop_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeView.DragDrop_Text1)</p>
+    <p>@Html.Raw(Resources.TreeView.DragDrop_Text2)</p>
+    <p>@Html.Raw(Resources.TreeView.DragDrop_Text3)</p>
+}

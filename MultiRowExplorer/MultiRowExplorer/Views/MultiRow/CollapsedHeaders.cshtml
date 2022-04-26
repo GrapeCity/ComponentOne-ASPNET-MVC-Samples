@@ -1,0 +1,47 @@
+@model IEnumerable<Orders.Order>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id(settings.ControlId)
+    .CollapsedHeaders(true)
+    .ShowHeaderCollapseButton(true)
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
+    .CssClass("multirow")
+    .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+)
+
+@section Settings{
+    <script>
+        function customChangeCollapsedHeaders(multirow, name) {
+            switch (name) {
+                case "False":
+                    multirow.collapsedHeaders = false;
+                    break;
+                case "True":
+                    multirow.collapsedHeaders = true;
+                    break;
+                case "null":
+                    multirow.collapsedHeaders = null;
+                    break;
+            }
+        }
+    </script>
+}
+
+@section Summary{
+<p>@Html.Raw(Resources.MultiRowExplorer.CollapsedHeaders_Text0)</p>
+
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.CollapsedHeaders_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.CollapsedHeaders_Text2)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.CollapsedHeaders_Text3)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.CollapsedHeaders_Text4)</p>
+
+}

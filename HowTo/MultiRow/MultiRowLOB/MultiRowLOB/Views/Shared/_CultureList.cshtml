@@ -1,0 +1,8 @@
+﻿<ul>
+  @foreach(var culture in C1Culture.GetAll())
+  {
+  <li>
+    <a href="@culture.Path" class="culture-selector-link">@culture.DisplayText</a>
+  </li>
+  }
+</ul>

@@ -1,145 +1,78 @@
-using System.Collections.Generic;
-using System.Globalization;
+﻿using Microsoft.Owin;
+using Microsoft.Owin.Cors;
+using Owin;
+using System.Web.Http;
 using System.IO;
-using System.Threading;
+using System.Configuration;
 using Google.Apis.Auth.OAuth2;
-using Google.Apis.Drive.v3;
+using System.Web;
+using System.Threading;
 using Google.Apis.Util.Store;
-using Microsoft.AspNetCore.Builder;
-using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http.Features;
-using Microsoft.AspNetCore.Localization;
-using Microsoft.Extensions.Configuration;
-using Microsoft.Extensions.DependencyInjection;
-using Newtonsoft.Json.Serialization;
-#if NETCORE31
-using C1.AspNetCore.Api;
-#endif
+using Google.Apis.Drive.v3;
+using System;
 
+[assembly: OwinStartupAttribute(typeof(CloudFileExplorer.Startup))]
 namespace CloudFileExplorer
 {
-    public class Startup
+	public partial class Startup
     {
-#if NETCORE31
-        public Startup(IWebHostEnvironment env)
-#else
-        public Startup(IHostingEnvironment env)
-#endif
+		private readonly HttpConfiguration config = GlobalConfiguration.Configuration;
+		public void Configuration(IAppBuilder app)
         {
-            Environment = env;
-            var builder = new ConfigurationBuilder()
-                .SetBasePath(env.ContentRootPath)
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true)
-                .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
-                .AddEnvironmentVariables();
+			app.UseCors(CorsOptions.AllowAll);
+			
+			#region Storage registration
+			string[] scopes = { DriveService.Scope.Drive };
+			string applicationName = "C1WebApi";
 
-            Configuration = builder.Build();            
-        }
-
-        public IConfiguration Configuration { get; }
-
-#if NETCORE31
-        public static IWebHostEnvironment Environment { get; set; }
-#else
-        public static IHostingEnvironment Environment { get; set; }
-#endif
-
-        // This method gets called by the runtime. Use this method to add services to the container.
-        public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddMvc()
-#if NETCORE31
-                .AddNewtonsoftJson(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
-#else
-                .AddJsonOptions(options => options.SerializerSettings.ContractResolver = new DefaultContractResolver())
-#endif
-                ;
-            services.AddSession();
-
-            // CORS support
-            services.AddCors(options =>
-            {
-                options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
-            });
-
-            services.Configure<FormOptions>(options => options.ValueLengthLimit = int.MaxValue);
-#if NETCORE31
-            services.AddC1Api();
-#endif
-        }
-
-        // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-#if NETCORE31
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
-#else
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
-#endif
-        {
-#if NETCORE31
-            app.UseC1Api();
-#endif
-            var defaultCulture = "en-US";
-            IList<CultureInfo> supportedCultures = new List<CultureInfo>
-            {
-                new CultureInfo(defaultCulture)
-            };
-            app.UseRequestLocalization(new RequestLocalizationOptions
-            {
-                DefaultRequestCulture = new RequestCulture(defaultCulture),
-                SupportedCultures = supportedCultures,
-                SupportedUICultures = supportedCultures
-            });
-#if !NETCORE31
-            app.UseMvc();
-#endif
-            app.UseStaticFiles();
-            app.UseSession();
-
-#if NETCORE31
-            app.UseRouting();
-#endif
-
-#region Storage registration
-            string[] scopes = { DriveService.Scope.Drive };
-            string applicationName = "C1WebApi";
-
-#region Dropbox
+            #region Dropbox
             // Dropbox storage
-            app.UseStorageProviders().AddDropBoxStorage("DropBox", Configuration["AppSettings:DropBoxStorageAccessToken"], applicationName);
-#endregion
+            app.UseStorageProviders().AddDropBoxStorage("DropBox", ConfigurationManager.AppSettings["DropBoxStorageAccessToken"], applicationName);
+            #endregion
 
-#region Onedrive
+            #region Onedrive
             //// Ondrive storage: uncomment these lines when want to test OneDrive storage
-            //app.UseStorageProviders().AddOneDriveStorage("OneDrive", Configuration["AppSettings:OneDriveAccessToken"]);
-#endregion
+            //app.UseStorageProviders().AddOneDriveStorage("OneDrive", ConfigurationManager.AppSettings["OneDriveAccessToken"]);
+            #endregion
 
-#region Google
-            //// Google storage: please uncomment this line when you want to test GoogleDrive service.
+            #region Azure
+            //// Azure storage
+            //app.UseStorageProviders().AddAzureStorage("Azure", ConfigurationManager.AppSettings["AzureStorageConnectionString"]);
+            #endregion
+
+            #region Google
+            // Google storage: please uncomment this line when you want to test GoogleDrive service.
             //app.UseStorageProviders().AddGoogleDriveStorage("GoogleDrive", GetUserCredential(scopes), applicationName);
-#endregion
+            #endregion
 
-#region Local
+            #region AWS
+            //         // AWS storage
+            //         var aWSAccessToken = ConfigurationManager.AppSettings["AWSStorageAccessToken"];
+            //var secretKey = ConfigurationManager.AppSettings["AWSStorageSecretKey"];
+            //var bucketName = ConfigurationManager.AppSettings["AWSStorageBucketName"];
+            //string region = "us-east-1";
+            //app.UseStorageProviders().AddAWSStorage("AWS", aWSAccessToken, secretKey, bucketName, region);
+            #endregion
+
+            #region Local
             app.UseStorageProviders()
-                .AddDiskStorage("ExcelRoot", Path.Combine(env.WebRootPath, "ExcelRoot"));
-#endregion
+                .AddDiskStorage("ExcelRoot", GetFullRoot("ExcelRoot"));
+            #endregion
 
-#endregion
+            #endregion
+        }
 
-#if NETCORE31
-            app.UseEndpoints(endpoints =>
+        private static string GetFullRoot(string root)
+        {
+
+            var applicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
+            var fullRoot = Path.GetFullPath(Path.Combine(applicationBase, root));
+            if (!fullRoot.EndsWith(Path.DirectorySeparatorChar.ToString(), StringComparison.Ordinal))
             {
-                endpoints.MapControllerRoute(
-                    name: "default",
-                    pattern: "{controller=FileManager}/{action=Index}/{id?}");
-            });
-#else
-            app.UseMvc(r =>
-            {
-                r.MapRoute(
-                    name: "default",
-                    template: "{controller=FileManager}/{action=Index}/{id?}");
-            });
-#endif
+                // When we do matches in GetFullPath, we want to only match full directory names.
+                fullRoot += Path.DirectorySeparatorChar;
+            }
+            return fullRoot;
         }
 
         private UserCredential GetUserCredential(string[] scopes)
@@ -147,7 +80,7 @@ namespace CloudFileExplorer
             UserCredential credential;
 
             using (var fileStream =
-                    new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+                    new FileStream(HttpContext.Current.Server.MapPath("credentials.json"), FileMode.Open, FileAccess.Read))
             {
                 // The file token.json stores the user's access and refresh tokens, and is created
                 // automatically when the authorization flow completes for the first time.
@@ -157,7 +90,7 @@ namespace CloudFileExplorer
                         scopes,
                         "user",
                         CancellationToken.None,
-                        new FileDataStore(credPath, true)).Result;
+                        new FileDataStore(HttpContext.Current.Server.MapPath(credPath), true)).Result;
             }
             return credential;
         }

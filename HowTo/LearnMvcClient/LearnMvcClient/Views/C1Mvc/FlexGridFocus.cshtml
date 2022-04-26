@@ -1,0 +1,12 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.FlexGridFocus_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.FlexGridFocus_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.FlexGridFocus_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All).Bind(Model).Height(250)

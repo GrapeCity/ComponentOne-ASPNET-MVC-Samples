@@ -1,0 +1,23 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.WijmoAnimate_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoAnimate_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoAnimate_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoAnimate_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoAnimate_Text4)
+</p>
+<p>
+    <button class="btn btn-default" id="btnAnimate">
+        @Html.Raw(Resources.C1Mvc.WijmoAnimate_Text5)
+    </button>
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250)

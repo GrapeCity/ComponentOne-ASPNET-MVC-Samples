@@ -1,0 +1,36 @@
+@using LearnMvcClient.Models
+
+@{ 
+    IEnumerable<FlexChartData.Point> points1 = ViewBag.Points1;
+    IEnumerable<FlexChartData.Point> points2 = ViewBag.Points2;
+    IEnumerable<FlexChartData.Point> points3 = ViewBag.Points3;
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Export_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Export_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Export_Text2)
+</p>
+
+<p id="saveButtons">
+    @Html.Raw(Resources.C1FlexChart.Export_Text3)
+    <button class="btn btn-default">PNG</button>
+    <button class="btn btn-default">JPEG</button>
+    <button class="btn btn-default">SVG</button>
+</p>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Scatter)
+    .Header(Resources.C1FlexChart.Export_Text4)
+    .AxisY(ab=>ab.AxisLine(true))
+    .Series(sb=>
+    {
+        sb.Add().Bind("X", "Y", points1).Name(Resources.C1FlexChart.Export_Text5);
+        sb.Add().Bind("X", "Y", points2).Name(Resources.C1FlexChart.Export_Text6);
+        sb.Add().Bind("X", "Y", points3).Name(Resources.C1FlexChart.Export_Text7);
+    })
+)

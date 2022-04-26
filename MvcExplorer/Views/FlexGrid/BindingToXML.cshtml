@@ -1,0 +1,50 @@
+﻿@using C1.Web.Mvc.Grid
+
+@section Styles{
+    <style>
+        .custom-flex-grid {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+            
+            .custom-flex-grid .wj-cell {
+                background-color: #fff;
+                border-bottom: none;
+                font-size: 10pt;
+            }
+
+            .custom-flex-grid .wj-state-selected {
+                background: #000;
+                color: #fff;
+            }
+
+            .custom-flex-grid .wj-state-multi-selected {
+                background: #222;
+                color: #fff;
+            }
+            .custom-flex-grid .wj-header {
+                background-color: #d0cccc;
+                font-size: 10pt;
+            }
+    </style>
+}
+
+@(Html.C1().FlexGrid().Id("grid").CssClass("custom-flex-grid").Width(700)
+    .Bind("GetProductsByCategory")
+    .ChildItemsPath("Products")
+    .AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("Name").Width("*");
+        columns.Add().Binding("Id").Width("80");
+        columns.Add().Binding("Price").Width("80");
+    })
+    .HeadersVisibility(HeadersVisibility.Column)
+    .TreeIndent(25)
+)
+
+@section Description {
+    @Html.Raw(Resources.FlexGrid.TreeGrid_BindingXml_Description)
+}   

@@ -1,0 +1,53 @@
+﻿<div id="excelSort" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4 class="modal-title">Sort</h4>
+            </div>
+            <div class="modal-body">
+                <div class="row well well-lg">
+                    <div class="btn-group">
+                        <button type="button" class="btn btn-default" onclick="addSortLevel()">
+                            <span class="glyphicon glyphicon-plus-sign"></span>Add Level
+                        </button>
+                        <button type="button" class="btn btn-default" onclick="deleteSortLevel()">
+                            <span class="glyphicon glyphicon-remove-sign"></span>Delete Level
+                        </button>
+                        <button type="button" class="btn btn-default" onclick="copySortLevel()">
+                            <span class="glyphicon glyphicon-copy"></span>Copy Level
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button id="moveup" type="button"
+                                class="btn btn-default"
+                                onclick="moveSortLevel(-1)">
+                            <span class="glyphicon glyphicon-arrow-up"></span>
+                        </button>
+                        <button id="movedown" type="button"
+                                class="btn btn-default"
+                                onclick="moveSortLevel(1)">
+                            <span class="glyphicon glyphicon-arrow-down"></span>
+                        </button>
+                    </div>
+                </div>
+                <br />
+                <div class="row" id="sortTable">
+                    <table class="table table-bordered">
+                        <thead>
+                            <tr>
+                                <th class="text-center">Column</th>
+                                <th class="text-center">Order</th>
+                            </tr>
+                        </thead>
+                        <tbody></tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal" onclick="commitSort()">OK</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal" onclick="cancelSort()">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,12 @@
+﻿@(Html.C1().TreeView()
+    .Bind(Url.Action("RemoteLoading_LoadAction"))
+    .DisplayMemberPath("Header")
+    .ChildItemsPath("Items"))
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.RemoteLoading_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.TreeView.RemoteLoading_Text1)
+}

@@ -1,0 +1,21 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.HeaderMerging_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.HeaderMerging_Text1)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .ShowAlternatingRows(false)
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Sales").Header("Sales").Format("n2");
+        cs.Add().Binding("Expenses").Header("Expenses").Format("n2");
+        cs.Add().Binding("Active").Header("Active");
+    })
+)

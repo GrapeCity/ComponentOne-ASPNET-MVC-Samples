@@ -1,0 +1,26 @@
+@{ 
+    var intervals = new[] { 0, 50, 100, 300, 600, 1200 };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.InteractiveAnimations_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.InteractiveAnimations_Text1)
+<p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.InteractiveAnimations_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="theInterval">@Html.Raw(Resources.C1FlexChart.InteractiveAnimations_Text3) </label>
+    @(Html.C1().ComboBox<int>().Id("theInterval").Bind(intervals).SelectedValue(300))
+    @Resources.C1FlexChart.InteractiveAnimations_Text4
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .BindingX("x")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+    .Series(sb => sb.Add().Binding("y"))
+)

@@ -6,13 +6,16 @@
     </style>
 }
 
-<c1-file-manager id="FileManager" host-url="@Url.Content("~")" root-folder="Documents" cloud-type="DropBox">
-</c1-file-manager>
+@(Html.C1().FileManager().Id("FileManager")
+  .HostUrl("http://localhost:61712")
+  .RootFolder("Documents")
+  .CloudType(CloudTypes.DropBox)
+)
 
 @section Summary{
-    <p>@Html.Raw(CloudFileRes.Index_Text1)</p>
+<p>@Html.Raw(Resources.CloudFileExplorer.Index_Text1)</p>
 }
 
 @section Description{
-    @Html.Raw(CloudFileRes.Index_Text0)
+    @Html.Raw(Resources.CloudFileExplorer.Index_Text0)
 }

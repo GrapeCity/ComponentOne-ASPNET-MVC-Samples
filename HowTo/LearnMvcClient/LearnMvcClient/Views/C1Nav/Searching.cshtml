@@ -1,0 +1,21 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Searching_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Searching_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Searching_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Searching_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Searching_Text4)
+</p>
+
+<label for="search">@Html.Raw(Resources.C1Nav.Searching_Text5) </label>
+@Html.C1().AutoComplete().Id("search").SelectedIndex(-1).DisplayMemberPath("path").SearchMemberPath("keywords")
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")

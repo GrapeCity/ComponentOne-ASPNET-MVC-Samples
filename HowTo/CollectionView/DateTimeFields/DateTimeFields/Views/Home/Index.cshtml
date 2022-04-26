@@ -1,0 +1,873 @@
+﻿@{
+    ViewBag.Title = "DateTime Fields";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Problem</h2>
+    <div>
+        On the server, a <a href="https://msdn.microsoft.com/en-us/library/system.datetime(v=vs.110).aspx">DateTime</a> instance has a property called <a href="https://msdn.microsoft.com/en-us/library/system.datetime.kind(v=vs.110).aspx">Kind</a>,
+        which indicates whether the time represented by this instance is based on local time, Coordinated Universal Time (UTC), or neither.
+        But for a Date object in client, no matter it is created or retrieved from the server, browsers convert it per local time. You cannot tell what kind the Date object originally is.
+        <br />
+        For example, on the server when you create a DateTime instance in UTC format like:
+        <p style="text-align:center">
+            <code>
+                new DateTime(2017, 0, 25, 7, 0, 0, DateTimeKind.Utc);
+            </code>
+        </p>
+        When transferring it from the server to client, it is serialized into a json text: <code>"2017-01-25T07:00:00Z"</code>.
+        It shows different string representations of that Date in the browsers which have different timezones.
+        <table>
+            <thead>
+                <tr>
+                    <th>China(+08:00)</th>
+                    <th>US(ES -05:00)</th>
+                    <th>Japan(+09:00)</th>
+                    <th>India(+05:30)</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>25/1/2017 15:00</td>
+                    <td>25/1/2017 02:00</td>
+                    <td>25/1/2017 16:00</td>
+                    <td>25/1/2017 12:30</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div>
+        Such problems can be met with MVC controls.
+        Let's make data which includes three DateTime fields with different formats, such as: <b>Utc</b>, <b>Local</b> and <b>Unspecified</b>.
+        Then bind a grid with this data.
+    </div>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            @(Html.C1().FlexGrid()
+            .Id("defaultGrid")
+            .AllowAddNew(true)
+            .AllowDelete(true)
+            .AutoGenerateColumns(false)
+            .Bind(cvb => cvb.Bind(Url.Action("ReadDatesData"))
+                            .Create(Url.Action("CreateDatesData"))
+                            .Update(Url.Action("UpdateDatesData"))
+                            .Delete(Url.Action("DeleteDatesData")))
+            .Columns(columns =>
+            {
+                columns.Add(column => column.Binding("Id").IsReadOnly(true).Visible(false));
+                columns.Add(column => column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                columns.Add(column => column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                columns.Add(column => column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+            })
+            .Filterable(f => f.DefaultFilterType(FilterType.Both)))
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <app-tab>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#defaultModel" role="tab" data-toggle="tab">DatesData.cs</a></li>
+                        <li><a href="#defaultHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#defaultCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li><a href="#defaultJS" role="tab" data-toggle="tab">JS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="defaultModel">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DateTimeFields.Models
+{
+    public class DatesData
+    {
+        /// &lt;summary&gt;
+        /// The primary key.
+        /// &lt;/summary&gt;
+        public int Id { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Utc.
+        /// &lt;/summary&gt;
+        public DateTime UtcDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Unspecified.
+        /// &lt;/summary&gt;
+        public DateTime UnspecifiedDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Local.
+        /// &lt;/summary&gt;
+        public DateTime LocalDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// Get the data.
+        /// &lt;/summary&gt;
+        /// &lt;param name="total"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public static IEnumerable&lt;DatesData&gt; GetData(int total)
+        {
+            var rand = new Random(0);
+            var dt = DateTime.Now;
+            var list = Enumerable.Range(0, total).Select(i =&gt;
+            {
+                return new DatesData
+                {
+                    Id = i + 1,
+                    UtcDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Utc),
+                    UnspecifiedDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Unspecified),
+                    LocalDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Local)
+                };
+            });
+
+            return list;
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="defaultHtml">
+@@(Html.C1().FlexGrid()
+    .Id("defaultGrid")
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .AutoGenerateColumns(false)
+    .Bind(cvb =&gt; cvb.Bind(Url.Action("ReadDatesData"))
+                    .Create(Url.Action("CreateDatesData"))
+                    .Update(Url.Action("UpdateDatesData"))
+                    .Delete(Url.Action("DeleteDatesData")))
+    .Columns(columns =&gt;
+    {
+        columns.Add(column =&gt; column.Binding("Id").IsReadOnly(true).Visible(false));
+        columns.Add(column =&gt; column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+    })
+    .Filterable(f =&gt; f.DefaultFilterType(FilterType.Both)))
+                        </div>
+                        <div class="tab-pane pane-content" id="defaultCS">
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using DateTimeFields.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace DateTimeFields.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        private static List&lt;DatesData&gt; defaultData = DatesData.GetData(3).ToList();
+        public ActionResult ReadDatesData([C1JsonRequest] CollectionViewRequest&lt;DatesData&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, defaultData));
+        }
+
+        public ActionResult UpdateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Update(requestData, defaultData);
+        }
+
+        public ActionResult CreateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Create(requestData, defaultData);
+        }
+
+        public ActionResult DeleteDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Delete(requestData, defaultData);
+        }
+
+        public ActionResult Update(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                    sourceData.Insert(index, item);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+
+        public ActionResult Create(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    sourceData.Add(item);
+                    item.Id = sourceData.Max(u =&gt; u.Id) + 1;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+
+        public ActionResult Delete(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="defaultJS"></div>
+                    </div>
+                </div>
+            </app-tab>
+        </div>
+    </div>
+    <div>
+        We observe that the texts in the <b>UtcDateTime</b> column are different in the machines which use different timezones and they are different from the server values.
+        When the server timezone is different from the client one, the <b>LocalDateTime</b> column has the same problem.
+        However, the <b>UnspecifiedDateTime</b> column keeps the same texts.
+    </div>
+    <h2>Solution</h2>
+    <div>
+        <p>
+            To keep the date and the time on both server and client, we must apply an explicit transformation to the dates between server and client.
+            There are two possible solutions:
+        </p>
+        <div>
+            <ol>
+                <li>
+                    <div>
+                        Make transformations in the server.<br />
+                        The Unspecified DateTime can keep the date and the time, so we can convert all the DateTime objects to Unspecified and convert them back when necessary.
+                        For the sample above, here are two steps to be covered:
+                        <ul>
+                            <li>Convert to Unspecified format during reading data.</li>
+                            <li>Convert Unspecified format back during CREAT, UPDATE and DELETE operations.</li>
+                        </ul>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            @(Html.C1().FlexGrid()
+                            .Id("convertedGrid")
+                            .AllowAddNew(true)
+                            .AllowDelete(true)
+                            .AutoGenerateColumns(false)
+                            .Bind(cvb => cvb.Bind(Url.Action("Converted_ReadDatesData"))
+                                            .Create(Url.Action("Converted_CreateDatesData"))
+                                            .Update(Url.Action("Converted_UpdateDatesData"))
+                                            .Delete(Url.Action("Converted_DeleteDatesData")))
+                            .Columns(columns =>
+                            {
+                                columns.Add(column => column.Binding("Id").IsReadOnly(true).Visible(false));
+                                columns.Add(column => column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                                columns.Add(column => column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                                columns.Add(column => column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                            })
+                            .Filterable(f => f.DefaultFilterType(FilterType.Both)))
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <app-tab>
+                                <div>
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#convertedModel" role="tab" data-toggle="tab">DatesData.cs</a></li>
+                                        <li><a href="#convertedHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                                        <li><a href="#convertedCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                                        <li><a href="#convertedJS" role="tab" data-toggle="tab">JS</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active pane-content" id="convertedModel">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DateTimeFields.Models
+{
+    public class DatesData
+    {
+        /// &lt;summary&gt;
+        /// The primary key.
+        /// &lt;/summary&gt;
+        public int Id { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Utc.
+        /// &lt;/summary&gt;
+        public DateTime UtcDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Unspecified.
+        /// &lt;/summary&gt;
+        public DateTime UnspecifiedDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Local.
+        /// &lt;/summary&gt;
+        public DateTime LocalDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// Get the data.
+        /// &lt;/summary&gt;
+        /// &lt;param name="total"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public static IEnumerable&lt;DatesData&gt; GetData(int total)
+        {
+            var rand = new Random(0);
+            var dt = DateTime.Now;
+            var list = Enumerable.Range(0, total).Select(i =&gt;
+            {
+                return new DatesData
+                {
+                    Id = i + 1,
+                    UtcDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Utc),
+                    UnspecifiedDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Unspecified),
+                    LocalDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Local)
+                };
+            });
+
+            return list;
+        }
+    }
+}
+                                        </div>
+                                        <div class="tab-pane pane-content" id="convertedHtml">
+@@(Html.C1().FlexGrid()
+    .Id("convertedGrid")
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .AutoGenerateColumns(false)
+    .Bind(cvb =&gt; cvb.Bind(Url.Action("Converted_ReadDatesData"))
+                    .Create(Url.Action("Converted_CreateDatesData"))
+                    .Update(Url.Action("Converted_UpdateDatesData"))
+                    .Delete(Url.Action("Converted_DeleteDatesData")))
+    .Columns(columns =&gt;
+    {
+        columns.Add(column =&gt; column.Binding("Id").IsReadOnly(true).Visible(false));
+        columns.Add(column =&gt; column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+    })
+    .Filterable(f =&gt; f.DefaultFilterType(FilterType.Both)))
+                                        </div>
+                                        <div class="tab-pane pane-content" id="convertedCS">
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using DateTimeFields.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace DateTimeFields.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        private static List&lt;DatesData&gt; convertedData = DatesData.GetData(3).ToList();
+        private static List&lt;DatesData&gt; ConvertToUnspecifiedData(IEnumerable&lt;DatesData&gt; sourceData)
+        {
+            return sourceData.Select(item =&gt; new DatesData
+            {
+                Id = item.Id,
+                UnspecifiedDateTime = item.UnspecifiedDateTime,
+                UtcDateTime = new DateTime(item.UtcDateTime.Ticks),
+                LocalDateTime = new DateTime(item.LocalDateTime.Ticks)
+            }).ToList();
+        }
+
+        private static void ConvertUpspecifiedBack(CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            // Convert Unspecified DateTime back.
+            foreach (var item in requestData.OperatingItems)
+            {
+                item.LocalDateTime = new DateTime(item.LocalDateTime.Ticks, DateTimeKind.Local);
+                item.UtcDateTime = new DateTime(item.UtcDateTime.Ticks, DateTimeKind.Utc);
+            }
+        }
+        public ActionResult Converted_ReadDatesData([C1JsonRequest] CollectionViewRequest&lt;DatesData&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, ConvertToUnspecifiedData(convertedData)));
+        }
+        public ActionResult Converted_UpdateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            ConvertUpspecifiedBack(requestData);
+            return Update(requestData, convertedData, ConvertToUnspecifiedData);
+        }
+        public ActionResult Converted_CreateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            ConvertUpspecifiedBack(requestData);
+            return Create(requestData, convertedData, ConvertToUnspecifiedData);
+        }
+        public ActionResult Converted_DeleteDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            ConvertUpspecifiedBack(requestData);
+            return Delete(requestData, convertedData, ConvertToUnspecifiedData);
+        }
+
+        public ActionResult Update(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData, Func&lt;IEnumerable&lt;DatesData&gt;, List&lt;DatesData&gt;&gt; converter = null)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                    sourceData.Insert(index, item);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; converter != null ? converter(sourceData) : sourceData));
+        }
+
+        public ActionResult Create(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData, Func&lt;IEnumerable&lt;DatesData&gt;, List&lt;DatesData&gt;&gt; converter = null)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    sourceData.Add(item);
+                    item.Id = sourceData.Max(u =&gt; u.Id) + 1;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; converter != null ? converter(sourceData) : sourceData));
+        }
+
+        public ActionResult Delete(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData, Func&lt;IEnumerable&lt;DatesData&gt;, List&lt;DatesData&gt;&gt; converter = null)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; converter != null ? converter(sourceData) : sourceData));
+        }
+    }
+}
+                                        </div>
+                                        <div class="tab-pane pane-content" id="convertedJS"></div>
+                                    </div>
+                                </div>
+                            </app-tab>
+                        </div>
+                    </div>
+                    Although it seems simple to solve the problem, we need pay attention and don't miss some transformations. Otherwise, it could bring some unexpected problem.
+                </li>
+                <li>
+                    <div>
+                        Make transformations in the client.<br/>
+                        Our MVC components provide two client events: <b>OnClientReponseTextParsing</b> and <b>OnClientRequestDataStringifying</b> to let the user do transformations.
+                        <ul>
+                            <li>OnClientReponseTextParsing<br/>
+                                When the data is retrieved on the client from the server, all data is serialized into a json text and the text will be retrieved on client.
+                                On the client, the text will be parsed into javascript objects.
+                                We need to perform transformation during parsing, the <b>OnClientReponseTextParsing</b> event is useful for this.
+                                We can get following information from the event argument:
+                                <ul>
+                                    <li><code>key</code>: The name of the item text to be parsed.</li>
+                                    <li><code>value</code>: The text of the item to be parsed.</li>
+                                    <li><code>result</code>: Specifies its value with what you want the text to be parsed to.</li>
+                                    <li><code>cancel</code>: If you don't want the default parsing, specify its value to true.</li>
+                                </ul>
+                            </li>
+                            <li>
+                                OnClientRequestDataStringifying. <br/>
+                                When the data is sent back to the server from the client.
+                                The data will be serialized into a text and sent to the server.
+                                On the server the text will be deserialized into an object.
+                                The javascript Date object is always to be serialized into a text with UTC format. If we don't customize the serialization,
+                                a DateTime object in UTC format is retrieved after deserialization. Obviously it is NOT correct.
+                                We need do transfomation during parsing.
+                                The <b>OnClientRequestDataStringifying</b> is useful for this. We can get following information from the event argument:
+                                <ul>
+                                    <li><code>key</code>: The name of the item text to be serialized.</li>
+                                    <li><code>value</code>: The value of the item to be serialized.</li>
+                                    <li><code>result</code>: Specifies the text what you want the object to be serialized into.</li>
+                                    <li><code>cancel</code>: If you don't want the default serialization, specify it to true.</li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p>
+                            For more information about how to recognize the Date object or text in the event and how to make transformation, please refer to the online blog.
+                            The grid below shows how to use these events to keep the same string representations.
+                            This solution is easier for the user. He only focuses on these two events and make the transformation in the events.
+                        </p>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 col-xs-12">
+                            @(Html.C1().FlexGrid()
+                            .Id("customGrid")
+                            .AllowAddNew(true)
+                            .AllowDelete(true)
+                            .AutoGenerateColumns(false)
+                            .Bind(cvb => cvb.Bind(Url.Action("Custom_ReadDatesData"))
+                                            .Create(Url.Action("Custom_CreateDatesData"))
+                                            .Update(Url.Action("Custom_UpdateDatesData"))
+                                            .Delete(Url.Action("Custom_DeleteDatesData"))
+                                            .OnClientReponseTextParsing("reponseTextParsing")
+                                            .OnClientRequestDataStringifying("requestDataStringifying"))
+                            .Columns(columns =>
+                            {
+                                columns.Add(column => column.Binding("Id").IsReadOnly(true).Visible(false));
+                                columns.Add(column => column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                                columns.Add(column => column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                                columns.Add(column => column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+                            })
+                            .Filterable(f => f.DefaultFilterType(FilterType.Both)))
+                        </div>
+                        <div class="col-md-6 col-xs-12">
+                            <app-tab>
+                                <div>
+                                    <ul class="nav nav-tabs" role="tablist">
+                                        <li class="active"><a href="#customModel" role="tab" data-toggle="tab">DatesData.cs</a></li>
+                                        <li><a href="#customHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                                        <li><a href="#customCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                                        <li><a href="#customJS" role="tab" data-toggle="tab">JS</a></li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active pane-content" id="customModel">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+namespace DateTimeFields.Models
+{
+    public class DatesData
+    {
+        /// &lt;summary&gt;
+        /// The primary key.
+        /// &lt;/summary&gt;
+        public int Id { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Utc.
+        /// &lt;/summary&gt;
+        public DateTime UtcDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Unspecified.
+        /// &lt;/summary&gt;
+        public DateTime UnspecifiedDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// A DateTime field which Kind is Local.
+        /// &lt;/summary&gt;
+        public DateTime LocalDateTime { get; set; }
+
+        /// &lt;summary&gt;
+        /// Get the data.
+        /// &lt;/summary&gt;
+        /// &lt;param name="total"&gt;&lt;/param&gt;
+        /// &lt;returns&gt;&lt;/returns&gt;
+        public static IEnumerable&lt;DatesData&gt; GetData(int total)
+        {
+            var rand = new Random(0);
+            var dt = DateTime.Now;
+            var list = Enumerable.Range(0, total).Select(i =&gt;
+            {
+                return new DatesData
+                {
+                    Id = i + 1,
+                    UtcDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Utc),
+                    UnspecifiedDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Unspecified),
+                    LocalDateTime = new DateTime(dt.Year, i % 12 + 1, 25, 7, 0, 0, DateTimeKind.Local)
+                };
+            });
+
+            return list;
+        }
+    }
+}
+                                        </div>
+                                        <div class="tab-pane pane-content" id="customHtml">
+@@(Html.C1().FlexGrid()
+    .Id("convertedGrid")
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .AutoGenerateColumns(false)
+    .Bind(cvb =&gt; cvb.Bind(Url.Action("Converted_ReadDatesData"))
+                    .Create(Url.Action("Converted_CreateDatesData"))
+                    .Update(Url.Action("Converted_UpdateDatesData"))
+                    .Delete(Url.Action("Converted_DeleteDatesData")))
+    .Columns(columns =&gt;
+    {
+        columns.Add(column =&gt; column.Binding("Id").IsReadOnly(true).Visible(false));
+        columns.Add(column =&gt; column.Binding("UtcDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("LocalDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+        columns.Add(column =&gt; column.Binding("UnspecifiedDateTime").Format("dd/MM/yyyy HH:mm:ss").Width("*"));
+    })
+    .Filterable(f =&gt; f.DefaultFilterType(FilterType.Both)))
+                                        </div>
+                                        <div class="tab-pane pane-content" id="customCS">
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using DateTimeFields.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace DateTimeFields.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        private static List&lt;DatesData&gt; customData = DatesData.GetData(3).ToList();
+        public ActionResult Custom_ReadDatesData([C1JsonRequest] CollectionViewRequest&lt;DatesData&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, customData));
+        }
+
+        public ActionResult Custom_UpdateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Update(requestData, customData);
+        }
+
+        public ActionResult Custom_CreateDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Create(requestData, customData);
+        }
+
+        public ActionResult Custom_DeleteDatesData([C1JsonRequest]CollectionViewEditRequest&lt;DatesData&gt; requestData)
+        {
+            return Delete(requestData, customData);
+        }
+
+        public ActionResult Update(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                    sourceData.Insert(index, item);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+
+        public ActionResult Create(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    sourceData.Add(item);
+                    item.Id = sourceData.Max(u =&gt; u.Id) + 1;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+
+        public ActionResult Delete(CollectionViewEditRequest&lt;DatesData&gt; requestData, List&lt;DatesData&gt; sourceData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit(requestData, item =&gt;
+            {
+                var error = string.Empty;
+                var success = true;
+                try
+                {
+                    var index = sourceData.FindIndex(u =&gt; u.Id == item.Id);
+                    sourceData.RemoveAt(index);
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult&lt;DatesData&gt;
+                {
+                    Error = error,
+                    Success = success,
+                    Data = item
+                };
+            }, () =&gt; sourceData));
+        }
+    }
+}
+                                        </div>
+                                        <div class="tab-pane pane-content" id="customJS">
+// The RegExp object which is used to tell a DateTime text.
+var dateJsonRegx = /^\d{4}-\d{2}-\d{2}T\d{2}:\d{2}:\d{2}(\.\d*)?(Z|[\+\-]\d{2}:\d{2}|)$/;
+function reponseTextParsing(sender, args) {
+    var dateText = args.value;
+    // check whether it is a valid DateTime text.
+    var matched = dateJsonRegx.exec(dateText);
+    if (!matched) {
+        return;
+    }
+    var timeZoneText = matched[2];
+    var dateKind = getDateKind(timeZoneText);
+    // only customize the parsing for the Date object in Utc or Local format.
+    if (dateKind == c1.mvc.DateKind.Unspecified) {
+        return;
+    }
+    if (typeof dateText === 'string' && matched) {
+        var index = dateText.indexOf(timeZoneText);
+        // remove the time zone text and create a Date object.
+        var date = new Date(dateText.substr(0, index));
+        // Don't forget to set the dateKind for the Date object parsed.
+        // It could be used in OnClientRequestDataStringifying.
+        date.dateKind = dateKind;
+        args.result = date;
+        args.cancel = true;
+    }
+}
+
+function getDateKind(timeZoneText) {
+    if (!timeZoneText) {
+        return c1.mvc.DateKind.Unspecified;
+    }
+
+    if (timeZoneText.toLowerCase() === 'z') {
+        return c1.mvc.DateKind.Utc;
+    }
+
+    return c1.mvc.DateKind.Local;
+}
+
+function requestDataStringifying(sender, args) {
+    if (args.value instanceof Date || args.parent[args.key] instanceof Date) {
+        var date = args.value instanceof Date ? args.value : args.parent[args.key];
+        // only customize the serialization for the Date object in Utc format.
+        if (!date.dateKind || date.dateKind == c1.mvc.DateKind.Unspecified) {
+            return;
+        }
+
+        args.result = c1.mvc.Utils.formatNumber(date.getFullYear(), 4) + '-' +
+                c1.mvc.Utils.formatNumber(date.getMonth() + 1, 2) + '-' +
+                c1.mvc.Utils.formatNumber(date.getDate(), 2) + 'T' +
+                c1.mvc.Utils.formatNumber(date.getHours(), 2) + ':' +
+                c1.mvc.Utils.formatNumber(date.getMinutes(), 2) + ':' +
+                c1.mvc.Utils.formatNumber(date.getSeconds(), 2) + '.' +
+                c1.mvc.Utils.formatNumber(date.getMilliseconds(), 3)
+                + (date.dateKind == c1.mvc.DateKind.Utc ? 'Z' : getLocalTimeZoneText());
+        args.cancel = true;
+    }
+}
+                                        </div>
+                                    </div>
+                                </div>
+                            </app-tab>
+                        </div>
+                    </div>
+                </li>
+            </ol>
+        </div>
+    </div>
+</div>

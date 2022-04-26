@@ -1,0 +1,31 @@
+﻿@model IEnumerable<StatisticMessage>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<script>
+    function updateStepPosition(control, value) {
+        control.options = { step: { position: value.toLowerCase() } };
+    }
+</script>
+
+@(Html.C1().FlexChart().Id(demoSettingsModel.ControlId)
+    .ChartType(demoSettingsModel.GetEnum("ChartType", C1.Web.Mvc.Chart.ChartType.Step))
+    .Legend(l => l.Position(C1.Web.Mvc.Chart.Position.Top))    
+    .AxisX(x => x.AxisLine(false).MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None))
+    .AxisY(y => y.MajorGrid(false))
+    .Bind(Model)
+    .BindingX("Month")
+    .Series(sers =>
+    {
+        sers.Add().Binding("SMS").Name("SMS Totals");
+        sers.Add().Binding("Email").Name("Email Totals");        
+    })
+    .Options(o => o.Step(s => s.Position(StepPosition.Start)))
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.StepChart_Text0)</p>
+}

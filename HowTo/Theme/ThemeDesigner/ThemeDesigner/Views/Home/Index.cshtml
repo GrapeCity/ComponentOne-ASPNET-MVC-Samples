@@ -1,0 +1,123 @@
+﻿@{
+    ViewBag.Title = Resources.Resource.PageTitle;
+}
+
+<style id="theStyle">
+</style>
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+<div class="container">
+    <h1>@Resources.Resource.HomeTitle</h1>
+    <p>
+        @Html.Raw(Resources.Resource.HomeText1)
+    </p>
+    <p>
+        @Html.Raw(Resources.Resource.HomeText2)
+    </p>
+    <p>
+        @Html.Raw(Resources.Resource.HomeText3)
+    </p>
+
+    <div class="row">
+        <div class="col-md-6">
+            <form class="form-horizontal" role="form">
+                <h3>@Resources.Resource.HomeHeaders</h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeBackgroundColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theHeaderBgColor")
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeTextColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theHeaderColor")
+                    </div>
+                </div>
+
+                <h3>@Resources.Resource.HomeContent</h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeBackgroundColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theContentBgColor")
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeTextColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theContentColor")
+                    </div>
+                </div>
+
+                <h3>@Resources.Resource.HomeSelection</h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeBackgroundColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theSelectedBgColor")
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeTextColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theSelectedColor")
+                    </div>
+                </div>
+
+                <h3>@Resources.Resource.HomeTooltip</h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeBackgroundColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theTooltipBgColor")
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeTextColor</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputColor().Id("theTooltipColor")
+                    </div>
+                </div>
+
+                <h3>@Resources.Resource.HomeBorder</h3>
+                <div class="form-group">
+                    <label class="col-sm-4 control-label">@Resources.Resource.HomeCornerRadius</label>
+                    <div class="col-sm-8">
+                        @Html.C1().InputNumber().Id("theBorderRadius").Min(0).Max(20).ShowSpinner(true).Step(1)
+                    </div>
+                </div>
+            </form>
+        </div>
+        <div class="col-md-6">
+            <h2>@Resources.Resource.HomePreview</h2>
+            <h3>@Resources.Resource.HomeFlexGrid</h3>
+            @(Html.C1().FlexGrid().Id("theGrid").SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+            .AutoGenerateColumns(false).Columns(cs =>
+            {
+                cs.Add().Binding("country").Header(Resources.Resource.HomeCountry);
+                cs.Add().Binding("sales").Header(Resources.Resource.HomeSales);
+                cs.Add().Binding("expenses").Header(Resources.Resource.HomeExpenses);
+                cs.Add().Binding("downloads").Header(Resources.Resource.HomeDownloads);
+            }))
+
+            <h3>@Resources.Resource.HomeCalendar</h3>
+            @Html.C1().Calendar().Id("theCalendar")
+            <p>
+                <div id="theTooltip" class="alert alert-info">@Html.Raw(Resources.Resource.HomeText5)</div>
+            </p>
+
+            <div style="display:none">
+                <div id="ttSample">
+                    <b>@Resources.Resource.HomeTooltip</b>:
+                    @Html.Raw(Resources.Resource.HomeText4)
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <h2>@Resources.Resource.HomeCss</h2>
+            <pre id="theCss">
+            </pre>
+        </div>
+    </div>
+</div>

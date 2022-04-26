@@ -1,0 +1,38 @@
+@model IEnumerable<PopulationGdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.StringObjects_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.StringObjects_Text1)
+</p>
+<ul>
+    <li>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text2)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text3)
+            @Html.C1().ComboBox().Id("theCombo").Bind(Model).DisplayMemberPath("Country")
+        </p>
+    </li>
+    <li>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text4)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text5)
+            @Html.C1().AutoComplete().Id("theAutoComplete").Bind(Model).Placeholder(Resources.C1Input.StringObjects_Text6).DisplayMemberPath("Country")
+        </p>
+    </li>
+    <li>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text7)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Input.StringObjects_Text8)
+            @Html.C1().InputMask().Id("theInputMask").Mask("1 (000) 99-999").Value("1 (800)")
+        </p>
+    </li>
+</ul>   

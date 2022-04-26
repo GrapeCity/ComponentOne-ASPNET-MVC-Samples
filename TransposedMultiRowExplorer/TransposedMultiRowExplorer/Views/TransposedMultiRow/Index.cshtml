@@ -1,0 +1,102 @@
+@model IEnumerable<Orders.Order>
+<script src="~/Scripts/jszip.js"></script>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+
+    var layoutDefinition = optionsModel.Options["Layout Definition"].CurrentValue;
+    Action<ListItemFactory<C1.Web.Mvc.MultiRow.CellGroup, C1.Web.Mvc.MultiRow.Fluent.CellGroupBuilder>> layoutDefForMultiRowBuilder;
+    Action<ListItemFactory<C1.Web.Mvc.TransposedMultiRow.CellGroup, C1.Web.Mvc.TransposedMultiRow.Fluent.CellGroupBuilder>> layoutDefForTransposedMultiRowBuilder;
+    if (layoutDefinition == "Traditional")
+    {
+        layoutDefForMultiRowBuilder = LayoutDefinitionsForMultiRowBuilders.OneLine;
+        layoutDefForTransposedMultiRowBuilder = LayoutDefinitionsForTransposedMultiRowBuilders.OneLine;
+    }
+    else if (layoutDefinition == "Compact")
+    {
+        layoutDefForMultiRowBuilder = LayoutDefinitionsForMultiRowBuilders.TwoLines;
+        layoutDefForTransposedMultiRowBuilder = LayoutDefinitionsForTransposedMultiRowBuilders.TwoLines;
+    }
+    else
+    {
+        layoutDefForMultiRowBuilder = LayoutDefinitionsForMultiRowBuilders.ThreeLines;
+        layoutDefForTransposedMultiRowBuilder = LayoutDefinitionsForTransposedMultiRowBuilders.ThreeLines;
+    }
+}
+<h3>Transposed MultiRow</h3>
+@(Html.C1().CollectionViewService().Id("itemsSource").Bind(Model).DisableServerRead(true))
+
+@(Html.C1().TransposedMultiRow<Orders.Order>()
+    .Id("ovTransposedMultiRow")
+    .Bind(bl => bl.Bind(Model))
+    .LayoutDefinition(layoutDefForTransposedMultiRowBuilder)
+    .CssClass("multirow")
+)
+
+<div>
+    <button id="btnExportToExcel" class="btn btn-default">
+        Export To Excel
+    </button>
+    <button id="btnExportToPDF" class="btn btn-default">
+        Export To PDF
+    </button>
+</div>
+
+<h3>MultiRow</h3>
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id("ovMultiRow")
+    .Bind(bl => bl.Bind(Model))
+    .LayoutDefinition(layoutDefForMultiRowBuilder)
+    .CssClass("multirow")
+)
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    @if (layoutDefinition == "Traditional")
+    {
+<p>@Html.Raw(Resources.TransposedMultiRowExplorer.Index_Text0)</p>
+    }
+    @if (layoutDefinition == "Compact")
+    {
+<p>@Html.Raw(Resources.TransposedMultiRowExplorer.Index_Text1)</p>
+    }
+    @if (layoutDefinition == "Detailed")
+    {
+<p>@Html.Raw(Resources.TransposedMultiRowExplorer.Index_Text2)</p>
+    }
+}
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#ovTransposedMultiRow');
+            //Excel
+            document.getElementById("btnExportToExcel").addEventListener("click", function () {
+                wijmo.grid.xlsx.FlexGridXlsxConverter.saveAsync(grid, {
+                    includeRowHeaders: true,
+                }, 'TransposedMultiRow.xlsx');
+            });
+
+            //Pdf
+            document.getElementById("btnExportToPDF").addEventListener("click", function () {
+                wijmo.grid.pdf.FlexGridPdfConverter.export(grid, 'TransposedMultiRow.pdf', {
+                    scaleMode: wijmo.grid.pdf.ScaleMode.ActualSize,
+                    documentOptions: {
+                        pageSettings: {
+                            layout: wijmo.pdf.PdfPageOrientation.Landscape
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}
+
+@section Summary{
+<p>@Html.Raw(Resources.TransposedMultiRowExplorer.Index_Text3)</p>
+}
+
+@section Description{
+<p>@Html.Raw(Resources.TransposedMultiRowExplorer.Index_Text4)</p>
+}
+

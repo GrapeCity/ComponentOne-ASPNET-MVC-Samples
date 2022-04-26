@@ -1,0 +1,20 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.Clipboard_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Clipboard_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Clipboard_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Clipboard_Text3)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1Mvc.Clipboard_Text4)
+    <input id="includeHeaders" type="checkbox" checked="true">
+</label>
+@(Html.C1().FlexGrid<FlexGridData.Sale>().Id("theGrid").Bind(Model))

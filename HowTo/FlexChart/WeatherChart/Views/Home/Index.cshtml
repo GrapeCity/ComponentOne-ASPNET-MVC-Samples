@@ -1,0 +1,84 @@
+﻿@using System.Drawing
+@using C1.Web.Mvc.Chart
+@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    Color[] palette = new Color[] { Color.FromArgb(136, 191, 230), Color.Blue, Color.Red };
+}
+@model List<WeatherChart.Models.Weather>
+
+
+<div style="overflow: hidden">
+    <div id="chart1" style="height: 150px;"></div>
+    @(Html.C1().FlexChart("#chart1")
+    .ChartType(ChartType.Line)
+    .Bind("Date", Model)
+    .Series(s =>
+    {
+        s.Add("MeanTemp").Binding("MeanTemp");
+        s.Add("MinTemp").Binding("MinTemp");
+        s.Add("MaxTemp").Binding("MaxTemp");
+    })
+    .Legend(Position.Left)
+    .Palette(palette)
+    .AxisX(x=>x.Position(Position.Top).Format("MMM-dd").LabelAngle(90))
+    .PlotMargin("NaN 30 0 110").Tooltip(tt=>tt.Content(""))
+    .AddLineMarker(lm=>lm.Lines(LineMarkerLines.Both).Interaction(LineMarkerInteraction.Move).Content("lineMarkerContent").OnClientPositionChanged("lineMarkerPositionChanged")))
+
+    <div id="chart2" style="height: 120px;"></div>
+    @(Html.C1().FlexChart("#chart2")
+    .ChartType(ChartType.Area)
+    .Bind("Date", Model)
+    .Series(s =>
+    {
+        s.Add("MeanPressure").Binding("MeanPressure");
+    })
+    .Legend(Position.None)
+    .AxisX(Position.None).AxisY(y=>y.Title("MeanPressure"))
+    .PlotMargin("0 30 0 110").Tooltip(tt=>tt.Content(""))
+    .AddLineMarker(lm=>lm.Lines(LineMarkerLines.Both).Interaction(LineMarkerInteraction.Move).Content("lineMarkerContent").OnClientPositionChanged("lineMarkerPositionChanged")))
+
+    <div id="chart3" style="height: 120px;"></div>
+    @(Html.C1().FlexChart("#chart3")
+    .Bind("Date", Model)
+    .Series(s =>
+    {
+        s.Add("Precipitation").Binding("Precipitation");
+    })
+    .Legend(Position.None)
+    .AxisX(Position.None).AxisY(y=>y.Title("Precipitation"))
+    .PlotMargin("0 30 NaN 110").Tooltip(tt=>tt.Content(""))
+    .AddLineMarker(lm=>lm.Lines(LineMarkerLines.Both).Interaction(LineMarkerInteraction.Move).Content("lineMarkerContent").OnClientPositionChanged("lineMarkerPositionChanged")))
+
+    <div id="chart" style="height: 100px;"></div>
+    @(Html.C1().FlexChart("#chart")
+    .ChartType(ChartType.Line)
+    .Bind("Date", Model)
+    .Series(s =>
+    {
+        s.Add("MeanTemp").Binding("MeanTemp");
+    })
+    .Legend(Position.None)
+    .AxisX(x=>x.Format("MMM-dd").LabelAngle(45))
+    .AxisY(y=>y.MajorGrid(false).Labels(false))
+    .PlotMargin("0 30 NaN 110").Tooltip(tt=>tt.Content(""))
+    .AddRangeSelector(rs=>rs.OnClientRangeChanged("updateCharts")))
+
+    <div id="middle" class="scroller-center"></div>
+    <div id="left" class="scroller"></div>
+    <div id="right" class="scroller"></div>
+
+    <div id="plotMarker" class="marker-line"></div>
+
+    <script type="text/javascript">
+        
+        c1.documentReady(function () {
+            chart = wijmo.Control.getControl("#chart");
+            chart1 = wijmo.Control.getControl("#chart1");
+            chart2 = wijmo.Control.getControl("#chart2");
+            chart3 = wijmo.Control.getControl("#chart3");
+        });
+    </script>
+</div>
+
+

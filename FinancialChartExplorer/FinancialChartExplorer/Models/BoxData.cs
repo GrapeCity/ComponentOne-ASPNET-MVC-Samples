@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using Newtonsoft.Json;
-using System.Reflection;
+using System.Linq;
+using System.Web;
 
 namespace FinancialChartExplorer.Models
 {
@@ -17,7 +18,9 @@ namespace FinancialChartExplorer.Models
             {
                 return _jsonData;
             }
-            string jsonText = new StreamReader(GetJsonStream("box.json")).ReadToEnd();
+
+            string path = HttpContext.Current.Server.MapPath("~/Content/box.json");
+            string jsonText = new StreamReader(path, System.Text.Encoding.Default).ReadToEnd();
             JArray ja = (JArray)JsonConvert.DeserializeObject(jsonText);
             List<FinanceData> list = new List<FinanceData>();
             foreach (var obj in ja)
@@ -42,41 +45,30 @@ namespace FinancialChartExplorer.Models
                 return _annotationToolTips;
             }
             _annotationToolTips = new List<string>{
-                 Localization.Home.EventAnnotations_Tooltip1,
-                 Localization.Home.EventAnnotations_Tooltip2,
-                 Localization.Home.EventAnnotations_Tooltip3
-                 +Localization.Home.EventAnnotations_Tooltip4,
-                 Localization.Home.EventAnnotations_Tooltip5+
-                 Localization.Home.EventAnnotations_Tooltip6,
-                 Localization.Home.EventAnnotations_Tooltip7+
-                 Localization.Home.EventAnnotations_Tooltip8,
-                 Localization.Home.EventAnnotations_Tooltip9,
-                 Localization.Home.EventAnnotations_Tooltip10+
-                 Localization.Home.EventAnnotations_Tooltip11,
-                 Localization.Home.EventAnnotations_Tooltip12+
-                 Localization.Home.EventAnnotations_Tooltip13,
-                 Localization.Home.EventAnnotations_Tooltip14,
-                 Localization.Home.EventAnnotations_Tooltip15,
-                 Localization.Home.EventAnnotations_Tooltip16+
-                 Localization.Home.EventAnnotations_Tooltip17,
-                 Localization.Home.EventAnnotations_Tooltip18+
-                 Localization.Home.EventAnnotations_Tooltip19,
-                 Localization.Home.EventAnnotations_Tooltip20+
-                 Localization.Home.EventAnnotations_Tooltip21
+                Resources.Home.EventAnnotations_Tooltip1,
+                Resources.Home.EventAnnotations_Tooltip2,
+                Resources.Home.EventAnnotations_Tooltip3
+                +Resources.Home.EventAnnotations_Tooltip4,
+                Resources.Home.EventAnnotations_Tooltip5+
+                Resources.Home.EventAnnotations_Tooltip6,
+                Resources.Home.EventAnnotations_Tooltip7+
+                Resources.Home.EventAnnotations_Tooltip8,
+                Resources.Home.EventAnnotations_Tooltip9,
+                Resources.Home.EventAnnotations_Tooltip10+
+                Resources.Home.EventAnnotations_Tooltip11,
+                Resources.Home.EventAnnotations_Tooltip12+
+                Resources.Home.EventAnnotations_Tooltip13,
+                Resources.Home.EventAnnotations_Tooltip14,
+                Resources.Home.EventAnnotations_Tooltip15,
+                Resources.Home.EventAnnotations_Tooltip16+
+                Resources.Home.EventAnnotations_Tooltip17,
+                Resources.Home.EventAnnotations_Tooltip18+
+                Resources.Home.EventAnnotations_Tooltip19,
+                Resources.Home.EventAnnotations_Tooltip20+
+                Resources.Home.EventAnnotations_Tooltip21
             };
-            return _annotationToolTips;
-        }
 
-        public static Stream GetJsonStream(string name)
-        {
-            var assembly = typeof(ControlPages).GetTypeInfo().Assembly;
-            var ress = assembly.GetManifestResourceNames();
-            var res = assembly.GetManifestResourceNames().Where(resName => resName.Contains(name)).ToList();
-            if (res.Count == 0)
-            {
-                throw new ArgumentOutOfRangeException("name");
-            }
-            return assembly.GetManifestResourceStream(res[0]);
+            return _annotationToolTips;
         }
     }
 }

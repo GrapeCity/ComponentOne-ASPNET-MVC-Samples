@@ -1,0 +1,27 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.ElementsFace_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsFace_Text1)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="theColor">@Html.Raw(Resources.C1Gauge.ElementsFace_Text2)</label>
+        @Html.C1().InputColor().Id("theColor")
+        <br />
+        <label for="theThickness">@Html.Raw(Resources.C1Gauge.ElementsFace_Text3)</label>
+        @Html.C1().InputNumber().Id("theThickness").Min(0).Max(1).Step(0.1).Format("n2")
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theGauge")
+            .StartAngle(-30).SweepAngle(240)
+            .Value(50).Max(100)
+            .IsReadOnly(false)
+            .HasShadow(false)
+            .ShowText(ShowText.All)
+            .Pointer(p=>p.Thickness(0.15))
+            .ThumbSize(20)
+        )
+    </div>
+</div>

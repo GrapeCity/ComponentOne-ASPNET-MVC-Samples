@@ -1,0 +1,78 @@
+﻿@using System.Drawing
+@{
+    string[] palette = new string[] { "#9c88d9", "#a3d767", "#8ec3c0", "#e9c3a9", "#91ab36", "#d4ccc0", "#61bbd8", "#e2d76f", "#80715a" };
+}
+
+@section Scripts{
+    <script>
+        function scatterMapItemsSourceChanged(layer, a) {
+            const bb = new wijmo.Rect(-200, -10, 500, 80);
+            var map = wijmo.Control.getControl("#flexMap");
+            map.zoomTo(bb);
+            
+            var features = layer.itemsSource;
+            features.forEach(function (f) {
+                var v = f.coordinates.split(",");
+                f.x = v[0];
+                f.y = v[1];
+                f.flow = 100000 + Math.random() * 100000000;
+            });
+
+        }
+        function colorScale(v) {
+            return 1 - v;
+        }
+        function colorScaleBindingLand(o) {
+            return o.properties.color;
+        }
+        function colorScaleBindingEurope(o) {
+            return o.properties.name.charCodeAt(0);
+        }
+    </script>
+}
+
+@(Html.C1().FlexMap().Id("flexMap")
+        .Header("Airport Map")
+        .Height(600)
+        .Tooltip(tt => tt.Content("&#9992; <b>{iata_code}</b><br>{name}"))
+        .Layers(ls =>
+        {
+          ls.AddGeoMapLayer()
+              .Url(Url.Content("~/Content/data/land.json"))
+              .ColorScale(cs => cs.Scale("colorScale")
+                                  .Binding("colorScaleBindingLand")
+                                  .Colors(palette));
+
+          ls.AddGeoMapLayer()
+              .Url(Url.Content("~/Content/data/europe.json"))
+              .ColorScale(cs => cs.Scale("colorScale")
+                                  .Binding("colorScaleBindingEurope")
+                                  .Colors(C1.Web.Mvc.Chart.Palettes.Organic));
+
+          ls.AddGeoGridLayer();
+
+          ls.AddScatterMapLayer()
+              .Url(Url.Content("~/Content/data/airports.json"))
+              .Style(s => s.Fill("rgba(10,10,10,1)"))
+              .Binding("x,y,flow")
+              .SymbolMinSize(3)
+              .SymbolMaxSize(8)
+              .OnClientItemsSourceChanged("scatterMapItemsSourceChanged");
+        })
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexMap.Index_Text0)
+}
+
+  @section Description{
+    <p>@Html.Raw(Resources.FlexMap.Index_Text1)</p>
+    <p>@Html.Raw(Resources.FlexMap.Index_Text2)</p>
+    <ol>
+        <li>@Html.Raw(Resources.FlexMap.Index_Text3)</li>
+        <li>@Html.Raw(Resources.FlexMap.Index_Text4)</li>
+        <li>@Html.Raw(Resources.FlexMap.Index_Text5)</li>
+        <li>@Html.Raw(Resources.FlexMap.Index_Text6)</li>
+        <li>@Html.Raw(Resources.FlexMap.Index_Text7)</li>
+    </ol>
+}

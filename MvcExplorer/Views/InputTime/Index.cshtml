@@ -1,0 +1,58 @@
+﻿@{
+    var minTime = DateTime.Parse("07:00");
+    var maxTime = DateTime.Parse("19:00");
+}
+
+@section Scripts{
+<style>
+    .invalid-tooltip {
+        background-color: red;
+        color: yellow;
+        opacity: 0.9;
+        border-color: lightcoral;
+    }
+</style>
+
+<script>
+    var _invalidTooltip;
+    c1.documentReady(function () {
+        _invalidTooltip = new wijmo.Tooltip();
+        _invalidTooltip.cssClass = 'invalid-tooltip';
+        _invalidTooltip.position = 11;
+        window.addEventListener('resize', function () {
+            if (_invalidTooltip.isVisible) {
+                _invalidTooltip.hide();
+                onInvalidInput();
+            }
+        });
+    })
+
+    function onInvalidInput(input, e) {
+        e && (e.cancel = true);
+        _invalidTooltip.show("#invalidInput", "@Html.Raw(Resources.InputTime.Index_Text3)");
+    }
+
+    function onValueChanged(input, e) {
+        _invalidTooltip.hide();
+    }
+
+</script>
+}
+
+<div>
+    <label>@Html.Raw(Resources.InputTime.Index_Text0)</label>
+    @(Html.C1().InputTime().Id("iditInputTime")
+        .Value(DateTime.Now).Min(minTime).Max(maxTime)
+    )
+    <p></p>
+    <label>@Html.Raw(Resources.InputTime.Index_Text2)</label>
+    @(Html.C1().InputTime().Id("invalidInput")
+        .Value(DateTime.Now).Min(minTime).Max(maxTime)
+        .OnClientInvalidInput("onInvalidInput")
+        .OnClientValueChanged("onValueChanged")
+    )
+</div>
+
+@section Description{
+    @Html.Raw(Resources.InputTime.Index_Text1)
+}

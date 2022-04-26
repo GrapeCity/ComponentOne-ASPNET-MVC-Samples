@@ -1,0 +1,105 @@
+﻿.wj-tabpanel {
+    padding: 0 12px;
+}
+
+.wj-tabpane {
+    padding: 12px;
+}
+
+.wj-tabheader:hover {
+    outline: 2px solid rgba(90, 160, 215, .5);
+}
+
+/* custom-headers */
+.wj-tabpanel.custom-headers .wj-tabpanes {
+    border: none;
+}
+
+.wj-tabpanel.custom-headers > div > .wj-tabheaders {
+    background: black;
+    color: white;
+    border: none;
+}
+
+.wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader.wj-state-active {
+    background: white;
+    color: black;
+}
+
+.wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader:not(.wj-state-active) {
+    font-weight: normal;
+}
+
+.wj-tabpanel.custom-headers .wj-tabheaders .wj-tabheader.wj-state-active:after {
+    display: none; /* hide underline */
+}
+
+/* tabs on the left */
+.wj-tabpanel.tabs-left > div {
+    display: flex;
+    align-items: center;
+}
+
+.wj-tabpanel.tabs-left .wj-tabheaders {
+    display: flex;
+    flex-direction: column;
+    min-width: 8em;
+    border-right: 1px solid #ddd;
+}
+
+    .wj-tabpanel.tabs-left .wj-tabheaders .wj-tabheader {
+        text-align: right;
+    }
+
+.wj-tabpanel.tabs-left .wj-tabpanes {
+    display: flex;
+    flex-grow: 1;
+    border-top: none;
+    overflow-x: hidden;
+}
+
+/* tabs on the right */
+.wj-tabpanel.tabs-right > div {
+    display: flex;
+    align-items: center;
+}
+
+.wj-tabpanel.tabs-right .wj-tabheaders {
+    display: flex;
+    flex-direction: column;
+    min-width: 8em;
+    border-left: 1px solid #ddd;
+    order: 1;
+}
+
+    .wj-tabpanel.tabs-right .wj-tabheaders .wj-tabheader {
+        text-align: left;
+    }
+
+.wj-tabpanel.tabs-right .wj-tabpanes {
+    display: flex;
+    flex-grow: 1;
+    border-top: none;
+    overflow-x: hidden;
+    order: 0;
+}
+
+/* tabs below */
+.wj-tabpanel.tabs-below > div {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.wj-tabpanel.tabs-below .wj-tabheaders {
+    order: 1; /* headers after panes */
+}
+
+.wj-tabpanel.tabs-below .wj-tabpanes {
+    order: 0;
+}
+
+.wj-tabpanel.tabs-below .wj-tabheaders .wj-tabheader.wj-state-active:after {
+    top: 0;
+    bottom: unset;
+}

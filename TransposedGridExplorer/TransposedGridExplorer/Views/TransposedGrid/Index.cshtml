@@ -1,47 +1,73 @@
 @using C1.Web.Mvc.Grid
+
 @model IEnumerable<ProductSheet>
+@{
+    var columns = new Action<ListItemFactory<Column, ColumnBuilder>>(bl =>
+    {
+        bl.Add(cb => cb.Binding("Image").Header(" ").Align("center").Width("80"));
+        bl.Add(cb => cb.Binding("Name").Header("Model").Align("center").WordWrap(true));
+        bl.Add(cb => cb.Binding("Rating").Header("Rating").Align("center").Format("n1").Width("130"));
+        bl.Add(cb => cb.Binding("Price").Header("Price").Align("center").Format("c2").Width("120"));
+        bl.Add(cb => cb.Binding("Screen").Header("Screen").Align("center").WordWrap(true));
+        bl.Add(cb => cb.Binding("Camera").Header("Camera").Align("center").WordWrap(true));
+        bl.Add(cb => cb.Binding("OS").Header("OS").Align("center").WordWrap(true));
+        bl.Add(cb => cb.Binding("CPU").Header("CPU").Align("center").WordWrap(true).Width("150"));
+        bl.Add(cb => cb.Binding("RAM").Header("RAM").Align("center").Format("n0").Width("80"));
+        bl.Add(cb => cb.Binding("ROM").Header("ROM").Align("center").Format("n0").Width("80"));
+        bl.Add(cb => cb.Binding("SIM").Header("SIM").Align("center").WordWrap(true));
+        bl.Add(cb => cb.Binding("Battery").Header("Battery").Align("center").Format("n0").Width("80"));
+    });
+    var rows = new Action<ListItemFactory<TransposedGridRow, TransposedGridRowBuilder>>(br =>
+    {
+        br.Add(cb => cb.Binding("Image").Header(" ").Align("center").Width("80").Height(170));
+        br.Add(cb => cb.Binding("Name").Header("Model").Align("center").WordWrap(true));
+        br.Add(cb => cb.Binding("Rating").Header("Rating").Align("center").Format("n1").Width("130").Height(40));
+        br.Add(cb => cb.Binding("Price").Header("Price").Align("center").Format("c2").Width("120"));
+        br.Add(cb => cb.Binding("Screen").Header("Screen").Align("center").WordWrap(true));
+        br.Add(cb => cb.Binding("Camera").Header("Camera").Align("center").WordWrap(true));
+        br.Add(cb => cb.Binding("OS").Header("OS").Align("center").WordWrap(true));
+        br.Add(cb => cb.Binding("CPU").Header("CPU").Align("center").WordWrap(true).Width("150"));
+        br.Add(cb => cb.Binding("RAM").Header("RAM").Align("center").Format("n0").Width("80"));
+        br.Add(cb => cb.Binding("ROM").Header("ROM").Align("center").Format("n0").Width("80"));
+        br.Add(cb => cb.Binding("SIM").Header("SIM").Align("center").WordWrap(true));
+        br.Add(cb => cb.Binding("Battery").Header("Battery").Align("center").Format("n0").Width("80"));
+    });
+}
 
 <h4 class="semi-bold">
     TransposedGrid:
 </h4>
 
-<c1-transposed-grid id="theTransposedGrid" auto-generate-rows="false" class="product-sheet-grid" is-read-only="true" headers-visibility="Row"
-                    item-formatter="formatItem" loaded-rows="loadedRows" height="615">
-    <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-transposed-grid-row binding="Image" header=" " align="center" width="80" height="170"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Name" header="Model" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Rating" header="Rating" align="center" format="n1" width="130" height="40"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Price" header="Price" align="center" format="c2" width="120"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Screen" header="Screen" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Camera" header="Camera" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="OS" header="OS" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="CPU" header="CPU" align="center" word-wrap="true" width="150"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="RAM" header="RAM" align="center" format="n0" width="80"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="ROM" header="ROM" align="center" format="n0" width="80"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="SIM" header="SIM" align="center" word-wrap="true"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Battery" header="Battery" align="center" format="n0" width="80"></c1-transposed-grid-row>
-</c1-transposed-grid>
+@(Html.C1().TransposedGrid<ProductSheet>()
+        .AutoGenerateRows(false)
+        .Id("theTransposedGrid")
+        .CssClass("product-sheet-grid")
+        .IsReadOnly(true)
+        .Bind(Model)
+        .HeadersVisibility(HeadersVisibility.Row)
+        .Rows(rows)
+        .ItemFormatter("formatItem")
+        .OnClientLoadedRows("loadedRows")
+        .Height(615)
+)
 
 <h4 class="semi-bold">
     FlexGrid:
 </h4>
 
-<c1-flex-grid id="theFlexGrid" auto-generate-columns="false" class="product-sheet-grid" is-read-only="true"
-              item-formatter="formatItem" height="350" default-row-size="50" default-column-size="210">
-    <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-flex-grid-column binding="Image" header=" " align="center" width="80"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Name" header="Model" align="center" word-wrap="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Rating" header="Rating" align="center" format="n1" width="130"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Price" header="Price" align="center" format="c2" width="120"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Screen" header="Screen" align="center" word-wrap="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Camera" header="Camera" align="center" word-wrap="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="OS" header="OS" align="center" word-wrap="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="CPU" header="CPU" align="center" word-wrap="true" width="150"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="RAM" header="RAM" align="center" format="n0" width="80"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="ROM" header="ROM" align="center" format="n0" width="80"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="SIM" header="SIM" align="center" word-wrap="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Battery" header="Battery" align="center" format="n0" width="80"></c1-flex-grid-column>
-</c1-flex-grid>
+@(Html.C1().FlexGrid<ProductSheet>()
+        .AutoGenerateColumns(false)
+        .Id("theFlexGrid")
+        .CssClass("product-sheet-grid")
+        .IsReadOnly(true)
+        .Bind(Model)
+        //.HeadersVisibility(HeadersVisibility.Column)
+        .Columns(columns)
+        .ItemFormatter("formatItem")
+        .Height(350)
+        .DefaultRowSize(50)
+        .DefaultColumnSize(210)
+)
 
 <style type="text/css">
     .product-sheet-grid {
@@ -141,9 +167,9 @@
 }
 
 @section Summary{
-    <p>@Html.Raw(TransposedGridRes.Index_Text0)</p>
+    <p>@Html.Raw(Resources.TransposedGrid.Index_Text0)</p>
 }
 
 @section Description{
-    <p>@Html.Raw(TransposedGridRes.Index_Text1)</p>
+    <p>@Html.Raw(Resources.TransposedGrid.Index_Text1)</p>
 }

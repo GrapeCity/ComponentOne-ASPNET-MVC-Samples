@@ -1,0 +1,59 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+@{
+    var defaultContent = "<b>{seriesName}</b><br/>{x} {y}";
+    var tableContent = "<b>{Date:MMM dd}</b><br />" +
+            "<table>" +
+            "<tr><td>high</td><td>{High:c}</td><tr/>" +
+            "<tr><td>low</td><td>{Low:c}</td><tr/>" +
+            "<tr><td>open</td><td>{Open:c}</td><tr/>" +
+            "<tr><td>close</td><td>{Close:c}</td><tr/>" +
+            "</table>";
+    var tooltips = new[] {
+        new KeyValuePair<string, string>("Default", defaultContent),
+        new KeyValuePair<string, string>("None", ""),
+        new KeyValuePair<string, string>("Table", tableContent)
+    };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Tooltips_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Tooltips_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Tooltips_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="tooltip">@Html.Raw(Resources.C1FlexChart.Tooltips_Text3) </label>
+    @(Html.C1().ComboBox<KeyValuePair<string, string>>().Id("tooltip").Bind(tooltips).DisplayMemberPath("Key"))
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .CssClass("custom-gridlines")
+    .Bind("Date", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Series(sb=>sb.Add().Binding("High,Low,Open,Close").Name(Resources.C1FlexChart.Axes_Text10))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .AxisX(x => x.Format("MMM dd")
+                .MajorGrid(true) // show major gridlines
+                .MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.Cross) // None,Outside,Inside,Cross
+                .MajorUnit(7)
+                .MinorGrid(true) // show minor gridlines
+                .MinorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None) // None,Outside,Inside,Cross
+                .MinorUnit(1))
+    .AxisY(y => y.Min(790).Max(860)
+                .Format("c0")
+                .AxisLine(true) // show axis line
+                .MajorGrid(true) // show major gridlines
+                .MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.Cross) // None,Outside,Inside,Cross
+                .MajorUnit(20)
+                .MinorGrid(true) // show minor gridlines
+                .MinorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None) // None,Outside,Inside,Cross
+                .MinorUnit(5))
+    .Header(Resources.C1FlexChart.Axes_Text9)
+)

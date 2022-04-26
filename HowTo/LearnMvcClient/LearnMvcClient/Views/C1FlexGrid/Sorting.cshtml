@@ -1,0 +1,36 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Sorting_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Sorting_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Sorting_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Sorting_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Sorting_Text4)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .DeferResizing(true)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("60");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1FlexGrid.Sorting_Text5)
+    </div>
+</div>

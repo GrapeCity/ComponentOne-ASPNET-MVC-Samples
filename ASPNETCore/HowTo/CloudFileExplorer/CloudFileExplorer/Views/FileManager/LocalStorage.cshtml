@@ -1,0 +1,18 @@
+﻿@section Styles{
+    <style>
+        .popover {
+            display: block;
+        }
+    </style>
+}
+
+<c1-file-manager id="FileManager" host-url="@Url.Content("~")" root-folder="ExcelRoot/LocalDocuments" cloud-type="LocalStorage">
+</c1-file-manager>
+
+@section Summary{
+    <p>@Html.Raw(CloudFileRes.Index_Text1)</p>
+}
+
+@section Description{
+    @Html.Raw(CloudFileRes.Index_Text0)
+}

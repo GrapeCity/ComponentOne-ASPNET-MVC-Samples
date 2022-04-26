@@ -1,0 +1,21 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Templates_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Templates_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Templates_Text2)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("country").Header("Country");
+        cs.Add().Binding("template").Header("Template").Width("130").IsReadOnly(true);
+        cs.Add().Binding("sales").Header("Sales").Format("n2");
+        cs.Add().Binding("expenses").Header("Expenses").Format("n2");
+    })
+    .ShowAlternatingRows(false)
+)

@@ -1,0 +1,99 @@
+﻿@model IEnumerable<Fruit>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    object[] palettesModel = ViewBag.Palettes;
+}
+
+@functions{
+    public C1.Web.Mvc.Chart.Stacking GetStacking(ClientSettingsModel settings)
+    {
+        return settings.GetEnum("Stacking", C1.Web.Mvc.Chart.Stacking.None, (stacking) =>
+        {
+            return string.Equals(stacking, "Stacked 100%", StringComparison.OrdinalIgnoreCase)
+                ? "Stacked100pc"
+                : stacking;
+        });
+    }
+}
+
+<div id="flexChart"></div>
+@(Html.C1().FlexChart().Id(demoSettingsModel.ControlId)
+    .ChartType(demoSettingsModel.GetEnum("ChartType", C1.Web.Mvc.Chart.ChartType.Column))
+    .Stacking(GetStacking(demoSettingsModel))
+    .Rotated(demoSettingsModel.GetBool("Rotated", false))
+    .Bind(Model).BindingX("Name").Series(sers =>
+    {
+        sers.Add().Binding("MarPrice").Name("March");
+        sers.Add().Binding("AprPrice").Name("April");
+        sers.Add().Binding("MayPrice").Name("May");
+    })
+    .Legend(C1.Web.Mvc.Chart.Position.Bottom)
+    .Legend(demoSettingsModel.GetEnum("LegendOrientation", C1.Web.Mvc.Chart.LegendOrientation.Auto))
+    .Palette(C1.Web.Mvc.Chart.Palettes.Standard)
+)
+
+@section Scripts{
+    <script type="text/javascript">
+
+    convertStacking = function (value) {
+        return value === "Stacked 100%" ? "Stacked100pc" : value;
+    };
+
+    updateGroupWidth = function (control, value) {
+        control.options = { groupWidth: value === "50 pixels" ? 50 : value };
+    };
+    customChangeLegendOrientation = function (control, value) {
+        control.legend.orientation = value;
+    };
+    function customChangeTooltipPosition(control, value) {
+        control.tooltip.position = value;
+    }
+    function customChangeMaxSize(control, value) {
+        control.legend.maxSize = value;
+    }
+
+    function itemPaletteClicked(sender) {
+        if (sender.selectedItem) {
+            let flexPie = wijmo.Control.getControl("#@(demoSettingsModel.ControlId)")
+            if (flexPie) {
+                flexPie.palette = sender.selectedItem.Value;
+                flexPie.invalidate();
+            }
+            let menu = wijmo.Control.getControl("#paletteMenu");
+            if (sender.selectedItem.GroupName && sender.selectedItem.GroupName.length) {
+                menu.header = "Palette: <b>" + sender.selectedItem.GroupName + "." + sender.selectedItem.Header+ "<b/>";
+            }
+            else {
+                menu.header = "Palette: <b>" + sender.selectedItem.Header + "<b/>";
+            }
+            sender.invalidate();
+        }
+    }
+    </script>
+}
+
+@section Settings{
+    @(Html.C1().Menu().Id("paletteMenu").Bind(palettesModel)
+        .Header("Palette: <b>Standard</b>")
+        .ShowDropDownButton(true)
+        .CloseOnLeave(true)
+        .SubItemsPath("Items")
+        .OnClientItemClicked("itemPaletteClicked")
+    )
+}
+
+@section Description{
+
+    <p>@Html.Raw(Resources.FlexChart.Index_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.Index_Text1)</p>
+    <p>@Html.Raw(Resources.FlexChart.Index_Text2)</p>
+    <ol>
+        <li>@Html.Raw(Resources.FlexChart.Index_Li1)</li>
+        <li>@Html.Raw(Resources.FlexChart.Index_Li2)</li>
+        <li>@Html.Raw(Resources.FlexChart.Index_Li3)</li>
+    </ol>
+    <p>@Html.Raw(Resources.FlexChart.Index_Text3)</p>
+    <p>@Html.Raw(Resources.FlexChart.Index_Text4)</p>
+}

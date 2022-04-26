@@ -1,0 +1,76 @@
+@model DashboardData
+
+<h1>
+    @Html.Raw(Resources.C1Nav.DashboardLayout_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.DashboardLayout_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.DashboardLayout_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.DashboardLayout_Text3)
+</p>
+
+@Html.Partial("_DashboardLayoutElements", Model)
+@(Html.C1().DashboardLayout().Id("dashboardLayout")
+    .AttachAutoGridLayout(aglb=> aglb.MaxRowsOrColumns(3)
+    .CellSize(303)
+    .Orientation(LayoutOrientation.Vertical)
+    .Items(isb =>
+    {
+        isb.Add().Children(cb =>
+        {
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.KPIs, Model.SalesDashboardStr))
+                .Content("#kpiGauges")
+                .RowSpan(1).ColumnSpan(1);
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.CostBudget, Model.CostBudgetingStr))
+                .Content("#costBudgetingChart")
+                .RowSpan(1).ColumnSpan(1);
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.Countrywise, Model.CountrywiseSalesStr))
+                .Content("#countrywiseSalesChart")
+                .RowSpan(1).ColumnSpan(1);
+        });
+        isb.Add().Children(cb =>
+        {
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.SalesDashboard, Model.SalesDashboardStr))
+                .Content("#salesDashboardFGrid")
+                .ColumnSpan(1).RowSpan(1);
+        });
+    })))
+
+<h4>
+    Options
+</h4>
+<div class="options">
+    <label for="allowDrag">
+        allowDrag
+    </label>
+    <input id="allowDrag" type="checkbox" checked="checked">
+</div>
+<div class="options">
+    <label for="allowResize">
+        allowResize
+    </label>
+    <input id="allowResize" type="checkbox" checked="checked">
+</div>
+<div class="options">
+    <label for="allowMaximize">
+        allowMaximize
+    </label>
+    <input id="allowMaximize" type="checkbox" checked="checked">
+</div>
+<div class="options">
+    <label for="allowHide">
+        allowHide
+    </label>
+    <input id="allowHide" type="checkbox" checked="checked">
+</div>
+<div class="options">
+    <label for="allowShowAll">
+        allowShowAll
+    </label>
+    <input id="allowShowAll" type="checkbox" checked="checked">
+</div>
+

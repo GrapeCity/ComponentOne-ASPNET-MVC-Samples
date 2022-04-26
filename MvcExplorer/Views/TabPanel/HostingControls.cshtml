@@ -1,0 +1,57 @@
+﻿@{
+    var gridData = ViewBag.GridData as IEnumerable<Sale>;
+    var chartData = ViewBag.ChartData as IEnumerable<Fruit>;
+}
+
+<div id="tabGettingStarted">
+    <div>
+        <a>FlexGrid</a>
+        <div>
+            @(Html.C1().FlexGrid<Sale>().Id("theGrid").CssClass("grid")
+                .AutoGenerateColumns(false).IsReadOnly(true)
+                .Bind(gridData)
+                .Columns(cs =>
+                {
+                    cs.Add().Binding("ID");
+                    cs.Add().Binding("Country");
+                    cs.Add().Binding("Product");
+                    cs.Add().Binding("Color");
+                    cs.Add().Binding("Amount");
+                }))
+        </div>
+    </div>
+    <div>
+        <a>FlexChart</a>
+        <div>
+            @(Html.C1().FlexChart().Id("theChart")
+                .Bind(chartData).BindingX("Name")
+                .ChartType(C1.Web.Mvc.Chart.ChartType.Column)
+                .Series(ss =>
+                {
+                    ss.Add().Binding("MarPrice");
+                    ss.Add().Binding("AprPrice");
+                    ss.Add().Binding("MayPrice");
+                }))
+        </div>
+    </div>
+    <div>
+        <a>Gauges</a>
+        <div style="overflow:hidden">
+            @Html.C1().RadialGauge().Id("theRadialGauge").Min(0).Max(10).Value(5).ShowText(ShowText.None).Width(300)
+            @(Html.C1().LinearGauge().Id("theLinearGauge").Width(300)
+                .Face(f => f.Min(0).Max(10))
+                .Pointer(p=>p.Max(5))
+            )
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#tabGettingStarted")
+
+@section Summary{
+    <p>@Html.Raw(Resources.TabPanel.HostingControls_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TabPanel.HostingControls_Text1)</p>
+    <p>@Html.Raw(Resources.TabPanel.HostingControls_Text2)</p>
+}

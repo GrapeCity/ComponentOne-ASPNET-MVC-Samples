@@ -1,0 +1,57 @@
+﻿@using MultiRowLOB.Localization;
+@model  IEnumerable<DataService.Order>
+
+@{ 
+    var warehouseData = Resources.OrderManagement_DataMap_Warehouses.Split(',').ToValues();
+}
+
+@section Scripts{
+    <script src="~/Scripts/controllers/orderManagementCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.OrderManagement_Title</h2>
+
+    @(Html.C1().MultiRow<DataService.Order>()
+        .Id("orderManagement")
+        .Bind(b => b.Bind(Model).DisableServerRead(true).PageSize(5))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Colspan(3).Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("OrderId").Width("80").Header(Resources.OrderManagement_Field_OrderId));
+                cells.Add(cell => cell.Binding("ProductId").Width("80").Header(Resources.OrderManagement_Field_ProductId));
+                cells.Add(cell => cell.Binding("ProductName").Width("180").Header(Resources.OrderManagement_Field_ProductName));
+                cells.Add(cell => cell.Binding("SpecialNote").Header(Resources.OrderManagement_Field_SpecialNote).Colspan(3).Align("center"));
+            });
+            ld.Add().Colspan(3).Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Quantity").Width("80").Header(Resources.OrderManagement_Field_Quantity));
+                cells.Add(cell => cell.Binding("UnitPrice").Width("80").Header(Resources.OrderManagement_Field_UnitPrice).Format("c2"));
+                cells.Add(cell => cell.Binding("Amount").Width("80").Header(Resources.OrderManagement_Field_Amount).Format("c2").IsReadOnly(true));
+                cells.Add(cell => cell.Binding("ShippingWarehouse").Header(Resources.OrderManagement_Field_ShippingWarehouse).Colspan(2).Align("center").DataMap(dm =>
+                {
+                    dm.Bind(warehouseData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                }));
+                cells.Add(cell => cell.Binding("OnHold").Header(Resources.OrderManagement_Field_OnHold));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("OrderDate").Header(Resources.OrderManagement_Field_OrderDate).Format("yyyy/MM/dd"));
+                cells.Add(cell => cell.Binding("DeliveryDate").Header(Resources.OrderManagement_Field_DeliveryDate).Format("yyyy/MM/dd"));
+            });
+        })
+    )
+
+    <div class="pull-right btn-group">
+        @(Html.C1().Pager().Owner("orderManagement"))
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

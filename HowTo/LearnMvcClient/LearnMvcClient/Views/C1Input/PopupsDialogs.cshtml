@@ -1,0 +1,44 @@
+<h1>
+    @Html.Raw(Resources.C1Input.PopupsDialogs_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsDialogs_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsDialogs_Text2)
+</p>
+
+<button id="btnDropDown" class="btn btn-primary">
+    Show Drop-Down
+</button>
+<div id="dropDown" class="wj-dialog-body">
+    <p>@Html.Raw(Resources.C1Input.PopupsDialogs_Text3)</p>
+    <p>@Html.Raw(Resources.C1Input.PopupsDialogs_Text4)</p>
+    <button class="btn btn-default wj-hide">@Resources.Resource.Btn_Ok</button>
+</div>
+@Html.C1().Popup("#dropDown")
+
+<button id="btnDialog" class="btn btn-primary">
+    @Resources.Resource.Btn_ShowDialog
+</button>
+<div id="dialog">
+    <div class="wj-dialog-header">
+        @Html.Raw(Resources.C1Input.PopupsDialogs_Text5)
+    </div>
+    <div class="wj-dialog-body">
+        <p>
+            @Html.Raw(Resources.C1Input.PopupsDialogs_Text6)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Input.PopupsDialogs_Text7)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Input.PopupsDialogs_Text8)
+        </p>
+    </div>
+    <div class="wj-dialog-footer">
+        <button class="btn btn-default wj-hide-ok">@Resources.Resource.Btn_Ok</button>
+        <button class="btn btn-default wj-hide-cancel">@Resources.Resource.Btn_Cancel</button>
+    </div>
+</div>
+@Html.C1().Popup("#dialog")

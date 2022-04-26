@@ -1,0 +1,28 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@section Scripts{
+<script>
+    function customChangeDirection(control, value) {
+        control.direction = value;
+        control.invalidate();
+        if (value === "Left" || value === "Right") {
+            control.hostElement.style.width = "500px";
+            control.hostElement.style.height = "1.2em";
+        } else {
+            control.hostElement.style.width = "1.2em";
+            control.hostElement.style.height = "500px";
+        }
+    }
+</script>
+}
+
+@(Html.C1().LinearGauge().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Value(5)
+    .Direction(GaugeDirection.Left).Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.LinearGauge.Direction_Text0)
+}

@@ -1,0 +1,33 @@
+﻿.item p {
+    margin: 0;
+}
+.item h1 {
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 200;
+}
+.demo-control .wj-treeview {
+    padding: 0 12px 12px 12px;
+    background: #fafafa;
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
+/* customize TreeView content */
+.demo-control .wj-treeview h1 {
+    display: inline-block;
+    margin-top: 10px;
+    margin-bottom: 0;
+    font-size: 20px;
+    font-weight: 200;
+}
+
+/* hide collapse/expand icons */
+.demo-control .wj-treeview .wj-nodelist .wj-node:before {
+    display: none;
+}
+
+/* remove selected style */
+.demo-control .wj-treeview .wj-node.wj-state-selected {
+    color: inherit;
+    background: transparent;
+}

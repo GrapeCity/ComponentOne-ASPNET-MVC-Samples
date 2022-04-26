@@ -1,0 +1,35 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Text4)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .IsReadOnly(true)
+    .ShowAlternatingRows(false)
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Sales").Header("Sales").Format("n2");
+        cs.Add().Binding("Expenses").Header("Expenses").Format("n2");
+        cs.Add().Binding("Active").Header("Active");
+    })
+    .OrderBy("Country", "Active")
+)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CellMerging_Text5)
+</p>

@@ -1,0 +1,44 @@
+﻿@model DashboardData
+
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsAtTop = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@Html.Partial("_DashboardElements", Model)
+
+@(Html.C1().DashboardLayout().Id(demoSettingsModel.ControlId)
+    .AttachAutoGridLayout(aglb => aglb.Orientation(LayoutOrientation.Vertical)
+        .MaxRowsOrColumns(3)
+        .CellSize(303)
+        .Items(isb =>
+        {
+            isb.Add().Children(cb =>
+            {
+                cb.Add().HeaderText(string.Format(Resources.DashboardLayout.KPIs, Model.KPIsStr))
+                    .Content("#kpiGauges")
+                    .RowSpan(1).ColumnSpan(1);
+                cb.Add().HeaderText(string.Format(Resources.DashboardLayout.CostBudget, Model.CostBudgetingStr))
+                    .Content("#costBudgetingChart")
+                    .RowSpan(1).ColumnSpan(1);
+                cb.Add().HeaderText(string.Format(Resources.DashboardLayout.Countrywise, Model.CountrywiseSalesStr))
+                    .Content("#countrywiseSalesChart")
+                    .RowSpan(1).ColumnSpan(1);
+            });
+            isb.Add().Children(cb =>
+            {
+                cb.Add().HeaderText(string.Format(Resources.DashboardLayout.SalesDashboard, Model.SalesDashboardStr))
+                    .Content("#salesDashboardFGrid")
+                    .ColumnSpan(1).RowSpan(1);
+            });
+    })))
+
+@section Summary{
+        @Html.Raw(Resources.DashboardLayout.AutoGridLayout_Summary)
+}
+
+    @section Description{
+    <p>@Html.Raw(Resources.DashboardLayout.AutoGridLayout_Desc)</p>
+}
+

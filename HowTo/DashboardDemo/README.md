@@ -1,4 +1,4 @@
-## ASP.NET Core MVC Dashboard Demo
+## ASP.NET MVC Dashboard Demo
 #### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-ASPNET-MVC-Samples/tree/master/HowTo/DashboardDemo)
 ____
 #### A multiple screen dashboard app that displays data.

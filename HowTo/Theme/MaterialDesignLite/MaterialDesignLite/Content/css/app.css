@@ -1,0 +1,92 @@
+﻿
+
+.subpageheader {
+    text-transform: uppercase;
+    margin-top: 32pt;
+    font-size: 16pt;
+    font-weight: 500;
+    color: rgba(0, 0, 0, .54);
+}
+p strong {
+    margin-top: 14px;
+    margin-bottom: 32px;
+    font-weight: bold;
+    color: rgba(0, 0, 0, .54);
+}
+.customize a {
+    color: #00bcd4;
+    text-decoration: none;
+}
+.code {
+    font-family: monospace;
+    background-color: rgba(0, 0, 0, 0.06);
+    padding: 18px;
+}
+.code a {
+    color: black;
+}
+.ctlgroup {
+    margin-bottom: 24px;
+}
+.mdl-layout__header-row img {
+    margin-right: 12px;
+}
+.preview {
+    position: relative;
+    height: 600px;
+    margin: 12pt 0 12pt 0;
+}
+    .preview .mdl-layout__content {
+        padding: 24px;
+        padding-bottom: 0px;
+        padding-top: 12px;
+        background-color: #f4f4f4;
+    }
+    .preview .wj-flexgrid {
+        max-height: 300px;
+    }
+    .preview .wj-control {
+        margin:12px;
+    }
+    .preview .mdl-textfield {
+        margin:12px;
+        width: 40%;
+    }
+    .preview .mdl-textfield .wj-control {
+        margin:0;
+    }
+
+.mdl-tabs .mdl-tabs__panel {
+    padding-top: 24px;
+}
+.mdl-tabs .mdl-tabs__tab.is-active {
+    font-weight: bold;
+}
+
+/* container (copied from Boostrap CSS) */
+.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+
+
+/* color wheel styles */
+.wj-colorwheel {
+    min-height: 400px;
+}
+.wj-colorwheel text.wj-pointer {
+    fill: white;
+    font-size: 22px;
+}
+.wheel {
+    position: relative;
+}
+.wheel .centered {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

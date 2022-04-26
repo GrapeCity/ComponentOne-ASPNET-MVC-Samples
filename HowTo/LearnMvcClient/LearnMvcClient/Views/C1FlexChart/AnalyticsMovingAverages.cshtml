@@ -1,0 +1,39 @@
+@{ 
+    var types = new[] { "Simple", "Weighted", "Exponential", "Triangular" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text5)
+    </li>
+</ol>
+
+<div class="demo-settings">
+    <label for="type">@Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text6) </label>
+    @Html.C1().ComboBox().Id("type").Bind(types)
+    <br />
+    <label for="period">@Html.Raw(Resources.C1FlexChart.AnalyticsMovingAverages_Text7) </label>
+    @Html.C1().InputNumber().Id("period").Value(6).Step(1).Min(2).Max(20)
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .BindingX("date")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+    .AxisY(y=>y.Min(0))
+    .Series(sb=>sb.Add().Binding("sales").Name("Sales"))
+)

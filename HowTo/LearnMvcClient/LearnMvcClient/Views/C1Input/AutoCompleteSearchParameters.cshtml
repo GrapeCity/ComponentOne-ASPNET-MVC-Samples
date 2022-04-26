@@ -1,0 +1,26 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="theDelay">@Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text3)</label>
+    @Html.C1().InputNumber().Id("theDelay").Min(0).Max(1500).Step(100)
+    <br>
+    <label for="theMinLength">@Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text4)</label>
+    @Html.C1().InputNumber().Id("theMinLength").Min(1).Max(100).Step(1)
+    <br>
+    <label for="theMaxItems">@Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text5)</label>
+    @Html.C1().InputNumber().Id("theMaxItems").Min(1).Max(12).Step(1)
+</div>
+
+<label for="theAutoComplete">@Html.Raw(Resources.C1Input.AutoCompleteSearchParameters_Text6)</label>
+@(Html.C1().AutoComplete<Gdp>().Id("theAutoComplete").Bind(Model).DisplayMemberPath("Country").SearchMemberPath("Country,Continent"))

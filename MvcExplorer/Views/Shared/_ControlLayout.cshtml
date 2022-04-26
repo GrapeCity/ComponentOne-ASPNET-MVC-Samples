@@ -1,0 +1,137 @@
+﻿
+@functions{
+    void SetPagePath(ControlPage page, string controllerName)
+    {
+        page.Path = string.IsNullOrEmpty(page.Name) ? "#" : Url.Action(page.Name, controllerName).ToString();
+
+        if (page.SubPages != null)
+        {
+            foreach (var subPage in page.SubPages)
+            {
+                SetPagePath(subPage, controllerName);
+            }
+        }
+    }
+}
+
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+        var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+        var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+        ViewBag.ControllerName = controllerName;
+    ViewBag.ActionName = actionName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+    ViewBag.Title = string.Format("{0} - {1}", controllerName, ViewBag.PageText);
+        ViewBag.DemoDescription = ViewBag.DemoDescription ?? true;
+    ViewBag.DemoSettings = ViewBag.DemoSettings ?? false;
+    ViewBag.DemoLog = ViewBag.DemoLog ?? false;
+    ViewBag.DemoSource = ViewBag.DemoSource ?? true;
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+        ViewBag.DocLink = group.Documentation;
+
+    var pages = group.Pages;
+
+    foreach (var page in pages)
+    {
+        SetPagePath(page, controllerName);
+    }
+
+    ViewBag.Pages = pages;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+        @Styles.Render("~/Content/SyntaxHighlighter/codeHighlight")
+    @RenderSection("Styles", false)
+}
+
+    @section Scripts{
+    <script>
+        var actionName = '@actionName';
+    </script>
+    <script src="~/Scripts/ControlLayout.js"></script>
+    @Scripts.Render("~/bundles/SyntaxHighlighter/codeHighlight")
+    @RenderSection("Scripts", false)
+}
+
+<div class="narrow-screen features-bar">
+    <span>@currentPage.ControlName <span class="wj-glyph-down"></span></span>
+    <ul class="narrow-screen features-nav">
+        @foreach (ControlPage page in ViewBag.Pages)
+        {
+            @Html.Partial("_ControlPage", page)
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 side">
+    <div>
+        <h4 class="semi-bold wide-screen">@currentPage.ControlName</h4>
+        <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
+        <div class="description">@RenderSection("Summary", false)</div>
+    </div>
+    @Html.Partial("_ControlsNav")
+</div>
+<div class="col-md-9">
+    <div class="padder">
+        <div id="navList" class="nav nav-tabs">
+            <div>
+                <a class="semi-bold">@Html.Raw(Resources.Resource.ControlLayout_Sample)</a>
+                <div class="tab-pane pane-content active collapse-panel" id="sample">
+                    @{
+                        if (ViewBag.DemoSettings && ViewBag.SettingsAtTop == true )
+                        {
+                            <div class="demo-settings">
+                                @if (ViewBag.DemoSettingsModel != null)
+                                {
+                                    @Html.Partial("_ClientSettingsByMenu", ViewBag.DemoSettingsModel as ClientSettingsModel)
+                                }
+                                @RenderSection("Settings", false)
+                            </div>
+                        }
+                    }
+                    <div class="demo-control">@RenderBody()</div>
+                    @{
+                        if (ViewBag.DemoSettings && ViewBag.SettingsAtTop != true)
+                        {
+                            <div class="demo-settings">
+                                <h3 class="semi-bold">@Html.Raw(Resources.Resource.ControlLayout_Settings)</h3>
+                                @if (ViewBag.DemoSettingsModel != null)
+                                {
+                                    @Html.Partial("_ClientSettingsByMenu", ViewBag.DemoSettingsModel as ClientSettingsModel)
+                                }
+                                @RenderSection("Settings", false)
+                            </div>
+                        }
+                    }
+                    @{
+                        if (ViewBag.DemoDescription)
+                        {
+                            <div class="demo-description">
+                                <h3 class="semi-bold">@Html.Raw(Resources.Resource.ControlLayout_Description)</h3>
+                                <div>
+                                    @RenderSection("Description", false)
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+            </div>
+            <div>
+                <a class="semi-bold">@Html.Raw(Resources.Resource.ControlLayout_Source)</a>
+                <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                    <div class="demo-source">
+                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                    </div>
+                </div>
+            </div>
+            <div>
+                <span onclick="return gotoDoc('@ViewBag.DocLink', event);" class="doc-tab semi-bold">@Html.Raw(Resources.Resource.ControlLayout_Documentation)</span>
+                <div></div>
+            </div>
+        </div>
+        @Html.C1().TabPanel("#navList")
+    </div>
+</div>

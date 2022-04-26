@@ -1,0 +1,11 @@
+﻿@{
+    var timeList = ViewBag.TimeList as List<object>;
+}
+<div>
+    <label>@Html.Raw(Resources.InputTime.CustomTime_Text0)</label>
+    @(Html.C1().InputTime().Bind(timeList).Value(DateTime.Parse("11:35")).Format("H:mm"))
+</div>
+
+@section Description{
+    @Html.Raw(Resources.InputTime.CustomTime_Text1)
+}

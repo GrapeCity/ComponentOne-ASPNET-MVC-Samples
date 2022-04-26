@@ -1,0 +1,23 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputDateFormatting_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputDateFormatting_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputDateFormatting_Text2)
+</p>
+<div id="inputDates" class="demo-settings">
+    @{ 
+        var formats = new[] { "d", "D", "M", "d/M/yy", "MMMM dd, yyyy" };
+    }
+    @for(var i = 0; i < formats.Length; i++)
+    {
+        var fmt = formats[i];
+        var id = "theInputDateF" + i;
+        <label for="@id">@fmt: </label>
+        @Html.C1().InputDate().Id(id)
+        <br />
+    }
+</div>

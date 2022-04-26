@@ -1,0 +1,64 @@
+@{
+    var showTexts = new[] { "None", "Value", "MinMax", "All" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Text1)
+</p>
+<dl class="dl-horizontal">
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Text2)
+</dl>
+
+<p>
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Text3)
+</p>
+<dl class="dl-horizontal">
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Text4)
+</dl>
+
+<p>
+    @Html.Raw(Resources.C1Gauge.BasicProperties_Text5)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text6)</label>
+        @Html.C1().InputNumber().Id("min").Step(10)
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text7)</label>
+        @Html.C1().InputNumber().Id("max").Step(10)
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text8)</label>
+        @Html.C1().InputNumber().Id("value").Step(10)
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text9)</label>
+        @Html.C1().ComboBox().Id("showText").Bind(showTexts)
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text10)</label>
+        <input id="isReadOnly" type="checkbox" checked="checked">
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text11)</label>
+        @Html.C1().InputNumber().Id("step").Step(1)
+        <br />
+        <label>@Html.Raw(Resources.C1Gauge.BasicProperties_Text12)</label>
+        <input id="isAnimated" type="checkbox" checked="checked">
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theRadialGauge")
+            .Min(0).Max(100).Value(75)
+            .ShowText(ShowText.None)
+        )
+        @(Html.C1().LinearGauge().Id("theLinearGauge")
+            .Min(0).Max(100).Value(75)
+            .ShowText(ShowText.None)
+        )
+        @(Html.C1().BulletGraph().Id("theBulletGraph")
+            .Min(0).Max(100).Value(75)
+            .Target(60).Bad(50).Good(70)
+            .ShowText(ShowText.None)
+        )
+    </div>
+</div>

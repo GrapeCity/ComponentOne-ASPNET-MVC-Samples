@@ -1,0 +1,43 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.CreateControls_Title)
+</h1>
+@Html.Raw(Resources.C1Mvc.CreateControls_Description)
+
+@Html.Raw(Resources.C1Mvc.CreateControls_FlexGrid)
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .Id("flexgrid")
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Bind((IEnumerable<Sale>)ViewBag.Sales)
+    .OrderBy("ID")
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+
+@Html.Raw(Resources.C1Mvc.CreateControls_FlexChart)
+<div id="theChart"></div>
+@(Html.C1().FlexChart("#theChart")
+    .Bind((IEnumerable<Fruit>)ViewBag.FruitSales)
+    .BindingX("Name")
+    .Series(sers =>
+    {
+        sers.Add().Binding("MarPrice").Name("March");
+        sers.Add().Binding("AprPrice").Name("April");
+        sers.Add().Binding("MayPrice").Name("May");
+    })
+)
+
+@Html.Raw(Resources.C1Mvc.CreateControls_InputDate)
+<div id="theDate"></div>

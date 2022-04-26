@@ -1,0 +1,223 @@
+﻿@{
+    ViewBag.Title = Resources.Resource.PageTitle;
+    var theGaugeValue = 80;
+    var theDateTime = new DateTime(2016, 2, 2, 13, 30, 0);
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+<div class="container">
+    <div class="subpageheader">
+        @Html.Raw(Resources.Resource.HomeTitle)
+    </div>
+    <div class="mdl-grid customize">
+        <div class="mdl-cell mdl-cell--6-col">
+            <div class="wheel">
+                <div id="colorWheel" class="color-wheel" palette="palette" theme-changed="themeChanged(s,e)">
+                </div>
+                <button class="centered mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--fab"
+                        onclick="$scope.downloadCss();">
+                    <i class="material-icons">@Resources.Resource.HomeFileDownload</i>
+                </button>
+            </div>
+        </div>
+        <div class="mdl-cell mdl-cell--6-col">
+            <p>
+                <strong>@Html.Raw(Resources.Resource.HomeText1)</strong>
+            </p>
+            <p>
+                @Html.Raw(Resources.Resource.HomeText2)
+            </p>
+            <p>
+                @Html.Raw(Resources.Resource.HomeText3)
+            </p>
+            <p>
+                @Html.Raw(Resources.Resource.HomeText4)
+            </p>
+        </div>
+    </div>
+
+    <div id="cdn-code">
+        <p>@Html.Raw(Resources.Resource.HomeText5)</p>
+        <div id="codeLinks" class="code">
+            &lt;link rel="stylesheet" href="" /&gt;<br />
+            &lt;link rel="stylesheet" href="" /&gt;
+        </div>
+    </div>
+
+    <div class="preview">
+        <div class="mdl-layout__container">
+            <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header has-drawer is-upgraded">
+                <header class="mdl-layout__header is-casting-shadow">
+                    <div aria-expanded="false" role="button" tabindex="0" class="mdl-layout__drawer-button">
+                        <i class="material-icons"></i>
+                    </div>
+                    <svg class="mdl-layout-icon" width="411px" height="406px" viewBox="0 0 411 406" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                            <g transform="translate(-51.000000, -54.000000)" fill="currentColor">
+                                <path d="M253.532807,381.627 L205.905373,459.1512 L75.2987939,365.2047 L137.208794,290.0547 L51,265.8834 L100.217083,116.7498 L183.176447,150.0543 L176.402456,54 L337.901996,54 L331.203531,149.0202 L409.306732,116.4465 L461.243662,265.7448 L371.760263,290.7036 L429.826513,365.6628 L302.333596,459.2493 L253.532807,381.627 Z M222.176831,106.2 L291.098533,106.2 L282.729084,224.796484 L383.182429,182.939488 L404.947387,245.446521 L297.795289,275.304737 L368.114228,365.995226 L313.701833,405.9 L252.592681,308.789934 L192.876775,405.9 L137.348587,365.995226 L212.130699,275.304737 L105.539492,245.446521 L126.18666,182.939488 L230.548276,224.796484 L222.176831,106.2 Z"></path>
+                            </g>
+                        </g>
+                    </svg>
+                    <div class="mdl-layout__header-row">
+                        <span class="mdl-layout-title">@Resources.Resource.HomePreview</span>
+                    </div>
+                </header>
+                <div class="mdl-layout__drawer" aria-hidden="true">
+                    <span class="mdl-layout-title">@Resources.Resource.HomePreview</span>
+                    <nav class="mdl-navigation">
+                        <a class="mdl-navigation__link" href="#">@Resources.Resource.HomeSome</a>
+                        <a class="mdl-navigation__link" href="#">@Resources.Resource.HomeLinks</a>
+                        <a class="mdl-navigation__link" href="#">@Resources.Resource.HomeHere</a>
+                    </nav>
+                </div>
+
+                <!-- preview content -->
+                <main class="mdl-layout__content">
+
+                    <div class="mdl-grid">
+
+                        <!-- MDL components -->
+                        <div class="mdl-cell mdl-cell--6-col">
+
+                            <p><strong>@Resources.Resource.HomeMdlComponents</strong></p>
+
+                            <!-- badges -->
+                            <div class="ctlgroup">
+                                <span class="mdl-badge" data-badge="4">@Resources.Resource.HomeNumberBadge</span>
+                                <span class="mdl-badge" data-badge="♥">@Resources.Resource.HomeIconBadge</span>
+                            </div>
+
+                            <!-- buttons -->
+                            <div class="ctlgroup">
+                                <button class="mdl-button mdl-js-button">
+                                    @Resources.Resource.HomePlain
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised">
+                                    @Resources.Resource.HomeRaised
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--colored">
+                                    @Resources.Resource.HomeColored
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent">
+                                    @Resources.Resource.HomeAccent
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+                                    @Resources.Resource.HomeRippled
+                                </button>
+                            </div>
+                            <div class="ctlgroup">
+                                <button class="mdl-button mdl-js-button mdl-button--fab">
+                                    <i class="material-icons">@Resources.Resource.HomeEmail</i>
+                                </button>
+                                <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored">
+                                    <i class="material-icons">@Resources.Resource.HomeEmail</i>
+                                </button>
+                            </div>
+
+                            <!-- toggles -->
+                            <div class="ctlgroup">
+                                <label class="mdl-switch mdl-js-switch mdl-js-ripple-effect">
+                                    <input type="checkbox" class="mdl-switch__input">
+                                    <span class="mdl-switch__label">@Resources.Resource.HomeSwitch</span>
+                                </label>
+                                <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect">
+                                    <input type="checkbox" class="mdl-checkbox__input">
+                                    <span class="mdl-checkbox__label">@Resources.Resource.HomeCheckbox</span>
+                                </label>
+                            </div>
+
+                            <!-- slider -->
+                            <div class="ctlgroup">
+                                <input class="mdl-slider mdl-js-slider" type="range"
+                                       min="0" max="100" value="0" tabindex="0">
+                            </div>
+
+                            <!-- text fields -->
+                            <div class="ctlgroup">
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sample">
+                                    <input class="mdl-textfield__input" type="text" value="abc">
+                                    <label class="mdl-textfield__label">@Resources.Resource.HomeTextLabel</label>
+                                </div>
+                                <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label sample">
+                                    <input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?">
+                                    <label class="mdl-textfield__label">@Resources.Resource.HomeNumberLabel</label>
+                                    <span class="mdl-textfield__error">@Resources.Resource.HomeNumberError</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- ComponentOne MVC controls -->
+                        <div class="mdl-cell mdl-cell--6-col">
+
+                            <p><strong>@Html.Raw(Resources.Resource.HomeText6)</strong></p>
+
+                            <!-- tab -->
+                            <div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+                                <div class="mdl-tabs__tab-bar" style="justify-content:flex-start">
+                                    <a href="#tab-input" class="mdl-tabs__tab is-active">@Resources.Resource.HomeInputs</a>
+                                    <a href="#tab-gauge" class="mdl-tabs__tab">@Resources.Resource.HomeGauges</a>
+                                    <a href="#tab-grid" class="mdl-tabs__tab">@Resources.Resource.HomeGrid</a>
+                                </div>
+
+                                <!-- input tab -->
+                                <div class="mdl-tabs__panel is-active" id="tab-input">
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        @Html.C1().InputDate().Value(theDateTime).IsRequired(false)
+                                        <label class="mdl-textfield__label">@Resources.Resource.HomeTheDate</label>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        @Html.C1().InputTime().Value(theDateTime).IsRequired(false)
+                                        <label class="mdl-textfield__label">@Resources.Resource.HomeTheTime</label>
+                                    </div>
+                                    <br />
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        @Html.C1().InputNumber().Step(10).Format("c").IsRequired(false)
+                                        <label class="mdl-textfield__label">@Resources.Resource.HomeTheAmount</label>
+                                    </div>
+                                    <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
+                                        @Html.C1().InputNumber().Id("evenNumber").Step(10).Format("n0").IsRequired(false)
+                                        <label class="mdl-textfield__label">@Resources.Resource.HomeEvenNumber</label>
+                                        <span class="mdl-textfield__error">@Resources.Resource.HomeEvenNumberError</span>
+                                    </div>
+                                </div>
+
+                                <!-- gauge tab -->
+                                <div class="mdl-tabs__panel" id="tab-gauge">
+                                    @(Html.C1().RadialGauge().Id("gauge1").Width("150px").Height("100px").CssStyle("display", "inline-block")
+                                    .HasShadow(false).ShowText(ShowText.Value).IsReadOnly(false).ThumbSize(8)
+                                    .Value(theGaugeValue).Min(0).Max(100)
+                                    .Face(f => f.Thickness(0.1))
+                                    .Pointer(p => p.Thickness(0.1)))
+                                    @(Html.C1().RadialGauge().Id("gauge2").Width("150px").Height("100px").CssStyle("display", "inline-block")
+                                    .HasShadow(false).ShowText(ShowText.Value).IsReadOnly(false)
+                                    .Value(theGaugeValue).Min(0).Max(100))
+                                    <br />
+                                    @(Html.C1().LinearGauge().Id("gauge3").Width("70%").HasShadow(false).IsReadOnly(false).ThumbSize(12)
+                                    .Value(theGaugeValue).Min(0).Max(100)
+                                    .Face(f => f.Thickness(0.2))
+                                    .Pointer(p => p.Thickness(0.2)))
+                                    @(Html.C1().BulletGraph().Id("gauge4").Width("70%").HasShadow(false).Value(theGaugeValue)
+                                    .Min(0).Max(100).Target(70).Good(80).Bad(50))
+                                </div>
+
+                                <!-- grid tab -->
+                                <div class="mdl-tabs__panel" id="tab-grid">
+                                    @(Html.C1().FlexGrid().Id("theGrid").IsReadOnly(true).ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All)
+                                    .ShowMarquee(true).DeferResizing(true).HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+                                    .Filterable()
+                                    .AutoGenerateColumns(false)
+                                    .Columns(cs =>
+                                    {
+                                        cs.Add().Binding("name").Header(Resources.Resource.HomeName).Width("*");
+                                        cs.Add().Binding("outer").Header(Resources.Resource.HomeOuter).Width("*");
+                                        cs.Add().Binding("inner").Header(Resources.Resource.HomeInner).Width("*");
+                                    }))
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+    </div>
+</div>

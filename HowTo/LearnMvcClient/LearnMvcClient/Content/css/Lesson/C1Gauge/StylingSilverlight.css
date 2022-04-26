@@ -1,0 +1,42 @@
+﻿.demo-control table {
+  width: 100%;
+}
+.demo-control td, .demo-control th {
+  text-align: center;
+  width: 50%;
+}
+.demo-control td img,
+.demo-control td .wj-gauge {
+  max-width: 200px;
+  max-heigth: 200px;
+  padding: 8px;
+  vmargin: 6px;
+}
+.wj-gauge {
+  display: inline-block; /* to center horizontally */
+  width: 200px;
+  height: 200px;
+}
+.wj-gauge .wj-min,
+.wj-gauge .wj-max {
+  opacity: .3;
+}
+.wj-gauge [wj-part=granges] { /* transparent ranges */
+  opacity: .3;
+}
+#wjGauge1 {
+  font-size: 150%;
+}
+#wjGauge2 {
+  font-size: 150%;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 100%;
+  border-top-width: 0;
+}
+#wjGauge3 {
+  width: 120px;
+  font-size: 75%;
+  border: 1.5px solid #d0d0d0;
+  border-radius: 4px;
+  border-top-width: .25px;
+}

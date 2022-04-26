@@ -1,0 +1,30 @@
+﻿@model IEnumerable<MvcExplorer.Models.CustomerOrder>
+
+@section Scripts{
+<script>
+    function formatItem(engine, hitTestInfo, defaultFormatter) {
+        var fsz = engine.fontSize;
+        engine.fontSize = '10';
+        defaultFormatter();
+        var point = hitTestInfo.point.clone();
+        var text = hitTestInfo.name + '=' + hitTestInfo.value.toFixed(1);
+        var sz = engine.measureString(text);
+        var fill = engine.fill;
+        var x = point.x - 2 - sz.width / 2;
+        var y = point.y - sz.height + 4;
+        engine.fill = 'white';
+        engine.drawRect(x, y < 0 ? 0 : y, sz.width + 4, sz.height);
+        engine.fill = fill;
+        point.x -= sz.width / 2;
+        point.y += 4;
+        engine.drawString(text, point);
+        engine.fontSize = fsz;
+    }
+</script>
+}
+
+@(Html.C1().FlexPie().Bind("Country", "Count", Model).ItemFormatter("formatItem"))
+
+@section Description{
+    @Html.Raw(Resources.FlexPie.ItemFormatter_Text0)
+}

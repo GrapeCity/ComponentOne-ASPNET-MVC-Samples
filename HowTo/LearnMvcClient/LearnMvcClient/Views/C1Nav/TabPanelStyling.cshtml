@@ -1,0 +1,98 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.TabPanelStyling_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelStyling_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelStyling_Text2)
+</p>
+
+<div id="theTabPanel" class="custom-tab">
+    <div>
+        <a>Africa</a>
+        <div>
+            <ul>
+                <li>Algeria</li>
+                <li>Angola</li>
+                <li>Benin</li>
+                <li>Botswana</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>America</a>
+        <div>
+            <ul>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>Mexico</li>
+                <li>United States</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div>
+            <ul>
+                <li>China</li>
+                <li>Korea</li>
+                <li>India</li>
+                <li>Japan</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Europe</a>
+        <div>
+            <ul>
+                <li>Austria</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+                <li>Netherlands</li>
+                <li>Switzerland</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Oceania</a>
+        <div>
+            <ul>
+                <li>Australia</li>
+                <li>Fiji</li>
+                <li>New Zealand</li>
+                <li>Samoa</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#theTabPanel")
+
+<h4>
+    Options
+</h4>
+<div class="options">
+    <label for="tabPosition">
+        Tab Position
+    </label>
+    <div id="tabPosition"></div>
+</div>
+<div class="options">
+    <label for="tabAlign">
+        Tab Alignment
+    </label>
+    <div id="tabAlign"></div>
+</div>
+<div class="options">
+    <label for="isAnimated">
+        isAnimated
+    </label>
+    <input id="isAnimated" type="checkbox" checked="checked">
+</div>
+<div class="options">
+    <label for="customHeaders">
+        Custom Headers
+    </label>
+    <input id="customHeaders" type="checkbox">
+</div>

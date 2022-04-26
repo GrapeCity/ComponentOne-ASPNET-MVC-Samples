@@ -1,0 +1,92 @@
+﻿@model C1Finance.Models.PortfolioModel
+@using C1Finance.Models
+@using C1.Web.Mvc.Grid
+
+@{
+    ViewBag.Title = "C1 ASP.NET MVC Finance";
+}
+<div class="header">
+    <div class="container">
+        <br />
+                <img src="@Url.Content("~/resources/C1Finance_logo.png")"/>
+            <p>
+            This application was developed using Bootstrap, and
+            <a href="http://www.grapecity.com">ComponentOne's ASP.NET MVC</a> controls.
+            The stock prices come from one of <a href="https://www.alphavantage.co/">Alphavantage's</a> free financial databases.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Portfolio
+        </div>
+        @(Html.C1().FlexGrid<PortfolioStatic.PortfolioFGridClass>().Id("PortfolioFGrid").SelectionMode(SelectionMode.Cell)
+            .HeadersVisibility(HeadersVisibility.Column)
+            .OnClientCellEditEnded("PortfolioFGrid_CellEditEnded")
+            .AllowSorting(true).AutoGenerateColumns(false)
+            .Bind(bl => 
+                bl.Bind(Model.PortfolioListFGrid).OnClientQueryData("collectStockNames")
+                .Delete(Url.Action("GridDelete"))
+                .Update(Url.Action("GridUpdate"))
+             )
+            .Columns(bl =>
+            {
+                bl.Add(cb => cb.Binding("Color").Header("Name").IsReadOnly(true).Width("2*"));
+                bl.Add(cb => cb.Binding("Name").Header("").IsReadOnly(true).Width("0").Visible(false));
+                bl.Add(cb => cb.Binding("Symbol").Header("Symbol").IsReadOnly(true).Width("*"));
+                bl.Add(cb => cb.Binding("Chart").Header("Chart").Width("50"));
+                bl.Add(cb => cb.Binding("LastPrice").Header("Last Price").IsReadOnly(true).DataType(DataType.Number).Format("n2").Width("*"));
+                bl.Add(cb => cb.Binding("Change").Header("Change").IsReadOnly(true).DataType(DataType.Number).Format("p2").Width("*"));
+                bl.Add(cb => cb.Binding("Shares").Header("Shares").IsReadOnly(false).DataType(DataType.Number).Format("n0").Width("*"));
+                bl.Add(cb => cb.Binding("Price").Header("Price").IsReadOnly(false).DataType(DataType.Number).Format("n2").Width("*"));
+                bl.Add(cb => cb.Binding("Cost").Header("Cost").IsReadOnly(true).DataType(DataType.Number).Format("n0").Width("*"));
+                bl.Add(cb => cb.Binding("Value").Header("Value").IsReadOnly(true).DataType(DataType.Number).Format("n0").Width("*"));
+                bl.Add(cb => cb.Binding("Gain").Header("Gain").IsReadOnly(true).DataType(DataType.Number).Format("p2").Width("*"));
+                bl.Add(cb => cb.Name("Remove").Header("Remove").IsReadOnly(true).Align("center"));
+            })
+            .ItemFormatter("PortfolioFGrid_ItemFormatter")
+        )
+        <div class="panel-footer">
+            Add to portfolio:
+            @(Html.C1().AutoComplete().Id("AddAutoComp").Bind(Model.PortfolioListAll).ShowDropDownButton(false)
+                .DisplayMemberPath("symbolname").SelectedValuePath("symbol")
+                .Placeholder("company name or symbol").CssMatch("match")
+                .OnClientSelectedIndexChanged("AddAutoComp_SelectedIndexChanged")
+            )
+            <button id="BtnAddToPortfolio" type="button" class="btn btn-primary"
+                    onclick="AddToPortfolio();">
+                <span class="glyphicon glyphicon-plus"></span>
+            </button>
+        </div>
+    </div>
+
+    <!-- chart -->
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            Chart
+            <div class="btn-group btn-group-xs pull-right">
+                <button id="BtnChartView0" type="button" class="btn btn-default" onclick="UpdateChartDuration(0)">YTD</button>
+                <button id="BtnChartView1" type="button" class="btn btn-default" onclick="UpdateChartDuration(1)">6m</button>
+                <button id="BtnChartView2" type="button" class="btn btn-default" onclick="UpdateChartDuration(2)">12m</button>
+                <button id="BtnChartView3" type="button" class="btn btn-default" onclick="UpdateChartDuration(3)">24m</button>
+                <button id="BtnChartView4" type="button" class="btn btn-default" onclick="UpdateChartDuration(4)">36m</button>
+                <button id="BtnChartView5" type="button" class="btn btn-default" onclick="UpdateChartDuration(5)">All</button>
+            </div>
+        </div>
+        @(Html.C1().FlexChart().Id("PortfolioFChart")
+            .BindingX("TimeSlab").ChartType(C1.Web.Mvc.Chart.ChartType.Line)                
+            .AxisX(x => x.Bind(Model.PortfolioListFGrid).Format("MMM-yyyy"))
+            .AxisY(y => y.Format("p0").Binding("PriceGrowth")).Legend(C1.Web.Mvc.Chart.Position.None)
+            .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Series)
+          )
+    </div>
+
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            if (window["InitialControls"]) {
+                window["InitialControls"]();
+            }
+        });
+    </script>
+</div>

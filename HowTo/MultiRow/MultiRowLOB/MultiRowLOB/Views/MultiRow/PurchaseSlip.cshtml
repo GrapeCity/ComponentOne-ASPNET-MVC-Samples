@@ -1,0 +1,88 @@
+﻿@using MultiRowLOB.Localization
+@model  IEnumerable<DataService.Purchase>
+
+@{ 
+    var caseData = Resources.PurchaseSlip_DataMap_Cases.Split(',').ToValues();
+}
+
+@section Scripts{
+    <script>
+        var fields = {
+            amountSummary: '@Resources.PurchaseSlip_AmountSummary',
+            summary: '@Resources.PurchaseSlip_Summary'
+        };
+    </script>
+    <script src="~/Scripts/controllers/purchaseSlipCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.PurchaseSlip_Title</h2>
+
+    @(Html.C1().MultiRow<DataService.Purchase>()
+        .Id("purchaseSlip")
+        .AllowAddNew(true)
+        .Bind(b => b.Bind(Model).DisableServerRead(true))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("ProductName").Header(Resources.PurchaseSlip_Field_ProductName).Align("center").Width("200"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("ProductId").Header(Resources.PurchaseSlip_Field_ProductId).Width("90"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Color").Header(Resources.PurchaseSlip_Field_Color).Align("center"));
+                cells.Add(cell => cell.Binding("PackageUnit").Header(Resources.PurchaseSlip_Field_PackageUnit).Align("center"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Size").Header(Resources.PurchaseSlip_Field_Size).Width("80"));
+                cells.Add(cell => cell.Binding("Case").Header(Resources.PurchaseSlip_Field_Case).Width("80").DataMap(dm =>
+                {
+                    dm.Bind(caseData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                }));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Quantity").Header(Resources.PurchaseSlip_Field_Quantity).Width("65"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Deal").Header(Resources.PurchaseSlip_Field_Deal).Width("60"));
+                cells.Add(cell => cell.Binding("Id").Header(Resources.PurchaseSlip_Field_Id).Width("60"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("UnitCost").Header(Resources.PurchaseSlip_Field_UnitCost).Width("100").Format("c2"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Cost").Header(Resources.PurchaseSlip_Field_Cost).Width("130").Format("c2").IsReadOnly(true));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Price").Header(Resources.PurchaseSlip_Field_Price).Width("130").Format("c2").IsReadOnly(true));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Remarks").Header(Resources.PurchaseSlip_Field_Remarks).Align("center"));
+            });
+        })
+    )
+
+    @(Html.C1().FlexGrid()
+        .Id("gridFooter")
+    )
+
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

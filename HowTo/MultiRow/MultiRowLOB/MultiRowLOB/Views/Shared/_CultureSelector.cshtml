@@ -1,0 +1,9 @@
+﻿<script id="cultureComboItemTemp" type="text/template">
+    <a href="{{Path}}" class="culture-selector-link">{{DisplayText}}</a>
+</script>
+
+@(Html.C1().ComboBox<C1Culture>().CssClass("culture wide-screen").Bind(C1Culture.GetAll())
+    .IsEditable(false)
+    .DisplayMemberPath("DisplayText")
+    .ItemTemplateId("cultureComboItemTemp")
+    .SelectedIndex(C1Culture.GetCurrentCultureIndex()))

@@ -1,0 +1,7 @@
+﻿@model IEnumerable<string>
+
+@Html.C1().MultiSelect().Bind(Model).Placeholder(Resources.MultiSelect.MultiColumnDropDown_Placeholder).DropDownCssClass("multi-column")
+
+@section Description{
+    @Html.Raw(Resources.MultiSelect.MultiColumnDropDown_Text0)
+}

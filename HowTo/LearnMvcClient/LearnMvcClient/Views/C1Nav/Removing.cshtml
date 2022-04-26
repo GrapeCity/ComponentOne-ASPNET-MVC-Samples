@@ -1,0 +1,17 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.Removing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Removing_Text1)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-4">
+        @Html.C1().TreeView().Id("theTree")
+    </div>
+    <div class="col-xs-8">
+        <button id="btnRemove" class="btn btn-default">
+            @Html.Raw(Resources.C1Nav.Removing_Text2)
+        </button>
+    </div>
+</div>

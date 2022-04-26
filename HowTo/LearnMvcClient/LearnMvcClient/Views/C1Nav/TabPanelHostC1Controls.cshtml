@@ -1,0 +1,50 @@
+﻿@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.TabPanelHostC1Controls_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelHostC1Controls_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelHostC1Controls_Text2)
+</p>
+
+<div id="theTabPanel">
+    <div>
+        <a>FlexGrid</a>
+        <div>
+            @(Html.C1().FlexGrid()
+                .AutoGenerateColumns(false)
+                .Bind(Model)
+                .Columns(csb =>
+                {
+                    csb.Add().Binding("Country");
+                    csb.Add().Binding("Sales");
+                    csb.Add().Binding("Expenses");
+                    csb.Add().Binding("Downloads");
+                }))
+        </div>
+    </div>
+    <div>
+        <a>FlexChart</a>
+        <div>
+            @(Html.C1().FlexChart()
+                .Bind("Country", Model)
+                .Series(ssb =>
+                {
+                    ssb.Add().Binding("Sales");
+                    ssb.Add().Binding("Expenses");
+                    ssb.Add().Binding("Downloads");
+                }))
+        </div>
+    </div>
+    <div>
+        <a>Gauges</a>
+        <div>
+            @Html.C1().RadialGauge().Min(0d).Max(100d).Value(75).IsReadOnly(false)
+            @Html.C1().LinearGauge().Min(0d).Max(100d).Value(75).IsReadOnly(false)
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#theTabPanel")

@@ -1,0 +1,1010 @@
+﻿@using System.Text.RegularExpressions
+@using Olap101.Models
+
+@model OLAP101Model
+
+@{
+    ViewBag.Title = "ASP.NET MVC OLAP Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_Getting_Started)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Getting_Started_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Getting_Started_1)
+        </p>
+        <ol>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_2)</li>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_3)</li>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_4)</li>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_5)</li>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_6)</li>
+            <li>@Html.Raw(Resource.Olap101.TXT_Getting_Started_7)</li>
+        </ol>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Getting_Started_8)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Getting_Started_9)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Sample)
+        </p>
+        <h4>
+            @Html.Raw(Resource.Olap101.TXT_Sample_0)
+        </h4>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Sample_1)
+        </p>
+        <ol>
+            <li>
+                @Html.Raw(Resource.Olap101.TXT_Sample_2)
+            </li>
+            <li>
+                @Html.Raw(Resource.Olap101.TXT_Sample_3)
+            </li>
+            <li>
+                @Html.Raw(Resource.Olap101.TXT_Sample_4)
+            </li>
+        </ol>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Sample_5)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-4">
+                @(Html.C1().PivotEngine().Id("pivotEngine").Bind(Model.Data)
+                    .RowFields(pfcb => pfcb.Items("Country"))
+                    .ColumnFields(cfcb => cfcb.Items("Product"))
+                    .ValueFields(vfcb => vfcb.Items("Sales")))
+                @Html.C1().PivotPanel().Id("gsPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+            </div>
+            <div class="col-md-8">
+                @Html.C1().PivotGrid().Id("gsPivotGrid").ItemsSourceId("gsPivotPanel")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#gsClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="gsHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotPanel().Id("gsPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+@@Html.C1().PivotGrid().Id("gsPivotGrid").ItemsSourceId("gsPivotPanel")
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    { 
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="gsClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Configure the PivotPanel Properties -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_Configure_PivotPanel)</h2>
+        <p>@Html.Raw(Resource.Olap101.TXT_Configure_PivotPanel_0)</p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div class="col-md-4">
+                    @Html.C1().PivotPanel().Id(Model.ControlId).ItemsSourceId("pivotEngine").CssStyle("height", "550px")
+                </div>
+                <div class="col-md-8">
+                    @Html.C1().PivotGrid().Id("cPPPivotGrid").ItemsSourceId(Model.ControlId)
+
+                    @{
+                        if (Model != null && Model.Settings != null && !string.IsNullOrEmpty(Model.ControlId))
+                        {
+                            foreach (var setting in Model.Settings.Where(x => x.Key != "ChartType"))
+                            {
+                                var propertyName = setting.Key.Replace(".", "_");
+                                var commandName = "change" + propertyName;
+                                var customChangeName = "customChange" + propertyName;
+                                var converterName = "convert" + propertyName;
+                                var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")) + ": ";
+                                var propertyPaths = string.Join(".", setting.Key.Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
+                                var updateProperty = "update" + propertyName;
+                                var defaultValue = setting.Value.First();
+                                if (Model.DefaultValues != null && Model.DefaultValues.ContainsKey(setting.Key))
+                                {
+                                    defaultValue = Model.DefaultValues[setting.Key];
+                                }
+                                <script type="text/javascript">
+                                    function @(commandName)(menu) {
+                                        menu.header = "@(headerName)<b>" + menu.selectedItem.Header + "</b>";
+                                        var control = wijmo.Control.getControl("#@(Model.ControlId)");
+                                        var value = menu.selectedItem.CommandParameter;
+                                        if(typeof @(customChangeName) === 'function') {
+                                            @(customChangeName)(control, value);
+                                            return;
+                                        }
+
+                                        if(typeof @(updateProperty) === 'function') {
+                                            @(updateProperty)(control, value);
+                                        } else {
+                                            control.@(propertyPaths) = (typeof @(converterName) === 'undefined' ? value : @(converterName)(value));
+                                            control.invalidate();
+                                        }
+                                    }
+                                </script>
+                                @(Html.C1().Menu().Id(propertyName)
+                                    .Header(headerName + "<b>" + defaultValue + "</b>").MenuItems(items =>
+                                    {
+                                        foreach (var option in setting.Value)
+                                        {
+                                            items.Add().Header(option.ToString()).CommandParameter(option);
+                                        }
+                                    })
+                                    .OnClientItemClicked(commandName))
+                            }
+                        }
+                    }
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#cPPHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cPPJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#cPPCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#cPPClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="cPPHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotPanel().Id(Model.ControlId).CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+@@Html.C1().PivotGrid().Id("cPPPivotGrid").ItemsSourceId(Model.ControlId)
+
+@@{
+    if (Model != null && Model.Settings != null && !string.IsNullOrEmpty(Model.ControlId))
+    {
+        foreach (var setting in Model.Settings)
+        {
+            var propertyName = setting.Key.Replace(".", "_");
+            var commandName = "change" + propertyName;
+            var customChangeName = "customChange" + propertyName;
+            var converterName = "convert" + propertyName;
+            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @@"(?<!^)(?=[A-Z])")) + ": ";
+            var propertyPaths = string.Join(".", setting.Key.Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
+            var updateProperty = "update" + propertyName;
+            var defaultValue = setting.Value.First();
+            if (Model.DefaultValues != null && Model.DefaultValues.ContainsKey(setting.Key))
+            {
+                defaultValue = Model.DefaultValues[setting.Key];
+            }
+            &lt;script type="text/javascript"&gt;
+                function @@(commandName)(menu) {
+                    menu.header = "@@(headerName)&lt;b&gt;" + menu.selectedItem.Header + "&lt;/b&gt;";
+                    var control = wijmo.Control.getControl("#@@(Model.ControlId)");
+                    var value = menu.selectedItem.CommandParameter;
+                    if(typeof @@(customChangeName) === 'function') {
+                        @@(customChangeName)(control, value);
+                        return;
+                    }
+
+                    if(typeof @@(updateProperty) === 'function') {
+                        @@(updateProperty)(control, value);
+                    } else {
+                        control.@@(propertyPaths) = (typeof @@(converterName) === 'undefined' ? value : @@(converterName)(value));
+                        control.invalidate(); 
+                    }
+                }
+            &lt;/script&gt;
+            @@(Html.C1().Menu().Id(propertyName)
+                        .Header(headerName + "&lt;b&gt;" + defaultValue + "&lt;/b&gt;").MenuItems(items =>
+                        {
+                            foreach (var option in setting.Value)
+                            {
+                                items.Add().Header(option.ToString()).CommandParameter(option);
+                            }
+                        })
+                        .OnClientItemClicked(commandName))
+            }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="cPPJS">
+// Configure the PivotPanel Properties
+function customChangeRowTotals(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showRowTotals = value;
+    }
+};
+
+function customChangeColumnTotals(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showColumnTotals = value;
+    }
+};
+
+function customChangeShowZeros(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showZeros = value;
+    }
+};
+
+function customChangeTotalsBeforeData(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.totalsBeforeData = value;
+    }
+};
+</div>
+                        <div class="tab-pane pane-content" id="cPPCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private IDictionary&lt;string, object[]&gt; GetSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"RowTotals", new object[] { ShowTotals.Subtotals, ShowTotals.None, ShowTotals.GrandTotals} },
+                {"ColumnTotals", new object[] { ShowTotals.Subtotals, ShowTotals.None, ShowTotals.GrandTotals} },
+                {"ShowZeros", new object[] { false, true } },
+                {"TotalsBeforeData", new object[] { false, true } }
+            };
+            return settings;
+        }
+
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            model.Settings = GetSettings();
+            model.ControlId = "indexPanel";
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="cPPClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Show the Results in a PivotChart -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_ShowResult_PivotChart)</h2>        
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_ShowResult_PivotChart_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_ShowResult_PivotChart_1)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+
+        <div class="row">
+            <div class="col-md-4">
+                @Html.C1().PivotPanel().Id("rPCPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+            </div>
+            <div class="col-md-8">
+                @Html.Raw(Resource.Olap101.TXT_ChartType)
+                @Html.C1().ComboBox().Id("cmbChartType").Bind(Model.Settings["ChartType"]).OnClientSelectedIndexChanged("cmbChartType_SelectedIndexChanged")
+                <div class="row">
+                    @Html.C1().PivotChart().Id("rPCPivotChart").ItemsSourceId("rPCPivotPanel")
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#rPCHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#rPCJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#rPCCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#rPCClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="rPCHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@(Html.C1().PivotPanel().Id("rPCPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+Chart Type :
+@@Html.C1().ComboBox().Id("cmbChartType").Bind(Model.Settings["ChartType"]).OnClientSelectedIndexChanged("cmbChartType_SelectedIndexChanged")
+@@Html.C1().PivotChart().Id("rPCPivotChart").ItemsSourceId("rPCPivotPanel")
+                        </div>
+                        <div class="tab-pane pane-content" id="rPCJS">
+// Show the Results in a PivotChart
+function cmbChartType_SelectedIndexChanged(sender) {
+    var value = sender.selectedValue;
+    var control = wijmo.Control.getControl("#rPCPivotChart");
+    if (control) {
+        control.chartType = value;
+    }
+};
+                        </div>
+                        <div class="tab-pane pane-content" id="rPCCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            model.Settings = GetSettings();
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; GetSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[] { PivotChartType.Column, PivotChartType.Area, PivotChartType.Bar, PivotChartType.Line, PivotChartType.Pie, PivotChartType.Scatter}.Select(item => item.ToString()).ToArray() }
+            };
+            return settings;
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="rPCClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- View and Edit the Source Data -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_View_Edit_Source)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_View_Edit_Source_0)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <h5>@Html.Raw(Resource.Olap101.TXT_FlexGrid)</h5>
+                @(Html.C1().FlexGrid().Id("vESourceFGrid")
+                        .ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All).CssStyle("border", "none")
+                        .Filterable())
+            </div>
+            <div class="col-md-6">
+                <h5>@Html.Raw(Resource.Olap101.TXT_PivotGrid)</h5>
+                @Html.C1().PivotGrid().Id("vESourcePivotGrid").ItemsSourceId("pivotEngine")
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#vESourceHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#vESourceJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#vESourceCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#vESourceClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="vESourceHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@(Html.C1().FlexGrid().Id("vESourceFGrid")
+    .ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All).CssStyle("border", "none")
+    .Filterable())
+@@Html.C1().PivotGrid().Id("vESourcePivotGrid").ItemsSourceId("pivotEngine")
+                        </div>
+                        <div class="tab-pane pane-content" id="vESourceJS">
+// view and edit the source data
+var pivotEngine = null,
+    vESourceFGrid = null;
+function InitialControls() {
+    // view and edit the source data
+    pivotEngine = c1.getService('pivotEngine');
+    vESourceFGrid = wijmo.Control.getControl('#vESourceFGrid');
+    vESourceFGrid.itemsSource = pivotEngine.itemsSource;
+};
+                        </div>
+                        <div class="tab-pane pane-content" id="vESourceCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="vESourceClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Export the Results to Excel -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_Export)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Export_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Export_1)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div class="row">
+            <div class="col-md-10">
+                @Html.C1().PivotGrid().Id("exportExcelPivotGrid").ItemsSourceId("pivotEngine")
+            </div>
+            <div class="col-md-2">
+                <button class="btn btn-primary" onclick="exportToExcel()">@Html.Raw(Resource.Olap101.BTN_Export_to_XLSX)</button>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#exportExcelHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#exportExcelJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#exportExcelCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#exportExcelClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="exportExcelHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotGrid().Id("exportExcelPivotGrid").ItemsSourceId("pivotEngine")
+&lt;button class="btn btn-primary" onclick="exportToExcel()"&gt;Export to XLSX&lt;/button&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="exportExcelJS">
+// export the result to excel
+var pivotEngine = null,
+    exportExcelPivotGrid = null;
+
+function InitialControls() {
+    // export the result to excel
+    pivotEngine = c1.getService('pivotEngine');
+    exportExcelPivotGrid = wijmo.Control.getControl('#exportExcelPivotGrid');
+}
+
+// export to excel
+function exportToExcel() {
+    // create book with current view
+    var book = wijmo.grid.xlsx.FlexGridXlsxConverter.save(exportExcelPivotGrid, {
+        includeColumnHeaders: true,
+        includeRowHeaders: true
+    });
+    book.sheets[0].name = 'Main View';
+    addTitleCell(book.sheets[0], getViewTitle(pivotEngine));
+
+    // add sheet with transposed view
+    transposeView(pivotEngine);
+    var transposed = wijmo.grid.xlsx.FlexGridXlsxConverter.save(exportExcelPivotGrid, {
+        includeColumnHeaders: true,
+        includeRowHeaders: true
+    });
+    transposed.sheets[0].name = 'Transposed View';
+    addTitleCell(transposed.sheets[0], getViewTitle(pivotEngine));
+    book.sheets.push(transposed.sheets[0]);
+    transposeView(pivotEngine);
+
+    // save the book
+    book.save('wijmo.olap.xlsx');
+};
+
+// save/load/transpose/export views
+function transposeView(ng) {
+    ng.deferUpdate(function () {
+
+        // save row/col fields
+        var rows = [],
+            cols = [];
+        for (var r = 0; r < ng.rowFields.length; r++) {
+            rows.push(ng.rowFields[r].header);
+        }
+        for (var c = 0; c < ng.columnFields.length; c++) {
+            cols.push(ng.columnFields[c].header);
+        }
+
+        // clear row/col fields
+        ng.rowFields.clear();
+        ng.columnFields.clear();
+
+        // restore row/col fields in transposed order
+        for (var r = 0; r < rows.length; r++) {
+            ng.columnFields.push(rows[r]);
+        }
+        for (var c = 0; c < cols.length; c++) {
+            ng.rowFields.push(cols[c]);
+        }
+    });
+}
+
+// build a title for the current view
+function getViewTitle(ng) {
+    var title = '';
+    for (var i = 0; i < ng.valueFields.length; i++) {
+        if (i > 0) title += ', ';
+        title += ng.valueFields[i].header;
+    }
+    title += ' by ';
+    if (ng.rowFields.length) {
+        for (var i = 0; i < ng.rowFields.length; i++) {
+            if (i > 0) title += ', ';
+            title += ng.rowFields[i].header;
+        }
+    }
+    if (ng.rowFields.length && ng.columnFields.length) {
+        title += ' and by ';
+    }
+    if (ng.columnFields.length) {
+        for (var i = 0; i < ng.columnFields.length; i++) {
+            if (i > 0) title += ', ';
+            title += ng.columnFields[i].header;
+        }
+    }
+    return title;
+}
+
+// adds a title cell into an xlxs sheet
+function addTitleCell(sheet, title) {
+    // create cell
+    var cell = new wijmo.xlsx.WorkbookCell();
+    cell.value = title;
+    cell.style = new wijmo.xlsx.WorkbookStyle();
+    cell.style.font = new wijmo.xlsx.WorkbookFont();
+    cell.style.font.bold = true;
+
+    // create row to hold the cell
+    var row = new wijmo.xlsx.WorkbookRow();
+    row.cells[0] = cell;
+
+    // and add the new row to the sheet
+    sheet.rows.splice(0, 0, row);
+}
+
+// gets a random integer between zero and max
+function randomInt(max) {
+    return Math.floor(Math.random() * (max + 1));
+}
+</div>
+                        <div class="tab-pane pane-content" id="exportExcelCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="exportExcelClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Customize the PivotGrid Cells -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_Customize)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Customize_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Customize_1)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div>
+            <div class="col-md-4">
+                @Html.C1().PivotPanel().Id("cTPGCPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+            </div>
+            <div class="col-md-8">
+                @(Html.C1().PivotGrid().Id("cTPGCPivotGrid").ItemsSourceId("cTPGCPivotPanel")
+                        .ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All)
+                        .ItemFormatter("cTPGCPivotGrid_ItemFormatter"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#cTPGCHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cTPGCJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#cTPGCCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#cTPGCClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="cTPGCHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotPanel().Id("cTPGCPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+@@(Html.C1().PivotGrid().Id("cTPGCPivotGrid").ItemsSourceId("customizeEngine")
+    .ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All)
+    .ItemFormatter("cTPGCPivotGrid_ItemFormatter"))
+                        </div>
+                        <div class="tab-pane pane-content" id="cTPGCJS">
+// Customize the PivotGrid Cells
+function cTPGCPivotGrid_ItemFormatter(panel, r, c, cell) {   
+    if (wijmo.grid.CellType.Cell == panel.cellType && c % 2 == 1) {
+        var value = panel.getCellData(r, c),
+            color = '#d8b400',
+            glyph = 'circle';
+        if (value != null) {
+            if (value < 0) { // negative variation
+                color = '#9f0000';
+                glyph = 'down';
+            } else if (value > 0.05) { // positive variation
+                color = '#4c8f00';
+                glyph = 'down';
+            }
+            cell.style.color = color;
+            cell.innerHTML += ' &lt;span style="font-size:120%" class="wj-glyph-' + glyph + '"&gt;&lt;/span&gt;';
+        }
+    }    
+};
+</div>
+                        <div class="tab-pane pane-content" id="cTPGCCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="cTPGCClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Save and Load Views -->
+    <div>
+        <h2>@Html.Raw(Resource.Olap101.TXT_Save_And_Load)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Save_And_Load_0)
+        </p>
+        <p></p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div>
+            <div class="col-md-4">
+                @Html.C1().PivotPanel().Id("saveLoadViewsPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+            </div>
+            <div class="col-md-8">
+                @(Html.C1().PivotGrid().Id("saveLoadViewsPivotGrid").ItemsSourceId("saveLoadViewsPivotPanel"))
+                <Button Class="btn btn-primary" onclick="saveView()">@Html.Raw(Resource.Olap101.BTN_Save_View)</Button>
+                <Button Class="btn btn-primary" onclick="loadView()">@Html.Raw(Resource.Olap101.BTN_Load_View)</Button>
+                <p></p>
+                <p>
+                    @Html.Raw(Resource.Olap101.TXT_Save_And_Load_1)
+                </p>
+                <ul id="views"></ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#saveLoadHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#saveLoadJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#saveLoadCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li class="active"><a href="#saveLoadClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="saveLoadHtml">
+@@(Html.C1().PivotEngine().Id("pivotEngine")
+    .Bind(Model.Data)
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotPanel().Id("saveLoadViewsPivotPanel").CssStyle("height", "550px").ItemsSourceId("pivotEngine")
+@@(Html.C1().PivotGrid().Id("saveLoadViewsPivotGrid").ItemsSourceId("saveLoadViewsPivotPanel"))
+&lt;button class="btn btn-primary" onclick="saveView()"&gt;Save View&lt;/button&gt;
+&lt;button class="btn btn-primary" onclick="loadView()"&gt;Load View&lt;/button&gt;
+&lt;ul id="views"&gt;&lt;/ul&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="saveLoadJS">
+// save and load views
+var app = {
+    viewDefs: null
+};
+var saveLoadViewsPivotPanel = null;
+
+function InitialControls() {
+    // save and load views
+
+    // pre-defined views
+    app.viewDefs = [
+        {
+            name: "Sales by Product",
+            def: "{\"showColumnTotals\":2,\"showRowTotals\":2,\"defaultFilterType\":3,\"fields\":[{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"ID\",\"header\":\"ID\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Product\",\"header\":\"Product\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Country\",\"header\":\"Country\"},{\"dataType\":4,\"format\":\"d\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Date\",\"header\":\"Date\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Sales\",\"header\":\"Sales\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Downloads\",\"header\":\"Downloads\"},{\"dataType\":3,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Active\",\"header\":\"Active\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Discount\",\"header\":\"Discount\"}],\"rowFields\":{\"items\":[\"Product\"]},\"columnFields\":{\"items\":[]},\"filterFields\":{\"items\":[]},\"valueFields\":{\"items\":[\"Sales\"]}}"
+        },
+        {
+            name: "Sales by Country",
+            def: "{\"showZeros\":false,\"showColumnTotals\":2,\"showRowTotals\":2,\"defaultFilterType\":3,\"fields\":[{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"ID\",\"header\":\"ID\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Product\",\"header\":\"Product\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Country\",\"header\":\"Country\"},{\"dataType\":4,\"format\":\"d\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Date\",\"header\":\"Date\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Sales\",\"header\":\"Sales\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Downloads\",\"header\":\"Downloads\"},{\"dataType\":3,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Active\",\"header\":\"Active\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Discount\",\"header\":\"Discount\"}],\"rowFields\":{\"items\":[\"Country\"]},\"columnFields\":{\"items\":[]},\"filterFields\":{\"items\":[]},\"valueFields\":{\"items\":[\"Sales\"]}}"
+        },
+        {
+            name: "Sales and Downloads by Country",
+            def: "{\"showZeros\":false,\"showColumnTotals\":2,\"showRowTotals\":2,\"defaultFilterType\":3,\"fields\":[{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"ID\",\"header\":\"ID\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Product\",\"header\":\"Product\"},{\"dataType\":1,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Country\",\"header\":\"Country\"},{\"dataType\":4,\"format\":\"d\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Date\",\"header\":\"Date\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Sales\",\"header\":\"Sales\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Downloads\",\"header\":\"Downloads\"},{\"dataType\":3,\"format\":\"\",\"aggregate\":2,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Active\",\"header\":\"Active\"},{\"dataType\":2,\"format\":\"n0\",\"aggregate\":1,\"showAs\":0,\"descending\":false,\"isContentHtml\":false,\"binding\":\"Discount\",\"header\":\"Discount\"}],\"rowFields\":{\"items\":[\"Country\"]},\"columnFields\":{\"items\":[]},\"filterFields\":{\"items\":[]},\"valueFields\":{\"items\":[\"Sales\",\"Downloads\"]}}"            
+        },
+        {
+            name: "Sales Trend by Product",
+            def: "{\"showZeros\": false, \"showColumnTotals\": 2, \"showRowTotals\": 2, \"defaultFilterType\": 3, \"fields\": [{ \"dataType\": 2, \"format\": \"n0\", \"aggregate\": 1, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"ID\", \"header\": \"ID\" }, { \"dataType\": 1, \"format\": \"\", \"aggregate\": 2, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Product\", \"header\": \"Product\" }, { \"dataType\": 1, \"format\": \"\", \"aggregate\": 2, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Country\", \"header\": \"Country\" }, { \"dataType\": 4, \"format\": \"yyyy \\\"Q\\\"q\", \"aggregate\": 2, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Date\", \"header\": \"Date\" }, { \"dataType\": 2, \"format\": \"p2\", \"aggregate\": 3, \"showAs\": 2, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Sales\", \"header\": \"Sales\" }, { \"dataType\": 2, \"format\": \"n0\", \"aggregate\": 1, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Downloads\", \"header\": \"Downloads\" }, { \"dataType\": 3, \"format\": \"\", \"aggregate\": 2, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Active\", \"header\": \"Active\" }, { \"dataType\": 2, \"format\": \"n0\", \"aggregate\": 1, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Discount\", \"header\": \"Discount\" }, { \"dataType\": 2, \"format\": \"n0\", \"aggregate\": 1, \"showAs\": 0, \"descending\": false, \"isContentHtml\": false, \"binding\": \"Sales\", \"header\": \"Sales2\" }], \"rowFields\": { \"items\": [\"Date\"] }, \"columnFields\": { \"items\": [\"Product\"] }, \"filterFields\": { \"items\": [] }, \"valueFields\": { \"items\": [\"Sales\"]}}"
+        }
+    ]
+    saveLoadViewsPivotPanel = wijmo.Control.getControl('#saveLoadViewsPivotPanel');
+
+    // populate list of pre-defined views
+    var viewList = document.getElementById('views');
+    for (var i = 0; i < app.viewDefs.length; i++) {
+        var li = wijmo.createElement('&lt;li&gt;&lt;a href="#theView" index="' + i + '"&gt;' +app.viewDefs[i].name + '&lt;/a&gt;&lt;/li&gt;');
+        viewList.appendChild(li);
+    }
+
+    // apply pre-defined views
+    viewList.addEventListener('click', function (e) {
+        var el = e.toElement;
+        if (el.tagName == 'A') {
+            var index = el.getAttribute('index');
+            saveLoadViewsPivotPanel.viewDefinition = app.viewDefs[index].def;
+        }
+    });
+};
+
+// save/load view definition
+
+// save view definition
+function saveView() {
+    if (saveLoadEngine && saveLoadEngine.viewDefinition)
+        localStorage.setItem('viewDefinition', saveLoadEngine.viewDefinition);
+};
+
+// restore view definition
+function loadView() {
+    if (localStorage.getItem('viewDefinition'))
+        saveLoadEngine.viewDefinition = localStorage.getItem('viewDefinition');
+};
+                        </div>
+                        <div class="tab-pane pane-content" id="saveLoadCS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+using OLAP101.Models;
+using C1.Web.Mvc.Olap;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            OLAP101Model model = new OLAP101Model();
+            model.Data = ProductData.GetData(10000).ToList();
+            return View(model);
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="saveLoadClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Analyze huge Data -->
+    <div>
+
+        <h2>@Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data)</h2>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_0)
+        </p>
+        <p>
+
+            @Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_1)
+            <ul>
+                <li>@Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_2)</li>
+                <li>@Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_3)</li>
+                <li>@Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_4)</li>
+            </ul>
+        </p>
+        <p>
+            @Html.Raw(Resource.Olap101.TXT_Analyze_Huge_Data_5)
+        </p>
+        <div class="col-md-12">
+            <h4>@Html.Raw(Resource.Olap101.TXT_Result)</h4>
+        </div>
+        <div>
+            <div class="col-md-4">
+                @(Html.C1().PivotEngine().Id("dataEngineE").BindService("~/api/dataengine/complex10")
+                    .RowFields(pfcb => pfcb.Items("Country"))
+                    .ColumnFields(cfcb => cfcb.Items("Product"))
+                    .ValueFields(vfcb => vfcb.Items("Sales")))
+                @Html.C1().PivotPanel().ItemsSourceId("dataEngineE")
+            </div>
+            <div class="col-md-8">
+                @(Html.C1().PivotGrid().Id("dataEnginePivotGrid").ItemsSourceId("dataEngineE"))
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#dataEngineEHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#dataEngineECS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li><a href="#dataEngineEJS" role="tab" data-toggle="tab">Startup.cs</a></li>
+                        <li class="active"><a href="#dataEngineEClose" role="tab" data-toggle="tab">X</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="dataEngineEHtml">
+@@(Html.C1().PivotEngine().Id("dataEngineE").BindService("~/api/dataengine/complex10")
+    .RowFields(pfcb => pfcb.Items("Country"))
+    .ColumnFields(cfcb => cfcb.Items("Product"))
+    .ValueFields(vfcb => vfcb.Items("Sales")))
+@@Html.C1().PivotPanel().ItemsSourceId("dataEngineE")
+@@Html.C1().PivotGrid().Id("dataEnginePivotGrid").ItemsSourceId("dataEngineE")
+                        </div>
+                        <div class="tab-pane pane-content" id="dataEngineECS">
+using System.Collections.Generic;
+using System.Linq;
+using System.Web.Mvc;
+
+namespace OLAP101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="dataEngineEJS">
+using Microsoft.Owin;
+using Olap101.Models;
+using Owin;
+
+[assembly: OwinStartupAttribute(typeof(Olap101.Startup))]
+namespace Olap101
+{
+    public partial class Startup
+    {
+        public void Configuration(IAppBuilder app)
+        {
+            app.UseDataEngineProviders()
+            .AddDataEngine("complex10", () => ProductData.GetData(100000));
+        }
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content active" id="dataEngineEClose" style="padding:0px!important;height:0px!important;">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+    });
+</script>

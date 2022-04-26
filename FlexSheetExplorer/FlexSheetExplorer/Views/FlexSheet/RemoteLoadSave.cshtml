@@ -1,8 +1,9 @@
 @section Scripts{
     <script>
         function remoteSave() {
+            var combo = wijmo.Control.getControl('#saveType');
             var flexSheet = wijmo.Control.getControl('#flexSheet');
-            flexSheet.remoteSave(c1.mvc.grid.sheet.ContentType.Xlsx);
+            flexSheet.remoteSave(c1.mvc.grid.sheet.ContentType[combo.selectedValue]);
         }
 
         function onFileSaved(sender, args) {
@@ -17,21 +18,33 @@
 
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.RemoteLoadSave_Text2)
-        </h3>
-<p>@Html.Raw(FlexSheetRes.RemoteLoadSave_Text0)</p>
+        <h3>@Html.Raw(Resources.FlexSheet.RemoteLoadSave_Text4)</h3>
+
+        <p>@Html.Raw(Resources.FlexSheet.RemoteLoadSave_Text0)</p>
+
+        <p>
+            @using (Html.BeginForm())
+            {
+                @(Html.C1().ComboBox().Name("loadType").Bind((string[])ViewBag.LoadSaveTypes)
+                            .SelectedValue((string)ViewBag.LoadType))
+                <button type="submit" class="btn btn-default">@Html.Raw(Resources.FlexSheet.RemoteLoadSave_Text6)</button>
+            }
+        </p>
+
+        <p>
+            @(Html.C1().ComboBox().Id("saveType").Bind((string[])ViewBag.LoadSaveTypes))
+            <button type="button" class="btn btn-default" onclick="remoteSave()">@Html.Raw(Resources.FlexSheet.RemoteLoadSave_Text5)</button>
+        </p>
 
     </div>
     <div>
-        <c1-flex-sheet class="flexSheet" id="flexSheet"
-                       load-action-url="@(Url.Action("RemoteLoadXlsx"))"
-                       save-action-url="@(Url.Action("RemoteSaveFile"))"
-                       remote-saved="onFileSaved">
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("flexSheet")
+        .RemoteLoad(Url.Action((string)ViewBag.LoadAction))
+        .RemoteSave(Url.Action("RemoteSaveFile"))
+        .OnClientRemoteSaved("onFileSaved"))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.RemoteLoadSave_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.RemoteLoadSave_Text3)</p>
 
 }

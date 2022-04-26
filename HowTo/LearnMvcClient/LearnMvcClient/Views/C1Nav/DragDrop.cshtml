@@ -1,0 +1,44 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.DragDrop_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.DragDrop_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.DragDrop_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.DragDrop_Text3)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Nav.DragDrop_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.DragDrop_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.DragDrop_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.DragDrop_Text7)
+    </li>
+</ul>
+
+<label>
+    <input id="allowDragging" type="checkbox" checked="checked">
+    @Html.Raw(Resources.C1Nav.DragDrop_Text8)
+</label>
+<label>
+    <input id="allowDraggingParentNodes" type="checkbox" checked="checked">
+    @Html.Raw(Resources.C1Nav.DragDrop_Text9)
+</label>
+<label>
+    <input id="allowDroppingIntoEmpty" type="checkbox" checked="checked">
+    @Html.Raw(Resources.C1Nav.DragDrop_Text10)
+</label>
+
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items").ImageMemberPath("Image").ShowCheckboxes(true)

@@ -1,0 +1,49 @@
+﻿@model IEnumerable<PopulationByCountry>
+
+@section Scripts{
+<script>
+
+    function setProperty(control, property, value) {
+        control.series.forEach(function (serie) {
+            serie[property] = value;
+        });
+    }
+
+    function customChangeDirection(control, value) {
+        setProperty(control, 'direction', value);
+    }
+
+    function customChangeErrorAmount(control, value) {
+        setProperty(control, 'errorAmount', value);
+    }
+
+    function customChangeValue(control, value) {
+        setProperty(control, 'value', value);
+    }
+
+    function customChangeEndStyle(control, value) {
+        setProperty(control, 'endStyle', value);
+    }
+
+</script>
+}
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().FlexChart()
+    .Id(demoSettingsModel.ControlId)
+    .Bind("Country", "Population", Model)
+    .Series(ser =>
+    {
+        ser.AddErrorBar().Name("Population").Value(50)
+            .ErrorAmount(demoSettingsModel.GetEnum("ErrorAmount", C1.Web.Mvc.Chart.ErrorAmount.FixedValue))
+            .ErrorBarStyle(errorBarStyle => errorBarStyle.Fill("#e6e6e6").Stroke("#918254").StrokeWidth(2));
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.ErrorBar_Text0)</p>
+}

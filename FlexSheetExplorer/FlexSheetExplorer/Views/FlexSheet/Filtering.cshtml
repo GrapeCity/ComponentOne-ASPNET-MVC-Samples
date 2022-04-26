@@ -1,23 +1,26 @@
 @model IEnumerable<Sale>
 
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/filtering.js"></script>}
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/FlexSheet/filtering.js"></script>
+}
+
 <div>
     <div class="copy">
-<h3>@Html.Raw(FlexSheetRes.Filtering_Text2)</h3>
+<h3>@Html.Raw(Resources.FlexSheet.Filtering_Text2)</h3>
 
-<p>@Html.Raw(FlexSheetRes.Filtering_Text0)</p>
+<p>@Html.Raw(Resources.FlexSheet.Filtering_Text0)</p>
 
     </div>
-    <button type="button" id="filterBtn" class="btn btn-default" onclick="showFilter()">@Html.Raw(FlexSheetRes.Filtering_Text3)</button>
+    <button type="button" id="filterBtn" class="btn btn-default" onclick="showFilter()">@Html.Raw(Resources.FlexSheet.Filtering_Text3)</button>
     <div>
-        <c1-flex-sheet class="flexSheet" id="filterSheet" selected-sheet-changed="sheetChanged">
-            <c1-bound-sheet>
-                <c1-items-source source-collection="@Model"></c1-items-source>
-            </c1-bound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("filterSheet")
+        .AddBoundSheet(sheet =>
+            sheet.Bind(cv =>
+                cv.Bind(Model).DisableServerRead(true)))
+        .OnClientSelectedSheetChanged("sheetChanged"))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.Filtering_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.Filtering_Text1)</p>
 
 }

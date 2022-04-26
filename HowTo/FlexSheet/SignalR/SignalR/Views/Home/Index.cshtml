@@ -1,0 +1,90 @@
+﻿@using SignalR.Models
+@{
+    IEnumerable<FontName> fontList = ViewBag.FontList;
+    IEnumerable<FontSize> fontSizeList = ViewBag.FontSizeList;
+}
+<script src='~/signalr/hubs'></script>
+<script src="~/Scripts/app/formatCells.js"></script>
+<script src="~/Scripts/app/app.js"></script>
+<div class="container">
+    <p>
+        This sample shows how to use FlexSheet to collaborate simultaneously.<br />
+        For the best experience, <a href="@Url.Action("Index")" target="_blank">click here</a>
+        to open the sample in a new tab or browser.
+        You can even browse with a different device. If you change the sample in one instance,
+        you’ll see these changes applied to other windows simultaneously.
+    </p>
+    <label>Synchronized Changes:</label>
+    <ul>
+        <li>Change cell value.</li>
+        <li>Change cell format/style.</li>
+        <li>Add new sheet.</li>
+        <li>Other operations may present the "Update failed" message.</li>
+        <li>Changing your user ID shows on the state-bar when others receive your changes.</li>
+    </ul>
+    <div class="row well well-lg">
+        <div class="row">
+            Your Id:<input class="form-control input-control" id="userId" type="text" maxlength="20" />
+            Format:
+            @(Html.C1().Menu().Header("Format").Id("menuFormat")
+                .OnClientSelectedIndexChanged("formatChanged")
+                .CssStyle("height", "34px")
+                .MenuItems(items =>
+                {
+                    items.Add("Decimal Format", "d1");
+                    items.Add("Number Format", "n2");
+                    items.Add("Percentage Format", "p2");
+                    items.Add("Currency Format", "c2");
+                    items.AddSeparator();
+                    items.Add("Short Date", "M/d/yyyy");
+                    items.Add("Long Date", "dddd, MMMM d, yyyy");
+                    items.Add("Full Date/TIme (short time)", "dddd, MMMM d, yyyy h:mm tt");
+                    items.Add("Full Date/TIme (long time)", "dddd, MMMM d, yyyy h:mm:ss tt");
+                }))
+        </div>
+        <br />
+        <div class="row">
+            Font:
+            @(Html.C1().ComboBox<FontName>().Bind(fontList).SelectedIndex(10)
+            .DisplayMemberPath("Name").SelectedValuePath("Value")
+            .IsEditable(false).CssStyle("width", "120px").CssStyle("height", "34px")
+            .OnClientSelectedIndexChanged("fontChanged")
+            .Id("cboFontName")
+            )
+            @(Html.C1().ComboBox<FontSize>().Bind(fontSizeList).SelectedIndex(5)
+            .DisplayMemberPath("Name").SelectedValuePath("Value")
+            .IsEditable(false).CssStyle("width", "80px").CssStyle("height", "34px")
+            .OnClientSelectedIndexChanged("fontSizeChanged")
+            .Id("cboFontSize")
+            )
+            <div class="btn-group">
+                <button type="button" id="boldBtn" class="btn btn-default" onclick="applyBoldStyle()">Bold</button>
+                <button type="button" id="italicBtn" class="btn btn-default" onclick="applyItalicStyle()">Italic</button>
+                <button type="button" id="underlineBtn" class="btn btn-default" onclick="applyUnderlineStyle()">Underline</button>
+            </div>
+            Alignment:
+            <div class="btn-group">
+                <button type="button" id="leftBtn" class="btn btn-default active" onclick="applyCellTextAlign('left')">Left</button>
+                <button type="button" id="centerBtn" class="btn btn-default" onclick="applyCellTextAlign('center')">Center</button>
+                <button type="button" id="rightBtn" class="btn btn-default" onclick="applyCellTextAlign('right')">Right</button>
+            </div>
+            Color:
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" onclick="showColorPicker(event, false)">Fore Color</button>
+                <button type="button" class="btn btn-default" onclick="showColorPicker(event, true)">Fill Color</button>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        @(Html.C1().FlexSheet().Id("signalRSheet")
+        .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None).Load(Model)
+        .CssClass("flexSheet").OnClientCellEditEnded("cellEditEnded")
+        .OnClientSelectedSheetChanged("sheetChanged")
+        .OnClientBeginningEdit("beginningEdit"))
+
+        @(Html.C1().ColorPicker().Id("colorPicker").CssStyles(new Dictionary<string, string> {
+                {"display","none"},{"position","fixed"},{"z-index","100" }
+            }))
+    </div>
+</div>
+<div class="stateBar" id="stateBar"></div>

@@ -1,0 +1,55 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Index_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Index_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Index_Text2)
+</p>
+@Html.C1().FlexGrid().Id("gridDefault")
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Index_Text3)
+</p>
+@Html.C1().FlexGrid().Id("gridCols")
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Index_Text4) 
+</p>
+@Html.C1().FlexGrid().Id("gridProps")
+<label>
+    <div class="header">@Html.Raw(Resources.C1FlexGrid.Index_Text5)</div>
+    @(Html.C1().ComboBox().Id("selectionMode")
+        .Bind(new[] { "None", "Cell", "CellRange", "Row", "RowRange", "ListBox" })
+        .Text("CellRange")
+    )
+</label>
+<label>
+    <div class="header">@Html.Raw(Resources.C1FlexGrid.Index_Text6)</div>
+    @(Html.C1().ComboBox().Id("allowSorting")
+        .Bind(new[] { "True", "False" })
+        .Text("True")
+    )
+</label>
+<label>
+    <div class="header">@Html.Raw(Resources.C1FlexGrid.Index_Text7)</div>
+    @(Html.C1().ComboBox().Id("allowDragging")
+        .Bind(new[] { "None", "Columns", "Rows", "Both" })
+        .Text("Solumns")
+    )
+</label>
+<label>
+    <div class="header">@Html.Raw(Resources.C1FlexGrid.Index_Text8)</div>
+    @(Html.C1().ComboBox().Id("isReadOnly")
+        .Bind(new[] { "True", "False" })
+        .Text("False")
+    )
+</label>
+<label>
+    <div class="header">@Html.Raw(Resources.C1FlexGrid.Index_Text9)</div>
+    @(Html.C1().ComboBox().Id("headersVisibility")
+        .Bind(new[] { "None", "Column", "Row", "All" })
+        .Text("All")
+    )
+</label>

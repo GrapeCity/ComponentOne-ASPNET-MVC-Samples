@@ -1,0 +1,45 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.StageCount>
+
+@{
+    var neckStyles = new[] { "Default", "Rectangle" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.FunnelCharts_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.FunnelCharts_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.FunnelCharts_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.FunnelCharts_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.FunnelCharts_Text4)
+</p>
+
+<div class="demo-settings">
+    <label for="neckWidth">@Html.Raw(Resources.C1FlexChart.FunnelCharts_Text5) </label>
+    @Html.C1().InputNumber().Id("neckWidth").Min(0).Max(1).Step(0.1).Format("p0").Value(0.2)
+    <br />
+    <label for="neckHeight">@Html.Raw(Resources.C1FlexChart.FunnelCharts_Text6) </label>
+    @Html.C1().InputNumber().Id("neckHeight").Min(0).Max(1).Step(0.1).Format("p0").Value(0.4)
+    <br />
+    <label for="neckStyle">@Html.Raw(Resources.C1FlexChart.FunnelCharts_Text7) </label>
+    @Html.C1().ComboBox().Id("neckStyle").Bind(neckStyles)
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.StageCount>().Id("theChart")
+    .Bind("Stage", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Funnel)
+    .Options(o =>
+    {
+        o.Funnel(f => f.NeckWidth(0.2f).NeckHeight(0.4f).Type(C1.Web.Mvc.FunnelType.Default));
+    })
+    .Series(sb => sb.Add().Binding("Count").Name("Sales Pipeline"))
+    .DataLabel(dl => dl.Content("{item.count}"))
+)

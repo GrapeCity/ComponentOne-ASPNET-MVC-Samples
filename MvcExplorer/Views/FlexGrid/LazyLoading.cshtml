@@ -1,0 +1,138 @@
+﻿@using C1.Web.Mvc.Grid
+@model List<MvcExplorer.Controllers.LazyLoadingItems>
+
+@section Styles{
+    <style>
+        .custom-flex-grid {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+            max-height: 220px;
+            margin: 6px 0;
+        }
+
+        .custom-flex-grid .wj-cell {
+            background-color: #fff;
+            border: 1px solid #dad8d8;
+            font-size: 10pt;
+        }
+        .custom-flex-grid .wj-header {
+            background: #eee;
+        }
+
+        .custom-flex-grid .wj-state-selected {
+            background: #000;
+            color: #fff;
+        }
+
+        .custom-flex-grid .wj-state-multi-selected {
+            background: #222;
+            color: #fff;
+        }
+
+        .custom-flex-grid .wj-cell.wj-group {
+            border: 1px solid #dad8d8;
+        }
+
+        .custom-flex-grid .wj-cell.wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+            background-color: white;
+        }
+
+        .id-column {
+            font-style: italic;
+        }
+    </style>
+}
+
+@(Html.C1().FlexGrid().Id("grid").CssClass("custom-flex-grid").Width(500)
+    .Bind(Model)
+    .ChildItemsPath("children")
+    .AutoGenerateColumns(false)
+    .OnClientGroupCollapsedChanged("groupCollapsedChanged")
+    .Columns(columns =>
+    {
+        columns.Add().Binding("name").Header("Customer Name").Width("2*");
+        columns.Add().Binding("id").Header("ID").Align("center").CssClass("id-column").Width("1*");
+    })
+    .HeadersVisibility(HeadersVisibility.Column)
+
+)
+<p>
+  @Html.Raw(Resources.FlexGrid.TreeGrid_LazyLoading_Text) <b id="rowCount"></b> @Html.Raw(Resources.FlexGrid.TreeGrid_LazyLoading_Text1)
+</p>
+@section Scripts{
+    <script>
+        var maxId=0;//countains the value of max id of node
+        c1.documentReady(function () {
+            var theGrid = wijmo.Control.getControl("#grid");
+
+            // start collapsed
+          theGrid.collapseGroupsToLevel(0);
+          theGrid.collectionView._disableServerRead = true;
+
+            updateRowCount(theGrid);
+
+        });
+        // update row when items are loaded
+        function updateRowCount(grid) {
+            document.getElementById('rowCount').textContent = wijmo.Globalize.format(grid.rows.length, 'n0');
+        }
+        // load data when collapse node is expanded
+        function groupCollapsedChanged(s, e) {
+            var row = s.rows[e.row], item = row.dataItem;
+            // did we just expand a node with a dummy child?
+            if (!row.isCollapsed && item.children.length == 1 && item.children[0].name == '') {
+                // can't lazy load while updating rows
+                if (s.rows.isUpdating) {
+                    row.isCollapsed = true;
+                    return;
+                }
+                // replace the dummy child with actual nodes
+                item.children.length = 0;
+                var cnt = Math.round(Math.random() * 5) + 1;
+                maxId = maxId == 0 ? Math.max.apply(Math, s.collectionView.items.map(function (o) { return o.id; })) : maxId;
+                for (var i = 0; i < cnt; i++) {
+                    createNode(item, maxId);
+                }
+                s.collectionView._disableServerRead = true;
+                // refresh the view
+                s.collectionView.refresh();
+                // collapse the new item's child items
+                for (var i = row.index + 1; i < s.rows.length; i++) {
+                    var childRow = s.rows[i];
+                    if (childRow.level <= row.level) {
+                        break;
+                    }
+                    childRow.isCollapsed = true;
+                }
+                // update row count
+                updateRowCount(s);
+            }
+        }
+        function createNode(item, nodeId) {
+            //call action to create new node
+            $.ajax({
+                async: false,
+                method: 'GET',
+                url: '@Url.Action("GetTreeNodes", "FlexGrid")',
+                dataType: "json",
+                data: { id: nodeId },
+                contentType: 'application/json; charset = utf­8',
+                success: function (result) {
+                    var data = JSON.parse(result);
+                    //push new item
+                    item.children.push(data);
+                    maxId = data.id;
+                },
+                error: function (xhr) {
+                    alert(xhr.responseText);
+                }
+            });
+        }
+    </script>
+}
+
+@section Description {
+    @Html.Raw(Resources.FlexGrid.TreeGrid_LazyLoading_Description)
+}   

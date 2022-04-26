@@ -1,0 +1,39 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text2) 
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text3)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.FilterOptimizations_Text6)
+    </li>
+</ol>
+
+@(Html.C1().FlexGrid().Id("theGrid").Height(250)
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Id").Header("ID");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Rating").Header("Rating");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+    .Filterable(f=>f.Id("theGridFilter"))
+)

@@ -1,0 +1,36 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesRanges_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesRanges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesRanges_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesRanges_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesRanges_Text4)
+</p>
+
+<div class="demo-settings">
+    <label for="customRange">@Html.Raw(Resources.C1FlexChart.AxesRanges_Text5)</label>
+    <input id="customRange" type="checkbox">
+    <div id="warning" class="panel panel-warning" style="display:none">
+        <div class="panel-heading">
+            @Html.Raw(Resources.C1FlexChart.AxesRanges_Text6)
+        </div>
+    </div>
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb=>sb.Add().Binding("Sales").Name("Sales"))
+    .AxisY(y=>y.Format("n0,").Title("US$ (thousands)"))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+)

@@ -1,0 +1,144 @@
+﻿@model BookMyFlight.Models.MyBookingsModel
+
+@{
+    ViewBag.Title = "My Bookings";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/MyBookings.js")" type="text/javascript"></script>
+<script id="BookingDataTemplate" type="text/template" style="width:100%;">
+
+    <div id="PnlBooking_{{Id}}" class="PnlBookingData">
+        <div id="PnlDepart_{{Id}}" class="PnlDepart">
+            <div id="BookId_{{Id}}" class="RefNo">Ref No.: {{Id}}</div>
+            <div class="DepartDate">{{Departure_DateTimeStr}}</div><span class="BookDate">{{Book_DateStr}}</span>
+            <div class="DestNames">
+                <span class="PlaneImgSpan"><img src="@Url.Content("~/images/PlaneImg.PNG")" class="PlaneImg" /></span> <span>{{From_City}}</span>&nbsp;<img src="@Url.Content("~/images/ArrowRight.PNG")" />&nbsp;<span>{{To_City}}</span>
+            </div>
+            <div class="class">
+                {{Class}}&nbsp;|&nbsp;Refundable
+            </div>
+        </div>
+
+        <div id="PnlReturn_{{Id}}" class="PnlReturn">
+            <hr />
+            <div class="DepartDate">{{Return_DateTimeStr}}</div>
+            <div class="DestNames">
+                <span class="PlaneImgSpan"><img src="@Url.Content("~/images/PlaneImg.PNG")" class="PlaneImg" /></span> <span>{{To_City}}</span>&nbsp;<img src="@Url.Content("~/images/ArrowRight.PNG")" />&nbsp;<span>{{From_City}}</span>
+            </div>
+            <div class="class">
+                {{Class}}&nbsp;|&nbsp;Refundable
+            </div>
+        </div>
+        <br />
+        <div class="PrintInvoice">
+            <span class="LinkDiv"><a href="@Url.Content("~/MyBookings/OpenInvoice?BookID={{Id}}")" target="_blank"> <img src="@Url.Content("~/images/Invoice.png")" /><span style="padding-top:100px;">Print Invoice</span></a></span>
+            
+        </div>
+        <div></div>
+        <br />
+    </div>
+
+</script>
+<div id="RefineSearch">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="btn-group" data-toggle="buttons">
+                <label class="btn btn-default active">
+                    <input type="radio" name="ListType" id="ListTypeUpcoming" value="Upcoming" autocomplete="off" checked><i class="fa fa-calendar"></i>&nbsp;Upcoming
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="ListType" id="ListTypeCompleted" value="Completed" autocomplete="off"><i class="fa fa-check"></i>&nbsp;Completed
+                </label>
+                <label class="btn btn-default">
+                    <input type="radio" name="ListType" id="ListTypeCancelled" value="Cancelled" autocomplete="off"><i class="fa fa-times"></i>&nbsp;Cancelled
+                </label>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="PnlDateLink">
+        <div id="DivViewByLink" class="col-md-12">
+            <br />
+            <span class="LinkDiv" data-toggle="modal" data-target="#DlgTravelDates">
+                <i class="fa fa-filter"></i>&nbsp;<b>View by Travel Date </b>
+            </span>
+            <span id="LblSelectedRange"></span>
+        </div>
+    </div>
+    <div id="LblMsg"></div><br />
+    <div class="row" id="PnlBookingsFlexChart" style="display:none;">
+        <div class="col-md-12">
+            @(Html.C1().FlexChart().Id("FCBookings").ChartType(C1.Web.Mvc.Chart.ChartType.Column).CssStyle("border","none")
+                .AxisX(x=>x.Labels(true).Title("Month-Year"))
+                .AxisY(x => x.Labels(true).LabelAngle(0).Title("Amount (in $)").Format("c0"))
+                .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Point).BindingX("MonthStr").Series(sers =>
+                {
+                    sers.Add().Binding("BookingAmt").Name("Booking");
+                    sers.Add().Binding("TravelAmt").Name("Travel");
+                })
+                .OnClientSelectionChanged("FCBookings_SelectionChanged")
+            )
+        </div>
+    </div>
+
+    <div class="row" id="PnlBookingsFlexGrid" style="display:none;">
+        <div class="col-md-12">
+            @(Html.C1().ListBox().Id("LBBookings").ItemTemplateId("BookingDataTemplate").Width("100%").SelectedIndex(-1)
+            .OnClientSelectedIndexChanged("LBBookings_ItemsChanged").CssClass("CListBox-Custom").CssStyle("border","none")
+            )
+
+        </div><br />
+    </div>
+    
+
+</div>
+
+<div class="modal fade" id="DlgTravelDates" tabindex="-1" role="dialog" aria-labelledby="DlgTravelDatesLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h6 class="modal-title" id="DlgTravelDatesLabel">Select range:</h6>
+            </div>
+            <div class="modal-body">
+                <div id="LblRangeDlgMsg"></div><br />
+                <div class="row">
+                    <div class="col-md-5">
+                        @(Html.C1().ComboBox().Id("CmbFromMonth").Bind(Model.MonthList)
+                        .SelectedValue(Model.MonthList[Model.SelFromMonth - 1]).Width(120).Height(35)
+                        )
+
+                        @(Html.C1().ComboBox().Id("CmbFromYear").Bind(Model.YearList)
+                                .SelectedValue(Model.SelFromYear.ToString()).Width(80).Height(35)
+                        )
+                    </div>
+                    <div class="col-md-2">
+                        TO
+                    </div>
+                    <div class="col-md-5">
+                        <span class="pull-right">
+                            @(Html.C1().ComboBox().Id("CmbToMonth").Bind(Model.MonthList)
+                                .SelectedValue(Model.MonthList[Model.SelToMonth - 1]).Width(120).Height(35)
+                            )
+                            @(Html.C1().ComboBox().Id("CmbToYear").Bind(Model.YearList)
+                                .SelectedValue(Model.SelToYear.ToString()).Width(80).Height(35)
+                            )
+                        </span>
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-md-12">
+
+                    </div>
+                </div>
+                <div class="modalfooter">
+                    <button type="button" class="btn btn-primary" onclick="ApplyDateRange()">Apply</button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+

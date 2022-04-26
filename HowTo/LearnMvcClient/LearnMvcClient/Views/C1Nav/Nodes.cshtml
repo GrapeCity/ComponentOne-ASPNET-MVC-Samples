@@ -1,0 +1,69 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Nodes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.Nodes_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Nodes_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Nodes_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Nodes_Text4)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text7)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text8)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text9)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text10)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text11)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text12)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text13)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Nav.Nodes_Text14)
+    </li>
+</ul>
+
+<p>
+    @Html.Raw(Resources.C1Nav.Nodes_Text15)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-5">
+        @Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+    </div>
+    <div class="col-xs-7">
+        <div id="scan" class="btn btn-primary">
+            @Html.Raw(Resources.C1Nav.Nodes_Text16)
+        </div>
+        <h4>
+            @Html.Raw(Resources.C1Nav.Nodes_Text17)
+        </h4>
+        <div id="scanResult"></div>
+    </div>
+</div>

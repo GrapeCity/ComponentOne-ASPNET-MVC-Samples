@@ -1,0 +1,38 @@
+﻿@model IEnumerable<NamedColor>
+
+@section Styles{
+<style>
+    .palette {
+        display: inline-block;
+        border: 1px solid black;
+        width: 20px;
+        height: 10px;
+    }
+
+    .palette-label {
+        margin-left: 5px;
+    }
+</style>
+}
+
+<script id="template1" type="text/template">
+    <span>
+        <span class="palette" style="background-color: {{Value}}"></span>
+        <span class="palette-label">{{Name}}</span>
+    </span>
+</script>
+
+<div>
+    <label>@Html.Raw(Resources.ComboBox.ItemTemplate_Colors)</label>
+    @(Html.C1().ComboBox()
+        .Bind(Model)
+        .DisplayMemberPath("Name")
+        .SelectedValuePath("Value")
+        .ItemTemplateId("template1")
+        .Width(250)
+    )
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.ComboBox.ItemTemplate_Text0)</p>
+}

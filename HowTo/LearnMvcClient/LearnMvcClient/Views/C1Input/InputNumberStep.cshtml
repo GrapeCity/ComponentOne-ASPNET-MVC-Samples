@@ -1,0 +1,22 @@
+@{
+    var formats = new[] { "n0", "n2", "c0", "c2", "p0", "p2" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.InputNumberStep_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberStep_Text1)
+</p>
+<div id="inputNumbers" class="demo-settings">
+    @for (var i = 0; i < formats.Length; i++)
+    {
+        var format = formats[i];
+        var id = "theInputNumberF" + format;
+        var step = format[0] == 'p' ? 0.1 : (i + 1);
+        <label for="@id">@string.Format(Resources.C1Input.InputNumberStep_Text2, step) </label>
+        @Html.C1().InputNumber().Id(id).Format(format)
+        <br />
+    }
+</div>

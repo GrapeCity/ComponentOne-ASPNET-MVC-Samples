@@ -1,0 +1,26 @@
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Orders.Order>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoDescription = false;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+        .Id("groupPanelMultiRow")
+        .ShowGroupPanel(s => s
+            .MaxGroups(Convert.ToInt32(optionsModel.Options["Max Groups"].CurrentValue))
+            .Placeholder(optionsModel.Options["Placeholder"].CurrentValue))
+        .Bind(Model)
+        .CssClass("multirow")
+        .IsReadOnly(true)
+        .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+        .AllowDragging(AllowDragging.Columns)
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.GroupPanel_Text0)
+}

@@ -1,0 +1,30 @@
+<h1>
+    @Html.Raw(Resources.C1Input.DatesTimes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.DatesTimes_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.DatesTimes_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.DatesTimes_Text3)
+</p>
+<div class="demo-settings">
+    <label for="theInputDateOnly">@Html.Raw(Resources.C1Input.DatesTimes_Text4) </label>
+    @Html.C1().InputDate().Id("theInputDateOnly")
+    <br>
+    <label for="theInputTimeOnly">@Html.Raw(Resources.C1Input.DatesTimes_Text5) </label>
+    @Html.C1().InputTime().Id("theInputTimeOnly")
+</div>
+<p>
+    @Html.Raw(Resources.C1Input.DatesTimes_Text6)
+</p>
+<div class="demo-settings">
+    <label for="theInputDateTime">@Html.Raw(Resources.C1Input.DatesTimes_Text7) </label>
+    @Html.C1().InputDateTime().Id("theInputDateTime")
+</div>
+<p>
+    @Html.Raw(Resources.C1Input.DatesTimes_Text8)
+</p>

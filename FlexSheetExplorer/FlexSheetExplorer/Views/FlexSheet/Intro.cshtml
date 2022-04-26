@@ -1,34 +1,33 @@
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.Intro_Text4)
-        </h3>
-        <p>@Html.Raw(FlexSheetRes.Intro_Text0)</p>
+        <h3>@Html.Raw(Resources.FlexSheet.Intro_Text4)</h3>
+
+        <p>@Html.Raw(Resources.FlexSheet.Intro_Text0)</p>
 
         <div class="collapsed-content collapse">
-            <p>@Html.Raw(FlexSheetRes.Intro_Text1)</p>
+            <p>@Html.Raw(Resources.FlexSheet.Intro_Text1)</p>
 
             <dl class="dl-horizontal">
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text5)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text6)</dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text7)</dt>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text5)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text6)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text7)</dt>
                 <dd>
-                    @Html.Raw(FlexSheetRes.Intro_Text8)
+                    @Html.Raw(Resources.FlexSheet.Intro_Text8)
                 </dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text9)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text10)</dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text11)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text12)</dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text13)</dt>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text9)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text10)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text11)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text12)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text13)</dt>
                 <dd>
-                    @Html.Raw(FlexSheetRes.Intro_Text14)
+                    @Html.Raw(Resources.FlexSheet.Intro_Text14)
                 </dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text15)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text16)</dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text17)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text18)</dd>
-                <dt>@Html.Raw(FlexSheetRes.Intro_Text20)</dt>
-                <dd>@Html.Raw(FlexSheetRes.Intro_Text21)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text15)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text16)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text17)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text18)</dd>
+                <dt>@Html.Raw(Resources.FlexSheet.Intro_Text20)</dt>
+                <dd>@Html.Raw(Resources.FlexSheet.Intro_Text21)</dd>
             </dl>
         </div>
         <p>
@@ -36,18 +35,20 @@
                     data-toggle="collapse"
                     data-target=".collapsed-content, .btn.btn-default.btn-xs.collapse"
                     class="btn btn-default btn-xs collapse in">
-                @Html.Raw(FlexSheetRes.Intro_Text2)
+                @Html.Raw(Resources.FlexSheet.Intro_Text19)
             </button>
         </p>
+
     </div>
     <div>
-        <c1-flex-sheet class="flexSheet" allow-auto-fill="true">
-            <c1-unbound-sheet column-count="12" row-count="25"></c1-unbound-sheet>
-            <c1-unbound-sheet column-count="12" row-count="25"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet")
+        .AddUnboundSheet("Sheet1", 25, 12)
+        .AddUnboundSheet("Sheet2", 25, 12)
+        .AllowAutoFill(true)
+        )
     </div>
 </div>
 @section Summary{
-    <p>@Html.Raw(FlexSheetRes.Intro_Text3)</p>
+<p>@Html.Raw(Resources.FlexSheet.Intro_Text3)</p>
 
 }

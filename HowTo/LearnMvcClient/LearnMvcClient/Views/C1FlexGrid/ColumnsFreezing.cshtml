@@ -1,0 +1,17 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsFreezing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsFreezing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsFreezing_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Height(250)
+
+<button id="btnFreezeRows" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.ColumnsFreezing_Text3)
+</button>
+<button id="btnFreezeCols" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.ColumnsFreezing_Text4)
+</button>

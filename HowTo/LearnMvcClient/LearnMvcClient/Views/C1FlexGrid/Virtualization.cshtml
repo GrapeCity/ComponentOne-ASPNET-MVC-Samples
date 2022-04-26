@@ -1,0 +1,25 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text5)
+</p>
+
+@Html.C1().FlexGrid().Id("theGrid").Height(250)
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Virtualization_Text6)
+</p>

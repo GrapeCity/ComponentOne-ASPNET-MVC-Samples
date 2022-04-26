@@ -1,0 +1,744 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoFilling_Text0" xml:space="preserve">
+    <value>FlexSheetは、選択されたセルの値に基づいて、前方選択セルの入力をサポートします。</value>
+    <comment>FlexSheet supports filling the forward selecting cells base on the values of selected cells.</comment>
+  </data>
+  <data name="AutoFilling_Text1" xml:space="preserve">
+    <value>オートフィル</value>
+    <comment>Auto Filling</comment>
+  </data>
+  <data name="AutoFilling_Text2" xml:space="preserve">
+    <value>このページにはオートフィル機能のデモが表示されます。この機能を使用するには、&lt;b&gt; AllowAutoFill &lt;/b&gt;プロパティをTrueに設定します。 &lt;br/&gt;次のサンプルでは、イベント&lt;b&gt; AutoFilling &lt;/b&gt;および&lt;b&gt; AutoFilled &lt;/b&gt;を使用して、塗りつぶされた範囲の数値の合計を計算し、塗りつぶされたセルのスタイルを設定します。</value>
+    <comment>This page show the demo of Auto Filling feature, to use this feature, set &lt;b&gt;AllowAutoFill&lt;/b&gt; property to True. &lt;br/&gt;The following sample use the events &lt;b&gt;AutoFilling&lt;/b&gt; and &lt;b&gt;AutoFilled&lt;/b&gt; to calculate sum of numbers in the filled range and also style the filled cells.</comment>
+  </data>
+  <data name="AutoFilling_Text3" xml:space="preserve">
+    <value>ポインタが「十字形のアイコン」のようになったら、選択範囲の右下隅にポインタを移動してから、ドラッグして入力します。</value>
+    <comment>Please move pointer to right-bottom corner of the selection, when the pointer look like "cross-icon" then press down and drag for filling.</comment>
+  </data>
+  <data name="AutoFilling_Text4" xml:space="preserve">
+    <value>入力範囲</value>
+    <comment>Filling range</comment>
+  </data>
+  <data name="AutoFilling_Text5" xml:space="preserve">
+    <value>入力前の合計：</value>
+    <comment>Sum before filling:</comment>
+  </data>
+  <data name="AutoFilling_Text6" xml:space="preserve">
+    <value>入力後の合計：</value>
+    <comment>Sum after filling:</comment>
+  </data>
+  <data name="CellMerging_Text0" xml:space="preserve">
+    <value>FlexSheetは、&lt;b&gt;mergeRange&lt;/b&gt;メソッドの呼び出しにより、選択された複数のセルを1つのセルに結合する操作をサポートします。&lt;/br&gt;選択されたセルに結合されたセルが含まれている場合、&lt;b&gt;mergeRange&lt;/b&gt;メソッドは、結合されたセルの結合を解除します。&lt;/br&gt;そうでない場合は、選択されたセルを1つのセルに結合します。&lt;br /&gt;&lt;/br&gt;これは、コンテンツ依存のセル結合しか行えないFlexGridとは異なります。</value>
+    <comment>FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging.</comment>
+  </data>
+  <data name="CellMerging_Text1" xml:space="preserve">
+    <value>FlexSheetは、選択された複数のセルを1つのセルに結合する操作をサポートします。</value>
+    <comment>FlexSheet supports merging the selected cells into one cell.</comment>
+  </data>
+  <data name="CellMerging_Text2" xml:space="preserve">
+    <value>セル結合</value>
+    <comment>Cell Merging</comment>
+  </data>
+  <data name="CellMerging_Text3" xml:space="preserve">
+    <value>セルの結合</value>
+    <comment>Merge</comment>
+  </data>
+  <data name="CellMerging_Text4" xml:space="preserve">
+    <value>マージを解除</value>
+    <comment>UnMerge</comment>
+  </data>
+  <data name="CustomFunction_Text0" xml:space="preserve">
+    <value>FlexSheet allows user to add custom functions by the client &lt;b&gt;addFunction&lt;/b&gt; method.&lt;/br&gt;FlexSheet will parse the cell reference parameter such as 'A1' or 'A1:B2' to a &lt;b&gt;&lt;a href="http://wijmo.com/5/docs/topic/wijmo.grid.CellRange.Class.html" target="_blank"&gt;CellRange&lt;/a&gt;&lt;/b&gt; instance for the custom function.</value>
+    <comment>FlexSheetでは、&lt;b&gt;addFunction&lt;/b&gt;クライアントメソッドを使用してカスタム関数を追加できます。&lt;/br&gt;FlexSheetは、'A1'、'A1:B2'などのセル参照パラメータを解析して、カスタム関数の&lt;b&gt;&lt;a href="http://wijmo.com/5/docs/topic/wijmo.grid.CellRange.Class.html" target="_blank"&gt;CellRange&lt;/a&gt;&lt;/b&gt;インスタンスを作成します。</comment>
+  </data>
+  <data name="CustomFunction_Text1" xml:space="preserve">
+    <value>また、&lt;b&gt;OnClientUnknownFunction&lt;/b&gt;クライアントイベントを使用して、セル式で見つかったサポートされていない関数を処理することもできます。&lt;/br&gt;このイベントは、UnKnownFunctionEventArgsを開発者に渡します。このUnKnownFunctionEventArgsは、関数名および評価されたパラメータ値のリストを提供します。&lt;/br&gt;開発者は、UnKnownFunctionEventArgsのvalueフィールドを設定して、失敗した式の結果をカスタマイズできます。&lt;/br&gt;カスタマイズしない場合、失敗した関数はデフォルトのエラーメッセージ「&lt;i&gt;関数"funcName"はFlexSheetでまだサポートされていません&lt;/i&gt;」を返します。</value>
+    <comment>FlexSheet also allows user to process non-supported functions met in cell expressions by the client &lt;b&gt;OnClientUnknownFunction&lt;/b&gt; event.&lt;/br&gt;This event will pass the 'UnKnownFunctionEventArgs' to customer.  This 'UnKnownFunctionEventArgs' provides the function name and the evaluated values list of the parameters.&lt;/br&gt;Customer can set the 'value' field of 'UnKnownFunctionEventArgs' to customize the miss formula result.&lt;/br&gt;Otherwise the missed function will return the default error message: &lt;i&gt;'The function "funcName" has not supported in FlexSheet yet.'&lt;/i&gt;.</comment>
+  </data>
+  <data name="CustomFunction_Text2" xml:space="preserve">
+    <value>FlexSheetでは、addFunctionクライアントメソッドを使用してカスタム関数を追加できます。</value>
+    <comment>FlexSheet allows user to add custom functions by the client addFunction method.</comment>
+  </data>
+  <data name="CustomFunction_Text3" xml:space="preserve">
+    <value>カスタム関数</value>
+    <comment>Custom Function</comment>
+  </data>
+  <data name="DataBinding_Text0" xml:space="preserve">
+    <value>FlexSheetは連結なしでも使用できますが、グリッドのようなデータ連結もサポートしています。&lt;/br&gt;連結モードでは、FlexGridと同様に、列を定義し、データに連結できます。</value>
+    <comment>FlexSheet can be unbound, but it also supports databinding like a grid.&lt;/br&gt;In bound mode, columns can be defined and data bound just like FlexGrid.</comment>
+  </data>
+  <data name="DataBinding_Text1" xml:space="preserve">
+    <value>FlexSheetは、グリッドと同様のデータ連結をサポートしています。</value>
+    <comment>FlexSheet supports databinding like a grid.</comment>
+  </data>
+  <data name="DataBinding_Text2" xml:space="preserve">
+    <value>データ連結</value>
+    <comment>Data Binding</comment>
+  </data>
+  <data name="DragDrop_Text0" xml:space="preserve">
+    <value>FlexSheetは、列や行を別の列や行にドラッグアンドドロップする操作をサポートします。セルのデータがコピーまたは移動されるだけでなく、&lt;/br&gt;セルのスタイルもコピーまたは移動されます。&lt;br /&gt;&lt;/br&gt;キーを何も押さずにドラッグアンドドロップすると、選択した列または行がドロップ先の列または行に移動します。&lt;br /&gt;&lt;/br&gt;&lt;b&gt;［Ctrl］&lt;/b&gt;キーを押しながらドラッグアンドドロップすると、選択した列または行がドロップ先の列または行にコピーされます。&lt;br /&gt;&lt;/br&gt;&lt;b&gt;［Shift］&lt;/b&gt;キーを押しながらドラッグアンドドロップすると、選択した列または行の位置がドロップ先の列または行と入れ替わります。</value>
+    <comment>FlexSheet supports dragging and dropping columns or rows into other columns or rows. It does not only copy or move the data of the cells;&lt;/br&gt;it also copies or moves the style of the cells.&lt;br /&gt;&lt;/br&gt;When dragging and dropping without any key pressed, it moves the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b&gt;'Ctrl'&lt;/b&gt; key pressed, it copies the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b&gt;'Shift'&lt;/b&gt; key pressed, it changes the position of the selected columns or rows with the dropping columns or rows.</comment>
+  </data>
+  <data name="DragDrop_Text1" xml:space="preserve">
+    <value>FlexSheetは、列や行を別の列や行にドラッグアンドドロップする操作をサポートします。</value>
+    <comment>FlexSheet supports dragging and dropping columns or rows into other columns or rows.</comment>
+  </data>
+  <data name="DragDrop_Text2" xml:space="preserve">
+    <value>ドラッグアンドドロップ</value>
+    <comment>Drag And Drop</comment>
+  </data>
+  <data name="Error_Text0" xml:space="preserve">
+    <value>エラー。</value>
+    <comment>Error.</comment>
+  </data>
+  <data name="Error_Text1" xml:space="preserve">
+    <value>要求の処理中にエラーが発生しました。</value>
+    <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="ExcelIO_Text0" xml:space="preserve">
+    <value>FlexSheetは、&lt;b&gt;save&lt;/b&gt;および&lt;b&gt;load&lt;/b&gt;クライアントメソッドにより、xlsxファイルの保存/ロードをサポートします。</value>
+    <comment>FlexSheet supports saving/loading xlsx files by the client &lt;b&gt;'save'&lt;/b&gt; and &lt;b&gt;'load'&lt;/b&gt; method.</comment>
+  </data>
+  <data name="ExcelIO_Text1" xml:space="preserve">
+    <value>FlexSheetは、saveおよびloadクライアントメソッドにより、xlsxファイルの保存/ロードをサポートします。</value>
+    <comment>FlexSheet supports saving/loading xlsx files by the client 'save' and 'load' method.</comment>
+  </data>
+  <data name="ExcelIO_Text2" xml:space="preserve">
+    <value>Excel入出力</value>
+    <comment>Excel I/O</comment>
+  </data>
+  <data name="ExcelIO_Text3" xml:space="preserve">
+    <value>ロード</value>
+    <comment>Load</comment>
+  </data>
+  <data name="ExcelIO_Text31" xml:space="preserve">
+    <value>ロード</value>
+    <comment>Load</comment>
+  </data>
+  <data name="ExcelIO_Text4" xml:space="preserve">
+    <value>保存</value>
+    <comment>Save</comment>
+  </data>
+  <data name="ExcelIO_Text41" xml:space="preserve">
+    <value>保存</value>
+    <comment>Save</comment>
+  </data>
+  <data name="ExcelIO_Text5" xml:space="preserve">
+    <value>ファイル名：</value>
+    <comment>File Name:</comment>
+  </data>
+  <data name="ExcelIO_Text51" xml:space="preserve">
+    <value>ファイル名：</value>
+    <comment>File Name:</comment>
+  </data>
+  <data name="ExcelService_Text0" xml:space="preserve">
+    <value>このサンプルは、Web API Edition Excelサービスを使用してExcelファイルをFlexSheetにインポートする方法およびFlexSheetからエクスポートする方法を示します。</value>
+    <comment>This sample demonstrates how to import and export FlexSheet to an Excel file by using the Web API Edition Excel Service.</comment>
+  </data>
+  <data name="ExcelService_Text1" xml:space="preserve">
+    <value>Web API Edition Excelサービスを使用して、ExcelファイルをFlexSheetにインポートおよびFlexSheetからエクスポートします。</value>
+    <comment>Import and export FlexSheet to an Excel file by using the Web API Edition Excel Service.</comment>
+  </data>
+  <data name="ExcelService_Text2" xml:space="preserve">
+    <value>Excelサービス</value>
+    <comment>Excel Service</comment>
+  </data>
+  <data name="ExcelService_Text3" xml:space="preserve">
+    <value>エクスポート/インポート</value>
+    <comment>Export &amp; Import</comment>
+  </data>
+  <data name="ExcelService_Text31" xml:space="preserve">
+    <value>エクスポート/インポート</value>
+    <comment>Export &amp; Import</comment>
+  </data>
+  <data name="ExcelService_Text4" xml:space="preserve">
+    <value>エクスポート名：</value>
+    <comment>Export Name :</comment>
+  </data>
+  <data name="ExcelService_Text41" xml:space="preserve">
+    <value>エクスポート名：</value>
+    <comment>Export Name :</comment>
+  </data>
+  <data name="ExcelService_Text5" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ExcelService_Text51" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="ExcelService_Text6" xml:space="preserve">
+    <value>インポート</value>
+    <comment>Import</comment>
+  </data>
+  <data name="ExcelService_Text61" xml:space="preserve">
+    <value>インポート</value>
+    <comment>Import</comment>
+  </data>
+  <data name="Export_Format_Text0" xml:space="preserve">
+    <value>エクスポート形式：</value>
+    <comment>Export format</comment>
+  </data>
+  <data name="Filtering_Text0" xml:space="preserve">
+    <value>FlexSheetは、&lt;b&gt;FlexGridFilter&lt;/b&gt;拡張を使用して、各列のフィルタ処理を行います。&lt;/br&gt;FlexSheetの&lt;b&gt;showColumnFilter()&lt;/b&gt;メソッドが呼び出されると、選択された列のフィルタUIが表示されます。</value>
+    <comment>FlexSheet uses the &lt;b&gt;FlexGridFilter&lt;/b&gt; extension to handle the filtering of each column.&lt;/br&gt;When the &lt;b&gt;showColumnFilter()&lt;/b&gt; method of FlexSheet is invoked, it will display the filter UI of the selected column.</comment>
+  </data>
+  <data name="Filtering_Text1" xml:space="preserve">
+    <value>FlexSheetは、FlexGridFilter拡張を使用して、各列のフィルタ処理を行います。</value>
+    <comment>FlexSheet uses the FlexGridFilter extension to handle the filtering of each column.</comment>
+  </data>
+  <data name="Filtering_Text2" xml:space="preserve">
+    <value>フィルタ処理</value>
+    <comment>Filtering</comment>
+  </data>
+  <data name="Filtering_Text3" xml:space="preserve">
+    <value>フィルタの表示</value>
+    <comment>Show Filter</comment>
+  </data>
+  <data name="Filtering_Text31" xml:space="preserve">
+    <value>フィルタの表示</value>
+    <comment>Show Filter</comment>
+  </data>
+  <data name="FormatCells_Text0" xml:space="preserve">
+    <value>FlexSheetでは、セルごとの書式を設定できます。&lt;/br&gt;書式には、セル値のデータ形式（日付/数値の形式）、フォントスタイル、&lt;/br&gt;塗りつぶし色、水平方向の配置があります。</value>
+    <comment>FlexSheet allows you to the format for each cell.&lt;/br&gt;Format includes: data format of cell value (Date/Number format); font style;&lt;/br&gt;fill color; and horizontal alignment.</comment>
+  </data>
+  <data name="FormatCells_Text1" xml:space="preserve">
+    <value>FlexSheetでは、セルごとの書式を設定できます。</value>
+    <comment>FlexSheet allows you to the format for each cell.</comment>
+  </data>
+  <data name="FormatCells_Text10" xml:space="preserve">
+    <value>左揃え</value>
+    <comment>Left</comment>
+  </data>
+  <data name="FormatCells_Text11" xml:space="preserve">
+    <value>中央揃え</value>
+    <comment>Center</comment>
+  </data>
+  <data name="FormatCells_Text12" xml:space="preserve">
+    <value>右揃え</value>
+    <comment>Right</comment>
+  </data>
+  <data name="FormatCells_Text13" xml:space="preserve">
+    <value>前景色</value>
+    <comment>Fore Color</comment>
+  </data>
+  <data name="FormatCells_Text14" xml:space="preserve">
+    <value>塗りつぶし色</value>
+    <comment>Fill Color</comment>
+  </data>
+  <data name="FormatCells_Text2" xml:space="preserve">
+    <value>セルの書式設定</value>
+    <comment>Format Cells</comment>
+  </data>
+  <data name="FormatCells_Text3" xml:space="preserve">
+    <value>形式：</value>
+    <comment>Format:</comment>
+  </data>
+  <data name="FormatCells_Text4" xml:space="preserve">
+    <value>フォント：</value>
+    <comment>Font:</comment>
+  </data>
+  <data name="FormatCells_Text5" xml:space="preserve">
+    <value>配置：</value>
+    <comment>Alignment:</comment>
+  </data>
+  <data name="FormatCells_Text6" xml:space="preserve">
+    <value>色：</value>
+    <comment>Color:</comment>
+  </data>
+  <data name="FormatCells_Text7" xml:space="preserve">
+    <value>太字</value>
+    <comment>Bold</comment>
+  </data>
+  <data name="FormatCells_Text8" xml:space="preserve">
+    <value>斜体</value>
+    <comment>Italic</comment>
+  </data>
+  <data name="FormatCells_Text9" xml:space="preserve">
+    <value>下線</value>
+    <comment>Underline</comment>
+  </data>
+  <data name="Formulas_Text0" xml:space="preserve">
+    <value>FlexSheetは、約100の数式と自動補完をサポートしています。数式演算はMicrosoft Excelとの整合性を考慮して作成されており、集計、数学計算、論理、およびテキストを処理できます。</value>
+    <comment>FlexSheet supports nearly 100 formulas and auto-completion.  Our formula operations were built to align with Microsoft Excel, including operations for aggregation, mathematics, logic and text.</comment>
+  </data>
+  <data name="Formulas_Text1" xml:space="preserve">
+    <value>FlexSheetは、約100の数式と自動補完をサポートしています。</value>
+    <comment>FlexSheet supports nearly 100 formulas and auto-completion.</comment>
+  </data>
+  <data name="Formulas_Text2" xml:space="preserve">
+    <value>数式</value>
+    <comment>Formulas</comment>
+  </data>
+  <data name="FrozenCells_Text0" xml:space="preserve">
+    <value>FlexSheetでは、&lt;b&gt;freezeAtCursor&lt;/b&gt;メソッドを使用して、選択されたセルの行や列を固定することができます。</value>
+    <comment>FlexSheet allows you to freeze the rows and columns of the selected cell by the &lt;b&gt;'freezeAtCursor'&lt;/b&gt; method.</comment>
+  </data>
+  <data name="FrozenCells_Text1" xml:space="preserve">
+    <value>FlexSheetでは、行や列を固定することができます。</value>
+    <comment>FlexSheet allows you to freeze the rows and columns.</comment>
+  </data>
+  <data name="FrozenCells_Text2" xml:space="preserve">
+    <value>固定セル</value>
+    <comment>Frozen Cells</comment>
+  </data>
+  <data name="FrozenCells_Text3" xml:space="preserve">
+    <value>セルの固定</value>
+    <comment>Freeze</comment>
+  </data>
+  <data name="FrozenCells_Text4" xml:space="preserve">
+    <value>固定を解除</value>
+    <comment>UnFreeze</comment>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.ja.css</value>
+    <comment>~/Content/css/gcicons.css</comment>
+  </data>
+  <data name="Intro_Text0" xml:space="preserve">
+    <value>FlexSheetコントロールは、FlexGridコントロールを拡張してExcelと同様の機能を提供します。&lt;/br&gt;FlexSheetは、FlexGridのすべての機能をサポートするほか、FlexGridには含まれていないExcelの主要な機能も追加しています。&lt;br /&gt;&lt;/br&gt;&lt;b&gt;メモ：&lt;/b&gt;FlexSheetでは、xlsxファイルをロードおよび保存するためにJSZipライブラリが必要です。CDNからjszip.jsを追加するか、プロジェクトにスクリプトファイルを入れる必要があります。</value>
+    <comment>The FlexSheet control extends the FlexGrid control and provides an Excel-like functionality.&lt;/br&gt;FlexSheet supports all the FlexGrid's features, and focuses on the key features from Excel not included in FlexGrid.&lt;br /&gt;&lt;/br&gt;&lt;b&gt;Note:&lt;/b&gt;FlexSheet requires the JSZip library for loading and saving xlsx file, you should add jszip.js via CDN or include the script file in the project.</comment>
+  </data>
+  <data name="Intro_Text1" xml:space="preserve">
+    <value>FlexSheetは、Excelと同様の次の機能を提供しています。</value>
+    <comment>FlexSheet provides following Excel-like features:</comment>
+  </data>
+  <data name="Intro_Text10" xml:space="preserve">
+    <value>セルのスタイル設定では、書式、フォント、水平方向の配置、前景色、塗りつぶし色などがサポートされています。</value>
+    <comment>Cell-styling support includes format, font, horizontal alignment, fore color, fill color and more.</comment>
+  </data>
+  <data name="Intro_Text11" xml:space="preserve">
+    <value>セルの結合</value>
+    <comment>Merge Cells</comment>
+  </data>
+  <data name="Intro_Text12" xml:space="preserve">
+    <value>コンテンツ依存のセル結合しかサポートしていないFlexGridとは異なり、任意のセルを結合できます。</value>
+    <comment>User can merge any cells, in contrast with FlexGrid, which only supports content-driven cell merging.</comment>
+  </data>
+  <data name="Intro_Text13" xml:space="preserve">
+    <value>元に戻す/やり直す</value>
+    <comment>Undo/Redo</comment>
+  </data>
+  <data name="Intro_Text14" xml:space="preserve">
+    <value>セルの編集、行/列の挿入/削除、セルスタイルの適用、セルの結合、行/列のサイズ変更、
+                    行/列のドラッグアンドドロップなどの複数の操作を元に戻す/やり直すことができます。</value>
+    <comment>Undo/redo mutiple operations include edit cell, insert/remove rows/columns,
+                    apply cell style, merge cells, resize rows/columns, drag and drop rows/columns and more.</comment>
+  </data>
+  <data name="Intro_Text15" xml:space="preserve">
+    <value>ドラッグアンドドロップ</value>
+    <comment>Drag &amp; Drop</comment>
+  </data>
+  <data name="Intro_Text16" xml:space="preserve">
+    <value>行/列をドラッグアンドドロップして移動またはコピーできます。</value>
+    <comment>Drag and drop rows/columns for moving and copying.</comment>
+  </data>
+  <data name="Intro_Text17" xml:space="preserve">
+    <value>列全体の選択</value>
+    <comment>Select whole column</comment>
+  </data>
+  <data name="Intro_Text18" xml:space="preserve">
+    <value>列ヘッダーをクリックして列全体を選択できます。</value>
+    <comment>Select the whole column by clicking the column header.</comment>
+  </data>
+  <data name="Intro_Text19" xml:space="preserve">
+    <value>続きを読む</value>
+    <comment>Read more</comment>
+  </data>
+  <data name="Intro_Text20" xml:space="preserve">
+    <value>自動入力を許可</value>
+    <comment>Allow Auto Fill</comment>
+  </data>
+  <data name="Intro_Text21" xml:space="preserve">
+    <value>セルの右下隅をドラッグして、パターンに従うデータをセルに自動入力します。</value>
+    <comment>Auto fill cells with data that follows a pattern by dragging the bottom right corner of the cell.</comment>
+  </data>
+  <data name="Intro_Text3" xml:space="preserve">
+    <value>FlexSheetコントロールは、FlexGridコントロールを拡張してExcelと同様の機能を提供します。</value>
+    <comment>The FlexSheet control extends the FlexGrid control and provides an Excel-like functionality.</comment>
+  </data>
+  <data name="Intro_Text4" xml:space="preserve">
+    <value>はじめに</value>
+    <comment>Introduction</comment>
+  </data>
+  <data name="Intro_Text5" xml:space="preserve">
+    <value>マルチシート</value>
+    <comment>Multiple Sheets</comment>
+  </data>
+  <data name="Intro_Text6" xml:space="preserve">
+    <value>1つのワークシートの中に複数の独立したシートを含めることができます。</value>
+    <comment>Include multiple separated sheets in a single worksheet.</comment>
+  </data>
+  <data name="Intro_Text7" xml:space="preserve">
+    <value>数式</value>
+    <comment>Formulas</comment>
+  </data>
+  <data name="Intro_Text8" xml:space="preserve">
+    <value>計算エンジンは、組み込みの数式をサポートしており、
+                    約100の数式と自動補完機能を備えています。
+                    数式演算はMicrosoft Excelとの整合性を考慮して作成されており、
+                    集計、数学演算、論理、およびテキストを処理できます。</value>
+    <comment>Calculation engine includes built-in formula support,
+                    complete with nearly 100 formulas and auto-completion.
+                    Our formula operations were built to align with Microsoft Excel,
+                    including operations for aggregation, mathematics, logic and text.</comment>
+  </data>
+  <data name="Intro_Text9" xml:space="preserve">
+    <value>セルのスタイル</value>
+    <comment>Cell Style</comment>
+  </data>
+  <data name="MultipleHeaders_Text0" xml:space="preserve">
+    <value>FlexSheetでは、複数の行ヘッダーや列ヘッダーを追加できます。</value>
+    <comment>FlexSheet allows you to add multiple row and column headers.</comment>
+  </data>
+  <data name="MultipleHeaders_Text1" xml:space="preserve">
+    <value>FlexSheetでは、複数の行ヘッダーや列ヘッダーを追加できます。</value>
+    <comment>FlexSheet allows you to add multiple row and column headers.</comment>
+  </data>
+  <data name="MultipleHeaders_Text2" xml:space="preserve">
+    <value>マルチヘッダー</value>
+    <comment>Multiple Headers</comment>
+  </data>
+  <data name="MultipleHeaders_Text3" xml:space="preserve">
+    <value>行ヘッダーの追加</value>
+    <comment>Add Row Header</comment>
+  </data>
+  <data name="MultipleHeaders_Text4" xml:space="preserve">
+    <value>行ヘッダーの削除</value>
+    <comment>Remove Row Header</comment>
+  </data>
+  <data name="MultipleHeaders_Text5" xml:space="preserve">
+    <value>列ヘッダーの追加</value>
+    <comment>Add Column Header</comment>
+  </data>
+  <data name="MultipleHeaders_Text6" xml:space="preserve">
+    <value>列ヘッダーの削除</value>
+    <comment>Remove Column Header</comment>
+  </data>
+  <data name="RemoteLoadSave_Text0" xml:space="preserve">
+    <value>この例は、何らかのアクションによってxlsxファイルまたはワークブックをロードし、それをサーバーに保存する方法を示します。&lt;/br&gt;この例では、［保存］ボタンがクリックされると、&lt;/br&gt;FlexSheetがファイルをサーバーに送信し、そのファイルをブラウザが自動的にサーバーからダウンロードします。</value>
+    <comment>This example demonstrates how to load xlsx file or Workbook from some action and save the file to the server.&lt;/br&gt;In this example, if the "Save" button is clicked,&lt;/br&gt;FlexSheet will send the file to server and the browser will download it from server automatically.</comment>
+  </data>
+  <data name="RemoteLoadSave_Text3" xml:space="preserve">
+    <value>何らかのアクションによってxlsxファイルまたはワークブックをロードし、それをサーバーに保存します。</value>
+    <comment>Load xlsx file or Workbook from some action and save the file to the server.</comment>
+  </data>
+  <data name="RemoteLoadSave_Text4" xml:space="preserve">
+    <value>リモートロード/保存</value>
+    <comment>Remote Load/Save</comment>
+  </data>
+  <data name="RemoteLoadSave_Text5" xml:space="preserve">
+    <value>保存</value>
+    <comment>Save</comment>
+  </data>
+  <data name="RemoteLoadSave_Text6" xml:space="preserve">
+    <value>ロード</value>
+    <comment>Load</comment>
+  </data>
+  <data name="ServerLoad_Text0" xml:space="preserve">
+    <value>FlexSheetでは、xlsxファイルまたはワークブックインスタンスをサーバー側でロードできます。</value>
+    <comment>FlexSheet allows you to load an xlsx file or a Workbook instance on the server side.</comment>
+  </data>
+  <data name="ServerLoad_Text2" xml:space="preserve">
+    <value>FlexSheetでは、xlsxファイルまたはワークブックインスタンスをサーバー側でロードできます。</value>
+    <comment>FlexSheet allows you to load an xlsx file or a Workbook instance on the server side.</comment>
+  </data>
+  <data name="ServerLoad_Text3" xml:space="preserve">
+    <value>サーバー側のロード</value>
+    <comment>Server Load</comment>
+  </data>
+  <data name="ServerLoad_Text4" xml:space="preserve">
+    <value>ロード</value>
+    <comment>Load</comment>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>FlexSheetは、任意の列でソートできます。&lt;/br&gt;&lt;b&gt;SortManager&lt;/b&gt;を使用すると、FlexSheetでソート処理を管理できます。&lt;/br&gt;この処理には、ソート順の設定、ソート列の追加、ソート列の削除、&lt;/br&gt;ソート列の順序の変更などが含まれます。</value>
+    <comment>FlexSheet can be sorted by any column.&lt;/br&gt;The &lt;b&gt;SortManager&lt;/b&gt; helps FlexSheet manage the sort processing,&lt;/br&gt;including: set the order of the sorting; add sort column; remove sort column;&lt;/br&gt;and change the order of the sort columns.</comment>
+  </data>
+  <data name="Sorting_Text1" xml:space="preserve">
+    <value>FlexSheetは、任意の列でソートできます。</value>
+    <comment>FlexSheet can be sorted by any column.</comment>
+  </data>
+  <data name="Sorting_Text2" xml:space="preserve">
+    <value>ソート</value>
+    <comment>Sorting</comment>
+  </data>
+  <data name="Sorting_Text3" xml:space="preserve">
+    <value>ソート列</value>
+    <comment>Column</comment>
+  </data>
+  <data name="Sorting_Text4" xml:space="preserve">
+    <value>ソート順</value>
+    <comment>Order</comment>
+  </data>
+  <data name="Sorting_Text5" xml:space="preserve">
+    <value>レベルの追加</value>
+    <comment>Add Level</comment>
+  </data>
+  <data name="Sorting_Text6" xml:space="preserve">
+    <value>レベルの削除</value>
+    <comment>Delete Level</comment>
+  </data>
+  <data name="Sorting_Text7" xml:space="preserve">
+    <value>レベルのコピー</value>
+    <comment>Copy Level</comment>
+  </data>
+  <data name="Sorting_Text8" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="Sorting_Text9" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Table_Text0" xml:space="preserve">
+    <value>関連する一連のデータを簡単に管理および分析できるように、セル範囲をテーブルに変換することができます。</value>
+    <comment>To make managing and analyzing a group of related data easier, you can turn a range of cells into a Table.</comment>
+  </data>
+  <data name="Table_Text1" xml:space="preserve">
+    <value>テーブルをシートのテーブルコレクションに追加することで、空のテーブルを追加できます。</value>
+    <comment>You can add an empty table by adding the Table into the tables collection of the sheet.</comment>
+  </data>
+  <data name="Table_Text10" xml:space="preserve">
+    <value>最後の列</value>
+    <comment>Last Column</comment>
+  </data>
+  <data name="Table_Text11" xml:space="preserve">
+    <value>組み込みスタイル：</value>
+    <comment>Built-in Styles:</comment>
+  </data>
+  <data name="Table_Text12" xml:space="preserve">
+    <value>テーブル</value>
+    <comment>Table</comment>
+  </data>
+  <data name="Table_Text2" xml:space="preserve">
+    <value>FlexSheetでは、テーブルにデータを連結することで、データソース付きのテーブルを追加することもできます。</value>
+    <comment>FlexSheet also allows to add table with data source by binding the data to table.</comment>
+  </data>
+  <data name="Table_Text3" xml:space="preserve">
+    <value>FlexSheetは、セル範囲をExcel形式のテーブルに変換する機能をサポートしています。</value>
+    <comment>FlexSheet supports turn a cell range to an Excel-like table.</comment>
+  </data>
+  <data name="Table_Text4" xml:space="preserve">
+    <value>テーブルスタイルオプション</value>
+    <comment>Table Style Options</comment>
+  </data>
+  <data name="Table_Text5" xml:space="preserve">
+    <value>ヘッダー行</value>
+    <comment>Header Row</comment>
+  </data>
+  <data name="Table_Text6" xml:space="preserve">
+    <value>合計行</value>
+    <comment>Total Row</comment>
+  </data>
+  <data name="Table_Text7" xml:space="preserve">
+    <value>結合行</value>
+    <comment>Banded Rows</comment>
+  </data>
+  <data name="Table_Text8" xml:space="preserve">
+    <value>結合列</value>
+    <comment>Banded Columns</comment>
+  </data>
+  <data name="Table_Text9" xml:space="preserve">
+    <value>最初の列</value>
+    <comment>First Column</comment>
+  </data>
+  <data name="_ControlLayout_Text0" xml:space="preserve">
+    <value>サンプル</value>
+    <comment>Sample</comment>
+  </data>
+  <data name="_ControlLayout_Text1" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="_ControlLayout_Text2" xml:space="preserve">
+    <value>マニュアル</value>
+    <comment>Documentation</comment>
+  </data>
+  <data name="_ControlLayout_Text3" xml:space="preserve">
+    <value>設定</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="_ControlsNav_Text0" xml:space="preserve">
+    <value>機能</value>
+    <comment>Features</comment>
+  </data>
+  <data name="_Layout_Text0" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
+    <comment>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners.</comment>
+  </data>
+  <data name="_Layout_Text1" xml:space="preserve">
+    <value>ComponentOne</value>
+    <comment>ComponentOne</comment>
+  </data>
+  <data name="_Layout_Text2" xml:space="preserve">
+    <value>MVC FlexSheetエクスプローラー</value>
+    <comment>MVC FlexSheet Explorer</comment>
+  </data>
+  <data name="_Layout_Text3" xml:space="preserve">
+    <value>ASP.NET MVC Edition FlexSheetエクスプローラー</value>
+    <comment>ASP.NET MVC Edition FlexSheet Explorer</comment>
+  </data>
+  <data name="_Layout_Text4" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="_Layout_Text5" xml:space="preserve">
+    <value>ComponentOne for ASP.NET MVC</value>
+    <comment>C1 ASP.NET MVC</comment>
+  </data>
+  <data name="_SiteNav_Text0" xml:space="preserve">
+    <value>製品情報</value>
+    <comment>About</comment>
+  </data>
+  <data name="_SiteNav_Text1" xml:space="preserve">
+    <value>サポート</value>
+    <comment>Support</comment>
+  </data>
+  <data name="_SiteNav_Text2" xml:space="preserve">
+    <value>ご購入</value>
+    <comment>Pricing</comment>
+  </data>
+  <data name="_SiteNav_Text3" xml:space="preserve">
+    <value>トライアル版</value>
+    <comment>FREE TRIAL</comment>
+  </data>
+  <data name="_SiteNav_Text4" xml:space="preserve">
+    <value>テーマの編集 &amp;gt;</value>
+    <comment>Edit Theme &amp;gt;</comment>
+  </data>
+  <data name="_SiteNav_Text5" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="_SiteNav_Text6" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/support</value>
+    <comment>http://supportone.componentone.com/login</comment>
+  </data>
+  <data name="_SiteNav_Text7" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/purchase</value>
+    <comment>https://www.grapecity.com/en/pricing</comment>
+  </data>
+  <data name="_SiteNav_Text8" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/download</value>
+    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+  </data>
+</root>

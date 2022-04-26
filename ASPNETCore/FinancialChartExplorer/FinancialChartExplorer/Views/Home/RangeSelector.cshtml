@@ -1,0 +1,27 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = false;
+    var chartType = ViewBag.ChartType;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        c1.getExtender(wijmo.Control.getControl("#rs"), "RangeSelector").min = 47.5;
+    });
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" symbol-size="6" binding-x="X" chart-type="@chartType">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close,Volume" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="financialTooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@await Html.PartialAsync("_RangeSelector")
+
+@section Description{
+    <p>@Html.Raw(Home.RangeSelector_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.RangeSelector_Text1)</p>
+}

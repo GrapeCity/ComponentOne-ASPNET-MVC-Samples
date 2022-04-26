@@ -1,0 +1,95 @@
+@model IEnumerable<Supplier>
+
+@section Styles{
+    <style>
+        .queryErrorMessage {
+            color: #f00;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function batchUpdate() {
+            var batchEditMultiRow = wijmo.Control.getControl('#batchEditMultiRow'),
+                cv = batchEditMultiRow.collectionView;
+            cv.commit();
+
+            var isChanged = (cv.itemsAdded && cv.itemsAdded.length)
+                || (cv.itemsRemoved && cv.itemsRemoved.length)
+                || (cv.itemsEdited && cv.itemsEdited.length);
+            if (isChanged) {
+                setQueryMessage('@Resources.MultiRowExplorer.BatchEditing_Text11');
+            } else {
+                setQueryMessage('@Resources.MultiRowExplorer.BatchEditing_Text12');
+            }
+
+        }
+
+        function onQueryComplete(sender, e) {
+            if (e.result.success) {
+                setQueryMessage('@Resources.MultiRowExplorer.BatchEditing_Text13');
+            } else {
+                setQueryMessage(e.result.error, 'queryErrorMessage');
+            }
+        }
+
+        function setQueryMessage(message, className) {
+            var element = document.getElementById('queryMessage');
+            element.innerHTML = message;
+            element.className = className;
+        }
+    </script>
+}
+
+<input type="button" value="@Resources.MultiRowExplorer.BatchEditing_Text10" class="btn" onclick="batchUpdate()" />
+<span id="queryMessage"></span>
+@(
+    Html.C1().MultiRow<Supplier>()
+        .Id("batchEditMultiRow")
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(c => c.Binding("SupplierID").IsReadOnly(true).Format("d").Align("center"));
+            });
+            ld.Add().Colspan(2).Cells(cells =>
+            {
+                cells.Add(c => c.Binding("CompanyName").Colspan(2))
+                .Add(c => c.Binding("ContactName").Width("150"))
+                .Add(c => c.Binding("ContactTitle").Width("200"));
+            });
+            ld.Add().Colspan(3).Cells(cells =>
+            {
+                cells.Add(c => c.Binding("Country"))
+                .Add(c => c.Binding("Region"))
+                .Add(c => c.Binding("City"))
+                .Add(c => c.Binding("Address").Colspan(3));
+            });
+        })
+        .Bind(ib => ib.DisableServerRead(true).Bind(Model).BatchEdit(Url.Action("MultiRowBatchEdit")).OnClientQueryComplete("onQueryComplete"))
+        .AllowAddNew(true)
+        .AllowDelete(true)
+        .CssClass("multirow")
+)
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text9)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text0)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text1)</p>
+    <h4>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text7)</h4>
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text2)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text3)</p>
+
+    <h4>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text8)</h4>
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text4)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text5)</p>
+    <p>@Html.Raw(Resources.MultiRowExplorer.BatchEditing_Text6)</p>
+
+}

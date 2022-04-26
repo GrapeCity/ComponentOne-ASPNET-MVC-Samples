@@ -1,5 +1,5 @@
-﻿ASP.NET Core MVC Column Groups
----------------------------------------------
+﻿ASP.NET MVC Column Groups
+---------------------------------------------------------------------
 Shows how you can show structured data with multi-level, merged headers.
 
 Most tables and grids include a single header row that shows the name of 

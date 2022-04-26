@@ -1,0 +1,41 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputDate_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputDate_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.InputDate_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputDate_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputDate_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.InputDate_Text5)
+    </li>
+</ol>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputDate_Text6)
+</p>
+<div class="demo-settings">
+    <label for="theDate">@Html.Raw(Resources.C1Input.InputDate_Text7)</label>
+    @Html.C1().InputDate().Id("theDate")
+</div>
+<div>
+    @Html.Raw(Resources.C1Input.InputDate_Text8)
+</div>
+
+<p></p>
+<p>
+    @Html.Raw(Resources.C1Input.InputDate_Text9)
+</p>
+<div class="demo-settings">
+    <label for="theDateNotRequired">@Html.Raw(Resources.C1Input.InputDate_Text10)</label>
+    @Html.C1().InputDate().Id("theDateNotRequired").Placeholder(Resources.C1Input.InputDate_Text11)
+</div>

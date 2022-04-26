@@ -1,0 +1,231 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before{
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+    .logo-container .gcicon-product-c1{
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+    .logo-container a {
+        text-decoration:none;
+    }
+
+.header {
+    background-color: #fa712b;
+    margin-bottom: 14px;
+    padding: 12px 0px;
+    color: #c9d8ea;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        color: #fff;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+    .header p {
+        color: #F8F8F8;
+    }
+
+
+h2 a:hover {
+    text-decoration: none;
+}
+
+a.sampleButton {
+    background-color: #fa712b;
+    display: inline-block;
+    padding: 20px 40px;
+    color: #fff;
+    text-decoration: none;
+    margin-top: 20px;
+}
+
+    a.sampleButton:hover {
+        background-color: #fb3904;
+        color: #fff;
+        text-decoration: none;
+    }
+
+footer {
+    margin: 100px 0 0 0;
+    border-top: 1px solid #ddd;
+    padding: 20px 0 0 0;
+}
+
+footer .gcicon-logo-gc-horiz{
+    font-size: 44px;
+}
+    footer .gcicon-logo-gc-horiz:before {
+        content: "\e900";
+        color: #451a62;
+    }
+
+html, body, .excelbook {
+    margin: 0px;
+    height: 100%;
+}
+
+    .excelbook .row {
+        margin: 0px;
+    }
+
+
+/** 
+ * top boxes style settings
+ */
+.top-boxes {
+    background-color: #fff;
+    height: 55px;
+}
+
+/**
+ * the status bar style settings
+ */
+.status {
+    height: 30px;
+    line-height: 30px;
+    position: absolute;
+    bottom: 0px;
+    width: 100%;
+    border-bottom: 1px solid #000000;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+
+
+span.firstsheet {
+    background-image: url('../resources/sheets/FirstSheet.png');
+}
+
+span.previoussheet {
+    background-image: url('../resources/sheets/PreviousSheet.png');
+}
+
+span.nextsheet {
+    background-image: url('../resources/sheets/NextSheet.png');
+}
+
+span.lastsheet {
+    background-image: url('../resources/sheets/LastSheet.png');
+}
+
+span.addlevel {
+    background-image: url('../resources/sort/AddLevel.png');
+}
+
+span.deletelevel {
+    background-image: url('../resources/sort/DeleteLevel.png');
+}
+
+span.copylevel {
+    background-image: url('../resources/sort/CopyLevel.png');
+}
+
+span.moveup {
+    background-image: url('../resources/sort/MoveUp.png');
+}
+
+span.movedown {
+    background-image: url('../resources/sort/MoveDown.png');
+}
+
+div.borderspace {
+    float: left;
+    border-top: 1px solid #0094ff;
+}
+
+/**
+ * the style of FlexSheet
+ */
+div.wj-header > div.dropdown {
+    visibility: hidden;
+    float: right;
+}
+
+div.wj-header:hover > div.dropdown {
+    visibility: visible;
+}
+
+div.dropdown:hover {
+    background-color: #ccffff;
+}
+
+.modal-dialog {
+    position: absolute;
+    left: 50%;
+    margin-left: -312px;
+    height: 500px;
+    top: 50%;
+    margin-top: -250px;
+}
+
+.modal-body .btn-default .glyphicon {
+    color: #666;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.flexSheet {
+    height: 600px;
+    border: 2px solid #e0e0e0;
+    margin: 6px;
+}
+
+.wj-header-row {
+    background-color: #ABD0ED !important;
+    color: #000000 !important;
+}
+
+.form-inline .form-control {
+    height: auto;
+}

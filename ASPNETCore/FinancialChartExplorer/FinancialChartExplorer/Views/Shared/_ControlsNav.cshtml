@@ -1,0 +1,44 @@
+@{
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    var pageGroups = ControlPages.GetPageGroups();
+}
+
+<script id="navTemplate" type="text/template">
+    <a href="{{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+
+<h4 class="semi-bold wide-screen">@Resource.ControlsNav_Features</h4>
+@foreach (var pageGroup in pageGroups)
+{
+    IEnumerable<ControlPage> pages = pageGroup.Pages;
+    var index = pageGroup.GetSelectedPageIndex(actionName);
+    var id = pageGroup.Name.Replace(" ", "") + "_PageGroup";
+
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+    <div>
+        @if (pageGroups.Count() > 1)
+        {
+        <span class="pagegroup semi-bold wide-screen">@pageGroup.Text</span>
+        }
+        <div>
+            <c1-list-box id="@id" class="page-nav wide-screen" loaded-items="pageNav_LoadingItems">
+                <c1-input-item-template id="navTemplate"></c1-input-item-template>
+                <c1-items-source source-collection="@pages"></c1-items-source>
+            </c1-list-box>
+        </div>
+    </div>
+    <script type="text/javascript">
+        allGroups.push('@id');
+        c1.documentReady(function () {
+            setListBoxSelectionIndex('@id', @index);
+            bindMouseDown('@id');
+        });
+    </script>
+}

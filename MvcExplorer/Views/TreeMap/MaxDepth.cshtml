@@ -1,0 +1,93 @@
+﻿@model IEnumerable<ThingSale>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+<ol id="breadCrumbs"></ol>
+@(Html.C1().TreeMap().Id(demoSettingsModel.ControlId)
+    .Binding("Sales")
+    .BindingName("Category")
+    .ChildItemsPath("Items")
+    .Bind(Model)
+    .MaxDepth((int)demoSettingsModel.DefaultValues["MaxDepth"])
+    .Tooltip(t => t.Content("<b>{name}</b><br />{value:c}"))
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}"))
+    .OnClientRendered("onRendered"))
+
+@section Scripts{
+    <script type="text/javascript">
+        var breadCrumbs = [];
+        var currentItem;
+        var treemap;
+
+        function onRendered() {
+            if (!treemap) {
+                treemap = wijmo.Control.getControl('#@demoSettingsModel.ControlId');
+            }
+
+            if (treemap) {
+                if (currentItem === treemap._currentItem) {
+                    return;
+                }
+                currentItem = treemap._currentItem;
+                createBreadCrumbs();
+            }
+        }
+
+        function rollUp(num) {
+            //rollup treemap *num times.
+            for (var i = 0; i < num; i++) {
+                treemap._rollUp();
+            }
+        }
+
+        function createBreadCrumbs() {
+            breadCrumbs = [];
+            resetBreadCrumbs(currentItem);
+            breadCrumbs.reverse();
+            appendBreadCrumbs();
+        }
+
+        function appendBreadCrumbs() {
+            var ol = document.querySelector('#breadCrumbs');
+            ol.innerHTML = '';
+            var len = breadCrumbs.length;
+            breadCrumbs.forEach(function (label, idx) {
+                ol.appendChild(apendBreadCrumb(label, idx !== len - 1, len - idx - 1));
+            });
+        }
+
+        function apendBreadCrumb(label, isAnchor, param) {
+            var li = document.createElement('li');
+            if (isAnchor) {
+                li.className = 'breakcrumb-item';
+                var a = document.createElement('a');
+                a.href = 'javascript:void(0)';
+                a.innerHTML = label;
+                a.addEventListener('click', function (evt) {
+                    rollUp(param);
+                });
+                li.appendChild(a);
+            } else {
+                li.className = 'breakcrumb-item active';
+                li.innerHTML = label;
+            }
+            return li;
+        }
+
+        function resetBreadCrumbs(item) {
+            if (item) {
+                breadCrumbs.push(item.label);
+                resetBreadCrumbs(item.parent);
+            } else {
+                breadCrumbs.push('@(Resources.TreeMap.MaxDepth_Root)');
+            }
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeMap.MaxDepth_Text0)</p>
+}

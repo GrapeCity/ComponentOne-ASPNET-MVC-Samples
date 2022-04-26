@@ -1,0 +1,2044 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A78C6646-7D99-4826-B03F-9BE61D15D928}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>LearnMvcClient</RootNamespace>
+    <AssemblyName>LearnMvcClient</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <MvcBuildViews>false</MvcBuildViews>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>..\packages\C1.Web.Mvc.4.5.20221.333\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Web.Abstractions" />
+    <Reference Include="System.Web.Routing" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Net.Http">
+    </Reference>
+    <Reference Include="System.Net.Http.WebRequest">
+    </Reference>
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Optimization">
+      <HintPath>..\packages\Microsoft.AspNet.Web.Optimization.1.1.3\lib\net40\System.Web.Optimization.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.3\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <Private>True</Private>
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.3\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="WebGrease">
+      <Private>True</Private>
+      <HintPath>..\packages\WebGrease.1.5.2\lib\WebGrease.dll</HintPath>
+    </Reference>
+    <Reference Include="Antlr3.Runtime">
+      <Private>True</Private>
+      <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App_GlobalResources\C1FlexChart.ja.designer.cs">
+      <DependentUpon>C1FlexChart.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1FlexChart.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1FlexChart.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1FlexGrid.ja.designer.cs">
+      <DependentUpon>C1FlexGrid.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1FlexGrid.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1FlexGrid.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Gauge.ja.designer.cs">
+      <DependentUpon>C1Gauge.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Gauge.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1Gauge.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Input.ja.designer.cs">
+      <DependentUpon>C1Input.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Input.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1Input.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Mvc.ja.designer.cs">
+      <DependentUpon>C1Mvc.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Mvc.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1Mvc.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Nav.ja.designer.cs">
+      <DependentUpon>C1Nav.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\C1Nav.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>C1Nav.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.ja.designer.cs">
+      <DependentUpon>Resource.ja.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="App_GlobalResources\Resource.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resource.resx</DependentUpon>
+    </Compile>
+    <Compile Include="App_Start\BundleConfig.cs" />
+    <Compile Include="App_Start\FilterConfig.cs" />
+    <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\C1FlexChart\InteractiveAnimationsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SortingController.cs" />
+    <Compile Include="Controllers\C1FlexChart\FilteringController.cs" />
+    <Compile Include="Controllers\C1FlexChart\RenderCycleController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnnotationsZonesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsTrendLinesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesZoomController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesLabelsFormatsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\FunnelChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\TooltipsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesOriginPositionController.cs" />
+    <Compile Include="Controllers\C1FlexChart\CandlestickChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\HighLowOpenCloseChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesGridlinesTickmarksController.cs" />
+    <Compile Include="Controllers\C1FlexChart\BubbleChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesRangesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesCustomLabelsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesExtraAxesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\MultipleChartTypesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\StylingController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesChartScalingController.cs" />
+    <Compile Include="Controllers\C1FlexChart\LegendsTitlesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\ExportController.cs" />
+    <Compile Include="Controllers\C1FlexChart\ChartElementsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnnotationsSymbolsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnnotationsZonesReduxController.cs" />
+    <Compile Include="Controllers\C1FlexChart\PlotAreasController.cs" />
+    <Compile Include="Controllers\C1FlexChart\InteractiveChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SelectionController.cs" />
+    <Compile Include="Controllers\C1FlexChart\EventsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsErrorBarsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsBoxplotController.cs" />
+    <Compile Include="Controllers\C1FlexChart\GroupingDrillDownController.cs" />
+    <Compile Include="Controllers\C1FlexChart\RangeSelectorsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsMovingAveragesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsWaterfallChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnalyticsCustomFunctionsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\StackedChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\ExtraElementsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\LineMarkersController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AnnotationsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SeriesDataSourcesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\TitleStylesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\LegendToggleController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SpecialChartTypesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\PalettesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\BarChartsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\AxesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SeriesStylesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SeriesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\LegendStylesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\GradientsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\DataLabelsController.cs" />
+    <Compile Include="Controllers\C1FlexChart\LegendPositionController.cs" />
+    <Compile Include="Controllers\C1FlexChart\SeriesPickerController.cs" />
+    <Compile Include="Controllers\C1FlexChart\ChartTypesController.cs" />
+    <Compile Include="Controllers\C1FlexChart\ItemFormatterController.cs" />
+    <Compile Include="Controllers\C1FlexChart\IndexController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ArchitectureController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\QuickEditingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\GridPanelsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsColumnsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AutoColumnWidthsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CellMergingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DeepBindingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomMergingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\PagingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\BindingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\FilterOptimizationsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\SortingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\NoScrollbarsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomFilterTypesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\FlexGridFilterController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\GroupPanelController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\FastScrollerController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\FilteringController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomFilterIconsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomFilterOperatorsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\SelectionController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\HeaderMergingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DynamicDataMapsSwitchController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsDataMapsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RestrictedMergingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DynamicDataMapsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DynamicDataMapsCustomizeController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsPropertiesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsSizingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsAutoSizingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsDropTargetControlController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsColumnLayoutController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsFreezingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsStickyHeadersController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EventsMouseController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ReadOnlyRequiredColumnsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CollectionViewController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EditingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsResponsiveLayoutsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\TemplatesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\UnboundTreeGridsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomEditorsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomEditingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsMultiPaneGridsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\InlineEditingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EventsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AggregatesCustomController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EventsSelectionController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\HierarchicalDataController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\MasterDetailController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsAggregatesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AggregatesBelowDataController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsCustomCellsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsStylingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AlwaysEditingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AggregatesAboveDataController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EventsResizingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ImportExportController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CustomCellsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\TreeGridsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EditableTreeGridsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DynamicUpdatesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\EventsDragDropController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CollectionViewValidationController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ValidationController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ImeController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DataBindingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsStylingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsStylingHoverController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ExcelController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ClipboardController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsStylingRowHeightController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsPropertiesController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\CellsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsAddingRemovingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\PersistingStateController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\GroupingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\SizingScrollingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\SizingMouseController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\VirtualizationController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\AutoRowHeightsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsDetailsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\StickyHeadersController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\MultiRangeSelectionController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ScrollingViewRangeController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\HierarchicalDataFilteringController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsReorderingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\DefferedResizingController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\SelectionFocusController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\RowsStylingVerticalAlignmentController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\ColumnsController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\PdfController.cs" />
+    <Compile Include="Controllers\C1FlexGrid\IndexController.cs" />
+    <Compile Include="Controllers\C1Gauge\ArchitectureController.cs" />
+    <Compile Include="Controllers\C1Gauge\BasicPropertiesController.cs" />
+    <Compile Include="Controllers\C1Gauge\RangesController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsTickmarksController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsRangesController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsTextValuesController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsThumbController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsFaceController.cs" />
+    <Compile Include="Controllers\C1Gauge\StylingController.cs" />
+    <Compile Include="Controllers\C1Gauge\RadialGaugesController.cs" />
+    <Compile Include="Controllers\C1Gauge\StylingSilverlightController.cs" />
+    <Compile Include="Controllers\C1Gauge\BulletGraphsController.cs" />
+    <Compile Include="Controllers\C1Gauge\GaugeTypesController.cs" />
+    <Compile Include="Controllers\C1Gauge\StylingFocusController.cs" />
+    <Compile Include="Controllers\C1Gauge\StylingRangesController.cs" />
+    <Compile Include="Controllers\C1Gauge\LinearGaugesController.cs" />
+    <Compile Include="Controllers\C1Gauge\StylingHoverController.cs" />
+    <Compile Include="Controllers\C1Gauge\GaugeElementsController.cs" />
+    <Compile Include="Controllers\C1Gauge\ElementsPointerController.cs" />
+    <Compile Include="Controllers\C1Gauge\IndexController.cs" />
+    <Compile Include="Controllers\C1Input\ArchitectureController.cs" />
+    <Compile Include="Controllers\C1Input\DropDownController.cs" />
+    <Compile Include="Controllers\C1Input\ArchitectureComboBoxController.cs" />
+    <Compile Include="Controllers\C1Input\FocusedStateController.cs" />
+    <Compile Include="Controllers\C1Input\ClearButtonsController.cs" />
+    <Compile Include="Controllers\C1Input\StringObjectsController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxStringsController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxNumbersDatesController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxObjectsController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxMasterDetailController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxSortingFilteringController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxChainingCombosController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxMultiColumnController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxHtmlContentController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteAsyncLoadingController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteSearchingController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteSearchPathController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteSearchParametersController.cs" />
+    <Compile Include="Controllers\C1Input\AutoCompleteCustomSearchController.cs" />
+    <Compile Include="Controllers\C1Input\InputMaskController.cs" />
+    <Compile Include="Controllers\C1Input\LinearGaugeController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateController.cs" />
+    <Compile Include="Controllers\C1Input\DatesTimesController.cs" />
+    <Compile Include="Controllers\C1Input\CalendarRangesController.cs" />
+    <Compile Include="Controllers\C1Input\CalendarValidationController.cs" />
+    <Compile Include="Controllers\C1Input\CalendarCustomizationController.cs" />
+    <Compile Include="Controllers\C1Input\ColorsController.cs" />
+    <Compile Include="Controllers\C1Input\InputColorController.cs" />
+    <Compile Include="Controllers\C1Input\MultiItemController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxColorsController.cs" />
+    <Compile Include="Controllers\C1Input\ListBoxCheckBoxesController.cs" />
+    <Compile Include="Controllers\C1Input\TransitionsController.cs" />
+    <Compile Include="Controllers\C1Input\MenusContextMenusController.cs" />
+    <Compile Include="Controllers\C1Input\MenusValuePickersController.cs" />
+    <Compile Include="Controllers\C1Input\MenusController.cs" />
+    <Compile Include="Controllers\C1Input\DialogsController.cs" />
+    <Compile Include="Controllers\C1Input\AlertsPromptsController.cs" />
+    <Compile Include="Controllers\C1Input\MenusCommandsController.cs" />
+    <Compile Include="Controllers\C1Input\MenusSplitButtonsController.cs" />
+    <Compile Include="Controllers\C1Input\PopupsOwnersController.cs" />
+    <Compile Include="Controllers\C1Input\MultiSelectController.cs" />
+    <Compile Include="Controllers\C1Input\PopupsDialogsController.cs" />
+    <Compile Include="Controllers\C1Input\PopupDialogsController.cs" />
+    <Compile Include="Controllers\C1Input\PopupEditorsController.cs" />
+    <Compile Include="Controllers\C1Input\ColorPickerController.cs" />
+    <Compile Include="Controllers\C1Input\MultiAutoCompleteController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateCustomizationController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateRangesController.cs" />
+    <Compile Include="Controllers\C1Input\RadialGaugeController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateValidationController.cs" />
+    <Compile Include="Controllers\C1Input\InputTimeController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateFormattingController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateMoreCustomizationController.cs" />
+    <Compile Include="Controllers\C1Input\GaugesController.cs" />
+    <Compile Include="Controllers\C1Input\CalendarController.cs" />
+    <Compile Include="Controllers\C1Input\ListBoxFormatItemController.cs" />
+    <Compile Include="Controllers\C1Input\InputNumberRangesController.cs" />
+    <Compile Include="Controllers\C1Input\InputMaskRawValueController.cs" />
+    <Compile Include="Controllers\C1Input\InputNumberController.cs" />
+    <Compile Include="Controllers\C1Input\ListBoxController.cs" />
+    <Compile Include="Controllers\C1Input\InputMaskPromptCharController.cs" />
+    <Compile Include="Controllers\C1Input\ComboBoxController.cs" />
+    <Compile Include="Controllers\C1Input\InputNumberFormattingController.cs" />
+    <Compile Include="Controllers\C1Input\InputNumberStepController.cs" />
+    <Compile Include="Controllers\C1Input\InputMaskMaskFullController.cs" />
+    <Compile Include="Controllers\C1Input\InputDateTimeController.cs" />
+    <Compile Include="Controllers\C1Input\MaterialDesignController.cs" />
+    <Compile Include="Controllers\C1Input\PseudoClassesController.cs" />
+    <Compile Include="Controllers\C1Input\IndexController.cs" />
+    <Compile Include="Controllers\C1Mvc\ExtendersController.cs" />
+    <Compile Include="Controllers\C1Mvc\ServicesController.cs" />
+    <Compile Include="Controllers\C1Mvc\CreateControlsController.cs" />
+    <Compile Include="Controllers\C1Mvc\EventsController.cs" />
+    <Compile Include="Controllers\C1Mvc\HtmlEventsController.cs" />
+    <Compile Include="Controllers\C1Mvc\ClipboardController.cs" />
+    <Compile Include="Controllers\C1Mvc\GlobalizationController.cs" />
+    <Compile Include="Controllers\C1Mvc\FormattingController.cs" />
+    <Compile Include="Controllers\C1Mvc\ControlsElementsController.cs" />
+    <Compile Include="Controllers\C1Mvc\CollectionViewController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVLoadingDataController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVFlexGridSpinnersController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVLoadingJsonDatesController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVCreatingViewsController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVCurrencyController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVSortingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVStableSortController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVFilteringController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVChainingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVGroupingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVPagingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVEditingViewsController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVAddingRemovingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVTrackingChangesController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVValidationController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVPerformanceController.cs" />
+    <Compile Include="Controllers\C1Mvc\CVDataProvidersController.cs" />
+    <Compile Include="Controllers\C1Mvc\PropertiesEnumsController.cs" />
+    <Compile Include="Controllers\C1Mvc\ThemesController.cs" />
+    <Compile Include="Controllers\C1Mvc\PseudoClassesController.cs" />
+    <Compile Include="Controllers\C1Mvc\FlexGridFocusController.cs" />
+    <Compile Include="Controllers\C1Mvc\ParsingController.cs" />
+    <Compile Include="Controllers\C1Mvc\CustomizationController.cs" />
+    <Compile Include="Controllers\C1Mvc\WijmoFormatController.cs" />
+    <Compile Include="Controllers\C1Mvc\PluralizationController.cs" />
+    <Compile Include="Controllers\C1Mvc\PrintDocumentController.cs" />
+    <Compile Include="Controllers\C1Mvc\ColorController.cs" />
+    <Compile Include="Controllers\C1Mvc\GlyphsController.cs" />
+    <Compile Include="Controllers\C1Mvc\CustomGlyphsController.cs" />
+    <Compile Include="Controllers\C1Mvc\WijmoHttpRequestController.cs" />
+    <Compile Include="Controllers\C1Mvc\WijmoAnimateController.cs" />
+    <Compile Include="Controllers\C1Mvc\WijmoShowPopupController.cs" />
+    <Compile Include="Controllers\C1Mvc\TooltipController.cs" />
+    <Compile Include="Controllers\C1Mvc\OtherServicesController.cs" />
+    <Compile Include="Controllers\C1Mvc\IndexController.cs" />
+    <Compile Include="Controllers\C1Mvc\ReferenceController.cs" />
+    <Compile Include="Controllers\C1Nav\CustomTileController.cs" />
+    <Compile Include="Controllers\C1Nav\DashboardLayoutsController.cs" />
+    <Compile Include="Controllers\C1Nav\SaveLoadLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\SplitLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\ManualGridLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\CreatingProgrammaticallyController.cs" />
+    <Compile Include="Controllers\C1Nav\AutoGridLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\FlowLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelAccessibilityController.cs" />
+    <Compile Include="Controllers\C1Nav\DashboardLayoutController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelRightToLeftController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelDetachedPanelsController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelDisabledInvisibleTabsController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelStylingController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelHostC1ControlsController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelMarkupController.cs" />
+    <Compile Include="Controllers\C1Nav\TabPanelController.cs" />
+    <Compile Include="Controllers\C1Nav\ArchitectureController.cs" />
+    <Compile Include="Controllers\C1Nav\LazyOdataController.cs" />
+    <Compile Include="Controllers\C1Nav\LazyLoadingController.cs" />
+    <Compile Include="Controllers\C1Nav\ReloadingController.cs" />
+    <Compile Include="Controllers\C1Nav\MainPropertiesController.cs" />
+    <Compile Include="Controllers\C1Nav\DisablingController.cs" />
+    <Compile Include="Controllers\C1Nav\RtlController.cs" />
+    <Compile Include="Controllers\C1Nav\NavigationTreesController.cs" />
+    <Compile Include="Controllers\C1Nav\EditingController.cs" />
+    <Compile Include="Controllers\C1Nav\ChangingController.cs" />
+    <Compile Include="Controllers\C1Nav\AddingController.cs" />
+    <Compile Include="Controllers\C1Nav\RemovingController.cs" />
+    <Compile Include="Controllers\C1Nav\AnotherAccordionController.cs" />
+    <Compile Include="Controllers\C1Nav\NodesController.cs" />
+    <Compile Include="Controllers\C1Nav\CustomContentController.cs" />
+    <Compile Include="Controllers\C1Nav\StylingCssController.cs" />
+    <Compile Include="Controllers\C1Nav\SearchingController.cs" />
+    <Compile Include="Controllers\C1Nav\ContextMenusController.cs" />
+    <Compile Include="Controllers\C1Nav\CheckboxesController.cs" />
+    <Compile Include="Controllers\C1Nav\ImagesController.cs" />
+    <Compile Include="Controllers\C1Nav\AccordionTreesController.cs" />
+    <Compile Include="Controllers\C1Nav\BetweenTreesController.cs" />
+    <Compile Include="Controllers\C1Nav\DragDropController.cs" />
+    <Compile Include="Controllers\C1Nav\InitialStateController.cs" />
+    <Compile Include="Controllers\C1Nav\HeterogeneousDataController.cs" />
+    <Compile Include="Controllers\C1Nav\IndexController.cs" />
+    <Compile Include="Global.asax.cs">
+      <DependentUpon>Global.asax</DependentUpon>
+    </Compile>
+    <Compile Include="Models\Company.cs" />
+    <Compile Include="Models\Culture.cs" />
+    <Compile Include="Models\DashboardData.cs" />
+    <Compile Include="Models\FlexChartData.cs" />
+    <Compile Include="Models\Countries.cs" />
+    <Compile Include="Models\FlexGridData.cs" />
+    <Compile Include="Models\Fruit.cs" />
+    <Compile Include="Models\Gpd.cs" />
+    <Compile Include="Models\InputData.cs" />
+    <Compile Include="Models\Lesson.cs" />
+    <Compile Include="Models\PopulationGdp.cs" />
+    <Compile Include="Models\Sale.cs" />
+    <Compile Include="Models\Theme.cs" />
+    <Compile Include="Models\TreeViewData.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\css\gcicons.css" />
+    <Content Include="Content\css\gcicons.ja.css" />
+    <Content Include="Content\css\images\loading.gif" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AnalyticsTrendLines.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AnnotationsZonesRedux.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\Axes.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AxesChartScaling.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AxesCustomLabels.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AxesGridlinesTickmarks.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\AxesZoom.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\ExtraElements.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\GroupingDrillDown.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\LegendStyles.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\LineMarkers.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\RangeSelectors.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\Selection.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\SeriesPicker.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\StackedCharts.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\TitleStyles.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\Styling.css" />
+    <Content Include="Content\css\Lesson\C1FlexChart\Tooltips.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\AggregatesAboveData.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\AggregatesCustom.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Architecture.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Cells.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\ColumnsCustomCells.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\ColumnsFreezing.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\ColumnsMultiPaneGrids.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\ColumnsResponsiveLayouts.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\ColumnsStyling.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\CustomCells.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\CustomEditing.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\CustomEditors.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\CustomFilterIcons.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\DynamicUpdates.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\EditableTreeGrids.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Editing.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\EventsMouse.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\EventsSelection.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\FastScroller.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\GridPanels.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\HeaderMerging.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\HierarchicalDataFiltering.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Index.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\MasterDetail.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\MultiRangeSelection.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\NoScrollbars.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\RowsAddingRemoving.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\RowsStyling.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\RowsStylingHover.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\RowsStylingRowHeight.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\RowsStylingVerticalAlignment.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Selection.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\SelectionFocus.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Templates.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\TreeGrids.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\UnboundTreeGrids.css" />
+    <Content Include="Content\css\Lesson\C1FlexGrid\Virtualization.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\BasicProperties.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\BulletGraphs.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsFace.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsPointer.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsRanges.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsTextValues.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsThumb.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\ElementsTickmarks.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\GaugeElements.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\GaugeTypes.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\Index.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\LinearGauges.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\RadialGauges.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\Ranges.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\Styling.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\StylingFocus.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\StylingHover.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\StylingRanges.css" />
+    <Content Include="Content\css\Lesson\C1Gauge\StylingSilverlight.css" />
+    <Content Include="Content\css\Lesson\C1Input\AlertsPrompts.css" />
+    <Content Include="Content\css\Lesson\C1Input\Architecture.css" />
+    <Content Include="Content\css\Lesson\C1Input\ArchitectureComboBox.css" />
+    <Content Include="Content\css\Lesson\C1Input\AutoCompleteSearching.css" />
+    <Content Include="Content\css\Lesson\C1Input\CalendarCustomization.css" />
+    <Content Include="Content\css\Lesson\C1Input\CalendarRanges.css" />
+    <Content Include="Content\css\Lesson\C1Input\Calendar.css" />
+    <Content Include="Content\css\Lesson\C1Input\CalendarValidation.css" />
+    <Content Include="Content\css\Lesson\C1Input\ClearButtons.css" />
+    <Content Include="Content\css\Lesson\C1Input\ColorPicker.css" />
+    <Content Include="Content\css\Lesson\C1Input\ComboBoxColors.css" />
+    <Content Include="Content\css\Lesson\C1Input\Dialogs.css" />
+    <Content Include="Content\css\Lesson\C1Input\InputColor.css" />
+    <Content Include="Content\css\Lesson\C1Input\Colors.css" />
+    <Content Include="Content\css\Lesson\C1Input\ComboBoxHtmlContent.css" />
+    <Content Include="Content\css\Lesson\C1Input\ComboBoxMultiColumn.css" />
+    <Content Include="Content\css\Lesson\C1Input\DropDown.css" />
+    <Content Include="Content\css\Lesson\C1Input\FocusedState.css" />
+    <Content Include="Content\css\Lesson\C1Input\Index.css" />
+    <Content Include="Content\css\Lesson\C1Input\InputDateCustomization.css" />
+    <Content Include="Content\css\Lesson\C1Input\InputDateMoreCustomization.css" />
+    <Content Include="Content\css\Lesson\C1Input\InputDateValidation.css" />
+    <Content Include="Content\css\Lesson\C1Input\InputMaskMaskFull.css" />
+    <Content Include="Content\css\Lesson\C1Input\LinearGauge.css" />
+    <Content Include="Content\css\Lesson\C1Input\ListBoxCheckBoxes.css" />
+    <Content Include="Content\css\Lesson\C1Input\ListBoxFormatItem.css" />
+    <Content Include="Content\css\Lesson\C1Input\MaterialDesign.css" />
+    <Content Include="Content\css\Lesson\C1Input\MenusContextMenus.css" />
+    <Content Include="Content\css\Lesson\C1Input\PopupEditors.css" />
+    <Content Include="Content\css\Lesson\C1Input\PopupsOwners.css" />
+    <Content Include="Content\css\Lesson\C1Input\RadialGauge.css" />
+    <Content Include="Content\css\Lesson\C1Input\Transitions.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\Color.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\CustomGlyphs.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\CVCurrency.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\CVFlexGridSpinners.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\CVTrackingChanges.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\FlexGridFocus.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\HtmlEvents.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\PseudoClasses.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\Themes.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\WijmoAnimate.css" />
+    <Content Include="Content\css\Lesson\C1Mvc\WijmoShowPopup.css" />
+    <Content Include="Content\css\Lesson\C1Nav\AccordionTrees.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Adding.css" />
+    <Content Include="Content\css\Lesson\C1Nav\AnotherAccordion.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Architecture.css" />
+    <Content Include="Content\css\Lesson\C1Nav\BetweenTrees.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Changing.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Checkboxes.css" />
+    <Content Include="Content\css\Lesson\C1Nav\ContextMenus.css" />
+    <Content Include="Content\css\Lesson\C1Nav\CustomContent.css" />
+    <Content Include="Content\css\Lesson\C1Nav\CustomTile.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Disabling.css" />
+    <Content Include="Content\css\Lesson\C1Nav\DragDrop.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Editing.css" />
+    <Content Include="Content\css\Lesson\C1Nav\HeterogeneousData.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Images.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Index.css" />
+    <Content Include="Content\css\Lesson\C1Nav\InitialState.css" />
+    <Content Include="Content\css\Lesson\C1Nav\LazyLoading.css" />
+    <Content Include="Content\css\Lesson\C1Nav\LazyOdata.css" />
+    <Content Include="Content\css\Lesson\C1Nav\MainProperties.css" />
+    <Content Include="Content\css\Lesson\C1Nav\NavigationTrees.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Nodes.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Reloading.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Removing.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Rtl.css" />
+    <Content Include="Content\css\Lesson\C1Nav\Searching.css" />
+    <Content Include="Content\css\Lesson\C1Nav\StylingCSS.css" />
+    <Content Include="Content\css\Lesson\C1Nav\TabPanelStyling.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCore.css" />
+    <Content Include="Content\css\SyntaxHighlighter\shCoreEclipse.css" />
+    <Content Include="Content\favicon\android-chrome-192x192.png" />
+    <Content Include="Content\favicon\android-chrome-256x256.png" />
+    <Content Include="Content\favicon\apple-touch-icon.png" />
+    <Content Include="Content\favicon\favicon-16x16.png" />
+    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\safari-pinned-tab.svg" />
+    <Content Include="Content\images\electronics.png" />
+    <Content Include="Content\images\flag.png" />
+    <Content Include="Content\images\home.png" />
+    <Content Include="Content\images\icon_export.png" />
+    <Content Include="Content\images\new.png" />
+    <Content Include="Content\images\phones.png" />
+    <Content Include="Content\images\spin.gif" />
+    <Content Include="Content\images\th.png" />
+    <Content Include="Content\images\toys.png" />
+    <Content Include="Content\Lessons.xml" />
+    <Content Include="Content\css\app.css" />
+    <Content Include="Content\css\bootstrap\css\bootstrap.css" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="Content\css\explorer.css" />
+    <Content Include="Content\css\images\icons\30\facebook.png" />
+    <Content Include="Content\css\images\icons\30\google.png" />
+    <Content Include="Content\css\images\icons\32\picons33.png" />
+    <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\Site.css" />
+    <Content Include="Global.asax" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Analytics.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsBoxplot.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsCustomFunctions.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsErrorBars.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsMovingAverages.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsTrendLines.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnalyticsWaterfallCharts.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Extenders.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\QuickEditing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomMerging.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Architecture.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\GridPanels.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Filtering.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsColumns.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Binding.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\SizingScrolling.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\SizingMouse.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsDataMaps.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomFilterIcons.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomFilterTypes.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Selection.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomFilterOperators.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\FlexGridFilter.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\FilterOptimizations.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\FastScroller.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Sorting.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DeepBinding.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\HeaderMerging.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\GroupPanel.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CellMerging.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RestrictedMerging.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DynamicDataMapsCustomize.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsProperties.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DynamicDataMapsSwitch.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsSizing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsAutoSizing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsReordering.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Paging.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsMultiPaneGrids.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsAddingRemoving.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ImportExport.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Excel.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\EventsSelection.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomEditors.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsFreezing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ReadOnlyRequiredColumns.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Ime.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsColumnLayout.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomCells.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsDropTargetControl.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsResponsiveLayouts.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsCustomCells.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsStyling.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AggregatesAboveData.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AggregatesBelowData.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsStickyHeaders.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AggregatesCustom.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ColumnsAggregates.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Rows.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DynamicUpdates.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\InlineEditing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\MasterDetail.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\EventsResizing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\TreeGrids.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Templates.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\EditableTreeGrids.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CollectionViewValidation.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\UnboundTreeGrids.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Editing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsDetails.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CollectionView.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsStyling.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\CustomEditing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsStylingRowHeight.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsProperties.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsStylingVerticalAlignment.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\RowsStylingHover.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AlwaysEditing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DataBinding.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Columns.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Validation.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\MultiRangeSelection.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Cells.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\HierarchicalDataFiltering.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AutoRowHeights.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\AutoColumnWidths.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\NoScrollbars.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Virtualization.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\PersistingState.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Grouping.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\ScrollingViewRange.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\EventsMouse.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\StickyHeaders.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\DefferedResizing.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Clipboard.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\EventsDragDrop.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\SelectionFocus.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Pdf.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\BasicProperties.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\InteractiveAnimations.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnnotationsZonesRedux.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnnotationsZones.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AnnotationsSymbols.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Annotations.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Axes.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesChartScaling.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesCustomLabels.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesExtraAxes.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesGridlinesTickmarks.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesLabelsFormats.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesOriginPosition.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesRanges.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\AxesZoom.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\BarCharts.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\ChartElements.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\ChartTypes.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\DataLabels.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Export.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\ExtraElements.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Filtering.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\FunnelCharts.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Gradients.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\GroupingDrillDown.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\ItemFormatter.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\LegendPosition.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\LegendsTitles.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\LegendStyles.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\LegendToggle.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\LineMarkers.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\MultipleChartTypes.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Palettes.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\PlotAreas.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\RangeSelectors.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\RenderCycle.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Selection.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Series.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\SeriesDataSources.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\SeriesPicker.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\SeriesStyles.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Sorting.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Styling.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\TitleStyles.js" />
+    <Content Include="Scripts\Lesson\C1FlexChart\Tooltips.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\BulletGraphs.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsPointer.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsFace.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsRanges.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsTextValues.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsThumb.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\ElementsTickmarks.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\GaugeElements.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\LinearGauges.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\RadialGauges.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\Ranges.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\Styling.js" />
+    <Content Include="Scripts\Lesson\C1Gauge\StylingSilverlight.js" />
+    <Content Include="Scripts\Lesson\C1Input\AlertsPrompts.js" />
+    <Content Include="Scripts\Lesson\C1Input\ArchitectureComboBox.js" />
+    <Content Include="Scripts\Lesson\C1Input\AutoCompleteAsyncLoading.js" />
+    <Content Include="Scripts\Lesson\C1Input\AutoCompleteCustomSearch.js" />
+    <Content Include="Scripts\Lesson\C1Input\AutoCompleteSearchParameters.js" />
+    <Content Include="Scripts\Lesson\C1Input\Calendar.js" />
+    <Content Include="Scripts\Lesson\C1Input\CalendarCustomization.js" />
+    <Content Include="Scripts\Lesson\C1Input\CalendarRanges.js" />
+    <Content Include="Scripts\Lesson\C1Input\CalendarValidation.js" />
+    <Content Include="Scripts\Lesson\C1Input\ClearButtons.js" />
+    <Content Include="Scripts\Lesson\C1Input\ColorPicker.js" />
+    <Content Include="Scripts\Lesson\C1Input\Colors.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBox.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxChainingCombos.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxColors.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxHtmlContent.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxMasterDetail.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxMultiColumn.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxNumbersDates.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxObjects.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxSortingFiltering.js" />
+    <Content Include="Scripts\Lesson\C1Input\ComboBoxStrings.js" />
+    <Content Include="Scripts\Lesson\C1Input\DatesTimes.js" />
+    <Content Include="Scripts\Lesson\C1Input\Dialogs.js" />
+    <Content Include="Scripts\Lesson\C1Input\DropDown.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputColor.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDate.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateCustomization.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateFormatting.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateMoreCustomization.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateRanges.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateTime.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputDateValidation.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputMaskMaskFull.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputMaskRawValue.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputNumber.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputNumberRanges.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputNumberStep.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputNumberFormatting.js" />
+    <Content Include="Scripts\Lesson\C1Input\InputTime.js" />
+    <Content Include="Scripts\Lesson\C1Input\LinearGauge.js" />
+    <Content Include="Scripts\Lesson\C1Input\ListBox.js" />
+    <Content Include="Scripts\Lesson\C1Input\ListBoxCheckBoxes.js" />
+    <Content Include="Scripts\Lesson\C1Input\ListBoxFormatItem.js" />
+    <Content Include="Scripts\Lesson\C1Input\MaterialDesign.js" />
+    <Content Include="Scripts\Lesson\C1Input\Menus.js" />
+    <Content Include="Scripts\Lesson\C1Input\MenusCommands.js" />
+    <Content Include="Scripts\Lesson\C1Input\MenusContextMenus.js" />
+    <Content Include="Scripts\Lesson\C1Input\MenusSplitButtons.js" />
+    <Content Include="Scripts\Lesson\C1Input\MenusValuePickers.js" />
+    <Content Include="Scripts\Lesson\C1Input\MultiAutoComplete.js" />
+    <Content Include="Scripts\Lesson\C1Input\MultiSelect.js" />
+    <Content Include="Scripts\Lesson\C1Input\PopupDialogs.js" />
+    <Content Include="Scripts\Lesson\C1Input\PopupEditors.js" />
+    <Content Include="Scripts\Lesson\C1Input\PopupsDialogs.js" />
+    <Content Include="Scripts\Lesson\C1Input\PopupsOwners.js" />
+    <Content Include="Scripts\Lesson\C1Input\RadialGauge.js" />
+    <Content Include="Scripts\Lesson\C1Input\Transitions.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Clipboard.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Color.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\ControlsElements.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CreateControls.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Customization.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVAddingRemoving.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVChaining.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVCurrency.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVFiltering.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVFlexGridSpinners.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVGrouping.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVLoadingData.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVLoadingJsonDates.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVPaging.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVPerformance.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVSorting.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVStableSort.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVTrackingChanges.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\CVValidation.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Events.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Formatting.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Glyphs.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\HtmlEvents.js" />
+    <Content Include="Scripts\DropDownMenu.js" />
+    <Content Include="Scripts\jquery.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Parsing.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Pluralization.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\PrintDocument.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\PropertiesEnums.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Services.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\Tooltip.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\WijmoAnimate.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\WijmoFormat.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\WijmoHttpRequest.js" />
+    <Content Include="Scripts\Lesson\C1Mvc\WijmoShowPopup.js" />
+    <Content Include="Scripts\Lesson\C1Nav\AccordionTrees.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Adding.js" />
+    <Content Include="Scripts\Lesson\C1Nav\AnotherAccordion.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Architecture.js" />
+    <Content Include="Scripts\Lesson\C1Nav\AutoGridLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\BetweenTrees.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Changing.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Checkboxes.js" />
+    <Content Include="Scripts\Lesson\C1Nav\ContextMenus.js" />
+    <Content Include="Scripts\Lesson\C1Nav\CreatingProgrammatically.js" />
+    <Content Include="Scripts\Lesson\C1Nav\CustomContent.js" />
+    <Content Include="Scripts\Lesson\C1Nav\CustomTile.js" />
+    <Content Include="Scripts\Lesson\C1Nav\DashboardLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Disabling.js" />
+    <Content Include="Scripts\Lesson\C1Nav\DragDrop.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Editing.js" />
+    <Content Include="Scripts\Lesson\C1Nav\FlowLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\HeterogeneousData.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Images.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Index.js" />
+    <Content Include="Scripts\Lesson\C1Nav\InitialState.js" />
+    <Content Include="Scripts\Lesson\C1Nav\LazyLoading.js" />
+    <Content Include="Scripts\Lesson\C1Nav\LazyOdata.js" />
+    <Content Include="Scripts\Lesson\C1Nav\MainProperties.js" />
+    <Content Include="Scripts\Lesson\C1Nav\ManualGridLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\NavigationTrees.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Nodes.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Reloading.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Removing.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Rtl.js" />
+    <Content Include="Scripts\Lesson\C1Nav\SaveLoadLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\Searching.js" />
+    <Content Include="Scripts\Lesson\C1Nav\SplitLayout.js" />
+    <Content Include="Scripts\Lesson\C1Nav\StylingCSS.js" />
+    <Content Include="Scripts\Lesson\C1FlexGrid\Index.js" />
+    <Content Include="Scripts\Lesson\C1Nav\TabPanelAccessibility.js" />
+    <Content Include="Scripts\Lesson\C1Nav\TabPanelDetachedPanels.js" />
+    <Content Include="Scripts\Lesson\C1Nav\TabPanelDisabledInvisibleTabs.js" />
+    <Content Include="Scripts\Lesson\C1Nav\TabPanelStyling.js" />
+    <Content Include="Scripts\MultiLevelMenu.js" />
+    <Content Include="Scripts\Startup.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushCSharp.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushJScript.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shBrushXml.js" />
+    <Content Include="Scripts\SyntaxHighlighter\shCore.js" />
+    <Content Include="Scripts\Tabs.js" />
+    <Content Include="Scripts\Utility.js" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </Content>
+    <Content Include="Views\Web.config">
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\Error.cshtml" />
+    <Content Include="Views\Shared\_Layout.cshtml" />
+    <Content Include="Views\Shared\_SiteNav.cshtml" />
+    <Content Include="Views\Shared\_LessonNav.cshtml" />
+    <Content Include="Views\C1Mvc\Index.cshtml" />
+    <Content Include="Views\C1Mvc\Reference.cshtml" />
+    <Content Include="Views\C1Input\Index.cshtml" />
+    <Content Include="Views\Shared\_PageSources.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="App_Data\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Mvc\CreateControls.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Mvc\Events.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Mvc\HtmlEvents.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Architecture.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\DropDown.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DemoScript.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="App_GlobalResources\Resource.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\C1Mvc.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Mvc.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Mvc.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Mvc.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\Resource.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>Resource.ja.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
+    <Content Include="App_GlobalResources\C1FlexChart.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1FlexChart.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1FlexGrid.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1FlexGrid.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Gauge.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Gauge.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Input.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Input.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Nav.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Nav.Designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1FlexChart.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1FlexChart.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1FlexGrid.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1FlexGrid.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Gauge.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Gauge.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Input.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Input.ja.designer.cs</LastGenOutput>
+    </Content>
+    <Content Include="App_GlobalResources\C1Nav.ja.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>C1Nav.ja.designer.cs</LastGenOutput>
+    </Content>
+    <EmbeddedResource Include="Properties\licenses.licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Sorting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsMovingAverages.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\GroupingDrillDown.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Export.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\HighLowOpenCloseCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\SeriesPicker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Series.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsTrendLines.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnnotationsSymbols.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\RangeSelectors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\StackedCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Analytics.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnnotationsZones.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnnotationsZonesRedux.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsErrorBars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\ExtraElements.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsBoxplot.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsWaterfallCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AnalyticsCustomFunctions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Events.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Annotations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Selection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesExtraAxes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesLabelsFormats.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesZoom.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesCustomLabels.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Axes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesOriginPosition.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesGridlinesTickmarks.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\LineMarkers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\AxesChartScaling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Tooltips.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\ItemFormatter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\InteractiveCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\PlotAreas.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\SeriesDataSources.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\LegendPosition.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\ChartElements.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\LegendToggle.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Gradients.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Palettes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\MultipleChartTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\LegendsTitles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\ChartTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\BarCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Styling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\RenderCycle.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\SpecialChartTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\BubbleCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\FunnelCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\SeriesStyles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\CandlestickCharts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\TitleStyles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\LegendStyles.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\Filtering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_DemoCss.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\DataLabels.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexChart\InteractiveAnimations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsPointer.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\StylingHover.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\StylingFocus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\GaugeElements.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsTickmarks.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsThumb.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsTextValues.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\Architecture.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\BasicProperties.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\Ranges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\GaugeTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\ElementsFace.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\RadialGauges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\StylingSilverlight.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\LinearGauges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\Styling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\BulletGraphs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Gauge\StylingRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ArchitectureComboBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\PseudoClasses.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\FocusedState.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ClearButtons.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MaterialDesign.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxHtmlContent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ListBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateFormatting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\CalendarValidation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ListBoxCheckBoxes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Dialogs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AlertsPrompts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\PopupsOwners.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\StringObjects.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBox.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxStrings.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxNumbersDates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxObjects.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxMasterDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxSortingFiltering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxChainingCombos.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxMultiColumn.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoComplete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoCompleteAsyncLoading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoCompleteSearching.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoCompleteSearchPath.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoCompleteSearchParameters.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\AutoCompleteCustomSearch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputMask.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputMaskRawValue.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputMaskPromptChar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputMaskMaskFull.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ListBoxFormatItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputNumber.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputNumberFormatting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputNumberStep.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputNumberRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Gauges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\LinearGauge.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\RadialGauge.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDate.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\DatesTimes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateCustomization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateMoreCustomization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateValidation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputDateTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputTime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Calendar.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\CalendarRanges.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\CalendarCustomization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\InputColor.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Colors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Transitions.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\PopupEditors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ComboBoxColors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\ColorPicker.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MultiItem.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MultiSelect.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\PopupDialogs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MultiAutoComplete.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\Menus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MenusCommands.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MenusValuePickers.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MenusSplitButtons.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\MenusContextMenus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Input\PopupsDialogs.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\CustomContent.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\DragDrop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Removing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Reloading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Architecture.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\MainProperties.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\BetweenTrees.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\InitialState.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Changing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\NavigationTrees.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Checkboxes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Editing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\AnotherAccordion.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Rtl.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Disabling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Nodes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Images.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\AccordionTrees.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Searching.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\HeterogeneousData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\StylingCSS.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\ContextMenus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\Adding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1Nav\LazyLoading.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Index.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DynamicUpdates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsStylingRowHeight.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Cells.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Architecture.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Sorting.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsSizing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsFreezing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsStyling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Validation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\TreeGrids.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Pdf.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ImportExport.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Excel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\EventsResizing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomCells.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\EventsDragDrop.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Templates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Events.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\EventsMouse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\EventsSelection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\HierarchicalData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CollectionViewValidation.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomEditing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AlwaysEditing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\QuickEditing.cshtml" />
+    <Content Include="Content\favicon\manifest.json" />
+    <Content Include="Content\fonts\controls.woff" />
+    <Content Include="Content\fonts\fira\FiraSans-Bold.ttf" />
+    <Content Include="Content\fonts\fira\FiraSans-Regular.ttf" />
+    <Content Include="Content\fonts\fira\LICENSE" />
+    <Content Include="Content\fonts\gcicons.ttf" />
+    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <None Include="Views\C1FlexGrid\ReadOnlyRequiredColumns.cshtml" />
+    <Content Include="Views\C1Nav\LazyOdata.cshtml" />
+    <Content Include="Views\C1Mvc\OtherServices.cshtml" />
+    <Content Include="Views\C1Mvc\Tooltip.cshtml" />
+    <Content Include="Views\C1Mvc\Clipboard.cshtml" />
+    <Content Include="Views\C1Mvc\PrintDocument.cshtml" />
+    <Content Include="Views\C1Mvc\WijmoAnimate.cshtml" />
+    <Content Include="Views\C1Mvc\Color.cshtml" />
+    <Content Include="Views\C1Mvc\WijmoShowPopup.cshtml" />
+    <Content Include="Views\C1Mvc\Glyphs.cshtml" />
+    <Content Include="Views\C1Mvc\WijmoHttpRequest.cshtml" />
+    <Content Include="Views\C1Mvc\CustomGlyphs.cshtml" />
+    <Content Include="Views\C1Mvc\Globalization.cshtml" />
+    <Content Include="Views\C1Mvc\Pluralization.cshtml" />
+    <Content Include="Views\C1Mvc\Formatting.cshtml" />
+    <Content Include="Views\C1Mvc\Parsing.cshtml" />
+    <Content Include="Views\C1Mvc\Customization.cshtml" />
+    <Content Include="Views\C1Mvc\WijmoFormat.cshtml" />
+    <Content Include="Views\Shared\_CultureSelector.cshtml" />
+    <Content Include="Views\C1Mvc\FlexGridFocus.cshtml" />
+    <Content Include="Views\C1Mvc\PseudoClasses.cshtml" />
+    <Content Include="Views\C1Mvc\Themes.cshtml" />
+    <Content Include="Views\Shared\_ThemeSelector.cshtml" />
+    <Content Include="Views\C1Mvc\ControlsElements.cshtml" />
+    <Content Include="Views\C1Mvc\PropertiesEnums.cshtml" />
+    <Content Include="Views\C1Mvc\CollectionView.cshtml" />
+    <Content Include="Views\C1Mvc\CVDataProviders.cshtml" />
+    <Content Include="Views\C1Mvc\CVSorting.cshtml" />
+    <Content Include="Views\C1Mvc\CVLoadingJsonDates.cshtml" />
+    <Content Include="Views\C1Mvc\CVFlexGridSpinners.cshtml" />
+    <Content Include="Views\C1Mvc\CVCreatingViews.cshtml" />
+    <Content Include="Views\C1Mvc\CVStableSort.cshtml" />
+    <Content Include="Views\C1Mvc\CVFiltering.cshtml" />
+    <Content Include="Views\C1Mvc\CVChaining.cshtml" />
+    <Content Include="Views\C1Mvc\CVTrackingChanges.cshtml" />
+    <Content Include="Views\C1Mvc\CVLoadingData.cshtml" />
+    <Content Include="Views\C1Mvc\CVPerformance.cshtml" />
+    <Content Include="Views\C1Mvc\CVAddingRemoving.cshtml" />
+    <Content Include="Views\C1Mvc\CVValidation.cshtml" />
+    <Content Include="Views\C1Mvc\CVEditingViews.cshtml" />
+    <Content Include="Views\C1Mvc\CVGrouping.cshtml" />
+    <Content Include="Views\C1Mvc\CVCurrency.cshtml" />
+    <Content Include="Views\C1Mvc\CVPaging.cshtml" />
+    <Content Include="Views\C1Mvc\Extenders.cshtml" />
+    <Content Include="Views\C1Mvc\Services.cshtml" />
+    <Content Include="Views\C1Nav\TabPanel.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelMarkup.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelHostC1Controls.cshtml" />
+    <Content Include="Views\C1Nav\CreatingProgrammatically.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelStyling.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelDisabledInvisibleTabs.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelDetachedPanels.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelAccessibility.cshtml" />
+    <Content Include="Views\C1Nav\TabPanelRightToLeft.cshtml" />
+    <Content Include="Views\C1Nav\DashboardLayout.cshtml" />
+    <Content Include="Views\C1Nav\FlowLayout.cshtml" />
+    <Content Include="Views\C1Nav\AutoGridLayout.cshtml" />
+    <Content Include="Views\C1Nav\ManualGridLayout.cshtml" />
+    <Content Include="Views\C1Nav\SplitLayout.cshtml" />
+    <Content Include="Views\C1Nav\SaveLoadLayout.cshtml" />
+    <Content Include="Views\C1Nav\CustomTile.cshtml" />
+    <Content Include="Views\Shared\_DashboardLayoutElements.cshtml" />
+    <Content Include="Views\C1Nav\DashboardLayouts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\EditableTreeGrids.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\UnboundTreeGrids.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Editing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\InlineEditing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomEditors.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CollectionView.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DataBinding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsStylingHover.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\MultiRangeSelection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Clipboard.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsDetails.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsProperties.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Columns.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\PersistingState.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsAddingRemoving.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Grouping.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Virtualization.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DefferedResizing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\SizingMouse.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\SizingScrolling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ScrollingViewRange.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AutoRowHeights.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\StickyHeaders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\HierarchicalDataFiltering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsStyling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\SelectionFocus.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsStylingVerticalAlignment.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\GridPanels.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RowsColumns.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DynamicDataMapsSwitch.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DynamicDataMapsCustomize.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Selection.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Filtering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomFilterOperators.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Binding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomFilterIcons.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\FlexGridFilter.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AutoColumnWidths.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\FastScroller.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\NoScrollbars.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomFilterTypes.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\FilterOptimizations.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\GroupPanel.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CellMerging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DeepBinding.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\HeaderMerging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsProperties.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\CustomMerging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\DynamicDataMaps.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\RestrictedMerging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsDataMaps.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsAutoSizing.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsDropTargetControl.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Paging.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsReordering.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsMultiPaneGrids.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsStickyHeaders.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsColumnLayout.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsResponsiveLayouts.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsAggregates.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Ime.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\Rows.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AggregatesAboveData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AggregatesBelowData.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\AggregatesCustom.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\MasterDetail.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\C1FlexGrid\ColumnsCustomCells.cshtml" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
+    <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
+  </Target>
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>3496</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:3496/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target> -->
+</Project>

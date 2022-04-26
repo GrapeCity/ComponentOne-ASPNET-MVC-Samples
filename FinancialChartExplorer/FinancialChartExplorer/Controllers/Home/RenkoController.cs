@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using FinancialChartExplorer.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialChartExplorer.Controllers
 {
@@ -24,6 +27,5 @@ namespace FinancialChartExplorer.Controllers
 
             return settings;
         }
-
     }
 }

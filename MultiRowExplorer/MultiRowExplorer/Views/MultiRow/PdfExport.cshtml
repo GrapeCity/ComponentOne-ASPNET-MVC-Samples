@@ -1,0 +1,201 @@
+@model IEnumerable<Sale>
+
+@{
+    ViewBag.DemoDescription = false;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/CustomMultiRow.css" />
+
+    <style>
+        .checkbox-div {
+            padding-left: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+            .checkbox-div .checkbox {
+                display: inline-block;
+                vertical-align: middle;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        var multiRow, exportSettings, settingsDiv, settingsDivDfScroll;
+
+        c1.documentReady(function () {
+            multiRow = wijmo.Control.getControl("#exportPdfMultiRow");
+            settingsDiv = document.getElementById("exportSettingsDiv");
+            exportSettings = {
+                exportMode: wijmo.grid.pdf.ExportMode.All,
+                orientation: wijmo.pdf.PdfPageOrientation.Portrait,
+                scaleMode: wijmo.grid.pdf.ScaleMode.ActualSize
+            };
+        });
+
+        function exportPdf() {
+            var fontFile = { source: 'https://demo.grapecity.com/wijmo/sample/fonts/ipaexg.ttf', name: 'ipaexg' },
+            font = new wijmo.pdf.PdfFont('ipaexg');
+            var needEmbedFonts = embedFontsCheckBox.checked;
+            wijmo.grid.pdf.FlexGridPdfConverter.export(multiRow, 'MultiRow.pdf', {
+                maxPages: 10,
+                exportMode: exportSettings.exportMode,
+                scaleMode: exportSettings.scaleMode,
+                embeddedFonts: needEmbedFonts
+                    ? [{
+                        source: '@(Url.Content("~/Content/fonts/fira/FiraSans-Regular.ttf"))',
+                        name: 'fira',
+                        style: 'normal',
+                        weight: 'normal',
+                        sansSerif: true
+                    }, {
+                        source: '@(Url.Content("~/Content/fonts/fira/FiraSans-Bold.ttf"))',
+                        name: 'fira',
+                        style: 'normal',
+                        weight: 'bold',
+                        sansSerif: true
+                    }, fontFile]
+                    : [fontFile],
+                documentOptions: {
+                    pageSettings: {
+                        layout: exportSettings.orientation
+                    },
+                    header: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\theader\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    footer: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\tfooter\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    info: {
+                        author: 'C1',
+                        title: 'PdfDocument sample',
+                        keywords: 'PDF, C1, sample',
+                        subject: 'PdfDocument'
+                    }
+                },
+                styles: {
+                    cellStyle: {
+                        backgroundColor: '#ffffff',
+                        borderColor: '#c6c6c6',
+                        font: {
+                            family: 'fira'
+                        }
+                    },
+                    altCellStyle: {
+                        backgroundColor: '#f9f9f9'
+                    },
+                    groupCellStyle: {
+                        backgroundColor: '#dddddd',
+                        font: font
+                    },
+                    headerCellStyle: {
+                        backgroundColor: '#eaeaea'
+                    }
+                }
+            });
+        }
+
+        function setScaleMode(menu) {
+            menu.header = "Scale Mode: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.scaleMode = wijmo.grid.pdf.ScaleMode[menu.selectedItem.Header];
+        }
+
+        function setOrientation(menu) {
+            menu.header = "Orientation: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.orientation = wijmo.pdf.PdfPageOrientation[menu.selectedItem.Header];
+        }
+
+        function setExportMode(menu) {
+            menu.header = "Export Mode: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.exportMode = wijmo.grid.pdf.ExportMode[menu.selectedItem.Header];
+        }
+
+        function setEmbedFonts(menu) {
+            menu.header = "Embed Fonts: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.embedFonts = Boolean.valueOf(menu.selectedItem.Header);
+        }
+    </script>
+}
+
+<div class="copy well">
+    <p>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text0)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text1)</p>
+
+    <ul>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text5)</li>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text6)</li>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text7)</li>
+    </ul>
+    <p>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text2)</p>
+
+    <ul>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text8)</li>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text9)</li>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text10)</li>
+    </ul>
+    <p>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text3)</p>
+
+    <p>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text4)</p>
+
+    <ul>
+        <li>
+            <b>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text11)</b>
+        </li>
+        <li>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text12)</li>
+    </ul>
+</div>
+
+<div class="copy well" id="exportSettingsDiv">
+    <b>@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text13)</b>
+    <br />
+    <br />
+    <div class="col-md-12 col-xs-12">
+        @(Html.C1().Menu().Header("Scale Mode: <b>ActualSize</b>").OnClientItemClicked("setScaleMode")
+                .MenuItems(items =>
+                {
+                    items.Add("ActualSize");
+                    items.Add("PageWidth");
+                    items.Add("SinglePage");
+                }))
+        @(Html.C1().Menu().Header("Orientation: <b>Portrait</b>").OnClientItemClicked("setOrientation")
+                .MenuItems(items =>
+                {
+                    items.Add("Portrait");
+                    items.Add("Landscape");
+                }))
+        @(Html.C1().Menu().Header("Export Mode: <b>All</b>").OnClientItemClicked("setExportMode")
+                .MenuItems(items =>
+                {
+                    items.Add("All");
+                    items.Add("Selection");
+                }))
+    </div>
+    <div class="checkbox-div">
+        <label>
+            <input type="checkbox" id="embedFontsCheckBox" class="checkbox" /> @Html.Raw(Resources.MultiRowExplorer.PdfExport_Text15)
+        </label>
+    </div>
+</div>
+
+<button class="btn btn-default" onclick="exportPdf()">@Html.Raw(Resources.MultiRowExplorer.PdfExport_Text16)</button>
+<br />
+@(Html.C1().MultiRow<Sale>().Id("exportPdfMultiRow")
+        .Bind(Model)
+        .SelectionMode(SelectionMode.ListBox)
+        .HeadersVisibility(HeadersVisibility.All)
+        .ShowGroups(true)
+        .GroupBy("Product", "Country")
+        .CssClass("multirow custom-multi-row")
+        .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+)
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.PdfExport_Text14)
+}

@@ -1,0 +1,42 @@
+@model DashboardData
+
+<h1>
+    @Html.Raw(Resources.C1Nav.ManualGridLayout_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.ManualGridLayout_Text1)
+    
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.ManualGridLayout_Text2)
+</p>
+@Html.Partial("_DashboardLayoutElements", Model)
+@(Html.C1().ManualGridLayout().Id("manualGridLayout")
+    .Orientation(LayoutOrientation.Vertical)
+    .MaxRowsOrColumns(3)
+    .CellSize(303)
+    .Items(isb =>
+    {
+        isb.Add().Children(cb =>
+        {
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.KPIs, Model.KPIsStr))
+                .Content("#kpiGauges")
+                .RowSpan(1).ColumnSpan(1);
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.CostBudget, Model.CostBudgetingStr))
+                .Content("#costBudgetingChart")
+                .RowSpan(1).ColumnSpan(1)
+                .Row(1).Column(3);
+        });
+        isb.Add().Children(cb =>
+        {
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.Countrywise, Model.CountrywiseSalesStr))
+                .Content("#countrywiseSalesChart")
+                .RowSpan(1).ColumnSpan(1)
+                .Row(1).Column(1);
+            cb.Add().HeaderText(string.Format(Resources.C1Nav.SalesDashboard, Model.SalesDashboardStr))
+                .Content("#salesDashboardFGrid")
+                .ColumnSpan(1).RowSpan(1)
+                .Row(1).Column(2);
+        });
+    }))
+@Html.C1().DashboardLayout().Id("dashboardLayout")

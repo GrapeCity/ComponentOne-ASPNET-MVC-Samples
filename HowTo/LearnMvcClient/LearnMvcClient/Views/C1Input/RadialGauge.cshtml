@@ -1,0 +1,41 @@
+<h1>
+    @Html.Raw(Resources.C1Input.RadialGauge_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.RadialGauge_Text1)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1Input.RadialGauge_Text2)
+</p>
+<input id="theInputRange"
+       class="center"
+       type="range"
+       min="0"
+       max="255"
+       step="10">
+<h3 id="theValue" class="center"></h3>
+
+<p>
+    @Html.Raw(Resources.C1Input.RadialGauge_Text3)
+</p>
+@(Html.C1().RadialGauge().Id("theRadialGauge")
+    .CssClass("center")
+    .Min(0).Max(255).Step(10)
+    .ShowText(ShowText.Value)
+)
+
+<p>
+    @Html.Raw(Resources.C1Input.RadialGauge_Text4)
+</p>
+@(Html.C1().RadialGauge().Id("theRadialGaugeCSS")
+    .CssClass("center custom-gauge")
+    .Min(0).Max(255).Step(10)
+    .ShowText(ShowText.Value)
+    .IsReadOnly(false)
+    .StartAngle(-90).SweepAngle(180)
+    .ThumbSize(8)
+    .Face(f=>f.Thickness(0.15))
+    .Pointer(p=>p.Thickness(0.15).Color(System.Drawing.Color.Red))
+)

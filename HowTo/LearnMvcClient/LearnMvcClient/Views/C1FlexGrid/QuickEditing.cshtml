@@ -1,0 +1,21 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.QuickEditing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.QuickEditing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.QuickEditing_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.QuickEditing_Text3) 
+</p>
+
+<label>
+    @Html.Raw(Resources.C1FlexGrid.QuickEditing_Text4)
+    <input id="quickEdit" type="checkbox" checked="true">
+</label>
+
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250)

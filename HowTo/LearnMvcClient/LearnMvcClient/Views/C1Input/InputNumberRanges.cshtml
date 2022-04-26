@@ -1,0 +1,20 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputNumberRanges_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberRanges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberRanges_Text2)
+</p>
+<div class="demo-settings">
+    <label for="theInputNumber">@Html.Raw(Resources.C1Input.InputNumberRanges_Text3)</label>
+    @Html.C1().InputNumber().Id("theInputNumber").Value(1).Step(1).Format("n0")
+</div>
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberRanges_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberRanges_Text5)
+</p>

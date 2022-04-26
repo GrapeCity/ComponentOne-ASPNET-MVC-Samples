@@ -1,0 +1,16 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().RadialGauge().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Value(1)
+    .Ranges(items => items
+        .Add(item => item.Min(2).Max(3).Color(System.Drawing.Color.Green))
+        .Add(item => item.Min(6).Max(9).Color(System.Drawing.Color.Yellow))
+    )
+    .Width(300).Height(180)
+)
+
+@section Description{
+    @Html.Raw(Resources.RadialGauge.Ranges_Text0)
+}

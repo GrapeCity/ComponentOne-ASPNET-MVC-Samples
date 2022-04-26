@@ -1,0 +1,30 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().FlexGrid<Sale>().Id(demoSettingsModel.ControlId)
+    .AutoGenerateColumns(false)
+    .IsReadOnly(true)
+    .Bind(Model)
+    .CssClass("grid")
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID"));
+        columns.Add(column => column.Binding("Start").Format("MMM d yy"));
+        columns.Add(column => column.Binding("End").Format("HH:mm"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Color"));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+        columns.Add(column => column.Binding("Discount").Format("p0"));
+        columns.Add(column => column.Binding("Active"));
+    })
+    .FrozenColumns(1)
+    .FrozenRows(2)
+)
+@section Description{
+    @Html.Raw(Resources.FlexGrid.FrozenCells_Text0)
+}

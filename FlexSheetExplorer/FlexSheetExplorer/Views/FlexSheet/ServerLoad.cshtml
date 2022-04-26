@@ -1,16 +1,26 @@
-<div>
+﻿<div>
     <div class="copy">
         <h3>
-            @Html.Raw(FlexSheetRes.ServerLoad_Text2)
+            @Html.Raw(Resources.FlexSheet.ServerLoad_Text3)
         </h3>
-<p>@Html.Raw(FlexSheetRes.ServerLoad_Text0)</p>
-
+        <p>
+            @Html.Raw(Resources.FlexSheet.ServerLoad_Text2)
+        </p>
+        <p>
+            @using (Html.BeginForm())
+            {
+                @(Html.C1().ComboBox().Name("loadType").Bind((string[])ViewBag.loadTypes)
+                    .SelectedValue((String)ViewBag.LoadType))
+                <button type="submit" class="btn btn-default">@Html.Raw(Resources.FlexSheet.ServerLoad_Text4)</button>
+            }
+        </p>
     </div>
     <div>
-        <c1-flex-sheet class="flexSheet" file-path="~/Content/xlsxFile/example1.xlsx"></c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Load(Model))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.ServerLoad_Text1)</p>
-
+    <p>
+       @Html.Raw(Resources.FlexSheet.ServerLoad_Text0)
+    </p>
 }

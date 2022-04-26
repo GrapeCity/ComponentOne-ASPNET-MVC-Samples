@@ -1,0 +1,23 @@
+﻿/* custom chart theme */
+.custom-chart {
+  background: #efefef;
+  background: linear-gradient(to bottom right, rgba(255,255,255,1) 0%, rgba(246,246,246,1) 47%, rgba(237,237,237,1) 100%);  
+  box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+  padding: 8px;
+ }
+.custom-chart .wj-label {
+  font-family: Courier New, Courier, monospace;
+  font-weight: bold;
+}
+.custom-chart .wj-legend .wj-label {
+  font-family: Courier New, Courier, monospace;
+  font-weight: bold;
+}
+.custom-chart .wj-legend > rect {
+  fill: #f8f8f8;
+  stroke: #c0c0c0;
+}
+.custom-chart .wj-plot-area > rect {
+  fill: white;
+  stroke: #c0c0c0;
+}

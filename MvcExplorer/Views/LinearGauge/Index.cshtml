@@ -1,0 +1,9 @@
+﻿@(Html.C1().LinearGauge()
+    .Face(fb => fb.Min(0).Max(10))
+    .Pointer(pb => pb.Max(5))
+    .Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.LinearGauge.Index_Text0)
+}

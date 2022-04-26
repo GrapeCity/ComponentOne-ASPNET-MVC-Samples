@@ -1,0 +1,41 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Gradients_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Gradients_Text1)
+</p>
+
+<pre>{type}({coords}){color[:offset[:opacity]]}</pre>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Gradients_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.Gradients_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.Gradients_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.Gradients_Text5)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Gradients_Text6)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Area)
+    .Stacking(C1.Web.Mvc.Chart.Stacking.Stacked)
+    .Series(sb=>
+    {
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Sales").Name("Sales");
+    })
+)

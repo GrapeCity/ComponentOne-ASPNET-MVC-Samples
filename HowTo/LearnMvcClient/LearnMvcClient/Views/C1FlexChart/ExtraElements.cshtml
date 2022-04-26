@@ -1,0 +1,34 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.ExtraElements_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.ExtraElements_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ExtraElements_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ExtraElements_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ExtraElements_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ExtraElements_Text5)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexChart.ExtraElements_Text6)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .Bind("Date", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .Series(sb=>sb.Add().Binding("Low,High,Open,Close").Name("Alphabet Inc"))
+)

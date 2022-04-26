@@ -1,0 +1,87 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year - 1, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+    var format = Resources.Calendar.Index_DateFormat;
+
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+<div>
+    <label>@Html.Raw(Resources.Calendar.Index_Text1)</label>
+    @(Html.C1().Calendar().Id(settings.ControlId)
+        .Value(today).Min(minDate).Max(maxDate).MonthView(true)
+        .Width(300).RepeatButtons(true).ShowYearPicker(true)
+        .HandleWheel(true)
+    )
+</div>
+<p>
+    <b>@Html.Raw(Resources.Calendar.Index_ValidRange) <span>@minDate.ToString(format)</span> @Html.Raw(Resources.Calendar.Index_To) <span>@maxDate.ToString(format)</span></b>
+</p>
+
+<ul>
+    <li>@Html.Raw(Resources.Calendar.Index_FirstDayOfWeek)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_ShowHeader)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_MonthView)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_RepeatButtons)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_ShowYearPicker)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_MonthsCount)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_WeeksBefore)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_WeeksAfter)</li>
+    <li>@Html.Raw(Resources.Calendar.Index_HandleWheel)</li>
+</ul>
+
+@section Settings{
+    <div style="padding: 4px 8px">
+        <p style="display:inline-block; width: 100px">@Html.Raw(Resources.Calendar.Index_MonthCount)</p>
+        @(Html.C1().InputNumber().Width(150).Min(1).Max(10).Step(1).Value(1).Format("n0").OnClientValueChanged("monthCountChange"))
+    </div>
+    <div style="padding: 4px 8px">
+        <p style="display:inline-block; width: 100px">@Html.Raw(Resources.Calendar.Index_WeekBefore)</p>
+        @(Html.C1().InputNumber().Width(140).Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("weekBeforeChanged"))
+    </div>
+    <div style="padding: 4px 8px">
+        <p style="display:inline-block; width: 100px">@Html.Raw(Resources.Calendar.Index_WeekAfter)</p>
+        @(Html.C1().InputNumber().Width(140).Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("weekAfterChanged"))
+    </div>
+}
+
+@section Scripts{
+    <script>
+        function monthCountChange(sender, args) {
+
+            var calenderControl = wijmo.Control.getControl('#DemoControl');
+            if (calenderControl != null) {
+                calenderControl.monthCount = sender.value;
+                calenderControl.invalidate();
+                if (sender.value === 1) {
+                    document.querySelector('#DemoControl').style.width = "315px";
+                } else {
+                    document.querySelector('#DemoControl').style.width = "100%";
+                }
+            }
+        }
+
+        function weekBeforeChanged(sender, args) {
+
+            var calenderControl = wijmo.Control.getControl('#DemoControl');
+            if (calenderControl != null) {
+                calenderControl.weeksBefore = sender.value;
+                calenderControl.invalidate();
+            }
+        }
+
+        function weekAfterChanged(sender, args) {
+
+            var calenderControl = wijmo.Control.getControl('#DemoControl');
+            if (calenderControl != null) {
+                calenderControl.weeksAfter = sender.value;
+                calenderControl.invalidate();
+            }
+        }
+    </script>
+}
+
+@section Description{
+    @Html.Raw(Resources.Calendar.Index_Text0)
+}

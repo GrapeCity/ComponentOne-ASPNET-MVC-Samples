@@ -1,0 +1,63 @@
+﻿@model DashboardData
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsAtTop = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@Html.Partial("_DashboardElements", Model)
+
+@(Html.C1().DashboardLayout().Id(demoSettingsModel.ControlId)
+    .AttachSplitLayout(slb => slb.Orientation(LayoutOrientation.Vertical)
+        .Items(isb =>
+        {
+            isb.AddGroup()
+                .Size("2*")
+                .Orientation(LayoutOrientation.Vertical)
+                .Children(vgcb =>
+                {
+                    vgcb.AddGroup()
+                        .Size("*")
+                        .Orientation(LayoutOrientation.Horizontal)
+                        .Children(hgcb =>
+                        {
+                            hgcb.AddTile()
+                                    .Size("*")
+                                    .HeaderText(string.Format(Resources.DashboardLayout.SalesDashboard, Model.SalesDashboardStr))
+                                    .Content("#salesDashboardFGrid");
+                            hgcb.AddTile()
+                                    .Size("*")
+                                    .HeaderText(string.Format(Resources.DashboardLayout.KPIs, Model.KPIsStr))
+                                    .Content("#kpiGauges");
+                        });
+                    vgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.DashboardLayout.SplitLayout_Text0, Model.MonthlySalesStr))
+                        .Content("#monthlySalesChart");
+                });
+
+            isb.AddGroup()
+                .Size("*")
+                .Orientation(LayoutOrientation.Vertical)
+                .Children(hgcb =>
+                {
+                    hgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.DashboardLayout.CostBudget, Model.CostBudgetingStr))
+                        .Content("#costBudgetingChart");
+                    hgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.DashboardLayout.Countrywise, Model.CountrywiseSalesStr))
+                        .Content("#countrywiseSalesChart");
+                });
+        }))
+)
+
+@section Summary{
+    @Html.Raw(Resources.DashboardLayout.SplitLayout_Summary)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.DashboardLayout.SplitLayout_Desc)</p>
+}
+

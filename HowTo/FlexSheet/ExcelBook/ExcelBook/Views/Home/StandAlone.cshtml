@@ -1,0 +1,46 @@
+﻿@using ExcelBook.Models;
+@model IEnumerable<Sale>
+<script src="~/Scripts/app/standalone.js"></script>
+<div class="header visible-xs visible-sm">
+    <div class="container">
+        <h1>FlexSheet / Standalone Sheet</h1>
+    </div>
+</div>
+<div class="header hidden-xs hidden-sm">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/componentone" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>FlexSheet / Standalone Sheet</h1>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <p style="margin: 10px 0 20px 0;"><a href="@Url.Action("Index")">&lt; Return to sample home</a></p>
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel.sheet.macroEnabled.12" />
+                <button class="btn btn-default" onclick="load()">Load</button>
+                <button class="btn btn-default" onclick="save()">Save</button>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <p style="margin: 10px 0 20px 0;">&nbsp;</p>
+            <div class="form-inline well well-lg">
+                Selected Sheet: &nbsp;
+                <select class="form-control" id="sheetsSelect" onchange="changeSelectedSheet()">
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- the grid -->
+    <div class="row">
+        @(Html.C1().FlexSheet().Id("standaloneSheet").CssClass("flexSheet")
+        .AddBoundSheet(sheet =>
+            sheet.Bind(cv =>
+                cv.Bind(Model).DisableServerRead(true)).Name("Country"))
+        .AddUnboundSheet("Empty Sheet")
+        .OnClientLoaded("loaded")
+        .IsTabHolderVisible(false))
+    </div>
+</div>

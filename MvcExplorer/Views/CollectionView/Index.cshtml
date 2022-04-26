@@ -1,0 +1,49 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().CollectionViewService()
+    .Id("CVService")
+    .Bind(Model)
+    .RefreshOnEdit(Convert.ToBoolean(optionsModel.Options["Refresh On Edit"].CurrentValue))
+    .DisableServerRead(true)
+)
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("FlexGridCV")
+    .ItemsSourceId("CVService")
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+        bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+    .SortingType(AllowSorting.SingleColumn)
+    .CssClass("grid")
+    .Height(500)
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.CollectionView.Index_Text0)</p>
+}
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.CollectionView.Index_Text0)</p>
+    <p>@Html.Raw(Resources.CollectionView.Index_Text1)</p>
+}

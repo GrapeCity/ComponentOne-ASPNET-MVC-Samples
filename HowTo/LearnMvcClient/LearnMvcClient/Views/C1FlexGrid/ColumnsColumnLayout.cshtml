@@ -1,0 +1,25 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Text2)
+</p>
+@Html.C1().MultiSelect().Id("columnPicker").DisplayMemberPath("header").CheckedMemberPath("visible").HeaderFormat("{count:n0} columns visible")
+<br />
+<br />
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Text3)
+</p>
+<button id="btnSave" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Text4)
+</button>
+<button id="btnRestore" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.ColumnsColumnLayout_Text5)
+</button>

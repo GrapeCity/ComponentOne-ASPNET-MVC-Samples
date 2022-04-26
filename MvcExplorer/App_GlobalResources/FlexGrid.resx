@@ -1,0 +1,1076 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchEditing_Text0" xml:space="preserve">
+    <value>&lt;b&gt;Excel-Style editing:&lt;/b&gt;
+    The FlexGrid has built-in support for Excel-like, fast, in-cell editing.
+    There is no need to add extra columns with 'Edit' buttons that switch
+    between display and edit modes.&lt;/p&gt;</value>
+  </data>
+  <data name="BatchEditing_Text1" xml:space="preserve">
+    <value>Users can start editing simply by typing into any cell. This is called
+    'quick-edit' mode.
+    In this mode, the cursor keys finish the editing and the grid moves the selection.
+    They can also start editing by pressing F2 or by clicking a cell twice.
+    This is called 'full-edit' mode.
+    In this mode, the cursor keys move the caret within the editor and the user must
+    press the Enter, Tab, or Escape keys to finish editing.</value>
+  </data>
+  <data name="BatchEditing_Text2" xml:space="preserve">
+    <value>There are two modes for editing the data.</value>
+  </data>
+  <data name="BatchEditing_Text3" xml:space="preserve">
+    <value>In this mode, the item updated or created will be commit to the server after the corresponding row finishes editing. The removed row will be commit to the server immediately.</value>
+  </data>
+  <data name="BatchEditing_Text4" xml:space="preserve">
+    <value>If the user wants to update the data, the Update action Url should be provided. If he wants to add or remove the data, the Create or Delete action Url should be provided.
+    And the user should edit the data in the corresponding action. It is default mode.</value>
+  </data>
+  <data name="BatchEditing_Text5" xml:space="preserve">
+    <value>FlexGrid has in-built support for BatchEditing, the user can update, create or remove multiple items and commit all changes to the data source once . The user can commit multiple modifications by sorting, paging or filtering the grid or simply on a button click.</value>
+  </data>
+  <data name="BatchEditing_Text6" xml:space="preserve">
+    <value>The &lt;b&gt;BatchEditing&lt;/b&gt; action Url should be provided in this mode.</value>
+  </data>
+  <data name="BatchEditing_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the DisableServerRead property of FlexGrid's ItemSource to True. This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView's  commit method is explicitly called from client-side.</value>
+  </data>
+  <data name="ColumnLayout_Text0" xml:space="preserve">
+    <value>The FlexGrid has a client ColumnLayout property that gets or sets a JSON string containing a list of grid columns and their properties.
+        It doesn't support the datamap column.
+        This sample uses the client ColumnLayout property to persist the column layout to the browser's localStorage. FlexGrid also supports server-side saving\loading of column layout,
+        this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Please refer "ColumnLayout" HowTo sample for the implementation.</value>
+  </data>
+  <data name="ColumnLayout_Text1" xml:space="preserve">
+    <value>To see how this works, follow these steps:</value>
+  </data>
+  <data name="CustomEditors_Text0" xml:space="preserve">
+    <value>This sample shows how you can use custom editors to change the values in
+        FlexGrid cells.</value>
+  </data>
+  <data name="CustomEditors_Text1" xml:space="preserve">
+    <value>The sample demonstrates two ways to set up editors other than FlexGrid’s internal editor: EditTemplate and Column Editor properties.</value>
+  </data>
+  <data name="CustomEditors_Text2" xml:space="preserve">
+    <value>When the user starts editing a cell, the editor will show and get the focus.</value>
+  </data>
+  <data name="CustomEditors_Text3" xml:space="preserve">
+    <value>There can be two kinds of custom editors:</value>
+  </data>
+  <data name="CustomEditors_Text4" xml:space="preserve">
+    <value>C1 Input controls which have "Value" or "Text" property:</value>
+  </data>
+  <data name="CustomEditors_Text5" xml:space="preserve">
+    <value>To use EditTemplate, you need to declare the C1 Input control as template then assign it's id to the EditTemplateId property of a column or declare the control under the c1-flex-grid-cell-template tag.</value>
+  </data>
+  <data name="CustomEditors_Text6" xml:space="preserve">
+    <value>The second way is to declare a C1 Input control as usual and then assign it's id to the Editor property of a column.</value>
+  </data>
+  <data name="CustomEditors_Text7" xml:space="preserve">
+    <value>If the grid allows adding a new row, you need set the editor's IsRequired property to false. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</value>
+  </data>
+  <data name="CustomEditors_Text8" xml:space="preserve">
+    <value>This sample uses Editor property for "Start", "Country", "Color" and uses EditTemplate for "End", "Amount" to set C1 Input controls as the editors.</value>
+  </data>
+  <data name="CustomEditors_Text9" xml:space="preserve">
+    <value>Use a control or a C1 control that does NOT have a ”Value" or "Text" property:</value>
+  </data>
+  <data name="CustomEditors_Text10" xml:space="preserve">
+    <value>In this type of editors, you need to listen to the grid's OnClientCellEditEnding event and set &lt;pre&gt;cellEditEndingEventArgs.cancel = true;&lt;/pre&gt; &lt;p&gt;to apply updates.&lt;/p&gt;</value>
+  </data>
+  <data name="CustomEditors_Text11" xml:space="preserve">
+    <value>Then you need to consider when to update the cell value and remove the editor from the grid in your application. For example, when the editor blurs, we need to update the cell value and remove the editor.</value>
+  </data>
+  <data name="CustomEditors_Text12" xml:space="preserve">
+    <value>In this sample, the "Product" column uses &amp;lt;input /&amp;gt; as the editor to show this kind of editor.</value>
+  </data>
+  <data name="CustomFooters_Text0" xml:space="preserve">
+    <value>This sample shows how to extend FlexGrid to provide two types of footer elements.</value>
+  </data>
+  <data name="DataMap_Text0" xml:space="preserve">
+    <value>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.&lt;br /&gt;
+    Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;</value>
+  </data>
+  <data name="DataMap_Text1" xml:space="preserve">
+    <value>Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</value>
+  </data>
+  <data name="DataMap_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;FlexGrid&lt;/b&gt; columns have a &lt;b&gt;DropDownCssClass&lt;/b&gt; property that can be used to
+    style the drop-downs used to edit values in data-mapped columns.</value>
+  </data>
+  <data name="DataMap_Text3" xml:space="preserve">
+    <value>To see the multi-column editor
+    in action, click one of the drop-down buttons in the "Color" column, or select a cell in that
+    column and press F4:</value>
+  </data>
+  <data name="Editing_Text0" xml:space="preserve">
+    <value>The FlexGrid has built-in support for Excel-like, fast, in-cell editing.
+    There is no need to add extra columns with 'Edit' buttons that switch
+    between display and edit modes.</value>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>Users can start editing simply by typing into any cell. This is called
+    'quick-edit' mode.
+    In this mode, the cursor keys finish the editing and the grid moves the selection.
+    They can also start editing by pressing F2 or by clicking a cell twice.
+    This is called 'full-edit' mode.
+    In this mode, the cursor keys move the caret within the editor and the user must
+    press the Enter, Tab, or Escape keys to finish editing.</value>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>You can disable editing at the grid or column levels using the &lt;b&gt;isReadOnly&lt;/b&gt;
+        property of the grid or column objects.</value>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Mobile Devices:&lt;/b&gt;
+        Mobile devices use the double-click event to zoom in and out, and do not show
+        a keyboard by default. To start editing a cell on mobile devices, simply click
+        a cell to select it, then click it again to indicate you want to start editing.</value>
+  </data>
+  <data name="Editing_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Automatic type Validation/Coercion:&lt;/b&gt;
+        If the user types anything that is invalid for the column (e.g. "hello" for a
+        numeric or date column), the edits won't be applied and the cell will keep its
+        original value. Dates and times are parsed using the format assigned to the
+        column.</value>
+  </data>
+  <data name="Editing_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Checkboxes:&lt;/b&gt;
+        By default (and unlike Excel), Boolean values are shown as checkboxes. Users
+        can change the checkbox values by clicking or by pressing the space bar.
+        Checkboxes are easier to read and to edit than fields containing "TRUE" or
+        "FALSE" strings.</value>
+  </data>
+  <data name="Editing_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Multiline:&lt;/b&gt;
+        When setting the column's &lt;b&gt;multiline&lt;/b&gt; property to true, the content of cells in
+        column would wrap at new line characters (\n). Like Excel, users can press ALT+ENTER to enter a new line.</value>
+  </data>
+  <data name="Editing_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Editing Mode:&lt;/b&gt;
+        There are two modes for updating the data.
+        By default, the update operation will be commit to the server once finishing editing.
+        If the user wants to commit the update operation to datasource server, the Update, Delete or Create action url should be provided.
+        And the corresponding codes used to update the datasource should be written in the corresponding action.
+        The other mode is called BatchEdit. The user can update, create or remove multiple items.
+        Once these modifications are confirmed, They could be commit to the data source only once. Now these modifications can be commit by the commit method of CollectionView in client side.
+        The user can also commit them by sorting, paging or filtering behavior.</value>
+  </data>
+  <data name="Editing_Text9" xml:space="preserve">
+    <value>Here is a typical editable grid, the Description column shows text in multiline.</value>
+  </data>
+  <data name="Editing_Text10" xml:space="preserve">
+    <value>Popup editing keeps the native editing enabled for quick Excel-like data entry, and adds
+    an "Edit Detail" button to invoke a form where the user can edit the item details.</value>
+  </data>
+  <data name="Editing_Text11" xml:space="preserve">
+    <value>To see this in action, select an item on the grid and click the "Edit Detail" button below.
+    This will bring up a form where users can edit the data for the currently selected item.</value>
+  </data>
+  <data name="Editing_Text12" xml:space="preserve">
+    <value>The detail form uses specialized input controls that take up more space but can make data
+    entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes
+    or restore the original data. Both actions are accomplished with a single call to the
+    &lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</value>
+  </data>
+  <data name="Editing_Text13" xml:space="preserve">
+    <value>If for some reason you don't like the Excel-style editing and prefer to add editing
+    buttons to every row (typical of editable HTML tables), you can accomplish that
+    using a &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.</value>
+  </data>
+  <data name="Editing_Text14" xml:space="preserve">
+    <value>The grid below demonstrates this approach. The buttons in the cells call
+    methods in the controller to perform the required actions:</value>
+  </data>
+  <data name="ExcelImportExport_Text0" xml:space="preserve">
+    <value>The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file.</value>
+  </data>
+  <data name="ExcelImportExport_Text1" xml:space="preserve">
+    <value>To export FlexGrid content, pass the FlexGrid instance to the &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; method. This generates xlsx file content, which can be saved to a local file or sent to a server.</value>
+  </data>
+  <data name="ExcelImportExport_Text2" xml:space="preserve">
+    <value>To populate FlexGrid with data from an xlsx file, pass the FlexGrid instance and the xlsx file content to the &lt;b&gt;FlexGridXlsxConverter.load&lt;/b&gt; method.</value>
+  </data>
+  <data name="ExcelImportExport_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt;You should add jszip.js library by yourself and the CDN link is:http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js</value>
+  </data>
+  <data name="Globalization_Text0" xml:space="preserve">
+    <value>By default, MVC controls format and parse the data using American English culture.
+        The decimal symbol is a period, the thousand separator is a comma, and the days of
+        the week are "Sunday" through "Saturday".</value>
+  </data>
+  <data name="Globalization_Text1" xml:space="preserve">
+    <value>If your application targets other cultures, register the appropriate culture by
+        registering the MVC scripts in your HTML pages.</value>
+  </data>
+  <data name="Globalization_Text2" xml:space="preserve">
+    <value>For example, to localize an application for the German culture, register the "de"
+        culture while registering the scripts:</value>
+  </data>
+  <data name="Globalization_Text3" xml:space="preserve">
+    <value>The client &lt;b&gt;FlexGridFilter&lt;/b&gt; class is localizable, and you can take advantage
+        of this feature for modifying the UI strings and also the lists of conditions and
+        operators.</value>
+  </data>
+  <data name="Globalization_Text4" xml:space="preserve">
+    <value>In this sample, we customized the list of operators by assigning custom arrays to
+        the filter's &lt;b&gt;stringOperators&lt;/b&gt;, &lt;b&gt;numberOperators&lt;/b&gt;, &lt;b&gt;dateOperators&lt;/b&gt;,
+        &lt;b&gt;and booleanOperators&lt;/b&gt;.</value>
+  </data>
+  <data name="Grouping_Text0" xml:space="preserve">
+    <value>This sample shows grouping support in the FlexGrid. Most of the work is
+        done by the CollectionView class used as a data source for the grid.
+        You can config group description by GroupBy method in view.
+        To add grouping by Javascript, add one or more GroupDescription
+        objects to the collectionView.groupDescriptions property. And ensure
+        that the grid's ShowGroups property is set to true.</value>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>You can customize the text that is displayed in group header rows using
+        the grid's GroupHeaderFormat property. By default, this displays the name
+        of the group, for example, ShipCountry, followed by the current group and the
+        number of items in the group. Use the Format property on each Column object
+        to format aggregated data displayed in the group header for that column.
+        Notice how we use the column's Aggregate property to specify how to aggregate
+        the data for each column.</value>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>This view shows basic features of FlexGrid for ASP.NET MVC.</value>
+  </data>
+  <data name="Paging_Text0" xml:space="preserve">
+    <value>This sample shows how to implement paged views with the FlexGrid.
+        All the work is done by the CollectionView class used as a data source for the grid.
+        To enable paging, set the PageSize property of &lt;b&gt;FlexGrid&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.
+        To switch pages, use the Pager Control and set Pager.Owner property to the id of &lt;b&gt;FlexGrid&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</value>
+  </data>
+  <data name="Paging_Text1" xml:space="preserve">
+    <value>In this example, the paging happens server-side. This is because CollectionView here acts like a service and synchronizes
+        with server data. The CollectionView internally does an ajax call to fetch next set of data. Refer Disable Server Reading sample for client-side paging.</value>
+  </data>
+  <data name="Paging_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt; That the paging UI is implemented outside of the grid. This gives you complete
+        control over the appearance and functionality of the paging mechanism.
+        To customize the Pager by Javascript, please refer the client CollectionView class.</value>
+  </data>
+  <data name="PDFExport_Text0" xml:space="preserve">
+    <value>You can use the FlexGridPdfConverter, a &lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;-based JavaScript library,
+        to export FlexGrid to PDF (Portable Document Format) without using any server-side code.</value>
+  </data>
+  <data name="PDFExport_Text1" xml:space="preserve">
+    <value>To export a FlexGrid, you need to use the &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; function that takes the following arguments:</value>
+  </data>
+  <data name="PDFExport_Text2" xml:space="preserve">
+    <value>In this sample, you can change the following export settings using the menus above:</value>
+  </data>
+  <data name="PDFExport_Text3" xml:space="preserve">
+    <value>This sample shows how the row grouping feature of the FlexGrid is supported in the FlexGridPdfConverter.</value>
+  </data>
+  <data name="PDFExport_Text4" xml:space="preserve">
+    <value>This sample shows how the cell merging feature of the FlexGrid is supported in the FlexGridPdfConverter.</value>
+  </data>
+  <data name="PDFExport_Text5" xml:space="preserve">
+    <value>This sample shows how the tree view feature of the FlexGrid is supported in the FlexGridPdfConverter.</value>
+  </data>
+  <data name="PDFExport_Text6" xml:space="preserve">
+    <value>In this sample, FlexGrid uses font &lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt;
+            and two typefaces, &lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt; and &lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt;, are embeded into the document.
+            The FiraSans-Bold.ttf (boldface) typeface is used to display the header cells, and the FiraSans-Regular.ttf
+            typeface is used for rest of the content.</value>
+  </data>
+  <data name="PDFExport_Text7" xml:space="preserve">
+    <value>To achieve this, the following export settings are used:</value>
+  </data>
+  <data name="RightToLeft_Text0" xml:space="preserve">
+    <value>Some languages (Arabic and Hebrew especially) render content from the right
+    to the left of the page. HTML accommodates this with the 'dir' attribute.
+    Setting 'dir' to 'rtl' on any element causes the element's content to flow 
+    from right to left.</value>
+  </data>
+  <data name="RightToLeft_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;FlexGrid&lt;/b&gt; supports this automatically. If the element hosting the
+    grid has the 'dir' attribute set to 'rtl', the grid will render columns 
+    from the right to the left. You don't have to set any properties on the 
+    control.</value>
+  </data>
+  <data name="RightToLeft_Text2" xml:space="preserve">
+    <value>Note that the 'dir' attribute value is inherited, so if you set it on the
+    body tag for example, the entire page will be rendered from right to left,
+    including the grid.</value>
+  </data>
+  <data name="RightToLeft_Text3" xml:space="preserve">
+    <value>Note also that CSS has a 'direction' attribute that performs the same 
+    function as the 'dir' element attribute. The 'dir' attribute is generally
+    considered more appropriate for 
+    &lt;a href="http://www.w3.org/International/questions/qa-bidi-css-markup"&gt;several reasons&lt;/a&gt;,
+    including the fact that the 'dir' attribute can be used in CSS rules.</value>
+  </data>
+  <data name="StarSizing_Text0" xml:space="preserve">
+    <value>This grid has four columns. The first is 80 pixels wide and can be resized between
+        40 and 160 pixels. The other three have widths of 2*, *, and *, and cannot be
+        resized using the mouse.</value>
+  </data>
+  <data name="StarSizing_Text1" xml:space="preserve">
+    <value>Notice that the second column is twice as wide as the third and fourth columns, and that
+        they keep these proportions even as you resize the first column or the whole grid.</value>
+  </data>
+  <data name="StarSizing_Text2" xml:space="preserve">
+    <value>This grid shows how you can make any column stretch to fill the available space. In this case,
+        we set the width of the second column to * to achieve that effect.</value>
+  </data>
+  <data name="StarSizing_Text3" xml:space="preserve">
+    <value>We also set the minimum width of the second column to 100 pixels in order to prevent it from
+        getting too narrow when the other columns in the grid are resized, and we prevent users from 
+        resizing this column with the mouse.</value>
+  </data>
+  <data name="StarSizing_Text4" xml:space="preserve">
+    <value>This example sets all widths to *, which means the space available is divided equally among them.
+        Resize the browser and notice how the grid resizes and the columns fill it up equally.</value>
+  </data>
+  <data name="StarSizing_Text5" xml:space="preserve">
+    <value>Also, unlike the other examples, this one sets the allowResizing property of the entire grid rather 
+        than an individual column. We set this one to None, but you may also choose Columns, Rows, or Both.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Text0" xml:space="preserve">
+    <value>This sample shows the basic usage of the unobtrusive validation.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Text1" xml:space="preserve">
+    <value>The columns have the following validations:</value>
+  </data>
+  <data name="BatchEditing_Update" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="BatchEditing_Normal" xml:space="preserve">
+    <value>Normal</value>
+  </data>
+  <data name="BatchEditing_Batch" xml:space="preserve">
+    <value>Batch</value>
+  </data>
+  <data name="BatchEditing_Updating" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
+  <data name="BatchEditing_NoChanges" xml:space="preserve">
+    <value>No changes.</value>
+  </data>
+  <data name="BatchEditing_Done" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="BuiltInValidation_Text0" xml:space="preserve">
+    <value>This sample shows the basic usage of the built-in validation.</value>
+  </data>
+  <data name="BuiltInValidation_Message1" xml:space="preserve">
+    <value>Invalid Country, Please use the country in the list["US", "UK", "Canada", "Japan", "China", "France", "German", "Italy", "Korea", "Australia"]</value>
+  </data>
+  <data name="BuiltInValidation_Message2" xml:space="preserve">
+    <value>Invalid Product, Please use the product in the list ["Widget", "Gadget", "Doohickey"]</value>
+  </data>
+  <data name="BuiltInValidation_Message3" xml:space="preserve">
+    <value>The Amount cannot be less than 0 or greater than or equal to 5000!</value>
+  </data>
+  <data name="BuiltInValidation_Message4" xml:space="preserve">
+    <value>Active items are not allowed in the US or UK!</value>
+  </data>
+  <data name="ColumnLayout_SaveColumnLayout" xml:space="preserve">
+    <value>Save Column Layout</value>
+  </data>
+  <data name="ColumnLayout_LoadColumnLayout" xml:space="preserve">
+    <value>Load Column Layout</value>
+  </data>
+  <data name="ColumnLayout_Li1" xml:space="preserve">
+    <value>Resize some columns and drag some to new positions.</value>
+  </data>
+  <data name="ColumnLayout_Li2" xml:space="preserve">
+    <value>Click the "Save Column Layout" button to save the changes to local storage.</value>
+  </data>
+  <data name="ColumnLayout_Li3" xml:space="preserve">
+    <value>Refresh the page to restore the original layout.</value>
+  </data>
+  <data name="ColumnLayout_Li4" xml:space="preserve">
+    <value>Click the "Load Column Layout" button to restore the layout from local storage.</value>
+  </data>
+  <data name="CustomCells_Text0" xml:space="preserve">
+    <value>This view shows the FlexGrid control's custom cells features.</value>
+  </data>
+  <data name="CustomFooters_Text1" xml:space="preserve">
+    <value>Select how to group the data</value>
+  </data>
+  <data name="CustomFooters_None" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="CustomFooters_Country" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CustomFooters_Product" xml:space="preserve">
+    <value>Product</value>
+  </data>
+  <data name="CustomFooters_ProductAndColor" xml:space="preserve">
+    <value>Product and Color</value>
+  </data>
+  <data name="CustomFooters_Text2" xml:space="preserve">
+    <value>See and edit the data here</value>
+  </data>
+  <data name="CustomFooters_Li1" xml:space="preserve">
+    <value>&lt;b&gt;Column Footer Rows&lt;/b&gt;: In some situations you may want to display non-scrollable rows below
+            the grid data containing summary information such as subtotals.
+            This can be done by the &lt;b&gt;ShowColumnFooters(bool value = true, string rowHeaderText = null)&lt;/b&gt; method.
+            The grid will automatically provide values for any columns that have
+            the &lt;b&gt;Aggregate&lt;/b&gt; property set. This is what this sample does.</value>
+  </data>
+  <data name="CustomFooters_Li2" xml:space="preserve">
+    <value>&lt;b&gt;Group Footer Rows&lt;/b&gt;: When grouping is enabled, FlexGrid adds group rows above each group.
+            This sample shows how you can add custom group rows below each group as well.</value>
+  </data>
+  <data name="DataMap_DataMap" xml:space="preserve">
+    <value>Data Map</value>
+  </data>
+  <data name="DataMap_MultiColumnDataMap" xml:space="preserve">
+    <value>Multi-column Data Map</value>
+  </data>
+  <data name="DetailRow_Text0" xml:space="preserve">
+    <value>Adding a row details section enables you to group some data in a template that is optionally visible or collapsed.&lt;br /&gt;
+    For example, you can add row details to a FlexGrid that presents only a summary of the data for each row, but presents more data when the user selects a row.&lt;br /&gt;
+    Also, you can set a callback function that determines whether a row has details.</value>
+  </data>
+  <data name="DisableServerRead_Text0" xml:space="preserve">
+    <value>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for. 
+    When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.
+    And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.
+    Otherwise, sorting, paging or filtering will be done in server side. And sometimes the "Loading..." text will be shown.</value>
+  </data>
+  <data name="DisableServerRead_Text1" xml:space="preserve">
+    <value>FlexGrid without paging</value>
+  </data>
+  <data name="DisableServerRead_Text2" xml:space="preserve">
+    <value>Paging FlexGrid which PageSize is set to 10</value>
+  </data>
+  <data name="Editing_Editing" xml:space="preserve">
+    <value>Editing</value>
+  </data>
+  <data name="Editing_ExcelStyleEditing" xml:space="preserve">
+    <value>Excel-Style editing</value>
+  </data>
+  <data name="Editing_EditItem" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="Editing_CategoryID" xml:space="preserve">
+    <value>Category ID</value>
+  </data>
+  <data name="Editing_CategoryName" xml:space="preserve">
+    <value>Category Name</value>
+  </data>
+  <data name="Editing_Description" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Editing_OK" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Editing_Cancel" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="Editing_EditDetail" xml:space="preserve">
+    <value>Edit Detail...</value>
+  </data>
+  <data name="Editing_PopupEditing" xml:space="preserve">
+    <value>Popup editing</value>
+  </data>
+  <data name="Editing_InlineEditing" xml:space="preserve">
+    <value>Inline editing</value>
+  </data>
+  <data name="Editing_Edit" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Editing_Delete" xml:space="preserve">
+    <value>Delete</value>
+  </data>
+  <data name="Editing_Text15" xml:space="preserve">
+    <value>This sample shows how to edit cell data with various ways.</value>
+  </data>
+  <data name="Editing_ReadMore" xml:space="preserve">
+    <value>Read More</value>
+  </data>
+  <data name="ExcelImportExport_Import" xml:space="preserve">
+    <value>Import</value>
+  </data>
+  <data name="ExcelImportExport_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ExcelImportExport_IncludeColumnHeaders" xml:space="preserve">
+    <value>Include Column Headers</value>
+  </data>
+  <data name="Filter_Text0" xml:space="preserve">
+    <value>This view shows how to use filtering in FlexGrid.</value>
+  </data>
+  <data name="FrozenCells_Text0" xml:space="preserve">
+    <value>This view shows the FlexGrid control's frozen cells features.</value>
+  </data>
+  <data name="Globalization_PleaseSelectACulture" xml:space="preserve">
+    <value>Please select a culture</value>
+  </data>
+  <data name="Globalization_CustomizeFilterUI" xml:space="preserve">
+    <value>Customize filter UI</value>
+  </data>
+  <data name="Globalization_Text5" xml:space="preserve">
+    <value>This view shows how to localize the FlexGrid control.</value>
+  </data>
+  <data name="Globalization_Globalization" xml:space="preserve">
+    <value>Globalization</value>
+  </data>
+  <data name="Globalization_Customization" xml:space="preserve">
+    <value>Customization</value>
+  </data>
+  <data name="GroupPanel_Text0" xml:space="preserve">
+    <value>The GroupPanel feature allows you to add a drag-drop grouping UI to any FlexGrid control.</value>
+  </data>
+  <data name="GroupPanel_Placeholder1" xml:space="preserve">
+    <value>Drag columns here to create Groups</value>
+  </data>
+  <data name="GroupPanel_Placeholder2" xml:space="preserve">
+    <value>Drag columns here...</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>FlexGrid for ASP.NET MVC is new version of the FlexGrid control, which is more flexible and powerful than ever.
+    This grid allows you to select, edit, sort, group, filter and page data. Additionally, this versatile FlexGrid control lets you format
+    data and easily visualize the hierarchical data. Performance is a vital attribute of FlexGrid, therefore, the core control is
+    lightweight and fast. For complex features the control uses extensions.</value>
+  </data>
+  <data name="MasterDetail_Text0" xml:space="preserve">
+    <value>The client side CollectionView has built-in support for currency, which enables you to implement master-detail scenarios with FlexGrid. You can refer to the &lt;strong&gt;currentItem&lt;/strong&gt; and use it as a binding source for any elements on the page.
+&lt;br/&gt;
+Note that you have to update the details view when the current item changes. To do that, attach a handler to the &lt;strong&gt;currentChanged&lt;/strong&gt; event and update the details view as needed.</value>
+  </data>
+  <data name="MasterDetail_Text1" xml:space="preserve">
+    <value>Customers:</value>
+  </data>
+  <data name="MasterDetail_Text2" xml:space="preserve">
+    <value>All orders of the selected Customer:</value>
+  </data>
+  <data name="MergeCells_Text0" xml:space="preserve">
+    <value>This view shows the FlexGrid control's merge cells features.</value>
+  </data>
+  <data name="ODataBind_Text0" xml:space="preserve">
+    <value>This example shows how you can bind FlexGrid with an OData service.</value>
+  </data>
+  <data name="PDFExport_Li1" xml:space="preserve">
+    <value>&lt;b&gt;embeddedFonts&lt;/b&gt;: Provides information to the export library, about various custom fonts to be embedded, such as URL,
+                name, style, weight.</value>
+  </data>
+  <data name="PDFExport_Li2" xml:space="preserve">
+    <value>&lt;b&gt;styles&lt;/b&gt;: It is used to set up the style for the grid elements and link them with the embedded fonts.</value>
+  </data>
+  <data name="PDFExport_Li3" xml:space="preserve">
+    <value>Export settings.</value>
+  </data>
+  <data name="PDFExport_Li4" xml:space="preserve">
+    <value>&lt;b&gt;scaleMode&lt;/b&gt;: Determines how the FlexGrid content should be scaled in order to fit the page.</value>
+  </data>
+  <data name="PDFExport_Li5" xml:space="preserve">
+    <value>&lt;b&gt;orientation&lt;/b&gt;: Determines the orientation of pages.</value>
+  </data>
+  <data name="PDFExport_Li6" xml:space="preserve">
+    <value>&lt;b&gt;exportMode&lt;/b&gt;: Determines which part of the FlexGrid should be exported (all of the data or only the current selection).</value>
+  </data>
+  <data name="PDFExport_ExportSettings" xml:space="preserve">
+    <value>Export Settings:</value>
+  </data>
+  <data name="PDFExport_ScaleMode" xml:space="preserve">
+    <value>Scale Mode</value>
+  </data>
+  <data name="PDFExport_Orientation" xml:space="preserve">
+    <value>Orientation</value>
+  </data>
+  <data name="PDFExport_ExportMode" xml:space="preserve">
+    <value>Export Mode</value>
+  </data>
+  <data name="PDFExport_Export" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="PDFExport_Title1" xml:space="preserve">
+    <value>Grouping support</value>
+  </data>
+  <data name="PDFExport_Title2" xml:space="preserve">
+    <value>Merging support</value>
+  </data>
+  <data name="PDFExport_AllowMerging" xml:space="preserve">
+    <value>Allow Merging</value>
+  </data>
+  <data name="PDFExport_Title3" xml:space="preserve">
+    <value>Tree view support and font embedding</value>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>This example shows how you can bind FlexGrid with the data from some Action.</value>
+  </data>
+  <data name="RightToLeft_RightToLeft" xml:space="preserve">
+    <value>Right To Left</value>
+  </data>
+  <data name="Sorting_SortingField" xml:space="preserve">
+    <value>Sorting Field</value>
+  </data>
+  <data name="Sorting_SortingOrder" xml:space="preserve">
+    <value>Sorting Order</value>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>In this sample, you can sort the collection based on the corresponding field value chosen in the first list. You can also specify the sorting order in the second list.</value>
+  </data>
+  <data name="StarSizing_Example1" xml:space="preserve">
+    <value>Example 1:</value>
+  </data>
+  <data name="StarSizing_Example2" xml:space="preserve">
+    <value>Example 2:</value>
+  </data>
+  <data name="StarSizing_Example3" xml:space="preserve">
+    <value>Example 3:</value>
+  </data>
+  <data name="StarSizing_Text6" xml:space="preserve">
+    <value>This sample shows how you can use XAML-style star sizing to implement flexible layouts
+    with the FlexGrid. Star sizing is specified in the width property of the object.</value>
+  </data>
+  <data name="TreeGrid_Text0" xml:space="preserve">
+    <value>The file structure of this sample project</value>
+  </data>
+  <data name="TreeGrid_Text1" xml:space="preserve">
+    <value>This sample shows how to use FlexGrid to display a tree view.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Text2" xml:space="preserve">
+    <value>This sample shows the basic usage of the unobtrusive validation.</value>
+  </data>
+  <data name="VirtualScrolling_Text0" xml:space="preserve">
+    <value>This sample shows how to make grid work in virtual scrolling mode. To enable this functionality, the DisableServerRead property should be false(default). Then the InitialItemsCount property should be set a number which is greater than 0.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li1" xml:space="preserve">
+    <value>&lt;b&gt;Name:&lt;/b&gt; Required. Alphanumeric and contains 4 to 10 characters.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li2" xml:space="preserve">
+    <value>&lt;b&gt;Industry:&lt;/b&gt; Required.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li3" xml:space="preserve">
+    <value>&lt;b&gt;Country:&lt;/b&gt; Required.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li4" xml:space="preserve">
+    <value>&lt;b&gt;Phone:&lt;/b&gt; Required. 8 to 11 characters.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li5" xml:space="preserve">
+    <value>&lt;b&gt;Email:&lt;/b&gt; Required. Valid e-mail address.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Li6" xml:space="preserve">
+    <value>&lt;b&gt;Birthdate:&lt;/b&gt; Required.</value>
+  </data>
+  <data name="HeaderTemplate_Description" xml:space="preserve">
+    <value>This example shows a table with financial data. The data contains two column groups, one showing fund performance and one showing fund composition.</value>
+  </data>
+  <data name="HeaderTemplate_Sumary" xml:space="preserve">
+    <value>This sample shows the basic usage of the Custom Header Template.</value>
+  </data>
+  <data name="AntiForgency_Text0" xml:space="preserve">
+    <value>This sample shows how you can use C1AntiForgeryTokenAttribute to prevent forgery of a request.</value>
+  </data>
+  <data name="AntiForgency_Text1" xml:space="preserve">
+    <value>The sample uses Html.AntiForgeryToken() to generate a token per every request so then no one can forge a form post.</value>
+  </data>
+  <data name="AntiForgency_Text2" xml:space="preserve">
+    <value>To Test, remove Html.AntiForgeryToken() in AntiForgency.cshtml, then update data on grid, server will return an 500 Internal Server Error.</value>
+  </data>
+  <data name="HeaderTemplate_Table_Description" xml:space="preserve">
+    <value>Financial table example.</value>
+  </data>
+  <data name="BuiltInValidation_Text1" xml:space="preserve">
+    <value>You can also customize error tooltip's appearance by setting &lt;b&gt;CssClass&lt;/b&gt; property of &lt;b&gt;ErrorTip&lt;/b&gt; or &lt;b&gt;class&lt;/b&gt; attribute of &lt;b&gt;c1-errortip&lt;/b&gt; tag using CSS.</value>
+  </data>
+  <data name="Filter_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;ExclusiveValueSearch&lt;/b&gt; is an advance property to customize the behavior while searching filter value in column filter box.&lt;br /&gt;You can toggle check ExclusiveValueSearch then click on column filter icon, uncheck some values and input value into search box for observing how it works.</value>
+  </data>
+  <data name="AntiForgency_Text3" xml:space="preserve">
+    <value>Remove AntiForgery Token</value>
+  </data>
+  <data name="AntiForgency_Text4" xml:space="preserve">
+    <value>Restore AntiForgery Token</value>
+  </data>
+  <data name="Editing_Text8" xml:space="preserve">
+    <value>&lt;b&gt;AutoRowHeights: &lt;/b&gt;Automatically resize the rows when the data or grid layout change. Especially useful when the grid has columns configured to word-wrap their content, and when the grid has a relatively small number of rows.</value>
+  </data>
+  <data name="Editing_Text16" xml:space="preserve">
+    <value>&lt;b&gt;RefreshOnEdit:&lt;/b&gt; This determines whether the grid should refresh all cells after a cell is edited. It's True by default, you can disable this for more perfomance.</value>
+  </data>
+  <data name="AutoGenerateColumns_Text0" xml:space="preserve">
+    <value>The FlexGrid supports generating columns automatically which the width of auto-generate columns can be customizable based on their data-type.</value>
+  </data>
+  <data name="AutoGenerateColumns_Text1" xml:space="preserve">
+    <value>This page show how the &lt;b&gt;AutoGenerateColumns&lt;/b&gt; property works with the static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt;.&lt;br /&gt;The static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt; allow to set the default width of auto-generate columns based on their data-type.&lt;br /&gt;It's "static property", means only need to set this property once for any grid then it should work for all grids which are created following.</value>
+  </data>
+  <data name="AutoGenerateColumns_Text2" xml:space="preserve">
+    <value>The following settings are for the first grid only, the second grid is always set AutoGenerateColumns to true:</value>
+  </data>
+  <data name="CustomCells_Text1" xml:space="preserve">
+    <value>Uses &lt;b&gt;Template&lt;/b&gt; property for generating the HTML content of data cells in the Column.</value>
+  </data>
+  <data name="AllowPinning_Text0" xml:space="preserve">
+    <value>PinningType property allows to add pin icons to the column headers and clicking the icons toggles the column's frozen state</value>
+  </data>
+  <data name="CopyHeaders_Text0" xml:space="preserve">
+    <value>CopyHeaders property allows to specify whether the grid should include row and/or column headers when copying data to the clipboard.</value>
+  </data>
+  <data name="Searching_Text0" xml:space="preserve">
+    <value>The FlexGridSearch control provides a simple UI for performing full-text searches on FlexGrid controls.</value>
+  </data>
+  <data name="Searching_Text1" xml:space="preserve">
+    <value>The FlexGridSearch control provides a simple UI for performing full-text searches on FlexGrid controls.&lt;br /&gt;It filters the data and highlights matches on the grid as you type.&lt;br /&gt;The same FlexGrid control can be filtered by the FlexGridSearch control and filter feature at the same time.</value>
+  </data>
+  <data name="Searching_Text2" xml:space="preserve">
+    <value>The total item count is now</value>
+  </data>
+  <data name="ODataBind_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;ODataCollectionView&lt;/b&gt; class provides a simple way to connect controls to OData sources. When you create an &lt;b&gt;ODataCollectionView&lt;/b&gt;, it starts loading the data in the source. The &lt;b&gt;ODataVirtualCollectionView&lt;/b&gt; extends &lt;b&gt;ODataCollectionView&lt;/b&gt; to provide &lt;b&gt;on-demand&lt;/b&gt; loading of data. It does not load the data from the server automatically. Instead, it relies on the &lt;b&gt;setWindow&lt;/b&gt; method to load data fragments (windows) on demand. The grids above show how both classes work. Notice how the grid on the top shows the data being loaded gradually. The grid on the bottom shows the full record count immediately, but the data will not be loaded until you scroll down.</value>
+  </data>
+  <data name="ColumnGroups_Text0" xml:space="preserve">
+    <value>The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable.</value>
+  </data>
+  <data name="ColumnGroups_Text1" xml:space="preserve">
+    <value>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</value>
+  </data>
+  <data name="PreserveWhiteSpace_Text0" xml:space="preserve">
+    <value>The sampe shows how to make the grid keep whitespace in cells as they appear in the data or whether it should collapse the whitespace into a single space character.</value>
+  </data>
+  <data name="PreserveWhiteSpace_Text1" xml:space="preserve">
+    <value>When 'Preserve White Space' value is set True, the grid will keep whitespace in cells. See Color column for more clartity.</value>
+  </data>
+  <data name="GroupDescriptionCreator_Text0" xml:space="preserve">
+    <value>If 'Group Description Creator' is True, 'Start' and 'End' columns can group by Year, 'Country' column can group by continent</value>
+  </data>
+  <data name="CheckboxSelection_Text0" xml:space="preserve">
+    <value>Use the Selector extender to add a checkbox-based scheme for row selection.</value>
+  </data>
+  <data name="CheckboxSelection_Text1" xml:space="preserve">
+    <value>The Selector adds checkboxes for row selection. This is very useful on mobile devices, which have no keyboards with shift and control keys for extended selections.&lt;br /&gt;
+        The Selector can be used on header columns as well as regular scrollable/data columns.&lt;br /&gt;
+        The Selector works with flat and hierarchical views. In hierarchical views, users can toggle the selected state for entire groups at once.</value>
+  </data>
+  <data name="BooleanChecker_Text0" xml:space="preserve">
+    <value>Use the BooleanChecker extender to add checkboxes to groups and column header of boolean column for checking all values in groups or column.</value>
+  </data>
+  <data name="BooleanChecker_Text1" xml:space="preserve">
+    <value>In this sample, the BooleanChecker is attached to "Active" column for checking all active values.&lt;br /&gt;
+    To show checkboxes in groups header, need setting Aggregate property of the "Active" column as Aggregate.First.&lt;br /&gt;
+    Note that the BooleanChecker only works with the boolean column. Therefore, with remote data binding, you should manually set the DataType of the column as DataType.Boolean.</value>
+  </data>
+  <data name="ODataDeferCommits_Description_Text0" xml:space="preserve">
+    <value>The default value for this property is &lt;b&gt;false&lt;/b&gt;, which causes any changes to the data to be immediately committed to the database.</value>
+  </data>
+  <data name="ODataDeferCommits_Summary_Text0" xml:space="preserve">
+    <value>The default value for this property is false, which causes any changes to the data to be immediately committed to the database.</value>
+  </data>
+  <data name="ODataDeferCommits_Description_Text1" xml:space="preserve">
+    <value>If you set this property to &lt;b&gt;true&lt;/b&gt;, any changes to the data (including edits, additions, and removals) will be tracked but not committed to the database until you click Commit button to commit the changes, or Cancel button to discard all pending changes</value>
+  </data>
+  <data name="ODataDeferCommits_Done_Text0" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+  <data name="ODataDeferCommits_No_Change_Text0" xml:space="preserve">
+    <value>No Changes.</value>
+  </data>
+  <data name="ODataDeferCommits_Updating_Text0" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
+  <data name="Searching_Text3" xml:space="preserve">
+    <value>You can also specify the CaseSensitiveSearch property of FlexGrid to determine whether the search is case-sensitive or not.</value>
+  </data>
+  <data name="MergeCells_Text1" xml:space="preserve">
+    <value>The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</value>
+  </data>
+  <data name="GroupPanel_Text1" xml:space="preserve">
+    <value>The drag-drop is supported on computer by using mouse and touch devices by touching.</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>The FlexGrid also support drag-drop to change position of columns on both computer and touch devices using mouse pointer or touching.</value>
+  </data>
+  <data name="SelectionMode_Text0" xml:space="preserve">
+    <value>The SelectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all.</value>
+  </data>
+  <data name="ColumnVisibility_Text0" xml:space="preserve">
+    <value>The Visible property allows you to set row or column is visible.(Grid is set AutoGenerateColumns to false)</value>
+  </data>
+  <data name="SortingType_Text0" xml:space="preserve">
+    <value>Use the SortingType property to change this behavior so users can sort none/single/multiple columns at a time.</value>
+  </data>
+  <data name="LazyRender_Text0" xml:space="preserve">
+    <value>Use the LazyRender property to sets whether the grid should skip rendering cells that were updated in the last render cycle.</value>
+  </data>
+  <data name="BigCheckboxes_Text0" xml:space="preserve">
+    <value>Use the BigCheckboxes property to sets a value that determines whether the checkboxes used to edit boolean columns should extend to cover the whole cell width.</value>
+  </data>
+  <data name="PDFExport_Annotating" xml:space="preserve">
+    <value>Annotating</value>
+  </data>
+  <data name="PDFExport_ContentAccessibility" xml:space="preserve">
+    <value>Content Accessibility</value>
+  </data>
+  <data name="PDFExport_Copying" xml:space="preserve">
+    <value>Copying</value>
+  </data>
+  <data name="PDFExport_DocumentAssembly" xml:space="preserve">
+    <value>Document Assembly</value>
+  </data>
+  <data name="PDFExport_FillingForms" xml:space="preserve">
+    <value>Filling Forms</value>
+  </data>
+  <data name="PDFExport_Modifying" xml:space="preserve">
+    <value>Modifying</value>
+  </data>
+  <data name="PDFExport_OwnerPassword" xml:space="preserve">
+    <value>Owner password</value>
+  </data>
+  <data name="PDFExport_Permissions" xml:space="preserve">
+    <value>Permissions</value>
+  </data>
+  <data name="PDFExport_PermissionsNote" xml:space="preserve">
+    <value>require owner password</value>
+  </data>
+  <data name="PDFExport_Printing" xml:space="preserve">
+    <value>Printing</value>
+  </data>
+  <data name="PDFExport_SecuritySettings" xml:space="preserve">
+    <value>Security settings:</value>
+  </data>
+  <data name="PDFExport_Text8" xml:space="preserve">
+    <value>You can also specify some security settings, such as user password, owner password and permissions, to protect the exported PDF content.</value>
+  </data>
+  <data name="PDFExport_UserPassword" xml:space="preserve">
+    <value>User password</value>
+  </data>
+  <data name="EnterTextSearch_Text0" xml:space="preserve">
+    <value>Enter search text here</value>
+  </data>
+  <data name="Editing_Text17" xml:space="preserve">
+    <value>&lt;b&gt;ShowPlaceholders&lt;/b&gt;: This setting determines whether the grid should use the column headers as placeholders when editing cells. It only works with the grid's built-in editor. It's not useful in IE because IE does not show input placeholders on focused input elements.</value>
+  </data>
+  <data name="CustomEditors_Text13" xml:space="preserve">
+    <value>The sample also shows how to customize the action for tab key and enter key using &lt;b&gt;KeyActionTab&lt;/b&gt; and &lt;b&gt;KeyActionEnter&lt;/b&gt; properties. Especially we can select the setting &lt;b&gt;CycleEditable&lt;/b&gt; to facilitates editting by moving the selection to the next editable when press tab/enter key.</value>
+  </data>
+  <data name="BuiltInValidation_Message5" xml:space="preserve">
+    <value>This item has {n} errors. Hover on specified error cells for detail.</value>
+  </data>
+  <data name="BuiltInValidation_Text2" xml:space="preserve">
+    <value>You can customize the single error report which is showed when hover on error cells and multiple errors report which is showed when hover on row headers.</value>
+  </data>
+  <data name="PDFExport_Summary" xml:space="preserve">
+    <value>The sample demonstrates how to export FlexGrid content to a PDF file.</value>
+  </data>
+  <data name="Searching_SearchAllColumns" xml:space="preserve">
+    <value>&lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;.</value>
+  </data>
+  <data name="GroupPanel_Text2" xml:space="preserve">
+    <value>Setting &lt;b&gt;ShowDragGlyphs&lt;/b&gt; to true or false enables to show or hide drag glyphs of the group marker elements.</value>
+  </data>
+  <data name="ODataBind_Text2" xml:space="preserve">
+    <value>*Note that non-core MS SQLite library doesn't support fully funtions for virtual scrolling.</value>
+  </data>
+  <data name="ODataDeferCommits_Cancel_Text0" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ODataDeferCommits_Commit_Text0" xml:space="preserve">
+    <value>Commit</value>
+  </data>
+  <data name="ShowCase_Columns_Text0" xml:space="preserve">
+    <value>Columns</value>
+  </data>
+  <data name="ShowCase_DataSize_Text0" xml:space="preserve">
+    <value>Data Size</value>
+  </data>
+  <data name="ShowCase_Data_Text0" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ShowCase_Export_Text0" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="ShowCase_LazyRender_Text0" xml:space="preserve">
+    <value>Lazy Render</value>
+  </data>
+  <data name="ShowCase_Rows_Text0" xml:space="preserve">
+    <value>Rows</value>
+  </data>
+  <data name="ShowCase_Search_Text0" xml:space="preserve">
+    <value>Search:</value>
+  </data>
+  <data name="HeaderTooltips_Text0" xml:space="preserve">
+    <value>This sample shows how you can add tooltips to the grid's column headers.</value>
+  </data>
+  <data name="ColumnPicker_Text0" xml:space="preserve">
+    <value>This sample shows how to implement a column-picker for FlexGrid.</value>
+  </data>
+  <data name="ColumnPicker_Text1" xml:space="preserve">
+    <value>Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display.</value>
+  </data>
+  <data name="ColumnPicker_Text2" xml:space="preserve">
+    <value>Enable drag-and-drop on column-picker to change columns' order to display.</value>
+  </data>
+  <data name="DataMap_DynamicDataMap" xml:space="preserve">
+    <value>Dynamic Data Map</value>
+  </data>
+  <data name="DataMap_Text6" xml:space="preserve">
+    <value>You can also use DataMap dynamically as filtering the values in the drop-down list if it depends on some conditions.</value>
+  </data>
+  <data name="DataMap_Text7" xml:space="preserve">
+    <value>For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item's country.</value>
+  </data>
+  <data name="PDFExport_Text9" xml:space="preserve">
+    <value>This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree.</value>
+  </data>
+  <data name="PDFExport_Title4" xml:space="preserve">
+    <value>Tags Support</value>
+  </data>
+  <data name="TreeGrid_BindingXml_Description" xml:space="preserve">
+    <value>This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid control. It loads a XML document into a XElement object and loops through the XElement to build a list with "category" items, each with a "products" list. The list is used as an itemsSource and the ChildItemsPath property is used to show the products for each category as a tree.</value>
+  </data>
+  <data name="TreeGrid_Editable_Description" xml:space="preserve">
+    <value>If you use FlexGrid's ChildItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &lt;b&gt;OnClientLoadedRows&lt;/b&gt; event to set the IsReadOnly property of every row to false.</value>
+  </data>
+  <data name="TreeGrid_Unbound_Description" xml:space="preserve">
+    <value>If you prefer to work in unbound mode, you can still build TreeGrid by adding rows and columns in code.</value>
+  </data>
+  <data name="PDFExport_Text10" xml:space="preserve">
+    <value>Note: Tagged PDF requires document version 1.4 or higher.</value>
+  </data>
+  <data name="ColumnPicker_Text3" xml:space="preserve">
+    <value>You can also save and restore columns' layout of the FlexGrid. Please try changing columns' layout as you want, click the button 'Save Layout' to save it. Now, you can change columns' layout freely and then can click the button 'Load Layout' to restore the columns' layout which was saved.</value>
+  </data>
+  <data name="ColumnPicker_Text4" xml:space="preserve">
+    <value>Save Layout</value>
+  </data>
+  <data name="ColumnPicker_Text5" xml:space="preserve">
+    <value>Restore Layout</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Description" xml:space="preserve">
+    <value>If your data items contain collections of child items, you may use FlexGrid's ChildItemsPath to show the data as a tree. For example, consider a list of 'person' objects which have a 'children' property. The 'children' property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the ChildItemsPath property to 'children':</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Description" xml:space="preserve">
+    <value>In the TreeGrid below, collapsed nodes have a single dummy child. When a node is expanded, more nodes are loaded on demand. This is a common pattern known as 'lazy-loading', and is done by utilizing the OnClientGroupCollapsedChanged event.</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text" xml:space="preserve">
+    <value>Show as Tree</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text1" xml:space="preserve">
+    <value>There are also 'heterogeneous' hierarchies, where items at different levels have different types and different child item properties.</value>
+  </data>
+  <data name="TreeGrid_ChildItems_Text2" xml:space="preserve">
+    <value>For example, the grid below is bound to a collection of 'worker' objects which receive 'checks' which list 'earnings':</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Text" xml:space="preserve">
+    <value>The grid currently has</value>
+  </data>
+  <data name="TreeGrid_LazyLoading_Text1" xml:space="preserve">
+    <value>rows.</value>
+  </data>
+</root>

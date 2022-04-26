@@ -1,0 +1,130 @@
+﻿body {
+	background-color: #f8f8f8;
+	font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+	padding: 0 0 10px;-ms-overflow-style: scrollbar;
+}
+
+body a,
+body a:focus,
+body a:hover{
+	text-decoration: none;
+	outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before {
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+
+    .logo-container .gcicon-product-c1 {
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+
+    .logo-container a {
+        text-decoration: none;
+    }
+
+.container {
+	min-width:248px;
+}
+
+.container p {
+	min-width:358px;
+}
+
+.header {
+	background-color: #f27c0a;
+	margin-bottom: 14px;
+	padding: 12px 0;
+}
+
+	.header h1 {
+		font-size: 40px;
+		line-height: 1;
+		margin-top: 8px;
+        color: white;
+	}
+
+
+	.header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+
+    .panel-default > .panel-heading  {
+    border-color: transparent;
+}
+
+.stchart {
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+    touch-action: none;
+    -ms-touch-action: none;
+}
+.chartcontainer {
+    padding-bottom: 40px;
+}
+
+/****  Axis Scrollbar Css *****/
+.wj-flexchart .wj-axis-scrollbar-container {
+    position: relative;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-rangeslider {
+    border: 1px solid #EAEAEA;    
+    background-color: #EAEAEA;
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-hrangeslider {
+    height: 20px;
+}
+
+.wj-flexchart .wj-axis-scrollbar-container .wj-chart-vrangeslider {
+    width: 20px;
+}
+
+
+

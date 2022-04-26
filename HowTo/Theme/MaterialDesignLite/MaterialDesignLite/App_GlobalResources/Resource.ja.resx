@@ -1,0 +1,354 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComponentOneLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone-studio/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.ja.css</value>
+    <comment>~/Content/css/gcicons.css</comment>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Material Design Lite</value>
+    <comment>Material Design Lite</comment>
+  </data>
+  <data name="PageDescription" xml:space="preserve">
+    <value>ComponentOne MVC および Material Design Lite</value>
+    <comment>ComponentOne MVC and Material Design Lite</comment>
+  </data>
+  <data name="SiteError" xml:space="preserve">
+    <value>エラー</value>
+    <comment>Error</comment>
+  </data>
+  <data name="SiteErrorDescription" xml:space="preserve">
+    <value>要求の処理中にエラーが発生しました。</value>
+    <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="SiteFooter1" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.</value>
+    <comment>GrapeCity, Inc. All Rights Reserved.</comment>
+  </data>
+  <data name="SiteFooter2" xml:space="preserve">
+    <value>ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
+    <comment>All product and company names here in may be trademarks of their respective owners.</comment>
+  </data>
+  <data name="SiteNavAbout" xml:space="preserve">
+    <value>製品情報</value>
+    <comment>About</comment>
+  </data>
+  <data name="SiteNavAboutLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone-studio/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="SiteNavFreeTrial" xml:space="preserve">
+    <value>トライアル版</value>
+    <comment>FREE TRIAL</comment>
+  </data>
+  <data name="SiteNavFreeTrialLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/download</value>
+    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+  </data>
+  <data name="SiteNavPricing" xml:space="preserve">
+    <value>ご購入</value>
+    <comment>Pricing</comment>
+  </data>
+  <data name="SiteNavPricingLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/purchase</value>
+    <comment>https://www.grapecity.com/en/pricing</comment>
+  </data>
+  <data name="SiteNavSupport" xml:space="preserve">
+    <value>サポート</value>
+    <comment>Support</comment>
+  </data>
+  <data name="SiteNavSupportLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/support</value>
+    <comment>http://supportone.componentone.com/login</comment>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>ComponentOne</value>
+    <comment>ComponentOne</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="HomeAccent" xml:space="preserve">
+    <value>アクセント</value>
+    <comment>Accent</comment>
+  </data>
+  <data name="HomeCheckbox" xml:space="preserve">
+    <value>チェックボックス</value>
+    <comment>Checkbox</comment>
+  </data>
+  <data name="HomeColored" xml:space="preserve">
+    <value>色分け</value>
+    <comment>Colored</comment>
+  </data>
+  <data name="HomeEmail" xml:space="preserve">
+    <value>電子メール</value>
+    <comment>email</comment>
+  </data>
+  <data name="HomeEvenNumber" xml:space="preserve">
+    <value>偶数</value>
+    <comment>Even Number</comment>
+  </data>
+  <data name="HomeEvenNumberError" xml:space="preserve">
+    <value>入力が偶数ではありません！</value>
+    <comment>Input is not even!</comment>
+  </data>
+  <data name="HomeFileDownload" xml:space="preserve">
+    <value>file_download</value>
+    <comment>file_download</comment>
+  </data>
+  <data name="HomeGauges" xml:space="preserve">
+    <value>ゲージ</value>
+    <comment>Gauges</comment>
+  </data>
+  <data name="HomeGrid" xml:space="preserve">
+    <value>グリッド</value>
+    <comment>Grid</comment>
+  </data>
+  <data name="HomeHere" xml:space="preserve">
+    <value>ここで</value>
+    <comment>Here</comment>
+  </data>
+  <data name="HomeIconBadge" xml:space="preserve">
+    <value>アイコンバッジ</value>
+    <comment>Icon Badge</comment>
+  </data>
+  <data name="HomeInner" xml:space="preserve">
+    <value>内向き</value>
+    <comment>Inner</comment>
+  </data>
+  <data name="HomeInputs" xml:space="preserve">
+    <value>入力</value>
+    <comment>Inputs</comment>
+  </data>
+  <data name="HomeLinks" xml:space="preserve">
+    <value>リンク</value>
+    <comment>Links</comment>
+  </data>
+  <data name="HomeMdlComponents" xml:space="preserve">
+    <value>MDL コンポーネント</value>
+    <comment>MDL components</comment>
+  </data>
+  <data name="HomeName" xml:space="preserve">
+    <value>名前</value>
+    <comment>Name</comment>
+  </data>
+  <data name="HomeNumberBadge" xml:space="preserve">
+    <value>番号バッジ</value>
+    <comment>Number Badge</comment>
+  </data>
+  <data name="HomeNumberError" xml:space="preserve">
+    <value>入力が数ではありません！</value>
+    <comment>Input is not a number!</comment>
+  </data>
+  <data name="HomeNumberLabel" xml:space="preserve">
+    <value>数値...</value>
+    <comment>Number...</comment>
+  </data>
+  <data name="HomeOuter" xml:space="preserve">
+    <value>外向き</value>
+    <comment>Outer</comment>
+  </data>
+  <data name="HomePlain" xml:space="preserve">
+    <value>プレーン</value>
+    <comment>Plain</comment>
+  </data>
+  <data name="HomePreview" xml:space="preserve">
+    <value>プレビュー</value>
+    <comment>Preview</comment>
+  </data>
+  <data name="HomeRaised" xml:space="preserve">
+    <value>浮き出し</value>
+    <comment>Raised</comment>
+  </data>
+  <data name="HomeRippled" xml:space="preserve">
+    <value>波紋</value>
+    <comment>Rippled</comment>
+  </data>
+  <data name="HomeSome" xml:space="preserve">
+    <value>何か</value>
+    <comment>Some</comment>
+  </data>
+  <data name="HomeSwitch" xml:space="preserve">
+    <value>スイッチ</value>
+    <comment>Switch</comment>
+  </data>
+  <data name="HomeText1" xml:space="preserve">
+    <value>カスタム CSS テーマビルダー</value>
+    <comment>Custom CSS theme builder</comment>
+  </data>
+  <data name="HomeText2" xml:space="preserve">
+    <value>カラーホイールをクリックしてプライマリカラー（1）とアクセントカラー（2）を選択すると、
+                下にテーマがプレビューされます。</value>
+    <comment>Click on the color wheel to choose a primary (1) and accent (2) color to
+                preview the theme below.</comment>
+  </data>
+  <data name="HomeText3" xml:space="preserve">
+    <value>好みの色の組み合わせを選択したら、&lt;a href="#cdn-code"&gt;ホストされている CSS&lt;/a&gt;を参照するか、
+                カラーホイールの中央にあるボタンをクリックして
+                &lt;a href="javascript:void(0);" onclick="$scope.downloadCss();"&gt;CSS をダウンロード&lt;/a&gt;します。
+                </value>
+    <comment>When you’ve selected a color combination you like, either reference our
+                &lt;a href="#cdn-code"&gt;hosted CSS&lt;/a&gt; or
+                &lt;a href="javascript:void(0);" onclick="$scope.downloadCss();"&gt;download the CSS&lt;/a&gt; by clicking the button in the middle
+                of the color wheel.</comment>
+  </data>
+  <data name="HomeText4" xml:space="preserve">
+    <value>完全な機能を備えるには、カスタマイズした CSS に加えて、MDL の JavaScript をインクルードする必要があります。
+                
+                これは、MDL のデフォルトのダウンロードに含まれており、
+                「&lt;a href="http://www.getmdl.io/started/index.html#download" target="_blank"&gt;Getting Started&lt;/a&gt;」ガイドから入手できます。</value>
+    <comment>You will need to include MDL’s JavaScript alongside your customised CSS to
+                get the full experience.
+                This is included in MDL's default Download from the
+                &lt;a href="http://www.getmdl.io/started/index.html#download" target="_blank"&gt;Getting Started guide&lt;/a&gt;.</comment>
+  </data>
+  <data name="HomeText5" xml:space="preserve">
+    <value>CDN の CSS ファイル（MDL および ComponentOne MVC Material）への参照：</value>
+    <comment>Reference the CSS files (MDL and ComponentOne MVC Material) from CDN:</comment>
+  </data>
+  <data name="HomeText6" xml:space="preserve">
+    <value>ComponentOne MVC + MDL コンポーネント</value>
+    <comment>ComponentOne MVC + MDL components</comment>
+  </data>
+  <data name="HomeTextLabel" xml:space="preserve">
+    <value>テキスト...</value>
+    <comment>Text...</comment>
+  </data>
+  <data name="HomeTheAmount" xml:space="preserve">
+    <value>金額</value>
+    <comment>The Amount</comment>
+  </data>
+  <data name="HomeTheDate" xml:space="preserve">
+    <value>日付</value>
+    <comment>The Date</comment>
+  </data>
+  <data name="HomeTheTime" xml:space="preserve">
+    <value>時間</value>
+    <comment>The Time</comment>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>カスタマイズとダウンロード</value>
+    <comment>Customize &amp; Download</comment>
+  </data>
+</root>

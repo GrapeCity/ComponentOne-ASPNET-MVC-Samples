@@ -1,0 +1,57 @@
+@model DashboardData
+
+<h1>
+    @Html.Raw(Resources.C1Nav.SplitLayout_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.SplitLayout_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.SplitLayout_Text2)
+</p>
+@Html.Partial("_DashboardLayoutElements", Model)
+@(Html.C1().SplitLayout().Id("splitLayout")
+    .Orientation(LayoutOrientation.Horizontal)
+    .Items(isb =>
+        {
+            isb.AddGroup()
+                .Size("2*")
+                .Orientation(LayoutOrientation.Vertical)
+                .Children(vgcb =>
+                {
+                    vgcb.AddGroup()
+                        .Size("*")
+                        .Orientation(LayoutOrientation.Horizontal)
+                        .Children(hgcb =>
+                        {
+                            hgcb.AddTile()
+                                    .Size("*")
+                                    .HeaderText(string.Format(Resources.C1Nav.SalesDashboard, Model.SalesDashboardStr))
+                                    .Content("#salesDashboardFGrid");
+                            hgcb.AddTile()
+                                    .Size("*")
+                                    .HeaderText(string.Format(Resources.C1Nav.KPIs, Model.KPIsStr))
+                                    .Content("#kpiGauges");
+                        });
+                    vgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.C1Nav.SplitLayout_Text0, Model.MonthlySalesStr))
+                        .Content("#monthlySalesChart");
+                });
+
+            isb.AddGroup()
+                .Size("*")
+                .Orientation(LayoutOrientation.Vertical)
+                .Children(hgcb =>
+                {
+                    hgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.C1Nav.CostBudget, Model.CostBudgetingStr))
+                        .Content("#costBudgetingChart");
+                    hgcb.AddTile()
+                        .Size("*")
+                        .HeaderText(string.Format(Resources.C1Nav.Countrywise, Model.CountrywiseSalesStr))
+                        .Content("#countrywiseSalesChart");
+                });
+        }))
+@Html.C1().DashboardLayout().Id("dashboardLayout")

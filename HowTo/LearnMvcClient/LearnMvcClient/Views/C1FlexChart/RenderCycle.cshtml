@@ -1,0 +1,41 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.RenderCycle_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.RenderCycle_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.RenderCycle_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.RenderCycle_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.RenderCycle_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.RenderCycle_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.RenderCycle_Text6)
+    </li>
+</ol>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+    .Series(sb=>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+    })
+)
+<button id="btnRefresh" class="btn btn-default">
+    @Resources.Resource.Btn_Refresh
+</button>
+<div id="eventLog">
+</div>

@@ -1,0 +1,321 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<SaleShowCase>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    List<FullCountry> countries = ViewBag.Countries;
+    List<ProductObject> products = ViewBag.Products;
+    List<ColorObject> colors = ViewBag.Colors;
+}
+@Scripts.Render("~/jquery")
+@Scripts.Render("~/jqueryval")
+<script src="~/Scripts/jszip.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.1.0/css/flag-icon.css" rel="stylesheet" />
+<link href="~/Content/css/showcase.css" rel="stylesheet" />
+
+ <!--START: Cell templates-->
+<script type="text/template" id="edtDate">
+    @(Html.C1().InputDate()
+        .Id("dateEditor")
+        .Format("MM/dd/yyyy")
+        .Min(Convert.ToDateTime("01/01/2000"))
+        .Max(Convert.ToDateTime("01/01/2030"))
+        .IsRequired(true)
+        .CssStyle("width", "100%")
+        .TemplateBind("Value", "Start")
+        .ToTemplate()
+    )
+</script>
+
+<script id="edtTime" type="text/template">
+    @(Html.C1().InputTime()
+        .Id("timeEditor")
+        .Format("hh:mm")
+        .Step(30)
+        .IsRequired(true)
+        .CssStyle("width", "100%")
+        .TemplateBind("Value", "End")
+        .ToTemplate()
+    )
+</script>
+
+<script id="countryShowing" type="text/template">
+    <span class='flag-icon flag-icon-{{CountryFlag}}'></span>
+    <span>{{Country}}</span>
+</script>
+
+<script type="text/template" id="colorShowing">
+    <span class="color-tile" style="background: {{Color}}"></span> {{Color}}
+</script>
+
+<script id="detailTemplate" type="text/template">
+    <table class="detail-row">
+        <tr>
+            <td>Size</td>
+            <td>: {{ProductDetail.Size}}</td>
+        </tr>
+        <tr>
+            <td>Weight</td>
+            <td>: {{ProductDetail.Weight}}</td>
+        </tr>
+        <tr>
+            <td>Quantity</td>
+            <td>: {{ProductDetail.Quantity}}</td>
+        </tr>
+        <tr>
+            <td>Description</td>
+            <td>: {{ProductDetail.Description}}</td>
+        </tr>
+    </table>
+</script>
+<!--END: Cell templates-->
+
+<script>
+    // override the validation functions of jquery.validate.js
+    $.validator.methods.number = function (value, element) {
+        return this.optional(element) || /^\$?[0-9]\d*(\.\d+)?\%?$/.test(value);
+    }
+</script>
+
+<div id="control-nav-tabs" class="nav nav-tabs ui-helper-clearfix mob-hide-1">
+    <div>
+        <a>@Html.Raw(Resources.FlexGrid.ShowCase_Data_Text0)</a>
+        <div class="tab-pane pane-content mob-hide-1">
+            <div class="flex-container">
+                <div>@Html.Partial("_OptionsMenu", optionsModel)</div>
+                <div>@Html.Raw(Resources.FlexGrid.ShowCase_Search_Text0) <span id="theSearch" style="width:300px;"></span></div>
+                <div class="seperate"></div>
+                <div>
+                    <div>
+                        <img src="~/Content/images/icons/Columns.png" width="20" height="20" class="export-img" id="column-picker" />
+                        @Html.Raw(Resources.FlexGrid.ShowCase_Columns_Text0)
+                    </div>
+                    <div style="display:none">
+                        <div id="theColumnPicker" class="column-picker"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div>
+        <a>@Html.Raw(Resources.FlexGrid.ShowCase_Export_Text0)</a>
+        <div class="tab-pane pane-content mob-hide-1">
+            <div class="flex-container">
+                <div>
+                    <img src="~/Content/images/icons/Excel.png" width="20" height="20" id="export-excel" class="export-img"/>Excel</div>
+                <div>
+                    <img src="~/Content/images/icons/Csv.png" width="20" height="20" id="export-csv" class="export-img"/>Csv</div>
+                <div>
+                    <img src="~/Content/images/icons/pdf.png" width="20" height="20" id="export-pdf" class="export-img"/>PDF</div>
+            </div>
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#control-nav-tabs")
+
+
+@(Html.C1().FlexGrid<SaleShowCase>()
+    .Id("theFlexGrid")
+    .ShowGroupPanel(s => s
+        .MaxGroups(3)
+        .Placeholder(string.Format("{0}", Html.Raw(Resources.FlexGrid.GroupPanel_Placeholder1)))
+        )
+    .ShowDetailRow(d => d.DetailRowTemplateId("detailTemplate").DetailVisibilityMode(DetailVisibilityMode.ExpandMulti).IsAnimated(false))
+    .PinningType(PinningType.SingleColumn)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.SingleColumn)
+    .SelectionMode(SelectionMode.CellRange)
+    .Bind(bl => bl.InitialItemsCount(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue) ? 100 : (int?)null).Bind(Model).OnClientQueryData("collectingQueryData").Update(Url.Action("GridShowCaseUpdate")))
+    .CssClass("grid")
+    .CopyHeaders(CopyHeader.Column)
+    .BigCheckboxes(true)
+    .LazyRender(Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue))
+    .OnClientCellEditEnded("cellEditEnded")
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").IsReadOnly(true));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yyyy").CellTemplate(ctp => ctp.EditTemplateId("edtDate")));
+        bl.Add(cb => cb.Binding("Country").Header("Country").Width("145").CellTemplate(ctb => ctb.TemplateId("countryShowing"))
+        .DataMap(dm => dm.DisplayMemberPath("Name")
+            .SelectedValuePath("Name")
+            .SortByDisplayValues(true)
+            .Bind(countries)));
+        bl.Add(cb => cb.Binding("Amount2").Header("Price").Format("c"));
+        bl.Add(cb => cb.Binding("History").IsReadOnly(true).Width("180").TemplateFunction("createSparkline"));
+        bl.Add(cb => cb.Binding("Color").Width("145").CellTemplate(ctb => ctb.TemplateId("colorShowing"))
+        .DataMap(dm => dm.DisplayMemberPath("Name")
+            .SelectedValuePath("Name")
+            .SortByDisplayValues(true)
+            .Bind(colors)));
+        bl.Add(cb => cb.Binding("Amount").Header("Change").IsReadOnly(true).Format("c").Template("<span class=${item && item.Amount > 0 ? 'change-up' : 'change-down'}>${text}</span>"));
+        bl.Add(cb => cb.Binding("Rank").Width("150").Align("center").CssClass("custom-rating").TemplateFunction("createRating"));
+        bl.Add(cb => cb.Binding("Active"));
+        bl.Add(cb => cb.Binding("Product").Width("145")
+        .DataMap(dm => dm.DisplayMemberPath("Name")
+            .SelectedValuePath("Name")
+            .SortByDisplayValues(true)
+            .Bind(products)));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("End").Header("End Time").Format("hh:mm").IsRequired(false).CellTemplate(ctp => ctp.EditTemplateId("edtTime")));
+    })
+    .RefreshOnEdit(true)
+    .Filterable<SaleShowCase>(fl => fl.DefaultFilterType(FilterType.Both).ColumnFilters(cfsb =>
+    {
+        cfsb.Add(cfb => cfb.Column("History").FilterType(FilterType.None));
+    }))
+)
+
+@(Html.C1().FlexGridSearch("#theSearch")
+    .Grid("theFlexGrid")
+    .CssMatch("")
+    .Placeholder(string.Format("{0}", Html.Raw(Resources.FlexGrid.EnterTextSearch_Text0)))
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.Index_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.Index_Text1)
+}
+@section Scripts{
+    <script>
+        function cellEditEnded(sender, e) {
+            if (e.col === 2) { //Reload CountryFlag from server when Country change
+                sender.collectionView.commitEdit();
+            }
+        }
+
+        function collectingQueryData(sender, e) {
+            if (e.extraRequestData == null) {
+                e.extraRequestData = {};
+            }
+
+            @foreach (var menuName in optionsModel.Options.Keys.Select(ControlOptions.ToOptionName))
+            {
+                <text>
+                e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
+                </text>
+            }
+        }
+
+        // #START: TEMPLATE FUNCTION
+        function createRating(CellMaker) {
+            return CellMaker.makeRating({
+                range: [0, 5]
+            });
+        }
+
+        function createSparkline(CellMaker) {
+            return CellMaker.makeSparkline({
+                markers: wijmo.grid.cellmaker.SparklineMarkers.High | wijmo.grid.cellmaker.SparklineMarkers.Low
+            });
+        }
+        // #END: TEMPLATE FUNCTION
+
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#theFlexGrid');
+
+            //#START: COLUMNS PICKER
+            let theColumnPicker = new wijmo.input.MultiSelectListBox('#theColumnPicker', {
+                itemsSource: grid.columns,
+                checkedMemberPath: 'visible',
+                displayMemberPath: 'header',
+                showFilterInput: true,
+                showSelectAllCheckbox: true,
+                lostFocus: function () { wijmo.hidePopup(theColumnPicker.hostElement) },
+                checkedItemsChanged: function (sender) {
+                    grid.columns.forEach(function (item) { item.visible = false; });
+                    sender.checkedItems.forEach(function (item) {
+                        grid.columns.getColumn(item.binding).visible = true;
+                    });
+                }
+            });
+            //
+            // show the column picker when the user clicks the top-left cell
+            document.getElementById('column-picker').addEventListener("click", function (e) {
+                let host = theColumnPicker.hostElement;
+                wijmo.showPopup(host, e.target, false, true, false);
+                theColumnPicker.focus();
+            });
+            //#END: COLUMNS PICKER
+
+            //#START: EXPORT
+
+            //Excel
+            document.getElementById("export-excel").addEventListener("click", function () {
+                wijmo.grid.xlsx.FlexGridXlsxConverter.save(grid, {
+                    scaleMode: wijmo.grid.pdf.ScaleMode.PageWidth,
+                    includeColumnHeaders: true,
+                    includeStyles: false,
+                }, 'FlexGrid.xlsx');
+            });
+
+            //Pdf
+            document.getElementById("export-pdf").addEventListener("click", function () {
+                wijmo.grid.pdf.FlexGridPdfConverter.export(grid, 'FlexGrid.pdf', {
+                    scaleMode: wijmo.grid.pdf.ScaleMode.PageWidth,
+                    documentOptions: {
+                        pageSettings: {
+                            layout: wijmo.pdf.PdfPageOrientation.Portrait
+                        },
+                        header: {
+                            declarative: {
+                                text: '\t&[Page]\\&[Pages]'
+                            }
+                        },
+                        footer: {
+                            declarative: {
+                                text: '\t&[Page]\\&[Pages]'
+                            }
+                        }
+                    },
+                    styles: {
+                        cellStyle: {
+                            backgroundColor: '#ffffff',
+                            borderColor: '#c6c6c6'
+                        },
+                        altCellStyle: {
+                            backgroundColor: '#f9f9f9'
+                        },
+                        groupCellStyle: {
+                            backgroundColor: '#dddddd'
+                        },
+                        headerCellStyle: {
+                            backgroundColor: '#eaeaea'
+                        }
+                    }
+                });
+            });
+
+            //csv
+            //function for converting CSV string into a downloadable file
+            function exportFile(csv, fileName) {
+                var fileType = 'txt/csv;charset=utf-8';
+                if (navigator.msSaveBlob) { // IE 
+                    navigator.msSaveBlob(new Blob([csv], {
+                        type: fileType
+                    }), fileName);
+                }
+                else {
+                    var e = document.createElement('a');
+                    e.setAttribute('href', 'data:' + fileType + ',' + encodeURIComponent(csv));
+                    e.setAttribute('download', fileName);
+                    e.style.display = 'none';
+                    document.body.appendChild(e);
+                    e.click();
+                    document.body.removeChild(e);
+                }
+            }
+
+            //export grid to CSV
+            document.getElementById("export-csv").addEventListener("click", function () {
+                var rng = new wijmo.grid.CellRange(0, 0, grid.rows.length - 1, grid.columns.length - 1),
+                    csv = grid.getClipString(rng, true, true);
+                exportFile(csv, 'FlexGrid.csv');
+            });
+            //#END: EXPORT
+        });
+    </script>
+}

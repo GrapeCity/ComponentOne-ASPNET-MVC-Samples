@@ -1,0 +1,49 @@
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().PivotEngine().Id("cubeEngine")
+        .ShowRowTotals(ShowTotals.Subtotals)
+        .ShowColumnTotals(ShowTotals.Subtotals)
+        .BindCubeService("https://ssrs.componentone.com/OLAP/msmdpump.dll", "Adventure Works")
+        .Fields(pfcb =>
+            pfcb.Items(c =>
+            {
+                c.AddCubeField(fb => fb.Header("Customer")
+                    .DimensionType(DimensionType.Dimension)
+                    .SubFields(sfsb =>
+                    {
+                        sfsb.Add(s => s.Header("Country").Binding("[Customer].[Country]")
+                            .DataType(C1.Web.Mvc.Grid.DataType.String).DimensionType(DimensionType.Hierarchy));
+                        sfsb.Add(s => s.Header("Occupation").Binding("[Customer].[Occupation]")
+                            .DataType(C1.Web.Mvc.Grid.DataType.String).DimensionType(DimensionType.Hierarchy));
+                        sfsb.Add(s => s.Header("Customer Count").Binding("[Measures].[Customer Count]")
+                            .DataType(C1.Web.Mvc.Grid.DataType.Number).DimensionType(DimensionType.Measure));
+                    })
+                );
+            }
+        ))
+        .RowFields(pfcb => pfcb.Items("[Customer].[Country]"))
+        .ColumnFields(cfcb => cfcb.Items("[Customer].[Occupation]"))
+        .ValueFields(vfcb => vfcb.Items("[Measures].[Customer Count]"))
+)
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().Id(optionsModel.ControlId).ItemsSourceId("cubeEngine")
+    </div>
+    <div class="col-sm-8 col-md-8">
+        @Html.C1().PivotGrid().Id("indexGrid").ItemsSourceId("cubeEngine")
+    </div>
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.Olap.Cube_Text0)</p>
+
+    <p>@Html.Raw(Resources.Olap.Cube_Text1)</p>
+
+}
+@section Summary{
+    <p>@Html.Raw(Resources.Olap.Cube_Text2)</p>
+
+}

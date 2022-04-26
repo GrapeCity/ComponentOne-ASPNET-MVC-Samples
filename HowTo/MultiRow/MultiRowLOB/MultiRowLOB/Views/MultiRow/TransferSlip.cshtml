@@ -1,0 +1,120 @@
+﻿@using MultiRowLOB.Localization;
+@model  DataService.TransferSlipData
+
+@{
+    var slipData = Model as DataService.TransferSlipData;
+    var debtorAccData = Resources.TransferSlip_DataMap_DebtorAccounts.Split(',').ToValues();
+    var debtorTypeData = Resources.TransferSlip_DataMap_DebtorTypes.Split(',').ToValues();
+    var creditorAccData = Resources.TransferSlip_DataMap_CreditorAccounts.Split(',').ToValues();
+    var creditorTypeData = Resources.TransferSlip_DataMap_CreditorTypes.Split(',').ToValues();
+}
+
+@section Scripts{
+    <script>
+        var fields = {
+            date:'@Resources.TransferSlip_Date',
+            slipNo:'@Resources.TransferSlip_SlipNo',
+            settlementTitle:'@Resources.TransferSlip_SettlementTitle',
+            debtorSumTitle:'@Resources.TransferSlip_DebtorSumTitle',
+            creditorSumTitle:'@Resources.TransferSlip_CreditorSumTitle',
+            debtorCreditorBalanceTitle:'@Resources.TransferSlip_DebtorCreditorBalanceTitle'
+            };
+    </script>
+    <script src="~/Scripts/controllers/transferSlipCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.TransferSlip_Title</h2>
+    <div class="row show-grid">
+        <div class="col-md-1 grid-title">@Resources.TransferSlip_Date</div>
+        <div class="col-md-2">
+            @(Html.C1().InputDate()
+                .Id("slipDate")
+                .Value(slipData.Date)
+                .Min(new DateTime(slipData.Date.Year, 1, 1))
+                .Max(new DateTime(slipData.Date.Year, 12, 31))
+                .Format("d")
+            )
+        </div>
+        <div class="col-md-2 grid-title">@Resources.TransferSlip_SlipNo</div>
+        <div class="col-md-2">
+            <input id="slipNo" type="text" class="form-control" value="@slipData.SlipNo" />
+        </div>
+        <div class="col-md-2 grid-title">@Resources.TransferSlip_SettlementTitle</div>
+        <div class="col-md-2">
+            <input id="slipSettlement" type="text" class="form-control" value="@slipData.Settlement" />
+        </div>
+    </div>
+    @(Html.C1().MultiRow<DataService.Transfer>()
+        .Id("transferSlip")
+        .Bind(b => b.DisableServerRead(true).Bind(slipData.Items).PageSize(5))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("DebtorAcc").Width("125").Header(Resources.TransferSlip_Field_DebtorAccount).Align("center")
+                    .DataMap(dm =>
+                    {
+                        dm.Bind(debtorAccData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                    }));
+                cells.Add(cell => cell.Binding("DebtorType").Width("125").Header(Resources.TransferSlip_Field_DebtorType).Align("center")
+                    .DataMap(dm =>
+                    {
+                        dm.Bind(debtorTypeData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                    }));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("DebtorAmt").Width("125").Format("c2").Header(Resources.TransferSlip_Field_DebtorAmount).Align("center"));
+                cells.Add(cell => cell.Binding("DebtorTax").Width("125").Format("c2").Header(Resources.TransferSlip_Field_DebtorTax).Align("center").IsReadOnly(true));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("CreditorAcc").Width("150").Header(Resources.TransferSlip_Field_CreditorAccount).Align("center")
+                    .DataMap(dm =>
+                    {
+                        dm.Bind(creditorAccData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                    }));
+                cells.Add(cell => cell.Binding("CreditorType").Width("150").Header(Resources.TransferSlip_Field_CreditorType).Align("center")
+                    .DataMap(dm =>
+                    {
+                        dm.Bind(creditorTypeData).SelectedValuePath("Key").DisplayMemberPath("Value");
+                    }));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("CreditorAmt").Width("125").Format("c2").Header(Resources.TransferSlip_Field_CreditorAmount).Align("center"));
+                cells.Add(cell => cell.Binding("CreditorTax").Width("125").Format("c2").Header(Resources.TransferSlip_Field_CreditorTax).Align("center").IsReadOnly(true));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell=>cell.Binding("Brief").Width("125").Header(Resources.TransferSlip_Field_Brief).Align("center"));
+                cells.Add(cell => cell.Binding("Note").Width("125").Header(Resources.TransferSlip_Field_Note).Align("center"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("DebtorTaxCategory").Width("200").Header(Resources.TransferSlip_Field_DebtorTaxCategory).Align("center"));
+                cells.Add(cell => cell.Binding("CreditorTaxCategory").Width("200").Header(Resources.TransferSlip_Field_CreditorTaxCategory).Align("center"));
+            });
+        })
+    )
+    <div class="row show-grid">
+        <div style="width:125px;" class="summary-cell">@Resources.TransferSlip_DebtorSumTitle</div>
+        <div style="width:125px;" class="summary-cell" id="debtorSum">&nbsp;</div>
+        <div style="width:125px;" class="summary-cell">@Resources.TransferSlip_CreditorSumTitle</div>
+        <div style="width:125px;" class="summary-cell" id="creditorSum">&nbsp;</div>
+        <div style="width:110px;" class="summary-cell">@Resources.TransferSlip_DebtorCreditorBalanceTitle</div>
+        <div style="width:100px;" class="summary-cell" id="balance">&nbsp;</div>
+    </div>
+    <div class="pull-right btn-group">
+        @(Html.C1().Pager().Owner("transferSlip"))
+    </div>
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

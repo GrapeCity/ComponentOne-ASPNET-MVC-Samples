@@ -1,0 +1,49 @@
+﻿@model DashboardData
+
+<input type="button" value="Save Layout" class="btn" onclick="saveLayout()" />
+<input type="button" value="Load Layout" class="btn" onclick="loadLayout()" />
+
+@Html.Partial("_DashboardElements", Model)
+
+@(Html.C1().DashboardLayout().Id("saveLoadDashboard")
+        .AttachFlowLayout(flb => flb.Direction(FlowDirection.LeftToRight)
+        .Items(isb =>
+        {
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.SalesDashboard, Model.SalesDashboardStr))
+                .Content("#salesDashboardFGrid").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.KPIs, Model.KPIsStr))
+                .Content("#kpiGauges").Height(303).Width(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.CostBudget, Model.CostBudgetingStr))
+                .Content("#costBudgetingChart").Width(303).Height(303));
+            isb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.Countrywise, Model.CountrywiseSalesStr))
+                .Content("#countrywiseSalesChart").Width(303).Height(303));
+        }))
+)
+
+@section Scripts{
+    <script>
+    // Save or restore the layout definition in localStorage
+    function saveLayout() {
+        var dashboard = wijmo.Control.getControl('#saveLoadDashboard');
+        localStorage['layout'] = dashboard.saveLayout();
+    }
+    function loadLayout() {
+        var dashboard = wijmo.Control.getControl('#saveLoadDashboard'),
+            layoutDef = localStorage['layout'];
+        if (layoutDef) {
+            dashboard.loadLayout(layoutDef);
+        }
+    }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.DashboardLayout.SaveLoadLayout_Summary)
+}
+
+@section Description{
+    <p>
+        @Html.Raw(Resources.DashboardLayout.SaveLoadLayout_Desc1)</p>
+    <p>
+        @Html.Raw(Resources.DashboardLayout.SaveLoadLayout_Desc2)</p>
+}

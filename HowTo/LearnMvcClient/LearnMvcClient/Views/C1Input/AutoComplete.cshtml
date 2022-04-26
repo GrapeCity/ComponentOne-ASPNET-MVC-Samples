@@ -1,0 +1,25 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.AutoComplete_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.AutoComplete_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.AutoComplete_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.AutoComplete_Text3)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1Input.AutoComplete_Text4)
+</p>
+<label for="theAutoComplete">@Html.Raw(Resources.C1Input.AutoComplete_Text5)</label>
+@(Html.C1().AutoComplete<Gdp>().Id("theAutoComplete").Bind(Model).DisplayMemberPath("Country"))
+<br />
+<label for="theCombo">@Html.Raw(Resources.C1Input.AutoComplete_Text6)</label>
+@(Html.C1().ComboBox<Gdp>().Id("theCombo").Bind(Model).DisplayMemberPath("Country"))

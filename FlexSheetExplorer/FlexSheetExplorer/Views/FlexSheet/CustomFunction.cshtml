@@ -1,22 +1,21 @@
-@section Scripts{<script src="~/Scripts/flexSheet/customFunction.js"></script>}
+@section Scripts{
+<script src="~/Scripts/FlexSheet/customFunction.js"></script>
+}
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.CustomFunction_Text3)
-        </h3>
-<p>@Html.Raw(FlexSheetRes.CustomFunction_Text0)</p>
+<h3>@Html.Raw(Resources.FlexSheet.CustomFunction_Text3)</h3>
 
-<p>@Html.Raw(FlexSheetRes.CustomFunction_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.CustomFunction_Text0)</p>
+
+<p>@Html.Raw(Resources.FlexSheet.CustomFunction_Text1)</p>
 
     </div>
     <div>
-        <c1-flex-sheet id="customFuncSheet" class="flexSheet"
-                       unknown-function="unknownFunction">
-            <c1-unbound-sheet row-count="25" column-count="12"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().Id("customFuncSheet").CssClass("flexSheet")
+        .AddUnboundSheet("", 25, 12).OnClientUnknownFunction("unknownFunction"))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.CustomFunction_Text2)</p>
+<p>@Html.Raw(Resources.FlexSheet.CustomFunction_Text2)</p>
 
 }

@@ -1,0 +1,24 @@
+@model IEnumerable<Orders.Order>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id(demoSettingsModel.ControlId)
+    .IsReadOnly(true)
+    .Bind(Model)
+    .CssClass("multirow")
+    .LayoutDefinition(LayoutDefinitionsBuilders.TwoLines)
+    .FrozenColumns(1)
+    .FrozenRows(2)
+)
+
+@section Summary{
+<p>@Html.Raw(Resources.MultiRowExplorer.Freezing_Text0)</p>
+
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.Freezing_Text1)</p>
+
+}

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<ProductSales>
+
+@section Scripts{
+    <script>
+        function chartsPerLineChanged(sender, args) {
+            var multipleChart = wijmo.Control.getControl('#multipleChart');
+            multipleChart.chartsPerLine = sender.value;
+        }
+    </script>
+}
+
+@(Html.C1().FlexPie<ProductSales>()
+    .Id("multipleChart")
+    .Header("Product")
+    .Height(600)
+    .Binding("Downloads,Sales,Refunds,Damages")
+    .Bind(Model)
+    .BindingName("Country")
+    .DataLabel(dl => dl.Content("{value}")))
+
+<p style="display:inline;margin: 1em;">@Html.Raw(Resources.FlexPie.Multiple_Text1)</p>
+@(Html.C1().InputNumber().Min(0).Max(4).Step(1).Value(0).Format("n0").OnClientValueChanged("chartsPerLineChanged"))
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexPie.Multiple_Text0)</p>
+}

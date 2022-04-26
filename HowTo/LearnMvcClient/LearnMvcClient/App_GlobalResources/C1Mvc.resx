@@ -1,0 +1,1722 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Clipboard_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;Clipboard&lt;/b&gt; class allows you to customize the
+    behavior of the clipboard by modifying its contents using
+    the static methods &lt;b&gt;copy&lt;/b&gt; and &lt;b&gt;paste&lt;/b&gt;.</value>
+  </data>
+  <data name="Clipboard_Text2" xml:space="preserve">
+    <value>Note that the &lt;b&gt;Clipboard&lt;/b&gt; class cannot initiate
+    clipboard operations; it can only modify the contents of
+    the clipboard after an operation has been initiated by a user.</value>
+  </data>
+  <data name="Clipboard_Text3" xml:space="preserve">
+    <value>This example customizes &lt;b&gt;copy&lt;/b&gt; operations from a
+    FlexGrid by adding column headers to the clipboard content.
+    To see how it works, copy a range from the FlexGrid and paste
+    into an Excel sheet.</value>
+  </data>
+  <data name="Clipboard_Title" xml:space="preserve">
+    <value>Clipboard</value>
+  </data>
+  <data name="CollectionView_Text1" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt;
+    class is the core data provider for our MVC controls.
+    It takes a &lt;b&gt;sourceCollection&lt;/b&gt; array and provides
+    data views with sorting, filtering, grouping, paging,
+    notifications, change tracking, currency management,
+    and more.</value>
+  </data>
+  <data name="CollectionView_Text2" xml:space="preserve">
+    <value>The views created by the &lt;b&gt;CollectionView&lt;/b&gt; are exposed
+    through the &lt;b&gt;items&lt;/b&gt; property, which contains an
+    array with sorted/filtered/grouped/paged items from the
+    &lt;b&gt;sourceCollection&lt;/b&gt; array.</value>
+  </data>
+  <data name="CollectionView_Text3" xml:space="preserve">
+    <value>Controls that have an &lt;b&gt;itemsSource&lt;/b&gt; property
+    accept &lt;b&gt;CollectionView&lt;/b&gt; objects as well as regular
+    arrays. If regular arrays are used, the control automatically
+    creates an internal &lt;b&gt;CollectionView&lt;/b&gt; to wrap the original
+    data. This internal &lt;b&gt;CollectionView&lt;/b&gt; is exposed by the
+    control's &lt;b&gt;collectionView&lt;/b&gt; property.</value>
+  </data>
+  <data name="CollectionView_Text4" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; class provides extensive functionality
+    and a consistent way for controls to deal with data.</value>
+  </data>
+  <data name="CollectionView_Text5" xml:space="preserve">
+    <value>C1 MVC includes classes that extend &lt;b&gt;CollectionView&lt;/b&gt; to
+    provide additional services. The best example is
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.odata.ODataCollectionView.Class.html" target="_blank"&gt;ODataCollectionView&lt;/a&gt;,
+    which provides access to
+    &lt;a href="http://www.odata.org/" target="_blank"&gt;OData&lt;/a&gt; sources.</value>
+  </data>
+  <data name="CollectionView_Title" xml:space="preserve">
+    <value>CollectionView</value>
+  </data>
+  <data name="Color_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;Color&lt;/b&gt; class parses colors specified as CSS strings
+    and exposes their red, green, blue, and alpha channels as read-write
+    properties.</value>
+  </data>
+  <data name="Color_Text2" xml:space="preserve">
+    <value>It also provides &lt;b&gt;fromHsb&lt;/b&gt; and &lt;b&gt;fromHsl&lt;/b&gt; methods for creating
+    colors using the HSB and HSL color models instead of RGB, as well as
+    &lt;b&gt;getHsb&lt;/b&gt; and &lt;b&gt;getHsl&lt;/b&gt; methods for retrieving the color
+    components using those color models.</value>
+  </data>
+  <data name="Color_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;Color&lt;/b&gt; class also has an &lt;b&gt;interpolate&lt;/b&gt; method that creates
+    colors by interpolating between two colors using the HSL model. This
+    method is especially useful for creating color animations with the
+    &lt;b&gt;animate&lt;/b&gt; method.</value>
+  </data>
+  <data name="Color_Text4" xml:space="preserve">
+    <value>The example below illustrates:</value>
+  </data>
+  <data name="Color_Title" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ControlsElements_Text1" xml:space="preserve">
+    <value>Every MVC control is associated with an HTML element that
+    hosts it on the page.</value>
+  </data>
+  <data name="ControlsElements_Text2" xml:space="preserve">
+    <value>To get a reference to the element hosting the control, use the
+    &lt;b&gt;hostElement&lt;/b&gt; property (available in every C1 MVC control).
+    Use the static method &lt;b&gt;wijmo.Control.getControl(element)&lt;/b&gt;
+    to get a reference to the control being hosted by an element.</value>
+  </data>
+  <data name="ControlsElements_Text3" xml:space="preserve">
+    <value>In applications having tab controls or dynamic views, the control
+   layout often becomes invalid if the size or visibility of the host
+    element is changed and the control is not notified about the same.</value>
+  </data>
+  <data name="ControlsElements_Text4" xml:space="preserve">
+    <value>However, in case of MVC controls, layout of all the controls is
+    updated according to the size of their host elements. MVC controls
+    provide &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Control.Class.html#invalidateAll"&gt;
+        wijmo.Control.invalidateAll
+    &lt;/a&gt; method to notify the controls about change in their host element, 
+    so that the controls update their layout accordingly.</value>
+  </data>
+  <data name="ControlsElements_Text5" xml:space="preserve">
+    <value>For example, use the buttons below to observe resizing in the grid in
+    two cases; without using &lt;b&gt;invalidateAll&lt;/b&gt; method (WRONG way) and the case 
+    using &lt;b&gt;invalidateAll&lt;/b&gt; method (RIGHT way):</value>
+  </data>
+  <data name="ControlsElements_Title" xml:space="preserve">
+    <value>Controls and Elements</value>
+  </data>
+  <data name="CreateControls_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    Every MVC control is associated with an HTML element that hosts
+    it on the page. There are three ways to create a control:
+&lt;/p&gt;
+&lt;ul&gt;
+    &lt;li&gt;Add the control htmlhelper in the view directly.&lt;/li&gt;
+    &lt;li&gt;Start by adding a div element to the view, then add the control htmlhelper to bind it.&lt;/li&gt;
+    &lt;li&gt;Start by adding a div element to the view, then use JavaScript code to instantiate the
+    control and bind it to the host element.&lt;/li&gt;
+&lt;/ul&gt;</value>
+  </data>
+  <data name="CreateControls_FlexChart" xml:space="preserve">
+    <value>&lt;p&gt;This is a FlexChart created using the second method:&lt;/p&gt;</value>
+  </data>
+  <data name="CreateControls_FlexGrid" xml:space="preserve">
+    <value>&lt;p&gt;This is a FlexGrid created using the first method:&lt;/p&gt;</value>
+  </data>
+  <data name="CreateControls_InputDate" xml:space="preserve">
+    <value>&lt;p&gt;And, this is an InputDate created using the third method:&lt;/p&gt;</value>
+  </data>
+  <data name="CreateControls_Title" xml:space="preserve">
+    <value>Creating C1 MVC Controls</value>
+  </data>
+  <data name="CreateControls_Title1" xml:space="preserve">
+    <value>@Resources.C1Mvc.CreateControls_Title</value>
+  </data>
+  <data name="CustomGlyphs_Text1" xml:space="preserve">
+    <value>Many C1 MVC controls include small images called 'glyphs'.
+    For example, the &lt;b&gt;ComboBox&lt;/b&gt; uses a glyph in the button
+    used to show the item list. The &lt;b&gt;FlexGrid&lt;/b&gt; uses glyphs
+    to show various state indicators, including sort, editing,
+    expanded/collapsed nodes, etc.</value>
+  </data>
+  <data name="CustomGlyphs_Text2" xml:space="preserve">
+    <value>All glyphs used in C1 MVC controls are CSS-based, which means
+    you can override them on all or specific controls using CSS
+    rules and no code.</value>
+  </data>
+  <data name="CustomGlyphs_Text3" xml:space="preserve">
+    <value>This example shows how you can replace the &lt;b&gt;FlexGrid&lt;/b&gt;
+    glyphs with Bootstrap icons and with regular images.</value>
+  </data>
+  <data name="CustomGlyphs_Title" xml:space="preserve">
+    <value>Custom Glyphs</value>
+  </data>
+  <data name="Customization_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;FlexGridFilter&lt;/b&gt; class is localizable, and
+    you can take advantage of this feature for modifying the 
+    UI strings and also the lists of conditions and operators.</value>
+  </data>
+  <data name="Customization_Text2" xml:space="preserve">
+    <value>In this sample, we customized the list of operators by
+    assigning custom arrays to the filter's &lt;b&gt;stringOperators&lt;/b&gt;,
+    &lt;b&gt;numberOperators&lt;/b&gt;, &lt;b&gt;dateOperators&lt;/b&gt;, and
+    &lt;b&gt;booleanOperators&lt;/b&gt;.</value>
+  </data>
+  <data name="Customization_Title" xml:space="preserve">
+    <value>Globalization and Custom UIs</value>
+  </data>
+  <data name="CVAddingRemoving_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; provides support for adding
+    items with the methods &lt;b&gt;addNew&lt;/b&gt;, &lt;b&gt;commitNew&lt;/b&gt;,
+    and &lt;b&gt;cancelNew&lt;/b&gt;. Items are removed using the
+    &lt;b&gt;remove&lt;/b&gt; method.</value>
+  </data>
+  <data name="CVAddingRemoving_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;addNew&lt;/b&gt; method adds an empty item to the
+    collection and returns a reference to the new item.
+    The caller can use this return value to initialize
+    the new item. Alternatively, you can provide a
+    &lt;b&gt;CollectionView.newItemCreator&lt;/b&gt; function to
+    create and initialize the new items.</value>
+  </data>
+  <data name="CVAddingRemoving_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;addNew&lt;/b&gt; method also puts the collection in
+    'add' mode, suspending sorting and filtering to keep
+    the new item in place until it is committed.</value>
+  </data>
+  <data name="CVAddingRemoving_Text4" xml:space="preserve">
+    <value>The &lt;b&gt;commitNew&lt;/b&gt; method causes the collection
+    to exit 'add mode', refreshes the collection and 
+    restores sorting and filtering.</value>
+  </data>
+  <data name="CVAddingRemoving_Text5" xml:space="preserve">
+    <value>The &lt;b&gt;cancelNew&lt;/b&gt; method removes the new item from
+    the collection and exits 'add mode'.</value>
+  </data>
+  <data name="CVAddingRemoving_Text6" xml:space="preserve">
+    <value>Add items in the grid below to observe how this works.</value>
+  </data>
+  <data name="CVAddingRemoving_Text7" xml:space="preserve">
+    <value>To add an item, move the selection to the last
+    row, the "New Item Template" (having an asterisk on
+    the row header). Edit the new item as usual, and
+    press Enter or move the selection to a different row
+    to commit the new row.</value>
+  </data>
+  <data name="CVAddingRemoving_Text8" xml:space="preserve">
+    <value>To cancel the addition, press the Escape key while editing
+    the new row. The row will be removed from the collection.</value>
+  </data>
+  <data name="CVAddingRemoving_Text9" xml:space="preserve">
+    <value>To remove items, select an entire row by clicking
+    the row header, and then press the Delete key. The grid
+    will call the collection's &lt;b&gt;remove&lt;/b&gt; method
+    and the item will be removed from the collection.</value>
+  </data>
+  <data name="CVAddingRemoving_Title" xml:space="preserve">
+    <value>CollectionView Adding and Removing Items</value>
+  </data>
+  <data name="CVChaining_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView.filter&lt;/b&gt; property allows you
+    to specify one filtering function for each collection.</value>
+  </data>
+  <data name="CVChaining_Text2" xml:space="preserve">
+    <value>In some cases, you may want to use two or more independent
+    filter functions. For example, you may want to apply a filter
+    on the incoming data and let the &lt;b&gt;FlexGridFilter&lt;/b&gt;
+    apply a second level of filtering to the data.</value>
+  </data>
+  <data name="CVChaining_Text3" xml:space="preserve">
+    <value>To achieve this, you can chain multiple &lt;b&gt;CollectionView&lt;/b&gt;
+    objects so the output of one collection serves as input for
+    the next.</value>
+  </data>
+  <data name="CVChaining_Text4" xml:space="preserve">
+    <value>This example creates a &lt;b&gt;view&lt;/b&gt; collection with a filter
+    based on an input field, and a second &lt;b&gt;view2&lt;/b&gt; collection
+    based on the first collection's output. It binds a grid to
+    second collection which has an additional, independent
+    filter:</value>
+  </data>
+  <data name="CVChaining_Text6" xml:space="preserve">
+    <value>Result (&lt;span id="cnt"&gt;&lt;/span&gt; items):</value>
+  </data>
+  <data name="CVChaining_Title" xml:space="preserve">
+    <value>Chaining Filters</value>
+  </data>
+  <data name="CVCreatingViews_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; class represents a view for
+    grouping, sorting, filtering, and navigating data
+    collections.</value>
+  </data>
+  <data name="CVCreatingViews_Text10" xml:space="preserve">
+    <value>Use the &lt;b&gt;items&lt;/b&gt; array to get the output view.</value>
+  </data>
+  <data name="CVCreatingViews_Text11" xml:space="preserve">
+    <value>Use the &lt;b&gt;currentItem&lt;/b&gt; property to get a reference
+        to the item that is currently selected, and use the
+        &lt;b&gt;currentChanged&lt;/b&gt; event to detect a change in selection.</value>
+  </data>
+  <data name="CVCreatingViews_Text2" xml:space="preserve">
+    <value>The object model used in the &lt;b&gt;CollectionView&lt;/b&gt;
+    class is similar to the one defined by .NET's
+    &lt;b&gt;ICollectionView&lt;/b&gt; and &lt;b&gt;IPagedCollectionView&lt;/b&gt;
+    interfaces.</value>
+  </data>
+  <data name="CVCreatingViews_Text3" xml:space="preserve">
+    <value>To create data views, follow these steps:</value>
+  </data>
+  <data name="CVCreatingViews_Text4" xml:space="preserve">
+    <value>Create a new &lt;b&gt;CollectionView&lt;/b&gt;.</value>
+  </data>
+  <data name="CVCreatingViews_Text5" xml:space="preserve">
+    <value>Set the &lt;b&gt;sourceCollection&lt;/b&gt; to an array containing
+        the raw data.</value>
+  </data>
+  <data name="CVCreatingViews_Text6" xml:space="preserve">
+    <value>(Optional) Add items to the &lt;b&gt;sortDescriptions&lt;/b&gt; array
+        to define how the data should be sorted.</value>
+  </data>
+  <data name="CVCreatingViews_Text7" xml:space="preserve">
+    <value>(Optional) Add items to the &lt;b&gt;groupDescriptions&lt;/b&gt; array
+        to define how the data should be grouped.</value>
+  </data>
+  <data name="CVCreatingViews_Text8" xml:space="preserve">
+    <value>(Optional) Set the &lt;b&gt;filter&lt;/b&gt; property to a predicate
+        function that selects the items that should be included
+        in the view.</value>
+  </data>
+  <data name="CVCreatingViews_Text9" xml:space="preserve">
+    <value>(Optional) Set the &lt;b&gt;pageSize&lt;/b&gt; property to define the
+        number of items in the view, and use the &lt;b&gt;moveToPage&lt;/b&gt;
+        method to select the current page.</value>
+  </data>
+  <data name="CVCreatingViews_Title" xml:space="preserve">
+    <value>Data Views</value>
+  </data>
+  <data name="CVCurrency_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; has a &lt;b&gt;currentItem&lt;/b&gt; property that
+    identifies the item that is currently active.</value>
+  </data>
+  <data name="CVCurrency_Text2" xml:space="preserve">
+    <value>This property is used by controls that support binding
+    to lists and selection (including FlexGrid, FlexChart, ListBox,
+    ComboBox, etc).</value>
+  </data>
+  <data name="CVCurrency_Text3" xml:space="preserve">
+    <value>The example below implements a simple master/detail screen.
+    Select a country from the &lt;b&gt;ComboBox&lt;/b&gt; to change the current
+    item. This raises the &lt;b&gt;currentChanged&lt;/b&gt; event which is used to
+    update the elements that show details of the current item.</value>
+  </data>
+  <data name="CVCurrency_Title" xml:space="preserve">
+    <value>CollectionView Currency</value>
+  </data>
+  <data name="CVDataProviders_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; class relies on a &lt;b&gt;sourceCollection&lt;/b&gt;
+    that contains an array of data items. This collection is typically
+    populated with http requests that retrieve data from a server.</value>
+  </data>
+  <data name="CVDataProviders_Text2" xml:space="preserve">
+    <value>In some cases, it may be advantageous to extend the &lt;b&gt;CollectionView&lt;/b&gt;
+    class in order to take advantage of functionality exposed by the
+    server. For example, C1 MVC includes a &lt;b&gt;RemoteCollectionView&lt;/b&gt;
+    that can use the result objects from the data service as data sources,
+    and in addition to full CRUD support and real-time updates you automatically get
+    CollectionView features including sorting, filtering, paging, grouping, and editing.</value>
+  </data>
+  <data name="CVDataProviders_Title" xml:space="preserve">
+    <value>Data Providers</value>
+  </data>
+  <data name="CVEditingViews_Text1" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; provides support for editing items
+    with the help of methods similar to those found in .NET's
+    &lt;b&gt;IEditableCollectionView&lt;/b&gt; interface:
+    &lt;b&gt;editItem&lt;/b&gt;, &lt;b&gt;commitEdit&lt;/b&gt;, and &lt;b&gt;cancelEdit&lt;/b&gt;.</value>
+  </data>
+  <data name="CVEditingViews_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;editItem&lt;/b&gt; method saves a copy of the item and
+    puts the collection in 'edit mode'. While in edit mode,
+    the view is not refreshed, so items are not sorted
+    or filtered out of view during the edit process.</value>
+  </data>
+  <data name="CVEditingViews_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;commitEdit&lt;/b&gt; method exits the edit mode so that sorting
+    and filtering become active again. If the item has changed,
+    the &lt;b&gt;collectionChanged&lt;/b&gt; event is fired to reflect the 
+    changes in the bound controls.</value>
+  </data>
+  <data name="CVEditingViews_Text4" xml:space="preserve">
+    <value>The &lt;b&gt;cancelEdit&lt;/b&gt; method restores the original data
+    and exits the edit mode.</value>
+  </data>
+  <data name="CVEditingViews_Text5" xml:space="preserve">
+    <value>Edit the grid below to observe how this works.</value>
+  </data>
+  <data name="CVEditingViews_Text6" xml:space="preserve">
+    <value>To edit the grid, double click a cell. When editing 
+	starts, a pencil icon appears on the
+    row header to indicate that the collection is in edit
+    mode.</value>
+  </data>
+  <data name="CVEditingViews_Text7" xml:space="preserve">
+    <value>To cancel the editing process, press the Escape key
+    while editing and restore the original data.</value>
+  </data>
+  <data name="CVEditingViews_Text8" xml:space="preserve">
+    <value>To commit the edits, move the selection to 
+    a different row, or move the focus away from the grid. 
+    At this point, the collection is refreshed and any
+    active filtering/sorting is applied again using the
+    new values.</value>
+  </data>
+  <data name="CVEditingViews_Title" xml:space="preserve">
+    <value>CollectionView Editing</value>
+  </data>
+  <data name="CVFiltering_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;CollectionView.filter&lt;/b&gt; property to specify
+    a filter function that defines which items should be
+    included in the view.</value>
+  </data>
+  <data name="CVFiltering_Text2" xml:space="preserve">
+    <value>Choose one of the options to see it in action:</value>
+  </data>
+  <data name="CVFiltering_Text7" xml:space="preserve">
+    <value>Result (&lt;span id="cnt"&gt;&lt;/span&gt; items):</value>
+  </data>
+  <data name="CVFiltering_Title" xml:space="preserve">
+    <value>CollectionView Filtering</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text1" xml:space="preserve">
+    <value>This sample shows how you can add spinners to the FlexGrid control
+    to indicate the process of loading data. The basic idea is to add a spinner
+    element to the grid when you start loading the data, and remove the
+    spinner when you get the data displayed on the grid.</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text2" xml:space="preserve">
+    <value>This example shows an animated GIF while the grid is loading:</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text4" xml:space="preserve">
+    <value>&lt;img src="/Content/images/spin.gif"&gt;</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text5" xml:space="preserve">
+    <value>This example shows an animated RadialGauge while the grid is loading:</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text7" xml:space="preserve">
+    <value>When FlexGrid binds to a CollectionViewService which uses remote bind mode,
+    it shows a mask with text "Loading..." while loading data from the remote server.
+    You can customize the mask by overriding the c1-grid-mask CSS class.</value>
+  </data>
+  <data name="CVFlexGridSpinners_Title" xml:space="preserve">
+    <value>FlexGrid Spinners</value>
+  </data>
+  <data name="CVGrouping_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;CollectionView.groupDescriptions&lt;/b&gt; property to specify
+    which fields should be grouped.</value>
+  </data>
+  <data name="CVGrouping_Text2" xml:space="preserve">
+    <value>Choose one of the options to see it in action:</value>
+  </data>
+  <data name="CVGrouping_Title" xml:space="preserve">
+    <value>CollectionView Grouping</value>
+  </data>
+  <data name="CVLoadingData_Text1" xml:space="preserve">
+    <value>Loading data into a &lt;b&gt;CollectionView&lt;/b&gt; is straightforward.</value>
+  </data>
+  <data name="CVLoadingData_Text2" xml:space="preserve">
+    <value>If you already have the data in an array, you can use that
+    array as a constructor parameter, or set the &lt;b&gt;sourceCollection&lt;/b&gt;
+    property to that array:</value>
+  </data>
+  <data name="CVLoadingData_Text3" xml:space="preserve">
+    <value>If the data is on a server, you can retrieve it by using the
+    &lt;b&gt;httpRequest&lt;/b&gt; method. When you get a response from
+    the server, set the &lt;b&gt;sourceCollection&lt;/b&gt; array to the
+    response value or append new data to the
+    &lt;b&gt;sourceCollection&lt;/b&gt; array:</value>
+  </data>
+  <data name="CVLoadingData_Text4" xml:space="preserve">
+    <value>The server side CollectionViewService control constructs
+    a client side CollectionView instance. You can get the
+    instance by
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/c1.Module.html#getService" target="_blank"&gt;c1.getService&lt;/a&gt;
+    method.</value>
+  </data>
+  <data name="CVLoadingData_Text5" xml:space="preserve">
+    <value>If your data service API supports commands such as filtering,
+    sorting, and paging, you can add parameters to your
+    &lt;b&gt;httpRequest&lt;/b&gt; calls to support these features. You can even
+    encapsulate the server API into a custom class that extends
+    &lt;b&gt;CollectionView&lt;/b&gt;.</value>
+  </data>
+  <data name="CVLoadingData_Title" xml:space="preserve">
+    <value>Loading Data</value>
+  </data>
+  <data name="CVLoadingJsonDates_Text1" xml:space="preserve">
+    <value>JSON is a great format for serializing data, but unfortunately
+    it does not support dates.</value>
+  </data>
+  <data name="CVLoadingJsonDates_Text2" xml:space="preserve">
+    <value>If you serialize an object that contains date fields using
+    JSON.stringify, the dates will be converted to strings.
+    If you then parse the same object back using JSON.parse,
+    they will remain strings.</value>
+  </data>
+  <data name="CVLoadingJsonDates_Text3" xml:space="preserve">
+    <value>Note how the "Date" column contains strings in the example below:</value>
+  </data>
+  <data name="CVLoadingJsonDates_Text4" xml:space="preserve">
+    <value>The solution for this problem is to use a 'reviver' function
+    in the call to JSON.parse that will inspect the strings
+    and convert those that look like dates into date objects.</value>
+  </data>
+  <data name="CVLoadingJsonDates_Text5" xml:space="preserve">
+    <value>Following is a grid showing the same data, this time parsed
+    with a date reviver function:</value>
+  </data>
+  <data name="CVLoadingJsonDates_Title" xml:space="preserve">
+    <value>Loading JSON Dates</value>
+  </data>
+  <data name="CVPaging_Text1" xml:space="preserve">
+    <value>Paging is a common technique for dealing with large collections
+    of data.</value>
+  </data>
+  <data name="CVPaging_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; class supports client-side paging
+    by default. This enables you to generate grids and tables that contain
+    only a reasonable amount of data. To enable paging, set the
+    &lt;b&gt;pageSize&lt;/b&gt; property and to select the page you want to display, 
+    use the &lt;b&gt;moveToPage&lt;/b&gt; method.</value>
+  </data>
+  <data name="CVPaging_Text3" xml:space="preserve">
+    <value>For example:</value>
+  </data>
+  <data name="CVPaging_Text4" xml:space="preserve">
+    <value>Server-side paging consists of making requests that bring in
+    one page of data at a time. The actual commands used to retrieve
+    the data depend on the API exposed by the server.</value>
+  </data>
+  <data name="CVPaging_Text5" xml:space="preserve">
+    <value>MVC Edition includes &lt;b&gt;CollectionViewService&lt;/b&gt; that implements
+    server-based paging (as well as sorting and filtering).</value>
+  </data>
+  <data name="CVPaging_Text6" xml:space="preserve">
+    <value>For example:</value>
+  </data>
+  <data name="CVPaging_Title" xml:space="preserve">
+    <value>CollectionView Paging</value>
+  </data>
+  <data name="CVPerformance_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; class is highly optimized.
+    It sorts, filters, groups, and paginates large data
+    sets efficiently in virtually every situation.</value>
+  </data>
+  <data name="CVPerformance_Text2" xml:space="preserve">
+    <value>In some cases, you may be able to improve performance
+    even more by using the &lt;b&gt;deferUpdate&lt;/b&gt; method to
+    suspend refreshes while performing batch operations.</value>
+  </data>
+  <data name="CVPerformance_Text3" xml:space="preserve">
+    <value>This is especially important when adding items to collections
+    that are sorted, grouped, or filtered. Without deferred
+    updates, each addition causes a refresh.</value>
+  </data>
+  <data name="CVPerformance_Text4" xml:space="preserve">
+    <value>For example, click the buttons below to add 1,000
+    items to a &lt;b&gt;CollectionView&lt;/b&gt; using three
+    different methods:</value>
+  </data>
+  <data name="CVPerformance_Title" xml:space="preserve">
+    <value>CollectionView Notifications and Performance</value>
+  </data>
+  <data name="CVSorting_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;CollectionView.sortDescriptions&lt;/b&gt; property to specify
+    which fields should be sorted and in which direction.</value>
+  </data>
+  <data name="CVSorting_Text2" xml:space="preserve">
+    <value>Choose one of the options to see it in action:</value>
+  </data>
+  <data name="CVSorting_Text7" xml:space="preserve">
+    <value>Result:</value>
+  </data>
+  <data name="CVSorting_Title" xml:space="preserve">
+    <value>CollectionView Sorting</value>
+  </data>
+  <data name="CVStableSort_Text1" xml:space="preserve">
+    <value>The CollectionView class has a "stableSort" property that allows
+    you to keep the original sequence of items when sorting by
+    any fields in the data objects.</value>
+  </data>
+  <data name="CVStableSort_Text2" xml:space="preserve">
+    <value>For example, this sample creates a CollectionView based on
+    a list of items sorted by Country and ID. If you sort the
+    grid by any property (e.g. Active), items with the same
+    sort property value will be sorted according to the original
+    order (sorted by Country and ID):</value>
+  </data>
+  <data name="CVStableSort_Text3" xml:space="preserve">
+    <value>The "stableSort" property does have a performance cost. 
+    Therefore, it is set to "false" by default and should be
+    set to "true" only when needed.</value>
+  </data>
+  <data name="CVStableSort_Title" xml:space="preserve">
+    <value>Stable Sort</value>
+  </data>
+  <data name="CVTrackingChanges_Text1" xml:space="preserve">
+    <value>Web applications often use a pattern of downloading
+    some data from the server, making changes locally,
+    and updating the server with the changes later.</value>
+  </data>
+  <data name="CVTrackingChanges_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; can help by keeping track
+    of items that have been added, removed, or modified.</value>
+  </data>
+  <data name="CVTrackingChanges_Text3" xml:space="preserve">
+    <value>To use this feature, set the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.collections.CollectionView.Class.html#trackChanges" target="_blank"&gt;trackChanges&lt;/a&gt;
+    property to true. Once you do that, the &lt;b&gt;CollectionView&lt;/b&gt;
+    will add items to its &lt;b&gt;itemsAdded&lt;/b&gt;, &lt;b&gt;itemsRemoved&lt;/b&gt;,
+    and &lt;b&gt;itemsEdited&lt;/b&gt; collections. When you are ready, send
+    the changes to the server and call the &lt;b&gt;clearChanges&lt;/b&gt;
+    method to reset the change-tracking collections.</value>
+  </data>
+  <data name="CVTrackingChanges_Text4" xml:space="preserve">
+    <value>Edit/add/remove items in the grid below to observe how it works:</value>
+  </data>
+  <data name="CVTrackingChanges_Title" xml:space="preserve">
+    <value>CollectionView Change Tracking</value>
+  </data>
+  <data name="CVValidation_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;CollectionView&lt;/b&gt; has a &lt;b&gt;getError&lt;/b&gt; property
+    that provides validation support.
+    To use it, set &lt;b&gt;getError&lt;/b&gt; to a function that takes
+    two parameters containing the data item being validated
+    and the property to validate, and returns a string describing
+    the error condition or null if there are no errors.</value>
+  </data>
+  <data name="CVValidation_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;getError&lt;/b&gt; property goes beyond basic HTML5 validation
+    based only on the value itself (such as min, max, required,
+    pattern, etc). It allows you to specify conditions that involve
+    multiple properties.</value>
+  </data>
+  <data name="CVValidation_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;getError&lt;/b&gt; property allows you to include the
+    validation logic in the collection itself, rather than
+    in the UI used for editing items.
+    The same method can then be used by input forms or by
+    controls such as &lt;b&gt;FlexGrid&lt;/b&gt;.</value>
+  </data>
+  <data name="CVValidation_Text4" xml:space="preserve">
+    <value>&lt;b&gt;FlexGrid&lt;/b&gt; uses the &lt;b&gt;CollectionView.getError&lt;/b&gt;
+    property by default. Try entering an invalid country or a
+    negative number to see how the grid identifies the error
+    and prevents the invalid entry from being committed:</value>
+  </data>
+  <data name="CVValidation_Text5" xml:space="preserve">
+    <value>You can use the the &lt;b&gt;CollectionView.getError&lt;/b&gt; property
+    to validate forms as well. Simply call the function and
+    apply the result to the appropriate input element using the
+    &lt;b&gt;setCustomValidity&lt;/b&gt; method that is part of the HTML5
+    validation API.</value>
+  </data>
+  <data name="CVValidation_Title" xml:space="preserve">
+    <value>CollectionView Validation</value>
+  </data>
+  <data name="Events_Text1" xml:space="preserve">
+    <value>HTML5 has an eventing mechanism that works for HTML elements.
+    But, it cannot be used to add events to arbitrary objects,
+    such as controls and collections.</value>
+  </data>
+  <data name="Events_Text2" xml:space="preserve">
+    <value>To handle this, we defined an &lt;b&gt;Event&lt;/b&gt; class. Any class
+    may define events by declaring them as fields, and any class may
+    add or remove event handlers using the event's &lt;b&gt;addHandler&lt;/b&gt;
+    and &lt;b&gt;removeHandler&lt;/b&gt; methods.</value>
+  </data>
+  <data name="Events_Text3" xml:space="preserve">
+    <value>You may also declare event handlers as &lt;b&gt;options&lt;/b&gt; in the 
+    &lt;b&gt;initialize&lt;/b&gt; method of any MVC control.</value>
+  </data>
+  <data name="Events_Text4" xml:space="preserve">
+    <value>These event handlers take two parameters: &lt;b&gt;sender&lt;/b&gt;
+    and &lt;b&gt;args&lt;/b&gt;.
+    &lt;b&gt;Sender&lt;/b&gt; is an object that raised the event, and &lt;b&gt;args&lt;/b&gt;
+    is an object that contains the event parameters.</value>
+  </data>
+  <data name="Events_Text5" xml:space="preserve">
+    <value>Below are some input controls with the event handlers
+    attached to them:</value>
+  </data>
+  <data name="Events_Text6" xml:space="preserve">
+    <value>For more details on C1 MVC and HTML events, please refer to
+        our blog on
+        &lt;a href="http://wijmo.com/blog/html-and-wijmo-events/" target="_blank"&gt;HTML and Wijmo Events&lt;/a&gt;.</value>
+  </data>
+  <data name="Events_Title" xml:space="preserve">
+    <value>Events</value>
+  </data>
+  <data name="Extenders_Text1" xml:space="preserve">
+    <value>Extenders are used to extend the funtionality of a control. Following is the list of some extenders provided with ASP.NET MVC Edition and the controls they can be used with.</value>
+  </data>
+  <data name="Extenders_Title" xml:space="preserve">
+    <value>C1 MVC Extenders</value>
+  </data>
+  <data name="FlexGridFocus_Text1" xml:space="preserve">
+    <value>FlexGrid adds a "wj-state-selected" class to the selected cells.</value>
+  </data>
+  <data name="FlexGridFocus_Text2" xml:space="preserve">
+    <value>You can combine this with the "wj-state-focused" class added to
+    the grid to create styles for highlighting
+    the selection when grid has the focus:</value>
+  </data>
+  <data name="FlexGridFocus_Title" xml:space="preserve">
+    <value>FlexGrid Focus</value>
+  </data>
+  <data name="Formatting_Text1" xml:space="preserve">
+    <value>To globalize your application, register the appropriate culture
+    while registering the C1 MVC scripts.
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        MVC includes over 40 culture files you can choose from.
+    &lt;/a&gt;</value>
+  </data>
+  <data name="Formatting_Title" xml:space="preserve">
+    <value>Formatting Dates and Numbers</value>
+  </data>
+  <data name="Globalization_Text1" xml:space="preserve">
+    <value>By default, MVC controls format and parse the data using
+    American English culture. The decimal symbol is a period,
+    the thousand separator is a comma, and the days of the week
+    are "Sunday" through "Saturday".</value>
+  </data>
+  <data name="Globalization_Text2" xml:space="preserve">
+    <value>If your application targets other cultures, register the appropriate culture
+    by registering the MVC scripts in your HTML pages.
+    MVC edition includes over 40 cultures (see
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        the complete list
+    &lt;/a&gt;
+    ).</value>
+  </data>
+  <data name="Globalization_Text3" xml:space="preserve">
+    <value>For example, to localize an application for the German culture,
+    register the "de" culture while registering the scripts:</value>
+  </data>
+  <data name="Globalization_Title" xml:space="preserve">
+    <value>Globalizing Applications</value>
+  </data>
+  <data name="Glyphs_Text1" xml:space="preserve">
+    <value>The C1 MVC CSS includes several glyphs defined
+    as pure CSS.
+    The glyphs are used by the C1 MVC controls and extensions,
+    and your applications may also use them.</value>
+  </data>
+  <data name="Glyphs_Text2" xml:space="preserve">
+    <value>Using CSS to define glyphs eliminates the need to deploy
+    extra font or image files, and ensures the images are
+    rendered using the foreground color and font size defined
+    by the current theme.</value>
+  </data>
+  <data name="Glyphs_Text3" xml:space="preserve">
+    <value>To use C1 MVC glyphs in your applications, add a span
+    element to your markup and set its class to the glyph
+    name. For example:</value>
+  </data>
+  <data name="Glyphs_Title" xml:space="preserve">
+    <value>Glyphs</value>
+  </data>
+  <data name="HtmlEvents_Text1" xml:space="preserve">
+    <value>C1 MVC events do not replace HTML events. For example,
+    mouse and keyboard events must be detected and handled
+    using regular HTML handlers attached to the control's
+    &lt;b&gt;hostElement&lt;/b&gt;.</value>
+  </data>
+  <data name="HtmlEvents_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Control&lt;/b&gt; class of MVC makes HTML event easier to
+    use by providing &lt;b&gt;addEventListener&lt;/b&gt; and
+    &lt;b&gt;removeEventListener&lt;/b&gt; methods that automatically
+    clean up when a control is destroyed, which helps in avoiding
+    memory leaks.</value>
+  </data>
+  <data name="HtmlEvents_Text3" xml:space="preserve">
+    <value>Below are some input controls with the HTML event handlers
+    attached to them:</value>
+  </data>
+  <data name="HtmlEvents_Text4" xml:space="preserve">
+    <value>Please move the mouse over the controls.</value>
+  </data>
+  <data name="HtmlEvents_Text5" xml:space="preserve">
+    <value>For more details on C1 MVC and HTML events, please refer to
+        our blog on
+        &lt;a href="http://wijmo.com/blog/html-and-wijmo-events/"&gt;HTML and Wijmo Events&lt;/a&gt;.</value>
+  </data>
+  <data name="HtmlEvents_Title" xml:space="preserve">
+    <value>MVC and HTML Events</value>
+  </data>
+  <data name="Index_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    This application demonstrates main features of C1 MVC
+    controls with the help of a series of samples.
+&lt;/p&gt;
+&lt;p&gt;
+    Browse the topics in the left pane to see various features
+    in action and learn by browsing the code and markup.
+    After navigating through a few samples, you should be able
+    to understand MVC client basics and eventually become 
+    an expert as you dig in further.
+&lt;/p&gt;
+&lt;p&gt;
+    For more details on a specific control or property, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html" target="_blank"&gt;online documentation&lt;/a&gt; of MVC controls.
+&lt;/p&gt;
+&lt;p&gt;
+    If you can't find something you are looking for, or have
+    feedback regarding MVC controls or this tutorial, 
+    please &lt;a href="https://www.grapecity.com/en/support/contact" target="_blank"&gt;write&lt;/a&gt; to us and we will try our best to meet your requirements.
+&lt;/p&gt;</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>Learn C1 MVC Client</value>
+  </data>
+  <data name="Index_Title1" xml:space="preserve">
+    <value>@Resources.C1Mvc.Index_Title</value>
+  </data>
+  <data name="OtherServices_Text1" xml:space="preserve">
+    <value>In addition to implementing fundamental classes such as
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Control.Class.html" target="_blank"&gt;Control&lt;/a&gt;,
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Event.Class.html" target="_blank"&gt;Event&lt;/a&gt;, and
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt; classes,
+    the &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Module.html" target="_blank"&gt;wijmo&lt;/a&gt;
+    module provides many other useful services and classes including:</value>
+  </data>
+  <data name="OtherServices_Text2" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Tooltip.Class.html" target="_blank"&gt;Tooltip&lt;/a&gt;:
+        Class that provides pop-up windows that display additional information about elements on the page.</value>
+  </data>
+  <data name="OtherServices_Text3" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Clipboard.Class.html" target="_blank"&gt;Clipboard&lt;/a&gt;:
+        Class that provides static &lt;b&gt;copy&lt;/b&gt; and &lt;b&gt;paste&lt;/b&gt; methods that can be used by applications
+        and controls to customize the clipboard content during clipboard operations.</value>
+  </data>
+  <data name="OtherServices_Text4" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.PrintDocument.Class.html" target="_blank"&gt;PrintDocument&lt;/a&gt;:
+        Class that makes it easy to create documents for printing or exporting to PDF.
+        Most browsers allow you to select the paper size, orientation, margins,
+        and whether to include page headers and footers.</value>
+  </data>
+  <data name="OtherServices_Text5" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Color.Class.html" target="_blank"&gt;Color&lt;/a&gt;:
+        Class that parses colors specified as CSS strings and exposes their red, green, blue,
+        and alpha channels as read-write properties. Also provides methods for converting
+        color spaces and interpolating.</value>
+  </data>
+  <data name="OtherServices_Title" xml:space="preserve">
+    <value>Other Classes and Services</value>
+  </data>
+  <data name="Parsing_Text1" xml:space="preserve">
+    <value>To globalize your application, register the appropriate culture
+    while registering the C1 MVC scripts.
+    &lt;a href="http://wijmo.com/5/docs/static/globalization.html" target="_blank"&gt;
+        Wijmo includes over 40 culture files you can choose from.
+    &lt;/a&gt;</value>
+  </data>
+  <data name="Parsing_Text3" xml:space="preserve">
+    <value>Dates are parsed using the
+    &lt;b&gt;Globalize.parseDate&lt;/b&gt; function.
+    The format strings are the same used to format dates. For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="Parsing_Text4" xml:space="preserve">
+    <value>Try it yourself with the help of the sample below:</value>
+  </data>
+  <data name="Parsing_Title" xml:space="preserve">
+    <value>Parsing Dates and Numbers</value>
+  </data>
+  <data name="Pluralization_Text1" xml:space="preserve">
+    <value>There may be cases where you want to display custom messages
+    based on the item count. This is especially important
+    in certain cultures such as Polish.</value>
+  </data>
+  <data name="Pluralization_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;format&lt;/b&gt; method supports that by accepting format
+    strings that contain pluralization rules encoded as JSON
+    objects.</value>
+  </data>
+  <data name="Pluralization_Text3" xml:space="preserve">
+    <value>For example, choose the number of items and see the
+    formatted output below:</value>
+  </data>
+  <data name="Pluralization_Title" xml:space="preserve">
+    <value>Pluralization</value>
+  </data>
+  <data name="PrintDocument_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;PrintDocument&lt;/b&gt; class makes it easy to create documents
+    for printing or exporting to PDF. Most browsers allow you to select
+    the paper size, orientation, margins, and whether to include page
+    headers and footers.</value>
+  </data>
+  <data name="PrintDocument_Title" xml:space="preserve">
+    <value>PrintDocument</value>
+  </data>
+  <data name="PropertiesEnums_Text1" xml:space="preserve">
+    <value>A number of MVC controls have properties that take enumeration values.</value>
+  </data>
+  <data name="PropertiesEnums_Text2" xml:space="preserve">
+    <value>For example, the FlexChart's &lt;b&gt;chartType&lt;/b&gt; property takes
+    values of type
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.chart.ChartType.Enum.html" target="_blank"&gt;wijmo.chart.ChartType&lt;/a&gt;.</value>
+  </data>
+  <data name="PropertiesEnums_Text3" xml:space="preserve">
+    <value>You can set enumeration properties using the enum symbol,
+    numeric value, or name. For example, following three ways are 
+    equivalent:</value>
+  </data>
+  <data name="PropertiesEnums_Text6" xml:space="preserve">
+    <value>Chart Type:</value>
+  </data>
+  <data name="PropertiesEnums_Title" xml:space="preserve">
+    <value>Properties and Enums</value>
+  </data>
+  <data name="PseudoClasses_Text1" xml:space="preserve">
+    <value>CSS pseudo-classes are keywords added to selectors that
+    specify special states of the element to be selected.
+    For example, pseudo-class :hover will apply a style when user
+    hovers over the element specified by the selector.</value>
+  </data>
+  <data name="PseudoClasses_Text10" xml:space="preserve">
+    <value>Click the gauges below to change the current value and watch how
+    their respective thumbs change:</value>
+  </data>
+  <data name="PseudoClasses_Text2" xml:space="preserve">
+    <value>Some standard pseudo-classes have limited use 
+    because they get applied to specific elements only,
+    and not to their ancestors. For example,
+    a number of MVC input controls contain input elements.
+    When input elements have the focus, they get the pseudo-class :focus,
+    but the control host that contains it does not get the same.</value>
+  </data>
+  <data name="PseudoClasses_Text3" xml:space="preserve">
+    <value>To handle this, we added some pseudo-classes of our
+    own to make it easier to build effective forms:</value>
+  </data>
+  <data name="PseudoClasses_Text4" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-focused&lt;/b&gt;:
+        Added to control host elements when control contains
+        the active element (not necessarily when the host element
+        is the active element).</value>
+  </data>
+  <data name="PseudoClasses_Text5" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-invalid&lt;/b&gt;:
+        Added to control host elements when control contains
+        input elements in an invalid state.</value>
+  </data>
+  <data name="PseudoClasses_Text6" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-empty&lt;/b&gt;:
+        Added to control host elements when control contains
+        an input element with no content (this is different from
+        the :empty pseudo-class which is applied to elements that
+        have no children.</value>
+  </data>
+  <data name="PseudoClasses_Text7" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-readonly&lt;/b&gt;:
+        Added to control host elements when &lt;b&gt;isReadOnly&lt;/b&gt;
+        property of control is set to true.</value>
+  </data>
+  <data name="PseudoClasses_Text8" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-disabled&lt;/b&gt;:
+        Added to control host elements when &lt;b&gt;isDisabled&lt;/b&gt; property
+        of control is set to true (which corresponds to adding 
+        a "disabled" attribute to the control's host element).</value>
+  </data>
+  <data name="PseudoClasses_Text9" xml:space="preserve">
+    <value>This example shows how you can use the &lt;b&gt;wj-state-focused&lt;/b&gt;
+    pseudo-class to apply CSS animations to the thumb element of
+    linear and radial gauges when they get the focus.</value>
+  </data>
+  <data name="PseudoClasses_Title" xml:space="preserve">
+    <value>Pseudo Classes</value>
+  </data>
+  <data name="Reference_Description" xml:space="preserve">
+    <value>&lt;p&gt;
+    To use C1 MVC controls in your MVC application, follow these steps:
+&lt;/p&gt;
+&lt;ol&gt;
+    &lt;li&gt;
+        &lt;b&gt;Install ASP.NET MVC Edition&lt;/b&gt;&lt;br /&gt;
+        Download the installer(&lt;a href="https://www.grapecity.com/en/download"&gt;C1StudioInstaller.exe&lt;/a&gt;) in your machine. 
+        Follow the steps through the installation wizard to install the
+        .NET DLLs and packages for ASP.NET MVC Edition. The installer 
+        also installs C1 ASP.NET MVC Web Application templates which 
+        can be used in place of the MVC templates provided by Visual 
+        Studio, to make working with ComponentOne controls easier.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;License the product&lt;/b&gt;&lt;br /&gt;
+        When you download and install ComponentOne products, you are
+        presented with a chance to activate the license. If you want 
+        to evaluate our tools before purchase, you can skip the license 
+        activation process. In that case, you will get a 30-day 
+        evaluation period. During this period, you will be able to use 
+        all the features of ComponentOne products. After 30-day evaluation
+        period is over, you will not be able to build applications that 
+        include unlicensed ComponentOne controls. You can purchase and 
+        activate a license at that point or you can request an evaluation 
+        key that will grant you another 30-day evaluation period. Once 
+        you have the evaluation key, you can activate it through the 
+        ComponentOne License Activation utility found in 
+        C:\Program Files (x86)\ComponentOne\C1StartMenu.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Configure your application&lt;/b&gt;&lt;br /&gt;
+        You can create your application using ComponentOne template or 
+        Visual Studio template in Visual Studio. On using ComponentOne
+         template, references of the assemblies or the packages are added
+         automatically to your application. While, for an application 
+        created using Visual Studio template, these have to be added manually.
+    &lt;/li&gt;
+    &lt;li&gt;
+        &lt;b&gt;Register the resources in view&lt;/b&gt;&lt;br /&gt;
+        For applications created using ComponentOne template, all the 
+        resources required to use the available controls also get 
+        registered automatically. However, you need to manually register 
+        the resources in case of applications created using standard 
+        Visual Studio template.
+    &lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;
+    Now, you can use MVC controls in your application. You can add 
+    an MVC control in the view or create a client MVC control by using 
+    javascript code. For more information, please refer the 
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#GettingStarted.html" target="_blank"&gt;online documentation&lt;/a&gt;.
+&lt;/p&gt;</value>
+  </data>
+  <data name="Reference_Title" xml:space="preserve">
+    <value>Referencing MVC Controls in your Application</value>
+  </data>
+  <data name="Reference_Title1" xml:space="preserve">
+    <value>@Resources.C1Mvc.Reference_Title</value>
+  </data>
+  <data name="Services_Text1" xml:space="preserve">
+    <value>Service is an object defined to provide additional functionality. 
+    Currently, ASP.NET MVC Edition provides following two services:</value>
+  </data>
+  <data name="Services_Text2" xml:space="preserve">
+    <value>&lt;code&gt;c1.mvc.collections.RemoteCollectionView&lt;/code&gt;</value>
+  </data>
+  <data name="Services_Text3" xml:space="preserve">
+    <value>&lt;code&gt;c1.mvc.olap.PivotEngine&lt;/code&gt;</value>
+  </data>
+  <data name="Services_Text4" xml:space="preserve">
+    <value>The service object can be obtained using &lt;code&gt;c1.getService(serviceId)&lt;/code&gt;.</value>
+  </data>
+  <data name="Services_Text5" xml:space="preserve">
+    <value>The sample shows how to create a RemoteCollectionView service and customize it.</value>
+  </data>
+  <data name="Services_Title" xml:space="preserve">
+    <value>C1 MVC Services</value>
+  </data>
+  <data name="Themes_Title" xml:space="preserve">
+    <value>Themes</value>
+  </data>
+  <data name="Tooltip_Text1" xml:space="preserve">
+    <value>Tooltips are provided by the C1 MVC core. They are not controls,
+    but popups containing HTML that appear when the mouse hovers
+    over designated elements.</value>
+  </data>
+  <data name="Tooltip_Text2" xml:space="preserve">
+    <value>You can associate a tooltip with one or more elements on the
+    page using the &lt;b id="setTooltip"&gt;Tooltip.setTooltip&lt;/b&gt; method.</value>
+  </data>
+  <data name="Tooltip_Text3" xml:space="preserve">
+    <value>And this paragraph has a &lt;b id="theSpan"&gt;span with a tooltip&lt;/b&gt;
+    and another &lt;i id="theOtherSpan"&gt;span with a different tooltip&lt;/i&gt;.</value>
+  </data>
+  <data name="Tooltip_Text4" xml:space="preserve">
+    <value>The buttons below also have tooltips:</value>
+  </data>
+  <data name="Tooltip_Text8" xml:space="preserve">
+    <value>The &lt;b&gt;setTooltip&lt;/b&gt; method a ssigns tooltip content to given elements on the page.</value>
+  </data>
+  <data name="Tooltip_Text9" xml:space="preserve">
+    <value>The same tooltip may be used to display information for any number
+            of elements on the page. To remove the tooltip from an element,
+            call the &lt;b&gt;setTooltip&lt;/b&gt; method and specify null for the content.</value>
+  </data>
+  <data name="Tooltip_Title" xml:space="preserve">
+    <value>Tooltips</value>
+  </data>
+  <data name="WijmoAnimate_Text1" xml:space="preserve">
+    <value>Animations can make web applications more attractive and intuitive.
+    For example, removing an item from the page by making it shrink
+    away lets the user see which item is being removed more easily
+    that if it was simply hidden.</value>
+  </data>
+  <data name="WijmoAnimate_Text2" xml:space="preserve">
+    <value>Many JavaScript toolkits and frameworks have their own wrappers
+    for creating animations. For example, Angular has an
+    &lt;a href="https://docs.angularjs.org/api/ng/service/$animate" target="_blank"&gt;$animate&lt;/a&gt; service,
+    and jQuery has an
+    &lt;a href="http://api.jquery.com/animate/"&gt;animate()&lt;/a&gt; method.
+    If you have a favorite you can use that with C1 MVC.</value>
+  </data>
+  <data name="WijmoAnimate_Text3" xml:space="preserve">
+    <value>If you want to reduce dependencies on external toolkits and
+    frameworks, you can use Wijmo's simple and flexible
+    &lt;b&gt;animate&lt;/b&gt; method instead.</value>
+  </data>
+  <data name="WijmoAnimate_Text4" xml:space="preserve">
+    <value>The example below illustrates by rotating a FlexGrid like
+    a flip card. The &lt;b&gt;animate&lt;/b&gt; method has a single callback
+    that controls the entire animation:</value>
+  </data>
+  <data name="WijmoAnimate_Title" xml:space="preserve">
+    <value>The wijmo.animate Method</value>
+  </data>
+  <data name="WijmoFormat_Text1" xml:space="preserve">
+    <value>Creating strings based on formatted data can be challenging in JavaScript.
+    ES2016 addressed that limitation by introducing
+    &lt;a href="https://developers.google.com/web/updates/2015/01/ES6-Template-Strings" target="_blank"&gt;Template Strings&lt;/a&gt;.</value>
+  </data>
+  <data name="WijmoFormat_Text2" xml:space="preserve">
+    <value>Unfortunately, browser support is still limited for that solution. Hence,
+    we provide the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#format" target="_blank"&gt;format&lt;/a&gt;
+    function that works regardless of browser. The &lt;b&gt;format&lt;/b&gt; function takes a
+    format string with placeholders that contain variable names and format
+    specifiers, and a data object that supplies the variables.</value>
+  </data>
+  <data name="WijmoFormat_Text3" xml:space="preserve">
+    <value>For example:</value>
+  </data>
+  <data name="WijmoFormat_Title" xml:space="preserve">
+    <value>The wijmo.format Method</value>
+  </data>
+  <data name="WijmoHttpRequest_Text1" xml:space="preserve">
+    <value>HTTP requests are the basic mechanism used by web applications
+    to exchange data with the server.</value>
+  </data>
+  <data name="WijmoHttpRequest_Text2" xml:space="preserve">
+    <value>Many JavaScript toolkits and frameworks have their own wrappers
+    for making HTTP requests. For example, Angular has an
+    &lt;a href="https://docs.angularjs.org/api/ng/service/$http" target="_blank"&gt;$http&lt;/a&gt; service,
+    and jQuery has an
+    &lt;a href="http://api.jquery.com/jquery.ajax/"&gt;ajax()&lt;/a&gt; method.
+    If you have a favorite you can use that with C1 MVC.</value>
+  </data>
+  <data name="WijmoHttpRequest_Text3" xml:space="preserve">
+    <value>If you want to reduce dependencies on external toolkits and
+    frameworks, you can use C1 MVC's simple and flexible
+    &lt;b&gt;httpRequest&lt;/b&gt; method instead.</value>
+  </data>
+  <data name="WijmoHttpRequest_Text4" xml:space="preserve">
+    <value>The example below illustrates by retrieving some data from
+    Microsoft's Northwind OData sample service and using that
+    to populate a FlexGrid:</value>
+  </data>
+  <data name="WijmoHttpRequest_Title" xml:space="preserve">
+    <value>The wijmo.httpRequest Method</value>
+  </data>
+  <data name="WijmoShowPopup_Text1" xml:space="preserve">
+    <value>You can easily implement a column-picker UI by using the
+    grid's &lt;b&gt;columns&lt;/b&gt; property, a &lt;b&gt;ListBox&lt;/b&gt; control,
+    and C1 MVC's &lt;b&gt;showPopup&lt;/b&gt; and &lt;b&gt;hidePopup&lt;/b&gt;
+    methods.</value>
+  </data>
+  <data name="WijmoShowPopup_Text2" xml:space="preserve">
+    <value>For example, the grid below loads with an auto-generated
+    set of columns. Click the gear icon at the top-left cell to
+    show a &lt;b&gt;ListBox&lt;/b&gt; where you can select the columns
+    you want to display.</value>
+  </data>
+  <data name="WijmoShowPopup_Text3" xml:space="preserve">
+    <value>You can use the grid's &lt;b&gt;columnLayout&lt;/b&gt; property to allow users
+    to save and restore column layouts. Click the buttons below
+    to see how this works.</value>
+  </data>
+  <data name="WijmoShowPopup_Title" xml:space="preserve">
+    <value>Popup Column Picker</value>
+  </data>
+  <data name="Clipboard_Text4" xml:space="preserve">
+    <value>Include Headers</value>
+  </data>
+  <data name="ControlsElements_Text6" xml:space="preserve">
+    <value>Toggle Font</value>
+  </data>
+  <data name="ControlsElements_Text7" xml:space="preserve">
+    <value>Toggle Size (WRONG)</value>
+  </data>
+  <data name="ControlsElements_Text8" xml:space="preserve">
+    <value>Toggle Size (RIGHT)</value>
+  </data>
+  <data name="CVCurrency_Text4" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CVCurrency_Text5" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="CVCurrency_Text6" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="CVCurrency_Text7" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="CVFiltering_Text3" xml:space="preserve">
+    <value>No Filter</value>
+  </data>
+  <data name="CVFiltering_Text4" xml:space="preserve">
+    <value>US only</value>
+  </data>
+  <data name="CVFiltering_Text5" xml:space="preserve">
+    <value>Sales &gt; 50,000</value>
+  </data>
+  <data name="CVFiltering_Text6" xml:space="preserve">
+    <value>Downloads &gt; 150,000</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text3" xml:space="preserve">
+    <value>Load Grid Using GIF Spinner</value>
+  </data>
+  <data name="CVFlexGridSpinners_Text6" xml:space="preserve">
+    <value>Load Grid Using Gauge Spinner</value>
+  </data>
+  <data name="CVFlexGridSpinners_Title1" xml:space="preserve">
+    <value>GIF Spinners</value>
+  </data>
+  <data name="CVFlexGridSpinners_Title2" xml:space="preserve">
+    <value>Gauge Spinners</value>
+  </data>
+  <data name="CVFlexGridSpinners_Title3" xml:space="preserve">
+    <value>Loading Mask</value>
+  </data>
+  <data name="CVGrouping_Text3" xml:space="preserve">
+    <value>No Grouping</value>
+  </data>
+  <data name="CVGrouping_Text4" xml:space="preserve">
+    <value>By Country</value>
+  </data>
+  <data name="CVGrouping_Text5" xml:space="preserve">
+    <value>By Country and by Product</value>
+  </data>
+  <data name="CVGrouping_Text6" xml:space="preserve">
+    <value>By Country, Product, and Sales</value>
+  </data>
+  <data name="CVGrouping_Text7" xml:space="preserve">
+    <value>Result:</value>
+  </data>
+  <data name="CVGrouping_Text8" xml:space="preserve">
+    <value>Show on Console</value>
+  </data>
+  <data name="CVLoadingData_Title1" xml:space="preserve">
+    <value>Loading on the Client</value>
+  </data>
+  <data name="CVLoadingData_Title2" xml:space="preserve">
+    <value>Loading from the Server</value>
+  </data>
+  <data name="CVLoadingData_Title3" xml:space="preserve">
+    <value>Construct in Server</value>
+  </data>
+  <data name="CVLoadingJsonDates_Title1" xml:space="preserve">
+    <value>The Problem</value>
+  </data>
+  <data name="CVLoadingJsonDates_Title2" xml:space="preserve">
+    <value>The Solution</value>
+  </data>
+  <data name="CVPaging_Title1" xml:space="preserve">
+    <value>Client-Side Paging</value>
+  </data>
+  <data name="CVPaging_Title2" xml:space="preserve">
+    <value>Server-Side Paging</value>
+  </data>
+  <data name="CVPerformance_Text5" xml:space="preserve">
+    <value>addNew</value>
+  </data>
+  <data name="CVPerformance_Text6" xml:space="preserve">
+    <value>push</value>
+  </data>
+  <data name="CVPerformance_Text7" xml:space="preserve">
+    <value>push + defer updates</value>
+  </data>
+  <data name="CVSorting_Text3" xml:space="preserve">
+    <value>No Sort</value>
+  </data>
+  <data name="CVSorting_Text4" xml:space="preserve">
+    <value>Sort by Country</value>
+  </data>
+  <data name="CVSorting_Text5" xml:space="preserve">
+    <value>Sort by Country and Sales</value>
+  </data>
+  <data name="CVSorting_Text6" xml:space="preserve">
+    <value>Sort by Country, Sales, and Downloads</value>
+  </data>
+  <data name="CVTrackingChanges_Title1" xml:space="preserve">
+    <value>Edited Items:</value>
+  </data>
+  <data name="CVTrackingChanges_Title2" xml:space="preserve">
+    <value>Added Items:</value>
+  </data>
+  <data name="CVTrackingChanges_Title3" xml:space="preserve">
+    <value>Removed Items:</value>
+  </data>
+  <data name="CVValidation_Text6" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="CVValidation_Text7" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="CVValidation_Text8" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="CVValidation_Title1" xml:space="preserve">
+    <value>FlexGrid Validation</value>
+  </data>
+  <data name="CVValidation_Title2" xml:space="preserve">
+    <value>Forms Validation</value>
+  </data>
+  <data name="Extenders_Text10" xml:space="preserve">
+    <value>AnnotationLayer</value>
+  </data>
+  <data name="Extenders_Text11" xml:space="preserve">
+    <value>ChartAnimation</value>
+  </data>
+  <data name="Extenders_Text12" xml:space="preserve">
+    <value>ChartGestures</value>
+  </data>
+  <data name="Extenders_Text13" xml:space="preserve">
+    <value>LineMarker</value>
+  </data>
+  <data name="Extenders_Text14" xml:space="preserve">
+    <value>RangeSelector</value>
+  </data>
+  <data name="Extenders_Text15" xml:space="preserve">
+    <value>The following extender can be used with the FlexSheet control.</value>
+  </data>
+  <data name="Extenders_Text16" xml:space="preserve">
+    <value>FormulaBar</value>
+  </data>
+  <data name="Extenders_Text17" xml:space="preserve">
+    <value>There are two ways to use the extenders.</value>
+  </data>
+  <data name="Extenders_Text18" xml:space="preserve">
+    <value>Create extender using control extender builder</value>
+  </data>
+  <data name="Extenders_Text19" xml:space="preserve">
+    <value>Create extender using client extender constructor</value>
+  </data>
+  <data name="Extenders_Text2" xml:space="preserve">
+    <value>The following extenders can be used with the FlexGrid control.</value>
+  </data>
+  <data name="Extenders_Text20" xml:space="preserve">
+    <value>If the extender is created using control extender builder, we can get the same in following ways:</value>
+  </data>
+  <data name="Extenders_Text21" xml:space="preserve">
+    <value>&lt;code&gt;c1.getExtenders(control, extenderType?)&lt;/code&gt;&lt;br/&gt;
+        Gets the extenders with specified owner and type.</value>
+  </data>
+  <data name="Extenders_Text22" xml:space="preserve">
+    <value>&lt;code&gt;c1.getExtender(control, id)&lt;/code&gt; &lt;br/&gt;
+        Gets the extender with specified owner and id.</value>
+  </data>
+  <data name="Extenders_Text23" xml:space="preserve">
+    <value>The samples below show how to create, get and customize an extender.</value>
+  </data>
+  <data name="Extenders_Text24" xml:space="preserve">
+    <value>Use the control builder to add an extender directly.&lt;br/&gt;</value>
+  </data>
+  <data name="Extenders_Text25" xml:space="preserve">
+    <value>Use javascript code to add an extender in the client.&lt;br/&gt;</value>
+  </data>
+  <data name="Extenders_Text3" xml:space="preserve">
+    <value>FlexGridDetailProvider</value>
+  </data>
+  <data name="Extenders_Text4" xml:space="preserve">
+    <value>FlexGridFilter</value>
+  </data>
+  <data name="Extenders_Text5" xml:space="preserve">
+    <value>FlexGridGroupPanel</value>
+  </data>
+  <data name="Extenders_Text6" xml:space="preserve">
+    <value>The following extenders can be used with the MultiRow control.</value>
+  </data>
+  <data name="Extenders_Text7" xml:space="preserve">
+    <value>FlexGridFilter</value>
+  </data>
+  <data name="Extenders_Text8" xml:space="preserve">
+    <value>FlexGridGroupPanel</value>
+  </data>
+  <data name="Extenders_Text9" xml:space="preserve">
+    <value>The following extenders can be used with charts.</value>
+  </data>
+  <data name="Formatting_Text10" xml:space="preserve">
+    <value>Full Date/Time Pattern (long time)</value>
+  </data>
+  <data name="Formatting_Text11" xml:space="preserve">
+    <value>Short Time Pattern</value>
+  </data>
+  <data name="Formatting_Text12" xml:space="preserve">
+    <value>Long Time Pattern</value>
+  </data>
+  <data name="Formatting_Text13" xml:space="preserve">
+    <value>Quarter/Year</value>
+  </data>
+  <data name="Formatting_Text14" xml:space="preserve">
+    <value>Custom format</value>
+  </data>
+  <data name="Formatting_Text15" xml:space="preserve">
+    <value>In addition to the standard .NET format specifiers, our MVC controls support
+        a few additional specifiers including 'Q/q' for quarter, 'U/u' for
+        fiscal quarter, and 'EEEE/eeee' for fiscal year.</value>
+  </data>
+  <data name="Formatting_Text16" xml:space="preserve">
+    <value>Numbers are formatted using the &lt;b&gt;Globalize.formatNumber&lt;/b&gt;
+    function.
+    For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="Formatting_Text17" xml:space="preserve">
+    <value>Value</value>
+  </data>
+  <data name="Formatting_Text18" xml:space="preserve">
+    <value>Precision</value>
+  </data>
+  <data name="Formatting_Text19" xml:space="preserve">
+    <value>Specifier</value>
+  </data>
+  <data name="Formatting_Text2" xml:space="preserve">
+    <value>Please select a culture</value>
+  </data>
+  <data name="Formatting_Text20" xml:space="preserve">
+    <value>Number</value>
+  </data>
+  <data name="Formatting_Text21" xml:space="preserve">
+    <value>Number (thousands)</value>
+  </data>
+  <data name="Formatting_Text22" xml:space="preserve">
+    <value>Number (millions)</value>
+  </data>
+  <data name="Formatting_Text23" xml:space="preserve">
+    <value>Fixed-point</value>
+  </data>
+  <data name="Formatting_Text24" xml:space="preserve">
+    <value>General (no trailing zeros)</value>
+  </data>
+  <data name="Formatting_Text25" xml:space="preserve">
+    <value>Decimal (integers)</value>
+  </data>
+  <data name="Formatting_Text26" xml:space="preserve">
+    <value>Hexadecimal (integers)</value>
+  </data>
+  <data name="Formatting_Text27" xml:space="preserve">
+    <value>Currency</value>
+  </data>
+  <data name="Formatting_Text28" xml:space="preserve">
+    <value>Currency (explicit currency symbol)</value>
+  </data>
+  <data name="Formatting_Text29" xml:space="preserve">
+    <value>Currency (no currency symbol)</value>
+  </data>
+  <data name="Formatting_Text3" xml:space="preserve">
+    <value>Dates are formatted using the
+    &lt;b&gt;Globalize.formatDate&lt;/b&gt; function.
+    For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="Formatting_Text30" xml:space="preserve">
+    <value>Percent</value>
+  </data>
+  <data name="Formatting_Text31" xml:space="preserve">
+    <value>Our numeric formats allow you to include an explicit currency symbol
+        instead of the symbol of current culture.
+        For example, an English application may need to generate lists with
+        amounts in Dollars, Euros, and Yens.</value>
+  </data>
+  <data name="Formatting_Text4" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="Formatting_Text5" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="Formatting_Text6" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="Formatting_Text7" xml:space="preserve">
+    <value>Short Date Pattern</value>
+  </data>
+  <data name="Formatting_Text8" xml:space="preserve">
+    <value>Long Date Pattern</value>
+  </data>
+  <data name="Formatting_Text9" xml:space="preserve">
+    <value>Full Date/Time Pattern (short time)</value>
+  </data>
+  <data name="Formatting_Title1" xml:space="preserve">
+    <value>Dates</value>
+  </data>
+  <data name="Formatting_Title2" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="Glyphs_Text4" xml:space="preserve">
+    <value>You can use CSS to customize the appearance of the glyphs
+    used in the C1 MVC controls.
+    For example, you could use the CSS below to hide or
+    modify the appearance of the pencil glyph used by
+    the &lt;b&gt;FlexGrid&lt;/b&gt; to indicate rows in edit mode:</value>
+  </data>
+  <data name="Glyphs_Text5" xml:space="preserve">
+    <value>The table below shows the glyphs defined in the
+    C1 MVC CSS:</value>
+  </data>
+  <data name="OtherServices_Text6" xml:space="preserve">
+    <value>Glyphs</value>
+  </data>
+  <data name="OtherServices_Text7" xml:space="preserve">
+    <value>The C1 MVC CSS includes several glyphs used by the Wijmo controls. These glyphs
+        do not depend on any font files or external images, and you may use them in your
+        applications as well.</value>
+  </data>
+  <data name="OtherServices_Text8" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#httpRequest" target="_blank"&gt;httpRequest&lt;/a&gt;:
+        Static method used to submit http requests to the server.</value>
+  </data>
+  <data name="OtherServices_Text9" xml:space="preserve">
+    <value>&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#animate" target="_blank"&gt;animate&lt;/a&gt;:
+        Static method used to create animations by setting properties on a timer.</value>
+  </data>
+  <data name="Parsing_Text10" xml:space="preserve">
+    <value>Input format</value>
+  </data>
+  <data name="Parsing_Text11" xml:space="preserve">
+    <value>Input string</value>
+  </data>
+  <data name="Parsing_Text12" xml:space="preserve">
+    <value>Parse Number</value>
+  </data>
+  <data name="Parsing_Text2" xml:space="preserve">
+    <value>Please select a culture</value>
+  </data>
+  <data name="Parsing_Text5" xml:space="preserve">
+    <value>Input format</value>
+  </data>
+  <data name="Parsing_Text6" xml:space="preserve">
+    <value>Input string</value>
+  </data>
+  <data name="Parsing_Text7" xml:space="preserve">
+    <value>Parse Date</value>
+  </data>
+  <data name="Parsing_Text8" xml:space="preserve">
+    <value>Numbers are parsed using the &lt;b&gt;Globalize.parseFloat&lt;/b&gt; function.
+    The format strings are the same used to format numbers. For details regarding format strings, please refer the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;
+        online documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="Parsing_Text9" xml:space="preserve">
+    <value>Try it yourself with the help of the sample below:</value>
+  </data>
+  <data name="Parsing_Title1" xml:space="preserve">
+    <value>Dates</value>
+  </data>
+  <data name="Parsing_Title2" xml:space="preserve">
+    <value>Numbers</value>
+  </data>
+  <data name="PrintDocument_Text2" xml:space="preserve">
+    <value>Print with PrintDocument</value>
+  </data>
+  <data name="PrintDocument_Text3" xml:space="preserve">
+    <value>Print directly</value>
+  </data>
+  <data name="PrintDocument_Text4" xml:space="preserve">
+    <value>Here is a table with some radial gauges. The table will be included
+    in the &lt;b&gt;PrintDocument&lt;/b&gt;.</value>
+  </data>
+  <data name="PrintDocument_Text5" xml:space="preserve">
+    <value>And here is a &lt;b&gt;FlexGrid&lt;/b&gt; control. Printing it directly would show
+    the scrollbars and the part of the content that is visible.
+    The &lt;b&gt;PrintDocument&lt;/b&gt; class allows us to replace that with a
+    printer-friendly version of the grid.</value>
+  </data>
+  <data name="PropertiesEnums_Text4" xml:space="preserve">
+    <value>Regardless of the method used, when you make the assignment
+    MVC will convert the values into proper enumeration and 
+    store the converted value. If the conversion fails, an exception
+    will be thrown. For example:</value>
+  </data>
+  <data name="PropertiesEnums_Text5" xml:space="preserve">
+    <value>The current chart type is &lt;b&gt;&lt;span id="currentType"&gt;&lt;/span&gt;&lt;/b&gt;.
+    Use the following combobox to switch to other chart type.</value>
+  </data>
+  <data name="PropertiesEnums_Title1" xml:space="preserve">
+    <value>Live example:</value>
+  </data>
+  <data name="Services_Text6" xml:space="preserve">
+    <value>Previous Page</value>
+  </data>
+  <data name="Services_Text7" xml:space="preserve">
+    <value>Next Page</value>
+  </data>
+  <data name="Themes_Text1" xml:space="preserve">
+    <value>MVC controls are styled using CSS.
+    The default look is provided by registering the styles,
+    and over 20 beautiful themes that can be registered as follows:</value>
+  </data>
+  <data name="Themes_Text2" xml:space="preserve">
+    <value>In addition to the CSS included in the MVC edition, you can use
+    standard CSS selectors to customize the look of any control.</value>
+  </data>
+  <data name="Themes_Text3" xml:space="preserve">
+    <value>Please select a theme:</value>
+  </data>
+  <data name="Themes_Text4" xml:space="preserve">
+    <value>Below are some input controls:</value>
+  </data>
+  <data name="Themes_Text5" xml:space="preserve">
+    <value>This is a FlexGrid:</value>
+  </data>
+  <data name="Tooltip_Text5" xml:space="preserve">
+    <value>addNew</value>
+  </data>
+  <data name="Tooltip_Text6" xml:space="preserve">
+    <value>push</value>
+  </data>
+  <data name="Tooltip_Text7" xml:space="preserve">
+    <value>push + defer updates</value>
+  </data>
+  <data name="WijmoAnimate_Text5" xml:space="preserve">
+    <value>Flip the Grid</value>
+  </data>
+  <data name="WijmoFormat_Text4" xml:space="preserve">
+    <value>Show Result</value>
+  </data>
+  <data name="WijmoFormat_Text5" xml:space="preserve">
+    <value>Another example:</value>
+  </data>
+  <data name="WijmoShowPopup_Text4" xml:space="preserve">
+    <value>Save Layout</value>
+  </data>
+  <data name="WijmoShowPopup_Text5" xml:space="preserve">
+    <value>Restore Layout</value>
+  </data>
+  <data name="CVChaining_Text5" xml:space="preserve">
+    <value>country filter</value>
+  </data>
+</root>

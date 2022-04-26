@@ -1,0 +1,22 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text1)
+</p>
+<label for="theCombo">@Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text2)</label>
+@(Html.C1().ComboBox<Gdp>().Id("theCombo").Bind(Model).DisplayMemberPath("Country"))
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text3)
+</p>
+<label for="theComboCSS">@Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text4)</label>
+@(Html.C1().ComboBox<Gdp>().Id("theComboCSS").Bind(Model).DisplayMemberPath("Country").DropDownCssClass("cb-flex"))
+
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text5)
+</p>
+<label for="theComboTable">@Html.Raw(Resources.C1Input.ComboBoxMultiColumn_Text6)</label>
+@(Html.C1().ComboBox<Gdp>().Id("theComboTable").Bind(Model).HeaderPath("Country").DisplayMemberPath("Country"))

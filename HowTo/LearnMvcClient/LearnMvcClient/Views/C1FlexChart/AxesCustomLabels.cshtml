@@ -1,0 +1,45 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text3)
+    </li>
+  <li>
+    @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text4)
+    <ul>
+      <li>
+        @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text5)
+      </li>
+      <li>
+        @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text6)
+      </li>
+      <li>
+        @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text7)
+      </li>
+      <li>
+        @Html.Raw(Resources.C1FlexChart.AxesCustomLabels_Text8)
+      </li>
+    </ul>
+  </li>
+</ol>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+    })
+    .AxisY(a=>a.Format("n0,").Title("US$ (thousands)"))
+)

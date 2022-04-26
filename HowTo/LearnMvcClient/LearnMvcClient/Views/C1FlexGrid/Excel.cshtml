@@ -1,0 +1,38 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Excel_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Excel_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Excel_Text2)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Excel_Text3)
+</p>
+
+<button id="btnExport" class="btn btn-default">
+    @Html.Raw(Resources.C1FlexGrid.Excel_Text4)
+</button>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("60");
+        cs.Add().Binding("Country").Header("Country").Width("2*");
+        cs.Add().Binding("Sales").Header("Sales").Width("*").Format("n2");
+        cs.Add().Binding("Expenses").Header("Expenses").Width("*").Format("n2");
+    })
+    .Height(250)
+    .Filterable() // add a filter to show that it works while exporting
+)
+
+@section Scripts{
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+}

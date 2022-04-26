@@ -1,0 +1,53 @@
+@{ 
+    var showTexts = new[] { "None", "Value", "MinMax", "All" };
+    var formats = new[] { "n0", "n2", "c0", "c2" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Gauge.ElementsTextValues_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsTextValues_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Gauge.ElementsTextValues_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.ElementsTextValues_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.ElementsTextValues_Text4)
+    </li>
+</ul>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="showText">@Html.Raw(Resources.C1Gauge.ElementsTextValues_Text5)</label>
+        @Html.C1().ComboBox().Id("showText").Bind(showTexts).Text("All")
+        <br />
+        <label for="format">@Html.Raw(Resources.C1Gauge.ElementsTextValues_Text6)</label>
+        @Html.C1().ComboBox().Id("format").Bind(formats).Text("n0")
+        <br />
+        <label for="getText">@Html.Raw(Resources.C1Gauge.ElementsTextValues_Text7)</label>
+        <input id="getText" type="checkbox">
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theGauge")
+            .StartAngle(-30).SweepAngle(240)
+            .Value(80).Max(100)
+            .IsReadOnly(false)
+            .HasShadow(false)
+            .ShowText(ShowText.All)
+            .ShowRanges(false)
+            .Ranges(r =>
+            {
+                r.Add().Min(0).Max(25).Color(System.Drawing.Color.Red);
+                r.Add().Min(25).Max(50).Color(System.Drawing.Color.Orange);
+                r.Add().Min(50).Max(100).Color(System.Drawing.Color.Green);
+            })
+            .Pointer(p=>p.Thickness(0.15))
+            .ThumbSize(20)
+        )
+    </div>
+</div>

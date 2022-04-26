@@ -1,0 +1,14 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Images_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.Images_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Images_Text2)
+</p>
+
+@Html.C1().TreeView().Id("theTree").Bind(Model)

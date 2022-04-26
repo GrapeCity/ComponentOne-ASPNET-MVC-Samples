@@ -1,0 +1,38 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text2)
+</p>
+
+<h2>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Title1)
+</h2>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text4)
+</p>
+
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250)
+
+<h2>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Title2)
+</h2>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Cells_Text6)
+</p>
+<p>
+    <button id="getCellData" class="btn btn-default">
+        @Html.Raw(Resources.C1FlexGrid.Cells_Text7)
+    </button>
+</p>    

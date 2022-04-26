@@ -1,0 +1,16 @@
+﻿@model Property[]
+
+
+@(Html.C1().TreeView().CssClass("custom-tree")
+    .Bind(Model)
+    .DisplayMemberPath("Header")
+    .ChildItemsPath("Items"))
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.Styling_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeView.Styling_Text1)</p>
+    <p>@Html.Raw(Resources.TreeView.Styling_Text2)</p>
+}

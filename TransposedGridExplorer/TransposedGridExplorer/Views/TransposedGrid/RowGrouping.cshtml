@@ -1,42 +1,53 @@
-﻿@model IEnumerable<TransposedGridExplorer.Models.Portfolio>
+﻿@using C1.Web.Mvc.Grid
+@using C1.Web.Mvc
+@model  IEnumerable<TransposedGridExplorer.Models.Portfolio>
 
-@{ 
+@{
     const string tpl1 = "<span class=${value> .3 ? 'big-val' : 'small-val'}>${text}</span>";
     const string tpl2 = "<span class=${value > 50000 ? 'big-val' : 'small-val'}>${text}</span>";
 }
 
-<c1-transposed-grid id="rowGroups" auto-generate-rows="false" class="grid animated" is-read-only="true" sorting-type="None" show-marquee="true" show-selected-headers="Row">
-    <c1-items-source source-collection="Model"></c1-items-source>
-    <c1-transposed-grid-row binding="Name" width="130" height="50"></c1-transposed-grid-row>
-    <c1-transposed-grid-row binding="Currency" align="center" width="73" height="50"></c1-transposed-grid-row>
-    <c1-transposed-grid-row header="Performance" width="100" align="center" collapse-to="YTD">
-        <c1-transposed-grid-row binding="YTD" format="p2" class="main-row" ></c1-transposed-grid-row>
-        <c1-transposed-grid-row binding="M1" format="p2"></c1-transposed-grid-row>
-        <c1-transposed-grid-row binding="M6" format="p2"></c1-transposed-grid-row>
-        <c1-transposed-grid-row binding="M12" format="p2"></c1-transposed-grid-row>
-    </c1-transposed-grid-row>
-    <c1-transposed-grid-row header="Allocation" align="center" collapse-to="Amount" width="100">
-        <c1-transposed-grid-row header="Investment" width="100" align="center" collapse-to="Total" is-collapsed="true">
-            <c1-transposed-grid-row binding="Stock" width="80" format="p2" template="@tpl1"></c1-transposed-grid-row>
-            <c1-transposed-grid-row binding="Bond" width="80" format="p2" template="@tpl1"></c1-transposed-grid-row>
-            <c1-transposed-grid-row binding="Other" width="80" format="p2" template="@tpl1"></c1-transposed-grid-row>
-            <c1-transposed-grid-row binding="Total" width="80" name="#Total" format="p2" align="right" class="main-row" template="@tpl1"></c1-transposed-grid-row>
-        </c1-transposed-grid-row>
-        <c1-transposed-grid-row binding="Cash" format="p2"></c1-transposed-grid-row>
-        <c1-transposed-grid-row binding="Amount" class="main-row" format="c0" template="@tpl2"></c1-transposed-grid-row>
-    </c1-transposed-grid-row>
-</c1-transposed-grid>
+@(Html.C1().TransposedGrid<TransposedGridExplorer.Models.Portfolio>().Id("colGroupsFlexGrid")
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.None)
+    .RowGroups(bl =>
+    {
+        bl.Add(cb => cb.Binding("Name").Width("130").Height(50));
+        bl.Add(cb => cb.Binding("Currency").Align("center").Width("73").Height(50));
+        bl.Add(cb => cb.Header("Performance").Align("center").Width("100").CollapseTo("YTD").Rows(bl1 =>
+        {
+            bl1.Add(cb1 => cb1.Binding("YTD").Format("p2").CssClass("main-row"));
+            bl1.Add(cb1 => cb1.Binding("M1").Format("p2"));
+            bl1.Add(cb1 => cb1.Binding("M6").Format("p2"));
+            bl1.Add(cb1 => cb1.Binding("M12").Format("p2"));
+        }));
+        bl.Add(cb => cb.Header("Allocation").Align("center").CollapseTo("Amount").Width("100").Rows(bl2 =>
+        {
+            bl2.Add(cb2 => cb2.Header("Investment").Align("center").CollapseTo("Total").Width("100").IsCollapsed(true).Rows(bl3 =>
+            {
+                bl3.Add(cb3 => cb3.Binding("Stock").Format("p2").Width("80").Template(tpl1));
+                bl3.Add(cb3 => cb3.Binding("Bond").Format("p2").Width("80").Template(tpl1));
+                bl3.Add(cb3 => cb3.Binding("Other").Format("p2").Width("80").Template(tpl1));
+                bl3.Add(cb3 => cb3.Binding("Total").Name("#Total").Header("Total").Width("80").Format("p2").Align("right").CssClass("main-row"));
+            }));
+            bl2.Add(cb2 => cb2.Binding("Cash").Format("p2").Template(tpl1));
+            bl2.Add(cb2 => cb2.Binding("Amount").Format("c0").CssClass("main-row").Template(tpl2));
+        }));
+    })
+    .ShowMarquee(true)
+    .CssClass("grid animated")
+)
 
 <style type="text/css">
     .wj-flexgrid {
         margin: 10px 0;
     }
 
-    /* highlight the main column in the group */
-    .wj-transposed-grid .wj-cells .wj-cell.main-row {
-        background: #ddffdd;
-        color: black;
-    }
+        /* highlight the main column in the group */
+        .wj-flexgrid .wj-cells .wj-cell.main-row {
+            background: #ddffdd;
+        }
 
     /* formatting for cell's templates */
     .big-val {
@@ -56,10 +67,9 @@
 </style>
 
 @section Summary{
-    <p>@Html.Raw(TransposedGridRes.RowGroups_Summary)</p>
+    <p>@Html.Raw(Resources.TransposedGrid.RowGroups_Summary)</p>
 }
 
 @section Description{
-    @Html.Raw(TransposedGridRes.RowGroups_Descriptions)
+    <p>@Html.Raw(Resources.TransposedGrid.RowGroups_Descriptions)</p>
 }
-

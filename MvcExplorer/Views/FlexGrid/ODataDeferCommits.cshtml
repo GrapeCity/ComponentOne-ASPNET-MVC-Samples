@@ -1,0 +1,80 @@
+﻿@model IEnumerable<Category>
+
+@section Styles{
+    <style>
+        .queryErrorMessage {
+            color: #f00;
+        }
+    </style>
+}
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+    var cv, oDataDeferCommits, minHeight;
+
+    c1.documentReady(function () {
+        oDataDeferCommits = wijmo.Control.getControl('#oDataDeferCommits');
+        cv = oDataDeferCommits.collectionView;
+    });
+
+    function commitEdits() {
+        cv.commitChanges(function (r) {
+            setQueryMessage('@(Resources.FlexGrid.ODataDeferCommits_Done_Text0)');
+        });
+
+        var isChanged = (cv.itemsEdited && cv.itemsEdited.length);
+        if (isChanged) {
+            setQueryMessage('@(Resources.FlexGrid.ODataDeferCommits_Updating_Text0)');
+        } else {
+            setQueryMessage('@(Resources.FlexGrid.ODataDeferCommits_No_Change_Text0)');
+        }
+
+    }
+
+    function cancelChanges() {
+        cv.cancelChanges();
+        setQueryMessage('');//clear message
+    }
+
+    function setQueryMessage(message, className) {
+        var element = document.getElementById('queryMessage');
+        element.innerHTML = message;
+        element.className = className;
+    }
+    </script>
+}
+
+<input type="button" value="@Html.Raw(Resources.FlexGrid.ODataDeferCommits_Commit_Text0)" class="btn" onclick="commitEdits()" />
+<input type="button" value="@Html.Raw(Resources.FlexGrid.ODataDeferCommits_Cancel_Text0)" class="btn" onclick="cancelChanges()" />
+<span id="queryMessage"></span>
+@(
+Html.C1().FlexGrid<Category>()
+    .Id("oDataDeferCommits").AutoGenerateColumns(false)
+    .Columns(columns => columns
+        .Add(c => c.Binding("@odata.id").Header("OData Id").IsReadOnly(true))
+        .Add(c => c.Binding("@odata.editLink").Header("OData edit link").IsReadOnly(true))
+        .Add(c => c.Binding("AirlineCode").Header("Airline Code"))
+        .Add(c => c.Binding("Name")))
+    .BindODataSource(odsb =>
+                        odsb.ServiceUrl("https://services.odata.org/V4/(S(3vn0jej2dr3ebcgodm1zxcys))/TripPinServiceRW/")
+                        .TableName("Airlines")
+                        .Keys("AirlineCode")
+                        .DeferCommits(Convert.ToBoolean(optionsModel.Options["Defer Commits"].CurrentValue)))
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.ODataDeferCommits_Description_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ODataDeferCommits_Description_Text1)</p>
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.ODataDeferCommits_Summary_Text0)
+}

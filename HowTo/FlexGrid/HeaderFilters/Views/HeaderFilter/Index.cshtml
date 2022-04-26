@@ -1,0 +1,256 @@
+﻿@using HeaderFilters.Models
+@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+}
+
+
+
+<script type="text/javascript">
+    var headerFiltersGrid,
+        cv,
+        filters = {},
+        toFilter = null,
+        cmbCountry, inPrice,
+        edtProduct,
+        countriesSource = new wijmo.collections.ObservableArray();
+
+    // update Product list
+    function updateCountries() {
+        countriesSource.beginUpdate();
+
+        // populate avoiding duplicates
+        countriesSource.clear();
+        var items = headerFiltersCV.sourceCollection;
+        for (var i = 0; i < items.length; i++) {
+            var a = items[i].Country;
+            if (countriesSource.indexOf(a) < 0) {
+                countriesSource.push(a);
+            }
+        }
+
+        // sort countries
+        countriesSource.sort();
+
+        // insert item to remove filter at the first position
+        countriesSource.splice(0, 0, '(all countries)');
+
+        // done updating
+        countriesSource.endUpdate();
+    }
+
+    // set cell header
+    function setHeader(p, r1, c1, r2, c2, hdr) {
+        for (var r = r1; r <= r2; r++) {
+            for (var c = c1; c <= c2; c++) {
+                p.setCellData(r, c, hdr);
+            }
+        }
+    }
+
+    // stop propagation of mouse and keyboard events in order to
+    // prevent the grid from responding to these events.
+    function stopPropagation(element) {
+        element.style.fontWeight = 'normal';
+        var events = ['mousedown', 'keypress', 'keydown'];
+        for (var i = 0; i < events.length; i++) {
+            element.addEventListener(events[i], function (e) {
+                e.stopPropagation();
+            });
+        }
+    }
+
+    // watch filter, refresh collection 800ms after the last change   
+    function updateFilter(part, value) {
+        if (filters[part] != value) {
+
+            // update filter
+            filters[part] = value;
+
+            // refresh update
+            if (toFilter) clearTimeout(toFilter);
+            toFilter = setTimeout(function () {
+                headerFiltersCV.refresh();
+            }, 800);
+        }
+    }
+
+    function itemFormatter(panel, r, c, cell) {
+        var flex = panel.grid,
+            row = flex.rows[r],
+            col = flex.columns[c],
+            sel = flex.selection,
+            editCell = flex.activeEditor && sel.row == r && sel.col == c;
+
+        // add filters to column headers
+        if (panel.cellType == wijmo.grid.CellType.ColumnHeader && r == 1) {
+            switch (col.binding) {
+
+                // Product filter
+                case 'Product':
+                    cell.innerHTML = '';
+                    cell.appendChild(edtProduct);
+                    break;
+
+                    // country filter
+                case 'Country':
+                    cell.innerHTML = '';
+                    cell.appendChild(cmbCountry.hostElement);
+                    cell.style.overflow = 'visible';
+                    break;
+
+                    // price filter
+                case 'Price':
+                    cell.innerHTML = '';
+                    cell.appendChild(inPrice.hostElement);
+                    break;
+            }
+        }
+
+        // customize data cells
+        if (panel.cellType == wijmo.grid.CellType.Cell && !editCell) {
+            switch (col.binding) {
+                // use color and icons for sales
+                case 'Sales':
+                    cell.innerHTML = wijmo.format('<span style="color:{color}"><span class="wj-glyph-{dir}" style="float:left;margin:6px"></span> {sales:n0}</span>', {
+                        color: row.dataItem.Sales > 0 ? 'green' : 'red',
+                        dir: row.dataItem.Sales > 0 ? 'up' : 'down',
+                        sales: row.dataItem.Sales
+                    });
+                    break;
+            }
+        }
+    }
+
+    function addFilterData(sender, e) {
+        if (e.extraRequestData == null) {
+            e.extraRequestData = {};
+        }
+        for (var part in filters) {
+            //prepare the filter data sent to the server.
+            if (filters[part]) {
+                e.extraRequestData['headerFilters'] = filters;
+                break;
+            }
+        }
+    }
+
+    function comboTextChanged(sender, args) {
+        var text = sender.text;
+        if (text == '(all countries)') {
+            text = null;
+        }
+        updateFilter('country', text);
+    }
+
+    function comboIsDroppedDownChanged(sender, args) {
+        for (var p = sender.hostElement; p; p = p.parentElement) {
+            if (wijmo.hasClass(p, 'wj-colheaders')) {
+                p.parentElement.style.overflow = sender.isDroppedDown ? 'visible' : 'hidden';
+            }
+        }
+    }
+
+    function numberValueChanged(sender, args) {
+        updateFilter('price', sender.value);
+    }
+
+    c1.documentReady(function () {
+        var row, ch;
+
+        headerFiltersGrid = wijmo.Control.getControl('#headerFiltersGrid');
+        headerFiltersCV = headerFiltersGrid.collectionView;
+        cmbCountry = wijmo.Control.getControl('#cmbCountry');
+        inPrice = wijmo.Control.getControl('#inPrice');
+
+        // add extra column header row
+        row = new wijmo.grid.Row(),
+        ch = headerFiltersGrid.columnHeaders;
+
+        // initialize header cells
+        row.allowMerging = true;
+        for (var i = 0; i < headerFiltersGrid.columns.length; i++) {
+            headerFiltersGrid.columns[i].allowMerging = true;
+        }
+        ch.rows.insert(0, row);
+        setHeader(ch, 0, 0, 1, 0, 'Sales');
+        setHeader(ch, 0, 1, 0, 2, 'Product');
+        setHeader(ch, 1, 1, 1, 2, '');
+        setHeader(ch, 0, 3, 0, 3, 'Price');
+        setHeader(ch, 1, 3, 1, 3, '');
+        setHeader(ch, 0, 4, 1, 4, 'Discount');
+        setHeader(ch, 0, 5, 1, 5, 'Rank');
+        ch.rows[1].height = ch.rows.defaultSize + 12;
+
+        // enable custom item formatter
+        headerFiltersGrid.itemFormatter = itemFormatter;
+
+        // product filter
+        edtProduct = document.createElement('input');
+        edtProduct.type = 'text';
+        edtProduct.placeholder = 'product';
+        edtProduct.className = 'form-control';
+        edtProduct.addEventListener('input', function () {
+            updateFilter('product', edtProduct.value);
+        });
+        stopPropagation(edtProduct);
+
+        // country filter
+        stopPropagation(cmbCountry.hostElement);
+
+        // price filter
+        stopPropagation(inPrice.hostElement);
+    });
+</script>
+
+<div class="header">
+    <div class="container">
+        <h1>
+            <span class="glyphicon glyphicon-book"></span>
+            Header Filters</h1>
+        <p>
+            This page shows how to create custom filter cells in a FlexGrid.</p>
+    </div>
+</div>
+<div class="container">
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("headerFiltersGrid")
+    .AllowDragging(C1.Web.Mvc.Grid.AllowDragging.None)
+    .AllowMerging(C1.Web.Mvc.Grid.AllowMerging.ColumnHeaders)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("Sales").Format("n0").Width("80"));
+        bl.Add(cb => cb.Binding("Product").Width("200"));
+        bl.Add(cb => cb.Binding("Country").Width("200"));
+        bl.Add(cb => cb.Binding("Price").Format("c").Width("120"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0").Width("*"));
+        bl.Add(cb => cb.Binding("Rank").Align("center").Width("*"));
+    })
+    .Bind(bl => bl.OnClientQueryData("addFilterData").Bind(Model))
+    .IsReadOnly(true)
+    .CssStyle("height", "400px")
+)
+
+@(Html.C1().ComboBox()
+    .Id("cmbCountry")
+    .Placeholder("country")
+    .Bind(countries)
+    .SelectedIndex(0)
+    .IsEditable(false)
+    .OnClientTextChanged("comboTextChanged")
+    .OnClientIsDroppedDownChanged("comboIsDroppedDownChanged")
+)
+
+@(Html.C1().InputNumber()
+    .Id("inPrice")
+    .IsRequired(false)
+    .Value(null)
+    .Placeholder("max price")
+    .OnClientValueChanged("numberValueChanged")
+)
+
+</div>

@@ -1,0 +1,1462 @@
+﻿@model C1NWindEntities
+@using CollectionView101.Models
+@using C1.Web.Mvc
+
+@{
+    ViewBag.Title = "ASP.NET MVC CollectionView Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ASP.NET MVC CollectionView 101
+        </h1>
+        <p>
+            This page shows how to get started with ASP.NET MVC's CollectionView.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <div>
+        <h1><b>Server-side Operations</b></h1>
+        <p>
+            ComponentOne's MVC Edition CollectionView is a service that implements the ICollectionView interface to display data in data-bound controls, such as FlexGrid.
+            The server side CollectionViewHelper is a service that enables collections to have reading, editing, filtering, grouping and sorting ability, 
+            this is similar to .Net CollectionView. CollectionView internally handles sorting, paging, filtering requests by data bound controls on the server 
+            unless it is explicitly specified to perform these operation at client-side. 
+            <br/>
+            This section describes how to use <b>Create</b>, <b>Read</b>, <b>Update</b>, <b>Delete</b> and <b>BatchEdit</b> actions for CRUD operations. 
+            It also demonstrates the DisableServerRead functionality of the ItemSource, this is used to perform actions explicitly at client side.
+        </p>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the CollectionView in MVC applications:
+        </p>
+        <ol>
+            <li>Create a new MVC project using the C1 ASP.NET MVC application template.</li>
+            <li>Add model to the project. This example uses Entity Framework with Northwind database</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Create Read and Create Actions in the controller.</li>
+            <li>Add a control in the view to display data. This example uses FlexGrid.</li>
+            <li>Bind the FlexGrid using its Bind property to display data.</li>
+            <li>The Bind property is of type ItemSource which can take a Model or Action URL to fetch data.</li>
+        </ol>
+        <p>
+           This creates a FlexGrid with AJAX binding, the data for FlexGrid is internally wrapped in a CollectionView which has capability to sort, group, 
+            filter and page data. The GridReadCategory action of controller is assigned to Bind property of FlexGrid' ItemSource to populate data.
+            This example is using <b>Create</b> property of FlexGrid's ItemSource to assign GridCreateCategory action of controller, this allows adding record 
+            to source database by handling <b>Edit</b> request of <b>CollectionViewHelper</b>.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="gsHtml">
+
+@@(Html.C1().FlexGrid<Category>().Id("fGRCView").AutoGenerateColumns(false).AllowAddNew(true)
+    .AllowSorting(true).CssClass("grid")
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID"))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+    .Bind(
+        ib => ib.Bind(Url.Action("GridReadCategory"))
+        .Create(Url.Action("GridCreateCategory"))
+        .Update(Url.Action("GridUpdateCategory")))
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="gsCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+      
+        public ActionResult GridReadCategory([C1JsonRequest] CollectionViewRequest<Category> requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, db.Categories));
+        }
+
+        public ActionResult GridCreateCategory([C1JsonRequest]CollectionViewEditRequest<Category> requestData)
+        {
+            var category = requestData.OperatingItems.First();
+            if (category.CategoryName == null)
+            {
+                category.CategoryName = "";
+            }
+            return Create(requestData, db.Categories);
+        }
+
+        public ActionResult GridUpdateCategory([C1JsonRequest]CollectionViewEditRequest<Category> requestData)
+        {
+            return Update(requestData, db.Categories);
+        }
+
+        private ActionResult Update<T>(CollectionViewEditRequest<T> requestData, DbSet<T> data) where T : class
+        {
+            return this.C1Json(CollectionViewHelper.Edit<T>(requestData, item =>
+            {
+                string error = string.Empty;
+                bool success = true;
+                try
+                {
+                    db.Entry(item as object).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    error = string.Join(",", e.EntityValidationErrors.Select(result =>
+                    {
+                        return string.Join(",", result.ValidationErrors.Select(err => err.ErrorMessage));
+                    }));
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult<T>
+                {
+                    Error = error,
+                    Success = success && ModelState.IsValid,
+                    Data = item
+                };
+            }, () => data.ToList<T>()));
+        }
+
+        private ActionResult Create<T>(CollectionViewEditRequest<T> requestData, DbSet<T> data) where T : class
+        {
+            return this.C1Json(CollectionViewHelper.Edit<T>(requestData, item =>
+            {
+                string error = string.Empty;
+                bool success = true;
+                try
+                {
+                    data.Add(item);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    error = string.Join(",", e.EntityValidationErrors.Select(result =>
+                    {
+                        return string.Join(",", result.ValidationErrors.Select(err => err.ErrorMessage));
+                    }));
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult<T>
+                {
+                    Error = error,
+                    Success = success && ModelState.IsValid,
+                    Data = item
+                };
+            }, () => data.ToList<T>()));
+        }
+    }
+}
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexGrid<Category>().Id("fGRCView").AutoGenerateColumns(false).AllowAddNew(true)
+                    .AllowSorting(true).CssClass("grid")
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CategoryID"))
+                        .Add(c => c.Binding("CategoryName"))
+                        .Add(c => c.Binding("Description").Width("*")))
+                    .Bind(ib => ib.Bind(Url.Action("GridReadCategory"))
+                        .Create(Url.Action("GridCreateCategory"))
+                        .Update(Url.Action("GridUpdateCategory")))
+                )
+
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Update -->
+    <div>
+        <h2>Update</h2>
+        <p>
+            The server side CollectionViewHelper class defines a Edit request to handle updates.          
+        </p>
+        <p>
+            This example shows how to define update action which enables updating record in source database by handling <b>Edit</b> request of <b>CollectionViewHelper</b>. In Flexgrid, the Update action is assigned to the Update property of ItemSource.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#upHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#upCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="upHtml">
+
+@@(Html.C1().FlexGrid<Category>().Id("fGUCView").AutoGenerateColumns(false)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+    .Bind(ib =>
+        ib.Bind(Model.Categories)
+        .Update(Url.Action("GridUpdateCategory"))
+        )
+)                        </div>
+                        <div class="tab-pane active pane-content" id="upCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        public ActionResult GridUpdateCategory([C1JsonRequest]CollectionViewEditRequest<Category> requestData)
+        {
+            return Update(requestData, db.Categories);
+        }
+
+        private ActionResult Update<T>(CollectionViewEditRequest<T> requestData, DbSet<T> data) where T : class
+        {
+            return this.C1Json(CollectionViewHelper.Edit<T>(requestData, item =>
+            {
+                string error = string.Empty;
+                bool success = true;
+                try
+                {
+                    db.Entry(item as object).State = EntityState.Modified;
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    error = string.Join(",", e.EntityValidationErrors.Select(result =>
+                    {
+                        return string.Join(",", result.ValidationErrors.Select(err => err.ErrorMessage));
+                    }));
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult<T>
+                {
+                    Error = error,
+                    Success = success && ModelState.IsValid,
+                    Data = item
+                };
+            }, () => data.ToList<T>()));
+        }
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexGrid<Category>().Id("fGUCView").AutoGenerateColumns(false)
+                .Columns(columns => columns
+                    .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+                    .Add(c => c.Binding("CategoryName"))
+                    .Add(c => c.Binding("Description").Width("*")))
+                .Bind(ib => 
+                    ib.Bind(Model.Categories)
+                    .Update(Url.Action("GridUpdateCategory"))                    
+                    )    
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete -->
+    <div>
+        <h2>Delete</h2>
+        <p>
+            This example shows how to define action in controller to delete rows from database by handling <b>Edit</b> request of CollectionViewHelper. In FlexGrid this action is assigned to the <b>Delete</b> property of ItemSource.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#delHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#delCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="delHtml">
+
+@@(Html.C1().FlexGrid<Category>().Id("fGDelCView").AutoGenerateColumns(false).IsReadOnly(true)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID"))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+    .AllowDelete(true)
+    .Bind(
+        ib => ib.Bind(Model.Categories)
+        .Delete(Url.Action("GridDeleteCategory"))
+    )
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="delCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        public ActionResult GridDeleteCategory([C1JsonRequest]CollectionViewEditRequest<Category> requestData)
+        {
+            return Delete(requestData, db.Categories, item => item.CategoryID);
+        }
+
+        private ActionResult Delete<T>(CollectionViewEditRequest<T> requestData, DbSet<T> data, Func<T, object> getKey) where T : class
+        {
+            return this.C1Json(CollectionViewHelper.Edit<T>(requestData, item =>
+            {
+                string error = string.Empty;
+                bool success = true;
+                try
+                {
+                    var resultItem = data.Find(getKey(item));
+                    data.Remove(resultItem);
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    error = string.Join(",", e.EntityValidationErrors.Select(result =>
+                    {
+                        return string.Join(",", result.ValidationErrors.Select(err => err.ErrorMessage));
+                    }));
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+                return new CollectionViewItemResult<T>
+                {
+                    Error = error,
+                    Success = success && ModelState.IsValid,
+                    Data = item
+                };
+            }, () => data.ToList<T>()));
+        }
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FlexGrid<Category>().Id("fGDelCView").AutoGenerateColumns(false)
+                    .AllowDelete(true)
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+                        .Add(c => c.Binding("CategoryName").IsReadOnly(true))
+                        .Add(c => c.Binding("Description").Width("*").IsReadOnly(true))
+                        )                    
+                    .Bind(
+                        ib => ib.Bind(Model.Categories)        
+                        .Delete(Url.Action("GridDeleteCategory"))
+                    )
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- BatchEditing -->
+    <div>
+        <h2>BatchEditing</h2>
+        <p>
+            This example shows how to define batch edit action in controller to update database with collection view. BatchEdit allows to submit multiple changes back to database.
+            This is accomplised by handling <b>BatchEdit</b> request of <b>CollectionViewHelper</b>. In FlexGrid, the BatchEdit action is assigned to BatchEdit property of ItemsSource.
+        </p>
+        <p>
+            <b>Note: </b> Ensure that DisableServerRead property of databound control's ItemSource is set to true when performing BatchEdit. This stops filtering, paging and sorting operations from sending an update request to the server, 
+            which will automatically updates the data in source database. These operations should be done at client side incase of BatchEditing otherwise modified data will also be submitted when user sorts, filters or performs paging.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#beHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#beJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li class="active"><a href="#beCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="beHtml">
+
+@@(Html.C1().FlexGrid<Category>().Id("fGBECView").AutoGenerateColumns(false)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID"))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+    .Bind(ib => ib.DisableServerRead(true).Bind(Model.Categories).BatchEdit(Url.Action("GridBatchEdit")))
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .CssClass("grid")
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="beJS">
+
+//Batch Edit
+function batchUpdate() {
+    var batchEditGrid = wijmo.Control.getControl('#fGBECView'),
+    cv = batchEditGrid.collectionView;
+    cv.commit();
+};
+
+                            </div>
+                            <div class="tab-pane active pane-content" id="beCS">
+
+
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        public ActionResult GridBatchEdit([C1JsonRequest]CollectionViewBatchEditRequest<category> requestData)
+        {
+            return this.C1Json(CollectionViewHelper.BatchEdit(requestData, batchData =>
+            {
+                var itemresults = new List<collectionviewitemresult<Category>>();
+                string error = string.Empty;
+                bool success = true;
+                try
+                {
+                    if (batchData.ItemsCreated != null)
+                    {
+                        batchData.ItemsCreated.ToList().ForEach(st =>
+                        {
+                            db.Categories.Add(st);
+                            itemresults.Add(new CollectionViewItemResult<Category>
+                            {
+                                Error = "",
+                                Success = ModelState.IsValid,
+                                Data = st
+                            });
+                        });
+                    }
+                    if (batchData.ItemsDeleted != null)
+                    {
+                        batchData.ItemsDeleted.ToList().ForEach(category =>
+                        {
+                            var fCategory = db.Categories.Find(category.CategoryID);
+                            db.Categories.Remove(fCategory);
+                            itemresults.Add(new CollectionViewItemResult<Category>
+                            {
+                                Error = "",
+                                Success = ModelState.IsValid,
+                                Data = category
+                            });
+                        });
+                    }
+                    if (batchData.ItemsUpdated != null)
+                    {
+                        batchData.ItemsUpdated.ToList().ForEach(category =>
+                        {
+                            db.Entry(category).State = EntityState.Modified;
+                            itemresults.Add(new CollectionViewItemResult<Category>
+                            {
+                                Error = "",
+                                Success = ModelState.IsValid,
+                                Data = category
+                            });
+                        });
+                    }
+                    db.SaveChanges();
+                }
+                catch (DbEntityValidationException e)
+                {
+                    error = string.Join(",", e.EntityValidationErrors.SelectMany(i => i.ValidationErrors).Select(i => i.ErrorMessage));
+                    success = false;
+                }
+                catch (Exception e)
+                {
+                    error = e.Message;
+                    success = false;
+                }
+
+                return new CollectionViewResponse<Category>
+                {
+                    Error = error,
+                    Success = success,
+                    OperatedItemResults = itemresults
+                };
+            }, () => db.Categories.ToList()));
+        }
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <input type="button" value="Update" class="btn" onclick="batchUpdate()" />
+                @(Html.C1().FlexGrid<Category>().Id("fGBECView").AutoGenerateColumns(false)
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CategoryID"))
+                        .Add(c => c.Binding("CategoryName"))
+                        .Add(c => c.Binding("Description").Width("*")))
+                    .Bind(ib => ib.DisableServerRead(true).Bind(Model.Categories).BatchEdit(Url.Action("GridBatchEdit")))
+                    .AllowAddNew(true)
+                    .AllowDelete(true)
+                    .CssClass("grid")
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- Disable Server Reading -->
+    <div>
+        <h2>Disable Server Reading</h2>
+        <p>
+            <b>DisableServerRead</b> property disables server side synchronisation. When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done on client side. And the text like waiting... is not shown for loading the data when the scrollbar scrolls. Otherwise, sorting, paging or filtering will be done on server side. And sometimes the waiting... text will be shown.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#dsrHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#dsrJS" role="tab" data-toggle="tab">JS</a></li>                        
+                        <li><a href="#dsrCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="dsrHtml">
+
+@@(Html.C1().FlexGrid().Id("fGDisableServerView").IsReadOnly(true).AllowSorting(true).AutoGenerateColumns(false)
+    .Bind(b => b.DisableServerRead(true).PageSize(10).Bind(Model.Customers)).CssStyle("height","100%")
+    .Columns(columns => columns
+        .Add(c => c.Binding("CustomerID"))
+        .Add(c => c.Binding("CompanyName"))
+        .Add(c => c.Binding("ContactName"))
+        .Add(c => c.Binding("City"))
+        .Add(c => c.Binding("Country"))
+        .Add(c => c.Binding("Phone"))
+        )
+)
+@@(Html.C1().Pager().Owner("fGDisableServerView"))
+
+                        </div>
+                        <div class="tab-pane pane-content" id="dsrJS">
+$(document).ready(function () {
+    //Disable Server Reading
+    fGDisableServerView = wijmo.Control.getControl('#fGDisableServerView');    
+});
+
+//Disable Server Read
+var fGDisableServerView = null;
+
+                        </div>
+                            <div class="tab-pane pane-content" id="dsrCS">
+
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <h4>Paging FlexGrid which PageSize is set to 10</h4>
+                @(Html.C1().FlexGrid().Id("fGDisableServerView").IsReadOnly(true).AllowSorting(true).AutoGenerateColumns(false)                    
+                    .Bind(b=>b.DisableServerRead(true).PageSize(10).Bind(Model.Customers)).CssStyle("height","100%")
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CustomerID"))
+                        .Add(c => c.Binding("CompanyName"))
+                        .Add(c => c.Binding("ContactName"))
+                        .Add(c => c.Binding("City"))
+                        .Add(c => c.Binding("Country"))
+                        .Add(c => c.Binding("Phone"))
+                        )
+                      )
+                @(Html.C1().Pager().Owner("fGDisableServerView"))
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Client side CollectionView -->
+    <div>
+        <h1><b>Client-side Operations</b></h1>
+        <p>
+           CollectionView has a powerful client API. CollectionViewHelper internally performes server side operations like sorting, filtering, paging on data for MVC 
+           controls like FlexGrid, FlexChart and other Input controls. However it is possible to explicitly perform these operations on client-side. 
+           This section demonstrates following client-side operations:- Current Record Management, Sorting, Filtering, Grouping and Tracking Changes.
+        </p>
+        <p>
+            <b>Note: </b> It is important to note that the DisableServerRead property of ItemSource should be set to True if filtering, paging, sorting is to be 
+            performed on data available at client side only. The default setting is False, with default setting: sorting, paging, filtering happen on server, 
+            this is done by a internal callback request which is sent to the CollectionViewHelper on the server to perform the said operations.
+        </p>
+        <p>
+            Refer <a href="http://wijmo.com/5/docs/topic/wijmo.collections.CollectionView.Class.html">client api documentation</a>  for more detail.
+        </p>
+    </div>
+    <!-- current record management -->
+    <div>
+        <h2>Current Record Management</h2>
+        <p>
+            As implementing the interface <b>ICollectionView</b>, <b>CollectionView</b> can manage the current record.
+        </p>
+        <p>
+            This example shows how you can manage the current record through APIs provided by the <b>CollectionView</b> class.
+        </p>
+        <p>
+            In this case, we use the properties <b>currentPosition</b> to obtain the current record position in the collection.
+            We also use the methods <b>moveCurrentTo(item)</b>, <b>moveCurrentToFirst()</b>, <b>moveCurrentToLast()</b>, <b>moveCurrentToNext()</b>, <b>moveCurrentToPosition(index)</b> and <b>moveCurrentToPrevious()</b> to change the current position.
+            When the current is changed, we use the events <b>currentChanging</b> and <b>currentChanged</b> to track it. We can cancel the current changing in the event <b>currentChanging</b>.
+        </p>
+        <p>
+            Notes: Click the "Move To Next" button to move the current to the next one. Click the "Move to Previous" to move the current to the previous on. Clicking the "Stop in 4th Row" button will cause the current is forbidden to be changed when it locates in the 4th row. Then clicking the "Clear Stopping" button will let the current be changed freely.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#crmHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#crmJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li ><a href="#crmCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="crmHtml">
+
+&lt;div class="row-fluid well btn-group"&gt;
+    &lt;button class="btn btn-default" id="btnCRMMoveNext"&gt;Move To Next&lt;/button&gt;
+    &lt;button class="btn btn-default" id="btnCRMMovePre"&gt;Move To Previous&lt;/button&gt;
+    &lt;button class="btn btn-default" id="btnCRMStop4"&gt;Stop in 4th Row&lt;/button&gt;
+    &lt;button class="btn btn-default" id="btnCRMReset"&gt;Clear Stopping&lt;/button&gt;
+&lt;/div&gt;
+@@(Html.C1().FlexGrid().Id("crmGrid").IsReadOnly(true).SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .AutoGenerateColumns(true).Bind(b=>b.DisableServerRead(true).Bind(Model.Customers))
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="crmJs">
+$(document).ready(function () {
+    //Current Record Management
+    crmGrid = wijmo.Control.getControl('#crmGrid');
+    cvCRM = crmGrid.itemsSource; //new wijmo.collections.CollectionView(getData(10)),
+    
+    // Add the processes for buttons' click
+    // move the current to the next one
+    document.getElementById('btnCRMMoveNext').addEventListener('click', function () {
+        cvCRM.moveCurrentToNext();
+    });
+
+    // move the current to the preivous one
+    document.getElementById('btnCRMMovePre').addEventListener('click', function () {
+        cvCRM.moveCurrentToPrevious();
+    });
+
+    // when the current item is the 4th one, forbid changing current.
+    document.getElementById('btnCRMStop4').addEventListener('click', function () {
+        cvCRM.currentChanging.addHandler(stopCurrentIn4th);
+    });
+
+    // restore to be able to change current.
+    document.getElementById('btnCRMReset').addEventListener('click', function () {
+        cvCRM.currentChanging.removeHandler(stopCurrentIn4th);
+    });
+
+    // define the funciton to forbid the current moving.
+    function stopCurrentIn4th(sender, e) {
+        // when the current is the 4rd item, stop moving.
+        if (sender.currentPosition === 3) {
+            e.cancel = true;
+        }
+    };
+});
+
+// create collectionview, grid
+var crmGrid = null
+    , cvCRM = null;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="crmCS">
+
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="row-fluid well btn-group">
+                    <button class="btn btn-default" id="btnCRMMoveNext">Move To Next</button>
+                    <button class="btn btn-default" id="btnCRMMovePre">Move To Previous</button>
+                    <button class="btn btn-default" id="btnCRMStop4">Stop in 4th Row</button>
+                    <button class="btn btn-default" id="btnCRMReset">Clear Stopping</button>
+                </div>
+                @(Html.C1().FlexGrid().Id("crmGrid").IsReadOnly(true).SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+                    .AutoGenerateColumns(true).Bind(b=>b.DisableServerRead(true).Bind(Model.Customers))
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- sorting -->
+    <div>
+        <h2>
+            Sorting
+        </h2>
+        <p>
+            The <b>CollectionView</b> class supports sorting through the <b>ICollectionView</b> interface, which is identical to the
+            one in .NET. To enable sorting, add one or more <b>sortDescriptions</b> objects to the
+            <b>CollectionView.sortDescriptions</b> property. Then the sorted result can be obtained from the <b>CollectionView.items</b> property.
+        </p>
+        <p>
+            <b>SortDescription</b> objects are flexible, allowing you to sort data based on value in ascending or descending order.
+            In the sample below, you can sort the collection based on the corresponding field value choosed in the first list. You can also specify the sorting order in the second list.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#sHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#sJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#sCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="sHtml">
+&lt;div class="row-fluid well row"&gt;
+    &lt;div class="col-md-8"&gt;
+        &lt;select id="sortingFieldNameList" class="form-control"&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+    &lt;div class="col-md-4"&gt;
+        &lt;select id="sortingOrderList" class="form-control"&gt;
+            &lt;option value="true" selected="selected"&gt;Ascending&lt;/option&gt;
+            &lt;option value="false"&gt;Descending&lt;/option&gt;
+        &lt;/select&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+@@(Html.C1().FlexGrid().Id("sortingGrid").IsReadOnly(true).AllowSorting(false).AutoGenerateColumns(false)
+    .Bind(b => b.DisableServerRead(true).Bind(Model.Customers))
+    .Columns(columns => columns
+        .Add(c => c.Binding("CustomerID"))
+        .Add(c => c.Binding("CompanyName"))
+        .Add(c => c.Binding("ContactName"))
+        .Add(c => c.Binding("City"))
+        .Add(c => c.Binding("Country"))
+        .Add(c => c.Binding("Phone"))
+        )
+)
+                        </div>
+                        <div class="tab-pane active pane-content" id="sJs">
+
+function getNames() {
+    return ['CustomerID', 'CompanyName', 'ContactName', 'City', 'Country', 'Phone'];
+};
+
+$(document).ready(function () {
+    //Sorting
+    sortingGrid = wijmo.Control.getControl('#sortingGrid');
+    cvSorting = sortingGrid.itemsSource;
+    sortingFieldNameList = document.getElementById('sortingFieldNameList');
+    sortingOrderList = document.getElementById('sortingOrderList');
+    //sortingNames = getNames();
+    // initialize the list items for field names and orders.
+    sortingFieldNameList.innerHTML += '<option value="" selected="selected">Please choose the field you want to sort by...</option>';
+    for (var i = 0; i < sortingNames.length; i++) {
+        sortingFieldNameList.innerHTML += '<option value="' + sortingNames[i] + '">' + sortingNames[i] + '</option>';
+    }
+
+    // track the list change in order to udpate the sortDescriptions property.
+    sortingFieldNameList.addEventListener('change', sortGrid);
+    sortingOrderList.addEventListener('change', sortGrid);
+});
+
+//Sorting
+// create collectionview, grid, the jQuery elements, the field name list.
+var cvSorting = null,
+    sortingGrid =null,
+    sortingFieldNameList = null,
+    sortingOrderList = null,
+    sortingNames = getNames();
+
+function sortGrid() {
+    var fieldName = sortingFieldNameList.value,
+        ascending = sortingOrderList.value,
+        sd, sdNew;
+
+    if (!fieldName) {
+        return;
+    }
+
+    ascending = ascending === 'true';
+    sd = cvSorting.sortDescriptions;
+    sdNew = new wijmo.collections.SortDescription(fieldName, ascending);
+
+    // remove any old sort descriptors and add the new one
+    sd.splice(0, sd.length, sdNew);
+};
+                            
+                        </div>
+                        <div class="tab-pane pane-content" id="sCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <!-- commands -->
+                <div class="row-fluid well row">
+                    <div class="col-md-8">
+                        <select id="sortingFieldNameList" class="form-control"></select>
+                    </div>
+                    <div class="col-md-4">
+                        <select id="sortingOrderList" class="form-control">
+                            <option value="true" selected="selected">Ascending</option>
+                            <option value="false">Descending</option>
+                        </select>
+                    </div>
+                </div>
+                @(Html.C1().FlexGrid().Id("sortingGrid").IsReadOnly(true).AllowSorting(false).AutoGenerateColumns(false)
+                    .Bind(b => b.DisableServerRead(true).Bind(Model.Customers))
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CustomerID"))
+                        .Add(c => c.Binding("CompanyName"))
+                        .Add(c => c.Binding("ContactName"))
+                        .Add(c => c.Binding("City"))
+                        .Add(c => c.Binding("Country"))
+                        .Add(c => c.Binding("Phone"))
+                        )
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- filtering -->
+    <div>
+        <h2>Filtering</h2>
+        <p>
+            The <b>CollectionView</b> class supports filtering through the <b>ICollectionView</b> interface, which is identical to the
+            one in .NET. To enable filtering, set the <b>CollectionView.filter</b> property to a function that
+            determines which objects to be included in the view. For the client side Filtering to work, the <strong>DisableServerRead</strong> property of the ItemSource should be true.
+        </p>
+        <p>
+            In this example, we create a filter for the country, and get the filter value from the input control. When you input the filter, the grid will be refreshed and render the fitlered data.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#fHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#fJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#fCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="fHtml">
+
+&lt;div class="row-fluid well"&gt;
+    &lt;input id="filteringInput" type="text" class="form-control app-pad" placeholder="Please input the character you want filter by country(case-insensitive)" /&gt;
+&lt;/div&gt;
+@@(Html.C1().FlexGrid().Id("filteringGrid").IsReadOnly(true).AllowSorting(false).AutoGenerateColumns(false)
+    .Bind(b => b.Bind(Model.Customers).DisableServerRead(true))
+    .Columns(columns => columns
+        .Add(c => c.Binding("CustomerID"))
+        .Add(c => c.Binding("CompanyName"))
+        .Add(c => c.Binding("ContactName"))
+        .Add(c => c.Binding("City"))
+        .Add(c => c.Binding("Country"))
+        .Add(c => c.Binding("Phone"))
+        )
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="fJs">
+
+function getFilterNames() {
+    return ['ProductID', 'ProductName', 'SupplierID', 'CategoryID', 'QuantityPerUnit', 'UnitPrice', 'UnitsInStock', 'UnitsOnOrder', 'ReorderLevel'];
+};
+
+$(document).ready(function () {
+    //Filtering
+    // create collectionview, grid, filter with timeout, textbox for inputting filter.
+    filteringGrid = wijmo.Control.getControl('#filteringGrid');
+    cvFiltering = filteringGrid.itemsSource;    
+    filteringInput = document.getElementById('filteringInput');
+    // apply filter when input
+    filteringInput.addEventListener('input', filterGrid);
+});
+
+//Filtering
+// create collectionview, grid, filter with timeout, textbox for inputting filter.
+var cvFiltering = null,
+    filteringGrid = null,
+    toFilter,
+    filteringInput = null;
+
+// define the filter function for the collection view.
+function filterFunction(item) {
+    var filter = filteringInput.value.toLowerCase();
+    if (!filter) {
+        return true;
+    }
+
+    return item.CustomerID.toLowerCase().indexOf(filter) > -1;
+};
+
+// apply filter (applied on a 500 ms timeOut)
+function filterGrid() {
+    if (toFilter) {
+        clearTimeout(toFilter);
+    }
+
+    toFilter = setTimeout(function () {
+        toFilter = null;
+        if (cvFiltering.filter === filterFunction) {
+            cvFiltering.refresh();
+        }
+        else {
+            cvFiltering.filter = filterFunction;
+        }
+    }, 500);
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="fCS">
+
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <div class="row-fluid well">
+                    <input id="filteringInput" type="text" class="form-control app-pad" placeholder="Please input the character you want filter by country(case-insensitive)" />
+                </div>
+                @(Html.C1().FlexGrid().Id("filteringGrid").IsReadOnly(true).AllowSorting(false).AutoGenerateColumns(false)
+                    .Bind(b => b.Bind(Model.Customers).DisableServerRead(true))
+                    .Columns(columns => columns
+                        .Add(c => c.Binding("CustomerID"))
+                        .Add(c => c.Binding("CompanyName"))
+                        .Add(c => c.Binding("ContactName"))
+                        .Add(c => c.Binding("City"))
+                        .Add(c => c.Binding("Country"))
+                        .Add(c => c.Binding("Phone"))
+                        )
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- grouping -->
+    <div>
+        <h2>
+            Grouping
+        </h2>
+        <p>
+            The <b>CollectionView</b> class supports grouping through the <b>ICollectionView</b> interface, which is identical to the
+            one in .NET. To enable grouping, add one or more <b>GroupDescription</b> objects to the
+            <b>CollectionView.groupDescriptions</b> property, and ensure that the grid's <b>showGroups</b> property
+            is set to true when creating the grid instance(the default value is false.).
+        </p>
+        <p>
+            <b>GroupDescription</b> objects are flexible, allowing you to group data based on value or on grouping
+            functions.
+        </p>
+        <p>
+            The example below groups the collection by the field which you select from the list.
+            The grid shows not only the items content but also the group information: the group name and the average value of amount in the group.
+            You can find the rendering codes for these in the method initTBody. The corresponding code snippet locates in line 116.
+        </p>
+        <p>
+            Notes: Selecting one item in the list will add a new instance of GroupDescription. If the groupdescription already exists, nothing happens.
+            In order to clear the group setting, select the first item in the list.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#gHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#gJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#gCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="gHtml">
+                            
+&lt;div class="row-fluid well"&gt;
+    &lt;select id="groupingFieldNameList" class="form-control"&gt;&lt;/select&gt;
+&lt;/div&gt;
+@@(Html.C1().FlexGrid().Id("groupingGrid").IsReadOnly(true).AllowSorting(true).AutoGenerateColumns(true)
+    .Bind(b => b.DisableServerRead(true).Bind(Model.Products))
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="gJs">
+
+$(document).ready(function () {
+    //Grouping
+    // reference collectionview, grid, the select element and the names list.
+    groupingGrid = wijmo.Control.getControl('#groupingGrid');
+    cvGrouping = groupingGrid.itemsSource;
+    groupingFieldNameList = document.getElementById('groupingFieldNameList');    
+    groupingFieldNameList.addEventListener('change', groupGrid);
+    // initialize the list and listen to the list's change.
+    groupingFieldNameList.innerHTML += '<option value="" selected="selected">Please choose the field you want to group by...</option>';
+    for (var i = 0; i < groupingNames.length; i++) {
+        groupingFieldNameList.innerHTML += '<option value="' + groupingNames[i] + '">' + groupingNames[i] + '</option>';
+    }
+});
+
+//Grouping
+// create collectionview, grid, the select element and the names list.
+var cvGrouping = null,
+    groupingGrid = null,
+    groupingFieldNameList = null,
+    groupingNames = getFilterNames();
+
+// update the group settings.
+function groupGrid() {
+    var gd,
+        fieldName = groupingFieldNameList.value;
+
+    gd = cvGrouping.groupDescriptions;
+
+    if (!fieldName) {
+        // clear all the group settings.
+        gd.splice(0, gd.length);
+        return;
+    }
+
+    if (findGroup(fieldName) >= 0) {
+        return;
+    }
+
+    if (fieldName === 'UnitPrice') {
+        // when grouping by amount, use ranges instead of specific values
+        gd.push(new wijmo.collections.PropertyGroupDescription(fieldName, function (item, propName) {
+            var value = item[propName]; // UnitPrice
+            if (value > 100) return 'Large Amounts';
+            if (value > 50) return 'Medium Amounts';
+            if (value > 0) return 'Small Amounts';
+            return 'Negative Amounts';
+        }));
+    }
+    else {
+        // group by specific property values
+        gd.push(new wijmo.collections.PropertyGroupDescription(fieldName));
+    }
+};
+
+// check whether the group with the specified property name already exists.
+function findGroup(propName) {
+    var gd = cvGrouping.groupDescriptions;
+    for (var i = 0; i < gd.length; i++) {
+        if (gd[i].propertyName === propName) {
+            return i;
+        }
+    }
+    return -1;
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gCS">
+
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <!-- commands -->
+                <div class="row-fluid well">
+                    <select id="groupingFieldNameList" class="form-control"></select>
+                </div>                
+                @(Html.C1().FlexGrid().Id("groupingGrid").IsReadOnly(true).AllowSorting(true).AutoGenerateColumns(true)
+                    .Bind(b => b.DisableServerRead(true).Bind(Model.Products))
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- tracking changes -->
+    <div>
+        <h2>Tracking changes</h2>
+        <p>
+            The <b>CollectionView</b> class can keep track of changes made to the
+            data. It is useful in situations where you must submit changes
+            to the server. To turn on change tracking, set the <b>trackChanges</b>
+            property to true. Once you do that, the <b>CollectionView</b> keeps
+            track of any changes made to the data and exposes them in three
+            arrays:
+        </p>
+        <ul>
+            <li>
+                <b>itemsEdited</b>: This list contains items that are edited using
+                the <b>beginEdit</b> and <b>commitEdit</b> methods.
+            </li>
+            <li>
+                <b>itemsAdded</b>: This list contains items that are added using the
+                <b>addNew</b> and <b>commitNew</b> methods.
+            </li>
+            <li>
+                <b>itemsRemoved</b>: This list contains items that are removed using
+                the <b>remove</b> method.
+            </li>
+        </ul>
+        <p>
+            This feature is demonstrated below using a <b>FlexGrid</b>. The grid is bound
+            to a <b>CollectionView</b> with <b>trackChanges</b> set to true.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li><a href="#tcHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li class="active"><a href="#tcJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#tcCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content" id="tcHtml">
+                            
+&lt;h5&gt;Change the data here&lt;/h5&gt;
+@@(Html.C1().FlexGrid<Category>().Id("tcMainGrid").AutoGenerateColumns(false)
+    .AllowAddNew(true).AllowDelete(true)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID"))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+    .Bind(ib =>
+        ib.Bind(Model.Categories).DisableServerRead(true)
+        )
+)
+&lt;h5&gt;See the changes here&lt;/h5&gt;
+&lt;h6&gt;Items edited:&lt;/h6&gt;
+@@(Html.C1().FlexGrid<Category>().Id("tcEditedGrid").AutoGenerateColumns(false)
+    .IsReadOnly(true).Height(100)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+)
+&lt;h6&gt;Items added:&lt;/h6&gt;
+@@(Html.C1().FlexGrid<Category>().Id("tcAddedGrid").AutoGenerateColumns(false)
+    .IsReadOnly(true).Height(100)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+)
+&lt;h6&gt;Items removed:&lt;/h6&gt;
+@@(Html.C1().FlexGrid<Category>().Id("tcRemovedGrid").AutoGenerateColumns(false)
+    .IsReadOnly(true).Height(100)
+    .Columns(columns => columns
+        .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+        .Add(c => c.Binding("CategoryName"))
+        .Add(c => c.Binding("Description").Width("*")))
+)
+
+                        </div>
+                        <div class="tab-pane active pane-content" id="tcJs">
+
+$(document).ready(function () {
+    //Tracking changes
+    tcMainGrid = wijmo.Control.getControl('#tcMainGrid');// the flexGrid to edit the data
+    tcEditedGrid = wijmo.Control.getControl('#tcEditedGrid'); // the flexGrid to record the edited items
+    tcAddedGrid = wijmo.Control.getControl('#tcAddedGrid'); // the flexGrid to record the added items
+    tcRemovedGrid = wijmo.Control.getControl('#tcRemovedGrid'); // the flexGrid to record the removed items
+    cvTrackingChanges = tcMainGrid.itemsSource;
+
+    tcEditedGrid.itemsSource = cvTrackingChanges.itemsEdited;
+    tcAddedGrid.itemsSource = cvTrackingChanges.itemsAdded;
+    tcRemovedGrid.itemsSource = cvTrackingChanges.itemsRemoved;
+
+    // track changes of the collectionview
+    cvTrackingChanges.trackChanges = true;
+});
+
+//Tracking changes
+var tcMainGrid = null,
+    tcEditedGrid = null,
+    tcAddedGrid = null,
+    tcRemovedGrid = null,
+    cvTrackingChanges = null;
+
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tcCS">
+
+using System.Web.Mvc;
+using CollectionView101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using System.Data.Entity.Validation;
+using System.Data.Entity;
+
+namespace CollectionView101.Controllers
+{
+    public class HomeController : Controller
+    {
+        private C1NWindEntities db = new C1NWindEntities();
+
+        // GET: Home
+        public ActionResult Index()
+        {
+            return View(db);
+        }
+    }
+}
+
+                            </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                <h5>Change the data here</h5>
+                @(Html.C1().FlexGrid<Category>().Id("tcMainGrid").AutoGenerateColumns(false)
+                .AllowAddNew(true).AllowDelete(true)
+                .Columns(columns => columns
+                    .Add(c => c.Binding("CategoryID"))
+                    .Add(c => c.Binding("CategoryName"))
+                    .Add(c => c.Binding("Description").Width("*")))
+                .Bind(ib =>
+                    ib.Bind(Model.Categories).DisableServerRead(true)
+                    )
+                )
+                <h5>See the changes here</h5>
+                <h6>Items edited:</h6>
+                @(Html.C1().FlexGrid<Category>().Id("tcEditedGrid").AutoGenerateColumns(false)
+                .IsReadOnly(true).Height(100)
+                .Columns(columns => columns
+                    .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+                    .Add(c => c.Binding("CategoryName"))
+                    .Add(c => c.Binding("Description").Width("*")))
+                )
+                <h6>Items added:</h6>
+                @(Html.C1().FlexGrid<Category>().Id("tcAddedGrid").AutoGenerateColumns(false)
+                .IsReadOnly(true).Height(100)
+                .Columns(columns => columns
+                    .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+                    .Add(c => c.Binding("CategoryName"))
+                    .Add(c => c.Binding("Description").Width("*")))
+                )
+                <h6>Items removed:</h6>
+                @(Html.C1().FlexGrid<Category>().Id("tcRemovedGrid").AutoGenerateColumns(false)
+                .IsReadOnly(true).Height(100)
+                .Columns(columns => columns
+                    .Add(c => c.Binding("CategoryID").IsReadOnly(true))
+                    .Add(c => c.Binding("CategoryName"))
+                    .Add(c => c.Binding("Description").Width("*")))
+                )
+            </div>
+        </div>
+    </div>
+
+</div>

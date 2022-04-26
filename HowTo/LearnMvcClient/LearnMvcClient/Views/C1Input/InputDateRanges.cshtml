@@ -1,0 +1,14 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputDateRanges_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputDateRanges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputDateRanges_Text2)
+</p>
+<div class="demo-settings">
+    <label for="theInputDate">@Html.Raw(Resources.C1Input.InputDateRanges_Text3)</label>
+    @Html.C1().InputDate().Id("theInputDate").Format("MMM dd, yyyy")
+</div>

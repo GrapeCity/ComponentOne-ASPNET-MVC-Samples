@@ -1,0 +1,29 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{
+    var positions = new[] { "None", "Top", "Bottom", "Left", "Right", "Auto" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.LegendPosition_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.LegendPosition_Text1)
+</p>
+
+<div class="demo-settings">
+    <label for="legendPosition">@Html.Raw(Resources.C1FlexChart.LegendPosition_Text2) </label>
+    @Html.C1().ComboBox().Id("legendPosition").Bind(positions).Text("Right")
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

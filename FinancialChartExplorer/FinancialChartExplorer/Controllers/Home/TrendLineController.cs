@@ -1,6 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
 using FinancialChartExplorer.Models;
-using Microsoft.AspNetCore.Mvc;
 
 namespace FinancialChartExplorer.Controllers
 {
@@ -19,11 +22,10 @@ namespace FinancialChartExplorer.Controllers
             {
                 {"Order", new object[]{"2","3","4","5","6","7","8","9"}},
                 {"SampleCount", new object[]{"100","120","140","160","180","200"}},
-                {"FitType", new object[]{ "Linear", "AverageX","AverageY","Exponential","Fourier","MaxX","MaxY","MinX","MinY","Polynomial"}},
+                {"FitType", new object[]{"Linear","AverageX","AverageY","Exponential","Fourier","MaxX","MaxY","MinX","MinY","Polynomial"}},
             };
 
             return settings;
         }
-
     }
 }

@@ -1,0 +1,138 @@
+﻿@model List<FinanceData>
+
+@{
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexChart().Id("gesturesChart").CssClass("stchart").ChartType(C1.Web.Mvc.Chart.ChartType.Area)
+.PlotMargin("NaN NaN NaN 80")
+.BindingX("X").Bind(Model)
+.Legend(C1.Web.Mvc.Chart.Position.None)
+.AxisX(axis =>
+    {
+        axis.AxisLine(false);
+    })
+.Series(sers =>
+{
+    sers.Add().Binding("Close").Name("Y Value");
+})
+.SupportGestures(cgb => 
+    cgb.Id("gestures")
+    .MouseAction(MouseAction.Zoom)
+    .InteractiveAxes(InteractiveAxes.X)
+    .ScaleY(0.5f)
+    .PosY(0.1f)
+    .ScaleX(0.5f)
+    .PosX(0.1f))
+)
+
+@section Scripts{
+<script>
+    var chart, chartGestures;
+
+    c1.documentReady(function () {
+        var gesturesChart = getChart();
+        if (navigator.userAgent.match(/iPad/i) != null || /Android/i.test(navigator.userAgent)) {
+            document.querySelector('#mouseAction').style.display = 'none';
+        }
+
+        if (gesturesChart) {
+            gesturesChart.axisX.rangeChanged.addHandler(function () {
+                document.querySelector('#reset').disabled = undefined;
+            });
+            gesturesChart.axisY.rangeChanged.addHandler(function () {
+                document.querySelector('#reset').disabled = undefined;
+            });
+        }
+    });
+
+    function getChart() {
+        if (!chart) {
+            chart = wijmo.Control.getControl('#gesturesChart');
+        }
+        return chart;
+    }
+
+    function getChartGesture() {
+        var gesturesChart;
+        if (!chartGestures) {
+            gesturesChart = getChart();
+            chartGestures = c1.getExtender(gesturesChart, 'gestures');
+        }
+        return chartGestures;
+    }
+
+    function updateMenu(menu, headerNamePrefix) {
+        menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+    }
+
+    function mouseActionChanged(menu) {
+        var extGesture = getChartGesture();
+        updateMenu(menu, '@(Resources.FlexChart.PanningAndScaling_MouseAction)');
+        if (extGesture) {
+            extGesture.mouseAction = wijmo.chart.interaction.MouseAction[menu.selectedItem.Header];
+        }
+    }
+
+    function interactiveAxesChanged(menu) {
+        var extGesture = getChartGesture();
+        updateMenu(menu, '@(Resources.FlexChart.PanningAndScaling_InteractiveAxes)');
+        if (extGesture) {
+            extGesture.interactiveAxes = wijmo.chart.interaction.InteractiveAxes[menu.selectedItem.Header];
+        }
+    }
+
+    function resetAxes() {
+        var extGesture = getChartGesture();
+        if (extGesture) {
+            extGesture.reset();
+        }
+
+        document.querySelector('#reset').disabled = 'disabled';
+    }
+</script>
+}
+
+@section Settings{
+    @(Html.C1().Menu().Id("mouseAction").Header(Resources.FlexChart.PanningAndScaling_MouseAction + ": <b>Zoom</b>")
+    .OnClientItemClicked("mouseActionChanged").MenuItems(items =>
+    {
+        items.Add("Zoom");
+        items.Add("Pan");
+    }))
+
+    @(Html.C1().Menu().Header(Resources.FlexChart.PanningAndScaling_InteractiveAxes + ": <b>X</b>")
+    .OnClientItemClicked("interactiveAxesChanged").MenuItems(items =>
+    {
+        items.Add("X");
+        items.Add("Y");
+        items.Add("XY");
+    }))
+
+    <button id="reset" class="btn btn-primary" onclick="resetAxes()" disabled="disabled">@Html.Raw(Resources.FlexChart.PanningAndScaling_ResetZoom)</button>
+}
+
+@section Description{
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <ul>
+                <li>
+                    <b>@Html.Raw(Resources.FlexChart.PanningAndScaling_Text0)</b>
+                    <ol>
+                        <li>@Html.Raw(Resources.FlexChart.PanningAndScaling_Li1)</li>
+                        <li>@Html.Raw(Resources.FlexChart.PanningAndScaling_Li2)</li>
+                    </ol>
+                </li>
+                <li>
+                    <b>@Html.Raw(Resources.FlexChart.PanningAndScaling_Text1)</b>
+                    <ol>
+                        <li>
+                            @Html.Raw(Resources.FlexChart.PanningAndScaling_Li3)
+                        </li>
+                    </ol>
+
+                </li>
+            </ul>
+        </div>
+    </div>
+}

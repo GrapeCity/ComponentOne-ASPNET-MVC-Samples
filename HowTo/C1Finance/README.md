@@ -1,4 +1,4 @@
-## ASP.NET Core MVC Finance
+## ASP.NET MVC Finance
 #### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-ASPNET-MVC-Samples/tree/master/HowTo/C1Finance)
 ____
 #### A stock portfolio application written using the MVC pattern.

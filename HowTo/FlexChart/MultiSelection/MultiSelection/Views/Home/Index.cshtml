@@ -1,0 +1,68 @@
+﻿@model MultiSelection.Models.FlexChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            FlexChart Multi Selection
+        </h1>
+        <p>
+            Select multiple points in a single FlexChart.
+        </p>
+    </div>
+</div>
+<main id="content" role="main">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+
+                <p>
+                    This sample demonstrates how you can implement multi-point selection on a FlexChart control.
+                    Dragging on the chart will clear the currently selected points and select a new set of points
+                    that lie within the drag area. Ctrl+clicking on a point will also toggle its selection state,
+                    while Ctrl+clicking on an empty portion of the chart will clear the current selection.
+                </p>
+                <div>
+                    <div id="plotSelection"></div>
+                    @(Html.C1().FlexChart().Id("flexChart").Bind(Model.CountrySalesData).OnClientRendered("flexChart_rendered")
+                    .Tooltip(t=>t.Content("")).ChartType(C1.Web.Mvc.Chart.ChartType.Column)
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                    .Legend(C1.Web.Mvc.Chart.Position.Top)
+                    )
+                    Select Under:   
+                    @(Html.C1().ComboBox().Id("cmbSelect").Bind(Model.Settings["SelectList"]).Placeholder("None")
+                        .OnClientSelectedIndexChanged("cmbSelect_SelectedIndexChanged")
+                    )
+                    Chart Type: 
+                    @(Html.C1().ComboBox().Id("cmbChartType").Bind(Model.Settings["ChartType"]).Placeholder("Select Chart Type")
+                        .OnClientSelectedIndexChanged("cmbChartType_SelectedIndexChanged")
+                    )
+                    <div>
+                        <label>Selected Items</label>
+                        <div id="selItems">                            
+                        </div>                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["initialControls"]) {
+            window["initialControls"]();
+        }
+    });
+</script>
+

@@ -1,0 +1,101 @@
+﻿body {
+	background-color: #f8f8f8;
+	font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+	padding: 0 0 10px;-ms-overflow-style: scrollbar;
+}
+
+body a,
+body a:focus,
+body a:hover{
+	text-decoration: none;
+	outline: none;
+}
+
+h1, h2, h3, h4, h5, h6 {
+	font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+	font-weight: 300;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before {
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+
+    .logo-container .gcicon-product-c1 {
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+
+    .logo-container a {
+        text-decoration: none;
+    }
+
+.container {
+	min-width:248px;
+}
+
+.container p {
+	min-width:358px;
+}
+
+.header {
+	background-color: #f27c0a;
+	margin-bottom: 14px;
+	padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin: 8px 0 5px 0;
+        color: white;
+    }
+
+
+	.header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}
+
+#plotSelection {
+    background-color:rgba(85, 85, 85, 0.05);
+    border:2px dashed #808080;
+    position:absolute;
+    display:block;
+    left:0;
+    top:0;
+    pointer-events:none;
+    visibility: hidden;
+}

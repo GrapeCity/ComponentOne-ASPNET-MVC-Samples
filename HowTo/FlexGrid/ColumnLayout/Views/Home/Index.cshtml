@@ -1,0 +1,75 @@
+﻿@using MvcExplorer.Models
+@model IEnumerable<Sale>
+
+@{
+    var columnLayout = ViewBag.ColumnLayout as string;
+    ViewBag.Title = "FlexGrid Save/Load Column Layout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            FlexGrid Save/Load Column Layout(Server Side)
+        </h1>
+        <p>
+            This page shows how to save/load FlexGrid column layout in server side.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            This sample shows how to save the FlexGrid column layout to a "ColumnLayout.json" file,
+            and load the column layout from the json file.
+        </p>
+        <p>
+            To see how this works, follow these steps:
+        </p>
+        <ol>
+            <li>
+                Resize some columns and drag some to new positions.
+            </li>
+            <li>
+                Click the "Save Column Layout" button to save the changes to "ColumnLayout.json" file in the server.
+            </li>
+            <li>
+                Refresh the page by click "Reload Page" button to restore the original layout.
+            </li>
+            <li>
+                We can see the columns keep their layouts.
+            </li>
+        </ol>
+        <input type="button" value="Save Column Layout To Server" class="btn" onclick="saveColumnLayout()" />
+        <input type="button" value="Reload Page" class="btn" onclick="location.reload()" />
+        @(Html.C1().FlexGrid<Sale>()
+            .Id("flexgrid")
+            .AutoGenerateColumns(true)
+            .IsReadOnly(true)
+            .SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+            .CssClass("grid")
+            .Bind(Model)
+            .ColumnLayout(columnLayout)
+        )
+    </div>
+</div>
+<script>
+    function saveColumnLayout() {
+        var columnLayout = wijmo.Control.getControl("#flexgrid").columnLayout;
+        wijmo.httpRequest('@Url.Action("SaveColumLayout","Home")', {
+            method: "POST",
+            data: { columnLayout: columnLayout },
+            success: function (xhr) {
+                var data = JSON.parse(xhr.response);
+                if (data.Result) {
+                    alert("Save successfully!")
+                } else {
+                    alert("Save unsuccessfully, " + data.Exception);
+                }
+            }
+        });
+    }
+</script>

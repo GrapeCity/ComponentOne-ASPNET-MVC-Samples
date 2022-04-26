@@ -1,19 +1,19 @@
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/dragDrop.js"></script>}
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/FlexSheet/dragDrop.js"></script>
+}
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.DragDrop_Text2)
-        </h3>
-<p>@Html.Raw(FlexSheetRes.DragDrop_Text0)</p>
+<h3>@Html.Raw(Resources.FlexSheet.DragDrop_Text2)</h3>
+
+<p>@Html.Raw(Resources.FlexSheet.DragDrop_Text0)</p>
 
     </div>
     <div>
-        <c1-flex-sheet id="dragDropSheet" class="flexSheet">
-            <c1-unbound-sheet column-count="8" row-count="20"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("dragDropSheet")
+        .AddUnboundSheet("Sheet1", 20, 8))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.DragDrop_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.DragDrop_Text1)</p>
 
 }

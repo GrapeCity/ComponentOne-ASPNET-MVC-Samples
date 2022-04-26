@@ -1,0 +1,14 @@
+﻿@model IEnumerable<MvcExplorer.Models.NamedColor>
+
+<div>
+    <label>@Html.Raw(Resources.ComboBox.ComplexType_Text0)</label>
+    @(Html.C1().ComboBox()
+        .Bind(Model).SelectedIndex(0)
+        .DisplayMemberPath("Name")
+        .SelectedValuePath("Value")
+    )
+</div>
+
+@section Description{
+    @Html.Raw(Resources.ComboBox.ComplexType_Text1)
+}

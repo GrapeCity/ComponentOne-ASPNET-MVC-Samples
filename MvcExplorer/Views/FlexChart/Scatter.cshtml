@@ -1,0 +1,47 @@
+﻿@using C1.Web.Mvc.Chart
+@model List<Dot>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<div>
+
+            @(Html.C1().FlexChart().Id("theChart")
+            .Bind(Model)
+            .ChartType(ChartType.Scatter)
+            .BindingX("X")
+            .Binding("Y")
+            .AxisX(x => { x.Min(-2); x.Max(2); })
+            .AxisY(y => { y.Min(-2); y.Max(2); y.AxisLine(true); y.MajorGrid(false); })
+            .RenderEngine((RenderEngine)Enum.Parse(typeof(RenderEngine), optionsModel.Options["RenderEngine"].CurrentValue))
+            .Series(sers =>
+                sers.Add()
+                .Name("Ser 1")
+                .SymbolStyle(x => x.StrokeWidth(0))
+                .SymbolMarker(Marker.Dot)
+           )
+                .SupportGestures(cgb =>
+                    cgb
+                    .InteractiveAxes(InteractiveAxes.XY)
+                    .MouseAction(MouseAction.Zoom)
+                    .ScaleY(1)
+                    .PosY(0.5f)
+                    .ScaleX(1)
+                    .PosX(0.5f))
+            )
+</div>
+
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @(Html.Raw(Resources.FlexChart.RenderEngine_Description_Text0))
+}
+
+@section Description{
+    @(Html.Raw(Resources.FlexChart.RenderEngine_Description_Text0))
+}

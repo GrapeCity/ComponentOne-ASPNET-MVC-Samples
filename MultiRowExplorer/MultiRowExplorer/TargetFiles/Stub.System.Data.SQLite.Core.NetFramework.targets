@@ -1,0 +1,94 @@
+<!--
+ *
+ * System.Data.SQLite.Core.NetFramework.targets -
+ *
+ * WARNING: This MSBuild file requires MSBuild 4.0 features.
+ *
+ * Written by Joe Mistachkin and David Archer.
+ * Released to the public domain, use at your own risk!
+ *
+ *
+ * This file was modified to fix the issue that need to clean and rebuild the solution.
+ * And move from package folder to here.
+ *
+-->
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <!--
+  ******************************************************************************
+  **                          Load Per-User Settings                          **
+  ******************************************************************************
+  -->
+
+  <!--
+      NOTE: If the per-user settings file exists, import it now.  The contained
+            settings, if any, will override the default ones provided below.
+  -->
+  <Import Condition="'$(MSBuildThisFileFullPath)' != '' And
+                     Exists('$(MSBuildThisFileFullPath).user')"
+          Project="$(MSBuildThisFileFullPath).user" />
+
+  <!--
+  ******************************************************************************
+  **                   SQLite Interop Library Content Items                   **
+  ******************************************************************************
+  -->
+
+  <ItemGroup>
+    <Content Include="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\x64\SQLite.Interop.dll">
+      <Link>x64\SQLite.Interop.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="..\packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\build\net451\x86\SQLite.Interop.dll">
+      <Link>x86\SQLite.Interop.dll</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <!--
+  ******************************************************************************
+  -->
+
+  <Target Name="CleanSQLiteInteropFiles"
+          Condition="'$(CleanSQLiteInteropFiles)' != 'false' And
+                     '$(OutDir)' != '' And
+                     HasTrailingSlash('$(OutDir)') And
+                     Exists('$(OutDir)')">
+    <!--
+        NOTE: Delete "SQLite.Interop.dll" and all related files, for every
+              architecture that we support, from the build output directory.
+    -->
+    <Delete Files="@(SQLiteInteropFiles -> '$(OutDir)%(RecursiveDir)%(Filename)%(Extension)')" />
+  </Target>
+
+  <!--
+  ******************************************************************************
+  -->
+
+  <Target Name="CollectSQLiteInteropFiles"
+          Condition="'$(CollectSQLiteInteropFiles)' != 'false'">
+    <ItemGroup>
+      <FilesForPackagingFromProject Include="@(SQLiteInteropFiles)">
+        <DestinationRelativePath>bin\%(RecursiveDir)%(Filename)%(Extension)</DestinationRelativePath>
+      </FilesForPackagingFromProject>
+    </ItemGroup>
+  </Target>
+
+  <!--
+  ******************************************************************************
+  **     SQLite Interop Library Publish Properties for Visual Studio 201x     **
+  ******************************************************************************
+  -->
+
+  <PropertyGroup Condition="'$(VisualStudioVersion)' == '' Or
+                            '$(VisualStudioVersion)' == '10.0' Or
+                            '$(VisualStudioVersion)' == '11.0' Or
+                            '$(VisualStudioVersion)' == '12.0' Or
+                            '$(VisualStudioVersion)' == '14.0' Or
+                            '$(VisualStudioVersion)' == '15.0' Or
+                            '$(VisualStudioVersion)' == '16.0'">
+    <PipelineCollectFilesPhaseDependsOn>
+      CollectSQLiteInteropFiles;
+      $(PipelineCollectFilesPhaseDependsOn);
+    </PipelineCollectFilesPhaseDependsOn>
+  </PropertyGroup>
+</Project>

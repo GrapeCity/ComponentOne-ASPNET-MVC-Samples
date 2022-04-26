@@ -1,0 +1,94 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.TabPanelAccessibility_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelAccessibility_Text1)
+    
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelAccessibility_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelAccessibility_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelAccessibility_Text4)
+</p>
+
+<div id="rtlTabPanel">
+    <div>
+        <a id="hdr-africa">
+            Africa
+        </a>
+        <div id="pane-africa">
+            <ul>
+                <li>Algeria</li>
+                <li>Angola</li>
+                <li>Benin</li>
+                <li>Botswana</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="hdr-america" class="wj-state-active">
+            America
+        </a>
+        <div id="pane-america">
+            <ul>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>Mexico</li>
+                <li>United States</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="hdr-asia">
+            Asia
+        </a>
+        <div id="pane-asia">
+            <ul>
+                <li>China</li>
+                <li>Korea</li>
+                <li>India</li>
+                <li>Japan</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="hdr-europe">
+            Europe
+        </a>
+        <div id="pane-europe">
+            <ul>
+                <li>Austria</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+                <li>Netherlands</li>
+                <li>Switzerland</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a id="hdr-oceania">
+            Oceania
+        </a>
+        <div id="pane-oceania">
+            <ul>
+                <li>Australia</li>
+                <li>Fiji</li>
+                <li>New Zealand</li>
+                <li>Samoa</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#rtlTabPanel")
+
+<div class="options">
+    <label for="autoSwitch">
+        autoSwitch
+    </label>
+    <input id="autoSwitch" type="checkbox" checked="checked">
+</div>

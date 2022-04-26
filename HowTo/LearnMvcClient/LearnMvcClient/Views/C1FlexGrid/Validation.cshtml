@@ -1,0 +1,38 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Validation_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Validation_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Validation_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Validation_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Validation_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Validation_Text5)
+    </li>
+</ol>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Validation_Text6)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("50").IsReadOnly(true);
+        cs.Add().Binding("Country").Header("Country").IsRequired(true);
+        cs.Add().Binding("Sales").Header("Sales").Format("n2");
+        cs.Add().Binding("Expenses").Header("Expenses").Format("n2");
+        cs.Add().Binding("Overdue").Header("Overdue");
+    })
+)

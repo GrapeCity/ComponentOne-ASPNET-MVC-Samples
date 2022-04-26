@@ -1,0 +1,14 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.Customization_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.Customization_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Customization_Text2)
+</p>
+
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(300).Filterable()

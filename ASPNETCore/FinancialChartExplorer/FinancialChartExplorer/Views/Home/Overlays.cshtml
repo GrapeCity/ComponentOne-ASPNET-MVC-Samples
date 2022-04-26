@@ -1,0 +1,168 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    var overlays = new List<AnalysisType> {
+        new AnalysisType{Name = "Bollinger Bands", Abbreviation = "bollinger"},
+        new AnalysisType{Name = "Envelopes", Abbreviation = "envelopes" }
+    };
+    var envelopeTypes = new List<string> { "Simple", "Exponential" };
+}
+
+<script type="text/javascript">
+    var overlayOpts = [@Html.Raw(string.Join(",", overlays.Select(ovl => "'" + ovl.Abbreviation + "'")))];
+
+    function showOption(overlay) {
+        for (var i = 0; i < overlayOpts.length; i++) {
+            toggleGroup(overlayOpts[i], overlayOpts[i] == overlay);
+        }
+    }
+
+    function toggleGroup(overlay, shown) {
+        var optGroup = wijmo.getElement('#' + overlay);
+        if (optGroup) {
+            if (shown) {
+                optGroup.style.display = '';
+            } else {
+                optGroup.style.display = 'none';
+            }
+        }
+    }
+
+    function showSeries(index) {
+        var chart = wijmo.Control.getControl('#overlays');
+
+        if (index == null || !chart) {
+            return;
+        }
+
+        for (var i = 1; i < chart.series.length; i++) {
+            chart.series[i].visibility = (index == i) ? wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
+        }
+    }
+
+    function updateOverlayType(combo) {
+        showSeries(combo.selectedIndex + 1);
+        showOption(combo.selectedValue);
+    }
+
+    function updateBBPeriod(number) {
+        var chart = wijmo.Control.getControl('#overlays');
+        if (!checkValue(number)) {
+            return;
+        }
+        if (chart) {
+            chart.series[1].period = number.value;
+        }
+    }
+
+    function updateBBMultiplier(number) {
+        var chart = wijmo.Control.getControl('#overlays');
+        if (!checkValue(number)) {
+            return;
+        }
+        if (chart) {
+            chart.series[1].multiplier = number.value;
+        }
+    }
+
+    function updateEnvelopePeriod(number) {
+        var chart = wijmo.Control.getControl('#overlays');
+        if (!checkValue(number)) {
+            return;
+        }
+        if (chart) {
+            chart.series[2].period = number.value;
+        }
+    }
+
+    function updateEnvelopeSize(number) {
+        var chart = wijmo.Control.getControl('#overlays');
+        if (!checkValue(number)) {
+            return;
+        }
+        if (chart) {
+            chart.series[2].size = number.value;
+        }
+    }
+
+    function envelopeTypeChanged(menu) {
+        var chart = wijmo.Control.getControl('#overlays');
+
+        menu.header = 'Type: <b>' + menu.selectedItem.Header + '</b>';
+        if (chart) {
+            chart.series[2].type = wijmo.chart.finance.analytics.MovingAverageType[menu.selectedItem.CommandParameter];
+        }
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+
+    c1.documentReady(function () {
+        var combo = wijmo.Control.getControl('#overlayComboBox');
+        if (combo) {
+            combo.selectedIndex = 0;
+            updateOverlayType(combo);
+        }
+    });
+</script>
+
+
+<c1-financial-chart id="overlays" symbol-size="6" binding-x="X" chart-type="Candlestick">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-bollinger-bands binding="Close" period="20" multiplier="2" name="Bollinger Bands"></c1-flex-chart-bollinger-bands>
+    <c1-flex-chart-envelopes binding="Close" period="20" size="0.03" type="Simple" name="Envelopes"></c1-flex-chart-envelopes>
+    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Settings{
+    <div class="panel-body">
+        <!-- Overlay Selector -->
+        <ul class="list-inline">
+            <li>
+                <label>@Html.Raw(Home.Overlays_Overlay)</label>
+                <c1-combo-box id="overlayComboBox" selected-value-path="Abbreviation" display-member-path="Name" selected-index-changed="updateOverlayType" is-editable="false">
+                    <c1-items-source source-collection="overlays"></c1-items-source>
+                </c1-combo-box>
+            </li>
+        </ul>
+
+        <!-- Bollinger Bands Properties -->
+        <ul class="list-inline" id="bollinger">
+            <li>
+                <label>@Html.Raw(Home.Overlays_Period)</label>
+                <c1-input-number value="20" min="2" step="1" max="@(Model.Count - 1)" format="n0" value-changed="updateBBPeriod"></c1-input-number>
+            </li>
+            <li>
+                <label>@Html.Raw(Home.Overlays_Multiplier)</label>
+                <c1-input-number value="2" min="1" step="1" max="100" format="n0" value-changed="updateBBMultiplier"></c1-input-number>
+            </li>
+        </ul>
+
+        <!-- Envelope Properties -->
+        <ul class="list-inline" id="envelopes">
+            <li>
+                <label>@Html.Raw(Home.Overlays_Period)</label>
+                <c1-input-number value="20" min="2" step="1" max="@(Model.Count - 1)" format="n0" value-changed="updateEnvelopePeriod"></c1-input-number>
+            </li>
+            <li>
+                <label>@Html.Raw(Home.Overlays_Size)</label>
+                <c1-input-number value="0.03" min="0" step="0.01" max="1" format="p0" value-changed="updateEnvelopeSize"></c1-input-number>
+            </li>
+            <li>
+                <c1-menu header="Type: <b>Simple</b>" item-clicked="envelopeTypeChanged">
+                    <c1-menu-item header="@envelopeTypes[0]" command-parameter="@envelopeTypes[0]"></c1-menu-item>
+                    <c1-menu-item header="@envelopeTypes[1]" command-parameter="@envelopeTypes[1]"></c1-menu-item>
+                </c1-menu>
+            </li>
+        </ul>
+    </div>
+}
+
+@section Description{
+<p>@Html.Raw(Home.Overlays_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.Overlays_Text1)</p>
+}

@@ -1,0 +1,264 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BTN_Export_to_XLSX" xml:space="preserve">
+    <value>Export to XLSX</value>
+  </data>
+  <data name="BTN_Load_View" xml:space="preserve">
+    <value>Load View</value>
+  </data>
+  <data name="BTN_Save_View" xml:space="preserve">
+    <value>Save View</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data" xml:space="preserve">
+    <value>Analyze Huge Data</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_0" xml:space="preserve">
+    <value>In this example, the PivotEngine component binds to a DataEngine service. The DataEngine web api is responsible for data aggregation when the OLAP control binds to DataEngine service. DataEngine Web API uses a column-oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to hundreds of millions records in a fraction of a second. The service url should be provided to the PivotEngine in this mode.</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_1" xml:space="preserve">
+    <value>You may host DataEngine WebAPI separately or within the same MVC application.&lt;br /&gt;To create and host DataEngine Web API separately, please refer the Web API &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html"&gt;documentation&lt;/a&gt;.&lt;br /&gt;To use DataEngine in the same MVC project, ensure the following:&lt;br /&gt;</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_2" xml:space="preserve">
+    <value>MVC application should support Web API.</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_3" xml:space="preserve">
+    <value>Add DataEngine WebAPI to the application from GrapeCity NuGet source.</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_4" xml:space="preserve">
+    <value>Register the DataEngine in the Owin Startup.cs class to import the data. Please refer the Startup.cs code in the below example.</value>
+  </data>
+  <data name="TXT_Analyze_Huge_Data_5" xml:space="preserve">
+    <value>In this example, the PivotEngine component connects the DataEngine data. The PivotPanel control and the PivotGrid control are bound to the PivotEngine. You can change the view definition in the PivotPanel control. The aggregated data will be obtained from the service. Then the PivotGrid control displays the aggregated data. You can find the detailed raw data shown in a grid by double-clicking a cell in the PivotGrid control.</value>
+  </data>
+  <data name="TXT_ChartType" xml:space="preserve">
+    <value>Chart Type:</value>
+  </data>
+  <data name="TXT_Configure_PivotPanel" xml:space="preserve">
+    <value>Configure the PivotPanel Properties</value>
+  </data>
+  <data name="TXT_Configure_PivotPanel_0" xml:space="preserve">
+    <value>The PivotPanel control has properties that allow you to customize the view. Use the controls below to modify the values of some of these properties and see their effect.</value>
+  </data>
+  <data name="TXT_Customize" xml:space="preserve">
+    <value>Customize the PivotGrid Cells</value>
+  </data>
+  <data name="TXT_Customize_0" xml:space="preserve">
+    <value>The &lt;b&gt;PivotGrid&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so you can customize the display of the grid cells using the &lt;b&gt;ItemFormatter&lt;/b&gt; event and modify the content of each cell with flexibility.</value>
+  </data>
+  <data name="TXT_Customize_1" xml:space="preserve">
+    <value>For example, the &lt;b&gt;PivotGrid&lt;/b&gt; control below uses colors and icons, similar to the ones in Microsoft Excel's icon sets, to show how sales changed from quarter to quarter.</value>
+  </data>
+  <data name="TXT_Export" xml:space="preserve">
+    <value>Export the Results to Excel</value>
+  </data>
+  <data name="TXT_Export_0" xml:space="preserve">
+    <value>The &lt;b&gt;PivotGrid&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so you can export it to any of the formats supported by the extension modules provided with the &lt;b&gt;FlexGrid&lt;/b&gt;. The list of the supported formats includes .xlsx, .csv, and .pdf.</value>
+  </data>
+  <data name="TXT_Export_1" xml:space="preserve">
+    <value>For example, clicking the button below creates an Excel file with three sheets: the current view, a transposed version of the current view, and the raw data.</value>
+  </data>
+  <data name="TXT_FlexGrid" xml:space="preserve">
+    <value>FlexGrid</value>
+  </data>
+  <data name="TXT_Getting_Started" xml:space="preserve">
+    <value>Getting Started</value>
+  </data>
+  <data name="TXT_Getting_Started_0" xml:space="preserve">
+    <value>The &lt;b&gt;C1.Web.Mvc.Olap&lt;/b&gt; assembly contains controls that allow you to add Excel-like pivot table and pivot chart features to your ASP.NET MVC applications.</value>
+  </data>
+  <data name="TXT_Getting_Started_1" xml:space="preserve">
+    <value>Steps for getting started with the Olap module in MVC applications are as follows:</value>
+  </data>
+  <data name="TXT_Getting_Started_2" xml:space="preserve">
+    <value>Create a new MVC project using the C1 ASP.NET MVC application template, in Visual Studio IDE.</value>
+  </data>
+  <data name="TXT_Getting_Started_3" xml:space="preserve">
+    <value>Add a controller and a corresponding view to the project.</value>
+  </data>
+  <data name="TXT_Getting_Started_4" xml:space="preserve">
+    <value>Initialize the &lt;b&gt;PivotEngine&lt;/b&gt; control in the view using razor syntax.</value>
+  </data>
+  <data name="TXT_Getting_Started_5" xml:space="preserve">
+    <value>Use the &lt;b&gt;Bind&lt;/b&gt; method to bind an array containing the raw data that you want to analyze.</value>
+  </data>
+  <data name="TXT_Getting_Started_6" xml:space="preserve">
+    <value>Initialize a &lt;b&gt;PivotPanel&lt;/b&gt; control and set its &lt;b&gt;ItemsSourceId&lt;/b&gt; property to the &lt;b&gt;PivotEngine&lt;/b&gt; control if you want to customize the view definition</value>
+  </data>
+  <data name="TXT_Getting_Started_7" xml:space="preserve">
+    <value>Add one or more &lt;b&gt;PivotGrid&lt;/b&gt; and &lt;b&gt;PivotChart&lt;/b&gt; controls to the page, and connect them to the &lt;b&gt;PivotEngine&lt;/b&gt; by setting their &lt;b&gt;ItemsSourceId&lt;/b&gt; property to the &lt;b&gt;PivotEngine&lt;/b&gt; control or the &lt;b&gt;PivotPanel&lt;/b&gt; control.</value>
+  </data>
+  <data name="TXT_Getting_Started_8" xml:space="preserve">
+    <value>This will display a list of available fields in the &lt;b&gt;PivotPanel&lt;/b&gt;, and users will be able to drag fields between summary areas to generate data summaries (also known as "views"). Users can also configure the fields by setting their headers, summary functions, filters, and formats.</value>
+  </data>
+  <data name="TXT_Getting_Started_9" xml:space="preserve">
+    <value>Users can analyze the data and print the results, export them to XLSX or PDF, and save the view definitions to be re-used later.</value>
+  </data>
+  <data name="TXT_PivotGrid" xml:space="preserve">
+    <value>PivotGrid</value>
+  </data>
+  <data name="TXT_Result" xml:space="preserve">
+    <value>Result (live):</value>
+  </data>
+  <data name="TXT_Sample" xml:space="preserve">
+    <value>Here is a simple example.</value>
+  </data>
+  <data name="TXT_Sample_0" xml:space="preserve">
+    <value>Adding a PivotEngine, a PivotPanel and a PivotGrid to the page</value>
+  </data>
+  <data name="TXT_Sample_1" xml:space="preserve">
+    <value>The &lt;b&gt;PivotPanel&lt;/b&gt; control is similar to Microsoft Excel's "Field List" window, which is associated with pivot tables and charts.</value>
+  </data>
+  <data name="TXT_Sample_2" xml:space="preserve">
+    <value>Add fields to the view by dragging or using checkboxes.</value>
+  </data>
+  <data name="TXT_Sample_3" xml:space="preserve">
+    <value>Remove fields from the view by dragging them back to the top area, or by using their context menu.</value>
+  </data>
+  <data name="TXT_Sample_4" xml:space="preserve">
+    <value>Configure the fields by using their context menu. You can modify their header, summary function, and format. Note that the format is used while grouping the data. For instance, you can group the data by day, month, quarter or year by changing the format of the date fields .</value>
+  </data>
+  <data name="TXT_Sample_5" xml:space="preserve">
+    <value>The &lt;b&gt;PivotGrid&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control to support pivoting features. These include custom cell merging, hierarchical row and column groups, and a custom context menu, which allows users to configure the pivot fields and to drill-down into the data items that were used in the computation of specific summary cells.</value>
+  </data>
+  <data name="TXT_Save_And_Load" xml:space="preserve">
+    <value>Save and Load Views</value>
+  </data>
+  <data name="TXT_Save_And_Load_0" xml:space="preserve">
+    <value>You can use the &lt;b&gt;viewDefinition&lt;/b&gt; property to save and restore view definitions, as shown in the following example:</value>
+  </data>
+  <data name="TXT_Save_And_Load_1" xml:space="preserve">
+    <value>By using the &lt;b&gt;viewDefinition&lt;/b&gt; property, you can also build a list of pre-defined views for the user to pick from, as shown in the following example:</value>
+  </data>
+  <data name="TXT_ShowResult_PivotChart" xml:space="preserve">
+    <value>Show the Results in a PivotChart</value>
+  </data>
+  <data name="TXT_ShowResult_PivotChart_0" xml:space="preserve">
+    <value>The &lt;strong&gt;PivotChart&lt;/strong&gt; control provides a graphical visualization of the results. It is similar to Microsoft Excel's pivot charts, and includes support for multiple chart types and hierarchical axes.</value>
+  </data>
+  <data name="TXT_ShowResult_PivotChart_1" xml:space="preserve">
+    <value>To use the &lt;strong&gt;PivotChart&lt;/strong&gt; control, connect it to a &lt;strong&gt;PivotPanel&lt;/strong&gt; or &lt;strong&gt;PivotEngine&lt;/strong&gt; using the &lt;strong&gt;ItemsSourceId&lt;/strong&gt; property.</value>
+  </data>
+  <data name="TXT_View_Edit_Source" xml:space="preserve">
+    <value>View and Edit the Source Data</value>
+  </data>
+  <data name="TXT_View_Edit_Source_0" xml:space="preserve">
+    <value>The following pivot view is live. If you edit any of the 10,000 items, the pivot view will be updated automatically.</value>
+  </data>
+</root>

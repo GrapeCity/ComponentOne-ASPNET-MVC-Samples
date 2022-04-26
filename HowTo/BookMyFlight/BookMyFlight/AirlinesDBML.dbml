@@ -1,0 +1,331 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="BookMyFlight_Sql" Class="AirlinesDBMLDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="WebSettings" ConnectionString="Data Source=IN-VMX-2K8R2\DT2012;Initial Catalog=BookMyFlight_Sql;Persist Security Info=True;User ID=sa" SettingsObjectName="System.Configuration.ConfigurationManager.ConnectionStrings" SettingsPropertyName="BookMyFlight_SqlConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.AirlinesMaster_Tables" Member="AirlinesMaster_Tables">
+    <Type Name="AirlinesMaster_Table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Airlines" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Airlines_Code" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Img_URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserBookingsDetails_Table" Member="UserBookingsDetails_Tables">
+    <Type Name="UserBookingsDetails_Table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Book_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Traveller_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DefaultSettings_Table" Member="DefaultSettings_Tables">
+    <Type Name="DefaultSettings_Table">
+      <Column Name="SrNo" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="LastAppUpdateDate" Type="System.DateTime" DbType="Date" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.FoodTypes_Table" Member="FoodTypes_Tables">
+    <Type Name="FoodTypes_Table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Food_Type" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.RecentSearches_Table" Member="RecentSearches_Tables">
+    <Type Name="RecentSearches_Table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="TripType" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FromDest" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ToDest" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cancel_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TravelDestMaster_Table" Member="TravelDestMaster_Tables">
+    <Type Name="TravelDestMaster_Table">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Dest" Type="System.String" DbType="NVarChar(255) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Dest_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Area_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Travellers_Table" Member="Travellers_Tables">
+    <Type Name="Travellers_Table">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Middle_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Pref_Food" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Father_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Land_Mark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zip_Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISD" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Contact_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.User_Table" Member="User_Tables">
+    <Type Name="User_Table">
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL IDENTITY" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="User_LoginName" Type="System.String" DbType="NVarChar(50) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Father_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Land_Mark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zip_Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISD" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Contact_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img_URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.UserBookings_Table" Member="UserBookings_Tables">
+    <Type Name="UserBookings_Table">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Depart_AirlinesID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Return_AirlinesID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Depart_FlightNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Return_FlightNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Book_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Departure_DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Departure_ArrivalDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Return_DateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Return_ArrivalDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="From_DestID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="To_DestID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Class" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Depart_AdultFare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Return_AdultFare" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Departure_Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Return_Fare" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Total_Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Adult" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Child" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Infant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cancel_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Function Name="dbo.GetAirlinesList" Method="GetAirlinesList">
+    <Parameter Name="AirlinesId" Parameter="airlinesId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Airlines" Parameter="airlines" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetAirlinesListResult">
+      <Column Name="id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Airlines" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Airlines_Code" Type="System.String" DbType="NVarChar(5) NOT NULL" CanBeNull="false" />
+      <Column Name="Img_URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.SetForDemo" Method="SetForDemo">
+    <Parameter Name="ErrorMsg" Parameter="errorMsg" Type="System.String" DbType="NVarChar(MAX)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.GetBookings" Method="GetBookings">
+    <Parameter Name="BookId" Parameter="bookId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Book_FDate" Parameter="book_FDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Book_TDate" Parameter="book_TDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Travel_FDate" Parameter="travel_FDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="Travel_TDate" Parameter="travel_TDate" Type="System.DateTime" DbType="DateTime" />
+    <Parameter Name="User_ID" Parameter="user_ID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="From_DestID" Parameter="from_DestID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="To_DestID" Parameter="to_DestID" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetBookingsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Depart_AirlinesID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Return_AirlinesID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Depart_FlightNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Return_FlightNo" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Book_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Book_DateStr" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Departure_DateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Departure_DateTimeStr" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Departure_ArrivalDateTime" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Departure_ArrivalDateTimeStr" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Return_DateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Return_DateTimeStr" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="Return_ArrivalDateTime" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Return_ArrivalDateTimeStr" Type="System.String" DbType="VarChar(30)" CanBeNull="true" />
+      <Column Name="From_DestID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="To_DestID" Type="System.Int64" DbType="BigInt" CanBeNull="true" />
+      <Column Name="Class" Type="System.String" DbType="NVarChar(20) NOT NULL" CanBeNull="false" />
+      <Column Name="Depart_AdultFare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Return_AdultFare" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Departure_Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Return_Fare" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="Total_Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Cancel_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Adult" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Child" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Infant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Depart_Airlines" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Depart_Airlines_Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Depart_Airlines_Img_URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Return_Airlines" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="Return_Airlines_Code" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="Return_Airlines_Img_URL" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="From_Dest" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="From_Dest_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="From_City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="From_Country" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="To_Dest" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="To_Dest_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="To_City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="To_Country" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetBookingsDetails" Method="GetBookingsDetails">
+    <Parameter Name="BookId" Parameter="bookId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetBookingsDetailsResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Book_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Traveller_Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetDestList" Method="GetDestList">
+    <Parameter Name="DestId" Parameter="destId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Dest" Parameter="dest" Type="System.String" DbType="NVarChar(5)" />
+    <Parameter Name="City" Parameter="city" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetDestListResult">
+      <Column Name="id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Dest" Type="System.String" DbType="NVarChar(255) NOT NULL" CanBeNull="false" />
+      <Column Name="Dest_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Country_Name" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="Area_Code" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="AirportInfo" Type="System.String" DbType="NVarChar(770)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetRecentSearches" Method="GetRecentSearches">
+    <ElementType Name="GetRecentSearchesResult">
+      <Column Name="Id" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="TripType" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="FromDest" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="ToDest" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="DepartDate" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="ReturnDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Fare" Type="System.Double" DbType="Float NOT NULL" CanBeNull="false" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cancel_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetTravelers" Method="GetTravelers">
+    <Parameter Name="TravelerId" Parameter="travelerId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetTravelersResult">
+      <Column Name="Id" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Type" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Middle_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="User_Name" Type="System.String" DbType="NVarChar(103) NOT NULL" CanBeNull="false" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Column Name="Father_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISD" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Contact_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Mobile" Type="System.String" DbType="NVarChar(61)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Pref_Food" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Food_Type" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.GetUserDetails" Method="GetUserDetails">
+    <Parameter Name="UserId" Parameter="userId" Type="System.Int64" DbType="BigInt" />
+    <Parameter Name="User_LoginName" Parameter="user_LoginName" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Name" Parameter="name" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="Active" Parameter="active" Type="System.Boolean" DbType="Bit" />
+    <ElementType Name="GetUserDetailsResult">
+      <Column Name="User_ID" Type="System.Int64" DbType="BigInt NOT NULL" CanBeNull="false" />
+      <Column Name="Reg_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="User_LoginName" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="Pwd" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="SSN" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Title" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="First_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Last_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Sex" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Father_Name" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Address1" Type="System.String" DbType="NVarChar(250)" CanBeNull="true" />
+      <Column Name="Land_Mark" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Country" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="State" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="City" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Zip_Code" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="DOB" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ISD" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="Contact_No" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Email_ID" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Img_URL" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="Add_Date" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="Update_Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Active" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+    </ElementType>
+  </Function>
+</Database>

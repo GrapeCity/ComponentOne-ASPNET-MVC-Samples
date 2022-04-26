@@ -1,0 +1,38 @@
+﻿@model ControlOptions
+@using System.Text;
+<script type="text/javascript">
+    submit = function (menu) {
+        var form = document.forms ? document.forms[0] : null, optionMenus, optionValues, currentMenu;
+        @{
+            var menus = new StringBuilder();
+            var currentValue = new StringBuilder();
+            foreach (var item in Model.Options)
+            {
+                string formattedKey = item.Key.Replace(" ", "").ToLower();
+                menus.Append(formattedKey);
+                currentValue.Append(item.Value.CurrentValue);
+                menus.Append(',');
+                currentValue.Append(',');
+            }
+        }
+        optionMenus = '@(menus.ToString().Substring(0, menus.Length - 1))'.split(",");
+        optionValues = '@(currentValue.ToString().Substring(0, currentValue.Length - 1))'.split(",");
+        for (var i = 0; i < optionMenus.length; i++) {
+            currentMenu = wijmo.Control.getControl('#' + optionMenus[i]);
+            if (currentMenu && menu !== currentMenu) {
+                currentMenu.inputElement.value = optionValues[i];
+            }
+        }
+        form.submit();
+    }
+</script>
+@using (Html.BeginForm())
+{
+    foreach (var item in Model.Options)
+    {
+        string formattedKey = item.Key.Replace(" ", "").ToLower();
+         @(Html.C1().Menu().Id(formattedKey).HtmlAttribute("name", formattedKey)
+        .Header(item.Key + ":&nbsp;<b>" + item.Value.CurrentValue + "</b>").SelectedIndex(item.Value.Values.IndexOf(item.Value.CurrentValue))
+        .Bind(Model.OptionItemToMenuItem(item.Key)).OnClientItemClicked("submit"))
+    }
+}

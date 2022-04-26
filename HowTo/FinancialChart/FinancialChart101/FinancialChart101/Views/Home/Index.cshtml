@@ -1,0 +1,786 @@
+﻿@model FinancialChart101.Models.FinancialChartModel
+@{
+    ViewBag.Title = "ASP.NET MVC FinancialChart 101";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ASP.NET MVC FinancialChart 101
+        </h1>
+        <p>
+            This page shows how to get started with ASP.NET MVC's FinancialChart control.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    @*<div class="sample-page download-link">
+        <a href="http://www.componentone.com/Download/">Download Free Trial</a>
+    </div>*@
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the FinancialChart control in MVC applications:
+        </p>
+        <ol>
+            <li>Create a new MVC project using the C1 ASP.NET MVC application template.</li>
+            <li>Add controller and corresponding view to the project.</li>
+            <li>Initialize the FinancialChart control in view using razor syntax.</li>
+            <li>(Optional) Add some CSS to customize the FinancialChart control's appearance.</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#sHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#sCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li><a href="#sCss" role="tab" data-toggle="tab">CSS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="sHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;                                    
+                                
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;!-- this is the FlexChart --&gt;
+        @@(Html.C1().FinancialChart().Id("introChart").Bind(Model.SharesData)
+            .BindingX("date").AxisY(ay=>ay.AxisLine(false).Position(C1.Web.Mvc.Chart.Position.Right))
+            .Series(sers =>
+            {
+                sers.Add().Name("Open").Binding("open");
+                sers.Add().Name("Close").Binding("close");
+            })
+        )
+
+    &lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+<div class="tab-pane pane-content" id="sCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new FinancialChartModel());
+        }            
+    }
+}
+</div>
+<div class="tab-pane pane-content" id="sCss">
+/* set default chart style */
+.wj-flexchart {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    padding: 8px;
+    margin-bottom: 12px;
+}
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FinancialChart().Id("introChart").Bind(Model.SharesData)
+                    .BindingX("date").AxisY(ay=>ay.AxisLine(false).Position(C1.Web.Mvc.Chart.Position.Right))
+                    .Series(sers =>
+                    {
+                        sers.Add().Name("Open").Binding("open");
+                        sers.Add().Name("Close").Binding("close");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- Chart Types -->
+    <div>
+        <h2>Chart Types</h2>
+        <p>
+            The FinancialChart control supports various chart types to allow customization.
+        </p>
+        <p>
+            The example below shows what happens when you change the <b>ChartType</b>.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#bfHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#bfJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#bfCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="bfHtml">
+@@(Html.C1().FinancialChart().Id("tpChart").Bind(Model.SharesData)
+    .BindingX("date").AxisY(ay => ay.AxisLine(false).Position(C1.Web.Mvc.Chart.Position.Right))
+    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content("tpChart_tooltipContent"))
+    .Series(sers =>
+    {
+        sers.Add().Name("Close").Binding("close");
+    })
+)
+Chart Type:
+@@(Html.C1().ComboBox().Id("tpCombo").DisplayMemberPath("text").SelectedValuePath("value")
+    .IsEditable(false).OnClientSelectedIndexChanged("tpCombo_SelectedIndexChanged"))
+                        </div>
+
+                        <div class="tab-pane pane-content" id="bfJs">
+$(document).ready(function () {
+    //Chart Types
+    tpChart = wijmo.Control.getControl("#tpChart");
+    tpCombo = wijmo.Control.getControl("#tpCombo");
+    tpCombo.itemsSource = chartTypesList;
+});
+
+//Chart Types
+var bindingYs = { 0: 'close', 2: 'close', 5: 'high,low,open,close', 6: 'high,low,open,close', 7: 'high,low,open,close', 8: 'high,low,open,close', 9: 'high,low,open,close', 10: 'high,low,open,close', 11: 'close,volume', 12: 'high,low,open,close,volume', 13: 'high,low,open,close,volume', 14: 'high,low,open,close,volume' }
+    , chartTypesList = [{ "value": "2", "text": "Line" }
+                        , { "value": "0", "text": "Column" }
+                        , { "value": "5", "text": "Candlestick" }
+                        , { "value": "6", "text": "HighLowOpenClose" }
+                        , { "value": "7", "text": "HeikinAshi" }
+                        , { "value": "8", "text": "LineBreak" }
+                        , { "value": "9", "text": "Renko" }
+                        , { "value": "10", "text": "Kagi" }
+                        , { "value": "11", "text": "ColumnVolume" }
+                        , { "value": "12", "text": "EquiVolume" }
+                        , { "value": "13", "text": "CandleVolume" }
+                        , { "value": "14", "text": "ArmsCandleVolume" }]
+    , tpChart = null
+    , tpCombo = null;
+
+function tpChart_tooltipContent(ht) {
+    var dateStr = 'Date: ' + wijmo.Globalize.format(ht.item.date,'MM/dd/yyyy') + '<br/>',
+        hlocStr = 'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '<br/>' +
+                  'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '<br/>' +
+                  'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '<br/>' +
+                  'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '<br/>',
+        closeStr = 'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2'),
+        volStr = 'Volume: ' + wijmo.Globalize.format(ht.item.volume, 'n0'),
+        toolTipStr;
+    switch (tpCombo.selectedItem.text) {
+        case 'Line':
+        case 'Column':
+            toolTipStr = dateStr + closeStr;
+            break;
+        case 'ColumnVolume':
+            toolTipStr = dateStr + closeStr + '<br/>' + volStr;
+            break;
+        case 'EquiVolume':
+        case 'CandleVolume':
+        case 'ArmsCandleVolume':
+            toolTipStr = dateStr + hlocStr + volStr;
+            break;
+        default:
+            toolTipStr = dateStr + hlocStr;
+            break;
+    }
+    return toolTipStr;
+};
+
+
+//var menu = new wijmo.input.Menu('#tpMenu');
+function tpCombo_SelectedIndexChanged(sender) {
+    var arg = wijmo.changeType(sender.selectedValue, wijmo.DataType.Number);
+    // check if the conversion was successful
+    if (wijmo.isNumber(arg) && tpChart && tpChart.series) 
+    {
+        // update the value
+        tpChart.chartType = arg;
+        tpChart.series[0].binding = bindingYs[arg];
+        switch (sender.selectedItem.text) {
+            case 'LineBreak':
+                tpChart.options = {
+                    lineBreak: {
+                        newLineBreaks: 3
+                    }
+                };
+                break;
+            case 'Renko':
+                tpChart.options = {
+                    renko: {
+                        boxSize: 2,
+                        rangeMode: 'Fixed',
+                        fields: 'Close'
+                    }
+                };
+                break;
+            case 'Kagi':
+                tpChart.options = {
+                    kagi: {
+                        reversalAmount: 1,
+                        rangeMode: 'Fixed',
+                        fields: 'Close'
+                    }
+                };
+                break;
+            default:
+                break;
+        }
+    }
+};
+
+</div>
+<div class="tab-pane pane-content" id="bfCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new FinancialChartModel());
+        }            
+    }
+}
+</div>                    
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FinancialChart().Id("tpChart").Bind(Model.SharesData)
+                    .BindingX("date").AxisY(ay => ay.AxisLine(false).Position(C1.Web.Mvc.Chart.Position.Right))
+                    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content("tpChart_tooltipContent"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Name("Close").Binding("close");
+                    })
+                )
+                Chart Type: 
+                @(Html.C1().ComboBox().Id("tpCombo").DisplayMemberPath("text").SelectedValuePath("value")
+                    .IsEditable(false).OnClientSelectedIndexChanged("tpCombo_SelectedIndexChanged"))
+            </div>
+        </div>
+    </div>
+
+    <!-- Marker -->
+    <div>
+        <h2>Marker</h2>
+        <p>
+            The marker on FinancialChart consists of a text area with content reflecting data point values, and an optional vertical or horizontal line (or both for a cross-hair effect) positioned over the plot area.
+        </p>
+        <p>
+            In the example below, the vertical and horizontal lines, both get displayed when mouse is hovered over the plot area. The data values corresponding to the marker position are displayed next to x and y axes.
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#ltHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#ltJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#ltCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="ltHtml">
+@@(Html.C1().FinancialChart().Id("mkChart").Bind(Model.SharesData)
+    .BindingX("date").AxisX(ax=>ax.Format("MM/dd/yyyy"))
+    .AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content(""))
+    .Series(sers =>
+    {
+        sers.Add().Binding("high,low,open,close");
+    })
+    .AddLineMarker(lm => lm
+    .Alignment(C1.Web.Mvc.Chart.LineMarkerAlignment.Auto)
+    .Lines(C1.Web.Mvc.Chart.LineMarkerLines.Both)
+    .DragContent(true)
+    .Interaction(C1.Web.Mvc.Chart.LineMarkerInteraction.Move).Content("lineMarkerContent"))
+)
+                        </div>
+                        <div class="tab-pane pane-content" id="ltJs">
+
+function lineMarkerContent(ht, pt) {
+    var item = ht.series.collectionView.items[ht.pointIndex];
+    if (item) {
+        return 'Date: ' + wijmo.Globalize.format(ht.x, 'MMM-dd') + '<br/>' +
+                            'High: ' + item.high.toFixed() + '<br/>' +
+                            'Low: ' + item.low.toFixed() + '<br/>' +
+                            'Open: ' + item.open.toFixed() + '<br/>' +
+                            'Close: ' + item.close.toFixed();
+
+    }
+};
+
+
+                        </div>
+<div class="tab-pane pane-content" id="ltCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new FinancialChartModel());
+        }            
+    }
+}
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>                
+                @(Html.C1().FinancialChart().Id("mkChart").Bind(Model.SharesData)
+                    .BindingX("date").AxisX(ax=>ax.Format("MM/dd/yyyy"))
+                    .AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+                    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content(""))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("high,low,open,close");
+                    })
+                    .AddLineMarker(lm => lm
+                    .Alignment(C1.Web.Mvc.Chart.LineMarkerAlignment.Auto)
+                    .Lines(C1.Web.Mvc.Chart.LineMarkerLines.Both)
+                    .DragContent(true)
+                    .Interaction(C1.Web.Mvc.Chart.LineMarkerInteraction.Move).Content("lineMarkerContent"))
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- Range Selector -->
+    <div>
+        <h2>Range Selector</h2>
+        <p>
+            Range selector allows the user to choose the range of data to display on the FinancialChart.
+        </p>
+        <p>
+            In the example below, the FinancialChart control's min and max values change with the selection of range on range selector.
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#selHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#selJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#selCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="selHtml">
+@@(Html.C1().FinancialChart().Id("stChart").Bind(Model.SharesData).CssStyle("border-bottom", "0")
+    .CssStyle("margin-bottom", "0").ChartType(C1.Web.Mvc.Finance.ChartType.Candlestick)
+    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy").Labels(false).AxisLine(false))
+    .Legend(C1.Web.Mvc.Chart.Position.None).PlotMargin("60 30 0 50")
+    .AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content("stChart_tooltipContent"))
+    .Series(sers =>
+    {
+        sers.Add().Binding("high,low,open,close");
+    })
+)
+@@(Html.C1().FinancialChart().Id("rsChart").Bind(Model.SharesData).Height(90)
+    .ChartType(C1.Web.Mvc.Finance.ChartType.Line)
+    .BindingX("date").PlotMargin("0 30 NaN 50")
+    .AxisX(ax => ax.Format("MM/dd/yyyy")).AxisY(ay => ay.Labels(false).MajorGrid(false))
+    .Tooltip(t => t.Content(""))
+    .AddRangeSelector(rs => rs.Id("RangeSelector").OnClientRangeChanged("rsChart_OnClientRangeChanged"))
+    .Series(sers =>
+    {
+        sers.Add().Binding("close");
+    })
+)
+                        </div>
+                        <div class="tab-pane pane-content" id="selJs">
+$(document).ready(function () {
+    //Range Selector
+    stChart = wijmo.Control.getControl("#stChart");
+    rsChart = wijmo.Control.getControl("#rsChart");
+});
+
+function stChart_tooltipContent(ht) {
+    var toolTipStr = 'Date: ' + wijmo.Globalize.format(ht.item.date, 'MM/dd/yyyy') + '<br/>' +
+                        'Open: ' + wijmo.Globalize.format(ht.item.open, 'n2') + '<br/>' +
+                        'High: ' + wijmo.Globalize.format(ht.item.high, 'n2') + '<br/>' +
+                        'Low: ' + wijmo.Globalize.format(ht.item.low, 'n2') + '<br/>' +
+                        'Close: ' + wijmo.Globalize.format(ht.item.close, 'n2') + '<br/>';
+    return toolTipStr;
+};
+
+function rsChart_OnClientRangeChanged(sender, e) {
+    if (stChart && rsChart) {
+        var lineMarker = c1.getExtender(rsChart, 'RangeSelector');
+        if(lineMarker) {
+            stChart.axisX.min = lineMarker.min;
+            stChart.axisX.max = lineMarker.max;
+            stChart.invalidate();
+        }
+    }
+};
+
+//declare variables
+var stChart = null
+    , rsChart = null;
+
+                        </div>
+<div class="tab-pane pane-content" id="selCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new FinancialChartModel());
+        }            
+    }
+}
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FinancialChart().Id("stChart").Bind(Model.SharesData).CssStyle("border-bottom", "0")
+                    .CssStyle("margin-bottom", "0").ChartType(C1.Web.Mvc.Finance.ChartType.Candlestick)
+                    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy").Labels(false).AxisLine(false))
+                    .Legend(C1.Web.Mvc.Chart.Position.None).PlotMargin("60 30 0 50")
+                    .AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+                    .Header(Model.Header).SymbolSize(4).Tooltip(t => t.Content("stChart_tooltipContent"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("high,low,open,close");
+                    })
+                )
+                @(Html.C1().FinancialChart().Id("rsChart").Bind(Model.SharesData).Height(90)
+                    .ChartType(C1.Web.Mvc.Finance.ChartType.Line)
+                    .BindingX("date").PlotMargin("0 30 NaN 50")
+                    .AxisX(ax => ax.Format("MM/dd/yyyy")).AxisY(ay => ay.Labels(false).MajorGrid(false))
+                    .Tooltip(t => t.Content(""))
+                    .AddRangeSelector(rs => rs.Id("RangeSelector").OnClientRangeChanged("rsChart_OnClientRangeChanged"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("close");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- TrendLines -->
+    <div>
+        <h2>Trend Lines</h2>
+        <p>
+            Trend lines are used to represent trends in data and to examine the problems of prediction.
+        </p>
+        <p>
+            The following example indicates moving average trend based on the past prices. User can change the
+            <b>period</b> and <b>type</b> of the moving average line using following client side properties.
+        </p>
+        <ol>
+            <li>
+                <b>period</b>: the calculation period of the moving average line.
+            </li>
+            <li>
+                <b>type</b>: the calculation type of the moving average line. This includes <b>Simple</b>, <b>Weighted</b>, <b>Exponential</b> and <b>Triangular</b> types.
+            </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#tJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#tCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tHtml">
+@@(Html.C1().FinancialChart().Id("tlChart").Bind(Model.SharesData).ChartType(C1.Web.Mvc.Finance.ChartType.Line)                        
+    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy"))
+    .Legend(C1.Web.Mvc.Chart.Position.Top).AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+    .Header(Model.Header)
+    .Series(sers =>
+    {
+        sers.Add().Binding("close").Name("Close");
+        sers.AddMovingAverage().Binding("close").Name("Simple Moving Average");
+    })
+)
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Period&lt;/dt&gt;
+    &lt;dd&gt;
+        @@Html.C1().InputNumber().Id("inPeriod").Min(Model.PeriodMin).Max(Model.PeriodMax).Step(Model.PeriodStep).Value(Model.PeriodValue)
+    &lt;/dd&gt;
+    &lt;dt&gt;Moving Average Type&lt;/dt&gt;
+    &lt;dd&gt;
+        @@(Html.C1().ComboBox().Id("cmbMAType").Bind(Model.Settings["Type"])
+            .IsEditable(false).SelectedIndex(0).OnClientSelectedIndexChanged("cmbMAType_SelectedIndexChanged")
+        )
+    &lt;/dd&gt;
+&lt;/dl&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="tJs">
+$(document).ready(function () {
+    tlChart = wijmo.Control.getControl('#tlChart');
+    inPeriod = wijmo.Control.getControl('#inPeriod');
+    cmbMAType = wijmo.Control.getControl('#cmbMAType');
+
+    inPeriod.valueChanged.addHandler(function () {
+        if (inPeriod.value < inPeriod.min || inPeriod.value > inPeriod.max) {
+            return;
+        }
+        tlChart.series[1].period = inPeriod.value;
+    });
+});
+
+var tlChart = null
+    , movingAverage = null
+    , inPeriod = null
+    , cmbMAType = null;
+
+function cmbMAType_SelectedIndexChanged(sender) {
+    var arg = sender.selectedValue;
+    if (tlChart && tlChart.series && tlChart.series.length > 0 && tlChart.series[1]) {
+        tlChart.series[1].type = wijmo.chart.analytics.MovingAverageType[arg];
+        // update name for legend item
+        tlChart.series[1].name = sender.text + ' Moving Average';
+        tlChart.invalidate();
+    }
+};
+
+
+</div>
+<div class="tab-pane pane-content" id="tCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FinancialChartModel Model = new FinancialChartModel();
+            Model.Settings = CreateSettings();
+            return View(Model);
+        }
+
+        private IDictionary<string, object[]> CreateSettings()
+        {
+            var settings = new Dictionary<string, object[]>
+            {
+               {"Type", new object[]{"Simple","Exponential","Triangular","Weighted"}}
+            };
+            return settings;
+        }
+    }
+}
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>
+                @(Html.C1().FinancialChart().Id("tlChart").Bind(Model.SharesData).ChartType(C1.Web.Mvc.Finance.ChartType.Line)                        
+                    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy"))
+                    .Legend(C1.Web.Mvc.Chart.Position.Top).AxisY(ay => ay.Position(C1.Web.Mvc.Chart.Position.Right))
+                    .Header(Model.Header)
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("close").Name("Close");
+                        sers.AddMovingAverage().Binding("close").Name("Simple Moving Average");
+                    })
+                )
+                <dl class="dl-horizontal">
+                    <dt>Period</dt>
+                    <dd>
+                        @Html.C1().InputNumber().Id("inPeriod").Min(Model.PeriodMin).Max(Model.PeriodMax).Step(Model.PeriodStep).Value(Model.PeriodValue)
+                    </dd>
+                    <dt>Moving Average Type</dt>
+                    <dd>
+                        @(Html.C1().ComboBox().Id("cmbMAType").Bind(Model.Settings["Type"])
+                            .IsEditable(false).SelectedIndex(0).OnClientSelectedIndexChanged("cmbMAType_SelectedIndexChanged")
+                        )
+                    </dd>
+                </dl>
+
+            </div>
+        </div>
+    </div>
+
+    <!-- Event Annotation -->
+    <div>
+        <h2>Event Annotation</h2>
+        <p>
+            Annotations are used to mark important news or events that can be attached to a specific data point on FinancialChart. Users can hover over the event to display the full annotation text.
+        </p>
+        <p>There are <b>Circle</b>, <b>Ellipse</b>, <b>Image</b>, <b>Line</b>, <b>Polygon</b>, <b>Rectangle</b>, <b>Square</b> and <b>Text</b> annotations that can be used to mark an event.</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#aHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#aCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="aHtml">
+@@(Html.C1().FinancialChart().Id("anChart").Bind(Model.SharesData).ChartType(C1.Web.Mvc.Finance.ChartType.Line)
+    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy"))
+    .Header(Model.Header)
+    .Series(sers =>
+    {
+        sers.Add().Binding("close").Name("Close");
+    })
+    .AddAnnotationLayer(layer=>
+        {
+            layer.AddRectangle(rect => rect.Width(40).Height(30).PointIndex(16)
+                .Tooltip("FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition")
+                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                .Content("E")
+                );
+            layer.AddEllipse(ellip => ellip.Width(40).Height(30).PointIndex(17)
+                .Tooltip("FACEBOOK INC Files SEC form 10-K, Annual Report")
+                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                .Content("E")
+                );
+            layer.AddCircle(circle => circle.Radius(20).PointIndex(49)
+                .Tooltip("Coverage initiated on Facebook by Brean Capital")
+                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                .Content("E")
+                );
+            layer.AddSquare(square => square.Length(30).PointIndex(75)
+                .Tooltip("FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition")
+                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                .Content("E")
+                );
+        }
+    )
+)
+                        </div>                        
+<div class="tab-pane pane-content" id="aCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FinancialChart101.Models;
+
+namespace FinancialChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new FinancialChartModel());
+        }            
+    }
+}
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>Result (live):</h4>                
+                @(Html.C1().FinancialChart().Id("anChart").Bind(Model.SharesData).ChartType(C1.Web.Mvc.Finance.ChartType.Line)
+                    .BindingX("date").AxisX(ax => ax.Format("MM/dd/yyyy"))
+                    .Header(Model.Header)
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("close").Name("Close");
+                    })
+                    .AddAnnotationLayer(layer=>
+                        {
+                            layer.AddRectangle(rect => rect.Width(40).Height(30).PointIndex(16)
+                                .Tooltip("FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition")
+                                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                                .Content("E")
+                                );
+                            layer.AddEllipse(ellip => ellip.Width(40).Height(30).PointIndex(17)
+                                .Tooltip("FACEBOOK INC Files SEC form 10-K, Annual Report")
+                                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                                .Content("E")
+                                );
+                            layer.AddCircle(circle => circle.Radius(20).PointIndex(49)
+                                .Tooltip("Coverage initiated on Facebook by Brean Capital")
+                                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                                .Content("E")
+                                );
+                            layer.AddSquare(square => square.Length(30).PointIndex(75)
+                                .Tooltip("FACEBOOK INC Files SEC form 8-K, Results of Operations and Financial Condition")
+                                .Offset(new System.Drawing.PointF(0, -15)).SeriesIndex(0).Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataIndex)
+                                .Style(style => style.Fill("#cccccc").Stroke("#888888").FillOpacity(1).StrokeWidth(1).StrokeOpacity(1))
+                                .Content("E")
+                                );
+                        }
+                    )
+                )
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>

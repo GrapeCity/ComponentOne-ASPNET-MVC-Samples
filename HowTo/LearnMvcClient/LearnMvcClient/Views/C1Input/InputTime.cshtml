@@ -1,0 +1,36 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputTime_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputTime_Text1)
+</p>
+<p>
+    The main properties in the InputTime control are:
+    <ul>
+        <li>
+            @Html.Raw(Resources.C1Input.InputTime_Text2)
+        </li>
+        <li>
+            @Html.Raw(Resources.C1Input.InputTime_Text3)
+        </li>
+        <li>
+            @Html.Raw(Resources.C1Input.InputTime_Text4)
+        </li>
+        <li>
+            @Html.Raw(Resources.C1Input.InputTime_Text5)
+        </li>
+    </ul>
+<p>
+    @Html.Raw(Resources.C1Input.InputTime_Text6)
+</p>
+<div class="demo-settings">
+    <label for="theInputDate">@Html.Raw(Resources.C1Input.InputTime_Text7) </label>
+    @Html.C1().InputDate().Id("theInputDate")
+    <br>
+    <label for="theInputTime">@Html.Raw(Resources.C1Input.InputTime_Text8) </label>
+    @Html.C1().InputTime().Id("theInputTime")
+</div>
+<p>
+    @Html.Raw(Resources.C1Input.InputTime_Text9)
+</p>

@@ -1,0 +1,49 @@
+﻿@model MvcExplorer.Models.CustomerOrder
+@{
+    string message = ViewBag.Message;
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+    countries.Insert(0, "");
+}
+
+<div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary()
+        <div>
+            @Html.LabelFor(m => m.Country)
+            @Html.C1().AutoCompleteFor(m=>m.Country).Bind(countries)
+            @Html.ValidationMessageFor(m=>m.Country)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Product)
+            @Html.C1().ComboBoxFor(m=>m.Product).Bind(products)
+            @Html.ValidationMessageFor(m=>m.Product)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Price)
+            @Html.C1().InputNumberFor(m => m.Price)
+            @Html.ValidationMessageFor(m => m.Price)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.Count)
+            @Html.C1().InputNumberFor(m => m.Count)
+            @Html.ValidationMessageFor(m => m.Count)
+        </div>
+        <div>
+            @Html.LabelFor(m => m.OrderTime)
+            @Html.C1().InputDateTimeFor(m => m.OrderTime)
+            @Html.ValidationMessageFor(m => m.OrderTime)
+        </div>
+        <div style="margin-top: 10px">
+            <input type="submit" class="wj-btn wj-btn-default" value="@(Resources.InputNumber.Form_Submit)" />
+        </div>
+    }
+</div>
+<p>@message</p>
+
+@section Description{
+    <p>@Html.Raw(Resources.InputNumber.Form_Text1)</p>
+    <p>@Html.Raw(Resources.InputNumber.Form_Text2)</p>
+}

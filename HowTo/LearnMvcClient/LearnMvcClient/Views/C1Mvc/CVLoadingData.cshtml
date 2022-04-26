@@ -1,0 +1,36 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Text1)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Text2)
+</p>
+<ul id="firstList"></ul>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Title2)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Text3)
+</p>
+<ul id="secondList"></ul>
+
+<h3>@Html.Raw(Resources.C1Mvc.CVLoadingData_Title3)</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Text4)
+</p>
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model)
+<ul id="thirdList"></ul>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVLoadingData_Text5)
+</p>

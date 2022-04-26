@@ -1,0 +1,23 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.HighLowOpenCloseCharts_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.HighLowOpenCloseCharts_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.HighLowOpenCloseCharts_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.HighLowOpenCloseCharts_Text3)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .Bind("Date", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.HighLowOpenClose)
+    .Series(sb => sb.Add().Binding("High,Low,Open,Close").Name("Alphabet Inc"))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+)

@@ -1,0 +1,43 @@
+﻿@model MVCFlexChartAxisScrollbar.Models.FlexChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            FlexChart Axis Scrollbar
+        </h1>
+        <p>
+            Add a scrollbar to a chart axis.
+        </p>
+        <p>
+            Viewing large charts can be difficult in compact user interfaces. Hence, the AxisScrollbar gives you an option of adding scrollbar to the axis of the chart.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <!-- chart -->
+    <div class="panel panel-default chartcontainer">
+    @(Html.C1().FlexChart().Id("flexChart").Bind(Model.CountrySalesData).CssClass("stchart")
+        .Tooltip(t => t.Content("")).ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+        .BindingX("Date").Legend(C1.Web.Mvc.Chart.Position.None).AxisX(x => x.AxisLine(false))
+        .Series(sers =>
+        {
+            sers.Add().Binding("YVal").Name("Sales");
+        })
+    )
+    </div>
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["initialControls"]) {
+            window["initialControls"]();
+        }
+    });
+</script>
+

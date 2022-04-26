@@ -1,3 +1,3 @@
-﻿ASP.NET Core MVC FlexSheet Explorer
+﻿ASP.NET MVC FlexSheet Explorer
 ---------------------------------------------
-This sample demonstrates how to use MVC's FlexSheet.
+FlexSheet Explorer sample demonstrates how to use MVC's FlexSheet. This sample is based on MVC5.

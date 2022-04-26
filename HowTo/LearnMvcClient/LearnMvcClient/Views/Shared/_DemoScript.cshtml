@@ -1,0 +1,8 @@
+﻿@model string
+
+@if(File.Exists(HttpContext.Current.Server.MapPath(Model)))
+{
+    <script type="text/javascript" src="@Href(Model)"></script>
+}
+
+

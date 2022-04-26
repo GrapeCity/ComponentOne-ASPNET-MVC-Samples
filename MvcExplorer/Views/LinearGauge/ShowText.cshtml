@@ -1,0 +1,12 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().LinearGauge().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Value(5)
+    .ShowText(ShowText.All).Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.LinearGauge.ShowText_Text)
+}

@@ -1,0 +1,42 @@
+@{
+    var chartTypes = new[] { "Column", "Bar", "Line", "LineSymbols", "Area" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text5)
+    </li>
+</ol>
+
+<div class="demo-settings">
+    <label for="chartType">@Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text6) </label>
+    @Html.C1().ComboBox().Id("chartType").Bind(chartTypes)
+    <br />
+    <label for="errorAmount">@Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text7) </label>
+    @Html.C1().ComboBox().Id("errorAmount").DisplayMemberPath("hdr")
+    <br />
+    <label for="btnRandomize">@Html.Raw(Resources.C1FlexChart.AnalyticsErrorBars_Text8)</label>
+    <button id="btnRandomize" class="btn btn-default">
+        @Resources.Resource.Btn_Go
+    </button>
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .BindingX("date")
+    .AxisX(x => x.Format("MMM yy"))
+)

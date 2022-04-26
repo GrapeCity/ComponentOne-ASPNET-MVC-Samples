@@ -1,0 +1,16 @@
+﻿@model Property[]
+
+@(Html.C1().TreeView()
+    .Bind(Model)
+    .DisplayMemberPath("Header")
+    .ChildItemsPath("Items")
+    .ImageMemberPath("Image"))
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.Images_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeView.Images_Text1)</p>
+    <p>@Html.Raw(Resources.TreeView.Images_Text2)</p>
+}

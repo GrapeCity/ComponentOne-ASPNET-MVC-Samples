@@ -1,0 +1,17 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.NavigationTrees_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.NavigationTrees_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.NavigationTrees_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.NavigationTrees_Text3)
+</p>
+
+<div id="msg" class="msg">@Html.Raw(Resources.C1Nav.NavigationTrees_Text4)</div>
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")

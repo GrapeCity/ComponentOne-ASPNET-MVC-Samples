@@ -1,0 +1,26 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.EditableTreeGrids_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EditableTreeGrids_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EditableTreeGrids_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EditableTreeGrids_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EditableTreeGrids_Text4)
+</p>
+@(Html.C1().FlexGrid().Id("workersGrid")
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("name").IsReadOnly(true);
+        cs.Add().Binding("hours").DataType(C1.Web.Mvc.Grid.DataType.Number).Format("n2");
+        cs.Add().Binding("rate").DataType(C1.Web.Mvc.Grid.DataType.Number).Format("n2");
+    })
+)

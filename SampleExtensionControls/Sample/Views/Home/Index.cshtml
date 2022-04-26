@@ -1,86 +1,87 @@
-﻿@{
-    ViewBag.Title = "ASP.NET Core MVC C1 MultiColumnComboBox Introduction";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-}
-
-<input-script>
-</input-script>
-<mvc-input-script>
-</mvc-input-script>
-
-<h4>
-    @Html.Raw(MultiColumnComboBoxRes.Index_Text1)
-</h4>
-<h4>
-    @Html.Raw(MultiColumnComboBoxRes.Index_Text0)
-</h4>
-
-<c1-multi-column-combo-box is-editable="false" display-member-path="CountryName" page-size="10" got-focus="onFocus">
-    <c1-items-source read-action-url="@Url.Action("CountrySearch", "Home")"></c1-items-source>
-</c1-multi-column-combo-box>
-
-<script type="text/javascript">
-    c1.documentReady(function () {
-        if (window["InitialControls"]) {
-            window["InitialControls"]();
-        }
-    });
-</script>
-
+﻿@using Sample.Models
 @model IEnumerable<Sale>
 @{
-    List<string> countries = ViewBag.Countries;
     List<string> products = ViewBag.Products;
 }
 
-@section Scripts{
-    <script type="text/javascript">
-        c1.documentReady(function () {
-            var grid = wijmo.Control.getControl('#customGridEditorsGrid');
-            grid.hostElement.addEventListener('keydown', function (e) {
-                if (e.keyCode == 32) {
-                    e.preventDefault();
-                }
-            });
+@Html.RegisterMultiColumnComboBoxScripts()   
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var grid = wijmo.Control.getControl('#customGridEditorsGrid');
+        grid.hostElement.addEventListener('keydown', function (e) {
+            if (e.keyCode == 32) {
+                e.preventDefault();
+            }
         });
-        
+    });
+
     //TFS 433440 Case 1: Update data in dropdown when focusing on MultiColumnComboBox input
     function onFocus(e) {
         e.onTextChanged();
     }
-    </script>
-}
+</script>
 
-    <h4>
-        @Html.Raw(MultiColumnComboBoxRes.Index_Text2)
-    </h4>
+<script id="edtCountry" type="text/template">   
+
+    @(Html.Custom().MultiColumnComboBox()
+                                                                .Id("countryEditor")
+                                                                .IsEditable(false)
+                                                                .ItemsSourceId("collectionViewService1")
+                                                                .CssStyle("width", "100%") // full with the cell
+                                                                .TemplateBind("Text", "Country").ToTemplate()
+                                                                .DisplayMemberPath("CountryName")
+                                                                .OnClientGotFocus("onFocus")
+    )
+</script>
+
+@(Html.C1().CollectionViewService<Country>()
+        .Bind(Url.Action("CountrySearch", "Home"))
+        .Id("collectionViewService1")
+        .DisableServerRead(false)
+        .PageSize(10)
+)
+
+@(Html.C1().CollectionViewService<Country>()
+        .Bind(Url.Action("CountrySearch", "Home"))
+        .Id("collectionViewService2")
+        .DisableServerRead(false)
+        .PageSize(10)
+)
+<h4>@Html.Raw(Resources.MultiColumnComboBox.MultiColumnComboBox_Text03)</h4>
+<h4>@Html.Raw(Resources.MultiColumnComboBox.MultiColumnComboBox_Text01)</h4>
+@(Html.Custom().MultiColumnComboBox()
+                                                                .Id("MultiColumnComboBox")
+                                                                .IsEditable(false)
+                                                                .ItemsSourceId("collectionViewService2")
+                                                                .CssStyle("width", "15%")
+                                                                .DisplayMemberPath("CountryName")
+                                                                .OnClientGotFocus("onFocus")//TFS 433440 Case 1: Update data in dropdown when focusing on MultiColumnComboBox input
+)
+
+<h4>@Html.Raw(Resources.MultiColumnComboBox.MultiColumnComboBox_Text02)</h4>
 <!-- FlexGrid hosting the custom editors -->
-<c1-flex-grid id="customGridEditorsGrid" allow-add-new="true" allow-delete="true" key-action-tab="Cycle"
-              auto-generate-columns="false" style="height:500px">
-    <c1-flex-grid-column binding="ID" width="0.4*" is-read-only="true"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Start" header="Date" width="*" format="d">
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="End" header="Time" width="*" format="t">
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Country" width="1.5*">
-        <c1-flex-grid-cell-template is-editing="true">
-            <c1-multi-column-combo-box id="countryEditor" style="width:100%" is-editable="false" display-member-path="CountryName" page-size="10" template-bindings="@(new { Text = "Country"})" got-focus="onFocus">
-                <c1-items-source read-action-url="@Url.Action("CountrySearch", "Home")" disable-server-read="false"></c1-items-source>
-            </c1-multi-column-combo-box>
-        </c1-flex-grid-cell-template>
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Product" width="1.5*">
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Amount" width="1.5*" format="n2">
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Amount2" width="1.5*" format="n2"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Color" width="1.5*" format="n2">
-    </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Active" width="1.5*" format="n2"></c1-flex-grid-column>
-    <c1-items-source read-action-url="@Url.Action("CustomEditorsBind")"
-                     update-action-url="@Url.Action("GridEditorsUpdate")"
-                     create-action-url="@Url.Action("GridEditorsCreate")"
-                     delete-action-url="@Url.Action("GridEditorsDelete")">
-    </c1-items-source>
-</c1-flex-grid>
-
+@(Html.C1().FlexGrid<Sale>()
+                                .Id("customGridEditorsGrid")
+                                .KeyActionTab(C1.Web.Mvc.Grid.KeyAction.Cycle)
+                                .AllowAddNew(true).AllowDragging(C1.Web.Mvc.Grid.AllowDragging.Both)
+                                .AllowDelete(true)
+                                .AutoGenerateColumns(false)
+                                .Columns(bl =>
+                                {
+                                    bl.Add(cb => cb.Binding("ID").Width("0.4*").IsReadOnly(true));
+                                    bl.Add(cb => cb.Binding("Start").Header("Date").Width("*").Format("d"));
+                                    bl.Add(cb => cb.Binding("End").Header("Time").Width("*").Format("t"));
+                                    bl.Add(cb => cb.Binding("Country").Width("1.5*").CellTemplate(ctb => ctb.EditTemplateId("edtCountry")));
+                                    bl.Add(cb => cb.Binding("Product").Width("1.5*"));
+                                    bl.Add(cb => cb.Binding("Amount").Format("n2"));
+                                    bl.Add(cb => cb.Binding("Amount2").Format("n2"));
+                                    bl.Add(cb => cb.Binding("Color").Width("1.5*"));
+                                    bl.Add(cb => cb.Binding("Active").Width("1.5*"));
+                                })
+                                .Bind(bl => bl.Update(Url.Action("GridEditorsUpdate"))
+                                    .Create(Url.Action("GridEditorsCreate"))
+                                    .Delete(Url.Action("GridEditorsDelete"))
+                                    .Bind(Model))
+                                .CssStyle("height", "500px")
+)

@@ -1,0 +1,162 @@
+﻿@model UserInfo
+
+@if (ViewBag.IsValid == true)
+{
+    <p><h3>@Html.Raw(Resources.Validation.Register_RegistrationComplete)</h3></p>
+    <div style="height:200px">
+        @Html.Raw(Resources.Validation.Register_CongratulationsTo)@Model.Name@Html.Raw(Resources.Validation.Register_RegistrationSuccessfully)
+    </div>
+}
+else
+{
+    @section Scripts{
+        @Scripts.Render("~/jquery")
+        @Scripts.Render("~/jqueryval")
+    }
+
+    <h3>@Html.Raw(Resources.Validation.Register_CreateAnAccount)</h3>
+    <br />
+    using (Html.BeginForm())
+    {
+        <div class="container" style="width: 100%">
+            <div class="row">
+                <div class="col-md-2">
+                     @Html.LabelFor(m => m.Name)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().InputMaskFor(m => m.Name).Width("100%")
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Name)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Email)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().InputMaskFor(m => m.Email).Width("100%")
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Email)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Password)
+                </div>
+                <div class="col-md-2">
+                    @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Password)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.ConfirmPassword)
+                </div>
+                <div class="col-md-2">
+                    @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control" })
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.ConfirmPassword)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Phone)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().InputMaskFor(m => m.Phone).Mask("+8600000000000").Width("100%")
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Phone)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Country)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().AutoCompleteFor(m => m.Country).Bind(b => b.Bind(UsersData.Countries))
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Country)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Industry)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().ComboBoxFor(m => m.Industry).Bind(b => b.Bind(UsersData.Industries)).SelectedValuePath("value").DisplayMemberPath("name")
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Industry)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Birthdate)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().InputDateFor(m => m.Birthdate)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Birthdate)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.FavoriteColor)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().InputColorFor(m => m.FavoriteColor)
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.FavoriteColor)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Skills)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().MultiSelectFor(m => m.Skills).Bind(b => b.Bind(UsersData.SkillsList))
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Skills)
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-2">
+                    @Html.LabelFor(m => m.Hobbies)
+                </div>
+                <div class="col-md-2">
+                    @Html.C1().MultiAutoCompleteFor(m => m.Hobbies).Bind(b => b.Bind(UsersData.HobbyList))
+                    <div class="text-muted">@Html.Raw(Resources.Validation.Register_HobbiesPrompt)</div>
+                </div>
+                <div class="col-md-4">
+                    @Html.ValidationMessageFor(m => m.Hobbies)
+                </div>
+            </div>
+
+            <p><input type="submit" value="@(Resources.Validation.Register_Register)" class="btn btn-primary" /></p>
+        </div>
+    }
+}
+
+@section Description{
+    @Html.Raw(Resources.Validation.Register_Text0)
+}

@@ -1,0 +1,1588 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AnalyticsBoxplot_Text1" xml:space="preserve">
+    <value>Box and Whisker series (AKA boxplots) show groups of numerical
+    data through their quartiles. They have lines extending
+    vertically from the boxes (whiskers) indicating variability
+    outside the upper and lower quartiles.</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text2" xml:space="preserve">
+    <value>To create a Box and Whisker chart, follow these steps:</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text3" xml:space="preserve">
+    <value>Create one or more BoxWhisker series objects,</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text4" xml:space="preserve">
+    <value>Configure the BoxWhisker series by setting their
+        &lt;b&gt;name&lt;/b&gt; and &lt;b&gt;binding&lt;/b&gt; properties (they
+        should be bound to properties that contain number
+        arrays), and</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text5" xml:space="preserve">
+    <value>Set additional properties such as &lt;b&gt;showOutliers&lt;/b&gt;
+        and &lt;b&gt;showInnerPoints&lt;/b&gt; if you want to fine-tune
+        the display.</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text6" xml:space="preserve">
+    <value>Show Inner Points:</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text7" xml:space="preserve">
+    <value>Show Outliers:</value>
+  </data>
+  <data name="AnalyticsBoxplot_Text8" xml:space="preserve">
+    <value>Randomize Data</value>
+  </data>
+  <data name="AnalyticsBoxplot_Title" xml:space="preserve">
+    <value>Box and Whisker Series</value>
+  </data>
+  <data name="AnalyticsCustomFunctions_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;wijmo.chart.analytics&lt;/b&gt; module contains two
+    classes that allow you to plot arbitrary functions without
+    explicitly generating data points:</value>
+  </data>
+  <data name="AnalyticsCustomFunctions_Text2" xml:space="preserve">
+    <value>&lt;b&gt;YFunctionSeries&lt;/b&gt;: Series based on a function that
+        provides Y values as a function of X values within a
+        given range.</value>
+  </data>
+  <data name="AnalyticsCustomFunctions_Text3" xml:space="preserve">
+    <value>&lt;b&gt;ParametricFunctionSeries&lt;/b&gt;: Series based on functions
+        that provides X and Y values as a function of domain values
+        within a given range.</value>
+  </data>
+  <data name="AnalyticsCustomFunctions_Text4" xml:space="preserve">
+    <value>The chart below demonstrates:</value>
+  </data>
+  <data name="AnalyticsCustomFunctions_Title" xml:space="preserve">
+    <value>Custom Functions</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text1" xml:space="preserve">
+    <value>The ErrorBar class extends the regular Series class
+    to provide error bars that can be added on top of the
+    regular series data.</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text2" xml:space="preserve">
+    <value>To create a series with error bars, follow these steps:</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text3" xml:space="preserve">
+    <value>Create an ErrorBar series,</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text4" xml:space="preserve">
+    <value>Configure the ErrorBar series as you would regular
+        series, setting their &lt;b&gt;binding&lt;/b&gt;, &lt;b&gt;chartType&lt;/b&gt;,
+        and &lt;b&gt;style&lt;/b&gt; properties for example, and</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text5" xml:space="preserve">
+    <value>Set the ErrorBar's &lt;b&gt;value&lt;/b&gt; and &lt;b&gt;errorAmount&lt;/b&gt;
+        properties to the size of the error bars to be added
+        to the data points.</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text6" xml:space="preserve">
+    <value>Chart Type:</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text7" xml:space="preserve">
+    <value>Error:</value>
+  </data>
+  <data name="AnalyticsErrorBars_Text8" xml:space="preserve">
+    <value>Randomize Data</value>
+  </data>
+  <data name="AnalyticsErrorBars_Title" xml:space="preserve">
+    <value>Error Bars</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text1" xml:space="preserve">
+    <value>The MovingAverage class extends the regular Series class
+    to provide a series of averages of different subsets of
+    the full data set.</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text2" xml:space="preserve">
+    <value>To add moving averages to a chart, follow these steps:</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text3" xml:space="preserve">
+    <value>Create one or more MovingAverage series,</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text4" xml:space="preserve">
+    <value>Configure the MovingAverage series as you would regular
+        series, setting their &lt;b&gt;binding&lt;/b&gt;, &lt;b&gt;chartType&lt;/b&gt;,
+        and &lt;b&gt;style&lt;/b&gt; properties for example, and</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text5" xml:space="preserve">
+    <value>Set the MovingAverage's &lt;b&gt;type&lt;/b&gt; and &lt;b&gt;period&lt;/b&gt;
+        properties to determine the type of moving average
+        you want to create.</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text6" xml:space="preserve">
+    <value>MovingAverage Type:</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Text7" xml:space="preserve">
+    <value>Period:</value>
+  </data>
+  <data name="AnalyticsMovingAverages_Title" xml:space="preserve">
+    <value>Moving Average</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text1" xml:space="preserve">
+    <value>The TrendLine class extends the regular Series class to provide
+    a calculated series based on the data and parameters you
+    select.</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text2" xml:space="preserve">
+    <value>To add trend lines to a chart, follow these steps:</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text3" xml:space="preserve">
+    <value>Create one or more TrendLine objects,</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text4" xml:space="preserve">
+    <value>Configure the TrendLine objects as you would a regular series,
+        setting their &lt;b&gt;binding&lt;/b&gt;, &lt;b&gt;chartType&lt;/b&gt;, and &lt;b&gt;style&lt;/b&gt;
+        properties for example, and</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text5" xml:space="preserve">
+    <value>Set the TrendLine's &lt;b&gt;fitType&lt;/b&gt; and &lt;b&gt;order&lt;/b&gt; properties
+        to determine the type of trend line you want to create.</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text6" xml:space="preserve">
+    <value>Trendline Type:</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text8" xml:space="preserve">
+    <value>Order:</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text9" xml:space="preserve">
+    <value>Equation:</value>
+  </data>
+  <data name="AnalyticsTrendLines_Title" xml:space="preserve">
+    <value>Trend Lines</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text1" xml:space="preserve">
+    <value>Waterfall charts help in understanding the cumulative effect
+    of sequentially introduced positive or negative values.
+    The Waterfall chart is also known as a "flying bricks" chart
+    or Mario chart due to the apparent suspension of columns
+    in mid-air.</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text2" xml:space="preserve">
+    <value>To create a Waterfall chart, follow these steps:</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text3" xml:space="preserve">
+    <value>Create a Waterfall series object,</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text4" xml:space="preserve">
+    <value>Configure the Waterfall series by setting its
+        &lt;b&gt;name&lt;/b&gt; and &lt;b&gt;binding&lt;/b&gt;properties, and</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text5" xml:space="preserve">
+    <value>Set additional properties such as &lt;b&gt;showOutliers&lt;/b&gt;
+        and &lt;b&gt;showInnerPoints&lt;/b&gt; if you want to fine-tune
+        the Waterfall display.</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text6" xml:space="preserve">
+    <value>Show Connector Lines:</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text7" xml:space="preserve">
+    <value>Show Total Bar:</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Text8" xml:space="preserve">
+    <value>Randomize Data</value>
+  </data>
+  <data name="AnalyticsWaterfallCharts_Title" xml:space="preserve">
+    <value>Waterfall</value>
+  </data>
+  <data name="Analytics_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;wijmo.chart.analytics&lt;/b&gt; module contains classes that
+    extend the &lt;b&gt;Series&lt;/b&gt; class to provide extra information
+    about the data including: trend lines, moving averages,
+    error bars, box and waterfall plots, and function plots.</value>
+  </data>
+  <data name="Analytics_Text2" xml:space="preserve">
+    <value>The chart below has a regular series and two analytics series,
+    a &lt;b&gt;TrendLine&lt;/b&gt; and a &lt;b&gt;MovingAverage&lt;/b&gt;:</value>
+  </data>
+  <data name="Analytics_Title" xml:space="preserve">
+    <value>Analytics</value>
+  </data>
+  <data name="AnnotationsSymbols_Text1" xml:space="preserve">
+    <value>A typical use for annotations is the addition of symbols
+    (text or images) to data points. The symbols typically
+    have tooltips or text with additional information about
+    the point they are attached to.</value>
+  </data>
+  <data name="AnnotationsSymbols_Text2" xml:space="preserve">
+    <value>The chart below has symbols that contain relevant (but fake)
+    headlines for some key dates:</value>
+  </data>
+  <data name="AnnotationsSymbols_Title" xml:space="preserve">
+    <value>Annotation Symbols</value>
+  </data>
+  <data name="AnnotationsZonesRedux_Text1" xml:space="preserve">
+    <value>You can use the FlexChart's &lt;b&gt;rendering&lt;/b&gt; and
+    &lt;b&gt;rendered&lt;/b&gt; events to add arbitrary elements
+    behind or above the regular chart elements.</value>
+  </data>
+  <data name="AnnotationsZonesRedux_Text2" xml:space="preserve">
+    <value>For example,the chart below has 'buy' and 'sell'
+    zones created in the chart's &lt;b&gt;rendering&lt;/b&gt;
+    event handler:</value>
+  </data>
+  <data name="AnnotationsZonesRedux_Title" xml:space="preserve">
+    <value>Alarm Zones</value>
+  </data>
+  <data name="AnnotationsZones_Text1" xml:space="preserve">
+    <value>You can use annotations to create chart 'zones'. For
+    example, the chart below has a 'buy' and 'sell' zones
+    represented by green and red Rectangle annotations:</value>
+  </data>
+  <data name="AnnotationsZones_Title" xml:space="preserve">
+    <value>Annotation Zones</value>
+  </data>
+  <data name="Annotations_Text1" xml:space="preserve">
+    <value>Annotations are extra elements displayed over the chart to
+    highlight notable points or areas on the chart.</value>
+  </data>
+  <data name="Annotations_Text2" xml:space="preserve">
+    <value>To add annotations to a FlexChart, create an &lt;b&gt;annotationLayer&lt;/b&gt;
+    attached to the chart and populate it with annotation objects.</value>
+  </data>
+  <data name="Annotations_Text3" xml:space="preserve">
+    <value>There are several types of annotation objects, including
+    Rectangle, Square, Circle, Ellipse, Line, Polygon, Image, and
+    Text. They may be attached to data points or to arbitrary
+    points in data or page coordinates.</value>
+  </data>
+  <data name="Annotations_Text4" xml:space="preserve">
+    <value>The chart below has an Ellipse annotation attached to data
+    point 15 and a Line annotation attached to the month of
+    February:</value>
+  </data>
+  <data name="Annotations_Title" xml:space="preserve">
+    <value>Annotations</value>
+  </data>
+  <data name="AxesChartScaling_Text1" xml:space="preserve">
+    <value>Use the axis &lt;b&gt;logBase&lt;/b&gt; property to spread clustered data
+    and improve the clarity of your charts without sacrificing
+    accuracy.</value>
+  </data>
+  <data name="AxesChartScaling_Text2" xml:space="preserve">
+    <value>Use the axis &lt;b&gt;format&lt;/b&gt; property to automatically scale the
+    labels and show thousands or millions instead of very large
+    raw values.</value>
+  </data>
+  <data name="AxesChartScaling_Text3" xml:space="preserve">
+    <value>The bubble chart below shows the population (x), GDP (y),
+    and per-capita income (bubble size) for about 200 countries.
+    Notice how the use of log-axes spreads out the data and
+    makes the chart easy to read.</value>
+  </data>
+  <data name="AxesChartScaling_Text4" xml:space="preserve">
+    <value>Log Scale</value>
+  </data>
+  <data name="AxesChartScaling_Title" xml:space="preserve">
+    <value>Chart Scaling</value>
+  </data>
+  <data name="AxesCustomLabels_Text1" xml:space="preserve">
+    <value>The Axis class has an &lt;b&gt;itemFormatter&lt;/b&gt; property that allows
+    you to customize the content and appearance of specific labels
+    along the axes.</value>
+  </data>
+  <data name="AxesCustomLabels_Text2" xml:space="preserve">
+    <value>If specified, the &lt;b&gt;itemFormatter&lt;/b&gt; function takes two parameters:</value>
+  </data>
+  <data name="AxesCustomLabels_Text3" xml:space="preserve">
+    <value>&lt;b&gt;engine&lt;/b&gt;: The IRenderEngine object used for rendering the labels.</value>
+  </data>
+  <data name="AxesCustomLabels_Text4" xml:space="preserve">
+    <value>&lt;b&gt;label&lt;/b&gt;: An object that represents the label and has these properties:</value>
+  </data>
+  <data name="AxesCustomLabels_Text6" xml:space="preserve">
+    <value>&lt;b&gt;text&lt;/b&gt;: The text content of the label
+                (usually the formatted value).</value>
+  </data>
+  <data name="AxesCustomLabels_Text7" xml:space="preserve">
+    <value>&lt;b&gt;pos&lt;/b&gt;: The position where the label will be rendered,
+                in control coordinates.</value>
+  </data>
+  <data name="AxesCustomLabels_Text8" xml:space="preserve">
+    <value>&lt;b&gt;cls&lt;/b&gt;: A CSS class to be applied to the label element.</value>
+  </data>
+  <data name="AxesCustomLabels_Title" xml:space="preserve">
+    <value>Custom Axis Labels</value>
+  </data>
+  <data name="AxesExtraAxes_Text1" xml:space="preserve">
+    <value>Most charts have two axes, X and Y. This works well as long
+    as all the data on the chart has the same nature and can
+    share the same scale.</value>
+  </data>
+  <data name="AxesExtraAxes_Text2" xml:space="preserve">
+    <value>But some charts contain series that show different types of
+    data, with different units and scales. The chart below has
+    two series that represent amounts (sales and expenses) and
+    one that represents quantities (downloads).</value>
+  </data>
+  <data name="AxesExtraAxes_Text3" xml:space="preserve">
+    <value>Plotting all the series against a single Y axis squeezes
+    the first two series against the bottom of the chart.</value>
+  </data>
+  <data name="AxesExtraAxes_Text4" xml:space="preserve">
+    <value>The easiest way to solve this problem and still using a
+    single chart is to create a secondary Y axis and assign
+    it to the &lt;b&gt;axisY&lt;/b&gt; property of the "Downloads" series:</value>
+  </data>
+  <data name="AxesExtraAxes_Text5" xml:space="preserve">
+    <value>Secondary Y Axis</value>
+  </data>
+  <data name="AxesExtraAxes_Title" xml:space="preserve">
+    <value>Extra Axes</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text1" xml:space="preserve">
+    <value>By default, the FlexChart uses horizontal lines to show the
+    x-axis and major gridlines along the y-axis. This makes
+    charts clean and easy-to-read.</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text2" xml:space="preserve">
+    <value>You can change this by modifying the &lt;b&gt;axisX&lt;/b&gt; and
+    &lt;b&gt;axisY&lt;/b&gt; properties. This example shows how you
+    create and control major and minor gridlines along
+    both axes, and how to customize them using CSS.</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Title" xml:space="preserve">
+    <value>Gridlines and Tickmarks</value>
+  </data>
+  <data name="AxesLabelsFormats_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;axisX&lt;/b&gt; and &lt;b&gt;axisY&lt;/b&gt; properties to control
+    the labels shown along the axes.</value>
+  </data>
+  <data name="AxesLabelsFormats_Text2" xml:space="preserve">
+    <value>In this sample, we set the format of the Y axis labels to
+    'n0,', which scales the values to show thousands instead
+    of the raw values. This is done by C1 MVC's Globalize class,
+    which takes the current culture into account.</value>
+  </data>
+  <data name="AxesLabelsFormats_Text3" xml:space="preserve">
+    <value>Notice how the labels along the X axis are automatically
+    rotated to avoid collisions. If you want to prevent that,
+    set the axis &lt;b&gt;labelAngle&lt;/b&gt; to a specific angle.</value>
+  </data>
+  <data name="AxesLabelsFormats_Text4" xml:space="preserve">
+    <value>Label Angle</value>
+  </data>
+  <data name="AxesLabelsFormats_Title" xml:space="preserve">
+    <value>Labels and Formats</value>
+  </data>
+  <data name="AxesOriginPosition_Text1" xml:space="preserve">
+    <value>By default the FlexChart places the X axis at the bottom of
+    the plot area and the Y axis on the left. This keeps the
+    axes outside the plot area and away from the data.</value>
+  </data>
+  <data name="AxesOriginPosition_Text10" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="AxesOriginPosition_Text2" xml:space="preserve">
+    <value>You can change this default behavior using two properties:</value>
+  </data>
+  <data name="AxesOriginPosition_Text3" xml:space="preserve">
+    <value>&lt;b&gt;position&lt;/b&gt;: Specifies the position of the axis as
+        None, Left, Top, Right, Bottom, or Auto.</value>
+  </data>
+  <data name="AxesOriginPosition_Text4" xml:space="preserve">
+    <value>&lt;b&gt;origin&lt;/b&gt;: Specifies the value where the axis
+        crosses its perpendicular axis. If speficied,
+        &lt;b&gt;origin&lt;/b&gt; takes precendence over
+        &lt;b&gt;position&lt;/b&gt;.</value>
+  </data>
+  <data name="AxesOriginPosition_Text5" xml:space="preserve">
+    <value>X Axis</value>
+  </data>
+  <data name="AxesOriginPosition_Text6" xml:space="preserve">
+    <value>Origin at Zero:</value>
+  </data>
+  <data name="AxesOriginPosition_Text7" xml:space="preserve">
+    <value>Position:</value>
+  </data>
+  <data name="AxesOriginPosition_Text8" xml:space="preserve">
+    <value>Y Axis</value>
+  </data>
+  <data name="AxesOriginPosition_Text9" xml:space="preserve">
+    <value>Origin at Zero:</value>
+  </data>
+  <data name="AxesOriginPosition_Title" xml:space="preserve">
+    <value>Axis Origin and Position</value>
+  </data>
+  <data name="AxesRanges_Text1" xml:space="preserve">
+    <value>The FlexChart calculates axis ranges automatically, based on
+    the data being shown. Because of this, in most cases you
+    don't have to worry about setting the axis &lt;b&gt;min&lt;/b&gt;,
+    &lt;b&gt;max&lt;/b&gt;, &lt;b&gt;majorUnit&lt;/b&gt;, or &lt;b&gt;minorUnit&lt;/b&gt; properties.</value>
+  </data>
+  <data name="AxesRanges_Text2" xml:space="preserve">
+    <value>In a few cases, however, setting these values explicitly may
+    improve the chart.</value>
+  </data>
+  <data name="AxesRanges_Text3" xml:space="preserve">
+    <value>For example, the chart below shows values that are relatively
+    close, so all bars have almost the same height. The chart shows
+    that sales are even across countries, but it does not show the
+    differences clearly.</value>
+  </data>
+  <data name="AxesRanges_Text4" xml:space="preserve">
+    <value>To emphasize the differences, click the 'Custom Range' checkbox.
+    It will set the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties of the
+    Y axis so it starts at 150k, close to the minimum value for
+    all countries but higher than zero. The chart will show the same
+    data, but the differences will appear much larger.</value>
+  </data>
+  <data name="AxesRanges_Text5" xml:space="preserve">
+    <value>Custom Range</value>
+  </data>
+  <data name="AxesRanges_Text6" xml:space="preserve">
+    <value>The Y axis does not start at zero, so the chart magnifies
+            differences in sales across countries. The largest difference
+            is only about 7%.</value>
+  </data>
+  <data name="AxesRanges_Title" xml:space="preserve">
+    <value>Axis Ranges</value>
+  </data>
+  <data name="AxesZoom_Text1" xml:space="preserve">
+    <value>This example shows how you can implement a simple zooming
+    feature using the mouse events to modify the range on a
+    FlexChart axes.</value>
+  </data>
+  <data name="AxesZoom_Text2" xml:space="preserve">
+    <value>Use the mouse to select a rectangular area on the plot
+    area. The chart will zoom in on the selected area.
+    Click the "Reset Zoom" button below the chart to return
+    to the original view:</value>
+  </data>
+  <data name="AxesZoom_Title" xml:space="preserve">
+    <value>FlexChart Zooming</value>
+  </data>
+  <data name="Axes_Text1" xml:space="preserve">
+    <value>Chart axes have two main purposes:</value>
+  </data>
+  <data name="Axes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;scaling&lt;/b&gt;: Axes set the range of values shown on the
+        chart. By default, this range is calculated automatically
+        by the chart. The ranges are used even if the axes are
+        hidden from view.</value>
+  </data>
+  <data name="Axes_Text3" xml:space="preserve">
+    <value>&lt;b&gt;context&lt;/b&gt;: Axes display tickmarks and labels that
+        help identify the values being displayed (e.g. "what
+        country and value does this bar represent?").</value>
+  </data>
+  <data name="Axes_Text4" xml:space="preserve">
+    <value>By default, the FlexChart uses horizontal lines to show the
+    x-axis and major gridlines along the y-axis. This makes
+    charts clean and easy-to-read.</value>
+  </data>
+  <data name="Axes_Text5" xml:space="preserve">
+    <value>The chart below adds minor tickmarks and gridlines to
+    make it easier to compare the values on the chart.</value>
+  </data>
+  <data name="Axes_Text6" xml:space="preserve">
+    <value>You can remove the axes completely by setting their
+    &lt;b&gt;position&lt;/b&gt; property to 'None'. The result is the
+    'cleanest' possible chart, with a high
+    &lt;a href="http://www.darkhorseanalytics.com/blog/data-looks-better-naked" target="_blank"&gt;data-to-ink ratio&lt;/a&gt;.</value>
+  </data>
+  <data name="Axes_Text7" xml:space="preserve">
+    <value>In this example, the reduction is a little too radical,
+    but the chart is still usable (check the tooltips):</value>
+  </data>
+  <data name="Axes_Text8" xml:space="preserve">
+    <value>Show Axes</value>
+  </data>
+  <data name="Axes_Title" xml:space="preserve">
+    <value>Axes</value>
+  </data>
+  <data name="BarCharts_Text1" xml:space="preserve">
+    <value>Bar charts are similar to rotated column charts.</value>
+  </data>
+  <data name="BarCharts_Text2" xml:space="preserve">
+    <value>By default, items on the Y axis start from the bottom
+    of the chart, so the first items appear at the bottom
+    and the last at the top.</value>
+  </data>
+  <data name="BarCharts_Text3" xml:space="preserve">
+    <value>If you reverse the Y axis, items will start at the top
+    of the, which is often a more natural order:</value>
+  </data>
+  <data name="BarCharts_Text4" xml:space="preserve">
+    <value>Reverse Y axis:</value>
+  </data>
+  <data name="BarCharts_Title" xml:space="preserve">
+    <value>Bar Charts</value>
+  </data>
+  <data name="BubbleCharts_Text1" xml:space="preserve">
+    <value>Unlike most other chart types, Bubble Charts display
+    three dimensions of data: X, Y, and size.</value>
+  </data>
+  <data name="BubbleCharts_Text2" xml:space="preserve">
+    <value>To create bubble charts with the FlexChart control,
+    you must set the &lt;b&gt;binding&lt;/b&gt; property to a comma-delimited
+    list of property names. The first property will be bound to the
+    Y value, and the second to the bubble size.</value>
+  </data>
+  <data name="BubbleCharts_Text3" xml:space="preserve">
+    <value>For example, the chart below shows sales along the X axis,
+    expenses along the Y axis, and uses the number of downloads
+    to determine the bubble size:</value>
+  </data>
+  <data name="BubbleCharts_Title" xml:space="preserve">
+    <value>Bubble Charts</value>
+  </data>
+  <data name="CandlestickCharts_Text1" xml:space="preserve">
+    <value>Candlestick charts are used to describe price movements of a
+    security, derivative, or currency over time.</value>
+  </data>
+  <data name="CandlestickCharts_Text2" xml:space="preserve">
+    <value>To create candlestick charts with the FlexChart control,
+    set the &lt;b&gt;bindingX&lt;/b&gt; property to the name of the property
+    that contains the dates, and add a single series with
+    &lt;b&gt;binding&lt;/b&gt; set to a comma-delimited string containing
+    the names of the properties that represent the High, Low,
+    Open, and Close values.</value>
+  </data>
+  <data name="CandlestickCharts_Text3" xml:space="preserve">
+    <value>The size of the wick line is determined by the High and Low
+    values; the size of the bar is determined by the Open and Close
+    values.
+    The bar color indicates whether the Close value is higher or
+    lower than the Open value (empty/filled bar):</value>
+  </data>
+  <data name="CandlestickCharts_Title" xml:space="preserve">
+    <value>Candlestick Charts</value>
+  </data>
+  <data name="ChartElements_Text1" xml:space="preserve">
+    <value>The FlexChart is composed of elements that can be customized
+    using its object model. The elements are:</value>
+  </data>
+  <data name="ChartElements_Text10" xml:space="preserve">
+    <value>&lt;b&gt;SeriesSymbol&lt;/b&gt;: A symbol in a chart series.</value>
+  </data>
+  <data name="ChartElements_Text11" xml:space="preserve">
+    <value>&lt;b&gt;DataLabel&lt;/b&gt;: A label attached to a data point.</value>
+  </data>
+  <data name="ChartElements_Text12" xml:space="preserve">
+    <value>You can use the &lt;b&gt;hitTest&lt;/b&gt; method to determine what
+    chart area is under the mouse.</value>
+  </data>
+  <data name="ChartElements_Text13" xml:space="preserve">
+    <value>Move the mouse over the chart below to see some information
+    about each element:</value>
+  </data>
+  <data name="ChartElements_Text2" xml:space="preserve">
+    <value>&lt;b&gt;PlotArea&lt;/b&gt;: The area within the axes.</value>
+  </data>
+  <data name="ChartElements_Text3" xml:space="preserve">
+    <value>&lt;b&gt;ChartArea&lt;/b&gt;: The area within the control but
+        outside the axes.</value>
+  </data>
+  <data name="ChartElements_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Legend&lt;/b&gt;: The chart legend, usually on the
+        right of the plot area.</value>
+  </data>
+  <data name="ChartElements_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Header&lt;/b&gt;: The chart header, above the plot area.</value>
+  </data>
+  <data name="ChartElements_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Footer&lt;/b&gt;: The chart footer, below the plot area.</value>
+  </data>
+  <data name="ChartElements_Text7" xml:space="preserve">
+    <value>&lt;b&gt;AxisX&lt;/b&gt;: The X-axis, usually horizontal.</value>
+  </data>
+  <data name="ChartElements_Text8" xml:space="preserve">
+    <value>&lt;b&gt;AxisY&lt;/b&gt;: The Y-axis, usually vertical.</value>
+  </data>
+  <data name="ChartElements_Text9" xml:space="preserve">
+    <value>&lt;b&gt;Series&lt;/b&gt;: A chart series.</value>
+  </data>
+  <data name="ChartElements_Title" xml:space="preserve">
+    <value>Chart Elements and Hit-Testing</value>
+  </data>
+  <data name="ChartTypes_Text1" xml:space="preserve">
+    <value>The FlexChart has three properties that determine the
+    chart type:</value>
+  </data>
+  <data name="ChartTypes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;chartType&lt;/b&gt;:
+        Determines the default chart type to be used for all series objects.
+        Individual series can override this default.</value>
+  </data>
+  <data name="ChartTypes_Text3" xml:space="preserve">
+    <value>&lt;b&gt;stacking&lt;/b&gt;:
+        Determines whether series objects are plotted independently, stacked,
+        or stacked so their sum is 100%.</value>
+  </data>
+  <data name="ChartTypes_Text4" xml:space="preserve">
+    <value>&lt;b&gt;rotated&lt;/b&gt;:
+        Determines whether axes should be flipped so the X axis becomes
+        vertical and the Y axis horizontal.</value>
+  </data>
+  <data name="ChartTypes_Text5" xml:space="preserve">
+    <value>This example shows the effect of these properties:</value>
+  </data>
+  <data name="ChartTypes_Text6" xml:space="preserve">
+    <value>Chart Type:</value>
+  </data>
+  <data name="ChartTypes_Text7" xml:space="preserve">
+    <value>Stacking:</value>
+  </data>
+  <data name="ChartTypes_Text8" xml:space="preserve">
+    <value>Rotated:</value>
+  </data>
+  <data name="ChartTypes_Title" xml:space="preserve">
+    <value>FlexChart Chart Types</value>
+  </data>
+  <data name="DataLabels_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;dataLabels&lt;/b&gt; property allows you to show labels
+    next to each data point on the chart.</value>
+  </data>
+  <data name="DataLabels_Text2" xml:space="preserve">
+    <value>To use it, set the following properties on the &lt;b&gt;dataLabels&lt;/b&gt;
+    object:</value>
+  </data>
+  <data name="DataLabels_Text3" xml:space="preserve">
+    <value>&lt;b&gt;content&lt;/b&gt;: String template with property holders,
+        similar to the string used to define tooltip content.
+        For example, &lt;code&gt;'{value:n0}'&lt;/code&gt;.</value>
+  </data>
+  <data name="DataLabels_Text4" xml:space="preserve">
+    <value>&lt;b&gt;position&lt;/b&gt;: A
+        &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.chart.LabelPosition.Enum.html" target="_blank"&gt;LabelPosition&lt;/a&gt;
+        value that determines where to place the labels relative
+        to the data points.</value>
+  </data>
+  <data name="DataLabels_Text5" xml:space="preserve">
+    <value>&lt;b&gt;connectingLine&lt;/b&gt;: Whether to draw a line connecting
+        the labels and corresponding data points.</value>
+  </data>
+  <data name="DataLabels_Text6" xml:space="preserve">
+    <value>&lt;b&gt;border&lt;/b&gt;: Whether to draw a border around the label.</value>
+  </data>
+  <data name="DataLabels_Text7" xml:space="preserve">
+    <value>Label Position:</value>
+  </data>
+  <data name="DataLabels_Text8" xml:space="preserve">
+    <value>Lines/Borders:</value>
+  </data>
+  <data name="DataLabels_Text9" xml:space="preserve">
+    <value>Downloads Only:</value>
+  </data>
+  <data name="DataLabels_Title" xml:space="preserve">
+    <value>Data Labels</value>
+  </data>
+  <data name="Events_Text1" xml:space="preserve">
+    <value>The FlexChart provides events you can use to
+    customize the appearance and behavior of the
+    chart.</value>
+  </data>
+  <data name="Events_Text2" xml:space="preserve">
+    <value>These events can be divided into categories:</value>
+  </data>
+  <data name="Events_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Mouse&lt;/b&gt;:
+        The FlexChart relies on HTML events for mouse handling,
+        and provides a &lt;b&gt;hitTest&lt;/b&gt; method that can be used
+        to determine which part of the chart the event refers to.
+        Mouse events can be used to add functionality such as
+        zooming or drill-down.</value>
+  </data>
+  <data name="Events_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Selection&lt;/b&gt;:
+        When the chart's &lt;b&gt;selectionMode&lt;/b&gt; property is set
+        to &lt;b&gt;Series&lt;/b&gt; or &lt;b&gt;Point&lt;/b&gt;, the chart will allow users
+        select elements by clicking on them. The chart's &lt;b&gt;selection&lt;/b&gt;
+        property will be updated and the &lt;b&gt;selectionChanged&lt;/b&gt; event
+        will be fired. This event is typically used in master/detail
+        scenarios.</value>
+  </data>
+  <data name="Events_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Rendering&lt;/b&gt;:
+        The FlexChart has &lt;b&gt;rendering&lt;/b&gt; and &lt;b&gt;rendered&lt;/b&gt; events
+        that allow you do add custom elements to the chart, either in
+        the background or as overlays.</value>
+  </data>
+  <data name="Events_Title" xml:space="preserve">
+    <value>Chart Events</value>
+  </data>
+  <data name="Export_Text1" xml:space="preserve">
+    <value>Saving charts as images for inclusion in other documents
+    is a common requirement. Some browsers support this as
+    a context menu option, but not all.</value>
+  </data>
+  <data name="Export_Text2" xml:space="preserve">
+    <value>The FlexChart's &lt;b&gt;saveImageToFile&lt;/b&gt; method makes this
+    really easy:</value>
+  </data>
+  <data name="Export_Title" xml:space="preserve">
+    <value>FlexChart Export</value>
+  </data>
+  <data name="ExtraElements_Text1" xml:space="preserve">
+    <value>In addition to the regular chart elements described
+    earlier (axes, plotArea, legend, header, footer etc),
+    you can add extra elements to the chart in several
+    ways:</value>
+  </data>
+  <data name="ExtraElements_Text2" xml:space="preserve">
+    <value>&lt;b&gt;events&lt;/b&gt;:
+        Use the &lt;b&gt;rendering&lt;/b&gt; and &lt;b&gt;rendered&lt;/b&gt; events
+        to add arbitrary elements behind or in front of the
+        regular chart elements.</value>
+  </data>
+  <data name="ExtraElements_Text3" xml:space="preserve">
+    <value>&lt;b&gt;annotations&lt;/b&gt;:
+        Use the &lt;b&gt;wijmo.chart.annotation&lt;/b&gt; extension to
+        add annotations (shapes or text) to data points
+        or to chart areas.</value>
+  </data>
+  <data name="ExtraElements_Text4" xml:space="preserve">
+    <value>&lt;b&gt;analytics&lt;/b&gt;:
+        Use the &lt;b&gt;wijmo.chart.analytics&lt;/b&gt; extension to
+        add trendlines and moving averages to the chart.</value>
+  </data>
+  <data name="ExtraElements_Text5" xml:space="preserve">
+    <value>&lt;b&gt;plotAreas&lt;/b&gt;:
+        Use the &lt;b&gt;plotAreas&lt;/b&gt; property to add multiple
+        plot areas to the chart, using the same header,
+        footer, legend, and sharing axes.</value>
+  </data>
+  <data name="ExtraElements_Text6" xml:space="preserve">
+    <value>For example,the chart below has 'buy' and 'sell'
+    zones created in the chart's &lt;b&gt;rendering&lt;/b&gt;
+    event handler:</value>
+  </data>
+  <data name="ExtraElements_Title" xml:space="preserve">
+    <value>Extra Chart Elements</value>
+  </data>
+  <data name="Filtering_Text1" xml:space="preserve">
+    <value>This example shows how you can add custom filtering and zooming
+    to a FlexChart.</value>
+  </data>
+  <data name="Filtering_Text2" xml:space="preserve">
+    <value>The filter is implemented using the CollectionView's &lt;b&gt;filter&lt;/b&gt;
+    property. Another option in this case would be to set the
+    range of the chart's X axis, but that would interfere with
+    the chart zooming.</value>
+  </data>
+  <data name="Filtering_Text3" xml:space="preserve">
+    <value>The zoom is implemented using the mouse wheel or regular
+    buttons. Both approaches work by changing the min/max properties
+    of the chart's axes.</value>
+  </data>
+  <data name="Filtering_Text4" xml:space="preserve">
+    <value>The wheel zooming is done around the mouse pointer; the buttons
+    zoom around the chart center.</value>
+  </data>
+  <data name="Filtering_Title" xml:space="preserve">
+    <value>Filter and Wheel Zoom</value>
+  </data>
+  <data name="FunnelCharts_Text1" xml:space="preserve">
+    <value>Funnel charts show values along multiple stages in a process.</value>
+  </data>
+  <data name="FunnelCharts_Text2" xml:space="preserve">
+    <value>For example, you could use a funnel chart to show the number of
+    sales prospects at each stage in a sales pipeline. Typically,
+    the values decrease gradually, making the bars resemble a
+    funnel.</value>
+  </data>
+  <data name="FunnelCharts_Text3" xml:space="preserve">
+    <value>To create funnel charts with the FlexChart control, set the
+    &lt;b&gt;bindingX&lt;/b&gt; property to the name of the property that
+    contains the step along the pipeline, and add a single series
+    with &lt;b&gt;binding&lt;/b&gt; set to the amount of transactions at the
+    given step.</value>
+  </data>
+  <data name="FunnelCharts_Text4" xml:space="preserve">
+    <value>You can adjust the funnel's height, width, and style using
+    the &lt;b&gt;options&lt;/b&gt; property:</value>
+  </data>
+  <data name="FunnelCharts_Text5" xml:space="preserve">
+    <value>Neck Width:</value>
+  </data>
+  <data name="FunnelCharts_Text6" xml:space="preserve">
+    <value>Neck Height:</value>
+  </data>
+  <data name="FunnelCharts_Text7" xml:space="preserve">
+    <value>Neck Style:</value>
+  </data>
+  <data name="FunnelCharts_Title" xml:space="preserve">
+    <value>Funnel Charts</value>
+  </data>
+  <data name="Gradients_Text1" xml:space="preserve">
+    <value>The FlexChart allows you to specify gradients for series style
+    properties. The gradients are specified as strings with
+    the following syntax:</value>
+  </data>
+  <data name="Gradients_Text2" xml:space="preserve">
+    <value>Where:</value>
+  </data>
+  <data name="Gradients_Text3" xml:space="preserve">
+    <value>&lt;b&gt;{type}&lt;/b&gt; is either 'l' or 'r', for linear or radial gradients,</value>
+  </data>
+  <data name="Gradients_Text4" xml:space="preserve">
+    <value>&lt;b&gt;{coords}&lt;/b&gt; is a set of three or four numbers that specify the
+        gradient direction (x1/y1/x2/y2 for linear, cx.cy.r for radial), and</value>
+  </data>
+  <data name="Gradients_Text5" xml:space="preserve">
+    <value>&lt;b&gt;{color:offset:opacity}&lt;/b&gt; is an HTML color string optionally
+        followed by offset and opacity values. You may add add additional colors
+        using a hyphen as a separator.</value>
+  </data>
+  <data name="Gradients_Title" xml:space="preserve">
+    <value>Series Gradients</value>
+  </data>
+  <data name="GroupingDrillDown_Text1" xml:space="preserve">
+    <value>This example shows how you can leverage the grouping
+    features in the &lt;b&gt;CollectionView&lt;/b&gt; class to create
+    drill-down charts.</value>
+  </data>
+  <data name="GroupingDrillDown_Text2" xml:space="preserve">
+    <value>Click on the bars to drill-down into any group. The
+    chart will be updated to show the new data, and the
+    chart's header will show breadcrumbs so you can
+    navigate back up the group hierarchy:</value>
+  </data>
+  <data name="GroupingDrillDown_Title" xml:space="preserve">
+    <value>Grouping and Drill-Down</value>
+  </data>
+  <data name="HighLowOpenCloseCharts_Text1" xml:space="preserve">
+    <value>HighLowOpenClose charts are used to describe price movements of a
+    security, derivative, or currency over time. They are similar
+    to candlestick charts, except opening values are displayed using
+    lines to the left, and closing values are displayed using lines
+    lines to the right.</value>
+  </data>
+  <data name="HighLowOpenCloseCharts_Text2" xml:space="preserve">
+    <value>To create HighLowOpenClose charts with the FlexChart control,
+    set the &lt;b&gt;bindingX&lt;/b&gt; property to the name of the property
+    that contains the dates, and add a single series with
+    &lt;b&gt;binding&lt;/b&gt; set to a comma-delimited string containing
+    the names of the properties that represent the High, Low,
+    Open, and Close values.</value>
+  </data>
+  <data name="HighLowOpenCloseCharts_Text3" xml:space="preserve">
+    <value>The size of the vertical line is determined by the High and
+    Low values; short line segments to the left and right
+    represent the Open and Close values:</value>
+  </data>
+  <data name="HighLowOpenCloseCharts_Title" xml:space="preserve">
+    <value>HighLowOpenClose Charts</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>The FlexChart allows you to visualize tabular data as business
+    charts. It provides a variety of options about how to present
+    and interact with the data, including selection, zooming,
+    drill-down, formatting, etc.</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>Bind the chart by setting its &lt;b&gt;itemsSource&lt;/b&gt; property to an
+    array containing regular JavaScript objects,
+    and populate the chart's &lt;b&gt;series&lt;/b&gt; collection with objects that define which
+    properties of the data items should be charted and how:</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>This is the data being charted. Because the grid and the chart
+    are bound to the same &lt;b&gt;CollectionView&lt;/b&gt;, the chart will be
+    updated if you edit or sort the data:</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>FlexChart</value>
+  </data>
+  <data name="InteractiveAnimations_Text3" xml:space="preserve">
+    <value>Update Interval:</value>
+  </data>
+  <data name="InteractiveAnimations_Title" xml:space="preserve">
+    <value>Dynamic Chart</value>
+  </data>
+  <data name="InteractiveCharts_Text1" xml:space="preserve">
+    <value>The FlexChart uses the CollectionView class as its
+    data source, so it is inherently interactive. Any
+    changes made to the data will be automatically reflected
+    on the chart.</value>
+  </data>
+  <data name="InteractiveCharts_Text2" xml:space="preserve">
+    <value>For example, the chart and the grid below are bound
+    to the same CollectionViewService, so if you edit the
+    data on the grid, or sort the grid's columns,
+    the chart will show the changes automatically:</value>
+  </data>
+  <data name="InteractiveCharts_Text3" xml:space="preserve">
+    <value>In addition to this automatic type of interaction,
+    you can use events to add custom interactions to
+    the chart, including zooming, selection, grouping,
+    drill-downs, and animations.</value>
+  </data>
+  <data name="InteractiveCharts_Title" xml:space="preserve">
+    <value>Interactive Charts</value>
+  </data>
+  <data name="ItemFormatter_Text1" xml:space="preserve">
+    <value>The FlexChart's &lt;b&gt;itemFormatter&lt;/b&gt; property allows you
+    to specify a callback invoked when chart items are rendered.
+    The callback may customize the item or add new ones using the
+    chart engine's properties and methods.</value>
+  </data>
+  <data name="ItemFormatter_Text2" xml:space="preserve">
+    <value>In this example, the &lt;b&gt;itemFormatter&lt;/b&gt; is used to
+    add line segments over periods when the data is
+    increasing:</value>
+  </data>
+  <data name="ItemFormatter_Title" xml:space="preserve">
+    <value>FlexChart ItemFormatter</value>
+  </data>
+  <data name="LegendPosition_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;legend.position&lt;/b&gt; property to determine the
+    position of the legend. The "Auto" position places the
+    legend to the right or below the chart depending on the
+    control size:</value>
+  </data>
+  <data name="LegendPosition_Text2" xml:space="preserve">
+    <value>Legend Position:</value>
+  </data>
+  <data name="LegendPosition_Title" xml:space="preserve">
+    <value>Legend Position</value>
+  </data>
+  <data name="LegendsTitles_Text1" xml:space="preserve">
+    <value>Use the &lt;b&gt;header&lt;/b&gt;, &lt;b&gt;footer&lt;/b&gt;, and axis &lt;b&gt;title&lt;/b&gt;
+    properties to add titles to your charts.</value>
+  </data>
+  <data name="LegendsTitles_Text2" xml:space="preserve">
+    <value>The series elements can also have titles, defined by the
+    series &lt;b&gt;name&lt;/b&gt; property and displayed in the chart's
+    legend:</value>
+  </data>
+  <data name="LegendsTitles_Text3" xml:space="preserve">
+    <value>Header:</value>
+  </data>
+  <data name="LegendsTitles_Text4" xml:space="preserve">
+    <value>Footer:</value>
+  </data>
+  <data name="LegendsTitles_Text5" xml:space="preserve">
+    <value>X-Axis Title:</value>
+  </data>
+  <data name="LegendsTitles_Text6" xml:space="preserve">
+    <value>Y-Axis Title:</value>
+  </data>
+  <data name="LegendsTitles_Title" xml:space="preserve">
+    <value>Legends and Titles</value>
+  </data>
+  <data name="LegendStyles_Text1" xml:space="preserve">
+    <value>Use CSS to customize the style of the chart legend.</value>
+  </data>
+  <data name="LegendStyles_Text2" xml:space="preserve">
+    <value>Custom Legend:</value>
+  </data>
+  <data name="LegendStyles_Title" xml:space="preserve">
+    <value>Legend Styles</value>
+  </data>
+  <data name="LegendToggle_Text1" xml:space="preserve">
+    <value>Set the chart's &lt;b&gt;legendToggle&lt;/b&gt; property to true to
+    enable toggling the visibility of series when users
+    click the chart legend:</value>
+  </data>
+  <data name="LegendToggle_Text2" xml:space="preserve">
+    <value>Legend Toggle:</value>
+  </data>
+  <data name="LegendToggle_Title" xml:space="preserve">
+    <value>Legend Series Toggle</value>
+  </data>
+  <data name="LineMarkers_Text1" xml:space="preserve">
+    <value>The LineMarker class allows you to add a mouse-driven cursor
+    to your charts. The cursor consists of a text element used
+    to display information about the point under the mouse and
+    optional lines to indicate the exact position of the mouse.</value>
+  </data>
+  <data name="LineMarkers_Text2" xml:space="preserve">
+    <value>You can customize the appearance of the LineMarker using CSS,
+    and its behavior using properties including &lt;b&gt;content&lt;/b&gt;,
+    &lt;b&gt;interaction&lt;/b&gt;, and &lt;b&gt;lines&lt;/b&gt;:</value>
+  </data>
+  <data name="LineMarkers_Text3" xml:space="preserve">
+    <value>Lines:</value>
+  </data>
+  <data name="LineMarkers_Text4" xml:space="preserve">
+    <value>Interaction:</value>
+  </data>
+  <data name="LineMarkers_Title" xml:space="preserve">
+    <value>Line Markers</value>
+  </data>
+  <data name="MultipleChartTypes_Text1" xml:space="preserve">
+    <value>Each series object in the FlexChart may specify its own
+    &lt;b&gt;chartType&lt;/b&gt; to override the chart's default. This
+    makes it easy to mix different chart types in a single
+    chart.</value>
+  </data>
+  <data name="MultipleChartTypes_Text2" xml:space="preserve">
+    <value>This example allows you to pick a chart type for the
+    'Downloads' series:</value>
+  </data>
+  <data name="MultipleChartTypes_Text3" xml:space="preserve">
+    <value>Series Chart Type:</value>
+  </data>
+  <data name="MultipleChartTypes_Title" xml:space="preserve">
+    <value>Multiple Chart Types</value>
+  </data>
+  <data name="Palettes_Text1" xml:space="preserve">
+    <value>The FlexChart automatically picks colors for each series based
+    on a default palette, which you can override by setting the
+    &lt;b&gt;palette&lt;/b&gt; property.</value>
+  </data>
+  <data name="Palettes_Text2" xml:space="preserve">
+    <value>Please select a Palette:</value>
+  </data>
+  <data name="Palettes_Title" xml:space="preserve">
+    <value>FlexChart Palettes</value>
+  </data>
+  <data name="PlotAreas_Text1" xml:space="preserve">
+    <value>By default, each FlexChart has two axes and a single Plot Area.</value>
+  </data>
+  <data name="PlotAreas_Text2" xml:space="preserve">
+    <value>You may create additional plot areas and stack them vertically
+    or horizontally. Vertically stacked plot areas usually have their
+    own Y axis and a shared X axis. The legend is shared by all plot
+    areas.</value>
+  </data>
+  <data name="PlotAreas_Text3" xml:space="preserve">
+    <value>For example, the chart below has two plot areas. The first contains
+    two series and show amounts on the Y axis. The second contains a
+    single series and shows quantities on the Y axis:</value>
+  </data>
+  <data name="PlotAreas_Title" xml:space="preserve">
+    <value>Plot Areas</value>
+  </data>
+  <data name="RangeSelectors_Text1" xml:space="preserve">
+    <value>Range selectors allow users to zoom in on selected parts of
+    a chart by selecting a range on a secondary chart. The
+    most popular implementation is the one in Google Finance
+    charts.</value>
+  </data>
+  <data name="RangeSelectors_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;RangeSelector&lt;/b&gt; class in the
+    &lt;b&gt;wijmo.chart.interaction&lt;/b&gt; module makes it easy to add
+    range selectors to FlexChart controls:</value>
+  </data>
+  <data name="RangeSelectors_Text3" xml:space="preserve">
+    <value>Start with a regular FlexChart.</value>
+  </data>
+  <data name="RangeSelectors_Text4" xml:space="preserve">
+    <value>Add a second FlexChart below the main chart, remove both
+        axes and set the height to a small value (say 60px) .</value>
+  </data>
+  <data name="RangeSelectors_Text5" xml:space="preserve">
+    <value>Create a &lt;b&gt;RangeSelector&lt;/b&gt; object using the second
+        chart as the constructor's parameter.</value>
+  </data>
+  <data name="RangeSelectors_Text6" xml:space="preserve">
+    <value>Listen to the &lt;b&gt;RangeSelector&lt;/b&gt;'s &lt;b&gt;rangeChanged&lt;/b&gt;
+        event to update the main chart's X-axis range.</value>
+  </data>
+  <data name="RangeSelectors_Title" xml:space="preserve">
+    <value>Range Selectors</value>
+  </data>
+  <data name="RenderCycle_Text1" xml:space="preserve">
+    <value>The FlexChart is data-driven. When there are changes to the
+    data it is bound to, or to any of its properties, the chart
+    goes through a render cycle, which consists of these steps:</value>
+  </data>
+  <data name="RenderCycle_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Get the data&lt;/b&gt;:&lt;br /&gt;
+        The chart has an &lt;b&gt;itemsSource&lt;/b&gt; property that represents
+        the overall data source, and each series may override this
+        using its own local &lt;b&gt;itemsSource&lt;/b&gt; property. Similarly,
+        the chart has &lt;b&gt;bindingX&lt;/b&gt; and &lt;b&gt;binding&lt;/b&gt; properties
+        that determine the values to be charted for each series.&lt;br /&gt;
+        In most cases, you will set the &lt;b&gt;itemsSource&lt;/b&gt; and
+        &lt;b&gt;bindingX&lt;/b&gt; properties on the chart object, and the
+        &lt;b&gt;binding&lt;/b&gt; property on each series.</value>
+  </data>
+  <data name="RenderCycle_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Scale the data&lt;/b&gt;:&lt;br /&gt;
+        You may set the chart's range by setting the &lt;b&gt;min&lt;/b&gt; and
+        &lt;b&gt;max&lt;/b&gt; properties on the chart's axes. By default, those
+        properties are set to null, which causes the chart to scale
+        itself automatically. By default, series use the chart's
+        main set of axes, &lt;b&gt;axisX&lt;/b&gt; and &lt;b&gt;axisY&lt;/b&gt;; but you
+        may create additional axes and assign those axes to one or
+        more series.</value>
+  </data>
+  <data name="RenderCycle_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Raise the rendering event&lt;/b&gt;:&lt;br /&gt;
+        At this point, the chart is empty. Event handlers may use
+        &lt;b&gt;engine&lt;/b&gt; parameter of the &lt;b&gt;rendering&lt;/b&gt; event to
+        add custom elements that will render behind the chart data.
+        This can be used to add background elements such as alarm
+        zones.</value>
+  </data>
+  <data name="RenderCycle_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Render each series&lt;/b&gt;&lt;br /&gt;
+        In this step, the chart creates one or more SVG elements
+        to represent each series. The simplest and most efficient
+        chart types are 'Line' and 'Spline', which can usually be
+        represented by a single SVG element.
+        Other chart types require more elements to render bars and
+        symbols.
+        The chart invokes a callback specified by the
+        &lt;b&gt;itemFormatter&lt;/b&gt; property to allow customization of
+        specific points in each series. Axes also have an
+        &lt;b&gt;itemFormatter&lt;/b&gt; property to allow customization
+        of the axes labels.</value>
+  </data>
+  <data name="RenderCycle_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Raise the rendered event&lt;/b&gt;:&lt;br /&gt;
+        At this point, the chart has been fully rendered.
+        Event handlers may use the &lt;b&gt;engine&lt;/b&gt; parameter of the
+        &lt;b&gt;rendered&lt;/b&gt; event to add custom elements that will
+        render above the chart data. This can be used to add
+        elements such as point annotations.</value>
+  </data>
+  <data name="RenderCycle_Title" xml:space="preserve">
+    <value>FlexChart Render Cycle</value>
+  </data>
+  <data name="Selection_Text1" xml:space="preserve">
+    <value>The FlexChart supports selection.
+    Use the &lt;b&gt;selectionMode&lt;/b&gt; property to specify whether
+    you want to allow selection by series, by data point,
+    or none at all (selection is off by default.)</value>
+  </data>
+  <data name="Selection_Text2" xml:space="preserve">
+    <value>Setting the &lt;b&gt;selectionMode&lt;/b&gt; property to Series or Point
+    causes the FlexChart to update the &lt;b&gt;selection&lt;/b&gt; property
+    when the user clicks an item, and to apply the "wj-state-selected"
+    class to selected chart elements.</value>
+  </data>
+  <data name="Selection_Text3" xml:space="preserve">
+    <value>The chart selection mechanism us based on the CollectionView
+    class, so if you have multiple controls connected to the
+    same data source, their selections will be synchronized
+    automatically.</value>
+  </data>
+  <data name="Selection_Text4" xml:space="preserve">
+    <value>Selection Mode:</value>
+  </data>
+  <data name="Selection_Text5" xml:space="preserve">
+    <value>Chart Type:</value>
+  </data>
+  <data name="Selection_Title" xml:space="preserve">
+    <value>FlexChart Selection</value>
+  </data>
+  <data name="SeriesDataSources_Text1" xml:space="preserve">
+    <value>The FlexChart's &lt;b&gt;itemsSource&lt;/b&gt; and &lt;b&gt;bindingX&lt;/b&gt;
+    properties apply to all series in the chart by default.</value>
+  </data>
+  <data name="SeriesDataSources_Text2" xml:space="preserve">
+    <value>Specific series may override those properties and use
+    different data sources and bindings. This allows you to
+    use multiple data sources on the same chart, and reduces
+    the need to pre-process data for charting.</value>
+  </data>
+  <data name="SeriesDataSources_Text3" xml:space="preserve">
+    <value>This demo creates several data sets and plots each one
+    as a different series:</value>
+  </data>
+  <data name="SeriesDataSources_Text4" xml:space="preserve">
+    <value>Set Axis Origin to Zero</value>
+  </data>
+  <data name="SeriesDataSources_Title" xml:space="preserve">
+    <value>Data Sources</value>
+  </data>
+  <data name="SeriesPicker_Text1" xml:space="preserve">
+    <value>You can easily implement a series-picker UI using the
+    chart's &lt;b&gt;series&lt;/b&gt; property, a &lt;b&gt;ListBox&lt;/b&gt; control,
+    and C1 MVC's &lt;b&gt;showPopup&lt;/b&gt; and &lt;b&gt;hidePopup&lt;/b&gt;
+    methods.</value>
+  </data>
+  <data name="SeriesPicker_Text2" xml:space="preserve">
+    <value>For example, the chart below starts with an auto-generated
+    set of series. Click the gear icon at the top-left corner to
+    show a &lt;b&gt;ListBox&lt;/b&gt; where you can select the series
+    you want to display.</value>
+  </data>
+  <data name="SeriesPicker_Title" xml:space="preserve">
+    <value>Popup Series Picker</value>
+  </data>
+  <data name="SeriesStyles_Text1" xml:space="preserve">
+    <value>The FlexChart automatically picks colors for each series based
+    on a default palette, which you can override by setting the
+    &lt;b&gt;palette&lt;/b&gt; property.</value>
+  </data>
+  <data name="SeriesStyles_Text2" xml:space="preserve">
+    <value>You can also override the default style settings for each series
+    by setting the &lt;b&gt;style&lt;/b&gt; and &lt;b&gt;symbolStyle&lt;/b&gt; properties of
+    any series to an object that specifies SVG styling attributes,
+    including fill, stroke, strokeThickness, and so on.</value>
+  </data>
+  <data name="SeriesStyles_Text3" xml:space="preserve">
+    <value>The Series.style property is an exception to the general rule
+    that all styling in C1 MVC is done through CSS. This is because
+    many charts have dynamic series, which would be impossible to
+    style in advance.</value>
+  </data>
+  <data name="SeriesStyles_Text4" xml:space="preserve">
+    <value>This example uses the &lt;b&gt;style&lt;/b&gt; and &lt;b&gt;symbolStyle&lt;/b&gt;
+    properties to select style attributes for each series:</value>
+  </data>
+  <data name="SeriesStyles_Title" xml:space="preserve">
+    <value>Series Styles</value>
+  </data>
+  <data name="Series_Text1" xml:space="preserve">
+    <value>The FlexChart &lt;b&gt;series&lt;/b&gt; property exposes a collection
+    of &lt;b&gt;Series&lt;/b&gt; objects that can be used to customize
+    the chart.</value>
+  </data>
+  <data name="Series_Text2" xml:space="preserve">
+    <value>This demo populates the &lt;b&gt;series&lt;/b&gt; collections automatically
+    based on the chart's &lt;b&gt;itemsSource&lt;/b&gt;, and shows the series
+    information on a grid where it can be edited:</value>
+  </data>
+  <data name="Series_Title" xml:space="preserve">
+    <value>FlexChart Series</value>
+  </data>
+  <data name="Sorting_Text1" xml:space="preserve">
+    <value>The FlexChart allows you to visualize tabular data as business
+    charts. It provides a variety of options about how to present
+    and interact with the data, including selection, zooming,
+    drill-down, formatting, etc.</value>
+  </data>
+  <data name="Sorting_Text2" xml:space="preserve">
+    <value>Like all C1 MVC controls, the chart delegates all data-related
+    tasks to the CollectionView class, so if you want to filter,
+    sort, or group the data, you can do it using the CollectionView.
+    It may be useful to think of the FlexChart as a special type
+    of data grid, where columns are represented by series and
+    rows are data points on the chart.</value>
+  </data>
+  <data name="Sorting_Text3" xml:space="preserve">
+    <value>For example, the chart below has buttons that allow users to
+    sort the data by changing the &lt;b&gt;sortDescriptions&lt;/b&gt; property
+    of the chart's &lt;b&gt;collectionView&lt;/b&gt;:</value>
+  </data>
+  <data name="Sorting_Title" xml:space="preserve">
+    <value>FlexChart Architecture</value>
+  </data>
+  <data name="SpecialChartTypes_Text1" xml:space="preserve">
+    <value>Most chart types require that you provide a &lt;b&gt;binding&lt;/b&gt;
+    property to define the name of the property being charted.
+    These types include Column, Bar, Scatter, Line, Area, and
+    Spline.</value>
+  </data>
+  <data name="SpecialChartTypes_Text2" xml:space="preserve">
+    <value>A few chart types require additional information. For example,
+    Bubble charts type requires an additional value to determine
+    the bubble size. Candlestick charts require values to determine
+    the high/low/open and close values.</value>
+  </data>
+  <data name="SpecialChartTypes_Text3" xml:space="preserve">
+    <value>In these cases, the &lt;b&gt;binding&lt;/b&gt; property should be set to
+    a comma-delimited string containing the names of all the
+    properties to be used for creating the chart.</value>
+  </data>
+  <data name="SpecialChartTypes_Text4" xml:space="preserve">
+    <value>For example, the Bubble chart below sets the &lt;b&gt;binding&lt;/b&gt;
+    property of its series to 'Expenses,Downloads', so the
+    expenses are used as Y values and downloads determine the
+    bubble size:</value>
+  </data>
+  <data name="SpecialChartTypes_Title" xml:space="preserve">
+    <value>Special Chart Types</value>
+  </data>
+  <data name="StackedCharts_Text1" xml:space="preserve">
+    <value>Stacking chart controls is an alternative to creating
+    a single chart with multiple plot areas.
+    Use the &lt;b&gt;plotMargin&lt;/b&gt; property to ensure the
+    charts line up properly:</value>
+  </data>
+  <data name="StackedCharts_Title" xml:space="preserve">
+    <value>Stacked Charts</value>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>Like all C1 MVC controls, the FlexChart adds well-known class
+    names to elements in its DOM tree. These class names allow you
+    to define CSS rules that customize the appearance of each
+    chart element.</value>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>This example customizes a chart using CSS, and allows you
+    to toggle the CSS class to see the effect of the
+    customization:</value>
+  </data>
+  <data name="Styling_Text3" xml:space="preserve">
+    <value>Custom CSS</value>
+  </data>
+  <data name="Styling_Title" xml:space="preserve">
+    <value>FlexChart CSS</value>
+  </data>
+  <data name="TitleStyles_Text1" xml:space="preserve">
+    <value>Use CSS to customize the style of the chart titles.</value>
+  </data>
+  <data name="TitleStyles_Text2" xml:space="preserve">
+    <value>Custom Titles:</value>
+  </data>
+  <data name="TitleStyles_Title" xml:space="preserve">
+    <value>Title Styles</value>
+  </data>
+  <data name="Tooltips_Text1" xml:space="preserve">
+    <value>By default, the FlexChart shows tooltips with information
+    about the data point under the mouse. You can remove the
+    tooltips or customize their content using the &lt;b&gt;tooltip&lt;/b&gt;
+    property.</value>
+  </data>
+  <data name="Tooltips_Text2" xml:space="preserve">
+    <value>The tooltip's &lt;b&gt;content&lt;/b&gt; property is an HTML template
+    that may contains information about the series, the data
+    point, and the data element. For example:</value>
+  </data>
+  <data name="Tooltips_Text3" xml:space="preserve">
+    <value>Tooltip Content:</value>
+  </data>
+  <data name="Tooltips_Title" xml:space="preserve">
+    <value>FlexChart Tooltips</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text10" xml:space="preserve">
+    <value>Randomize Data</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text3" xml:space="preserve">
+    <value>Gridlines</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text4" xml:space="preserve">
+    <value>Custom CSS</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text5" xml:space="preserve">
+    <value>Custom Units</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text6" xml:space="preserve">
+    <value>X Major</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text7" xml:space="preserve">
+    <value>X Minor</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text8" xml:space="preserve">
+    <value>Y Major</value>
+  </data>
+  <data name="AxesGridlinesTickmarks_Text9" xml:space="preserve">
+    <value>Y Minor</value>
+  </data>
+  <data name="Export_Text3" xml:space="preserve">
+    <value>Save as:</value>
+  </data>
+  <data name="Filtering_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Filter: &lt;/b&gt;</value>
+  </data>
+  <data name="Filtering_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Zoom: &lt;/b&gt;</value>
+  </data>
+  <data name="Filtering_Text8" xml:space="preserve">
+    <value>You can also zoom with ctrl+mouse wheel.</value>
+  </data>
+  <data name="Gradients_Text6" xml:space="preserve">
+    <value>The chart below uses gradients to fill the area under
+    the series:</value>
+  </data>
+  <data name="GroupingDrillDown_Text3" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="InteractiveAnimations_Text1" xml:space="preserve">
+    <value>The FlexChart receives notifications when the data
+    changes and updates the chart automatically.</value>
+  </data>
+  <data name="InteractiveAnimations_Text2" xml:space="preserve">
+    <value>The chart below is bound to an &lt;b&gt;itemsSource&lt;/b&gt; that
+    receives new items at a given interval. When new items
+    are added to the data source, old items are removed
+    to keep the total item count constant. The result is
+    a dynamic scrolling chart.</value>
+  </data>
+  <data name="InteractiveAnimations_Text4" xml:space="preserve">
+    <value>ms</value>
+  </data>
+  <data name="SeriesPicker_Text3" xml:space="preserve">
+    <value>Note that you can achieve a similar result by setting the
+        chart's &lt;b&gt;legendToggle&lt;/b&gt; property to true. Once you do
+        that, the legend itself acts as a series picker: clicking
+        any series name in the legend toggles its visibility.</value>
+  </data>
+  <data name="Sorting_Text4" xml:space="preserve">
+    <value>Sort by:</value>
+  </data>
+  <data name="Sorting_Text5" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="Sorting_Text6" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Sorting_Text7" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="Sorting_Text8" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="Sorting_Text9" xml:space="preserve">
+    <value>Downloads</value>
+  </data>
+  <data name="AnalyticsTrendLines_Text7" xml:space="preserve">
+    <value>None</value>
+  </data>
+  <data name="AxesLabelsFormats_Text5" xml:space="preserve">
+    <value>auto</value>
+  </data>
+  <data name="Filtering_Text6" xml:space="preserve">
+    <value>Select Month</value>
+  </data>
+  <data name="AxesCustomLabels_Text5" xml:space="preserve">
+    <value>&lt;b&gt;value&lt;/b&gt;: The value that the label represents.</value>
+  </data>
+  <data name="Axes_Text10" xml:space="preserve">
+    <value>Alphabet Inc</value>
+  </data>
+  <data name="Axes_Text9" xml:space="preserve">
+    <value>Alphabet Inc Trading Data</value>
+  </data>
+  <data name="ChartElements_Text14" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="ChartElements_Text15" xml:space="preserve">
+    <value>Footer</value>
+  </data>
+  <data name="Export_Text4" xml:space="preserve">
+    <value>Phase II Test Result</value>
+  </data>
+  <data name="Export_Text5" xml:space="preserve">
+    <value>Experiment 1</value>
+  </data>
+  <data name="Export_Text6" xml:space="preserve">
+    <value>Experiment 2</value>
+  </data>
+  <data name="Export_Text7" xml:space="preserve">
+    <value>Experiment 3</value>
+  </data>
+  <data name="LegendStyles_Text3" xml:space="preserve">
+    <value>My Great Chart</value>
+  </data>
+  <data name="LegendStyles_Text4" xml:space="preserve">
+    <value>powered by ComponentOne's MVC FlexChart</value>
+  </data>
+  <data name="LegendStyles_Text5" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="LegendStyles_Text6" xml:space="preserve">
+    <value>Values/Units</value>
+  </data>
+  <data name="PlotAreas_Text4" xml:space="preserve">
+    <value>Sales, Expenses, and Downloads</value>
+  </data>
+  <data name="Selection_Text6" xml:space="preserve">
+    <value>Click a Series or a Point</value>
+  </data>
+</root>

@@ -1,0 +1,438 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Action_TransferSlip" xml:space="preserve">
+    <value>Transfer Slip</value>
+  </data>
+  <data name="Action_OrdersSlip" xml:space="preserve">
+    <value>Orders Slip</value>
+  </data>
+  <data name="Action_OrderDetail" xml:space="preserve">
+    <value>Order Detail</value>
+  </data>
+  <data name="Action_PurchaseSlip" xml:space="preserve">
+    <value>Purchase Slip</value>
+  </data>
+  <data name="Action_OrderManagement" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="Action_SalesSlip" xml:space="preserve">
+    <value>Sales Slip</value>
+  </data>
+  <data name="ExportPDF" xml:space="preserve">
+    <value>Export to PDF</value>
+  </data>
+  <data name="ExportXlsx" xml:space="preserve">
+    <value>Export to Excel</value>
+  </data>
+  <data name="OrderDetail_Title" xml:space="preserve">
+    <value>Order Detail</value>
+  </data>
+  <data name="OrderDetail_Field_Accepted" xml:space="preserve">
+    <value>Accepted</value>
+  </data>
+  <data name="OrderDetail_Field_Company" xml:space="preserve">
+    <value>Company</value>
+  </data>
+  <data name="OrderDetail_Field_Completed" xml:space="preserve">
+    <value>Completed</value>
+  </data>
+  <data name="OrderDetail_Field_DeliveryDate" xml:space="preserve">
+    <value>Delivery Date</value>
+  </data>
+  <data name="OrderDetail_Field_HandlingId" xml:space="preserve">
+    <value>Handling ID</value>
+  </data>
+  <data name="OrderDetail_Field_OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="OrderDetail_Field_OrderId" xml:space="preserve">
+    <value>Order ID</value>
+  </data>
+  <data name="OrderDetail_Field_PackingRequest" xml:space="preserve">
+    <value>Packing Request</value>
+  </data>
+  <data name="OrderDetail_Field_PartId" xml:space="preserve">
+    <value>Part ID</value>
+  </data>
+  <data name="OrderDetail_Field_PartName" xml:space="preserve">
+    <value>Part Name</value>
+  </data>
+  <data name="OrderDetail_Field_Person" xml:space="preserve">
+    <value>Person</value>
+  </data>
+  <data name="OrderDetail_Field_ProcessingDate" xml:space="preserve">
+    <value>Processing Date</value>
+  </data>
+  <data name="OrderDetail_Field_ProcessingStatus" xml:space="preserve">
+    <value>Processing Status</value>
+  </data>
+  <data name="OrderDetail_Field_PurchaseId" xml:space="preserve">
+    <value>Purchase ID</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity1" xml:space="preserve">
+    <value>Quantity 1</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity2" xml:space="preserve">
+    <value>Quantity 2</value>
+  </data>
+  <data name="OrderDetail_Field_Quantity3" xml:space="preserve">
+    <value>Quantity 3</value>
+  </data>
+  <data name="OrderDetail_Field_ShippingDate" xml:space="preserve">
+    <value>Shipping Date</value>
+  </data>
+  <data name="OrderDetail_Field_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="OrderManagement_DataMap_Warehouses" xml:space="preserve">
+    <value>Tokyo Warehouse, Kyoto Warehouse, Osaka Warehouse, Kyushu Warehouse</value>
+  </data>
+  <data name="OrderManagement_Field_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="OrderManagement_Field_DeliveryDate" xml:space="preserve">
+    <value>Delivery Date</value>
+  </data>
+  <data name="OrderManagement_Field_OnHold" xml:space="preserve">
+    <value>On Hold</value>
+  </data>
+  <data name="OrderManagement_Field_OrderDate" xml:space="preserve">
+    <value>Order Date</value>
+  </data>
+  <data name="OrderManagement_Field_OrderId" xml:space="preserve">
+    <value>Order ID</value>
+  </data>
+  <data name="OrderManagement_Field_ProductId" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="OrderManagement_Field_ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="OrderManagement_Field_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="OrderManagement_Field_ShippingWarehouse" xml:space="preserve">
+    <value>Shipping Warehouse</value>
+  </data>
+  <data name="OrderManagement_Field_SpecialNote" xml:space="preserve">
+    <value>Special Note</value>
+  </data>
+  <data name="OrderManagement_Field_UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="OrderManagement_Title" xml:space="preserve">
+    <value>Order Management</value>
+  </data>
+  <data name="OrdersSlip_Field_Amount" xml:space="preserve">
+    <value>Amount</value>
+  </data>
+  <data name="OrdersSlip_Field_Category" xml:space="preserve">
+    <value>Category</value>
+  </data>
+  <data name="OrdersSlip_Field_CategoryId" xml:space="preserve">
+    <value>Category ID</value>
+  </data>
+  <data name="OrdersSlip_Field_Description" xml:space="preserve">
+    <value>Product Description</value>
+  </data>
+  <data name="OrdersSlip_Field_Discontinued" xml:space="preserve">
+    <value>Discontinued</value>
+  </data>
+  <data name="OrdersSlip_Field_PackageUnit" xml:space="preserve">
+    <value>Package Unit</value>
+  </data>
+  <data name="OrdersSlip_Field_ProductId" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="OrdersSlip_Field_ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="OrdersSlip_Field_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="OrdersSlip_Field_Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="OrdersSlip_Field_ShippingId" xml:space="preserve">
+    <value>Shipping ID</value>
+  </data>
+  <data name="OrdersSlip_Field_UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="OrdersSlip_Title" xml:space="preserve">
+    <value>Orders Slip</value>
+  </data>
+  <data name="PurchaseSlip_AmountSummary" xml:space="preserve">
+    <value>Amount Summary</value>
+  </data>
+  <data name="PurchaseSlip_DataMap_Cases" xml:space="preserve">
+    <value>small,medium,large</value>
+  </data>
+  <data name="PurchaseSlip_Field_Case" xml:space="preserve">
+    <value>Case</value>
+  </data>
+  <data name="PurchaseSlip_Field_Color" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="PurchaseSlip_Field_Cost" xml:space="preserve">
+    <value>Cost</value>
+  </data>
+  <data name="PurchaseSlip_Field_Deal" xml:space="preserve">
+    <value>Deal</value>
+  </data>
+  <data name="PurchaseSlip_Field_Id" xml:space="preserve">
+    <value>ID</value>
+  </data>
+  <data name="PurchaseSlip_Field_PackageUnit" xml:space="preserve">
+    <value>Package Unit</value>
+  </data>
+  <data name="PurchaseSlip_Field_Price" xml:space="preserve">
+    <value>Price</value>
+  </data>
+  <data name="PurchaseSlip_Field_ProductId" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="PurchaseSlip_Field_ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="PurchaseSlip_Field_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="PurchaseSlip_Field_Remarks" xml:space="preserve">
+    <value>Remarks</value>
+  </data>
+  <data name="PurchaseSlip_Field_Size" xml:space="preserve">
+    <value>Size</value>
+  </data>
+  <data name="PurchaseSlip_Field_UnitCost" xml:space="preserve">
+    <value>Unit Cost</value>
+  </data>
+  <data name="PurchaseSlip_Summary" xml:space="preserve">
+    <value>Summary</value>
+  </data>
+  <data name="PurchaseSlip_Title" xml:space="preserve">
+    <value>Purchase Slip</value>
+  </data>
+  <data name="SalesSlip_Field_Id" xml:space="preserve">
+    <value>No.</value>
+  </data>
+  <data name="SalesSlip_Field_Marker" xml:space="preserve">
+    <value>Marker</value>
+  </data>
+  <data name="SalesSlip_Field_ProductId" xml:space="preserve">
+    <value>Product ID</value>
+  </data>
+  <data name="SalesSlip_Field_ProductName" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="SalesSlip_Field_ProfitRate" xml:space="preserve">
+    <value>Profit Rate</value>
+  </data>
+  <data name="SalesSlip_Field_ProfitUnitPrice" xml:space="preserve">
+    <value>Profit Unit Price</value>
+  </data>
+  <data name="SalesSlip_Field_Quantity" xml:space="preserve">
+    <value>Quantity</value>
+  </data>
+  <data name="SalesSlip_Field_SalesAmount" xml:space="preserve">
+    <value>Sales Amount</value>
+  </data>
+  <data name="SalesSlip_Field_TotalProfit" xml:space="preserve">
+    <value>Total Profit</value>
+  </data>
+  <data name="SalesSlip_Field_Unit" xml:space="preserve">
+    <value>Unit</value>
+  </data>
+  <data name="SalesSlip_Field_UnitPrice" xml:space="preserve">
+    <value>Unit Price</value>
+  </data>
+  <data name="SalesSlip_Title" xml:space="preserve">
+    <value>Sales Slip</value>
+  </data>
+  <data name="TransferSlip_DataMap_CreditorAccounts" xml:space="preserve">
+    <value>Ordinary deposit,Deposits payable,Advance money,Accounts payable</value>
+  </data>
+  <data name="TransferSlip_DataMap_CreditorTypes" xml:space="preserve">
+    <value>Grape bank,Orange bank,Apple bank,Grape card</value>
+  </data>
+  <data name="TransferSlip_DataMap_DebtorAccounts" xml:space="preserve">
+    <value>Saralies,Transport,Entertainment,Supplies,Fees</value>
+  </data>
+  <data name="TransferSlip_DataMap_DebtorTypes" xml:space="preserve">
+    <value>(none)</value>
+  </data>
+  <data name="TransferSlip_Date" xml:space="preserve">
+    <value>Date</value>
+  </data>
+  <data name="TransferSlip_DebtorCreditorBalanceTitle" xml:space="preserve">
+    <value>Balance</value>
+  </data>
+  <data name="TransferSlip_DebtorSumTitle" xml:space="preserve">
+    <value>Debtor Sum</value>
+  </data>
+  <data name="TransferSlip_Field_Brief" xml:space="preserve">
+    <value>Brief</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorAccount" xml:space="preserve">
+    <value>Creditor Account</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorAmount" xml:space="preserve">
+    <value>Creditor Amount</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorTax" xml:space="preserve">
+    <value>Creditor Tax</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorTaxCategory" xml:space="preserve">
+    <value>Creditor Tax Category</value>
+  </data>
+  <data name="TransferSlip_Field_CreditorType" xml:space="preserve">
+    <value>Creditor Type</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorAccount" xml:space="preserve">
+    <value>Debtor Account</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorAmount" xml:space="preserve">
+    <value>Debtor Amount</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorTax" xml:space="preserve">
+    <value>Debtor Tax</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorTaxCategory" xml:space="preserve">
+    <value>Debtor Tax Category</value>
+  </data>
+  <data name="TransferSlip_Field_DebtorType" xml:space="preserve">
+    <value>Debtor Type</value>
+  </data>
+  <data name="TransferSlip_Field_Note" xml:space="preserve">
+    <value>Note</value>
+  </data>
+  <data name="TransferSlip_SettlementTitle" xml:space="preserve">
+    <value>Settlement</value>
+  </data>
+  <data name="TransferSlip_SlipNo" xml:space="preserve">
+    <value>Slip No</value>
+  </data>
+  <data name="TransferSlip_Title" xml:space="preserve">
+    <value>Transfer Slip</value>
+  </data>
+  <data name="TransferSlip_CreditorSumTitle" xml:space="preserve">
+    <value>Creditor Sum</value>
+  </data>
+</root>

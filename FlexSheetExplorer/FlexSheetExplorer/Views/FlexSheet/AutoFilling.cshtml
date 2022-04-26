@@ -1,25 +1,29 @@
 @section Scripts{
-    <script type="text/javascript" src="~/Scripts/flexSheet/autoFilling.js"></script>
+    <script type="text/javascript" src="~/Scripts/FlexSheet/autoFilling.js"></script>
 }
+
 <div>
     <div class="copy">
-        <h3>@Html.Raw(FlexSheetRes.AutoFilling_Text1)</h3>
+        <h3>@Html.Raw(Resources.FlexSheet.AutoFilling_Text1)</h3>
         <p>
-            @Html.Raw(FlexSheetRes.AutoFilling_Text2)
+            @Html.Raw(Resources.FlexSheet.AutoFilling_Text2)
         </p>
     </div>
-    <span style="color:gray">@Html.Raw(FlexSheetRes.AutoFilling_Text3)</span>
+    <span style="color:gray">@Html.Raw(Resources.FlexSheet.AutoFilling_Text3)</span>
     <div id="fillingState">
-        @Html.Raw(FlexSheetRes.AutoFilling_Text4) <span></span>:
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(FlexSheetRes.AutoFilling_Text5) <span></span>
-        <br>&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(FlexSheetRes.AutoFilling_Text6) <span></span>
+        @Html.Raw(Resources.FlexSheet.AutoFilling_Text4) <span></span>:
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(Resources.FlexSheet.AutoFilling_Text5) <span></span>
+        <br>&nbsp;&nbsp;&nbsp;&nbsp;@Html.Raw(Resources.FlexSheet.AutoFilling_Text6) <span></span>
     </div>
-    <div>
-        <c1-flex-sheet id="autoFillSheet" class="flexSheet" allow-auto-fill="true" auto-filling="_onAutoFilling" auto-filled="_onAutoFilled">
-            <c1-unbound-sheet row-count="18" column-count="12"></c1-unbound-sheet>
-        </c1-flex-sheet>
+    <div>        
+        @(Html.C1().FlexSheet().Id("autoFillSheet").CssClass("flexSheet")
+            .AddUnboundSheet("Sheet1", 18, 12)
+            .AllowAutoFill(true)
+            .OnClientAutoFilling("_onAutoFilling")
+            .OnClientAutoFilled("_onAutoFilled")
+        )
     </div>
 </div>
 @section Summary{
-    <p>@Html.Raw(FlexSheetRes.AutoFilling_Text0)</p>
+    <p>@Html.Raw(Resources.FlexSheet.AutoFilling_Text0)</p>
 }

@@ -1,0 +1,44 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text4)
+</p>
+<ul>
+    <li>@Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text5)</li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text6)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text7)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text8)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .ShowAlternatingRows(false)
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("customer").Header("Customer").Width("1.5*");
+        cs.Add().Binding("country").Header("Country").Width("*");
+        cs.Add().Binding("downloads").Header("Downloads").Width("*").Format("n0");
+        cs.Add().Binding("sales").Header("Sales").Width("*").Format("n0");
+        cs.Add().Binding("expenses").Header("Expenses").Width("*").Format("n0");
+    })
+)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsDataMaps_Text9)
+</p>
+@Html.C1().FlexGrid().Id("theGridCustomers")

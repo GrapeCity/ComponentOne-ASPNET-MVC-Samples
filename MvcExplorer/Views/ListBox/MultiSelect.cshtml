@@ -1,0 +1,13 @@
+﻿@model C1NWindEntities
+
+@(Html.C1().ListBox()
+    .Bind(ib => ib.Bind(Model.Products)
+        .Update(Url.Action("ListUpdateProducts")))
+    .DisplayMemberPath("ProductName")
+    .CheckedMemberPath("Discontinued")
+    .Width(400).Height(200)
+)
+
+@section Description{
+    @Html.Raw(Resources.ListBox.MultiSelect_Text0)
+}

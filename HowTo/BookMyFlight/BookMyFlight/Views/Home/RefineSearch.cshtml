@@ -1,0 +1,615 @@
+﻿@model BookMyFlight.Models.MainModel
+@using BookMyFlight.Models
+
+@{
+    ViewBag.Title = "Airlines Reservation System";
+    Layout = "~/Views/_Layout2.cshtml";
+}
+<script src="@Url.Content("~/Scripts/RefineSearch.js")" type="text/javascript"></script>
+<script id="AirlinesListTemplate" type="text/template">
+    <span id="span_{{Airlines_Code}}" class="AirlinesList" style="width:100%">
+        <input id="{{Airlines_Code}}" name="AirlinesListCBox" type="checkbox" value="{{Airlines_Code}}" checked="{{Airlines_Code==='All'}}" /> <label for="{{Airlines_Code}}"> {{Airlines}}</label> <span class="onlyitem" style="display:none;cursor:pointer;float:right;color:blue;"> Only</span>
+    </span>
+</script>
+
+<script id="DepFlightListTemplate" type="text/template">
+    <div style="clear:none;padding-top:5px;width:100%;">
+        <div class="FL_Airline" style="float:left;width:24%;text-align:center;vertical-align:bottom;">
+            <div style="width:100%;text-align:center;float:initial;">
+                <div style="width:78px;text-align:center;">
+                    <span style="float:left;padding-left:5px;margin-right:1px;width:10px;">
+                        <input type="radio" name="DepFlightRadio" id="DepFlight{{Id}}" value="{{Id}}" autocomplete="off"><label for="DepFlight{{Id}}"><span></span></label>
+                    </span>
+                    <span style="float:right;max-width:50px;">
+                        <img style="max-width:50px;" src="../{{Airlines_Img}}" alt="{{Airlines}}" title="{{AirlinesName}}" />
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="FL_Depart" style="float:left;width:16%;text-align:center;">
+            <span class="FlightListTopRow">{{DepartTimeStr}}</span>
+        </div>
+        <div class="FL_Arrive" style="float:left;width:16%;text-align:center;">
+            <span class="FlightListTopRow">{{ArriveTimeStr}}</span>
+        </div>
+        <div class="FL_Duration" style="float:left;width:20%;text-align:center;">
+            <span class="FlightListTopRow">{{DurationStr}}</span>
+        </div>
+        <div class="FL_Fare" style="float:left;width:24%;text-align:right;">
+            ${{Fare}}.00
+        </div>
+        <div class="FL_Airline" style="float:left;width:24%;text-align:center;">
+        </div>
+        <div class="FL_Depart" style="float:left;width:76%;text-align:center;">
+            <span class="FlightListBottomRow">{{Airlines}}</span>
+            &nbsp;<span class="FlightListFlightNo">({{Flight_No}})</span>
+            &nbsp;&nbsp;<span class="FlightListBottomRow">non-stop</span>
+        </div>
+        <div style="clear:both;padding-bottom:10px;width:100%;"></div>
+    </div>
+</script>
+<script id="RetFlightListTemplate" type="text/template">
+    <div style="clear:none;padding-top:5px;">
+        <div class="FL_Airline" style="float:left;width:24%;text-align:center;vertical-align:bottom;">
+            <span style="float:left;padding-left:5px;width:20px;">
+                <input type="radio" name="RetFlightRadio" id="RetFlight{{Id}}" value="{{Id}}" autocomplete="off"><label for="RetFlight{{Id}}"><span></span></label>
+            </span>
+            <span style="float:right;width:60px;padding-right:2px;"><img src="../{{Airlines_Img}}" alt="{{Airlines}}" title="{{AirlinesName}}" /></span>
+        </div>
+        <div class="FL_Depart" style="float:left;width:16%;text-align:center;">
+            <span class="FlightListTopRow">{{DepartTimeStr}}</span>
+        </div>
+        <div class="FL_Arrive" style="float:left;width:16%;text-align:center;">
+            <span class="FlightListTopRow">{{ArriveTimeStr}}</span>
+        </div>
+        <div class="FL_Duration" style="float:left;width:20%;text-align:center;">
+            <span class="FlightListTopRow">{{DurationStr}}</span>
+        </div>
+        <div class="FL_Fare" style="float:left;width:24%;text-align:right;">
+            ${{Fare}}.00
+        </div>
+        <div class="FL_Airline" style="float:left;width:24%;text-align:center;">
+        </div>
+        <div class="FL_Depart" style="float:left;width:76%;text-align:center;">
+            <span class="FlightListBottomRow">{{Airlines}}</span>
+            &nbsp;<span class="FlightListFlightNo">({{Flight_No}})</span>
+            &nbsp;&nbsp;<span class="FlightListBottomRow">non-stop</span>
+        </div>
+        <div style="clear:both;padding-bottom:10px;width:100%;"></div>
+    </div>
+</script>
+
+<div id="PnlPage">
+    <div id="ModifyPnl" class="noclose">
+        <div id="FromToDest">
+            <div class="FromTo">
+                <div id="LblFromDest">DEL</div><div id="LblFromCity" class="City">DELHI</div>
+            </div>
+            <div class="Dir" id="LblDir"><--></div>
+            <div class="FromTo">
+                <div id="LblToDest" class="FromTo">BOM</div><div id="LblToCity" class="City">MUMBAI</div>
+            </div>
+        </div>
+        <div id="DepartDate" class="DepartReturnDate">
+            Departure<br /><div id="LblDepartDate" class="Date">22nd May 2015</div>
+        </div>
+        <div id="ReturnDate" class="DepartReturnDate">
+            Return<br /><div id="LblReturnDate" class="Date">29th May 2015</div>
+        </div>
+        <div class="dropdown">
+            <a id="ModifyBtn" href="#" data-toggle="dropdown" class="dropdown-toggle"></a>
+            <ul class="dropdown-menu" id="ModifyPnlFull">
+                <li>
+                    <div id="LblModifyPnlMsg"></div>
+                    <div class="MyRow">
+                        <div class="TextBCK2">
+                            <span id="Title">From:</span>
+                            @(Html.C1().ComboBox().Id("ACFromDest").ShowDropDownButton(false).IsDroppedDown(false).Bind(Model.TravelDestList)
+                                    .DisplayMemberPath("AirportInfo").SelectedValuePath("Dest").Placeholder("Leaving From..").Width("80%").Height("100%").CssStyle("border", "none")
+                                    .OnClientSelectedIndexChanged("ACFromDest_SelectedIndexChanged")
+                            )
+                        </div>
+                        <div class="flightdirection2" id="FlightDir">
+                            <img id="ImgFlightDir" src="~/images/ROUND.PNG" style="height:35px" />
+                        </div>
+                        <div style="float:right;">
+                            <div class="TextBCK2">
+                                <span id="Title">To:</span>
+                                @(Html.C1().ComboBox().Id("ACToDest").ShowDropDownButton(false).IsDroppedDown(false).Bind(Model.TravelDestList)
+                                            .DisplayMemberPath("AirportInfo").SelectedValuePath("Dest").Placeholder("Leaving To..").Width("80%").Height("100%").CssStyle("border", "none")
+                                            .OnClientSelectedIndexChanged("ACToDest_SelectedIndexChanged")
+                                )
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="MyRow">
+                        <div class="DateBCK2">
+                            @(Html.C1().InputDateFor(m => m.DepartDate).Id("IDDepartDate").Format("MMM dd yyyy").Value(Model.DepartDate)
+                                            .Min(DateTime.Today).OnClientValueChanged("IDDepartDate_valueChanged").Width("100%").Height("100%").CssStyle("border", "none")
+                            )
+                        </div>
+                        <div id="DivRetDateMsg" class="RetDateMsgClass2">&nbsp;Save upto 20% on Round Trip</div>
+                        <div class="DateBCK2" id="DivReturnDate">
+                            @(Html.C1().InputDateFor(m => m.ReturnDate).Id("IDReturnDate").Format("MMM dd yyyy").Value(Model.ReturnDate)
+                                            .Min(Model.DepartDate).OnClientValueChanged("IDReturnDate_valueChanged").Width("100%").Height("100%").CssStyle("border", "none")
+                            )
+                        </div>
+                        <div class="PSGRTypeBCK2">
+                            @Html.C1().ComboBox().Id("INAdult").Bind(Model.AdultCountList).SelectedIndex(Model.Adult - 1).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                        </div>
+                        <div class="PSGRTypeBCK2">
+                            @Html.C1().ComboBox().Id("INChild").Bind(Model.ChildCountList).SelectedIndex(Model.Child).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                            <br /><span class="BottomText">Under 12</span>
+                        </div>
+                        <div class="PSGRTypeBCK2">
+                            @Html.C1().ComboBox().Id("INInfant").Bind(Model.InfantCountList).SelectedIndex(Model.Infant).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                            <br /><span class="BottomText">Under 2</span>
+                        </div>
+                        <div class="ClassBCK2">
+                            @(Html.C1().ComboBox().Id("CmbClass").ShowDropDownButton(true).Bind(Model.ClassList)
+                                    .Placeholder("Select Class").SelectedValue(Model.Class).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                            )
+                        </div>
+                    </div>
+
+                    <div class="MyRow">
+                        <input type="radio" name="TripType" id="TripTypeSingle" value="SINGLE" autocomplete="off">
+                        <label for="TripTypeSingle"><span></span>ONE WAY</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="TripType" id="TripTypeRound" value="ROUND" autocomplete="off" checked>
+                        <label for="TripTypeRound"><span></span>ROUND TRIP</label>
+                    </div>
+
+                    <div class="MyRow" style="float:right;">
+                        <a class="mybtn" onclick="CallSearch();">Search Flights</a>
+                    </div>
+
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <div>
+    </div>
+    <div class="BookFilterPnl">
+        <div class="FilterGroup" id="PnlDepartureTimesFilter">
+            Departure Times <span class="CollapseArrow" data-toggle="collapse" href="#DepartTimesFilterCtrl" aria-expanded="false" aria-controls="DepartTimesFilterCtrl"></span>
+            <div id="DepartTimesFilterCtrl">
+                <div class="FilterHead" id="PnlFromDepartTimesFilter">
+                    Time departing <span class="DepartFromInFilter" id="LblDepartFromInFilter">Delhi</span>
+                    <div class="Control">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default active">
+                                <img src="~/images/Before6AM.PNG" style="width:23px;" title="Before 6:00AM">
+                                <input type="checkbox" onchange="CheckDepartTimeFilter();" name="FromDepartTimeFilter" id="FromDepartTimeFilter1" value="<6" checked="checked">
+                            </label>
+                            <label class="btn btn-default active">
+                                <input type="checkbox" onchange="CheckDepartTimeFilter()" name="FromDepartTimeFilter" id="FromDepartTimeFilter2" value="6-12" checked="checked">
+                                <img src="~/images/6AM-12PM.PNG" style="width:23px;" title="6:00AM-12:00PM" />
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="checkbox" onchange="CheckDepartTimeFilter()" name="FromDepartTimeFilter" id="FromDepartTimeFilter3" value="12-6">
+                                <img src="~/images/12PM-6PM.PNG" style="width:23px;" title="12:00AM-06:00PM" />
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="checkbox" onchange="CheckDepartTimeFilter()" name="FromDepartTimeFilter" id="FromDepartTimeFilter4" value=">6">
+                                <img src="~/images/After6PM.PNG" style="width:23px;" title="After 06:00PM" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+                <div class="FilterHead" id="PnlToDepartTimesFilter">
+                    Time departing <span class="DepartToInFilter" id="LblDepartToInFilter">Mumbai</span>
+                    <div class="Control">
+                        <div class="btn-group" data-toggle="buttons">
+                            <label class="btn btn-default">
+                                <input type="checkbox" onchange="CheckReturnTimeFilter()" name="ToDepartTimeFilter" id="ToDepartTimeFilter1" value="<6">
+                                <img src="~/images/Before6AM.PNG" style="width:23px;" title="Before 6:00AM" />
+                            </label>
+                            <label class="btn btn-default">
+                                <input type="checkbox" onchange="CheckReturnTimeFilter()" name="ToDepartTimeFilter" id="ToDepartTimeFilter2" value="6-12">
+                                <img src="~/images/6AM-12PM.PNG" style="width:23px;" title="6:00AM-12:00PM" />
+                            </label>
+                            <label class="btn btn-default active">
+                                <input type="checkbox" onchange="CheckReturnTimeFilter()" name="ToDepartTimeFilter" id="ToDepartTimeFilter3" value="12-6" checked="checked">
+                                <img src="~/images/12PM-6PM.PNG" style="width:23px;" title="12:00AM-06:00PM" />
+                            </label>
+                            <label class="btn btn-default active">
+                                <input type="checkbox" onchange="CheckReturnTimeFilter()" name="ToDepartTimeFilter" id="ToDepartTimeFilter4" value=">6" checked="checked">
+                                <img src="~/images/After6PM.PNG" style="width:23px;" title="After 06:00PM" />
+                            </label>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="FilterGroup" id="PnlFlightDurationFilter">
+            Flight Duration <span class="CollapseArrow" data-toggle="collapse" href="#FlightDurationFilterCtrl" aria-expanded="true" aria-controls="FlightDurationFilterCtrl"></span>
+            <div id="FlightDurationFilterCtrl">
+                <div class="Control">
+                    <input id="SlFlightDuration" type="range" class="vHorizon" min="0" max="10" step="1" value="5" onkeyup="SlFlightDurationChanged()" onclick="SlFlightDurationChanged()" />
+                    <div class="GaugeMin" id="LblMinDurationInFilter">03h 50m</div>
+                    <div class="GaugeMax" id="LblMaxDurationInFilter">06h 40m</div>
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="FilterGroup" id="PnlAirlinesFilter">
+            Airlines <span class="CollapseArrow" data-toggle="collapse" href="#AirlinesFilterCtrl" aria-expanded="true" aria-controls="AirlinesFilterCtrl"></span>
+            <div id="AirlinesFilterCtrl">
+                <div class="Control">
+                    @(Html.C1().ListBox().Id("LBAirlines").Bind(Model.AirlinesList).Width("100%").CssStyle("border", "none")
+                            .ItemTemplateId("AirlinesListTemplate").MaxHeight(150)
+                    )
+                </div>
+            </div>
+        </div>
+        <hr />
+        <div class="FilterGroup" id="PnlPriceFilter">
+            Price ($<span id="LblSelMaxPriceInFilter">0</span>) <span class="CollapseArrow" data-toggle="collapse" href="#PriceFilterCtrl" aria-expanded="true" aria-controls="PriceFilterCtrl"></span>
+            <div id="PriceFilterCtrl">
+                <div class="Control">
+                    <input id="SlPriceRange" type="range" class="vHorizon" onkeyup="SlPriceRangeChanged()" onclick="SlPriceRangeChanged()" />
+                    <div class="GaugeMin">$<span id="LblMinPriceInFilter">0</span></div>
+                    <div class="GaugeMax">$<span class="GaugeMaxIn" id="LblMaxPriceInFilter">0</span></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="BookResultPnl">
+        <div class="PnlTop">
+            <div role="tabpanel">
+                <!-- Nav tabs -->
+                <ul class="nav nav-tabs" role="tablist">
+                    <li role="presentation" class="active"><a href="#currentsel" aria-controls="home" role="tab" data-toggle="tab">Current Selection</a></li>
+                    <li role="presentation"><a href="#cheapest" aria-controls="profile" role="tab" data-toggle="tab">Cheapest</a></li>
+                    <li role="presentation"><a href="#quickest" aria-controls="messages" role="tab" data-toggle="tab">Quickest</a></li>
+                    <li role="presentation" class="noclose" style="display:none;" id="LnkFareFinder">
+                        <a id="FareFinderBtn" href="#" aria-controls="settings" role="tab" data-toggle="dropdown" class="dropdown-toggle" onclick="refreshCharts();">Fare Finder</a>
+
+                        <ul class="dropdown-menu" id="PnlFareFinder">
+                            <li>
+                                <div class="MyRow">
+                                    <div id="LblFFPnlMsg"></div>
+                                    <div class="LeftPnl">
+                                        <span class="DateBCKFF">
+                                            <span class="Title">Departure: </span>
+
+                                            @(Html.C1().InputDateFor(m => m.DepartDate).Id("IDDepartDateFF").Format("MMM dd yyyy").Value(Model.DepartDate)
+                                                        .Min(DateTime.Today).OnClientValueChanged("IDDepartDateFF_valueChanged").ShowDropDownButton(true)
+                                                        .Height("100%").CssStyle("border", "none").Width("70%")
+                                            )
+
+                                        </span>
+                                        &nbsp;
+                                        <span id="LblDepartDestFF" class="PnlDestFF">DEL(Delhi) - BOM(Mumbai)</span>
+                                    </div>
+
+                                    <div class="RightPnl">
+                                        <span class="DateBCKFF">
+                                            <span class="Title">Return: </span>
+                                            @(Html.C1().InputDateFor(m => m.ReturnDate).Id("IDReturnDateFF").Format("MMM dd yyyy").Value(Model.ReturnDate)
+                                                            .Height("100%").Min(Model.DepartDate).OnClientValueChanged("IDReturnDateFF_valueChanged").CssStyle("border", "none").Width("78%")
+                                            )
+                                        </span>
+                                        &nbsp;
+                                        <span id="LblReturnDestFF" class="PnlDestFF">BOM(Mumbai) - DEL(Delhi)</span>
+                                    </div>
+                                </div>
+
+                                <div class="MyRow">
+                                    <div class="LeftPnl">
+                                        @(Html.C1().FlexChart().Id("FCDepartFare").ChartType(C1.Web.Mvc.Chart.ChartType.Bar).Width("98%")
+                                        .Height(300)                                        
+                                            .DataLabel(d =>
+                                            {
+                                                d.Position(C1.Web.Mvc.Chart.LabelPosition.Top);
+                                            })
+                                            .AxisX(x => x.Labels(true).LabelAngle(0).Format("c0").MajorGrid(false).MinorGrid(true))
+                                            .AxisY(y => y.Labels(true).LabelAngle(0).Format("MMM dd yyyy").MajorGrid(false)
+                                                .MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None).MinorGrid(false))
+                                            .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Point).BindingX("FareDate")
+                                            .Series(sers =>
+                                            {
+                                                sers.Add().Binding("Fare");
+                                            })
+                                        )
+
+                                    </div>
+                                    <div class="RightPnl">
+                                        @(Html.C1().FlexChart().Id("FCReturnFare").ChartType(C1.Web.Mvc.Chart.ChartType.Bar).Width("98%").Height(300)
+                    .AxisX(x => x.Labels(true).LabelAngle(0).Format("c0").MajorGrid(false).MinorGrid(true))
+                            .AxisY(x => x.Labels(true).LabelAngle(0).Format("MMM dd yyyy").MajorGrid(false).MajorTickMarks(C1.Web.Mvc.Chart.AxisTickMark.None).MinorGrid(false))
+                                        .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Point).BindingX("FareDate").Series(sers =>
+                {
+                    sers.Add().Binding("Fare");
+                })
+
+                                        )
+                                    </div>
+                                </div>
+
+                                <div class="MyRow" style="float:left;">
+                                    <a class="mybtn" onclick="CallSubmitFF();">Submit</a>
+                                </div>
+
+
+
+                            </li>
+
+                        </ul>
+                    </li>
+
+                </ul>
+
+                <!-- Tab panes -->
+                <div class="tab-content">
+                    <div role="tabpanel" class="tab-pane fade in active" id="currentsel">
+                        <input type="hidden" id="SelFromRecID" /><input type="hidden" id="SelToRecID" />
+                        <div class="tabdata">
+                            <div id="PnlSelFromFlight" class="FlightData" style="width:50%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgSelFromFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="SelFromDest1">DEL</span> - <span id="SelToDest1">BOM</span>
+                                        <span class="FlightTimes">
+                                            (<span id="SelFromDepartTime">15:40</span>&nbsp;-&nbsp; <span id="SelFromArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="SelFromFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="SelFromDuration">02h 00m</span>
+                                            <span id="SelFromStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="PnlSelToFlight" class="FlightData" style="width:35%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgSelToFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="SelToDest2">BOM</span> - <span id="SelFromDest2">DEL</span>
+                                        <span class="FlightTimes">
+                                            (<span id="SelToDepartTime">15:40</span>&nbsp;-&nbsp; <span id="SelToArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="SelToFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="SelToDuration">02h 00m</span>
+                                            <span id="SelToStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="PnlSelFare" class="FareBook_D">
+                                <span class="TotalFare">
+                                    $<span id="SelTotalFare"></span>.00
+                                </span>
+                                <span class="BookBtn">
+                                    <a class="mybtn" onclick="CallSelBookNow();">Book Now</a>
+                                </span>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="cheapest">
+                        <input type="hidden" id="CheapFromRecID" /><input type="hidden" id="CheapToRecID" />
+                        <div class="tabdata">
+                            <div id="PnlCheapFromFlight" class="FlightData" style="width:50%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgCheapFromFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="CheapFromDest1">DEL</span> - <span id="CheapToDest1">BOM</span>
+                                        <span class="FlightTimes">
+                                            (<span id="CheapFromDepartTime">15:40</span>&nbsp;-&nbsp; <span id="CheapFromArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="CheapFromFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="CheapFromDuration">02h 00m</span>
+                                            <span id="CheapFromStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>                            
+
+                            <div id="PnlCheapToFlight" class="FlightData" style="width:35%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgCheapToFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="CheapToDest2">BOM</span> - <span id="CheapFromDest2">DEL</span>
+                                        <span class="FlightTimes">
+                                            (<span id="CheapToDepartTime">15:40</span>&nbsp;-&nbsp; <span id="CheapToArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="CheapToFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="CheapToDuration">02h 00m</span>
+                                            <span id="CheapToStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="PnlCheapFare" class="FareBook_D">
+                                <span class="TotalFare">
+                                    $<span id="CheapTotalFare"></span>.00
+                                </span>
+                                <span class="BookBtn">
+                                    <a class="mybtn" onclick="CallCheapBookNow();">Book Now</a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                    <div role="tabpanel" class="tab-pane fade" id="quickest">
+                        <input type="hidden" id="QuickFromRecID" /><input type="hidden" id="QuickToRecID" />
+                        <div class="tabdata">
+
+                            <div id="PnlQuickFromFlight" class="FlightData" style="width:50%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgQuickFromFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="QuickFromDest1">DEL</span> - <span id="QuickToDest1">BOM</span>
+                                        <span class="FlightTimes">
+                                            (<span id="QuickFromDepartTime">15:40</span>&nbsp;-&nbsp; <span id="QuickFromArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="QuickFromFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="QuickFromDuration">02h 00m</span>
+                                            <span id="QuickFromStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="PnlQuickToFlight" class="FlightData" style="width:35%;">
+                                <div class="FlightIcon">
+                                    <img id="ImgQuickToFlight" style="max-width:50px;" />
+                                </div>
+                                <div style="float:left;">
+                                    <div class="FlightDataDiv1">
+                                        <span id="QuickToDest2">BOM</span> - <span id="QuickFromDest2">DEL</span>
+                                        <span class="FlightTimes">
+                                            (<span id="QuickToDepartTime">15:40</span>&nbsp;-&nbsp; <span id="QuickToArrivalTime">17:40</span>)
+                                        </span>
+                                    </div>
+                                    <div class="FlightDataDiv2">
+                                        <span id="QuickToFlightNo" class="FlightNo">SG-163</span>
+                                        <span class="FlightDuration">
+                                            <span id="QuickToDuration">02h 00m</span>
+                                            <span id="QuickToStopInfo">Non Stop</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="PnlQuickFare" class="FareBook_D">
+                                <span class="TotalFare">
+                                    $<span id="QuickTotalFare"></span>.00
+                                </span>
+                                <span class="BookBtn">
+                                    <a class="mybtn" onclick="CallQuickBookNow();">Book Now</a>
+                                </span>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+        <div id="LblPageMsg"></div>
+        <div class="PnlResultGrid" id="PnlResultGrid">
+            <div id="PnlDepartGrid">
+                <div class="FlightHeaders">
+                    <div class="FH_Airline">
+                        <span id="DFSBtn_Airlines" class="LinkDiv" onclick="SortDepartFlights(0)">Airline</span>
+                    </div>
+                    <div class="FH_Depart">
+                        <span id="DFSBtn_DepartTime" class="LinkDiv" onclick="SortDepartFlights(1)">Depart</span>
+                    </div>
+                    <div class="FH_Arrive">
+                        <span id="DFSBtn_ArriveTime" class="LinkDiv" onclick="SortDepartFlights(2)">Arrive</span>                        
+                    </div>
+                    <div class="FH_Duration">
+                        <span id="DFSBtn_DurationMin" class="LinkDiv" onclick="SortDepartFlights(3)">Duration</span>                        
+                    </div>
+                    <div class="FH_Fare">
+                        <span id="DFSBtn_Fare" class="LinkDiv" onclick="SortDepartFlights(4)">Price</span>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                @(Html.C1().ListBox<Common.SearchFlight>().Id("LBDepartList").Bind(Model.DepartFlights)
+                    .CssClass("CListBox-Flights").SelectedIndex(-1).Width("100%")
+                    .ItemTemplateId("DepFlightListTemplate").OnClientSelectedIndexChanged("LBDepartList_SelectionChanged")
+                )
+            </div>
+            <div id="PnlReturnGrid">
+                <div class="FlightHeaders">
+                    <div class="FH_Airline">
+                        <span id="RFSBtn_Airlines" class="LinkDiv" onclick="SortReturnFlights(0)">Airline</span>
+                    </div>
+                    <div class="FH_Depart">
+                        <span id="RFSBtn_DepartTime" class="LinkDiv" onclick="SortReturnFlights(1)">Depart</span>
+                    </div>
+                    <div class="FH_Arrive">
+                        <span id="RFSBtn_ArriveTime" class="LinkDiv" onclick="SortReturnFlights(2)">Arrive</span>
+                    </div>
+                    <div class="FH_Duration">
+                        <span id="RFSBtn_DurationMin" class="LinkDiv" onclick="SortReturnFlights(3)">Duration</span>
+                    </div>
+                    <div class="FH_Fare">
+                        <span id="RFSBtn_Fare" class="LinkDiv" onclick="SortReturnFlights(4)">Price</span>&nbsp;&nbsp;&nbsp;
+                    </div>
+                </div>
+                @(Html.C1().ListBox().Id("LBReturnList").Bind(Model.ReturnFlights)
+                    .CssClass("CListBox-Flights").SelectedIndex(-1).Width("100%")
+                    .ItemTemplateId("RetFlightListTemplate").OnClientSelectedIndexChanged("LBReturnList_SelectionChanged")
+                )
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+
+    <div>
+
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</div>
+<script>
+    function refreshCharts() {
+        setTimeout(function () {
+            var Depchart = wijmo.Control.getControl("#FCDepartFare");
+            var Retchart = wijmo.Control.getControl("#FCReturnFare");
+            Depchart.refresh();
+            Retchart.refresh();
+        });
+    }
+</script>

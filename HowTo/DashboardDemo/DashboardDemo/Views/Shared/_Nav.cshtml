@@ -1,0 +1,15 @@
+﻿<script id="comboItemTemp" type="text/template">
+    <a href="{{Path}}" class="nav-page">{{Text}}</a>
+</script>
+@{ 
+    var selectedIndex = (int)ViewBag.CurrentPageIndex;
+    var pages = (IEnumerable<ControlPage>)ViewBag.Pages;
+    var headerText = (string)ViewBag.PageText;
+}
+
+@(Html.C1().Menu().Id("headerNav")
+    .Bind(pages)
+    .Header(headerText)
+    .DisplayMemberPath("Text")
+    .ItemTemplateId("comboItemTemp")
+    .SelectedIndex(selectedIndex))

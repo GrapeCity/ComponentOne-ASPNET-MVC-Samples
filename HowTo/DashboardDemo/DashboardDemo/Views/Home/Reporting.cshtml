@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.PageTitle = @Resources.DashboardDemo.ReportsPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Reporting.js")"></script>
+
+<div class="auto" id="tpReports">
+    <div>
+        <a>@Resources.DashboardDemo.RegionSales_Header</a>
+        <div>
+            @Html.C1().ReportViewer().FilePath("/Content/Reports/RegionWiseSalesData.flxr").ReportName("RegionalSales Report").ZoomMode(ZoomMode.PageWidth)
+        </div>
+    </div>
+    <div>
+        <a>@Resources.DashboardDemo.Opportunities_Header</a>
+        <div>
+            @Html.C1().ReportViewer().ZoomMode(ZoomMode.PageWidth)
+        </div>
+    </div>
+    <div>
+        <a>@Resources.DashboardDemo.ProfitAndSales_Header</a>
+        <div>
+            @Html.C1().ReportViewer().ZoomMode(ZoomMode.PageWidth)
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#tpReports").OnClientSelectedIndexChanged("selectedIndexChanged")

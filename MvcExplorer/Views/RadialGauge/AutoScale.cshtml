@@ -1,0 +1,14 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+
+@(Html.C1().RadialGauge().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Value(5)
+    .SweepAngle(90).StartAngle(0)
+    .AutoScale(true).Height(200).Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.RadialGauge.AutoScale_Text0)
+}

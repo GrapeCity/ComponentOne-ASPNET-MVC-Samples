@@ -1,0 +1,35 @@
+﻿@{
+    ViewBag.Title = "PdfViewer Custom Storage Provider";
+}
+
+<div class="container">
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the Custom Storage Provider application:
+        </p>
+        <ol>
+            <li>Implement a custom storage which get a local PDF file or customized PDF document as stream.</li>
+            <li>Implement a custom storage provider which provides the custom storage above.</li>
+            <li>Register this provider in Startup.</li>
+            <li>Create a PdfViewer control and set its FilePath property.</li>
+        </ol>
+        <div class="row">
+            Selected PDF File:
+            <span>
+                <select id="pdfFiles">
+                    <option value="CustomPdf/DefaultDocument.pdf" selected="selected">DefaultDocument.pdf</option>
+                    <option value="CustomPdf/TextFlow.pdf">TextFlow.pdf</option>
+                    <option value="CustomPdf/TextPosition.pdf">TextPosition.pdf</option>
+                </select>
+            </span>
+        </div>
+        <div class="row">
+            @(Html.C1().PdfViewer()
+           .Id("PdfViewer")
+           .Width("100%")
+           .FilePath("CustomPdf/DefaultDocument.pdf"))
+        </div>
+    </div>
+</div>

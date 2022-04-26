@@ -1,0 +1,28 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Rows_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Rows_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Rows_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Rows_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.Rows_Text4)
+    </li>
+</ul>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Rows_Text5)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Rows_Text6)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model)

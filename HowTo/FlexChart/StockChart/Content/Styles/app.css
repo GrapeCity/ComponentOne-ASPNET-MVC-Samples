@@ -1,0 +1,312 @@
+﻿body {
+    background: #000;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+    margin: 0;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before{
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+    .logo-container .gcicon-product-c1{
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+    .logo-container a {
+        text-decoration:none;
+    }
+
+.header {
+    background-color: #3f5766;
+    padding: 10px 0 20px 0;
+    margin-bottom: 30px;
+    color: #ffffff;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin: 8px 0 5px 0;
+    }
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+/*.container {
+    padding: 0 15px;
+    margin-left: auto;
+    margin-right: auto;
+}*/
+
+h2 {
+    margin: 15px 0 30px -12px;
+}
+
+.col-md-3, .col-md-6, .col-md-5, .col-md-4 {
+    padding-left: 5px;
+    padding-right: 0px;
+}
+
+.wj-flexchart {
+    border: none;
+    font-size: 12px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    padding: 0px;
+    margin: 0px;
+}
+
+    .wj-flexchart .wj-plot-area {
+        stroke-width: 1px;
+    }
+
+    .wj-flexchart .wj-axis-y .wj-title {
+        font-style: normal;
+    }
+
+.marker {
+    background-color: rgba(255, 255, 255, 0.75);
+    padding: 2px;
+    font-size: 12px;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    color: darkgray;
+    overflow: hidden;
+}
+
+.marker-line {
+    background-color: transparent;
+    border-left: 2px solid #808080;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    pointer-events: none;
+    visibility: hidden;
+}
+
+.scroller {
+    border: 2px solid darkgray;
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 0px;
+    visibility: hidden;
+}
+
+.scroller-center {
+    background: rgba(128, 128, 128, 0.1);
+    position: absolute;
+    display: block;
+    width: 20px;
+    height: 0px;
+}
+
+
+.panel {
+    background-color: transparent;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+}
+
+.panel-default > .panel-heading {
+    color: #888888;
+    background-color: #222;
+    border-color: transparent;
+    border-radius: 0;
+}
+
+.panel-heading .stock-info {
+    border-top: 1px solid #333;
+    margin-top: 15px;
+    padding-top: 5px;
+}
+
+.panel-heading .moving-average {
+    border-top: 1px solid #333;
+    margin-top: 15px;
+    padding-top: 5px;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+    .panel-heading .moving-average > div {
+        margin-top: 5px;
+    }
+
+    .panel-heading .moving-average .desc {
+        margin-right: 15px;
+    }
+
+    .panel-heading .moving-average .wj-dropdown {
+        margin: 0 15px;
+        width: 200px;
+    }
+
+    .panel-heading .moving-average .wj-inputnumber {
+        width: 100px;
+    }
+
+    .panel-heading .moving-average label:not(.ng-hide) {
+        display: inline !important;
+    }
+
+    .panel-heading .moving-average label, .panel-heading .moving-average input {
+        vertical-align: middle;
+    }
+
+.panel-heading .portfolio-search input {
+    font-size: 14px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+    width: 170px;
+}
+
+.btn-default {
+    background: #424242;
+    border-color: #424242;
+    color: #fff;
+}
+
+.btn, .btn:active, .wj-btn, .wj-input-group {
+    height: 32px;
+    border-radius: 0;
+    border: 0;
+}
+
+.btn-default:active, .btn-default.active {
+    color: #FFF;
+    background-color: #1c1c1c;
+    border-color: #1c1c1c;
+}
+
+.wj-control, .btn-xs, .btn-group-xs > .btn {
+    border-radius: 0;
+}
+
+.stchart {
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+    -ms-touch-action: none;
+}
+
+.wj-flexchart {
+    background: #000;
+    border: none;
+}
+
+.wj-listbox .wj-listbox-item {
+    font-size: 14px !important;
+    font-family: 'Segoe UI', sans-serif !important;
+}
+
+.match {
+    background-color: #475f6e;
+}
+
+.stock-info > div {
+    display: inline-block;
+    margin: 5px 5px 0px 0px;
+}
+
+.stock-info > span {
+    margin-top: 5px;
+}
+
+.rschart {
+    height: 100px !important;
+}
+
+.stchart {
+    margin: 0px;
+    padding: 0px;
+    border-bottom: 0px;
+}
+
+.row .pull-right {
+    padding-right: 15px;
+}
+
+.wj-flexchart .wj-chart-linemarker {
+    background: rgba(42, 42, 42, 0.8);
+    color: #aaa;
+}
+
+    .wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-hline {
+        height: 1px;
+    }
+
+    .wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-vline {
+        width: 1px;
+    }
+
+    .wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-hline {
+        margin-top: -3px;
+    }
+
+    .wj-flexchart .wj-chart-linemarker .wj-chart-linemarker-vline {
+        margin-left: -3px;
+    }
+
+.col-md-3, .col-md-6, .col-md-5, .col-md-4 {
+    padding-left: 5px;
+    padding-right: 0px;
+}
+
+@media(max-width: 991px) {
+    .header h1 {
+        font-size: 22px;
+        line-height: 1;
+        margin-top: 7px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 10px 0 25px 0;
+    }
+
+    h4 {
+        display: none;
+    }
+}
+
+@media(max-width: 767px) {
+    code {
+        white-space: normal;
+    }
+}

@@ -1,0 +1,31 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Text4)
+</p>
+
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model).DisableServerRead(true)
+
+<input id="theFilter" name="filter" placeholder="@Resources.C1Mvc.CVChaining_Text5" />
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVChaining_Text6)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(250)
+    .ShowAlternatingRows(false)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .Filterable()
+)

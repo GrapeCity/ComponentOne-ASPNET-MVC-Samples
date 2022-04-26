@@ -1,0 +1,13 @@
+﻿<script id="comboCultureItemTemp" type="text/template">
+    <a href="{{Path}}" class="culture-selector-link">{{DisplayText}}</a>
+</script>
+@{
+    MvcExplorer.Models.Culture.CurrentCulture = Request.QueryString["culture"];
+}
+@(Html.C1().ComboBox().Id("theCulture")
+        .Bind(MvcExplorer.Models.Culture.GetAll())
+        .IsEditable(false)
+        .DisplayMemberPath("Name")
+        .ItemTemplateId("comboCultureItemTemp")
+        .SelectedIndex(MvcExplorer.Models.Culture.GetCurrentCultureIndex())
+)

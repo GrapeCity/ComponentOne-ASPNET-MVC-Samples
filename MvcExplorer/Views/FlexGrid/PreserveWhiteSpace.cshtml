@@ -1,0 +1,37 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>()
+            .Id("ovFlexGrid")
+            .AutoGenerateColumns(false)
+            .CssClass("grid")
+            .IsReadOnly(true)
+            .Bind(bl => bl.Bind(Model))
+            .PreserveWhiteSpace(Convert.ToBoolean(optionsModel.Options["Preserve White Space"].CurrentValue))
+            .Columns(bl =>
+            {
+                bl.Add(cb => cb.Binding("ID"));
+                bl.Add(cb => cb.Binding("Country"));
+                bl.Add(cb => cb.Binding("Product"));
+                bl.Add(cb => cb.Binding("Color"));
+                bl.Add(cb => cb.Binding("Amount").Format("c"));
+                bl.Add(cb => cb.Binding("Amount2").Format("c"));
+            })
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+ 
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.PreserveWhiteSpace_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.PreserveWhiteSpace_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.PreserveWhiteSpace_Text1)</p>
+}

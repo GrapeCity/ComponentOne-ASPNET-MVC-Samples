@@ -1,0 +1,127 @@
+﻿@using C1.Web.Mvc.Grid
+@model ChildItems
+
+@section Styles{
+    <style>
+        .custom-flex-grid {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+
+            .custom-flex-grid .wj-cell {
+                background-color: #fff;
+                border: none;
+                font-size: 10pt;
+            }
+
+            .custom-flex-grid .wj-state-selected {
+                background: #000;
+                color: #fff;
+            }
+
+            .custom-flex-grid .wj-state-multi-selected {
+                background: #222;
+                color: #fff;
+            }
+
+        .wj-flexgrid {
+            max-height: 220px;
+            margin: 6px 0;
+        }
+
+        .wj-cell.wj-group {
+            border: none;
+        }
+
+            .wj-cell.wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+                background-color: white;
+            }
+
+        custom-flex-grid-worker {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+
+        .custom-flex-grid-worker .wj-cell {
+            background-color: #fff;
+            border-bottom: none;
+            font-size: 10pt;
+        }
+
+        .custom-flex-grid-worker .wj-state-selected {
+            background: #000;
+            color: #fff;
+        }
+
+        .custom-flex-grid-worker .wj-state-multi-selected {
+            background: #222;
+            color: #fff;
+        }
+
+        .custom-flex-grid-worker .wj-header {
+            background-color: #d0cccc;
+            font-size: 10pt;
+        }
+    </style>
+}
+
+@(Html.C1().FlexGrid().Id("homogenous").CssClass("custom-flex-grid").Width(500)
+    .Bind(Model.Parents)
+    .ChildItemsPath("children")
+    .AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("name").Width("*");
+    })
+    .AllowResizing(AllowResizing.None)
+    .HeadersVisibility(HeadersVisibility.None)
+)
+<div class="checkbox">
+  <label for="asTree">
+    <input id="asTree" type="checkbox" checked="checked"> @Html.Raw(Resources.FlexGrid.TreeGrid_ChildItems_Text)
+  </label>
+</div>
+<p>
+  @Html.Raw(Resources.FlexGrid.TreeGrid_ChildItems_Text1)
+</p>
+<p>
+  @Html.Raw(Resources.FlexGrid.TreeGrid_ChildItems_Text2)
+</p>
+
+@(Html.C1().FlexGrid().Id("heterogeneous").CssClass("custom-flex-grid-worker").Width(500)
+    .Bind(Model.Workers)
+    .AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("name").Width("*");
+        columns.Add().Binding("hours").DataType(DataType.Number).AllowSorting(false).Width("*");
+        columns.Add().Binding("rate").DataType(DataType.Number).AllowSorting(false).Width("*");
+    })
+    .AllowResizing(AllowResizing.None)
+    .HeadersVisibility(HeadersVisibility.Column)
+)
+
+@section Scripts{
+    <script>
+      c1.documentReady(function () {
+        var family = wijmo.Control.getControl("#homogenous");
+        var worker = wijmo.Control.getControl("#heterogeneous");
+
+        worker.childItemsPath = ["checks", "earning"];
+        worker.collectionView._disableServerRead = true;
+        // toggle family tree
+        document.getElementById('asTree').addEventListener('click', function (e) {
+          family.childItemsPath = e.target.checked ? 'children' : '';
+        });
+      });
+
+    </script>
+}
+
+@section Description {
+    @Html.Raw(Resources.FlexGrid.TreeGrid_ChildItems_Description)
+}   

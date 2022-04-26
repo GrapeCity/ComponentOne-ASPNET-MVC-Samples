@@ -1,12 +1,12 @@
-﻿using Microsoft.AspNetCore.Mvc;
-using FilterPanel.Models;
+﻿using FilterPanel.Models;
 using System.Linq;
+using System.Web.Mvc;
 
 namespace FilterPanel.Controllers
 {
     public class HomeController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View(Sale.GetData(100).ToList());
         }

@@ -1,0 +1,56 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Text1)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .ShowAlternatingRows(false)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    )
+<div id="pager">
+    <button id="btnFirst" class="btn"><span class="wj-glyph-step-backward"></span></button>
+    <button id="btnPrev" class="btn"><span class="wj-glyph-left"></span></button>
+    &nbsp;&nbsp;&nbsp;<span id="spanCurrent"></span>&nbsp;&nbsp;&nbsp;
+    <button id="btnNext" class="btn"><span class="wj-glyph-right"></span></button>
+    <button id="btnLast" class="btn"><span class="wj-glyph-step-forward"></span></button>
+</div>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Title2)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Text4)
+</p>
+<p>
+   @Html.Raw(Resources.C1Mvc.CVPaging_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVPaging_Text6)
+</p>
+@(Html.C1().FlexGrid().Id("theGridServer")
+    .IsReadOnly(true)
+    .ShowAlternatingRows(false)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .Bind(b => b.Bind(Model).PageSize(5))
+)
+<div id="pagerServer">
+    <button id="btnFirstServer" class="btn"><span class="wj-glyph-step-backward"></span></button>
+    <button id="btnPrevServer" class="btn"><span class="wj-glyph-left"></span></button>
+    &nbsp;&nbsp;&nbsp;<span id="spanCurrentServer"></span>&nbsp;&nbsp;&nbsp;
+    <button id="btnNextServer" class="btn"><span class="wj-glyph-right"></span></button>
+    <button id="btnLastServer" class="btn"><span class="wj-glyph-step-forward"></span></button>
+</div>

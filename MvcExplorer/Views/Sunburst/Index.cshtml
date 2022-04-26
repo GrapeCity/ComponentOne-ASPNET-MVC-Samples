@@ -1,0 +1,27 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<HierarchicalData>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().Sunburst<HierarchicalData>()
+    .Id(demoSettingsModel.ControlId)
+    .InnerRadius(demoSettingsModel.GetFloat("InnerRadius", 0f))
+    .Bind("Year", "Value", Model)
+    .DataLabel(dl => dl.Content("{name}"))
+    .BindingName("Year", "Quarter", "Month"))
+
+@section Settings{
+    <script>
+        function convertPalette(value) {
+            return wijmo.chart.Palettes[value];
+        }
+    </script>
+}
+@section Description{
+    <p>@Html.Raw(Resources.Sunburst.Index_Text0)</p>
+    <p>@Html.Raw(Resources.Sunburst.Index_Text1)</p>
+}

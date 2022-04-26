@@ -1,0 +1,69 @@
+﻿@{
+    var allGroups = new List<ControlGroup>();
+    allGroups.AddRange(ControlPages.ControlGroups);
+
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+    var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+    ViewBag.ControllerName = controllerName;
+    ViewBag.ActionName = actionName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+    ViewBag.Title = string.Format("{0} - {1}", controllerName, ViewBag.PageText);
+    ViewBag.DemoDescription = ViewBag.DemoDescription ?? true;
+    ViewBag.DemoSettings = ViewBag.DemoSettings ?? false;
+    ViewBag.DemoLog = ViewBag.DemoLog ?? false;
+    ViewBag.DemoSource = ViewBag.DemoSource ?? true;
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+    ViewBag.DocLink = group.Documentation;
+
+    var pages = group.Pages;
+    ViewBag.CurrentPageIndex = group.GetSelectedPageIndex(actionName);
+
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+
+    ViewBag.Pages = pages;
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>@ViewBag.PageTitle</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+    @Html.C1().Styles()
+    @Styles.Render("~/Content/css/bootstrap/css/BootStrapCss")
+    @Styles.Render("~/Content/css/explorer")
+    @RenderSection("Styles", false)
+    @Html.C1().Scripts().Basic().FlexViewer().Olap()
+    @RenderSection("Scripts", false)
+    <script type="text/javascript" src="@Url.Content("~/Scripts/common.js")"></script>
+
+</head>
+<body>
+  
+    <div class="flex vertical" style="width:100%;height:100%;overflow:auto">
+        <div class="header flex horizontal">
+            <div>
+                <span class="company-icon auto">
+                    <img src="@Url.Content("~/Content/images/AcmeLogo-vertical-100px.png")" style="width:88px;" />
+                </span>
+                @Html.Partial("_Nav")
+            </div>
+        </div>
+        <div class="body flex horizontal auto">
+            @RenderBody()
+        </div>
+    </div>
+</body>
+</html>

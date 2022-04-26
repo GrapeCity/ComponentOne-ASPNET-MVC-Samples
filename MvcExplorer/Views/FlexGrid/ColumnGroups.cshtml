@@ -1,0 +1,96 @@
+﻿@using C1.Web.Mvc.Grid
+@using C1.Web.Mvc
+@model  IEnumerable<MvcExplorer.Controllers.Portfolio>
+
+@{
+    const string tpl1 = "<span class=${value> .3 ? 'big-val' : 'small-val'}>${text}</span>";
+    const string tpl2 = "<span class=${value > 50000 ? 'big-val' : 'small-val'}>${text}</span>";
+}
+
+@(Html.C1().FlexGrid().Id("colGroupsFlexGrid")
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.None)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("Name").Width("130"));
+        bl.Add(cb => cb.Binding("Currency").Align("center").Width("73"));
+        bl.Add(cb => cb.Header("Performance").Align("center").CollapseTo("YTD").Columns(bl1 =>
+        {
+            bl1.Add(cb1 => cb1.Binding("YTD").Format("p2").CssClass("main-column"));
+            bl1.Add(cb1 => cb1.Binding("M1").Format("p2"));
+            bl1.Add(cb1 => cb1.Binding("M6").Format("p2"));
+            bl1.Add(cb1 => cb1.Binding("M12").Format("p2"));
+        }));
+        bl.Add(cb => cb.Header("Allocation").Align("center").CollapseTo("Amount").Columns(bl2 =>
+        {
+        bl2.Add(cb2 => cb2.Header("Investment").Align("center").CollapseTo("Total").IsCollapsed(true).Columns(bl3 =>
+        {
+            bl3.Add(cb3 => cb3.Binding("Stock").Format("p2").Template(tpl1));
+            bl3.Add(cb3 => cb3.Binding("Bond").Format("p2").Template(tpl1));
+            bl3.Add(cb3 => cb3.Binding("Other").Format("p2").Template(tpl1));
+            bl3.Add(cb3 => cb3.Name("#Total").Header("Total").Format("p2").Align("right").CssClass("main-column"));
+        }));
+        bl2.Add(cb2 => cb2.Binding("Cash").Format("p2").Template(tpl1));
+        bl2.Add(cb2 => cb2.Binding("Amount").Format("c0").CssClass("main-column").Template(tpl2));
+    }));
+    })
+    .ShowMarquee(true)
+    .DefaultColumnSize(113)
+    .CssClass("grid animated")
+    .ItemFormatter("formatItem")
+)
+
+<style type="text/css">
+    .wj-flexgrid {
+        margin: 10px 0;
+    }
+
+        /* highlight the main column in the group */
+        .wj-flexgrid .wj-cells .wj-cell.main-column {
+            background: #ddffdd;
+            color: black;
+        }
+
+    /* formatting for cell's templates */
+    .big-val {
+        font-weight: bold;
+        color: darkgreen;
+    }
+
+    .small-val {
+        font-style: italic;
+        color: rgb(202, 0, 0);
+    }
+
+    /* animation for collapsing/expanding the groups */
+    .wj-flexgrid.animated .wj-colheaders .wj-header.wj-cell.wj-colgroup {
+        transition: all .2s;
+    }
+</style>
+
+@section Scripts{
+    <script>
+        function formatItem(panel, r, c, cell) {
+            if (panel.cellType == 1) {
+                switch (panel.columns[c].name) {
+                    case '#Total':
+                        var item = panel.rows[r].dataItem,
+                            value = item.Stock + item.Bond + item.Other,
+                            cls = value > .3 ? 'big-val' : 'small-val';
+                        txt = wijmo.Globalize.format(value, panel.columns[c].format);
+                        cell.innerHTML = '<span class="' + cls + '">' + txt + '</span>'
+                        break;
+                }
+            }
+        }
+    </script>
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.ColumnGroups_Text0)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.ColumnGroups_Text1)
+}

@@ -1,0 +1,310 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="About" xml:space="preserve">
+    <value>製品情報</value>
+    <comment>About</comment>
+  </data>
+  <data name="FreeTrial" xml:space="preserve">
+    <value>トライアル版</value>
+    <comment>FREE TRIAL</comment>
+  </data>
+  <data name="LinkAbout" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone-studio/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="LinkFreeTrial" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/download</value>
+    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+  </data>
+  <data name="LinkPricing" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/purchase</value>
+    <comment>https://www.grapecity.com/en/pricing</comment>
+  </data>
+  <data name="LinkSupport" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/support</value>
+    <comment>http://supportone.componentone.com/login</comment>
+  </data>
+  <data name="Pricing" xml:space="preserve">
+    <value>ご購入</value>
+    <comment>Pricing</comment>
+  </data>
+  <data name="Support" xml:space="preserve">
+    <value>サポート</value>
+    <comment>Support</comment>
+  </data>
+  <data name="ApplicationNameFull" xml:space="preserve">
+    <value>ASP.NET MVC Edition クライアントの学習</value>
+    <comment>Learn ASP.NET MVC Edition Client</comment>
+  </data>
+  <data name="ApplicationNameShort" xml:space="preserve">
+    <value>MVC クライアントの学習</value>
+    <comment>Learn MVC Client</comment>
+  </data>
+  <data name="ApplicationTitle" xml:space="preserve">
+    <value>ComponentOne ASP.NET MVC</value>
+    <comment>C1 ASP.NET MVC</comment>
+  </data>
+  <data name="Chinese" xml:space="preserve">
+    <value>中国語</value>
+    <comment>Chinese</comment>
+  </data>
+  <data name="CopyrightInfo" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
+    <comment>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+All product and company names here in may be trademarks of their respective owners.</comment>
+  </data>
+  <data name="Document" xml:space="preserve">
+    <value>ドキュメント</value>
+    <comment>Document</comment>
+  </data>
+  <data name="Dutch" xml:space="preserve">
+    <value>オランダ語</value>
+    <comment>Dutch</comment>
+  </data>
+  <data name="French" xml:space="preserve">
+    <value>フランス語</value>
+    <comment>French</comment>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.ja.css</value>
+    <comment>~/Content/css/gcicons.css</comment>
+  </data>
+  <data name="German" xml:space="preserve">
+    <value>ドイツ語</value>
+    <comment>German</comment>
+  </data>
+  <data name="Home" xml:space="preserve">
+    <value>ホーム</value>
+    <comment>Home</comment>
+  </data>
+  <data name="Italian" xml:space="preserve">
+    <value>イタリア語</value>
+    <comment>Italian</comment>
+  </data>
+  <data name="Japanese" xml:space="preserve">
+    <value>日本語</value>
+    <comment>Japanese</comment>
+  </data>
+  <data name="Korean" xml:space="preserve">
+    <value>韓国語</value>
+    <comment>Korean</comment>
+  </data>
+  <data name="LinkGrapeCity" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer</value>
+    <comment>http://www.grapecity.com/</comment>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>結果</value>
+    <comment>Result</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="Spanish" xml:space="preserve">
+    <value>スペイン語</value>
+    <comment>Spanish</comment>
+  </data>
+  <data name="TwitterText" xml:space="preserve">
+    <value>これを見たことがありますか? C1Studio MVC Edition コントロール</value>
+    <comment>Have you seen this? C1Studio MVC Edition Controls</comment>
+  </data>
+  <data name="Btn_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="Btn_Close" xml:space="preserve">
+    <value>閉じる</value>
+    <comment>Close</comment>
+  </data>
+  <data name="Btn_Delete" xml:space="preserve">
+    <value>削除</value>
+    <comment>Delete</comment>
+  </data>
+  <data name="Btn_Edit" xml:space="preserve">
+    <value>編集</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="Btn_Go" xml:space="preserve">
+    <value>実行</value>
+    <comment>Go</comment>
+  </data>
+  <data name="Btn_In" xml:space="preserve">
+    <value>イン</value>
+    <comment>In</comment>
+  </data>
+  <data name="Btn_No" xml:space="preserve">
+    <value>いいえ</value>
+    <comment>No</comment>
+  </data>
+  <data name="Btn_Ok" xml:space="preserve">
+    <value>OK</value>
+    <comment>Ok</comment>
+  </data>
+  <data name="Btn_Out" xml:space="preserve">
+    <value>アウト</value>
+    <comment>Out</comment>
+  </data>
+  <data name="Btn_Refresh" xml:space="preserve">
+    <value>更新</value>
+    <comment>Refresh</comment>
+  </data>
+  <data name="Btn_Reset" xml:space="preserve">
+    <value>リセット</value>
+    <comment>Reset</comment>
+  </data>
+  <data name="Btn_ResetZoom" xml:space="preserve">
+    <value>ズームをリセット</value>
+    <comment>Reset Zoom</comment>
+  </data>
+  <data name="Btn_SaveChanges" xml:space="preserve">
+    <value>変更の保存</value>
+    <comment>Save changes</comment>
+  </data>
+  <data name="Btn_ShowDialog" xml:space="preserve">
+    <value>ダイアログの表示</value>
+    <comment>Show Dialog</comment>
+  </data>
+  <data name="Btn_ShowPopup" xml:space="preserve">
+    <value>ポップアップの表示</value>
+    <comment>Show Popup</comment>
+  </data>
+  <data name="Btn_Submit" xml:space="preserve">
+    <value>送信</value>
+    <comment>Submit</comment>
+  </data>
+  <data name="Btn_Yes" xml:space="preserve">
+    <value>はい</value>
+    <comment>Yes</comment>
+  </data>
+  <data name="English" xml:space="preserve">
+    <value>英語</value>
+    <comment>English</comment>
+  </data>
+  <data name="ErrorMessage" xml:space="preserve">
+    <value>要求の処理中にエラーが発生しました。</value>
+    <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="ErrorTitle" xml:space="preserve">
+    <value>エラー。</value>
+    <comment>Error.</comment>
+  </data>
+</root>

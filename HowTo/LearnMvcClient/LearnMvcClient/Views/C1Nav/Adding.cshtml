@@ -1,0 +1,24 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.Adding_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Adding_Text1)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-5">
+        @Html.C1().TreeView().Id("theTree")
+    </div>
+    <div class="col-xs-7">
+        <p>
+            @Html.Raw(Resources.C1Nav.Adding_Text2)
+            <input class="form-control" id="theInput" value="My New Node">
+        </p>
+        <p>
+            @Html.Raw(Resources.C1Nav.Adding_Text3)
+            <button id="btnBefore" class="btn btn-default">@Html.Raw(Resources.C1Nav.Adding_Text4)</button>
+            <button id="btnAfter" class="btn btn-default">@Html.Raw(Resources.C1Nav.Adding_Text5)</button>
+            <button id="btnInto" class="btn btn-default">@Html.Raw(Resources.C1Nav.Adding_Text6)</button>
+        </p>
+    </div>
+</div>

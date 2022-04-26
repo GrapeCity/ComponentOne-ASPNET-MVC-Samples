@@ -1,0 +1,69 @@
+﻿@using C1.Web.Mvc.Chart
+
+@{
+    List<Dot> studentPoints = ViewBag.studentPoints;
+    List<List<Dot>> lineSeriesDataList = ViewBag.lineSeriesDataList;
+
+    List<string> colors = ViewBag.colors;
+    List<double> zones = ViewBag.zones;
+}
+
+@section Scripts{
+<script type="text/javascript">
+    function drawAlarmZone(chart, engine, xmin, ymin, xmax, ymax, fill) {
+        var pt1 = chart.dataToPoint(new wijmo.Point(xmin, ymin));
+        var pt2 = chart.dataToPoint(new wijmo.Point(xmax, ymax));
+        engine.fill = fill;
+        engine.drawRect(Math.min(pt1.x, pt2.x), Math.min(pt1.y, pt2.y), Math.abs(pt2.x - pt1.x), Math.abs(pt2.y - pt1.y));
+    }
+
+    var zones = [
+        @zones[0],
+        @zones[1],
+        @zones[2],
+        @zones[3],
+    ];
+
+    var chartRendering,
+        colors = ["rgba(255,192,192,0.2)",
+                "rgba(55,328,228,0.5)",
+                "rgba(255,228,128,0.5)",
+                "rgba(128,255,128,0.5)",
+                "rgba(128,128,225,0.5)"];
+
+    chartRendering = function (sender, e) {
+        for (var i = 0; i < 5; i++) {
+            var ymin = i == 0 ? sender.axisY.actualMin : zones[i - 1];
+            var ymax = i == 4 ? sender.axisY.actualMax : zones[i];
+            drawAlarmZone(sender, e.engine, sender.axisX.actualMin, ymin, sender.axisX.actualMax, ymax, colors[i]);
+        }
+    }
+
+</script>
+}
+
+<div id="flexChart"></div>
+@(Html.C1().FlexChart("#flexChart").Bind("X", studentPoints).ChartType(ChartType.Scatter).Series(sers =>
+    {
+        sers.Add().Binding("Y").Name("raw score").SymbolSize(6);
+
+        sers.Add().Bind("X", "Y", lineSeriesDataList[0]).ChartType(ChartType.Line).Name("m-2s").Style(s => s.Stroke("#202020").StrokeWidth(2).StrokeDasharray("2,2"));
+        sers.Add().Bind("X", "Y", lineSeriesDataList[1]).ChartType(ChartType.Line).Name("m-1s").Style(s => s.Stroke("#202020").StrokeWidth(2).StrokeDasharray("5,1"));
+        sers.Add().Bind("X", "Y", lineSeriesDataList[2]).ChartType(ChartType.Line).Name("mean").Style(s => s.Stroke("#202020").StrokeWidth(2));
+        sers.Add().Bind("X", "Y", lineSeriesDataList[3]).ChartType(ChartType.Line).Name("m+1s").Style(s => s.Stroke("#202020").StrokeWidth(2).StrokeDasharray("5,1"));
+        sers.Add().Bind("X", "Y", lineSeriesDataList[4]).ChartType(ChartType.Line).Name("m+2s").Style(s => s.Stroke("#202020").StrokeWidth(2).StrokeDasharray("2,2"));
+
+        sers.Add().ChartType(ChartType.Area).Name("A").Style(s => s.Fill(colors[4]).Stroke("transparent"));
+        sers.Add().ChartType(ChartType.Area).Name("B").Style(s => s.Fill(colors[3]).Stroke("transparent"));
+        sers.Add().ChartType(ChartType.Area).Name("C").Style(s => s.Fill(colors[2]).Stroke("transparent"));
+        sers.Add().ChartType(ChartType.Area).Name("D").Style(s => s.Fill(colors[1]).Stroke("transparent"));
+        sers.Add().ChartType(ChartType.Area).Name("E").Style(s => s.Fill(colors[0]).Stroke("transparent"));
+    }).OnClientRendering("chartRendering"))
+
+@section Description{
+    <h3>
+        Zones
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.Zones_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.Zones_Text1)</p>
+}

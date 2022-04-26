@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+        function collapseAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(0);
+        }
+        function expandAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(10);
+        }
+    </script>
+}
+
+<input type="button" value="@Resources.MultiRowExplorer.Grouping_Text3" class="btn" onclick="collapseAllGroups()" />
+<input type="button" value="@Resources.MultiRowExplorer.Grouping_Text4" class="btn" onclick="expandAllGroups()" />
+
+@(Html.C1().MultiRow<Sale>()
+    .Id(settings.ControlId)
+    .CssClass("multirow")
+    .IsReadOnly(true)
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
+    .GroupBy("Country")
+    .ShowGroups(true)
+    .MultiRowGroupHeaders(true)
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("ID").Header("ID").Width("100"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Country").Header("Country"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Color").Header("Color"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Amount").Header("Amount").Aggregate(Aggregate.Sum));
+            cells.Add(cell => cell.Binding("Discount").Header("Discount").Aggregate(Aggregate.Sum));
+        });
+    })
+)
+
+@section Settings{
+    <script>
+        function customChangeGroupBy(grid, name) {
+            var groupDescriptions = grid.collectionView.groupDescriptions;
+            grid.beginUpdate();
+            groupDescriptions.clear();
+
+            if (name.indexOf("Country") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Country"));
+            }
+
+            if (name.indexOf("Color") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Color"));
+            }
+
+            grid.endUpdate();
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.MultiRowExplorer.Grouping_Text2)</p>
+}

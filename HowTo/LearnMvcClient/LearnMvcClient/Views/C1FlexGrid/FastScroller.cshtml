@@ -1,0 +1,20 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.FastScroller_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.FastScroller_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.FastScroller_Text2)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("last").Width("*");
+    })
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.None)
+    .ShowAlternatingRows(false)
+    .IsReadOnly(true)
+)

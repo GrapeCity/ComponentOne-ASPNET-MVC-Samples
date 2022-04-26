@@ -1,0 +1,627 @@
+<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="BatchEditing_Text0" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;Users can begin editing by simply typing into any cell (quick-edit mode), or by pressing F2 or clicking a cell twice (full-edit mode).&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch between display and edit modes.</value>
+  </data>
+  <data name="BatchEditing_Text1" xml:space="preserve">
+    <value>There are two modes for updating data to server.</value>
+  </data>
+  <data name="BatchEditing_Text2" xml:space="preserve">
+    <value>In this mode, which is the default mode, the item updated or created gets committed to the server once the corresponding row finishes editing.&lt;/br&gt;The removed row will be committed to the server immediately.</value>
+  </data>
+  <data name="BatchEditing_Text3" xml:space="preserve">
+    <value>If user wants to update the data, the Update action Url should be provided. If one wants to add or remove the data, the Create or the Delete action Url should be provided.&lt;/br&gt;And the user should edit the data in the corresponding action.</value>
+  </data>
+  <data name="BatchEditing_Text4" xml:space="preserve">
+    <value>In this mode user can update, create or remove multiple items and commit all the changes to the data source once.&lt;/br&gt;The user can commit multiple modifications by sorting, paging or filtering the grid data or simply on a button-click.</value>
+  </data>
+  <data name="BatchEditing_Text5" xml:space="preserve">
+    <value>The &lt;b&gt;BatchEditing&lt;/b&gt; action Url should be provided in this mode.</value>
+  </data>
+  <data name="BatchEditing_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt; To disable data update during sort/filter/page operations, set the &lt;b&gt;DisableServerRead&lt;/b&gt; property of MultiRow's &lt;b&gt;ItemSource&lt;/b&gt; to True.&lt;/br&gt;This will enable client-side sorting, filtering, paging and data will only be submitted when the collectionView's &lt;b&gt;commit&lt;/b&gt; method is explicitly called from the client-side.</value>
+  </data>
+  <data name="BatchEditing_Text7" xml:space="preserve">
+    <value>Normal Mode</value>
+  </data>
+  <data name="BatchEditing_Text8" xml:space="preserve">
+    <value>Batch Mode</value>
+  </data>
+  <data name="CollapsedHeaders_Text0" xml:space="preserve">
+    <value>This sample shows how to collapse the column headers of MultiRow control to a single line, which shows only the group names rather than individual cells.</value>
+  </data>
+  <data name="CollapsedHeaders_Text1" xml:space="preserve">
+    <value>By default, the &lt;b&gt;MultiRow&lt;/b&gt; control creates column headers that span multiple rows and shows the header for each cell defined in the LayoutDefinition.</value>
+  </data>
+  <data name="CollapsedHeaders_Text2" xml:space="preserve">
+    <value>These cell-specific column headers may be used to sort or filter the data as you would do in a conventional grid.</value>
+  </data>
+  <data name="CollapsedHeaders_Text3" xml:space="preserve">
+    <value>In some cases, you may want to collapse the column headers to a single line, showing only the group names rather than individual cells.&lt;/br&gt;This saves space at the expense of having individual cell headers. To collapse the column headers, set the &lt;b&gt;CollapsedHeaders&lt;/b&gt; property to true.&lt;/br&gt;In these scenarios, remember to set the &lt;b&gt;Header&lt;/b&gt; property on the groups in order to avoid empty column headers.</value>
+  </data>
+  <data name="CollapsedHeaders_Text4" xml:space="preserve">
+    <value>Setting the &lt;b&gt;CollapsedHeaders&lt;/b&gt; property to &lt;b&gt;null&lt;/b&gt; causes the grid to show all header information (groups and columns).&lt;/br&gt;In this case, the first row will show the group headers and the remaining rows will show the individual column headers.</value>
+  </data>
+  <data name="CustomCells_Text0" xml:space="preserve">
+    <value>This sample demonstrates how to use custom cells feature of the &lt;b&gt;MultiRow&lt;/b&gt; control.</value>
+  </data>
+  <data name="CustomCells_Text1" xml:space="preserve">
+    <value>The sample uses the &lt;b&gt;TemplateId&lt;/b&gt; property to specify the id of the template for the "Trends" column.</value>
+  </data>
+  <data name="CustomCells_Text2" xml:space="preserve">
+    <value>The sample also uses the &lt;b&gt;ItemFormatter&lt;/b&gt; property to customize displaying "Rank" column.&lt;/br&gt;In the ItemFormatter event handler, use the &lt;b&gt;getBindingColumn&lt;/b&gt; function of MultiRow to get the binding column.</value>
+  </data>
+  <data name="CustomEditors_Text0" xml:space="preserve">
+    <value>This sample shows how you can customize the way to add rows or change the values in the cells of &lt;b&gt;MultiRow&lt;/b&gt; control.</value>
+  </data>
+  <data name="CustomEditors_Text1" xml:space="preserve">
+    <value>The sample uses the &lt;b&gt;EditTemplateId&lt;/b&gt; property to specify the id of the template for cell editor.&lt;/br&gt;When the user starts editing a cell, the editor will show and get the focus.</value>
+  </data>
+  <data name="CustomEditors_Text2" xml:space="preserve">
+    <value>There are three kinds of editors.</value>
+  </data>
+  <data name="CustomEditors_Text3" xml:space="preserve">
+    <value>You need to set the &lt;b&gt;EditTemplate&lt;/b&gt; property of a cell.</value>
+  </data>
+  <data name="CustomEditors_Text4" xml:space="preserve">
+    <value>If the grid allows adding a new row, you need to set the editor's &lt;b&gt;IsRequired&lt;/b&gt; property to false.&lt;/br&gt;If you want the editor with the whole cell, you can set the style width to "100%".</value>
+  </data>
+  <data name="CustomEditors_Text5" xml:space="preserve">
+    <value>In this sample, "Date", "Time", "Country", "Amount" and "Color" use C1 Input controls as the editors.</value>
+  </data>
+  <data name="CustomEditors_Text6" xml:space="preserve">
+    <value>You need to use grid's &lt;b&gt;OnClientCellEditEnding&lt;/b&gt; event and set&lt;/br&gt;&lt;pre&gt;&lt;/br&gt;cellEditEndingEventArgs.cancel = true;&lt;/br&gt;&lt;/pre&gt;&lt;/br&gt;to apply your updates.</value>
+  </data>
+  <data name="CustomEditors_Text7" xml:space="preserve">
+    <value>Then you need to consider when to update the cell value and remove the editor from a grid in your application.&lt;/br&gt;For example, when the editor blurs, we need to update the cell value and remove the editor.</value>
+  </data>
+  <data name="CustomEditors_Text8" xml:space="preserve">
+    <value>In this sample, the "Product" column uses &lt;input /&gt; as the editor.</value>
+  </data>
+  <data name="CustomEditors_Text9" xml:space="preserve">
+    <value>To get the binding column in the event handler, please use the MultiRow's &lt;b&gt;getBindingColumn&lt;/b&gt; function.</value>
+  </data>
+  <data name="CustomEditors_Text10" xml:space="preserve">
+    <value>In this sample, "Amount2" and "Active" use grid's internal editor. Here, you do not need to do anything.</value>
+  </data>
+  <data name="CustomEditors_Text11" xml:space="preserve">
+    <value>Using C1 Input controls which have "Value" or "Text" property</value>
+  </data>
+  <data name="CustomEditors_Text12" xml:space="preserve">
+    <value>Using other control or a C1 control which has NO "Value" or "Text" property</value>
+  </data>
+  <data name="CustomEditors_Text13" xml:space="preserve">
+    <value>Using grid's internal editor</value>
+  </data>
+  <data name="DataMap_Text0" xml:space="preserve">
+    <value>Data maps provide a grid with automatic look-up capabilities. For example, you may want to display a customer's name instead of his/her ID, or a color name instead of its RGB value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;&lt;/br&gt;Columns with an associated data map, in this sample, show drop-down buttons that can be used for quick editing. If you do not want to show the drop-down buttons, set the column's &lt;b&gt;ShowDropDown&lt;/b&gt; property to false.</value>
+  </data>
+  <data name="DataMap_Text1" xml:space="preserve">
+    <value>Multi-column Data Map</value>
+  </data>
+  <data name="DataMap_Text2" xml:space="preserve">
+    <value>The columns of &lt;b&gt;MultiRow&lt;/b&gt; control have a &lt;b&gt;DropDownCssClass&lt;/b&gt; property that enables styling the drop-downs, used to edit values in data-mapped columns.</value>
+  </data>
+  <data name="DataMap_Text3" xml:space="preserve">
+    <value>To see the multi-column editor in action, click one of the drop-down buttons in the "Color" column,&lt;/br&gt;or select a cell in that column and press F4:</value>
+  </data>
+  <data name="DisableServerRead_Text0" xml:space="preserve">
+    <value>This sample shows how to disable server-side reading in MultiRow control.</value>
+  </data>
+  <data name="DisableServerRead_Text1" xml:space="preserve">
+    <value>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for. When it is set to True, all the items will be transferred to the client side and the operations like sorting, paging, and filtering will be done on the client side.&lt;/br&gt;Hence, "Loading..." text is not shown while loading the data when the scrollbar scrolls.&lt;/br&gt;Otherwise, sorting, paging or filtering will be done at the server side, and sometimes "Loading..." text will be shown.</value>
+  </data>
+  <data name="DisableServerRead_Text2" xml:space="preserve">
+    <value>MultiRow without paging</value>
+  </data>
+  <data name="DisableServerRead_Text3" xml:space="preserve">
+    <value>Paging MultiRow which PageSize is set to 10</value>
+  </data>
+  <data name="Editing_Text0" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with 'Edit' buttons that switch between display and edit modes.</value>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>Users can start editing simply by typing into any cell. This puts the cell in 'quick-edit' mode.&lt;/br&gt;In this mode, pressing the cursor keys completes the editing and the grid moves the selection.</value>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>Another way to begin in-cell editing is by pressing F2 or by clicking a cell twice.&lt;/br&gt;This puts the cell in 'full-edit' mode. In this mode, the cursor keys move the caret within the cell text and the user must press the Enter, Tab, or Escape keys to complete editing.</value>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Disable Editing&lt;/b&gt;&lt;/br&gt;You can disable editing at grid or column levels using the &lt;b&gt;IsReadOnly&lt;/b&gt;&lt;/br&gt;property of grid or column objects.</value>
+  </data>
+  <data name="Editing_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Mobile Devices:&lt;/b&gt;&lt;/br&gt;Mobile devices use the &lt;b&gt;double-click&lt;/b&gt; event to zoom in and out, and do not show&lt;/br&gt;keyboard by default. To start editing a cell on mobile devices, users need to simply click&lt;/br&gt;a cell to select it, then click it again to indicate they want to start editing.</value>
+  </data>
+  <data name="Editing_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Automatic Type Validation/Coercion:&lt;/b&gt;&lt;/br&gt;If the user types anything that is invalid for a column (e.g. "hello" for a&lt;/br&gt;numeric or date column), the edits won't be applied and the cell will keep its&lt;/br&gt;original value. Dates and times are parsed using the format assigned to the&lt;/br&gt;column.</value>
+  </data>
+  <data name="Editing_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Checkbox:&lt;/b&gt;&lt;/br&gt;By default (and unlike Microsoft Excel), Boolean values are shown as checkboxes. Users&lt;/br&gt;can change the checkbox values by clicking or by pressing the space bar.&lt;/br&gt;Checkboxes are easier to read and to edit than fields containing "TRUE" or&lt;/br&gt;"FALSE" strings.</value>
+  </data>
+  <data name="Editing_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Update Modes:&lt;/b&gt;&lt;/br&gt;The edited data gets updated to the datasource server, by default, once editing is done.&lt;/br&gt;This is the normal update mode, for which users need to provide the Update, the Delete or the Create action url.&lt;/br&gt;And the corresponding codes used to update the datasource should be written in the corresponding action.&lt;/br&gt;However, users can also update, create or remove multiple items and commit them to the data source only once.&lt;/br&gt;This is the batch update mode, for which users need to provide the BatchEditing action Url.</value>
+  </data>
+  <data name="Editing_Text8" xml:space="preserve">
+    <value>&lt;input type="button" value="Read More" class="btn collapse in" data-toggle="collapse" data-target=".collapsed-content, .btn.collapse" /&gt;</value>
+  </data>
+  <data name="Editing_Text9" xml:space="preserve">
+    <value>Here is a typical editable MultiRow:</value>
+  </data>
+  <data name="Editing_Text10" xml:space="preserve">
+    <value>Popup editing keeps the native editing enabled for quick Microsoft Excel-like data entry, and adds an "Edit Detail" button to invoke a form where the user can edit the item details.</value>
+  </data>
+  <data name="Editing_Text11" xml:space="preserve">
+    <value>To see this in action, select an item on the grid and click the "Edit Detail" button above.&lt;/br&gt;This will bring up a form where users can edit the data for the currently selected item.</value>
+  </data>
+  <data name="Editing_Text12" xml:space="preserve">
+    <value>The detail form uses specialized input controls that take up more space but can make data entry easier in some cases. The form has "OK" and "Cancel" buttons that commit the changes or restore the original data. Both actions are accomplished with a single call to the &lt;b&gt;CollectionView&lt;/b&gt; used as a data source for the grid.</value>
+  </data>
+  <data name="Editing_Text13" xml:space="preserve">
+    <value>If for some reason you do not need the Microsoft Excel-style editing and prefer to add editing buttons to every row (typical of editable HTML tables), you can accomplish that by using &lt;b&gt;ItemFormatter&lt;/b&gt; and a few controller methods.&lt;/br&gt;To get the binding column in the ItemFormatter event handler, please use the MultiRow's &lt;b&gt;getBindingColumn&lt;/b&gt; function.</value>
+  </data>
+  <data name="Editing_Text14" xml:space="preserve">
+    <value>The grid below demonstrates this approach. The buttons in the cells call the methods in the controller to perform the required actions:</value>
+  </data>
+  <data name="ExcelExport_Text0" xml:space="preserve">
+    <value>The sample demonstrates how to export the contents of &lt;b&gt;MultiRow&lt;/b&gt; control to an Excel (xlsx) format.</value>
+  </data>
+  <data name="ExcelExport_Text1" xml:space="preserve">
+    <value>To export &lt;b&gt;MultiRow&lt;/b&gt; contents, pass the &lt;b&gt;MultiRow&lt;/b&gt; instance to the &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; method.&lt;/br&gt;This generates xlsx file content, which can be saved to a local file or sent to a server.</value>
+  </data>
+  <data name="ExcelExport_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt; You must add a &lt;b&gt;jszip.js&lt;/b&gt; library to your application. Its CDN link is: &lt;a href="http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js"&gt;http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js&lt;/a&gt;</value>
+  </data>
+  <data name="Freezing_Text0" xml:space="preserve">
+    <value>This sample shows how to use frozen cells feature in the MultiRow control.</value>
+  </data>
+  <data name="Freezing_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control allows you to freeze rows and columns so they remain in view as the user scrolls the grid.&lt;/br&gt;Frozen cells can be edited and selected as regular cells, same as in Microsoft Excel and in the FlexGrid control.</value>
+  </data>
+  <data name="Grouping_Text0" xml:space="preserve">
+    <value>This sample shows how to use grouping support in the &lt;b&gt;MultiRow&lt;/b&gt; control. Most of the work is done by the CollectionView class, which is used as a data source for the grid.&lt;/br&gt;You can configure group description by &lt;b&gt;GroupBy&lt;/b&gt; method in view.&lt;/br&gt;To add grouping by Javascript, add one or more &lt;b&gt;GroupDescription&lt;/b&gt; objects to the &lt;b&gt;CollectionView.GroupDescriptions&lt;/b&gt; property.&lt;/br&gt;And ensure that the MultiRow's &lt;b&gt;ShowGroups&lt;/b&gt; property is set to true.</value>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>You can customize the text that is displayed in group header rows using the MultiRow's &lt;b&gt;GroupHeaderFormat&lt;/b&gt; property.&lt;/br&gt;By default, this displays the name of the group, for example, State, followed by the current group and the number of items in the group.</value>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>Traditional grid view, with one row per record.The user must scroll horizontally to see the whole record.</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>This view uses two rows per record. The layout is divided into three groups: order, customer, and shipper.</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>This view uses three rows per record. The layout is divided into three groups: order, customer, and shipper.</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>The MultiRow control extends conventional grid layouts by using multiple rows to represent each data item.</value>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control extends conventional grid layouts by using multiple rows to represent each data item.</value>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control allows users to see and edit data in a tabular format, just like other conventional grids.&lt;/br&gt;However, &lt;b&gt;MultiRow&lt;/b&gt; is different from these grids in a way that it allows you to bind each data item to multiple rows,&lt;/br&gt;creating form-like interfaces that can display a large number of columns with minimal horizontal scrolling.</value>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control extends the &lt;b&gt;FlexGrid&lt;/b&gt; control, so if you know how to use &lt;b&gt;FlexGrid&lt;/b&gt;, you will be able to use &lt;b&gt;MultiRow&lt;/b&gt; in no time.&lt;/br&gt;The main new property is &lt;b&gt;LayoutDefinition&lt;/b&gt;, which takes an object that describes the layout of the grid rows and cells.</value>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRow&lt;/b&gt; control is not a simple replacement for conventional grids; it is a specialized tool that fits some particular scenarios really well.</value>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>The &lt;b&gt;LayoutDefinition&lt;/b&gt; property specifies the layout of cells in a grid.&lt;/br&gt;It contains a list of cell group objects. Each cell group specifies how many columns the group should span, and the cells that make up each group.</value>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>The image below illustrates how a cell group is interpreted and turned into a grid layout:&lt;/br&gt;</value>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>Here, the group spans three grid columns. It contains six cells with different spans.&lt;/br&gt;When generating the layout, the grid fits as many cells as possible in each row, and wraps to the next row when the group span is reached.&lt;/br&gt;The last cell in each row is automatically expanded to fill &lt;b&gt;Colspan&lt;/b&gt; of the group.&lt;/br&gt;The process is similar to wrapping of text to create a paragraph.</value>
+  </data>
+  <data name="Index_Text11" xml:space="preserve">
+    <value>The same process is applied to every group in the &lt;b&gt;LayoutDefinition&lt;/b&gt; object.</value>
+  </data>
+  <data name="Paging_Text0" xml:space="preserve">
+    <value>This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt; control.&lt;/br&gt; All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class, which is used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.</value>
+  </data>
+  <data name="Paging_Text1" xml:space="preserve">
+    <value>In this example, paging happens on server-side. This is because &lt;b&gt;CollectionView&lt;/b&gt; here acts like a service and synchronizes with server data. The &lt;b&gt;CollectionView&lt;/b&gt; internally does an ajax call to fetch next set of data. Refer @Html.ActionLink("Disable Server Reading", "DisableServerRead") sample for client-side paging.</value>
+  </data>
+  <data name="Paging_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Note:&lt;/b&gt; The paging UI is implemented outside the grid. This gives you complete control over the appearance and functionality of the paging mechanism.&lt;/br&gt;To customize the &lt;b&gt;Pager&lt;/b&gt; control by Javascript, refer the client &lt;b&gt;CollectionView&lt;/b&gt; class.</value>
+  </data>
+  <data name="PdfExport_Text0" xml:space="preserve">
+    <value>You can use the &lt;b&gt;FlexGridPdfConverter&lt;/b&gt;, a &lt;a href="https://github.com/devongovett/pdfkit"&gt;PDFKit&lt;/a&gt;-based JavaScript library,&lt;/br&gt;to export the contents of &lt;b&gt;MultiRow&lt;/b&gt; control to PDF (Portable Document Format) without using any server-side code.</value>
+  </data>
+  <data name="PdfExport_Text1" xml:space="preserve">
+    <value>To export the contents of &lt;b&gt;MultiRow&lt;/b&gt; control, you need to use the &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; function that takes the following arguments:</value>
+  </data>
+  <data name="PdfExport_Text2" xml:space="preserve">
+    <value>In this sample, you can change the following export settings by using the menus below:</value>
+  </data>
+  <data name="PdfExport_Text3" xml:space="preserve">
+    <value>In this sample, &lt;b&gt;MultiRow&lt;/b&gt; uses font &lt;a href="https://github.com/mozilla/Fira"&gt;Fira&lt;/a&gt; and two typefaces, &lt;b&gt;FiraSans-Regular.ttf&lt;/b&gt; and &lt;b&gt;FiraSans-Bold.ttf&lt;/b&gt;.&lt;/br&gt;The FiraSans-Bold.ttf (boldface) typeface is used to display the header cells, and the FiraSans-Regular.ttf typeface is used for the rest of the content.</value>
+  </data>
+  <data name="PdfExport_Text4" xml:space="preserve">
+    <value>To embed the fonts in the PDF, the following export settings are used:</value>
+  </data>
+  <data name="PdfExport_Text5" xml:space="preserve">
+    <value>A MultiRow instance</value>
+  </data>
+  <data name="PdfExport_Text6" xml:space="preserve">
+    <value>Name of the file to export</value>
+  </data>
+  <data name="PdfExport_Text7" xml:space="preserve">
+    <value>Export settings</value>
+  </data>
+  <data name="PdfExport_Text8" xml:space="preserve">
+    <value>&lt;b&gt;scaleMode&lt;/b&gt;: Determines how the MultiRow contents should be scaled in order to fit the page.</value>
+  </data>
+  <data name="PdfExport_Text9" xml:space="preserve">
+    <value>&lt;b&gt;orientation&lt;/b&gt;: Determines the orientation of pages.</value>
+  </data>
+  <data name="PdfExport_Text10" xml:space="preserve">
+    <value>&lt;b&gt;exportMode&lt;/b&gt;: Determines which part of the MultiRow control should be exported (all the data or only the current selection).</value>
+  </data>
+  <data name="PdfExport_Text11" xml:space="preserve">
+    <value>embeddedFonts: Provides information to the export library about various custom fonts to be embedded, such as URL, name, style, weight.</value>
+  </data>
+  <data name="PdfExport_Text12" xml:space="preserve">
+    <value>&lt;b&gt;styles&lt;/b&gt;: It is used to set up the style for the grid elements and link them with the embedded fonts.</value>
+  </data>
+  <data name="PdfExport_Text13" xml:space="preserve">
+    <value>Export Settings:</value>
+  </data>
+  <data name="Styling_Text0" xml:space="preserve">
+    <value>This sample shows how you can use built-in class names in CSS rules to customize the appearance of the record and group delimiters.</value>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>In most of the applications, you would want to show where each record and group starts or ends.&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; control enables this by adding CSS class names to cell elements in the first and last row/column of each group.&lt;/br&gt;The class names are wj-record-start, wj-record-end, wj-group-start, and wj-group-end.</value>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>This example shows how you can use these class names in CSS rules to customize the appearance of the record and group delimiters.&lt;/br&gt;It also shows how you can use the standard &lt;b&gt;CssClass&lt;/b&gt; property to customize the appearance of specific cells within groups.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Text0" xml:space="preserve">
+    <value>This sample shows how to use unobtrusive validation in the MultiRow control.</value>
+  </data>
+  <data name="UnobtrusiveValidation_Text1" xml:space="preserve">
+    <value>The columns have the following validations:&lt;/br&gt;&lt;ul&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Name:&lt;/b&gt; Required. Alphanumeric and contains 4 to 10 characters.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Industry:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Country:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Phone:&lt;/b&gt; Required. 8 to 11 characters.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Email:&lt;/b&gt; Required. Valid e-mail address.&lt;/li&gt;&lt;/br&gt;&lt;li&gt;&lt;b&gt;Birthdate:&lt;/b&gt; Required.&lt;/li&gt;&lt;/br&gt;&lt;/ul&gt;</value>
+  </data>
+  <data name="VirtualScrolling_Text0" xml:space="preserve">
+    <value>This sample shows how to make the MultiRow control work in virtual scrolling mode.</value>
+  </data>
+  <data name="VirtualScrolling_Text1" xml:space="preserve">
+    <value>To enable this functionality, the &lt;b&gt;DisableServerRead&lt;/b&gt; property should be set to false (default).&lt;/br&gt;Then the &lt;b&gt;InitialItemsCount&lt;/b&gt; property should be set to a number that is greater than 0.</value>
+  </data>
+  <data name="BatchEditing_Text9" xml:space="preserve">
+    <value>This sample shows the Batch update mode for updating the MultiRow data to server.</value>
+  </data>
+  <data name="DataMap_Text4" xml:space="preserve">
+    <value>This sample demonstrates how to use data map feature, which provides the MultiRow control with automatic look-up capabilities.</value>
+  </data>
+  <data name="Editing_Text15" xml:space="preserve">
+    <value>Inline editing</value>
+  </data>
+  <data name="Editing_Text16" xml:space="preserve">
+    <value>Popup editing</value>
+  </data>
+  <data name="Editing_Text17" xml:space="preserve">
+    <value>Excel-Style editing</value>
+  </data>
+  <data name="Editing_Text18" xml:space="preserve">
+    <value>Editing</value>
+  </data>
+  <data name="Editing_Text19" xml:space="preserve">
+    <value>This sample shows how to edit cell data in various ways.</value>
+  </data>
+  <data name="Editing_Text20" xml:space="preserve">
+    <value>Edit Detail...</value>
+  </data>
+  <data name="Editing_Text21" xml:space="preserve">
+    <value>OK</value>
+  </data>
+  <data name="Editing_Text22" xml:space="preserve">
+    <value>Address</value>
+  </data>
+  <data name="Editing_Text23" xml:space="preserve">
+    <value>City</value>
+  </data>
+  <data name="Editing_Text24" xml:space="preserve">
+    <value>Region</value>
+  </data>
+  <data name="Editing_Text25" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="Editing_Text26" xml:space="preserve">
+    <value>Contact Title</value>
+  </data>
+  <data name="Editing_Text27" xml:space="preserve">
+    <value>Contact Name</value>
+  </data>
+  <data name="Editing_Text28" xml:space="preserve">
+    <value>Company Name</value>
+  </data>
+  <data name="Editing_Text29" xml:space="preserve">
+    <value>Supplier ID</value>
+  </data>
+  <data name="Editing_Text30" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="Filter_Text0" xml:space="preserve">
+    <value>This sample shows how to use filtering in the MultiRow control.</value>
+  </data>
+  <data name="GroupPanel_Text0" xml:space="preserve">
+    <value>The Group Panel feature allows you to add a drag-drop grouping UI to any MultiRow control.</value>
+  </data>
+  <data name="Index_Text12" xml:space="preserve">
+    <value>LayoutDefinition</value>
+  </data>
+  <data name="PdfExport_Text14" xml:space="preserve">
+    <value>This sample demonstrates how to export the contents of MultiRow to PDF (Portable Document Format) using the FlexGridPdfConverter, a PDFKit-based JavaScript library, without using any server-side code.</value>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>This sample shows how you can bind MultiRow control to some data using Action.</value>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>In this sample, you can sort the collection based on the corresponding field value chosen in the first list. 
+    You can also specify the sorting order in the second list.</value>
+  </data>
+  <data name="Sorting_Text1" xml:space="preserve">
+    <value>This sample demonstrates how to use sort feature in the MultiRow control.</value>
+  </data>
+  <data name="Sorting_Text2" xml:space="preserve">
+    <value>Sorting Order :</value>
+  </data>
+  <data name="Sorting_Text3" xml:space="preserve">
+    <value>Sorting Field :</value>
+  </data>
+  <data name="_Layout_Text0" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners.</value>
+  </data>
+  <data name="Error_Text0" xml:space="preserve">
+    <value>Error.</value>
+  </data>
+  <data name="Error_Text1" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="_ControlLayout_Text0" xml:space="preserve">
+    <value>Sample</value>
+  </data>
+  <data name="_ControlLayout_Text1" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="_ControlLayout_Text2" xml:space="preserve">
+    <value>Documentation</value>
+  </data>
+  <data name="_ControlLayout_Text3" xml:space="preserve">
+    <value>Settings</value>
+  </data>
+  <data name="_ControlsNav_Text0" xml:space="preserve">
+    <value>Features</value>
+  </data>
+  <data name="_Layout_Text1" xml:space="preserve">
+    <value>ComponentOne</value>
+  </data>
+  <data name="_Layout_Text2" xml:space="preserve">
+    <value>MVC MultiRow Explorer</value>
+  </data>
+  <data name="_Layout_Text3" xml:space="preserve">
+    <value>ASP.NET MVC Edition MultiRow Explorer</value>
+  </data>
+  <data name="_SiteNav_Text0" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="_SiteNav_Text1" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="_SiteNav_Text2" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="_SiteNav_Text3" xml:space="preserve">
+    <value>FREE TRIAL</value>
+  </data>
+  <data name="_SiteNav_Text4" xml:space="preserve">
+    <value>Edit Theme &amp;gt;</value>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.css</value>
+  </data>
+  <data name="_Layout_Text4" xml:space="preserve">
+    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+  </data>
+  <data name="_SiteNav_Text5" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/aspnet-mvc-ui-controls</value>
+  </data>
+  <data name="_SiteNav_Text6" xml:space="preserve">
+    <value>https://www.grapecity.com/my-account/my-support</value>
+  </data>
+  <data name="_SiteNav_Text7" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/pricing</value>
+  </data>
+  <data name="_SiteNav_Text8" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/download</value>
+  </data>
+  <data name="PdfExport_Text15" xml:space="preserve">
+    <value>Embed Fonts</value>
+  </data>
+  <data name="PdfExport_Text16" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="_ControlLayout_Text4" xml:space="preserve">
+    <value>Description</value>
+  </data>
+  <data name="_Layout_Text5" xml:space="preserve">
+    <value>C1 ASP.NET MVC</value>
+  </data>
+  <data name="Editing_Text31" xml:space="preserve">
+    <value>Cancel</value>
+  </data>
+  <data name="ExcelExport_Text3" xml:space="preserve">
+    <value>Export</value>
+  </data>
+  <data name="Index_Text13" xml:space="preserve">
+    <value>~/Content/images/cellGroup.png</value>
+  </data>
+  <data name="CustomEditors_Text14" xml:space="preserve">
+    <value>New row at top:</value>
+  </data>
+  <data name="CustomEditors_Text15" xml:space="preserve">
+    <value>This sample uses the property &lt;b&gt;NewRowAtTop&lt;/b&gt; displaying as checkbox to enable adding new row at the top or bottom of the grid.</value>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;MultiRowGroupHeaders&lt;/b&gt; property determines whether group headers should have multiple rows instead of a single header row, which is useful when you want to display aggregate values in the group headers.</value>
+  </data>
+  <data name="CustomColumnHeader_Text0" xml:space="preserve">
+    <value>The &lt;b&gt;HeaderLayoutDefinition&lt;/b&gt; property defines the layout of the rows used to display the grid's column headers. The array contains a list of cell group objects similar to those used with the LayoutDefinition property.</value>
+  </data>
+  <data name="RowHeader_Description_Text0" xml:space="preserve">
+    <value>The layout is divided into three groups: customer, order, and shipper. Customer is a row header group.
+        Setting the &lt;b&gt;IsRowHeader&lt;/b&gt; property to true automatically sets the cell's &lt;b&gt;IsReadOnly&lt;/b&gt; property to true (headers cannot be edited),
+        adds a 'wj-header' style to the cell's &lt;b&gt;CssClass&lt;/b&gt; property (so the cells are styled as headers),
+        and sets the cell's &lt;b&gt;CellTemplate&lt;/b&gt; property to its &lt;b&gt;Header&lt;/b&gt; value (so the cell shows the header as an unbound string).
+        You may choose to set the cell's &lt;b&gt;Binding&lt;/b&gt; property instead of &lt;b&gt;Header&lt;/b&gt; if you want to show
+        bound values in the row header cells.</value>
+  </data>
+  <data name="RowHeader_Summary_Text0" xml:space="preserve">
+    <value>The IsRowHeader property of the cell groups allows you to create groups to be displayed as row header cells.</value>
+  </data>
+  <data name="BatchEditing_Text10" xml:space="preserve">
+    <value>Update</value>
+  </data>
+  <data name="Grouping_Text3" xml:space="preserve">
+    <value>Collapse All</value>
+  </data>
+  <data name="Grouping_Text4" xml:space="preserve">
+    <value>Expand All</value>
+  </data>
+  <data name="GroupPanel_Text1" xml:space="preserve">
+    <value>Drag columns here to create Groups</value>
+  </data>
+  <data name="GroupPanel_Text2" xml:space="preserve">
+    <value>Drag columns here...</value>
+  </data>
+  <data name="BatchEditing_Text11" xml:space="preserve">
+    <value>Updating...</value>
+  </data>
+  <data name="BatchEditing_Text12" xml:space="preserve">
+    <value>No changes.</value>
+  </data>
+  <data name="BatchEditing_Text13" xml:space="preserve">
+    <value>Done.</value>
+  </data>
+</root>

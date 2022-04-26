@@ -1,0 +1,71 @@
+﻿@model IEnumerable<SalesAnalysis>
+
+@section Scripts{
+<script>
+
+    function setProperty(control, property, value) {
+        control.series.forEach(function (serie) {
+            serie[property] = value;
+        });
+    }
+
+    function customChangeGroupWidth(control, value) {
+        setProperty(control, 'groupWidth', value);
+    }
+
+    function customChangeGapWidth(control, value) {
+        setProperty(control, 'gapWidth', value);
+    }
+
+    function customChangeShowMeanLine(control, value) {
+        setProperty(control, 'showMeanLine', value);
+    }
+
+    function customChangeShowMeanMarker(control, value) {
+        setProperty(control, 'showMeanMarker', value);
+    }
+
+    function customChangeShowInnerPoints(control, value) {
+        setProperty(control, 'showInnerPoints', value);
+    }
+
+    function customChangeShowOutliers(control, value) {
+        setProperty(control, 'showOutliers', value);
+    }
+
+    function customChangeRotated(control, value) {
+        control.rotated = value;
+    }
+
+    function customChangeShowLabel(control, value) {
+        control.dataLabel.content = value ? '{y}' : '';
+    }
+    
+    function customChangeQuartileCalculation(control, value) {
+        setProperty(control, 'quartileCalculation', value);
+    }
+
+</script>
+}
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var showOutliers = demoSettingsModel.GetBool("ShowOutliers", false);
+}
+
+@(Html.C1().FlexChart()
+    .Id(demoSettingsModel.ControlId)
+    .Rotated(demoSettingsModel.GetBool("Rotated", false))
+    .Bind("Country", "Downloads", Model)
+    .Series(ser =>
+    {
+        ser.AddBoxWhisker().Name("Downloads").ShowOutliers(showOutliers);
+        ser.AddBoxWhisker().Binding("Sales").Name("Sales").ShowOutliers(showOutliers);
+        ser.AddBoxWhisker().Binding("Queries").Name("Queries").ShowOutliers(showOutliers);
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.BoxWhisker_Text0)</p>
+}

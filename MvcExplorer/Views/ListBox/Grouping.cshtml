@@ -1,0 +1,30 @@
+﻿@model IEnumerable<Supplier>
+
+@(Html.C1().CollectionViewService<Supplier>().Bind(Model).Id("collectionViewService").GroupBy("Country"))
+
+<div>
+    <h2>
+        @Html.Raw(Resources.ListBox.Grouping_Text0)
+    </h2>
+    <p>
+        @Html.Raw(Resources.ListBox.Grouping_Text1)
+    </p>
+    <p>
+        @Html.Raw(Resources.ListBox.Grouping_Text2)
+    </p>
+    <p>
+        @Html.Raw(Resources.ListBox.Grouping_Text3)
+    </p>
+</div>
+<div>
+    @(Html.C1().ListBox()
+        .ShowGroups(true)
+        .DisplayMemberPath("CompanyName")
+        .ItemsSourceId("collectionViewService")
+        .Width(250).Height(200))
+</div>
+
+
+@section Description{
+    @Html.Raw(Resources.ListBox.Grouping_Text4)
+}

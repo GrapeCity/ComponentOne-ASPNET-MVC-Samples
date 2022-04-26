@@ -1,0 +1,20 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputMaskMaskFull_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputMaskMaskFull_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputMaskMaskFull_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="clearIncomplete">@Html.Raw(Resources.C1Input.InputMaskMaskFull_Text3) </label>
+    <input id="clearIncomplete" type="checkbox" checked="true"><br />
+</div>
+
+@Html.C1().InputMask().Id("theSSN").Mask("000-00-0000").Placeholder(Resources.C1Input.InputMaskMaskFull_Text4).IsRequired(false).Value("")
+@Html.C1().InputMask().Id("theZip").Mask("00000").Placeholder(Resources.C1Input.InputMaskMaskFull_Text5).IsRequired(false).Value("")
+@Html.C1().InputMask().Id("theZip4").Mask("00000-0000").Placeholder(Resources.C1Input.InputMaskMaskFull_Text6).IsRequired(false).Value("")
+@Html.C1().InputMask().Id("thePhone").Mask("(999) 000-0000").Placeholder(Resources.C1Input.InputMaskMaskFull_Text7).IsRequired(false).Value("")

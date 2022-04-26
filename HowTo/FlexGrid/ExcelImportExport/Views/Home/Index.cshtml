@@ -1,0 +1,301 @@
+﻿@model ExcelImportExport.Models.FlexGridModel
+
+@{
+    ViewBag.Title = "C1 ASP.NET MVC Excel Import Export";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!-- App scripts -->
+<script src="@Url.Content("~/Scripts/app.js")" type="text/javascript"></script>
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            C1 ASP.NET MVC Excel Import Export
+        </h1>
+        <p>
+            This page shows how to use Excel Import and Export feature with C1 ASP.NET MVC FlexGrid control.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <p>
+        The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file.
+    </p>
+    <p>
+        To export FlexGrid content, pass the FlexGrid instance to the <b>FlexGridXlsxConverter.save</b> method.
+        This generates xlsx file content, which can be saved to a local file or sent to a server.
+    </p>
+    <p>
+        To populate FlexGrid with data from an xlsx file, pass the FlexGrid instance and the xlsx file content to the
+        <b>FlexGridXlsxConverter.load</b> method.
+    </p>
+    <div class="row">
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <input type="file" class="form-control" id="importFile" accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                <button class="btn btn-default" onclick="importExcel()">Import</button>
+                <br />
+                <div class="checkbox">
+                    <label>
+                        <input id="IncludeHeadersImport" type="checkbox" checked="checked"> Include Column Headers
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <div class="form-inline well well-lg">
+                <a href="#" class="btn btn-default" id="export" onclick="exportExcel()">Export</a>
+                <div class="checkbox">
+                    <label>
+                        <input id="IncludeHeadersExport" type="checkbox" checked="checked"> Include Column Headers
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- the flex grid -->
+    <div class="row">
+        @(Html.C1().FlexGrid().Id("gFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                    .GroupBy(Model.GroupBy).CssStyle("max-height", "400px").IsReadOnly(true)
+            .Bind(bl => bl.DisableServerRead(true).Bind(Model.CountryData)).CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product").Width("*"));
+                        bl.Add(cb => cb.Binding("Color").Header("Color").Width("*"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Width("*"));
+                        bl.Add(cb => cb.Binding("Amount").Header("Amount").Format("n0").Width("*")
+                            .Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum));
+                    })
+        )
+    </div>
+    <div class="row appCopy">
+        <div class="col-md-6 col-xs-12">
+            <h2>Import</h2>
+            <p>
+                The <b>load</b> function, implemented in the <b>wijmo.grid.xlsx</b> module,
+                takes an Excel file's content as input, parses it using the <b>FlexGridXlsxConverter.load</b>
+                method, and fills the specified FlexGrid instance with the parsed data.
+            </p>
+            <p>
+                The <b>importExcel</b> function, implemented in the <b>Scripts\app.js</b>
+                file, reads the selected file content from the disk and passes it to the
+                <b>FlexGridXlsxConverter.load</b> function, along with the FlexGrid instance
+                defined on the HTML page.
+            </p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <app-tab>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#iHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#iJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#iCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="iHtml">
+
+&lt;input 
+  type="file" 
+  class="form-control" 
+  id="importFile" 
+  accept=
+   "application/vnd.openxmlformats-officedocument.spreadsheetml.sheet"
+ /&gt;
+&lt;button 
+  class="btn btn-default" 
+  onclick="importExcel()"&gt;Import&lt;/button&gt;
+&lt;div class="checkbox"&gt;
+    &lt;label&gt;
+        &lt;input type="checkbox" id="IncludeHeadersImport" checked="checked" /&gt; 
+            Include Column Headers
+    &lt;/label&gt;
+&lt;/div&gt;
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="iJS">
+
+var gFlexGrid = null,
+    IncludeHeadersImport = null;
+
+$(document).ready(function () {
+    gFlexGrid = wijmo.Control.getControl("#gFlexGrid");
+    IncludeHeadersImport = document.getElementById('IncludeHeadersImport');
+});
+
+// import
+function importExcel() {
+    if (gFlexGrid) {
+        if ($('#importFile')[0].files[0]) {
+            wijmo.grid.xlsx.FlexGridXlsxConverter.load(gFlexGrid, $('#importFile')[0].files[0], { includeColumnHeaders: IncludeHeadersImport.checked });
+        }
+        else {
+            alert('Select an Excel file to Import.');
+        }
+    }
+};
+                        
+
+                        </div>
+                            <div class="tab-pane pane-content" id="iCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ExcelImportExport.Models;
+using C1.Web.Mvc.FlexGrid;
+
+namespace ExcelImportExport.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            model.GroupBy = new string[] { "Country", "Product", "Color" };
+            return View(model);
+        }
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </app-tab>
+        </div>
+    </div>
+    <div class="row appCopy">
+        <div class="col-md-6 col-xs-12">
+            <h2>Export</h2>
+            <p>
+                The <b>save</b> function, implemented in the <b>wijmo.grid.xlsx</b> module,
+                takes a FlexGrid instance as input, converts its data and formatting
+                to Excel format using the <b>FlexGridXlsxConverter.save</b> method, and
+                returns an object containing content for the Excel file.
+            </p>
+            <p>
+                The <b>exportExcel</b> function, implemented in the
+                <b>Scripts\app.js</b> file, takes this object and saves
+                it to a file on the local disk.
+            </p>
+        </div>
+        <div class="col-md-6 col-xs-12">
+            <app-tab>
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#eHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#eJS" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#eCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="eHtml">
+
+&lt;a 
+    download="FlexGrid.xlsx" 
+    href="" 
+    class="btn btn-default" 
+    id="export" 
+    onclick="exportExcel()"&gt;
+    Export&lt;/a&gt;
+&lt;div class="checkbox"&gt;
+    &lt;label&gt;
+        &lt;input 
+            type="checkbox" 
+            id="IncludeHeadersExport"
+            checked="checked" /&gt; 
+        Include Column Headers
+    &lt;/label&gt;
+&lt;/div&gt;
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="eJS">
+
+var gFlexGrid = null,
+    IncludeHeadersExport = null;
+
+$(document).ready(function () {
+    gFlexGrid = wijmo.Control.getControl("#gFlexGrid");
+    IncludeHeadersExport = document.getElementById('IncludeHeadersExport');
+});
+
+// export 
+function exportExcel() {
+    if (gFlexGrid) {
+        wijmo.grid.xlsx.FlexGridXlsxConverter.save(gFlexGrid, { includeColumnHeaders: IncludeHeadersExport.checked }, 'FlexGrid.xlsx');
+    }
+};
+
+</div>
+                            <div class="tab-pane pane-content" id="eCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using ExcelImportExport.Models;
+using C1.Web.Mvc.FlexGrid;
+
+namespace ExcelImportExport.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            model.GroupBy = new string[] { "Country", "Product", "Color" };
+            return View(model);
+        }
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </app-tab>
+        </div>
+    </div>
+    <h2>Adding it to your application</h2>
+    <p>To add Excel import or export support to your application, follow these steps:</p>
+    <ol>
+        <li>
+            Add <b>C1.Web.Mvc</b> as the reference to your application.
+        </li>
+        <li>
+            In the Layout.cshtml page, add references to the following files.
+            <ul>
+                <li>
+                    The jszip.js library that you can find in the following CDN:
+                    <br />
+                    http://cdnjs.cloudflare.com/ajax/libs/jszip/2.2.1/jszip.min.js
+                </li>
+                <li>The FlexGrid js and css references: @@Html.C1().Resources(typeof(C1Grid))</li>
+            </ul>
+        </li>
+        <li>
+            Add the code from the exportExcel function (on the JS tab in
+            the Export code) that saves the export results to a local file.
+        </li>
+        <li>
+            Add the code from the importExcel function (on the JS tab in
+            the Import code) that reads an Excel file from disk.
+        </li>
+    </ol>
+</div>
+
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            if (window["InitialControls"]) {
+                window["InitialControls"]();
+            }
+        });
+    </script>

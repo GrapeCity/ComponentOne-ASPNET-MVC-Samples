@@ -1,0 +1,31 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.Events_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Events_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Events_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Events_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Events_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Events_Text5)
+</p>
+<p>
+    @(Html.C1().ComboBox()
+    .Id("theComboBox")
+    .Bind((List<string>)ViewBag.Countries))
+
+    @(Html.C1().InputDate().Id("theDate"))
+</p>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1Mvc.Events_Text6)
+    </div>
+</div>

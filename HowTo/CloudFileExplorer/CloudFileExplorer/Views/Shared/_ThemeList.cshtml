@@ -1,8 +1,8 @@
 ﻿<ul>
-    @foreach (var theme in Theme.GetAll())
-    {
-        <li>
-            <a href="@theme.Path" class="theme-selector-link">@theme.DisplayText</a>
-        </li>
-    }
+  @foreach(var theme in CloudFileExplorer.Models.Theme.GetAll())
+  {
+  <li>
+    <a href="@theme.Path" class="theme-selector-link">@theme.DisplayText</a>
+  </li>
+  }
 </ul>

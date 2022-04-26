@@ -1,9 +1,9 @@
-﻿@{
-    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
-    var actionName = ViewContext.RouteData.Values["action"].ToString();
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
     var currentPage = ControlPages.GetControlPage(controllerName, actionName);
 
-    ViewBag.ControllerName = controllerName;
+    ViewBag.ControlName = controllerName;
     ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
     ViewBag.Title = string.Format("{0} - {1}", controllerName, ViewBag.PageText);
     ViewBag.DemoDescription = ViewBag.DemoDescription ?? true;
@@ -28,29 +28,25 @@
 }
 
 @section Styles{
-    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
-    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+    @Styles.Render("~/Content/SyntaxHighlighter/codeHighlight")
     @RenderSection("Styles", false)
 }
 
 @section Scripts{
     <script>
-            var CurrentPageIndex = @ViewBag.CurrentPageIndex;
+        var CurrentPageIndex = @ViewBag.CurrentPageIndex;
     </script>
     <script src="~/Scripts/ControlLayout.js"></script>
-    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
-    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
-    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
-    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
+    @Scripts.Render("~/bundles/SyntaxHighlighter/codeHighlight")
     @RenderSection("Scripts", false)
 }
 
 <div class="narrow-screen features-bar">
     <span>Features <span class="wj-glyph-down"></span></span>
     <ul class="narrow-screen features-nav">
-        @foreach (var controlPage in ViewBag.Pages)
+        @foreach (var page in ViewBag.Pages)
         {
-            <li><a href="@controlPage.Path">@controlPage.Text</a></li>
+            <li><a href="@page.Path">@page.Text</a></li>
         }
     </ul>
 </div>
@@ -61,15 +57,15 @@
         <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
         <div class="description">@RenderSection("Summary", false)</div>
     </div>
-    @await Html.PartialAsync("_ControlsNav")
+    @Html.Partial("_ControlsNav")
 </div>
 <div class="col-md-9">
     <div class="padder">
         <div>
             <ul id="navList" class="nav nav-tabs">
-                <li><a class="semi-bold">@Html.Raw(TransposedGridRes._ControlLayout_Text0)</a></li>
-                <li><a class="semi-bold">@Html.Raw(TransposedGridRes._ControlLayout_Text1)</a></li>
-                <li><span onclick="gotoDoc('@ViewBag.DocLink')" class="doc-tab semi-bold">@Html.Raw(TransposedGridRes._ControlLayout_Text2)</span></li>
+                <li><a class="semi-bold">@Html.Raw(Resources.TransposedGrid._ControlLayout_Text0)</a></li>
+                <li><a class="semi-bold">@Html.Raw(Resources.TransposedGrid._ControlLayout_Text1)</a></li>
+                <li><span onclick="gotoDoc('@ViewBag.DocLink')" class="doc-tab semi-bold">@Html.Raw(Resources.TransposedGrid._ControlLayout_Text2)</span></li>
             </ul>
             <div id="panelList" class="tab-content">
                 <div class="tab-pane pane-content active collapse-panel" id="sample">
@@ -78,7 +74,7 @@
                         if (ViewBag.DemoDescription)
                         {
                             <div class="demo-description">
-                                <h3 class="semi-bold">@Html.Raw(TransposedGridRes.ControlLayout_Description)</h3>
+                                <h3 class="semi-bold">@Html.Raw(Resources.TransposedGrid.ControlLayout_Description)</h3>
                                 <div>
                                     @RenderSection("Description", false)
                                 </div>
@@ -88,7 +84,7 @@
                 </div>
                 <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
                     <div class="demo-source">
-                        @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                        @Html.Partial("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
                     </div>
                 </div>
             </div>

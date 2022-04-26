@@ -1,0 +1,125 @@
+<h1>
+    @Html.Raw(Resources.C1Input.Dialogs_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.Dialogs_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.Dialogs_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.Dialogs_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.Dialogs_Text4)
+</p>
+
+<button id="btnLogin" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.Dialogs_Text5)
+</button>
+
+<button id="btnCreateAccount" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.Dialogs_Text6)
+</button>
+
+<button id="btnEditAccount" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.Dialogs_Text7)
+</button>
+
+<!-- Log In form -->
+<form id="frmLogin">
+    <h4 class="modal-header">
+        @Html.Raw(Resources.C1Input.Dialogs_Text5)
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text8)
+            <input class="form-control" required type="email" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text9)
+            <input class="form-control" type="password" required pattern=".{4,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 4)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text10)
+            <input type="checkbox" />
+        </label>
+        <a href="" class="wj-hide-create">@Html.Raw(Resources.C1Input.Dialogs_Text11)</a>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">
+            @Html.Raw(Resources.C1Input.Dialogs_Text5)
+        </button>
+    </div>
+</form>
+
+<!-- Create Account form -->
+<form id="frmCreateAccount">
+    <h4 class="modal-header">
+        @Html.Raw(Resources.C1Input.Dialogs_Text6)
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text12)
+            <input id="name" class="form-control" required pattern=".{2,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 2)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text8)
+            <input id="email" class="form-control" type="email" required />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text9)
+            <input id="password" class="form-control" type="password" required pattern=".{4,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 4)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text13)
+            <input id="confirm" class="form-control" type="password" />
+        </label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">
+            @Html.Raw(Resources.C1Input.Dialogs_Text6)
+        </button>
+    </div>
+</form>
+
+<!-- Edit Account form -->
+<form id="frmEditAccount">
+    <h4 class="modal-header">
+        @Html.Raw(Resources.C1Input.Dialogs_Text7)
+        <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+    </h4>
+    <div class="modal-body">
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text8)
+            <input id="email" class="form-control" required type="email" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text14)
+            <input id="password" class="form-control" type="password" required pattern=".{4,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 4)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text15)
+            <input id="newName" class="form-control" required pattern=".{2,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 2)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text16)
+            <input id="newPassword" class="form-control" type="password" required pattern=".{4,}" title="@string.Format(Resources.C1Input.Dialogs_Text19, 4)" />
+        </label>
+        <label>
+            @Html.Raw(Resources.C1Input.Dialogs_Text17)
+            <input id="newConfirm" class="form-control" type="password" />
+        </label>
+    </div>
+    <div class="modal-footer">
+        <button class="btn btn-primary" type="submit">
+            @Html.Raw(Resources.C1Input.Dialogs_Text18)
+        </button>
+    </div>
+</form>
+
+@Html.C1().Popup("#frmLogin")
+@Html.C1().Popup("#frmCreateAccount")
+@Html.C1().Popup("#frmEditAccount")

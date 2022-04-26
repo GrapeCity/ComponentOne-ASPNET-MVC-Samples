@@ -1,0 +1,56 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+
+@section Scripts{
+<script>
+    // Save or restore column layout in localStorage
+    function saveColumnLayout() {
+        var grid = wijmo.Control.getControl("#ovFlexGrid");
+        localStorage['columns'] = grid.columnLayout;
+    }
+    function loadColumnLayout() {
+        var grid = wijmo.Control.getControl("#ovFlexGrid"),
+            columnLayout = localStorage['columns'];
+        if (columnLayout) {
+            grid.columnLayout = columnLayout;
+        }
+    }
+</script>
+}
+
+<input type="button" value="@(Resources.FlexGrid.ColumnLayout_SaveColumnLayout)" class="btn" onclick="saveColumnLayout()" />
+<input type="button" value="@(Resources.FlexGrid.ColumnLayout_LoadColumnLayout)" class="btn" onclick="loadColumnLayout()" />
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("ovFlexGrid")
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.SingleColumn)
+    .SelectionMode(SelectionMode.Cell)
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model))
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+        bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+        bl.Add(cb => cb.Binding("Country").Width("100"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.ColumnLayout_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ColumnLayout_Text1)</p>
+    <ol>
+        <li>@Html.Raw(Resources.FlexGrid.ColumnLayout_Li1)</li>
+        <li>@Html.Raw(Resources.FlexGrid.ColumnLayout_Li2)</li>
+        <li>@Html.Raw(Resources.FlexGrid.ColumnLayout_Li3)</li>
+        <li>@Html.Raw(Resources.FlexGrid.ColumnLayout_Li4)</li>
+    </ol>
+}

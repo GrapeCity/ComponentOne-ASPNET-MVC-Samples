@@ -1,0 +1,87 @@
+﻿@model Property[]
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;  
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        function checkedItemsChanged(treeView) {            
+            //Showing NewItem status
+            var selectedNode = treeView.selectedNode;
+            if (selectedNode) {
+                formatItemRecurrsive(treeView, selectedNode);
+            }
+                        
+            //Showing checked items status list
+            var items = treeView.checkedItems,
+                msg = '';
+            if (items.length) {
+                msg = '<p><b>@Resources.TreeView.Checkboxes_CheckedItems</b></p><ol>\r\n';
+                for (var i = 0; i < items.length; i++) {
+                    if (items[i].NewItem) {
+                        msg += '<li style="color:red">' + items[i].Header + ' <i>(NewItem = true)</i></li>\r\n';
+                    } else {
+                        msg += '<li>' + items[i].Header + ' <i>(NewItem = false)</i></li>\r\n';
+                    }
+                }
+                msg += '</ol>';
+            }
+            document.getElementById('tvChkStatus').innerHTML = msg;            
+        }
+        //Custom Format Item for showing NewItem status
+        function formatItem(treeView, node) {            
+            var imgNewItem = node.element.lastChild;            
+            if (node.dataItem.NewItem) {
+                if (imgNewItem.tagName != "IMG") {
+                    imgNewItem = document.createElement("img");
+                    imgNewItem.setAttribute("style", "height:20px; margin-left:3px; content:url(@Url.Content("~/Content/images/new.png"));");
+                    node.element.appendChild(imgNewItem);
+                }
+            } else if (imgNewItem.tagName == "IMG") {
+                node.element.removeChild(imgNewItem);
+            }
+        }
+        //Custom Format Item and all sub-items
+        function formatItemRecurrsive(treeView, node) {
+            formatItem(treeView, node);
+            var nodes = node.nodes;
+            if (nodes && nodes.length > 0) {
+                for (var i = 0; i < nodes.length; i++) {                    
+                    formatItemRecurrsive(treeView, nodes[i]);
+                }
+            }
+        }
+    </script>
+}
+
+@(Html.C1().TreeView()
+.Bind(Model)
+.DisplayMemberPath("Header")
+.ChildItemsPath("Items")
+.ShowCheckboxes(true)
+.CheckOnClick(Convert.ToBoolean(optionsModel.Options["CheckOnClick"].CurrentValue))
+.CheckedMemberPath(optionsModel.Options["CheckedMemberPath"].CurrentValue)
+.OnClientFormatItem("formatItem")
+.OnClientLoadedItems("checkedItemsChanged")
+.OnClientCheckedItemsChanged("checkedItemsChanged"))
+
+<div id="tvChkStatus"></div>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text1)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text2)</p>
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text3)</p>
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text4)</p>
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text5)</p>
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text6)</p>
+    <p>@Html.Raw(Resources.TreeView.Checkboxes_Text7)</p>
+}

@@ -1,0 +1,57 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Stock>
+
+@{ 
+    var stocks = Model.ToArray();
+    var minDate = stocks[stocks.Length - 1].Date;
+    var maxDate = stocks[0].Date;
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text4)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Stock>().Id("theChart")
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .BindingX("Date")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Candlestick)
+    .Series(sb =>
+    {
+        sb.Add().Binding("High,Low,Open,Close").Name("Alphabet Inc");
+    })
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+)
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text5)
+    @(Html.C1().InputDate().Id("theMonth")
+        .Placeholder(Resources.C1FlexChart.Filtering_Text6)
+        .CssStyle("margin-bottom", "10px")
+        .SelectionMode(DateSelectionMode.Month)
+        .Min(new DateTime(minDate.Year, minDate.Month, 1))
+        .Max(new DateTime(maxDate.Year, maxDate.Month, 1))
+        .Format("MMMM yyyy")
+        .IsRequired(false)
+        .Value(null)
+    )
+    <button id="btnResetFilter" class="btn btn-default">@Resources.Resource.Btn_Reset</button>
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Filtering_Text7)
+    <button id="btnZoomIn" class="btn btn-default">@Resources.Resource.Btn_In</button>
+    <button id="btnZoomOut" class="btn btn-default">@Resources.Resource.Btn_Out</button>
+    <button id="btnResetZoom" class="btn btn-default">@Resources.Resource.Btn_Reset</button>
+    <span>@Resources.C1FlexChart.Filtering_Text8</span>
+</p>

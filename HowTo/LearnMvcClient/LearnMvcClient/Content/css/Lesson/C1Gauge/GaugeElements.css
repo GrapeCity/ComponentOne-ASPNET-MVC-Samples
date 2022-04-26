@@ -1,0 +1,31 @@
+﻿.wj-gauge {
+  width: 50%;
+  height: 150px;
+  margin: 20px auto;
+  padding: 12px;
+  background: rgba(0, 0, 0, .02);
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);  
+}
+.wj-gauge .wj-pointer {
+  fill: black;
+}
+.wj-gauge .wj-face,  
+.wj-gauge .wj-pointer,
+.wj-gauge .wj-thumb,
+.wj-gauge .wj-ranges, 
+.wj-gauge .wj-ticks, 
+.wj-gauge .wj-value,
+.wj-gauge .wj-min,
+.wj-gauge .wj-max {
+  opacity: .25;
+}
+.wj-gauge .wj-face:hover,
+.wj-gauge .wj-pointer:hover,
+.wj-gauge .wj-thumb:hover,
+.wj-gauge .wj-ranges:hover,
+.wj-gauge .wj-ticks:hover, 
+.wj-gauge .wj-value:hover,
+.wj-gauge .wj-min:hover,
+.wj-gauge .wj-max:hover {
+  opacity: 1;
+}

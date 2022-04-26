@@ -1,0 +1,50 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.InlineEditing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.InlineEditing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.InlineEditing_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.InlineEditing_Text3)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .IsReadOnly(true)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.None)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("50");
+        cs.Add().Binding("Country").Header("Country").IsRequired(true);
+        cs.Add().Binding("Sales").Header("Sales").Format("n2");
+        cs.Add().Binding("Expenses").Header("Expenses").Format("n2");
+        cs.Add().Binding("Buttons").Header("Edit").Width("160");
+    })
+)
+
+<!-- template for buttons on items in view mode -->
+<div id="tplBtnViewMode" style="display:none">
+    <button id="btnEdit" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-pencil"></span> @Resources.Resource.Btn_Edit
+    </button>
+    <button id="btnDelete" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-remove"></span> @Resources.Resource.Btn_Delete
+    </button>
+</div>
+
+<!-- template for buttons on items in edit mode -->
+<div id="tplBtnEditMode" style="display:none">
+    <button id="btnOK" class="btn btn-primary btn-sm">
+        <span class="glyphicon glyphicon-ok"></span> @Resources.Resource.Btn_Ok
+    </button>
+    <button id="btnCancel" class="btn btn-warning btn-sm">
+        <span class="glyphicon glyphicon-ban-circle"></span> @Resources.Resource.Btn_Cancel
+    </button>
+</div>

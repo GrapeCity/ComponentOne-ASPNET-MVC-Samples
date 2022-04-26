@@ -1,0 +1,101 @@
+﻿@model ControlGroup
+
+@{
+    if (Model == null || !Model.Visible)
+    {
+        return;
+    }
+    var pagesTree = EnhancedControlPages.getEnhancedPagesTree(Model);
+    EnhancedControlPages.setPagesPath(Url.RequestContext, pagesTree);
+}
+
+<script>
+    var tiplog = { tooltip: null, mouseX: 0, mouseY: 0 };
+    c1.documentReady(function () {
+        document.body.addEventListener('mousemove', function (e) {
+            tiplog.mouseX = e.clientX;
+            tiplog.mouseY = e.clientY;
+        });  
+    });
+
+    function pagesTree_formatItem(s, e) {
+        var elem = e.element,
+            content = elem.innerHTML,
+            link = e.dataItem.Path,
+            attrs = 'class="control-group"';
+        if (link) {            
+            if (link.charAt(0) == '#') {
+                attrs += ' target="_blank" ';
+                link = link.slice(1);
+            }
+            elem.innerHTML = '<a ' + attrs + ' href="' + link + '">' + content + '</a>';
+        } else {
+            attrs += ' style="font-weight: 450;"';
+            elem.innerHTML = "<span " + attrs + ">" + content + '</span>';
+        }
+        if (!tiplog.tooltip) {
+            tiplog.tooltip = new wijmo.Tooltip({ isContentHtml: true, showDelay: 100 });
+            tiplog.tooltip.popup.addHandler(function (s, e) {
+                document.body.appendChild(e.tip);
+                var bounds = new wijmo.Rect(tiplog.mouseX + 8, tiplog.mouseY + 20, 0, 0);
+                wijmo.showPopup(e.tip, bounds, false);
+                e.cancel = true;
+            });
+        }
+        tiplog.tooltip.setTooltip(elem.firstChild, e.dataItem.EnhanceTip);
+    }
+    
+    function pagesTree_LoadedItems(treeview, e) {     
+        treeview.collapseToLevel(10);
+    }
+</script>
+
+<style>   
+    /* enhance page list tree styles */
+    .enhance-page-tree.wj-treeview { 
+        background: none;
+    }
+    
+    .enhance-page-tree.wj-treeview .wj-nodelist .wj-node:before { 
+        font-size: 12pt;
+        display: normal;
+    }
+
+    .enhance-page-tree.wj-treeview .wj-node {
+        height: 26px;
+        padding: 0px 4px 0px 1px;
+        color: #808080;
+        background: none;
+        margin-bottom: 2px;        
+        overflow:hidden;
+    }
+    .enhance-page-tree.wj-treeview .wj-nodelist {
+        padding-bottom: 2px;
+    }
+    
+    /* tooltip style */
+    .wj-tooltip {
+        background: rgba(255,255,200,0.60);
+        max-width: 400px;
+        color: #512020;
+        border-color: goldenrod;
+        text-shadow: 1px 1px 2px #f2e28a;        
+    }
+</style>
+
+<li class="control-group">    
+    <h3 class="semi-bold">@Model.GroupName</h3>
+    <ul>
+        <li>
+            @(Html.C1().TreeView().CssClass("enhance-page-tree")
+                .Bind(pagesTree)
+                .OnClientFormatItem("pagesTree_formatItem")
+                .OnClientLoadedItems("pagesTree_LoadedItems")
+                .DisplayMemberPath("Text")
+                .ChildItemsPath("SubPages")
+                .AutoCollapse(false)
+             )
+        </li>
+    </ul>
+    
+</li>

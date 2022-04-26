@@ -1,0 +1,662 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Architecture_Text1" xml:space="preserve">
+    <value>The hierarchy of gauge classes is as follows:</value>
+  </data>
+  <data name="Architecture_Text10" xml:space="preserve">
+    <value>&lt;b&gt;face&lt;/b&gt;:
+        Represents the gauge background. The "min" and "max" properties
+        of the face range correspond to the "min" and "max" properties
+        of the gauge, and limit the values that the gauge can display.</value>
+  </data>
+  <data name="Architecture_Text11" xml:space="preserve">
+    <value>&lt;b&gt;pointer&lt;/b&gt;:
+        Indicates the gauge's current value. The "max" property of
+        the pointer range corresponds to the "value" property of
+        the gauge.</value>
+  </data>
+  <data name="Architecture_Text12" xml:space="preserve">
+    <value>In addition to these two special ranges, gauges may have any number
+    of additional ranges added to their "ranges" collection.</value>
+  </data>
+  <data name="Architecture_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Gauge&lt;/b&gt;: Abstract base class.</value>
+  </data>
+  <data name="Architecture_Text3" xml:space="preserve">
+    <value>&lt;b&gt;RadialGauge&lt;/b&gt;: Displays values along a circular scale.</value>
+  </data>
+  <data name="Architecture_Text4" xml:space="preserve">
+    <value>&lt;b&gt;LinearGauge&lt;/b&gt;: Displays values along a linear scale.</value>
+  </data>
+  <data name="Architecture_Text5" xml:space="preserve">
+    <value>&lt;b&gt;BulletGraph&lt;/b&gt;: Displays actual and target values
+                        along a linear scale.</value>
+  </data>
+  <data name="Architecture_Text6" xml:space="preserve">
+    <value>The root Gauge class provides basic elements shares by all
+    Gauge classes:</value>
+  </data>
+  <data name="Architecture_Text7" xml:space="preserve">
+    <value>An SVG-based control template with customizable parts.</value>
+  </data>
+  <data name="Architecture_Text8" xml:space="preserve">
+    <value>A common set of properties, events and methods including
+        "min", "max", "value", and "ranges".</value>
+  </data>
+  <data name="Architecture_Text9" xml:space="preserve">
+    <value>C1 MVC gauges are composed of &lt;b&gt;Range&lt;/b&gt; objects.
+    Every gauge has at least two ranges: the "face" and
+    the "pointer":</value>
+  </data>
+  <data name="Architecture_Title" xml:space="preserve">
+    <value>Gauge Architecture</value>
+  </data>
+  <data name="Architecture_Title1" xml:space="preserve">
+    <value>Gauge Ranges</value>
+  </data>
+  <data name="BasicProperties_Text1" xml:space="preserve">
+    <value>The main properties common to all C1 MVC gauge classes are:</value>
+  </data>
+  <data name="BasicProperties_Text10" xml:space="preserve">
+    <value>isReadOnly</value>
+  </data>
+  <data name="BasicProperties_Text11" xml:space="preserve">
+    <value>step</value>
+  </data>
+  <data name="BasicProperties_Text12" xml:space="preserve">
+    <value>isAnimated</value>
+  </data>
+  <data name="BasicProperties_Text2" xml:space="preserve">
+    <value>&lt;dt&gt;min&lt;/dt&gt;
+    &lt;dd&gt;The smallest value that can be displayed on the gauge.&lt;/dd&gt;
+    &lt;dt&gt;max&lt;/dt&gt;
+    &lt;dd&gt;The largest value that can be displayed on the gauge.&lt;/dd&gt;
+    &lt;dt&gt;value&lt;/dt&gt;
+    &lt;dd&gt;The current value displayed on the gauge.&lt;/dd&gt;
+    &lt;dt&gt;showText&lt;/dt&gt;
+    &lt;dd&gt;Whether to show the min/max/value properties as text on the gauge.&lt;/dd&gt;</value>
+  </data>
+  <data name="BasicProperties_Text3" xml:space="preserve">
+    <value>C1 MVC gauges can be used as value editors. The editing features
+    are controlled by these properties:</value>
+  </data>
+  <data name="BasicProperties_Text4" xml:space="preserve">
+    <value>&lt;dt&gt;isReadOnly&lt;/dt&gt;
+    &lt;dd&gt;Whether users can change the gauge value.&lt;/dd&gt;
+    &lt;dt&gt;step&lt;/dt&gt;
+    &lt;dd&gt;The step to use then changing the gauge value.&lt;/dd&gt;
+    &lt;dt&gt;isAnimated&lt;/dt&gt;
+    &lt;dd&gt;Whether to use animations to display value changes.&lt;/dd&gt;</value>
+  </data>
+  <data name="BasicProperties_Text5" xml:space="preserve">
+    <value>Use the panel below to see the effect of each of these properties
+    on different types of Gauge:</value>
+  </data>
+  <data name="BasicProperties_Text6" xml:space="preserve">
+    <value>min</value>
+  </data>
+  <data name="BasicProperties_Text7" xml:space="preserve">
+    <value>max</value>
+  </data>
+  <data name="BasicProperties_Text8" xml:space="preserve">
+    <value>value</value>
+  </data>
+  <data name="BasicProperties_Text9" xml:space="preserve">
+    <value>showText</value>
+  </data>
+  <data name="BasicProperties_Title" xml:space="preserve">
+    <value>Gauge Basics</value>
+  </data>
+  <data name="BulletGraphs_Text1" xml:space="preserve">
+    <value>The BulletGraph is a type of linear gauge designed specifically
+    for use in dashboards. It displays a single key measure along
+    with a comparative measure and qualitative ranges to instantly
+    signal whether the measure is good, bad, or in some other state.</value>
+  </data>
+  <data name="BulletGraphs_Text2" xml:space="preserve">
+    <value>Bullet Graphs were created and popularized by dashboard design
+    expert Stephen Few.</value>
+  </data>
+  <data name="BulletGraphs_Title" xml:space="preserve">
+    <value>Bullet Graphs</value>
+  </data>
+  <data name="ElementsFace_Text1" xml:space="preserve">
+    <value>The "face" is a range that represents the gauge background.
+    The "min" and "max" properties of the face range correspond
+    to the "min" and "max" properties of the gauge control, and
+    limit the values that the gauge can display.</value>
+  </data>
+  <data name="ElementsFace_Text2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ElementsFace_Text3" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="ElementsFace_Title" xml:space="preserve">
+    <value>Face Element</value>
+  </data>
+  <data name="ElementsPointer_Text1" xml:space="preserve">
+    <value>The "pointer" is a range that indicates the gauge's current
+    value. The "max" property of the pointer range corresponds
+    to the "value" property of the gauge.</value>
+  </data>
+  <data name="ElementsPointer_Text2" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ElementsPointer_Text3" xml:space="preserve">
+    <value>Thickness</value>
+  </data>
+  <data name="ElementsPointer_Title" xml:space="preserve">
+    <value>Pointer Element</value>
+  </data>
+  <data name="ElementsRanges_Text1" xml:space="preserve">
+    <value>In addition to the "face" and "pointer" ranges, gauges may
+    contain additional ranges that show zones within the gauge
+    (like 'bad', 'average', and 'good').</value>
+  </data>
+  <data name="ElementsRanges_Text2" xml:space="preserve">
+    <value>Depending on the setting of the 'showRanges' property, these
+    additional ranges may be shown at all times or used to determine
+    the color of the 'pointer' range based on the current gauge
+    value.</value>
+  </data>
+  <data name="ElementsRanges_Text3" xml:space="preserve">
+    <value>Show Ranges</value>
+  </data>
+  <data name="ElementsRanges_Text4" xml:space="preserve">
+    <value>Ranges</value>
+  </data>
+  <data name="ElementsRanges_Title" xml:space="preserve">
+    <value>Ranges</value>
+  </data>
+  <data name="ElementsTextValues_Text1" xml:space="preserve">
+    <value>C1 MVC gauges have three properties that affect text display:</value>
+  </data>
+  <data name="ElementsTextValues_Text2" xml:space="preserve">
+    <value>&lt;b&gt;showText&lt;/b&gt;:
+        Determines whether the gauge should show min, max, and/or
+        current values as text elements,</value>
+  </data>
+  <data name="ElementsTextValues_Text3" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt;:
+        Gets or sets the format string used to convert numeric values
+        into strings, and</value>
+  </data>
+  <data name="ElementsTextValues_Text4" xml:space="preserve">
+    <value>&lt;b&gt;getText&lt;/b&gt;:
+        A callback function used to provide custom strings to display
+        the values.</value>
+  </data>
+  <data name="ElementsTextValues_Text5" xml:space="preserve">
+    <value>Show Text</value>
+  </data>
+  <data name="ElementsTextValues_Text6" xml:space="preserve">
+    <value>Format</value>
+  </data>
+  <data name="ElementsTextValues_Text7" xml:space="preserve">
+    <value>Custom Text</value>
+  </data>
+  <data name="ElementsTextValues_Title" xml:space="preserve">
+    <value>Text Values</value>
+  </data>
+  <data name="ElementsThumb_Text1" xml:space="preserve">
+    <value>The thumb is a circle shown at the end of the 'pointer' range.
+    Use the 'thumbSize' property to set the size of the thumb
+    element.</value>
+  </data>
+  <data name="ElementsThumb_Text2" xml:space="preserve">
+    <value>Linear gauges use the thumb to show the current value as text.
+    In these cases, the minimum size of the thumb is determined
+    by the size of the text element it contains.</value>
+  </data>
+  <data name="ElementsThumb_Text3" xml:space="preserve">
+    <value>By default, the thumb color is determined by the "pointer"
+    color, but you can override that using CSS.</value>
+  </data>
+  <data name="ElementsThumb_Text4" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ElementsThumb_Text5" xml:space="preserve">
+    <value>Thumb Size</value>
+  </data>
+  <data name="ElementsThumb_Title" xml:space="preserve">
+    <value>Thumb Element</value>
+  </data>
+  <data name="ElementsTickmarks_Text1" xml:space="preserve">
+    <value>Tickmarks may be shown along the face to help users read the
+    gauge. Their visibility and position are controlled by the
+    'showTicks', 'tickSpacing', and 'step' properties.</value>
+  </data>
+  <data name="ElementsTickmarks_Text2" xml:space="preserve">
+    <value>The tickmark color and width can be defined in CSS or in
+    code.</value>
+  </data>
+  <data name="ElementsTickmarks_Text3" xml:space="preserve">
+    <value>Tickmarks</value>
+  </data>
+  <data name="ElementsTickmarks_Text4" xml:space="preserve">
+    <value>Spacing</value>
+  </data>
+  <data name="ElementsTickmarks_Text5" xml:space="preserve">
+    <value>Width</value>
+  </data>
+  <data name="ElementsTickmarks_Text6" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="ElementsTickmarks_Title" xml:space="preserve">
+    <value>Tickmarks</value>
+  </data>
+  <data name="GaugeElements_Text1" xml:space="preserve">
+    <value>Every C1 MVC gauge is composed of the following elements,
+    defined in the control template:</value>
+  </data>
+  <data name="GaugeElements_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Face&lt;/b&gt;:
+        The "face" is a range that represents the gauge background.
+        The "min" and "max" properties of the face range correspond
+        to the "min" and "max" properties of the gauge control, and
+        limit the values that the gauge can display.</value>
+  </data>
+  <data name="GaugeElements_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Pointer&lt;/b&gt;:
+        The "pointer" is a range that indicates the gauge's current
+        value. The "max" property of the pointer range corresponds
+        to the "value" property of the gauge.</value>
+  </data>
+  <data name="GaugeElements_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Ranges&lt;/b&gt;:
+        In addition to the "face" and "pointer" ranges, gauges may
+        contain additional ranges that show zones within the gauge
+        (like 'bad', 'average', and 'good'). Depending on the setting
+        of the 'showRanges' property, these additional ranges may be
+        shown at all times or used to determine the color of the
+        'pointer' based on the current gauge value.</value>
+  </data>
+  <data name="GaugeElements_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Thumb&lt;/b&gt;:
+        The thumb is a circle shown at the end of the 'pointer' range.
+        Use the 'thumbSize' property to set the size of the thumb
+        element.</value>
+  </data>
+  <data name="GaugeElements_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Tickmarks&lt;/b&gt;:
+        Tickmarks may be shown along the face to help users read the
+        gauge. Their visibility and position are controlled by the
+        'showTicks', 'tickSpacing', and 'step' properties.</value>
+  </data>
+  <data name="GaugeElements_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Text Values&lt;/b&gt;:
+        Gauges may show the value of their 'min', 'max', and 'value'
+        properties as text. Use the 'showText' property to determine
+        which values should be displayed. Use the 'getText' property
+        to customize the text displayed on the gauge.</value>
+  </data>
+  <data name="GaugeElements_Text8" xml:space="preserve">
+    <value>Move the mouse over the gauge to highlight each element:</value>
+  </data>
+  <data name="GaugeElements_Title" xml:space="preserve">
+    <value>Gauge Elements</value>
+  </data>
+  <data name="GaugeTypes_Text1" xml:space="preserve">
+    <value>C1 MVC includes three types of gauge: &lt;b&gt;RadialGauge&lt;/b&gt;,
+    &lt;b&gt;LinearGauge&lt;/b&gt;, and &lt;b&gt;BulletGraph&lt;/b&gt;:</value>
+  </data>
+  <data name="GaugeTypes_Text2" xml:space="preserve">
+    <value>A radial gauge displays a metric as a percentage of the length
+    of a circular scale, like a pie or donut chart with a single
+    slice. By default, the radial scale displays a 180-degree arc.
+    You can change that by adjusting its start and sweep angles.</value>
+  </data>
+  <data name="GaugeTypes_Text3" xml:space="preserve">
+    <value>Linear gauges are characterized by a linear scale which can be
+    horizontal or vertical.</value>
+  </data>
+  <data name="GaugeTypes_Text4" xml:space="preserve">
+    <value>Bullet graphs are a variation on linear gauges that displays actual
+    and target values. It may also show ranges that identify whether
+    the actual or current value is good or bad.</value>
+  </data>
+  <data name="GaugeTypes_Text5" xml:space="preserve">
+    <value>Bullet graphs convey information in a compact space, making them ideal
+    for dashboards that need to display groups of single-valued metrics
+    such as the current year-to-date sales revenue.</value>
+  </data>
+  <data name="GaugeTypes_Title" xml:space="preserve">
+    <value>Gauge Types</value>
+  </data>
+  <data name="GaugeTypes_Title1" xml:space="preserve">
+    <value>Radial Gauges</value>
+  </data>
+  <data name="GaugeTypes_Title2" xml:space="preserve">
+    <value>Linear Gauges</value>
+  </data>
+  <data name="GaugeTypes_Title3" xml:space="preserve">
+    <value>Bullet Graphs</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>Gauges are used to display single values. They are often used
+    in dashboards, and use segmenting and color coding to present
+    values in a clear and easy to read way.</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>C1 MVC gauges are streamlined. They were designed to be easy to
+    use and to read, especially on small-screen devices.</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>C1 MVC gauges can also be used as input controls. If you set
+    their "isReadOnly" property to false, users will be able to
+    change the value using the mouse, keyboard, or touch.</value>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>C1 MVC includes three types of gauge: &lt;b&gt;RadialGauge&lt;/b&gt;,
+    &lt;b&gt;LinearGauge&lt;/b&gt;, and &lt;b&gt;BulletGraph&lt;/b&gt;.</value>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>A radial gauge displays a metric as a percentage of the length
+    of a circular scale, like a pie or donut chart with a single
+    slice. By default, the radial scale displays a 180-degree arc.
+    You can change that by adjusting its start and sweep angles.</value>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>Linear gauges are characterized by a linear scale which can be
+    horizontal or vertical.</value>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>Bullet graphs are a variation on linear gauges that displays actual
+    and target values. It may also show ranges that identify whether
+    the actual or current value is good or bad.</value>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>Bullet graphs convey information in a compact space, making them ideal
+    for dashboards that need to display groups of single-valued metrics
+    such as the current year-to-date sales revenue.</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>C1 MVC Gauges</value>
+  </data>
+  <data name="LinearGauges_Text1" xml:space="preserve">
+    <value>Linear gauges display a metric as a percentage of the length
+    of a linear scale.
+    They can be horizontal or vertical, depending on the setting
+    of the "direction" property.</value>
+  </data>
+  <data name="LinearGauges_Text2" xml:space="preserve">
+    <value>Use the controls below to see the effect of the main
+    LinearGauge properties:</value>
+  </data>
+  <data name="LinearGauges_Text3" xml:space="preserve">
+    <value>value</value>
+  </data>
+  <data name="LinearGauges_Text4" xml:space="preserve">
+    <value>direction</value>
+  </data>
+  <data name="LinearGauges_Title" xml:space="preserve">
+    <value>Linear Gauges</value>
+  </data>
+  <data name="RadialGauges_Text1" xml:space="preserve">
+    <value>Radial gauges display a metric as a percentage of the length
+    of a circular scale, like a pie or donut chart with a single
+    slice.</value>
+  </data>
+  <data name="RadialGauges_Text2" xml:space="preserve">
+    <value>By default, the radial scale displays a 180-degree arc.
+    You can change that by adjusting its start and sweep angles.
+    If the "autoScale" property is set to true, the control
+    will automatically scale the gauge to fill the host element
+    taking onto account the "startAngle" and "sweepAngle"
+    properties.</value>
+  </data>
+  <data name="RadialGauges_Text3" xml:space="preserve">
+    <value>Use the controls below to see the effect of the main RadialGauge
+    properties:</value>
+  </data>
+  <data name="RadialGauges_Text4" xml:space="preserve">
+    <value>value</value>
+  </data>
+  <data name="RadialGauges_Text5" xml:space="preserve">
+    <value>startAngle</value>
+  </data>
+  <data name="RadialGauges_Text6" xml:space="preserve">
+    <value>sweepAngle</value>
+  </data>
+  <data name="RadialGauges_Text7" xml:space="preserve">
+    <value>autoScale</value>
+  </data>
+  <data name="RadialGauges_Title" xml:space="preserve">
+    <value>Radial Gauges</value>
+  </data>
+  <data name="Ranges_Text1" xml:space="preserve">
+    <value>C1 MVC gauges are composed of &lt;b&gt;Range&lt;/b&gt; objects.
+    Range objects have "min" and "max" properties the define
+    the extent of the range, as well as "thickness" and "color"
+    properties that define the appearance of the range.</value>
+  </data>
+  <data name="Ranges_Text2" xml:space="preserve">
+    <value>Every gauge has at least two ranges, the "face" and
+  the "pointer":</value>
+  </data>
+  <data name="Ranges_Text3" xml:space="preserve">
+    <value>&lt;b&gt;face&lt;/b&gt;:
+        Represents the gauge background. The "min" and "max" properties
+        of the face range correspond to the "min" and "max" properties
+        of the gauge, and limit the values that the gauge can display.</value>
+  </data>
+  <data name="Ranges_Text4" xml:space="preserve">
+    <value>&lt;b&gt;pointer&lt;/b&gt;:
+        Indicates the gauge's current value. The "max" property of
+        the pointer range corresponds to the "value" property of
+        the gauge.</value>
+  </data>
+  <data name="Ranges_Text5" xml:space="preserve">
+    <value>In addition to these two special ranges, gauges may have any number
+    of additional ranges added to their "ranges" collection. These
+    additional ranges can be used in two ways:</value>
+  </data>
+  <data name="Ranges_Text6" xml:space="preserve">
+    <value>By default, extra ranges appear as part of the gauge background.
+    This way you can show 'zones' within the gauge, like 'good',
+    'average', and 'bad' for example.
+    If you set the gauge's "showRanges" property to false, the
+    additional ranges are not shown. Instead, they are used to
+    automatically set the color of the "pointer" based on the
+    current gauge value:</value>
+  </data>
+  <data name="Ranges_Text7" xml:space="preserve">
+    <value>showRanges</value>
+  </data>
+  <data name="Ranges_Title" xml:space="preserve">
+    <value>Ranges</value>
+  </data>
+  <data name="StylingFocus_Text1" xml:space="preserve">
+    <value>You can use the "wj-state-focused" pseudo-class to add special
+    effects to gauges when they contain the focus.</value>
+  </data>
+  <data name="StylingFocus_Text2" xml:space="preserve">
+    <value>In this example, we customized the appearance of the thumb
+    when the gauges have focus:</value>
+  </data>
+  <data name="StylingFocus_Title" xml:space="preserve">
+    <value>Gauge Focus Styling</value>
+  </data>
+  <data name="StylingHover_Text1" xml:space="preserve">
+    <value>You can use the standard ":hover" pseudo-class to add special
+    effects to gauges when the mouse moves over them.</value>
+  </data>
+  <data name="StylingHover_Text2" xml:space="preserve">
+    <value>In this example, we customized the pointer and the thumb
+    when the mouse mover over the gauges:</value>
+  </data>
+  <data name="StylingHover_Title" xml:space="preserve">
+    <value>Gauge Hover Styling</value>
+  </data>
+  <data name="StylingRanges_Text1" xml:space="preserve">
+    <value>The color and position of the ranges is primarily defined
+    by the value of the 'showRanges' and 'ranges' properties.</value>
+  </data>
+  <data name="StylingRanges_Text2" xml:space="preserve">
+    <value>In this example, we also used the ':focus' pseudo-class to
+    change the opacity of the ranges when the mouse hovers over
+    the gauges:</value>
+  </data>
+  <data name="StylingRanges_Title" xml:space="preserve">
+    <value>Styling Ranges</value>
+  </data>
+  <data name="StylingSilverlight_Text1" xml:space="preserve">
+    <value>The gauges in C1Studio for Silverlight offered more
+    formatting options than the gauges in C1 MVC, but
+    it is possible to achieve similar results with both
+    using the properties available in the C1 MVC gauges.</value>
+  </data>
+  <data name="StylingSilverlight_Text2" xml:space="preserve">
+    <value>The result is often clearer and easier to read gauges
+    that work better on mobile devices.</value>
+  </data>
+  <data name="StylingSilverlight_Text3" xml:space="preserve">
+    <value>The table below shows a comparison. The Silverlight
+    gauges in the table are static images; the C1 MVC gauges
+    are actual controls:</value>
+  </data>
+  <data name="StylingSilverlight_Text4" xml:space="preserve">
+    <value>Show Tickmarks</value>
+  </data>
+  <data name="StylingSilverlight_Text5" xml:space="preserve">
+    <value>Animate</value>
+  </data>
+  <data name="StylingSilverlight_Text6" xml:space="preserve">
+    <value>Silverlight</value>
+  </data>
+  <data name="StylingSilverlight_Text7" xml:space="preserve">
+    <value>C1 MVC</value>
+  </data>
+  <data name="StylingSilverlight_Title" xml:space="preserve">
+    <value>Silverlight vs C1 MVC Gauges</value>
+  </data>
+  <data name="Styling_Text1" xml:space="preserve">
+    <value>The appearance of the gauge controls is primarily defined in CSS.
+    To customize it, copy the CSS rules from the default theme to a new
+    CSS file and modify them as needed.</value>
+  </data>
+  <data name="Styling_Text2" xml:space="preserve">
+    <value>Use the gauges to edit the color of the panel:</value>
+  </data>
+  <data name="Styling_Title" xml:space="preserve">
+    <value>Gauge Styling</value>
+  </data>
+</root>

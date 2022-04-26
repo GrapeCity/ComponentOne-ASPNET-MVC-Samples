@@ -1,23 +1,23 @@
 @model IEnumerable<Sale>
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/FlexSheet/dataBinding.js"></script>
+}
 
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/dataBinding.js"></script>}
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.DataBinding_Text2)
-        </h3>
-<p>@Html.Raw(FlexSheetRes.DataBinding_Text0)</p>
+<h3>@Html.Raw(Resources.FlexSheet.DataBinding_Text2)</h3>
+
+<p>@Html.Raw(Resources.FlexSheet.DataBinding_Text0)</p>
 
     </div>
     <div>
-        <c1-flex-sheet class="flexSheet" id="boundSheet">
-            <c1-bound-sheet>
-                <c1-items-source source-collection="@Model"></c1-items-source>
-            </c1-bound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("boundSheet")
+        .AddBoundSheet(sheet =>
+            sheet.Bind(cv =>
+                cv.Bind(Model).DisableServerRead(true))))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.DataBinding_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.DataBinding_Text1)</p>
 
 }

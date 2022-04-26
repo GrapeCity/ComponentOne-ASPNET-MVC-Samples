@@ -1,0 +1,66 @@
+@using C1.Web.Mvc.Grid
+@model IEnumerable<ProductData>
+
+@(Html.C1().PivotEngine().Id("pvEngine")
+        .ShowRowTotals(ShowTotals.Subtotals)
+        .ShowColumnTotals(ShowTotals.Subtotals)
+        .TotalsBeforeData(true)
+        .Bind(Model)
+        .Fields(pfcb => pfcb.Items(fif =>
+        {
+            fif.AddPivotField(pfb => pfb.Header("Country").Binding("Country"));
+            fif.AddPivotField(pfb => pfb.Header("Product").Binding("Product"));
+            fif.AddPivotField(pfb => pfb.Header("Date").Binding("Date").Format("yyyy \"Q\"q"));
+            fif.AddPivotField(pfb => pfb.Header("Range").DataType(DataType.String).Aggregate(Aggregate.Cnt).GetValue("getValue"));
+            fif.AddPivotField(pfb => pfb.Header("Sales").Binding("Sales").Format("n0"));
+            fif.AddPivotField(pfb => pfb.Header("Downloads").Binding("Downloads").Format("n0"));
+            fif.AddPivotField(pfb => pfb.Header("Conversion").DataType(DataType.Number).Format("p0").GetAggregateValue("getAggregateValue"));            
+        }))
+        .RowFields(pfcb => pfcb.Items("Product"))
+        .RowFields(pfcb => pfcb.Items("Date"))
+        .RowFields(pfcb => pfcb.Items("Range"))
+        .ValueFields(vfcb => vfcb.Items("Sales"))
+        .ValueFields(vfcb => vfcb.Items("Downloads"))
+        .ValueFields(vfcb => vfcb.Items("Conversion")))
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().Id("pvPanel").ItemsSourceId("pvEngine")
+    </div>
+    <div class="col-sm-8 col-md-8">    
+        @(Html.C1().PivotGrid().Id("pvGrid")
+            .ItemsSourceId("pvEngine")
+            .OutlineMode(false)
+            .ShowValueFieldHeaders(false))
+    </div>
+</div>
+
+@section Scripts{
+    <script type="text/javascript">
+        function getValue(item) {
+            let sales = item.Sales;
+            return sales <= 3000 ? 'Low' : sales <= 7000 ? 'Medium' : 'High';
+        }
+
+        function getAggregateValue(row) {
+            return row.Downloads ? row.Sales / row.Downloads : 0;
+        }
+    </script>
+}
+
+@section Description{
+    
+        @Html.Raw(Resources.Olap.CalculatedAggregates_Text1)
+    <ul>
+        <li>@Html.Raw(Resources.Olap.CalculatedAggregates_Text2)</li>
+        <li>@Html.Raw(Resources.Olap.CalculatedAggregates_Text3)</li>
+    </ul>
+        @Html.Raw(Resources.Olap.CalculatedAggregates_Text4)
+    <br />
+        @Html.Raw(Resources.Olap.CalculatedAggregates_Text5)
+    
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.Olap.CalculatedAggregates_Text0)</p>
+}

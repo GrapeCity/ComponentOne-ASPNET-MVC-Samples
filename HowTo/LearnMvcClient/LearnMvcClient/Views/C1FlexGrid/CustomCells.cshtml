@@ -1,0 +1,32 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.CustomCells_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomCells_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomCells_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.CustomCells_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(250)
+    .IsReadOnly(true).AllowSorting(false)
+    .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+    .AllowDragging(C1.Web.Mvc.Grid.AllowDragging.None)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.RowRange)
+    .ShowAlternatingRows(false)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("50");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Sales").Header("Sales").Width("80").Format("n0");
+        cs.Add().Binding("SalesDiff").Header("Diff").DataType(C1.Web.Mvc.Grid.DataType.Number).Width("80").Format("p0");
+        cs.Add().Binding("Expenses").Header("Expenses").Width("80").Format("n0");
+        cs.Add().Binding("ExpensesDiff").Header("Diff").DataType(C1.Web.Mvc.Grid.DataType.Number).Width("80").Format("p0");
+    })
+)

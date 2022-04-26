@@ -1,0 +1,27 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.MultiSelect_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.MultiSelect_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.MultiSelect_Text2)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-5">
+        @(Html.C1().MultiSelect<Gdp>().Id("theMultiSelect")
+            .Bind(Model).Placeholder(Resources.C1Input.MultiSelect_Text3)
+            .HeaderFormat("{count:n0} countries")
+            .DisplayMemberPath("Country")
+        )
+    </div>
+    <div class="col-xs-7">
+        <p>
+            @Html.Raw(Resources.C1Input.MultiSelect_Text4)
+        </p>
+        <ul id="checkedItems"></ul>
+    </div>
+</div>

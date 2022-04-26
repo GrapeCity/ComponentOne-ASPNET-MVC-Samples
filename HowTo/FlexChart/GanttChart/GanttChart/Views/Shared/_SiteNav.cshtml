@@ -1,0 +1,19 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="@Resources.GanttChart.SiteNavAboutLink" target="_blank">@Resources.GanttChart.SiteNavAbout</a>
+    </li>
+    <li>
+        <a href="@Resources.GanttChart.SiteNavSupportLink" target="_blank">@Resources.GanttChart.SiteNavSupport</a>
+    </li>
+    <li>
+        <a href="@Resources.GanttChart.SiteNavPricingLink" target="_blank">@Resources.GanttChart.SiteNavPricing</a>
+    </li>
+    <li class="bold">
+        <a href="@Resources.GanttChart.SiteNavFreeTrialLink" target="_blank">@Resources.GanttChart.SiteNavFreeTrial</a>
+    </li>
+</ul>
+

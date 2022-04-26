@@ -1,0 +1,33 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVCurrency_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVCurrency_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVCurrency_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVCurrency_Text3)
+</p>
+
+<table class="table table-condensed">
+    <tr>
+        <td>@Html.Raw(Resources.C1Mvc.CVCurrency_Text4)</td>
+        <td>
+            @Html.C1().ComboBox().Id("cmbCountry")
+        </td>
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1Mvc.CVCurrency_Text5)</td>
+        <td id="downloads"></td>
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1Mvc.CVCurrency_Text6)</td>
+        <td id="sales"></td>
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1Mvc.CVCurrency_Text7)</td>
+        <td id="expenses"></td>
+    </tr>
+</table>

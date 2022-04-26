@@ -1,0 +1,37 @@
+@{
+    var directions = new[] { "Left", "Right", "Up", "Down" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Gauge.LinearGauges_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.LinearGauges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.LinearGauges_Text2)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="value">@Html.Raw(Resources.C1Gauge.LinearGauges_Text3)</label>
+        @Html.C1().InputNumber().Id("value")
+        <br>
+        <label for="direction">@Html.Raw(Resources.C1Gauge.LinearGauges_Text4)</label>
+        @Html.C1().ComboBox().Id("direction").Bind(directions).Text("Right")
+    </div>
+    <div class="col-xs-6">
+        <div class="gauge-holder">
+            @(Html.C1().LinearGauge().Id("theGauge")
+                .Min(0).Max(100).Step(5).Value(75)
+                .IsReadOnly(false)
+                .ShowRanges(false)
+                .Ranges(r =>
+                {
+                    r.Add().Min(0).Max(33).Color(System.Drawing.Color.Red);
+                    r.Add().Min(33).Max(66).Color(System.Drawing.Color.Yellow);
+                    r.Add().Min(66).Max(100).Color(System.Drawing.Color.Green);
+                })
+            )
+        </div>
+    </div>
+</div>

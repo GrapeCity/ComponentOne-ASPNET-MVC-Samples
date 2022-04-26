@@ -1,0 +1,19 @@
+﻿.wj-calendar {
+  max-width: 21em;
+}
+
+.wj-calendar .wj-header {
+  color: white;
+  background: #808080;
+}
+
+.wj-calendar .date-holiday:not(.wj-state-selected) {
+  font-weight: bold;
+  color: #008f22;
+  background: #f0fff0;
+  outline: 2pt solid #008f22;
+}
+
+.wj-calendar .date-weekend:not(.wj-state-selected) {
+  background-color: #d8ffa6;
+}

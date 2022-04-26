@@ -1,0 +1,29 @@
+﻿@model IEnumerable<ProductSales>
+@using C1.Web.Mvc.Chart
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().FlexRadar().Id(demoSettingsModel.ControlId)
+    .ChartType(demoSettingsModel.GetEnum("ChartType", C1.Web.Mvc.Chart.RadarChartType.Column))
+    .Stacking(demoSettingsModel.GetEnum("Stacking", C1.Web.Mvc.Chart.Stacking.None))
+    .Bind("Country", "Downloads", Model)
+    .DataLabel(label =>
+    {
+        label.Content("{y}");
+    })
+    .Series(ser =>
+    {
+        ser.Add().Name("Downloads");
+        ser.Add().Binding("Sales").Name("Sales");
+    })
+    .Legend(Position.Top)
+    .Width("500px")
+    .Height("400px")
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexRadar.Index_Text0)</p>
+}

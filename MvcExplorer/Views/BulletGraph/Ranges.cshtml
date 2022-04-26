@@ -1,0 +1,17 @@
+﻿@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().BulletGraph().Id(demoSettingsModel.ControlId)
+    .Min(0).Max(10).Good(3)
+    .Bad(4).Target(6).Value(1)
+    .Ranges(items => items
+            .Add(item => item.Min(2).Max(3).Color(System.Drawing.Color.Green))
+            .Add(item => item.Min(6).Max(9).Color(System.Drawing.Color.Yellow))
+        )
+    .Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.BulletGraph.Ranges_Text0)
+}

@@ -1,0 +1,45 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text3)
+</p>
+<div class="demo-settings">
+    <label>@Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text4)</label>
+    <input id="customCells" type="checkbox" checked="checked">
+    <br />
+    <label>@Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text5)</label>
+    <input id="autoUpdate" type="checkbox" checked="checked">
+    <br />
+    <label>@Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text6)</label>
+    @(Html.C1().ComboBox<int>().Id("updateInterval").Bind(new[] { 1000, 500, 100, 10, 1 }).SelectedValue(100))
+    <br />
+    <label>@Html.Raw(Resources.C1FlexGrid.DynamicUpdates_Text7)</label>
+    @(Html.C1().ComboBox<int>().Id("batchSize").Bind(new[] { 100, 50, 10, 5, 1 }).SelectedValue(5))
+</div>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .IsReadOnly(true)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("name").Header("Name").Width("200");
+        cs.Add().Binding("bid").Header("Bid").Format("n2").Width("200");
+        cs.Add().Binding("ask").Header("Ask").Format("n2").Width("200");
+        cs.Add().Binding("lastSale").Header("Last Sale").Format("n2").Width("200");
+        cs.Add().Binding("bidSize").Header("Bid Size").Format("n0");
+        cs.Add().Binding("askSize").Header("Ask Size").Format("n0");
+        cs.Add().Binding("lastSize").Header("Last Size").Format("n0");
+        cs.Add().Binding("volume").Header("Volume").Format("n0");
+        cs.Add().Binding("quoteTime").Header("Quote Time").Format("hh:mm:ss").Align("center");
+        cs.Add().Binding("quoteTime").Header("Quote Time").Format("hh:mm:ss").Align("center");
+    })
+    .Filterable()
+)

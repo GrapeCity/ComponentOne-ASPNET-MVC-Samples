@@ -1,26 +1,28 @@
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/multipleHeaders.js"></script>}
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/FlexSheet/multipleHeaders.js"></script>
+}
+
 <div>
     <div class="copy">
-<h3>@Html.Raw(FlexSheetRes.MultipleHeaders_Text2)</h3>
+<h3>@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text2)</h3>
 
-<p>@Html.Raw(FlexSheetRes.MultipleHeaders_Text0)</p>
+<p>@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text0)</p>
 
     </div>
     <div class="row well well-lg">
         <div class="btn-group">
-            <button type="button" class="btn btn-default" onclick="addRowHeader()">@Html.Raw(FlexSheetRes.MultipleHeaders_Text3)</button>
-            <button type="button" class="btn btn-default" onclick="removeRowHeader()">@Html.Raw(FlexSheetRes.MultipleHeaders_Text4)</button>
-            <button type="button" class="btn btn-default" onclick="addColumnHeader()">@Html.Raw(FlexSheetRes.MultipleHeaders_Text5)</button>
-            <button type="button" class="btn btn-default" onclick="removeColumnHeader()">@Html.Raw(FlexSheetRes.MultipleHeaders_Text6)</button>
+            <button type="button" class="btn btn-default" onclick="addRowHeader()">@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text3)</button>
+            <button type="button" class="btn btn-default" onclick="removeRowHeader()">@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text4)</button>
+            <button type="button" class="btn btn-default" onclick="addColumnHeader()">@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text5)</button>
+            <button type="button" class="btn btn-default" onclick="removeColumnHeader()">@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text6)</button>
         </div>
     </div>
     <div>
-        <c1-flex-sheet id="headerSheet" class="flexSheet">
-            <c1-unbound-sheet column-count="8" row-count="20"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("headerSheet")
+        .AddUnboundSheet("Sheet1", 20, 8))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(FlexSheetRes.MultipleHeaders_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.MultipleHeaders_Text1)</p>
 
 }

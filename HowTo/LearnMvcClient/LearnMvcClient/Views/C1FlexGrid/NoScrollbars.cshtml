@@ -1,0 +1,17 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.NoScrollbars_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.NoScrollbars_Text1) 
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.NoScrollbars_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.NoScrollbars_Text3)
+</p>
+
+<div id="theGrid" class="no-scrollbars"></div>
+@Html.C1().FlexGrid("#theGrid").Bind(Model)

@@ -1,0 +1,22 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.ContextMenus_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.ContextMenus_Text1)
+</p>
+
+<!-- this is the tree -->
+@Html.C1().TreeView().Id("theTree").DisplayMemberPath("header").ChildItemsPath("items")
+
+<!-- this is the context menu -->
+@(Html.C1().Menu().Id("theMenu")
+    .CssStyle("display", "none")
+    .MenuItems(items =>
+    {
+        items.Add().Header(Resources.C1Nav.ContextMenus_Text2);
+        items.Add().Header(Resources.C1Nav.ContextMenus_Text3);
+        items.AddSeparator();
+        items.Add().Header(Resources.C1Nav.ContextMenus_Text4);
+        items.Add().Header(Resources.C1Nav.ContextMenus_Text5);
+    })
+)

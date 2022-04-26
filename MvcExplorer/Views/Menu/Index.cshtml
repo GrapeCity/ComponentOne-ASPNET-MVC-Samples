@@ -1,0 +1,88 @@
+﻿<script>
+
+    function itemClicked(sender) {
+        alert('You\'ve selected option ' + sender.selectedIndex + ' from the ' + sender.header + ' menu!');
+    }
+
+    function execute(arg) {
+        var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+        // convert argument to Number
+        arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+        // check if the conversion was successful
+        if (wijmo.isNumber(arg)) {
+
+            // update the value
+            inputNumber.value += arg;
+        }
+    }
+
+    function canExecute(arg) {
+        var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+        // convert argument to Number
+        arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+        // check if the conversion was successful
+        if (wijmo.isNumber(arg)) {
+            var val = inputNumber.value + arg;
+
+            // check if the value is valid
+            return val >= 0 && val <= 1;
+        }
+
+        return false;
+    }
+</script>
+<div>
+    <label>@Html.Raw(Resources.Menu.Index_ItemClickedEvent)</label>
+    @(Html.C1().Menu().Header(Resources.Menu.Index_File)
+        .OnClientItemClicked("itemClicked")
+        .MenuItems(items => items // Syntax 1: Expression
+            .Add(item => item.Header(Resources.Menu.Index_ItemFileNew))
+            .Add(item => item.Header(Resources.Menu.Index_ItemFileOpen))
+            .Add(item => item.Header(Resources.Menu.Index_ItemFileSave))
+            .Add(item => item.IsSeparator(true))
+            .Add(item => item.Header(Resources.Menu.Index_ItemFileExit))
+        )
+    )
+    @(Html.C1().Menu().Header(Resources.Menu.Index_Edit)
+        .OnClientItemClicked("itemClicked")
+        .MenuItems(items => // Syntax 2: Statements
+        {
+            items.Add().Header(Resources.Menu.Index_ItemEditCut);
+            items.Add().Header(Resources.Menu.Index_ItemEditCopy);
+            items.Add().Header(Resources.Menu.Index_ItemEditPaste);
+            items.Add().IsSeparator(true);
+            items.Add().Header(Resources.Menu.Index_ItemEditFind);
+            items.Add().Header(Resources.Menu.Index_ItemEditReplace);
+        })
+    )
+</div>
+<div>
+    <label>Commands</label>
+    @(Html.C1().Menu().Header(Resources.Menu.Index_ChangeTax)
+        .Command("execute", canExecute: "canExecute")
+        .MenuItems(items => // Syntax 3: Simplified
+        {
+            items.Add("+ 25%", 0.25);
+            items.Add("+ 10%", 0.10);
+            items.Add("+ 5%", 0.05);
+            items.Add("+ 1%", 0.01);
+            items.AddSeparator();
+            items.Add("- 1%", -0.01);
+            items.Add("- 5%", -0.05);
+            items.Add("- 10%", -0.10);
+            items.Add("- 25%", -0.25);
+        })
+    )
+    @(Html.C1().InputNumber().Id("mInputNumber")
+        .Value(0.07).Step(0.05).Format("p0").Min(0).Max(1)
+    )
+</div>
+
+
+@section Description{
+    @Html.Raw(Resources.Menu.Index_Text0)
+}

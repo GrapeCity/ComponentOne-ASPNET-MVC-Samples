@@ -1,0 +1,41 @@
+<h1>
+    @Html.Raw(Resources.C1Input.Menus_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.Menus_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.Menus_Text2)
+</p>
+
+<div id="menuFile">
+    @Html.Raw(Resources.C1Input.Menus_Text3)
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text4)
+    </div>
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text5)
+    </div>
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text6)
+    </div>
+    <div class="wj-separator"></div>
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text7)
+    </div>
+</div>
+<div id="menuEdit">
+    @Html.Raw(Resources.C1Input.Menus_Text8)
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text9)
+    </div>
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text10)
+    </div>
+    <div>
+        @Html.Raw(Resources.C1Input.Menus_Text11)
+    </div>
+</div>
+@Html.C1().Menu().Id("theMenuFile")
+@Html.C1().Menu().Id("theMenuEdit")

@@ -1,0 +1,298 @@
+﻿@using C1.Web.Mvc.Grid
+@{
+    IList<ITreeItem> treeViewData = ViewBag.TreeViewData;
+}
+
+@section Styles{
+    <style>
+        .fixed-top {
+            z-index: 999;
+            position: fixed;
+            top: 0px;
+        }
+
+        .reduce {
+            padding-bottom: 0px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        var treeViewGrid, exportSettings, settingsDiv, securitySettingsDiv;
+
+        c1.documentReady(function () {
+            treeViewGrid = wijmo.Control.getControl("#treeFlexGrid");
+            settingsDiv = document.getElementById("exportSettingsDiv");
+            securitySettingsDiv = document.getElementById("securitySettingsDiv");
+            exportSettings = {
+                exportMode: wijmo.grid.pdf.ExportMode.All,
+                orientation: wijmo.pdf.PdfPageOrientation.Portrait,
+                scaleMode: wijmo.grid.pdf.ScaleMode.ActualSize,
+                version: "v1_4",
+            };
+        });
+
+        function setScaleMode(menu) {
+            menu.header = "@(Resources.FlexGrid.PDFExport_ScaleMode): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.scaleMode = wijmo.grid.pdf.ScaleMode[menu.selectedItem.Header];
+        }
+
+        function setOrientation(menu) {
+            menu.header = "@(Resources.FlexGrid.PDFExport_Orientation): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.orientation = wijmo.pdf.PdfPageOrientation[menu.selectedItem.Header];
+        }
+
+        function setExportMode(menu) {
+            menu.header = "@(Resources.FlexGrid.PDFExport_ExportMode): <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.exportMode = wijmo.grid.pdf.ExportMode[menu.selectedItem.Header];
+        }
+
+        function setPermissionPrinting(menu) {
+            menu.header = "@Resources.FlexGrid.PDFExport_Printing: <b>" + menu.selectedItem.Header + "</b>";
+            exportSettings.permissionPrinting = menu.selectedItem.Header;
+        }
+
+		function setVersion(menu) {
+            menu.header = "PDF version: <b>" + menu.selectedItem.Header + "</b>";
+            switch (menu.selectedItem.Header) {
+                case "1.3":
+                    exportSettings.version = "v1_3";
+                    break;
+                case "1.4":
+                    exportSettings.version = "v1_4";
+                    break;
+                case "1.5":
+                    exportSettings.version = "v1_5";
+                    break;
+                case "1.6":
+                    exportSettings.version = "v1_6";
+                    break;
+                case "1.7":
+                    exportSettings.version = "v1_7";
+                    break;
+                case "1.7 ExtensionLevel 3":
+                    exportSettings.version = "v1_7Ext3";
+                    break;
+            }
+        }
+
+        function getPassword(user) {
+            return document.querySelector('#tb' + user + 'Password').value;
+        }
+
+        function getPermission(permissionName) {
+            if (permissionName == 'Printing') {
+                return exportSettings.permissionPrinting || 'NotAllowed';
+            } else {
+                return document.querySelector('#cb' + permissionName).checked;
+            }
+        }
+
+        function exportTreeViewGrid() {
+            wijmo.grid.pdf.FlexGridPdfConverter.export(treeViewGrid, 'FlexGrid.pdf', {
+                maxPages: 10,
+                exportMode: exportSettings.exportMode,
+                scaleMode: exportSettings.scaleMode,
+                embeddedFonts: [{
+                    source: '@(Url.Content("~/Content/fonts/fira/FiraSans-Regular.ttf"))',
+                    name: 'fira',
+                    style: 'normal',
+                    weight: 'normal',
+                    sansSerif: true
+                }, {
+                    source: '@(Url.Content("~/Content/fonts/fira/FiraSans-Bold.ttf"))',
+                    name: 'fira',
+                    style: 'normal',
+                    weight: 'bold',
+                    sansSerif: true
+                }],
+                documentOptions: {
+                    userPassword: getPassword('User'),
+                    ownerPassword: getPassword('Owner'),
+                    version: exportSettings.version,
+                    permissions: {
+                        annotating: getPermission('Annotating'),
+                        contentAccessibility: getPermission('ContentAccessibility'),
+                        copying: getPermission('Copying'),
+                        documentAssembly: getPermission('DocumentAssembly'),
+                        fillingForms: getPermission('FillingForms'),
+                        modifying: getPermission('Modifying'),
+                        printing: getPermission('Printing')
+                    },
+
+                    pageSettings: {
+                        layout: exportSettings.orientation
+                    },
+                    header: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\theader\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    footer: {
+                        declarative: {
+                            text: '&[Page]\\&[Pages]\tfooter\t&[Page]\\&[Pages]'
+                        }
+                    },
+                    info: {
+                        author: 'C1',
+                        title: 'PdfDocument sample',
+                        keywords: 'PDF, C1, sample',
+                        subject: 'PdfDocument'
+                    }
+                },
+                styles: {
+                    cellStyle: {
+                        backgroundColor: '#ffffff',
+                        borderColor: '#c6c6c6',
+                        font: {
+                            family: 'fira'
+                        }
+                    },
+                    altCellStyle: {
+                        backgroundColor: '#f9f9f9'
+                    },
+                    groupCellStyle: {
+                        backgroundColor: '#dddddd'
+                    },
+                    headerCellStyle: {
+                        backgroundColor: '#eaeaea'
+                    }
+                }
+            });
+        }
+    </script>
+}
+
+<div class="copy well" id="exportSettingsDiv">
+    <b>@Html.Raw(Resources.FlexGrid.PDFExport_ExportSettings)</b>
+    @(Html.C1().Menu().Header(Resources.FlexGrid.PDFExport_ScaleMode + ": <b>ActualSize</b>").OnClientItemClicked("setScaleMode")
+    .MenuItems(items =>
+    {
+        items.Add("ActualSize");
+        items.Add("PageWidth");
+        items.Add("SinglePage");
+    }))
+    @(Html.C1().Menu().Header(Resources.FlexGrid.PDFExport_Orientation + ": <b>Portrait</b>").OnClientItemClicked("setOrientation")
+    .MenuItems(items =>
+    {
+        items.Add("Portrait");
+        items.Add("Landscape");
+    }))
+    @(Html.C1().Menu().Header(Resources.FlexGrid.PDFExport_ExportMode + ": <b>All</b>").OnClientItemClicked("setExportMode")
+    .MenuItems(items =>
+    {
+        items.Add("All");
+        items.Add("Selection");
+    }))
+
+    <div id="securitySettingsDiv">
+        <p></p>
+
+        <b>@Html.Raw(Resources.FlexGrid.PDFExport_SecuritySettings)</b>
+        <div class="panel-body reduce">
+            <div class="row">
+                <div class="col-sm-3">
+                    <input type="text" id="tbUserPassword" class="form-control" placeholder="@Resources.FlexGrid.PDFExport_UserPassword" />
+                </div>
+                <div class="col-sm-3">
+                    <input type="text" id="tbOwnerPassword" class="form-control" placeholder="@Resources.FlexGrid.PDFExport_OwnerPassword" />
+                </div>
+            </div>
+            <br />
+            <div class="row">
+                <div class="col-sm-3">
+
+                    @(Html.C1().Menu().Header("PDF version: <b>1.4</b>").OnClientItemClicked("setVersion")
+						.MenuItems(items =>
+						{
+							items.Add("1.3");
+							items.Add("1.4");
+							items.Add("1.5");
+							items.Add("1.6");
+							items.Add("1.7");
+							items.Add("1.7 ExtensionLevel 3");
+						}).SelectedIndex(1))
+                </div>
+            </div>
+            <div class="panel-body reduce">
+                <div class="row">
+                    <div class="col">
+                        <b>@Resources.FlexGrid.PDFExport_Permissions</b> (<i>@Resources.FlexGrid.PDFExport_PermissionsNote</i>)
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-sm-3">
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbAnnotating" />@Resources.FlexGrid.PDFExport_Annotating</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbContentAccessibility" />@Resources.FlexGrid.PDFExport_ContentAccessibility</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbCopying" />@Resources.FlexGrid.PDFExport_Copying</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbDocumentAssembly" />@Resources.FlexGrid.PDFExport_DocumentAssembly</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbFillingForms" />@Resources.FlexGrid.PDFExport_FillingForms</label>
+                        </div>
+                        <div class="checkbox">
+                            <label><input type="checkbox" id="cbModifying" />@Resources.FlexGrid.PDFExport_Modifying</label>
+                        </div>
+                    </div>
+                </div>
+
+                @(Html.C1().Menu().Header(Resources.FlexGrid.PDFExport_Printing + ": <b>NotAllowed</b>").OnClientItemClicked("setPermissionPrinting")
+                    .MenuItems(items =>
+                    {
+                        items.Add("NotAllowed");
+                        items.Add("AllowLowResolution");
+                        items.Add("AllowHighResolution");
+                    }))
+            </div>
+        </div>
+    </div>
+</div>
+
+<button class="btn btn-default" onclick="exportTreeViewGrid()">@Html.Raw(Resources.FlexGrid.PDFExport_Export)</button>
+<br />
+@(Html.C1().FlexGrid().Id("treeFlexGrid")
+            .Bind(treeViewData)
+            .ChildItemsPath("Children")
+            .CssClass("grid custom-flex-grid")
+            .AllowResizing(AllowResizing.None)
+            .SelectionMode(SelectionMode.ListBox)
+            .HeadersVisibility(HeadersVisibility.Column)
+            .AutoGenerateColumns(false)
+            .Columns(bl =>
+            {
+                bl.Add(cb => cb.Binding("Header").Width("*"));
+                bl.Add(cb => cb.Binding("Size").Width("80"));
+            })
+        )
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.PDFExport_Summary) @Html.Raw(Resources.FlexGrid.PDFExport_Title3).</p>
+}
+
+@section Description{
+    <p><b>@Html.Raw(Resources.FlexGrid.PDFExport_Text5)</b></p>
+    <p><b>@Html.Raw(Resources.FlexGrid.PDFExport_Text6)</b></p>
+
+    <p>@Html.Raw(Resources.FlexGrid.PDFExport_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.PDFExport_Text1)</p>
+    <ul>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li1)</li>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li2)</li>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li3)</li>
+    </ul>
+    <p>@Html.Raw(Resources.FlexGrid.PDFExport_Text2)</p>
+    <ul>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li4)</li>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li5)</li>
+        <li>@Html.Raw(Resources.FlexGrid.PDFExport_Li6)</li>
+    </ul>
+    <p>@Html.Raw(Resources.FlexGrid.PDFExport_Text8)</p>
+}

@@ -1,0 +1,36 @@
+﻿@using FilterPanel.Models
+@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ViewData["Title"] = "FilterPanel";
+}
+
+<div class="container">
+    <h1>
+        FilterPanel
+    </h1>
+    <p>
+        This sample defines a <b>FilterPanel</b> that shows currently
+        active filters and allows users to remove filters by clicking.
+    </p>
+</div>
+<p>
+    Add or change filters to see how they are added to the
+    <b>FilterPanel</b> above the grid.
+</p>
+<p>
+    Click the 'x' icons in the filter markers to remove one
+    or all filters.
+</p>
+<div id="filterPanel"></div>
+<c1-flex-grid id="grid" auto-generate-columns="false" is-read-only="true"
+                  selection-mode="Row" sorting-type="SingleColumn">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-grid-filter default-filter-type="Both" id="gridFilter"></c1-flex-grid-filter>
+    <c1-flex-grid-column binding="ID" width="0.3*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" width="0.3*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" width="*"></c1-flex-grid-column>
+</c1-flex-grid>

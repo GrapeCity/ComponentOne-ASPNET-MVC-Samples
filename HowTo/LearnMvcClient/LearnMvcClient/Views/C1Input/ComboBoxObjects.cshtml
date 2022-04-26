@@ -1,0 +1,34 @@
+@model IEnumerable<InputData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxObjects_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxObjects_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.ComboBoxObjects_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.ComboBoxObjects_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.ComboBoxObjects_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.ComboBoxObjects_Text5)
+    </li>
+</ol>
+<label for="theCombo">@Html.Raw(Resources.C1Input.ComboBoxObjects_Text6)</label>
+@(Html.C1().ComboBox<InputData.Sale>().Id("theCombo").Bind(Model).DisplayMemberPath("Country").SelectedValuePath("Sales"))
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxObjects_Text7)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxObjects_Text8)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxObjects_Text9)
+</p>

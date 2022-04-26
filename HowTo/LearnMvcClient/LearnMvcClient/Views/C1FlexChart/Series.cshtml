@@ -1,0 +1,20 @@
+@using LearnMvcClient.Models
+@model IEnumerable <FlexChartData.Summary>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Series_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Series_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Series_Text2)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Summary>().Id("theChart")
+    .Bind("Country", Model)
+)
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AutoGenerateColumns(false)
+)

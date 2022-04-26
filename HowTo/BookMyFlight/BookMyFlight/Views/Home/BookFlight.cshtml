@@ -1,0 +1,247 @@
+﻿@model BookMyFlight.Models.MainModel
+
+@{
+    ViewBag.Title = "Book Flight";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/BookFlight.js")" type="text/javascript"></script>
+<script id="AdultListTemplate" type="text/template">    
+    <div id="Adult_{{Id}}" class="TravelerList">
+        <form class="form-inline">
+            <b>Adult {{Id}}</b>&nbsp;
+            @Html.C1().ComboBox().Id("CmbAdultTitle").CssClass("wj-form-control CmbAdultTitle").Bind(Model.AdultTitleList).Placeholder("Title").SelectedIndex(-1).Width("12%").Height("100%").ToTemplate()
+            @Html.C1().ComboBox().Id("ACAdultFName").CssClass("wj-form-control ACAdultFName").Bind(Model.TravelersList.Where(x => x.Type == "Adult")).Width("20%").Height("100%").DisplayMemberPath("First_Name").SelectedValuePath("Id").OnClientSelectedIndexChanged("AdultSelIndexChanged").ShowDropDownButton(true).Placeholder("First Name").ToTemplate().IsEditable(true)
+            <input id="AdultMName_{{Id}}" type="text" placeholder="Middle Name" class="TravelerInputs" style="width:20%" />
+            <input id="AdultLName_{{Id}}" type="text" class="TravelerInputs" placeholder="Last Name" style="width:20%;" />
+        </form>
+            <hr />
+</div>
+</script>
+<script id="ChildListTemplate" type="text/template">
+    <div id="Child_{{Id}}" class="TravelerList">
+        <form class="form-inline">
+            <b>Child {{Id}}</b>&nbsp;
+            @Html.C1().ComboBox().Id("CmbChildTitle").CssClass("wj-form-control CmbChildTitle").Bind(Model.ChildTitleList).Placeholder("Title").SelectedIndex(-1).Width("12%").ToTemplate()
+            @Html.C1().ComboBox().Id("ACChildFName").CssClass("wj-form-control ACChildFName").Bind(Model.TravelersList.Where(x => x.Type == "Child")).Width("20%").DisplayMemberPath("First_Name").SelectedValuePath("Id").OnClientSelectedIndexChanged("ChildSelIndexChanged").ShowDropDownButton(true).Placeholder("First Name").ToTemplate().IsEditable(true)
+            <input id="ChildMName_{{Id}}" type="text" class="TravelerInputs" placeholder="Middle Name" style="width:20%;" />
+            <input id="ChildLName_{{Id}}" type="text" class="TravelerInputs" placeholder="Last Name" style="width:20%;" />
+        </form>
+            <hr />
+</div>    
+</script>
+<script id="InfantListTemplate" type="text/template">
+    <div id="Infant_{{Id}}" class="TravelerList">
+        <form class="form-inline">
+            <b>Infant {{Id}}</b>&nbsp;
+            @Html.C1().ComboBox().Id("CmbInfantTitle").CssClass("wj-form-control CmbInfantTitle").Bind(Model.ChildTitleList).Placeholder("Title").SelectedIndex(-1).Width("12%").ToTemplate()
+            @Html.C1().ComboBox().Id("ACInfantFName").CssClass("wj-form-control ACInfantFName").Bind(Model.TravelersList.Where(x => x.Type == "Infant")).Width("20%").DisplayMemberPath("First_Name").SelectedValuePath("Id").OnClientSelectedIndexChanged("InfantSelIndexChanged").ShowDropDownButton(true).Placeholder("First Name").ToTemplate().IsEditable(true)
+            <input id="InfantMName_{{Id}}" type="text" class="TravelerInputs" placeholder="Middle Name" style="width:20%;" />
+            <input id="InfantLName_{{Id}}" type="text" class="TravelerInputs" placeholder="Last Name" style="width:20%;" />
+            @Html.C1().InputDate().Id("IDInfantDOB").CssClass("wj-form-control IDInfantDOB").Min(DateTime.Today.Subtract(new TimeSpan(2 * 364, 0, 0, 0))).Max(DateTime.Today).Value(DateTime.Today).ToTemplate().Width("17%")
+        </form>
+        <hr />
+    </div>
+</script>
+
+<div id="PnlPage">
+    <div id="LblMsg"></div>
+    <div id="PnlTravelers" class="PnlTravelers">
+        <div id="Title">Traveller Details</div>
+        @Html.C1().ListBox().Id("AdultList").ItemTemplateId("AdultListTemplate").Bind(Model.SelAdultList).Width("100%").Height("100%").CssStyle("border", "none").CssClass("CListBox-Custom")
+        @Html.C1().ListBox().Id("ChildList").ItemTemplateId("ChildListTemplate").Bind(Model.SelChildList).Width("100%").CssStyle("border", "none").CssClass("CListBox-Custom")
+        @Html.C1().ListBox().Id("InfantList").ItemTemplateId("InfantListTemplate").Bind(Model.SelInfantList).Width("100%").CssStyle("border", "none").CssClass("CListBox-Custom")
+
+        <div class="MyRow" style="text-align:center;font-size:12pt;">
+            <a class="mybtn" onclick="CallProceedPayment();">Proceed to Payment</a>
+        </div>
+        <br /><br />
+    </div>
+    <div id="PnlMakePayment" class="PnlTravelers">
+        <div id="Title">Make Payment</div>
+        <div class="Content">
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-3">
+                        Payment Type
+                    </div>
+                    <div class="col-md-9">
+                        <input type="radio" name="PaymentType" id="Visa" value="Visa" autocomplete="off" checked="checked" onchange="CardTypeChanged()" />
+                        <label for="Visa"><span></span>Visa</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="PaymentType" id="MasterCard" value="MasterCard" autocomplete="off" onchange="CardTypeChanged()" />
+                        <label for="MasterCard"><span></span>MasterCard</label>
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        <input type="radio" name="PaymentType" id="AmericanExpress" value="American Express" autocomplete="off" onchange="CardTypeChanged()" />
+                        <label for="AmericanExpress"><span></span>American Express</label>
+                    </div>
+                </form>
+            </div><br />
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-3">
+                        Card Number
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBox("CardNumber", "4693-7558-6581-2485", new { ID = "CardNumber", @class = "", maxlength = "50", style = "width:300px;" })
+                    </div>
+                </form>
+            </div><br />
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-3">
+                        Expiration
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBox("Expiration", DateTime.Today.ToString("MM") + "/" + DateTime.Today.AddYears(4).ToString("yyyy"), new { ID = "Expiration", @class = "", style = "width:300px;" })
+                    </div>
+                </form>
+            </div><br />
+            <div class="row">
+                <form class="form-inline">
+                    <div class="col-md-3">
+                        Code
+                    </div>
+                    <div class="col-md-9">
+                        @Html.TextBox("Code", "123", new { ID = "Code", @class = "", style = "width:300px;" })
+                    </div>
+                </form>
+            </div><br /><br />
+
+            <div class="row">
+                <div class="col-md-3">
+                </div>
+                <div class="col-md-9">
+                    <a class="mybtn" onclick="CallBook();">Book My Tickets</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="PnlReport" class="PnlTravelers">
+        <div id="Title">Flight Booked</div>
+        <div class="SuccessMsg">
+            <br />
+            Dear, Your Ticket(s) for selected flight(s) has been booked successfully. Have a Great & Enjoyable journey.
+            <br /><br />
+            Thanks! for choosing BookMyFlight.
+        </div>
+    </div>
+
+    <div style="float:right;width:23%;">
+        <div id="PnlBookingSummary" class="PnlBookingSummary">
+            <div id="Title">Booking Summary</div>
+            <div class="Content">
+                <input type="hidden" id="SelFromRecID" /><input type="hidden" id="SelToRecID" />
+                <div id="PnlSelFromFlight">
+                    <b>Depart via</b>
+                    <div class="BS_FlightIcon" style="float:right;">
+                        <img class="FlightIcon" id="ImgSelFromFlight" src="~/@Model.SelDepartFlights.Airlines_Img" title="@Model.SelDepartFlights.Airlines" />
+                        <div>@Model.SelDepartFlights.Flight_No</div>
+                    </div><br /><br />
+                    <hr />
+                    <div class="BS_FlightInfo">
+                        <div id="SelDepartDate">@Model.SelTripInfo.DepartDate.ToString("MMM dd yy")</div>
+                        <b><span id="SelFromDest1">@Model.SelTripInfo.FromDest</span> -> <span id="SelToDest1">@Model.SelTripInfo.ToDest</span></b>
+                        <div class="FlightTimes">
+                            <span id="SelFromDepartTime">@Model.SelDepartFlights.DepartTime.ToString("HH:MM")</span>&nbsp;->&nbsp;<span id="SelFromArrivalTime">@Model.SelDepartFlights.ArriveTime.ToString("HH:MM")</span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+                @{
+                    string RetDisplay = Model.SelTripInfo.TripType == "ROUND" ? "block;" : "none;";
+                    if(Model.SelReturnFlights==null)
+                    {
+                        Model.SelReturnFlights = new BookMyFlight.Models.Common.SearchFlight();//Model.SelDepartFlights;
+                    }
+                }
+                <div id="PnlSelToFlight" style="display:@RetDisplay;">
+                    <b>Return via</b>
+                    <div class="BS_FlightIcon" style="float:right;">
+                        <img class="FlightIcon" id="ImgSelToFlight" src="~/@Model.SelReturnFlights.Airlines_Img" title="@Model.SelReturnFlights.Airlines" />
+                        <div>@Model.SelReturnFlights.Flight_No</div>
+                    </div><br /><br />
+                    <hr />
+                    <div class="BS_FlightInfo">
+                        <div id="SelReturnDate">
+                            @{
+                                DateTime RetDate = DateTime.Today;
+                                if (Model.SelTripInfo.ReturnDate != null)
+                                {
+                                    RetDate = DateTime.Parse(Model.SelTripInfo.ReturnDate.ToString());
+                                }
+                            }
+                            @RetDate.ToString("MMM dd yy")
+                        </div>
+                        <b><span id="SelToDest2">@Model.SelTripInfo.ToDest</span> -> <span id="SelFromDest2">@Model.SelTripInfo.FromDest</span></b>
+                        <div class="FlightTimes">
+                            <span id="SelToDepartTime">@Model.SelReturnFlights.DepartTime.ToString("HH:MM")</span>&nbsp;->&nbsp;<span id="SelToArrivalTime">@Model.SelReturnFlights.ArriveTime.ToString("HH:MM")</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+
+        @{
+            double AdultFare = Model.SelAdultList.Count() * Model.SelDepartFlights.Fare;
+            double ChildFare = Model.SelChildList.Count * Model.SelDepartFlights.Fare * 80 / 100;
+            double InfantFare = Model.SelInfantList.Count * Model.SelDepartFlights.Fare * 40 / 100;
+            if (Model.SelTripInfo.TripType == "ROUND")
+            {
+                AdultFare += Model.SelAdultList.Count * Model.SelReturnFlights.Fare;
+                ChildFare += Model.SelChildList.Count * Model.SelReturnFlights.Fare * 80 / 100;
+                InfantFare += Model.SelInfantList.Count * Model.SelReturnFlights.Fare * 40 / 100;
+            }
+            AdultFare = Math.Round(AdultFare, 0);
+            ChildFare = Math.Round(ChildFare, 0);
+            InfantFare = Math.Round(InfantFare, 0);
+            double TotalFare = AdultFare + ChildFare + InfantFare;
+        }
+        <div id="PnlFareDetails" class="PnlBookingSummary">
+            <div id="Title">Fare Details</div>
+            <div class="Content">
+                <div id="PnlAdultFare" style="clear:both;">
+                    <div class="LeftFloat" style="float:left;clear:both;">Adult x <span>@Model.SelAdultList.Count.ToString()</span></div>
+                    <div class="RightFloat" style="float:right">
+                        $<span id="LblAdultFare">
+                            @AdultFare
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <div id="PnlChildFare" style="clear:both;">
+                    <div class="LeftFloat" style="float:left;clear:both;">Child x <span>@Model.SelChildList.Count.ToString()</span></div>
+                    <div class="RightFloat" style="float:right">
+                        $<span id="LblChildFare">
+                            @ChildFare
+                        </span>
+                    </div>
+                </div>
+                <br />
+                <hr />
+                <div id="PnlInfantFare" style="clear:both;">
+                    <div class="LeftFloat" style="float:left;clear:both;">Infant x <span>@Model.SelInfantList.Count.ToString()</span></div>
+                    <div class="RightFloat" style="float:right">
+                        $<span id="LblInfantFare">
+                            @InfantFare
+                        </span>
+                    </div>
+                </div>
+                <br /><br />
+                <div class="YouPay" style="font-size:13pt;float:right;">Total Fare to Pay</div>
+                <br /><br />
+                <div class="BS_TotalFare" style="font-size:20pt;font-weight:bold;float:right;">$<span id="LblTotalFare">@TotalFare</span></div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+</div>

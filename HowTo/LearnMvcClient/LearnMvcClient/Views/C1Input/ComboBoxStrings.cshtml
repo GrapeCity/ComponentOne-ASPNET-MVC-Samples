@@ -1,0 +1,54 @@
+@model IEnumerable<string>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text1)
+</p>
+<label for="theComboNoSrc">@Html.Raw(Resources.C1Input.ComboBoxStrings_Text2)</label>
+@Html.C1().ComboBox().Id("theComboNoSrc").ShowDropDownButton(false)
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text3)
+</p>
+<br />
+
+<h4>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Title1)
+</h4>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text4)
+</p>
+<label for="theCombo">@Html.Raw(Resources.C1Input.ComboBoxStrings_Text5)</label>
+@Html.C1().ComboBox().Id("theCombo").Bind(Model)
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text6)
+</p>
+<br />
+
+<h4>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Title2)
+</h4>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text7)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text8)
+</p>
+<p>
+    <label>
+        <input id="isRequired" type="checkbox">
+        @Html.Raw(Resources.C1Input.ComboBoxStrings_Text9)
+    </label>
+</p>
+<p>
+    <label>
+        <input id="isEditable" type="checkbox" checked="checked">
+        @Html.Raw(Resources.C1Input.ComboBoxStrings_Text10)
+    </label>
+</p>
+<label for="theComboCustom">@Html.Raw(Resources.C1Input.ComboBoxStrings_Text11)</label>
+@Html.C1().ComboBox().Id("theComboCustom").Bind(Model).IsRequired(false).IsEditable(true).Placeholder(Resources.C1Input.ComboBoxStrings_Text12)
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxStrings_Text13) <b id="theComboCustomValue"></b>.
+</p>

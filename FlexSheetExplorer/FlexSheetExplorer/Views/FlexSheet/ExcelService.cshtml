@@ -1,51 +1,42 @@
 @section Scripts{
-
-    @{
-        string webApiClient;
-#if NETCORE31
-        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclientCore22.min.js'></script>";
-#else
-        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclient.min.js'></script>";
-#endif
-    }
-    @Html.Raw(webApiClient)
-    <script src="~/Scripts/flexSheet/excelService.js"></script>
-    <script>
-    ctx.serverUrl = '@AppSettings.GetWebApiServiceUrl()';
-    </script>
+<script src="~/Scripts/wijmo.io/webapiclient.min.js"></script>
+<script src="~/Scripts/FlexSheet/excelService.js"></script>
+<script>
+    ctx.serverUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebAPIService"])';
+</script>
 }
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.ExcelService_Text2)
-        </h3>
-        <p>@Html.Raw(FlexSheetRes.ExcelService_Text0)</p>
+<h3>@Html.Raw(Resources.FlexSheet.ExcelService_Text2)</h3>
 
-        <c1-flex-sheet id="excelServiceSheet" class="flexSheet" file-path="~/Content/xlsxFile/example1.xlsx"></c1-flex-sheet>
+<p>@Html.Raw(Resources.FlexSheet.ExcelService_Text0)</p>
+
+        @(Html.C1().FlexSheet().Id("excelServiceSheet").CssClass("flexSheet").Load("~/Content/xlsxFile/example1.xlsx"))
 
         <div class="panel panel-warning">
-            <div class="panel-heading">@Html.Raw(FlexSheetRes.ExcelService_Text5)</div>
+            <div class="panel-heading">@Html.Raw(Resources.FlexSheet.ExcelService_Text3)</div>
             <div class="panel-body">
                 <div class="row">
-                    <c1-menu id="exportFormat" header="@Html.Raw(FlexSheetRes.Export_Format_Text0) <b>XLSX</b>"
-                             execute-command="exportFormatChanged">
-                        <c1-menu-item header="XLSX" command-parameter="@("Xlsx")"></c1-menu-item>
-                        <c1-menu-item header="XLS" command-parameter="@("Xls")"></c1-menu-item>
-                        <c1-menu-item header="CSV" command-parameter="@("Csv")"></c1-menu-item>
-                    </c1-menu>
-                    <span>@Html.Raw(FlexSheetRes.ExcelService_Text6)</span>
+                    @(Html.C1().Menu().Id("exportFormat").Header(string.Format("{0} <b>XLSX</b>", Resources.FlexSheet.Export_Format_Text0))
+                    .Command("exportFormatChanged").MenuItems(items =>
+                      {
+                          items.Add("XLSX", "Xlsx");
+                          items.Add("XLS", "Xls");
+                          items.Add("CSV", "Csv");
+                      }))
+                    <span>@Html.Raw(Resources.FlexSheet.ExcelService_Text4)</span>
                     <input id="exportName" type="text" class="form-control input-control" value="export" />
-                    <button class="btn btn-primary" onclick="exportFlexSheet()">@Html.Raw(FlexSheetRes.ExcelService_Text3)</button>
+                    <button class="btn btn-primary" onclick="exportFlexSheet()">@Html.Raw(Resources.FlexSheet.ExcelService_Text5)</button>
                 </div>
                 <div class="row">
                     <input type="file" id="fileinput" class="form-control input-control" />
-                    <button class="btn btn-primary" onclick="importFlexSheet()">@Html.Raw(FlexSheetRes.ExcelService_Text4)</button>
+                    <button class="btn btn-primary" onclick="importFlexSheet()">@Html.Raw(Resources.FlexSheet.ExcelService_Text6)</button>
                 </div>
             </div>
         </div>
     </div>
 </div>
 @section Summary{
-    <p>@Html.Raw(FlexSheetRes.ExcelService_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.ExcelService_Text1)</p>
 
 }

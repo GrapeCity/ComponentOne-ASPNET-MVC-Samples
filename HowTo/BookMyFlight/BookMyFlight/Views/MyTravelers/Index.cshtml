@@ -1,0 +1,118 @@
+﻿@model BookMyFlight.Models.TravelersModel
+
+@{
+    ViewBag.Title = "My Travellers";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/MyTravelers.js")" type="text/javascript"></script>
+<script id="TravelersListTemplate" type="text/template">    
+    <div id="TravelersListItemMainDiv_{{Id}}" class="TravelersListTemplate">
+        <div class="row">
+            <div class="col-md-9">
+                <span class="Name">Name:</span> {{User_Name}}
+            </div>
+            <div class="col-md-3">
+                <span class="Icons">
+                    <span id="TravelersListItemMainDiv_Edit_{{Id}}" onclick="CallEditTraveler({{Id}})" data-toggle="modal" data-target="#DlgAddEditTraveler"><i class="fa fa-pencil-square-o"></i></span>
+                    &nbsp;&nbsp;<span id="TravelersListItemMainDiv_Delete_{{Id}}" onclick="CallDeleteTraveler({{Id}})"><i class="fa fa-trash-o"></i></span>
+                </span>
+            </div>
+        </div>
+        <hr />
+    </div>
+</script>
+
+<div id="PnlPage">
+    <div id="LblMsg"></div><br />
+    <div class="row">
+        <div class="col-md-12">
+            <span class="myaddbtn" data-toggle="modal" data-target="#DlgAddEditTraveler" onclick="CallAddTraveler();">
+                <i class="fa fa-plus"></i>&nbsp;&nbsp;<b>Add another Traveller</b>
+            </span>
+        </div>
+    </div>    <br />
+    <div class="row">
+        <div class="col-md-12">
+            @(Html.C1().ListBox().Id("LBTravelers").ItemTemplateId("TravelersListTemplate").CssClass("CListBox-Custom")
+                .Width("85%").CssStyle("border", "none")
+            )
+        </div>
+    </div><br />
+
+</div>
+
+<div class="modal fade" id="DlgAddEditTraveler" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title"><span id="DlgAddEditTravelLabel">Add/Edit Traveler</span></h4>
+            </div>
+            <div class="modal-body">
+                <div id="LblDlgMsg"></div>
+                <input type="hidden" id="SelTravelerID" />
+                <div class="row">
+                    <form class="form-inline">
+                        <div class="col-md-3">
+                            Traveller:
+                        </div>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox().Id("CmbTitle").Bind(Model.TitleList)
+                        .Width("25%").Placeholder("Title").Height("100%")
+                            )
+                            <input id="TBFirstName" class="form-control" type="text" placeholder="First Name" style="width:22%" />
+                            <input id="TBMiddleName" class="form-control" type="text" placeholder="Middle Name" style="width:22%" />
+                            <input id="TBLastName" class="form-control" type="text" placeholder="Last Name" style="width:22%" />
+                        </div>
+                    </form>
+                </div><br />
+                <div class="row">
+                    <div class="col-md-3">
+                        Date of Birth:
+                    </div>
+                    <div class="col-md-9">
+                        @(Html.C1().InputDate().Id("IDDOB").Value(DateTime.Today).Max(DateTime.Today).Width("60%")
+                        )
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <div class="col-md-3">
+                        Email Id:
+                    </div>
+                    <div class="col-md-9">
+                        <input id="TBEmail" class="form-control" type="email" placeholder="Email Id" style="width:60%" />
+                    </div>
+                </div><br />
+
+                <div class="row">
+                    <form class="form-inline">
+                        <div class="col-md-3">
+                            Phone/Mobile:
+                        </div>
+                        <div class="col-md-9">
+                            <input id="TBCountryCode" type="text" class="form-control" placeholder="Country Code" style="width:20%;" value="+" />
+                            <input id="TBPhone" type="text" class="form-control" placeholder="Phone/Mobile" style="width:39%" />
+                        </div>
+                    </form>
+                </div>
+                <hr />
+                <div class="modalfooter">
+                    <div class="row">
+                        <div class="col-md-3">
+                        </div>
+                        <div class="col-md-9">
+                            <span class="myaddbtn" onclick="SaveUpdate()">
+                                <i class="fa fa-floppy-o"></i>&nbsp;&nbsp;<b><span id="BtnSaveUpdate">Update Traveller</span></b>
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <br />
+            </div>
+        </div>
+    </div>
+
+</div>
+
+

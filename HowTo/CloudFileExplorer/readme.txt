@@ -1,4 +1,4 @@
-ASP.NET MVC Core Cloud File Explorer
+ASP.NET MVC Cloud File Explorer
 -------------------------------------------------------------------
 This sample demonstrates how to use Cloud API in Web API to make a simple file explorer.
 

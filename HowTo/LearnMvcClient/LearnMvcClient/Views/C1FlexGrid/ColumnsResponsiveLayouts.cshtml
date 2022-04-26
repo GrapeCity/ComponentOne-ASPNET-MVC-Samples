@@ -1,0 +1,19 @@
+<h1>@Html.Raw(Resources.C1FlexGrid.ColumnsResponsiveLayouts_Title)</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsResponsiveLayouts_Text1)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AutoGenerateColumns(false)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .Columns(cs=>
+    {
+        cs.Add().Header("Company").IsReadOnly(true).Visible(false).AllowDragging(false).Width("*");
+        cs.Add().Binding("CompanyName").Header("Company Name").Width("20*");
+        cs.Add().Binding("ContactName").Header("Contact Name").Width("15*");
+        cs.Add().Binding("ContactTitle").Header("Contact Title").Width("20*");
+        cs.Add().Binding("Address").Header("Address").Width("20*");
+        cs.Add().Binding("City").Header("City").Width("20*");
+        cs.Add().Binding("Country").Header("Country").Width("20*");
+    })
+)

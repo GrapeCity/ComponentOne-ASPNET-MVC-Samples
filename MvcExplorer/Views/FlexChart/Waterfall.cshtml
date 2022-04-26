@@ -1,0 +1,49 @@
+﻿@model IEnumerable<WaterfallData>
+
+@section Scripts{
+<script>
+    function customChangeRelativeData(control, value) {
+        control.series[0].relativeData = value;
+    }
+    function customChangeConnectorLines(control, value) {
+        control.series[0].connectorLines = value;
+    }
+    function customChangeShowTotal(control, value) {
+        control.series[0].showTotal = value;
+    }
+    function customChangeShowIntermediateTotal(control, value) {
+        control.series[0].showIntermediateTotal = value;
+    }
+</script>
+}
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().FlexChart()
+    .Id(demoSettingsModel.ControlId)
+    .Bind("Name", "Value", Model)
+    .Series(ser =>
+        {
+            ser.AddWaterfall().RelativeData(false)
+                .ConnectorLines(true)
+                .ShowTotal(true)
+                .ShowIntermediateTotal(demoSettingsModel.GetBool("ShowIntermediateTotal", false))
+                .IntermediateTotalLabels("Q1", "Q2", "Q3", "Q4")
+                .IntermediateTotalPositions(3, 6, 9, 12)
+                .Name("Increase, Decrease,Total")
+                .Styles(s =>
+                    s.ConnectorLines(cnt => cnt.StrokeDasharray("5 5").Stroke("#333"))
+                     .Start(start => start.Fill("#7dc7ed"))
+                     .Falling(falling => falling.Fill("#dd2714").Stroke("#a52714"))
+                     .Rising(rising => rising.Fill("#0f9d58").Stroke("#0f9d58"))
+                     .IntermediateTotal(intotal => intotal.Fill("#7dc7ed")));
+        })
+    .Height("300px")
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.Waterfall_Text0)</p>
+}  

@@ -1,0 +1,61 @@
+@{ 
+    var countries = new[] { "US", "Germany", "UK", "Japan", "Italy", "Greece" };
+    var products = new[] { "Phones", "Cars", "Stereos", "Watches", "Computers" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Text1)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Text2)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Text3)
+    @Html.C1().ComboBox().Id("theCombo").Bind(countries)
+</label>
+@Html.C1().FlexGrid().Id("theGridDetail")
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Text4)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Title1)
+</h3>
+@Html.C1().FlexGrid().Id("theGridMaster").SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row).IsReadOnly(true)
+
+<h3>
+    @Html.Raw(Resources.C1FlexGrid.MasterDetail_Title2)
+</h3>
+<table class="tbl-spaced">
+    <tr>
+        <td>@Html.Raw(Resources.C1FlexGrid.MasterDetail_Text5)</td>
+        <td id="theCountry" class="bnd-ctl"></td>
+        @Html.C1().ComboBox("#theCountry").Bind(countries)
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1FlexGrid.MasterDetail_Text6)</td>
+        <td id="theProduct" class="bnd-ctl"></td>
+        @Html.C1().ComboBox("#theProduct").Bind(products)
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1FlexGrid.MasterDetail_Text7)</td>
+        <td id="theDate" class="bnd-ctl"></td>
+        @Html.C1().InputDate("#theDate")
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1FlexGrid.MasterDetail_Text8)</td>
+        <td id="theSales" class="bnd-ctl"></td>
+        @Html.C1().InputNumber("#theSales").Format("n2").Step(10)
+    </tr>
+    <tr>
+        <td>@Html.Raw(Resources.C1FlexGrid.MasterDetail_Text9)</td>
+        <td id="theExpenses" class="bnd-ctl"></td>
+        @Html.C1().InputNumber("#theExpenses").Format("n2").Step(10)
+    </tr>
+</table>

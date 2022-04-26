@@ -1,0 +1,7 @@
+﻿@model IEnumerable<string>
+
+@Html.C1().ListBox().CssClass("multi-column").Bind(Model)
+
+@section Description{
+    @Html.Raw(Resources.ListBox.MultiColumn_Text0)
+}

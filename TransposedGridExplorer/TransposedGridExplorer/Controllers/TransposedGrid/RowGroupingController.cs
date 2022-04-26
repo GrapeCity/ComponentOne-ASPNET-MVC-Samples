@@ -1,15 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Collections.Generic;
+using System.Web.Mvc;
 using TransposedGridExplorer.Models;
-using C1.Web.Mvc;
-using C1.Web.Mvc.Serialization;
-#if !NETCORE31 && !NET50
-using Microsoft.AspNetCore.Http.Internal;
-#endif
-using Microsoft.Extensions.Primitives;
-using Microsoft.AspNetCore.Http;
 
 namespace TransposedGridExplorer.Controllers
 {
@@ -24,7 +15,7 @@ namespace TransposedGridExplorer.Controllers
             new Portfolio("Dragon Capital",   "BTC",  0.116,  0.528,  0.451,  0.324,  0.15,   0.14,   0.71,   0, 278300)
         };
 
-        public IActionResult RowGrouping()
+        public ActionResult RowGrouping()
         {
             return View(_portfolios);
         }

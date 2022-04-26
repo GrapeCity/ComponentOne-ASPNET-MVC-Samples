@@ -1,0 +1,351 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add_Level_Text0" xml:space="preserve">
+    <value>Add Level</value>
+  </data>
+  <data name="Alignment_Text0" xml:space="preserve">
+    <value>Alignment</value>
+  </data>
+  <data name="Banded_Columns_Text0" xml:space="preserve">
+    <value>Banded Columns</value>
+  </data>
+  <data name="Banded_Rows_Text0" xml:space="preserve">
+    <value>Banded Rows</value>
+  </data>
+  <data name="Built_In_Styles" xml:space="preserve">
+    <value>Built-in Styles:</value>
+  </data>
+  <data name="Cell_Content_Text0" xml:space="preserve">
+    <value>Cell Content</value>
+  </data>
+  <data name="Cell_Merging_Description_Text0" xml:space="preserve">
+    <value>FlexSheet supports merging the selected cells into one by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.</value>
+  </data>
+  <data name="Cell_Merging_Description_Text1" xml:space="preserve">
+    <value>If the selected cells contain merged cell, the mergeRange method will un-merge the merged cell. Otherwise, it will merge the selected cells into one cell.</value>
+  </data>
+  <data name="Cell_Merging_Description_Text2" xml:space="preserve">
+    <value>FlexSheet allows merging of cells that contain any data. This is different from FlexGrid, which supports content-driven cell merging.</value>
+  </data>
+  <data name="Cell_Merging_Text0" xml:space="preserve">
+    <value>Cell Merging</value>
+  </data>
+  <data name="Color_Text0" xml:space="preserve">
+    <value>Color</value>
+  </data>
+  <data name="Column_Text0" xml:space="preserve">
+    <value>Column</value>
+  </data>
+  <data name="Copy_Level_Text0" xml:space="preserve">
+    <value>Copy Level</value>
+  </data>
+  <data name="Currency_Format_Text0" xml:space="preserve">
+    <value>Currency Format</value>
+  </data>
+  <data name="Custom_Function_Description_Text0" xml:space="preserve">
+    <value>Although the functions provided in FlexSheet should cover a vast majority of use scenarios, still there may be some cases where users may need additional functions.</value>
+  </data>
+  <data name="Custom_Function_Description_Text1" xml:space="preserve">
+    <value>FlexSheet provides two methods that allow you to add your own custom functions: &lt;b&gt;addFunction&lt;/b&gt; and &lt;b&gt;unknownFunction&lt;/b&gt;.</value>
+  </data>
+  <data name="Custom_Function_Description_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;addFunction&lt;/b&gt; method adds a custom function to the list of built-in functions.</value>
+  </data>
+  <data name="Custom_Function_Description_Text3" xml:space="preserve">
+    <value>The addFunction method is usually the best way to add custom functions to the FlexSheet calculation engine. However, there are scenarios where the function names are variable or unknown ahead of time. For example, named ranges or value dictionaries.</value>
+  </data>
+  <data name="Custom_Function_Description_Text4" xml:space="preserve">
+    <value>In these situations, you can use the &lt;b&gt;unknownFunction&lt;/b&gt; event to look up the value of a function dynamically. When the FlexSheet detects an unknown function name, it raises the unknownFunction event and provides parameters that contain the function name and parameters. The event handler then calculates the result and returns the value.</value>
+  </data>
+  <data name="Custom_Function_Text0" xml:space="preserve">
+    <value>Custom Function</value>
+  </data>
+  <data name="Decimal_Format_Text0" xml:space="preserve">
+    <value>Decimal Format</value>
+  </data>
+  <data name="Delete_Level_Text0" xml:space="preserve">
+    <value>Delete Level</value>
+  </data>
+  <data name="Drag_Drop_Description_Text0" xml:space="preserve">
+    <value>FlexSheet supports dragging and dropping the columns or rows into other columns or rows.</value>
+  </data>
+  <data name="Drag_Drop_Description_Text1" xml:space="preserve">
+    <value>FlexSheet not only copies or moves the data of the cells, but also copies or moves the style of the cells.</value>
+  </data>
+  <data name="Drag_Drop_Description_Text2" xml:space="preserve">
+    <value>When you drag and drop columns/rows without pressing any key, it will move the selected columns or rows into the target columns or rows.</value>
+  </data>
+  <data name="Drag_Drop_Description_Text3" xml:space="preserve">
+    <value>When you drag and drop columns/rows with &lt;b&gt;'Ctrl'&lt;/b&gt; key pressed, it will copy the selected columns or rows into the target columns or rows.</value>
+  </data>
+  <data name="Drag_Drop_Description_Text4" xml:space="preserve">
+    <value>When you drag and drop columns/rows with &lt;b&gt;'Shift'&lt;/b&gt; key pressed, it will change the position of the selected columns or rows with the target columns or rows.</value>
+  </data>
+  <data name="Drag_Drop_Text0" xml:space="preserve">
+    <value>Drag &amp; Drop</value>
+  </data>
+  <data name="Excel_IO_Description_Text0" xml:space="preserve">
+    <value>FlexSheet supports saving/loading xlsx file by using the client &lt;b&gt;'save'&lt;/b&gt; and &lt;b&gt;'load'&lt;/b&gt; method.</value>
+  </data>
+  <data name="Excel_IO_Text0" xml:space="preserve">
+    <value>Excel I/O</value>
+  </data>
+  <data name="File_Name_Text0" xml:space="preserve">
+    <value>File Name</value>
+  </data>
+  <data name="First_Column_Text0" xml:space="preserve">
+    <value>First Column</value>
+  </data>
+  <data name="Font_Text0" xml:space="preserve">
+    <value>Font</value>
+  </data>
+  <data name="Format_Cells_Description_Text0" xml:space="preserve">
+    <value>FlexSheet allows you to set format for each cell. This includes setting font style, data format of cell value (Date/Number format), cell's fill color and horizontal alignment.</value>
+  </data>
+  <data name="Formulas_Description_Text0" xml:space="preserve">
+    <value>The FlexSheet control has a built-in calculation engine that supports over 80 functions just like Microsoft Excel. (&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#In-builtFormulasSupportedinFlexSheet.html" target="_blank"&gt;See complete list.&lt;/a&gt;)</value>
+  </data>
+  <data name="Formulas_Text0" xml:space="preserve">
+    <value>Formulas</value>
+  </data>
+  <data name="Frozen_Cells_Description_Text0" xml:space="preserve">
+    <value>FlexSheet allows you to freeze the rows and columns of the selected cell by the &lt;b&gt;freezeAtCursor&lt;/b&gt; method.</value>
+  </data>
+  <data name="Frozen_Cells_Text0" xml:space="preserve">
+    <value>Frozen Cells</value>
+  </data>
+  <data name="Full_DateTime_Long_Time_Text0" xml:space="preserve">
+    <value>Full Date/TIme (long time)</value>
+  </data>
+  <data name="Full_DateTime_Short_Time_Text0" xml:space="preserve">
+    <value>Full Date/TIme (short time)</value>
+  </data>
+  <data name="Getting_Started_Description_Text0" xml:space="preserve">
+    <value>This will create a FlexSheet with default behavior.</value>
+  </data>
+  <data name="Getting_Started_Step_Text0" xml:space="preserve">
+    <value>Create a new MVC project using the C1 ASP.NET MVC application template.</value>
+  </data>
+  <data name="Getting_Started_Step_Text1" xml:space="preserve">
+    <value>Add controller and corresponding view to the project.</value>
+  </data>
+  <data name="Getting_Started_Step_Text2" xml:space="preserve">
+    <value>Initialize the FlexSheet control in view using razor syntax.</value>
+  </data>
+  <data name="Getting_Started_Step_Text3" xml:space="preserve">
+    <value>(Optional) Add some CSS to customize the FlexSheet control's appearance.</value>
+  </data>
+  <data name="Getting_Started_Step_Title_Text0" xml:space="preserve">
+    <value>Steps for getting started with the FlexSheet control in MVC applications</value>
+  </data>
+  <data name="Getting_Started_Text0" xml:space="preserve">
+    <value>Getting Started</value>
+  </data>
+  <data name="Header_Row_Text0" xml:space="preserve">
+    <value>Header Row</value>
+  </data>
+  <data name="Last_Column_Text0" xml:space="preserve">
+    <value>Last Column</value>
+  </data>
+  <data name="Long_Date_Text0" xml:space="preserve">
+    <value>Long Date</value>
+  </data>
+  <data name="Menu_Format_Text0" xml:space="preserve">
+    <value>menuFormat</value>
+  </data>
+  <data name="Merge_Text0" xml:space="preserve">
+    <value>Merge</value>
+  </data>
+  <data name="Number_Format_Text0" xml:space="preserve">
+    <value>Number Format</value>
+  </data>
+  <data name="Order_Text0" xml:space="preserve">
+    <value>Order</value>
+  </data>
+  <data name="Percentage_Format_Text0" xml:space="preserve">
+    <value>Percentage Format</value>
+  </data>
+  <data name="Project_Name_Text0" xml:space="preserve">
+    <value>ASP.NET MVC FlexSheet 101</value>
+  </data>
+  <data name="Project_Short_Description_Text0" xml:space="preserve">
+    <value>This page shows how to get started with ASP.Net MVC's FlexSheet control.</value>
+  </data>
+  <data name="Result_Live_Text0" xml:space="preserve">
+    <value>Result (live)</value>
+  </data>
+  <data name="Short_Date_Text0" xml:space="preserve">
+    <value>ShortDate</value>
+  </data>
+  <data name="Sorting_Description_Text0" xml:space="preserve">
+    <value>FlexSheet can be sorted by any of its columns.</value>
+  </data>
+  <data name="Sorting_Description_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;SortManager&lt;/b&gt; helps FlexSheet to manage the sort process. The following example uses SortManager to specify the order of the sorting, add or remove sort columns, and change the order of the sort columns.</value>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>Sorting</value>
+  </data>
+  <data name="Table_Description_Text0" xml:space="preserve">
+    <value>To make managing and analyzing a group of related data easier, you can turn a range of cells into a Table.</value>
+  </data>
+  <data name="Table_Description_Text1" xml:space="preserve">
+    <value>You can add an empty table by adding the Table into the tables collection of the sheet.</value>
+  </data>
+  <data name="Table_Description_Text2" xml:space="preserve">
+    <value>FlexSheet also allows to add table with data source by binding the data to table.</value>
+  </data>
+  <data name="Table_Style_Option_Text0" xml:space="preserve">
+    <value>Table Style Options</value>
+  </data>
+  <data name="Table_Text0" xml:space="preserve">
+    <value>Table</value>
+  </data>
+  <data name="Total_Row_Text0" xml:space="preserve">
+    <value>Total Row</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text0" xml:space="preserve">
+    <value>&lt;b&gt;Editing cells&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text1" xml:space="preserve">
+    <value>&lt;b&gt;Resizing row/column&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Adding/Removing rows/columns&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text3" xml:space="preserve">
+    <value>&lt;b&gt;Changing cell style&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Merging cells&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text5" xml:space="preserve">
+    <value>&lt;b&gt;Sorting&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Text6" xml:space="preserve">
+    <value>&lt;b&gt;Dragging and Dropping rows/columns&lt;/b&gt;</value>
+  </data>
+  <data name="Undo_Redo_Operation_Title_Text0" xml:space="preserve">
+    <value>The FlexSheet control enables you to undo/redo following operations:</value>
+  </data>
+  <data name="Undo_Redo_Text0" xml:space="preserve">
+    <value>Undo / Redo</value>
+  </data>
+</root>

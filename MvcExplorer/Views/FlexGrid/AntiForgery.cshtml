@@ -1,0 +1,100 @@
+﻿@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var grid = wijmo.Control.getControl('#customGridEditorsGrid');
+        grid.hostElement.addEventListener('keydown', function (e) {
+            if (e.keyCode == 32) {
+                e.preventDefault();
+            }
+        });
+    });
+
+    function removeAnti()
+    {
+    	$("input[name='__RequestVerificationToken']").remove();
+    }
+
+    function restoreAnti() {
+    	location.reload();
+    }
+</script>
+}
+
+@(Html.C1().InputDate()
+    .Id("dateEditor")
+    .Format("d")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputTime()
+    .Id("timeEditor")
+    .Step(30)
+    .Format("t")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputNumber()
+    .Id("amountEditor")
+    .Format("c2")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+    .Step(10)
+)
+
+@(Html.C1().ComboBox()
+    .Id("countryEditor")
+    .IsEditable(false)
+    .Bind(countries)
+    .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputColor()
+    .Id("colorEditor")
+    .CssStyle("width", "100%") // full with the cell
+)
+
+@Html.AntiForgeryToken()
+
+<!-- FlexGrid hosting the custom editors -->
+@(Html.C1().FlexGrid<Sale>()
+    .Id("customGridEditorsGrid")
+    .KeyActionTab(C1.Web.Mvc.Grid.KeyAction.Cycle)
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID").Width("0.4*").IsReadOnly(true));
+        bl.Add(cb => cb.Binding("Start").Header("Date").Width("*").Format("d").Editor("dateEditor"));
+        bl.Add(cb => cb.Binding("End").Header("Time").Width("*").Format("t").Editor("timeEditor"));
+        bl.Add(cb => cb.Binding("Country").Width("1.5*").Editor("countryEditor"));
+        bl.Add(cb => cb.Binding("Product").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Amount").Format("n2").Width("1.5*").Editor("amountEditor"));
+        bl.Add(cb => cb.Binding("Amount2").Format("n2").Width("1.5*"));
+        bl.Add(cb => cb.Binding("Color").Width("1.5*").Editor("colorEditor"));
+        bl.Add(cb => cb.Binding("Active").Width("1.5*"));
+    })
+    .Bind(bl => bl.Update(Url.Action("GridEditorsUpdateWithAntiForgery"))
+        .Create(Url.Action("GridEditorsCreateWithAntiForgery"))
+        .Delete(Url.Action("GridEditorsDeleteWithAntiForgery"))
+        .Bind(Model))
+    .CssStyle("height", "500px")
+)
+<div id="buttonsDiv">
+	<button class="btn" id="removeAnti" onclick="removeAnti();">@Html.Raw(Resources.FlexGrid.AntiForgency_Text3)</button>
+	<button  class="btn" id="restoreAnti" onclick="restoreAnti();">@Html.Raw(Resources.FlexGrid.AntiForgency_Text4)</button>
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.AntiForgency_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.AntiForgency_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.AntiForgency_Text2)</p> 
+}

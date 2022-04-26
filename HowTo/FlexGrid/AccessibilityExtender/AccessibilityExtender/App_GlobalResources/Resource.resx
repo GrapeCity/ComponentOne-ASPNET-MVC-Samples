@@ -1,0 +1,189 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.css</value>
+  </data>
+  <data name="Index_Filter" xml:space="preserve">
+    <value>filter</value>
+  </data>
+  <data name="Index_View_P1" xml:space="preserve">
+    <value>The FlexGrid has extensive built-in accessibility support. But there are situations where you may want to extend that and provide additional support that is specific to your application or user base.</value>
+  </data>
+  <data name="Index_View_P2" xml:space="preserve">
+    <value>The AccessibilityExtender shows how you can easily extend accessibility support in two ways:</value>
+  </data>
+  <data name="Index_View_P3" xml:space="preserve">
+    <value>&lt;ol&gt;&lt;li&gt;By allowing users to resize columns using the keyboard(alt+left/right keys). This is done by handling the keydown event and changing the width property on selected columns.&lt;/li&gt;&lt;li&gt;By providing an "alert" method that changes the content of an invisible element with role "alert". In this sample, the alert method is used to announce grid actions such as sorting and filtering(to actually hear the announcements, you must enable an assistive tool such as Chrome Vox, Narrator, or JAWS).&lt;/li&gt;&lt;/ol&gt;</value>
+  </data>
+  <data name="Layout_ComponentOne" xml:space="preserve">
+    <value>ComponentOne</value>
+  </data>
+  <data name="Layout_GrapeCityUrl" xml:space="preserve">
+    <value>http://www.grapecity.com/</value>
+  </data>
+  <data name="Layout_License1" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.</value>
+  </data>
+  <data name="Layout_License2" xml:space="preserve">
+    <value>All product and company names here in may be trademarks of their respective owners.</value>
+  </data>
+  <data name="Layout_LongTitle" xml:space="preserve">
+    <value>ASP.NET MVC FlexGrid AccessibilityExtender</value>
+  </data>
+  <data name="Layout_ProductUrl" xml:space="preserve">
+    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+  </data>
+  <data name="Layout_ShortTitle" xml:space="preserve">
+    <value>MVC FlexGrid AccessibilityExtender</value>
+  </data>
+  <data name="Layout_TitleSuffix" xml:space="preserve">
+    <value>- C1 ASP.NET MVC</value>
+  </data>
+  <data name="Layout_TwitterText" xml:space="preserve">
+    <value>Have you seen this? C1Studio MVC Edition Controls</value>
+  </data>
+  <data name="SiteNav_About" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="SiteNav_AboutUrl" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/aspnet-mvc-ui-controls</value>
+  </data>
+  <data name="SiteNav_FreeTrial" xml:space="preserve">
+    <value>FREE TRIAL</value>
+  </data>
+  <data name="SiteNav_FreeTrialUrl" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/download</value>
+  </data>
+  <data name="SiteNav_Home" xml:space="preserve">
+    <value>Home</value>
+  </data>
+  <data name="SiteNav_Pricing" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="SiteNav_PricingUrl" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/pricing</value>
+  </data>
+  <data name="SiteNav_Support" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SiteNav_SupportUrl" xml:space="preserve">
+    <value>https://www.grapecity.com/my-account/my-support</value>
+  </data>
+</root>

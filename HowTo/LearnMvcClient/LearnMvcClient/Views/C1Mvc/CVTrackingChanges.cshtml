@@ -1,0 +1,74 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVTrackingChanges_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVTrackingChanges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVTrackingChanges_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVTrackingChanges_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVTrackingChanges_Text4)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid")
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .OrderBy("Country")
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+
+<h3>@Html.Raw(Resources.C1Mvc.CVTrackingChanges_Title1)</h3>
+@(Html.C1().FlexGrid().Id("edited")
+    .CssClass("changed edited")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+
+<h3>@Html.Raw(Resources.C1Mvc.CVTrackingChanges_Title2)</h3>
+@(Html.C1().FlexGrid().Id("added")
+    .CssClass("changed added")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+
+<h3>@Html.Raw(Resources.C1Mvc.CVTrackingChanges_Title3)</h3>
+@(Html.C1().FlexGrid().Id("removed")
+    .CssClass("changed removed")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)

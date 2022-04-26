@@ -1,0 +1,74 @@
+﻿@{
+    var today = DateTime.Now.Date;
+    var minDate = new DateTime(today.Year, 1, 1);
+    var maxDate = new DateTime(today.Year, 12, 31);
+    var handleWheelOptions = new List<string> { "True", "False" };
+}
+
+@section Scripts{
+<script>
+    function changeDate(sender, e) {
+        wijmo.Control.getControl("#idcCalendar").value = sender.value;
+    }
+
+    function weekBeforeChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        inputDate.weeksBefore = sender.value;
+    }
+
+    function weekAfterChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        inputDate.weeksAfter = sender.value;
+    }
+
+    function monthCountChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        inputDate.monthCount = sender.value;
+    }
+
+    function handleWheelChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        if (sender.selectedValue === "True") {
+            inputDate.handleWheel = true;
+        } else {
+            inputDate.handleWheel = false;
+        }
+    }
+</script>
+}
+
+<p>
+    @(Html.C1().Calendar().Id("idcCalendar")
+        .Value(today).Min(minDate).Max(maxDate)
+        .Width(300)
+    )
+</p>
+<div>
+    <label>Select a date</label>
+    @(Html.C1().InputDate().Id("idcInputDate")
+        .Value(today).Min(minDate).Max(maxDate).HandleWheel(true).OnClientValueChanged("changeDate")
+    )
+</div>
+
+<br />
+
+<fieldset>
+    <legend style="margin:0;padding:5px;border-bottom-width:0;border-right-width:1px;width:auto">@Html.Raw(Resources.InputDate.WeekBeforeAfterHeader_Text0)</legend>
+    <label style="font-weight:normal;">@Html.Raw(Resources.InputDate.WeekBefore_Text0)</label>
+    @(Html.C1().InputNumber().Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("weekBeforeChanged"))
+
+    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.WeekAfter_Text0)</label>
+    @(Html.C1().InputNumber().Min(0).Max(10).Step(1).Value(0).Format("n0").OnClientValueChanged("weekAfterChanged"))
+
+    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.MonthCount_Text0)</label>
+    @(Html.C1().InputNumber().Min(1).Max(5).Step(1).Value(1).Format("n0").OnClientValueChanged("monthCountChanged"))
+
+    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.HandleWheel_Text0)</label>
+    @(Html.C1().ComboBox().Bind(handleWheelOptions).OnClientSelectedIndexChanged("handleWheelChanged"))
+</fieldset>
+
+@section Description{
+    @Html.Raw(Resources.InputDate.Index_Text0)
+    <br />
+    @Html.Raw(Resources.InputDate.HandleWheel_Text1)
+}

@@ -1,0 +1,21 @@
+﻿@(Html.C1().FlexChart()
+    .Series(ser =>
+    {
+        ser.AddBreakEven().FixedCost(1000000).VariableCost(20).SalesPrice(120)
+        .Style(style => style.Fill("rgba(127,42,250,0.5)").StrokeWidth(0))
+        .AltStyle(style => style.Fill("rgba(255,0,0,0.5)").StrokeWidth(0))
+        .Styles(s =>
+            s.SafetyMargin(sm => sm.Fill("lightgreen").StrokeWidth(0))
+             .SalesRevenue(sr => sr.Stroke("rgba(127,42,250,1)").StrokeWidth(3))
+             .FixedCost(fc => fc.Stroke("grey").StrokeWidth(3))
+             .TotalCost(tc => tc.Stroke("red").StrokeWidth(3))
+             .VariableCost(vc => vc.Stroke("black").StrokeWidth(3))
+             .MarginalProfit(mp => mp.Stroke("green").StrokeWidth(3))
+             .BreakEven(be => be.Stroke("rgba(69,171,235,1)").StrokeWidth(3))
+             );
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.BreakEven_Text0)</p>
+}

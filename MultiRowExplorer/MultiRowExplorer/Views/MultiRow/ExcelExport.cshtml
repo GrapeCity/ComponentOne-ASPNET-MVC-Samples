@@ -1,0 +1,62 @@
+@model IEnumerable<Sale>
+@{
+    ViewBag.DemoSettings = true;
+}
+
+@section Styles{
+    <style>
+        .checkbox-div {
+            padding-left: 15px;
+            display: inline-block;
+            vertical-align: middle;
+        }
+
+            .checkbox-div .checkbox {
+                display: inline-block;
+                vertical-align: middle;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script>
+        var multiRow, colHeaderCheckBox;
+        c1.documentReady(function () {
+            multiRow = wijmo.Control.getControl("#excelExportMultiRow");
+            colHeaderCheckBox = document.getElementById("colHeaderCheckBox");
+        });
+
+        function exportXlsx() {
+            if (multiRow) {
+                wijmo.grid.xlsx.FlexGridXlsxConverter.save(multiRow, { includeStyles: false, includeColumnHeaders: true }, 'MultiRow.xlsx');
+            }
+        }
+
+    </script>
+}
+
+@(Html.C1().MultiRow<Sale>().Id("excelExportMultiRow")
+    .Bind(Model)
+    .ShowGroups(true)
+    .GroupBy("Product", "Country")
+    .IsReadOnly(true)
+    .CssClass("multirow")
+    .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+)
+
+@section Settings{
+    <div class="col-md-12 col-xs-12">
+        <div class="form-inline well well-lg">
+            <a download="MultiRow.xlsx" class="btn btn-default" id="exportBtn" onclick="exportXlsx();">@Html.Raw(Resources.MultiRowExplorer.ExcelExport_Text3)</a>
+        </div>
+    </div>
+}
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.ExcelExport_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.ExcelExport_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.ExcelExport_Text2)</p>
+
+}

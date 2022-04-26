@@ -1,0 +1,13 @@
+﻿@model IEnumerable<Fruit>
+
+@(Html.C1().FlexChart().Id("rangeArea")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Area)
+    .Bind(Model).BindingX("Name").Series(sers =>
+    {
+        sers.Add().Binding("MarPrice,AprPrice").Name("Price");
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.RangeArea_Text0)</p>
+}

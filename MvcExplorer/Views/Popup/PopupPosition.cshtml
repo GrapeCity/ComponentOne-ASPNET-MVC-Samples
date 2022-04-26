@@ -1,0 +1,54 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+@section Styles{
+<style>
+    .btn {
+        height: auto;
+    }
+
+    .popover {
+        display: block;
+        max-width: 600px;
+        width: 400px;
+    }
+
+    .tab-content > .tab-pane {
+        display: block;
+    }
+</style>
+}
+
+<label>@Html.Raw(Resources.Popup.Index_Text1)</label>
+
+<!-- The contents of popup controls. --> 
+<div class="popover" style="display:none;" id="DemoControl">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.Popup.Index_Title1)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.Popup.Index_Content1)
+    </div>
+</div>
+<!-- The popup owners. -->
+<button id="button" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Index_ClickToShowPopupForm)
+    <br>
+    <small>(ShowTrigger=Click, HideTrigger=Click, IsResizable=True)</small>
+</button>
+
+<br /><br />
+
+@* Create popup controls with HtmlHelper *@
+@(Html.C1().Popup("#DemoControl").Owner("#button").ShowTrigger(PopupTrigger.Click).HideTrigger(PopupTrigger.Click).IsResizable(true)
+        .Position((PopupPosition)Enum.Parse(typeof(PopupPosition), optionsModel.Options["Popup Position"].CurrentValue))
+    )
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.Popup.PopupPosition_Description)
+}

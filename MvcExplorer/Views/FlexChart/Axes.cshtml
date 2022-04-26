@@ -1,0 +1,24 @@
+﻿@model ClientSettingsModel
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoSettingsModel = Model;
+
+    Dictionary<string, IEnumerable<CustomerOrder>> OrderDatas = ViewBag.OrderDatas;
+}
+
+@(Html.C1().FlexChart().Id(Model.ControlId).Header("Sales").Series(sers =>
+{
+    sers.Add("2013").Bind("ID", "Count", OrderDatas["2013"]);
+    sers.Add(C1.Web.Mvc.Chart.ChartType.LineSymbols, "2014").Bind("ID", "Count", OrderDatas["2014"]).AxisY(C1.Web.Mvc.Chart.Position.Right);
+}).AxisX(axis =>
+{
+    axis.Bind("ID,Country", OrderDatas["CountryNames"]);
+}))
+
+
+@section Description{
+    <h3>
+        @Html.Raw(Resources.FlexChart.Axes_MultipleAxes)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.Axes_Text0)</p>
+}

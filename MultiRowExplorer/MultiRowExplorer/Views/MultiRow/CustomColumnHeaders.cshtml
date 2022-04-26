@@ -1,0 +1,69 @@
+﻿@model IEnumerable<DataRepresentation>
+
+@(Html.C1().MultiRow<DataRepresentation>()
+    .Id("cCHMultiRow")
+    .CssClass("multirow")
+    .IsReadOnly(true)
+    .Bind(Model)
+    .ShowHeaderCollapseButton(true)
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Header("Name").Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Name").Header("Name").Width("*"));
+        });
+        ld.Add().Header("Currency").Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Currency").Header("Currency"));
+        });
+        ld.Add().Header("Performance").Colspan(4).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("ytd").Header("ytd"))
+                .Add(cell => cell.Binding("m1").Header("m1"))
+                .Add(cell => cell.Binding("m6").Header("m6"))
+                .Add(cell => cell.Binding("m12").Header("m12"))
+                ;
+        });
+        ld.Add().Header("Allocation").Colspan(4).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("stock").Header("stock"))
+                .Add(cell => cell.Binding("bond").Header("bond"))
+                .Add(cell => cell.Binding("cash").Header("cash"))
+                .Add(cell => cell.Binding("other").Header("other"))
+                ;
+        });
+    })
+    .HeaderLayoutDefinition(ld =>
+    {
+        ld.Add().Header("Name").Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("name").Header("Name").Width("*"));
+        });
+        ld.Add().Header("Currency").Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Currency").Header("Currency"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Header("Performance").Colspan(4))
+                .Add(cell => cell.Binding("ytd").Header("ytd"))
+                .Add(cell => cell.Binding("m1").Header("m1"))
+                .Add(cell => cell.Binding("m6").Header("m6"))
+                .Add(cell => cell.Binding("m12").Header("m12"))
+                ;
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Header("Allocation").Colspan(4))
+                .Add(cell => cell.Binding("stock").Header("stock"))
+                .Add(cell => cell.Binding("bond").Header("bond"))
+                .Add(cell => cell.Binding("cash").Header("cash"))
+                .Add(cell => cell.Binding("other").Header("other"))
+                ;
+        });
+    })
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.MultiRowExplorer.CustomColumnHeader_Text0)</p>
+}

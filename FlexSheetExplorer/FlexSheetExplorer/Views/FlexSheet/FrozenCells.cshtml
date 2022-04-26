@@ -1,27 +1,27 @@
 @section Scripts{
-    <script type="text/javascript" src="~/Scripts/flexSheet/frozenCells.js"></script>
-    <script type="text/javascript">
-        c1.documentReady(function () {
-            updateBtnTitle('@Html.Raw(FlexSheetRes.FrozenCells_Text4)', '@Html.Raw(FlexSheetRes.FrozenCells_Text3)');
-        });
-    </script>
+<script type="text/javascript" src="~/Scripts/FlexSheet/frozenCells.js"></script>
+<script type="text/javascript">
+    c1.documentReady(function () {
+        updateBtnTitle('@Resources.FlexSheet.FrozenCells_Text4', '@Resources.FlexSheet.FrozenCells_Text3');
+    });
+</script>
 }
+
 <div>
     <div class="copy">
-        <h3>
-            @Html.Raw(FlexSheetRes.FrozenCells_Text2)
-        </h3>
-        <p>@Html.Raw(FlexSheetRes.FrozenCells_Text0)</p>
+<h3>@Html.Raw(Resources.FlexSheet.FrozenCells_Text2)</h3>
+
+<p>@Html.Raw(Resources.FlexSheet.FrozenCells_Text0)</p>
 
     </div>
-    <button type="button" class="btn btn-default" onclick="freezeCells()" id="frozenBtn">@Html.Raw(FlexSheetRes.FrozenCells_Text3)</button>
+    <button type="button" class="btn btn-default" onclick="freezeCells()" id="frozenBtn">@Html.Raw(Resources.FlexSheet.FrozenCells_Text3)</button>
     <div>
-        <c1-flex-sheet id="frozenSheet" class="flexSheet" selected-sheet-changed="updateFrozenState">
-            <c1-unbound-sheet column-count="8" row-count="20"></c1-unbound-sheet>
-        </c1-flex-sheet>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("frozenSheet")
+        .AddUnboundSheet("Sheet1", 20, 8)
+        .OnClientSelectedSheetChanged("updateFrozenState"))
     </div>
 </div>
 @section Summary{
-    <p>@Html.Raw(FlexSheetRes.FrozenCells_Text1)</p>
+<p>@Html.Raw(Resources.FlexSheet.FrozenCells_Text1)</p>
 
 }

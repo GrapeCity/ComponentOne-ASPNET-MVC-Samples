@@ -1,4 +1,4 @@
-## ASP.NET MVC Core AccessibilityExtender
+## ASP.NET MVC AccessibilityExtender
 #### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-ASPNET-MVC-Samples/tree/master/HowTo/FlexGrid/AccessibilityExtender/AccessibilityExtender)
 ____
 #### Implements a class that provides additional accessibility support to FlexGrid controls.

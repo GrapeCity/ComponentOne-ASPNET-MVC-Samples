@@ -1,0 +1,52 @@
+﻿@{
+    List<Dot> data1 = new List<Dot>();
+    List<Dot> data2 = new List<Dot>();
+    for (int i = 0; i < 300; i++)
+    {
+        data1.Add(new Dot { X = 0.2 * i, Y = Math.Cos(0.1 * i) });
+        data2.Add(new Dot { X = 0.3 * i, Y = Math.Sin(0.15 * i) });
+    }
+}
+
+@section Scripts{
+<script type="text/javascript">
+
+    var seriesItemFormatter = function (engine, hitTestInfo, defaultFormat) {
+        if (hitTestInfo.chartElement == wijmo.chart.ChartElement.SeriesSymbol) {
+            var y = hitTestInfo.y;
+            var g = y >= 0 ? 255 : (255 * (1 + y)).toFixed();
+            var b = y < 0 ? 255 : (255 * (1 - y)).toFixed();
+            var r = ((1 - Math.abs(y)) * 255).toFixed();
+            engine.fill = 'rgb(' + r + ',' + g + ',' + b + ')';
+            engine.stroke = 'rgb(' + (255 - r) + ',' + (255 - g) + ',' + (255 - b) + ')';
+            engine.strokeWidth = 1;            
+            defaultFormat();
+        }
+    };
+</script>
+}
+
+<div id="chartDemo" style="height: 400px"></div>
+
+@(Html.C1().FlexChart("#chartDemo").ChartType(C1.Web.Mvc.Chart.ChartType.Bubble)
+        .Series(sers =>
+        {
+            sers.Add().Bind(data1).BindingX("X").Binding("Y").Name("cos(x)");
+            sers.Add().Bind(data2).BindingX("X").Binding("Y").Name("sin(x)")
+                .ItemFormatter("seriesItemFormatter")
+                .TooltipContent("<b>Sin(x)</b>:<i><br>Item formatter,<br>Custom tooltip content</i>");                
+        }).Legend(C1.Web.Mvc.Chart.Position.None)
+)
+
+@section Description{
+    
+    <p>@Html.Raw(Resources.FlexChart.SeriesCustomization_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.SeriesCustomization_Text1)</p>
+    <p>@Html.Raw(Resources.FlexChart.SeriesCustomization_Text2)</p>
+    <ul>
+        <li>@Html.Raw(Resources.FlexChart.SeriesCustomization_Text3)</li>
+        <li>@Html.Raw(Resources.FlexChart.SeriesCustomization_Text4)</li>
+    </ul> 
+
+}
+

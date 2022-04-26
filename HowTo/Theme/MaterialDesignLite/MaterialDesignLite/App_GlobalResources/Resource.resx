@@ -1,0 +1,292 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComponentOneLink" xml:space="preserve">
+    <value>https://www.grapecity.com/en/aspnet-mvc</value>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.css</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>Material Design Lite</value>
+  </data>
+  <data name="PageDescription" xml:space="preserve">
+    <value>ComponentOne MVC and Material Design Lite</value>
+  </data>
+  <data name="SiteError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="SiteErrorDescription" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="SiteFooter1" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.</value>
+  </data>
+  <data name="SiteFooter2" xml:space="preserve">
+    <value>All product and company names here in may be trademarks of their respective owners.</value>
+  </data>
+  <data name="SiteNavAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="SiteNavAboutLink" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/aspnet-mvc-ui-controls</value>
+  </data>
+  <data name="SiteNavFreeTrial" xml:space="preserve">
+    <value>FREE TRIAL</value>
+  </data>
+  <data name="SiteNavFreeTrialLink" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/download</value>
+  </data>
+  <data name="SiteNavPricing" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="SiteNavPricingLink" xml:space="preserve">
+    <value>https://www.grapecity.com/componentone/pricing</value>
+  </data>
+  <data name="SiteNavSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SiteNavSupportLink" xml:space="preserve">
+    <value>https://www.grapecity.com/my-account/my-support</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>ComponentOne</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="HomeAccent" xml:space="preserve">
+    <value>Accent</value>
+  </data>
+  <data name="HomeCheckbox" xml:space="preserve">
+    <value>Checkbox</value>
+  </data>
+  <data name="HomeColored" xml:space="preserve">
+    <value>Colored</value>
+  </data>
+  <data name="HomeEmail" xml:space="preserve">
+    <value>email</value>
+  </data>
+  <data name="HomeEvenNumber" xml:space="preserve">
+    <value>Even Number</value>
+  </data>
+  <data name="HomeEvenNumberError" xml:space="preserve">
+    <value>Input is not even!</value>
+  </data>
+  <data name="HomeFileDownload" xml:space="preserve">
+    <value>file_download</value>
+  </data>
+  <data name="HomeGauges" xml:space="preserve">
+    <value>Gauges</value>
+  </data>
+  <data name="HomeGrid" xml:space="preserve">
+    <value>Grid</value>
+  </data>
+  <data name="HomeHere" xml:space="preserve">
+    <value>Here</value>
+  </data>
+  <data name="HomeIconBadge" xml:space="preserve">
+    <value>Icon Badge</value>
+  </data>
+  <data name="HomeInner" xml:space="preserve">
+    <value>Inner</value>
+  </data>
+  <data name="HomeInputs" xml:space="preserve">
+    <value>Inputs</value>
+  </data>
+  <data name="HomeLinks" xml:space="preserve">
+    <value>Links</value>
+  </data>
+  <data name="HomeMdlComponents" xml:space="preserve">
+    <value>MDL components</value>
+  </data>
+  <data name="HomeName" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="HomeNumberBadge" xml:space="preserve">
+    <value>Number Badge</value>
+  </data>
+  <data name="HomeNumberError" xml:space="preserve">
+    <value>Input is not a number!</value>
+  </data>
+  <data name="HomeNumberLabel" xml:space="preserve">
+    <value>Number...</value>
+  </data>
+  <data name="HomeOuter" xml:space="preserve">
+    <value>Outer</value>
+  </data>
+  <data name="HomePlain" xml:space="preserve">
+    <value>Plain</value>
+  </data>
+  <data name="HomePreview" xml:space="preserve">
+    <value>Preview</value>
+  </data>
+  <data name="HomeRaised" xml:space="preserve">
+    <value>Raised</value>
+  </data>
+  <data name="HomeRippled" xml:space="preserve">
+    <value>Rippled</value>
+  </data>
+  <data name="HomeSome" xml:space="preserve">
+    <value>Some</value>
+  </data>
+  <data name="HomeSwitch" xml:space="preserve">
+    <value>Switch</value>
+  </data>
+  <data name="HomeText1" xml:space="preserve">
+    <value>Custom CSS theme builder</value>
+  </data>
+  <data name="HomeText2" xml:space="preserve">
+    <value>Click on the color wheel to choose a primary (1) and accent (2) color to
+                preview the theme below.</value>
+  </data>
+  <data name="HomeText3" xml:space="preserve">
+    <value>When you’ve selected a color combination you like, either reference our
+                &lt;a href="#cdn-code"&gt;hosted CSS&lt;/a&gt; or
+                &lt;a href="javascript:void(0);" onclick="$scope.downloadCss();"&gt;download the CSS&lt;/a&gt; by clicking the button in the middle
+                of the color wheel.</value>
+  </data>
+  <data name="HomeText4" xml:space="preserve">
+    <value>You will need to include MDL’s JavaScript alongside your customised CSS to
+                get the full experience.
+                This is included in MDL's default Download from the
+                &lt;a href="http://www.getmdl.io/started/index.html#download" target="_blank"&gt;Getting Started guide&lt;/a&gt;.</value>
+  </data>
+  <data name="HomeText5" xml:space="preserve">
+    <value>Reference the CSS files (MDL and ComponentOne MVC Material) from CDN:</value>
+  </data>
+  <data name="HomeText6" xml:space="preserve">
+    <value>ComponentOne MVC + MDL components</value>
+  </data>
+  <data name="HomeTextLabel" xml:space="preserve">
+    <value>Text...</value>
+  </data>
+  <data name="HomeTheAmount" xml:space="preserve">
+    <value>The Amount</value>
+  </data>
+  <data name="HomeTheDate" xml:space="preserve">
+    <value>The Date</value>
+  </data>
+  <data name="HomeTheTime" xml:space="preserve">
+    <value>The Time</value>
+  </data>
+  <data name="HomeTitle" xml:space="preserve">
+    <value>Customize &amp; Download</value>
+  </data>
+</root>

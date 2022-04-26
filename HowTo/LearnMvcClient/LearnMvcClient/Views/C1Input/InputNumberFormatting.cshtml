@@ -1,0 +1,27 @@
+@{
+    var formats = new[] { "n0", "n2", "c0", "c2", "p0", "p2" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.InputNumberFormatting_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberFormatting_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.InputNumberFormatting_Text2)
+</p>
+<div id="inputNumbers" class="demo-settings">
+    @foreach (var format in formats)
+    {
+        var id = "theInputNumberF" + format;
+        <label for="@id">@string.Format(Resources.C1Input.InputNumberFormatting_Text3, format) </label>
+        @Html.C1().InputNumber().Id(id)
+        <br />
+    }
+</div>
+
+<script>
+
+</script>

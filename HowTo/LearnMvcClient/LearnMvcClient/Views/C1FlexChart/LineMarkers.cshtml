@@ -1,0 +1,31 @@
+@{
+    var lineses = new[] { "None", "Vertical", "Horizontal", "Both" };
+    var interactions = new[] { "None", "Move", "Drag" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.LineMarkers_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.LineMarkers_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.LineMarkers_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="lines">@Html.Raw(Resources.C1FlexChart.LineMarkers_Text3) </label>
+    @Html.C1().ComboBox().Id("lines").Bind(lineses).Text("Both")
+    <br>
+    <label for="interaction">@Html.Raw(Resources.C1FlexChart.LineMarkers_Text4) </label>
+    @Html.C1().ComboBox().Id("interaction").Bind(interactions).Text("Move")
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .AxisX(x => x.MajorGrid(false))
+    .Legend(C1.Web.Mvc.Chart.Position.None)
+    .Tooltip(t => t.Content(""))
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+    .BindingX("date")
+    .Series(sb => sb.Add().Binding("value").Name("Value"))
+)

@@ -1,0 +1,153 @@
+﻿@using C1.Web.Mvc.Grid;
+@using C1.Web.Mvc.Chart;
+@using System.Drawing;
+@model DashboardData
+<style>
+    .liContentChart.wj-flexchart{
+        min-width:240px;
+        margin: 0px;
+        padding: 4px;
+        border: none;
+        height:240px;
+    }
+</style>
+
+<script id="last12MonthTemplate" type="text/template">
+    @(Html.C1().FlexChart()
+        .Height("20px")
+        .Width("*")
+        .CssStyle("padding", "0px")
+        .Legend(Position.None).ChartType(ChartType.Line)
+        .ToTemplate()
+        .TemplateBind("ItemsSource", "Last12MonthsSales")
+        .AxisX(axb => axb.MajorUnit(100).AxisLine(false)
+                .MinorGrid(false).Labels(false).Position(Position.None))
+        .AxisY(ayb => ayb.AxisLine(false).MinorGrid(false).Labels(false)
+                .Position(Position.None))
+        .Series(ssb => ssb.Add().Binding("Sales")))
+</script>
+<script id="statusTemplate" type="text/template">
+    @(Html.C1().BulletGraph()
+        .Direction(GaugeDirection.Right)
+        .ShowRanges(true).Thickness(0.5).Min(0)
+        .ToTemplate()
+        .TemplateBind("Bad", "BulletGBad")
+        .TemplateBind("Target", "BulletGTarget")
+        .TemplateBind("Good", "BulletGGood")
+        .TemplateBind("Max", "BulletGMax")
+        .TemplateBind("Value", "BulletGValue"))
+</script>
+<div style="position:absolute;left:-10000px; top:-10000px; visibility:hidden">
+    @(Html.C1().FlexGrid()
+        .Id("salesDashboardFGrid")
+        .IsReadOnly(true).AutoGenerateColumns(false)
+        .HeadersVisibility(HeadersVisibility.Column)
+        .AllowResizing(AllowResizing.None)
+        .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+        .Bind(Model.SalesDashboardData)
+        .Columns(clsb =>
+        {
+            clsb.Add(cb => cb.Header(Resources.DashboardLayout.Share_Header1).Binding("Country").Width("*"));
+            clsb.Add(cb => cb.Header(Resources.DashboardLayout.Share_Header2).Width("2*")
+                .CellTemplate(ctb => ctb.TemplateId("last12MonthTemplate")));
+            clsb.Add(cb => cb.Header(Resources.DashboardLayout.Share_Header3).Binding("Sales")
+                .Format("c0").Width("*"));
+            clsb.Add(cb => cb.Header(Resources.DashboardLayout.Share_Header4).Width("*")
+                .CellTemplate(ctb => ctb.TemplateId("statusTemplate")));
+        }))
+
+    <div id="kpiGauges">
+        <div id="kPIsSalesGaugeValue" style="display:inline-block;margin-bottom:8px;text-align:left;width:100%;">
+            @Resources.DashboardLayout.Share_Text1:
+        </div>
+        @(Html.C1().LinearGauge()
+            .Id("kPIsSalesGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Max).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Sales).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(Color.Green)))
+        <div id="kPIsExpensesGaugeValue" style="display:inline-block;margin:20px 0px 8px 0px;text-align:left;width:100%;">
+            @Resources.DashboardLayout.Share_Text2:
+        </div>
+        @(Html.C1().LinearGauge()
+            .Id("kPIsExpensesGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Max).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Expenses).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(Color.Red)))
+        <div id="kPIsProfitGaugeValue" style="display:inline-block;margin: 20px 0px 8px 0px;text-align:left;width:100%;">
+            @Resources.DashboardLayout.Share_Text3:
+        </div>
+        @(Html.C1().LinearGauge()
+            .Id("kPIsProfitGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Sales).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Profit).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(System.Drawing.Color.Gold)))
+
+    </div>
+
+    @(Html.C1().FlexChart()
+        .Id("monthlySalesChart")
+        .CssClass("liContentChart")
+        .BindingX("TxnDate")
+        .ChartType(ChartType.Line)
+        .Legend(Position.Top)
+        .Bind(Model.MonthlySalesData)
+        .AxisY(ayb => ayb.Title(@Resources.DashboardLayout.Share_Text6).Format("g4,,"))
+        .Series(ssb =>
+        {
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text1).Binding("Sales");
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text2).Binding("Expenses");
+            ssb.AddTrendLine().Name(@Resources.DashboardLayout.Share_Text4).Binding("Sales")
+                .SampleCount(200).TrendLineOrder(3)
+                .FitType(TrendLineFitType.AverageY);
+        })
+        .Tooltip(ttb => ttb.Content("<b>{seriesName}</b><br/>{x} {y:c0}"))
+        .SupportGestures(sgb => sgb.MouseAction(MouseAction.Zoom)
+            .Id("monthlySalesChart_gestures").InteractiveAxes(InteractiveAxes.X)
+            .ScaleX(0.5f).ScaleY(0.5f)
+            .PosX(0f).PosY(0f))
+        .ShowAnimation(ab => ab.AnimationMode(AnimationMode.All)
+            .Easing(Easing.Swing).Duration(400)))
+
+    @(Html.C1().FlexChart()
+        .Id("costBudgetingChart")
+        .CssClass("liContentChart")
+        .BindingX("Country").ChartType(ChartType.Column)
+        .Legend(Position.Top)
+        .Bind(Model.CostBudgetingData)
+        .AxisY(ayb => ayb.Title(@Resources.DashboardLayout.Share_Text6).Format("g4,,").LogBase(10))
+        .Series(ssb =>
+        {
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text5).Binding("Budget");
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text2).Binding("Expenses");
+        })
+        .Tooltip(ttb => ttb.Content("<b>{seriesName}</b><br/>{x} {y:c0}")))
+
+    @(Html.C1().FlexChart()
+        .Id("countrywiseSalesChart")
+        .CssClass("liContentChart")
+        .BindingX("Country")
+        .ChartType(ChartType.Bar)
+        .Legend(Position.Top)
+        .Bind(Model.CountrywiseSalesData)
+        .AxisY(ayb => ayb.Title(@Resources.DashboardLayout.Share_Text6).Format("g4,,"))
+        .Series(ssb =>
+        {
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text1).Binding("Sales");
+            ssb.Add().Name(@Resources.DashboardLayout.Share_Text2).Binding("Expenses");
+        })
+        .Tooltip(ttb => ttb.Content("<b>{seriesName}</b><br/>{x} {y:c0}"))
+        .ShowAnimation(ab => ab.AnimationMode(AnimationMode.All)
+            .Easing(Easing.Swing).Duration(400)))
+</div>

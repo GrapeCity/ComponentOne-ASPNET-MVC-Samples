@@ -1,0 +1,12 @@
+﻿/* CSS for multi-column listBox (note: FlexBox is not supported by IE9) */
+.multi-column {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+}
+    .multi-column .wj-listbox-item {
+        min-width: 140px;
+    }
+.wj-dropdown-panel > .wj-control {
+    display: inline-table;
+}

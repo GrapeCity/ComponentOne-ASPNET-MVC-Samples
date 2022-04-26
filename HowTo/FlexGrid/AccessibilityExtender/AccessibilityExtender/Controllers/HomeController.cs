@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using System.Web.Mvc;
 using AccessibilityExtender.Models;
 
 namespace AccessibilityExtender.Controllers

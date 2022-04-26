@@ -1,0 +1,87 @@
+﻿@model IEnumerable<Category>
+
+@section Styles{
+    <style>
+        .queryErrorMessage{
+            color:#f00;
+        }
+    </style>
+}
+
+@section Scripts{
+<script type="text/javascript">
+    var cv, batchEditGrid, minHeight;
+
+    c1.documentReady(function () {
+        batchEditGrid = wijmo.Control.getControl('#batchEditGrid');
+        cv = batchEditGrid.collectionView;
+
+        minHeight = batchEditGrid.rows.defaultSize;
+        autoSizeBatchEditGridRows();
+        cv.collectionChanged.addHandler(autoSizeBatchEditGridRows);
+    });
+
+    function autoSizeBatchEditGridRows(s, e) {
+        if (e && e.action == 0) return;
+        batchEditGrid.autoSizeRows();
+        for (var i = 0, len = batchEditGrid.rows.length; i < len; i++) {
+            var row = batchEditGrid.rows[i];
+            var height = row.height == undefined ? 0 : row.height;
+            row.height = Math.max(28, height);
+        }
+    }
+
+    function batchUpdate() {
+        cv.commit();
+
+        var isChanged = (cv.itemsAdded && cv.itemsAdded.length)
+                || (cv.itemsRemoved && cv.itemsRemoved.length)
+                || (cv.itemsEdited && cv.itemsEdited.length);
+        if (isChanged) {
+            setQueryMessage('@(Resources.FlexGrid.BatchEditing_Updating)');
+        } else {
+            setQueryMessage('@(Resources.FlexGrid.BatchEditing_NoChanges)');
+        }
+        
+    }
+
+    function onQueryComplete(sender, e) {
+        if (e.result.success) {
+            setQueryMessage('@(Resources.FlexGrid.BatchEditing_Done)');
+        } else {
+            setQueryMessage(e.result.error, 'queryErrorMessage');
+        }
+    }
+
+    function setQueryMessage(message, className) {
+        var element = document.getElementById('queryMessage');
+        element.innerHTML = message;
+        element.className = className;
+    }
+</script>
+}
+
+<input type="button" value="@(Resources.FlexGrid.BatchEditing_Update)" class="btn" onclick="batchUpdate()" />
+<span id="queryMessage"></span>
+@(
+Html.C1().FlexGrid<Category>()
+    .Id("batchEditGrid").AutoGenerateColumns(false)
+    .Columns(columns=>columns.Add(c=>c.Binding("CategoryID").IsReadOnly(true).Format("d")).Add(c=>c.Binding("CategoryName")).Add(c=>c.Binding("Description").Width("*").MultiLine(true)))
+    .Bind(ib => ib.DisableServerRead(true).Bind(Model).BatchEdit(Url.Action("GridBatchEdit")).OnClientQueryComplete("onQueryComplete"))
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .CssClass("grid")
+)
+
+@section Description{
+<p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text0)</p>
+<p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text1)</p>
+<p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text2)</p>
+<h4>@Html.Raw(Resources.FlexGrid.BatchEditing_Normal)</h4>
+<p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text3)</p>
+<p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text4)</p>
+<h4>@Html.Raw(Resources.FlexGrid.BatchEditing_Batch)</h4>
+    <p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text5)</p>
+    <p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text6)</p>
+    <p>@Html.Raw(Resources.FlexGrid.BatchEditing_Text7)</p>
+}

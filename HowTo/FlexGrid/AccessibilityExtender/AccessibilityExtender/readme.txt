@@ -1,4 +1,4 @@
-﻿ASP.NET MVC Core AccessibilityExtender
+﻿ASP.NET MVC AccessibilityExtender
 ---------------------------------------------------------------------
 Implements a class that provides additional accessibility support to FlexGrid controls.
 

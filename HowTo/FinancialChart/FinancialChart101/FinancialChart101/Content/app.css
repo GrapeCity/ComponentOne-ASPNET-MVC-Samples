@@ -1,0 +1,147 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: #80044d;
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+@font-face {
+    font-family: 'gcicons';
+    src: url("../fonts/gcicons.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+[class^="gcicon-"],
+[class*=" gcicon-"] {
+    font-family: 'gcicons';
+    font-style: normal;
+    font-weight: normal;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    /* Better Font Rendering =========== */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+.logo-container .gcicon-product-c1:before {
+    content: "\e962";
+}
+
+.logo-container {
+    display: inline-block;
+    margin-left: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    font-size: 26px;
+    color: rgb(61, 61, 61) !important;
+    float: left;
+}
+
+    .logo-container .gcicon-product-c1 {
+        font-size: 80px;
+        margin-right: 4px;
+        vertical-align: middle;
+        display: inline-block;
+        color: white;
+    }
+
+    .logo-container a {
+        text-decoration: none;
+    }
+
+/*.header {
+    color: #e3bfd5;
+    background-color: #80044d;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        color: #fff;
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+    .header img {
+		float: left;
+		margin: 0 10px 5px 0;
+	}*/
+
+.header {
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 8px;
+        color: white;
+    }
+
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+.pane-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+}
+
+.app-input-group {
+    margin: 5px 0 10px;
+}
+
+    .app-input-group > label {
+        display: block;
+    }
+
+.pane-content code {
+    background-color: #fff;
+    color: #000;
+    padding: 0;
+}
+
+/* Wijmo Supporting Classes */
+.custom-pie-chart.wj-flexchart .wj-header .wj-title,
+.custom-pie-chart.wj-flexchart .wj-footer .wj-title,
+.custom-pie-chart.wj-flexchart .wj-legend > .wj-label {
+    fill: #666;
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+/* set default chart style */
+.wj-flexchart {
+    height: 400px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    padding: 8px;
+    margin-bottom: 12px;
+}
+
+.tab-pane {
+    max-height:450px;
+}

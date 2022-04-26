@@ -1,0 +1,53 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text1)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text2)
+</p>
+<button id="btn-load-gif" class="btn btn-primary">
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text3)
+</button>
+@Html.C1().FlexGrid().Id("theGridGif")
+<div style="display:none">
+    <div id="theSpinnerGif" class="spinner">
+        @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text4)
+    </div>
+</div>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Title2)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text5)
+</p>
+<button id="btn-load-gauge" class="btn btn-primary">
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text6)
+</button>
+@Html.C1().FlexGrid().Id("theGridGauge")
+<div style="display:none">
+    @(Html.C1().RadialGauge().Id("theSpinnerGauge")
+        .CssClass("spinner").IsAnimated(false)
+        .ShowText(ShowText.None)
+        .SweepAngle(360)
+        .Step(5).Max(100)
+        .ShowTicks(true)
+        .Face(f=>f.Color(System.Drawing.Color.Transparent))
+    )
+</div>
+
+<h3>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Title3)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFlexGridSpinners_Text7)
+</p>
+@(Html.C1().FlexGrid().Id("theGridMask").Height(250)
+    .Bind(b => b.Bind(Url.Action("CVFlexGridSpinners_Read")))
+)

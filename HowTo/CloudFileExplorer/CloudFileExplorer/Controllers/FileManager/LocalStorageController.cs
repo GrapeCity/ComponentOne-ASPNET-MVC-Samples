@@ -1,14 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using System.Web.Mvc;
 
-namespace CloudFileExplorer.Controllers.FileManager
+namespace CloudFileExplorer.Controllers
 {
-    public class FileManagerController : Controller
+    public partial class FileManagerController : Controller
     {
-        public IActionResult LocalStorage()
+        public ActionResult LocalStorage()
         {
             return View();
         }

@@ -1,0 +1,175 @@
+﻿@using DashboardModel;
+@using C1.Web.Mvc.Grid;
+
+@{ 
+    ViewBag.PageTitle = @Resources.DashboardDemo.AnalysisPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Analysis.js")"></script>
+<script type="text/javascript">
+    var ctrPopup;
+    function setRange(start, end) {
+        updateData(start, end, '@Url.Action("GetAnalysisData")');
+    }
+
+    function customToolbar(sender, e) {
+        var dashboardLayout = sender, // gets the DashboardLayout control
+            tile = e.tile; // gets the formatted tile
+
+        if (tile.headerText == '@Html.Raw(Resources.DashboardDemo.ProductWise_Header)') {
+            // get the toolbar control.
+            var toolbar = e.toolbar;
+            // clear all the internal items.
+            toolbar.clear();
+
+            // add a custom item in toolbar to show the PivotPanel control in a popup window.
+            var strSettingsIcon = '<span style="font-size:16pt" class="glyphicon glyphicon-cog"></span>';
+            toolbar.insertToolbarItem({
+                icon: strSettingsIcon,
+                title: 'SETTINGS',
+                command: function () {
+                    // when the item is clicked, show a PivotPanel control in a popup window to configurate.
+                    console.log("Settings");
+                    if (!ctrPopup) {
+                        ctrPopup = wijmo.Control.getControl('#popup');
+                    }
+                    ctrPopup.show(true, function (e) {
+                        if (e.dialogResult == 'wj-hide-ok') {
+                            // apply the settings of the PivotPanel control
+                            // to get the aggregated result for the PivotGrid control.
+                            apply();
+                        } else if (e.dialogResult == 'wj-hide') {
+                            // don't apply the settings.
+                            cancel();
+                        }
+                    });
+                }
+            }, 0);
+        }
+    }
+</script>
+
+<div class="hidden">
+    @(Html.C1().PivotEngine().Id("indexEngine")
+        .Bind(ViewBag.ProductWiseSaleCollection as List<ProductsWiseSaleItem>)
+        .RowFields(pfcb => pfcb.Items("Category", "Product"))
+        .ColumnFields(cfcb => cfcb.Items("Region"))
+        .ValueFields(vfcb => vfcb.Items("Sale")))
+
+    <div id="popup" class="modal-content col-md-6">
+        <div class="modal-body">
+            @Html.C1().PivotPanel().ItemsSourceId("indexEngine")
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">@Resources.DashboardDemo.Apply_Text</button>
+                <button type="button" class="btn btn-default wj-hide">@Resources.DashboardDemo.Cancel_Text</button>
+            </div>
+        </div>
+    </div>
+    @(Html.C1().Popup("#popup")
+        .Modal(true)
+        .HideTrigger(PopupTrigger.None)
+        .OnClientShown("popupShown"))
+
+    @(Html.C1().PivotGrid().Id("pivotGrid")
+        .ItemsSourceId("indexEngine")
+        .AutoSizeMode(AutoSizeMode.None)
+        .OnClientLoadedRows("pivotGridLoadedRows"))
+
+    @(Html.C1().TreeMap().Id("chartRegionSale")
+            .DataLabel(l => l.Content("{name}"))
+            .Bind(ViewBag.RegionSales as List<ProductsWiseSaleItem>)
+            .Binding("Sale")
+            .BindingName("Region, Category")
+            .HeaderStyle(x =>
+            {
+                x.Halign("left");
+            })
+            .Tooltip(c =>
+            {
+                c.Content("<b>{name}</b><br />{value:c0}");
+            })
+            .OnClientRefreshing("tileContentRefreshing")
+    )
+
+    @(Html.C1().FlexChart().Id("chartOpportunities")
+            .Bind(ViewBag.OpportunityItemList as List<Opportunity>)
+            .BindingX("LevelName")
+            .ChartType(C1.Web.Mvc.Chart.ChartType.Funnel)
+            .Series(sers =>
+            {
+                sers.Add().Name(Resources.DashboardDemo.Sale_Series).Binding("Sales");
+            }).AxisY(y =>
+            {
+                y.Position(C1.Web.Mvc.Chart.Position.None);
+            }).HeaderStyle(x =>
+            {
+                x.Halign("left");
+            }).Legend(C1.Web.Mvc.Chart.Position.Bottom)
+            .DataLabel(x =>
+            {
+                x.Position(C1.Web.Mvc.Chart.LabelPosition.Center);
+                x.Content("{y:C0}");
+            }).Options(x =>
+            {
+                x.Funnel(o =>
+                {
+                    o.NeckHeight(0.2f);
+                });
+            }).Tooltip(t =>
+            {
+                t.Content("<b>{name}</b><br />{x} {value:c0}");
+            })
+            .OnClientRefreshing("tileContentRefreshing")
+    )
+</div>
+<div class="flex vertical" style="width:100%;height:100%;overflow:hidden;">
+    <div class="auto" style="overflow:auto">
+        @(Html.C1().SplitLayout()
+            .Id("wsSplitLayout")
+            .Orientation(LayoutOrientation.Horizontal)
+            .Items(isb =>
+            {
+                isb.AddTile()
+                    .Size("7*")
+                    .Content("#pivotGrid")
+                    .ShowHeader(true)
+                    .HeaderText(Resources.DashboardDemo.ProductWise_Header);
+                isb.AddGroup()
+                    .Size("4*")
+                    .Orientation(LayoutOrientation.Vertical)
+                    .Children(cb =>
+                    {
+                        cb.AddTile()
+                            .Content("#chartRegionSale")
+                            .ShowHeader(true).HeaderText(Resources.DashboardDemo.CategoryRegion_Sale)
+                            .Size("*");
+                        cb.AddTile()
+                            .Content("#chartOpportunities")
+                            .ShowHeader(true).HeaderText(Resources.DashboardDemo.Opportunities_Header)
+                            .Size("*");
+                    });
+            }))
+        @(Html.C1().SplitLayout()
+            .Id("nsSplitLayout")
+            .Orientation(LayoutOrientation.Vertical)
+            .Items(isb =>
+            {
+                isb.AddTile()
+                    .Content("#pivotGrid")
+                    .ShowHeader(true).HeaderText(Resources.DashboardDemo.ProductWise_Header);
+                isb.AddTile()
+                    .Content("#chartRegionSale")
+                    .ShowHeader(true).HeaderText(Resources.DashboardDemo.CategoryRegion_Sale);
+                isb.AddTile()
+                    .Content("#chartOpportunities")
+                    .ShowHeader(true).HeaderText(Resources.DashboardDemo.Opportunities_Header);
+            }))
+
+        @(Html.C1().DashboardLayout().Id("dashboard")
+            .OnClientFormatTile("customToolbar")
+            .AllowDrag(false))
+    </div>
+    <div>
+        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+    </div>
+</div>

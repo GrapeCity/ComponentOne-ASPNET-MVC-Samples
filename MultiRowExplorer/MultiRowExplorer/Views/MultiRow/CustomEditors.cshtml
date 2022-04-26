@@ -1,0 +1,105 @@
+@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#customEditorsMultiRow');
+            grid.hostElement.addEventListener('keydown', function (e) {
+                if (e.keyCode == 32) {
+                    e.preventDefault();
+                }
+            });
+        });
+    </script>
+}
+
+@(Html.C1().InputDate()
+    .Id("dateEditor")
+    .Format("d")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+)
+
+@(Html.C1().InputTime()
+    .Id("timeEditor")
+    .Step(30)
+    .Format("t")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+)
+@(Html.C1().InputNumber()
+    .Id("amountEditor")
+    .Format("c2")
+    .IsRequired(false) // add this for new row
+    .CssStyle("width", "100%") // full with the cell
+    .Step(10)
+)
+@(Html.C1().ComboBox()
+    .Id("countryEditor")
+    .IsEditable(false)
+    .Bind(countries)
+    .CssStyle("width", "100%") // full with the cell
+)
+@(Html.C1().InputColor()
+    .Id("colorEditor")
+    .CssStyle("width", "100%") // full with the cell
+)
+
+<script type="text/javascript">
+    function setNewRowAtTop() {
+        var multirow = wijmo.Control.getControl("#customEditorsMultiRow");
+        var checkbox = document.getElementById("newRowAtTop");
+        multirow.newRowAtTop = checkbox.checked;
+    }
+</script>
+
+<!-- MultiRow hosting the custom editors -->
+@(Html.C1().MultiRow<Sale>()
+    .Id("customEditorsMultiRow")
+    .KeyActionTab(KeyAction.Cycle)
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .NewRowAtTop(false)
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("ID").Header("ID").IsReadOnly(true));
+            cells.Add(cell => cell.Binding("Active").Header("Active"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Start").Header("Date").Width("150").Format("d").Editor("dateEditor"));
+            cells.Add(cell => cell.Binding("End").Header("Time").Format("t").Editor("timeEditor"));
+        });
+        ld.Add().Colspan(2).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Country").Header("Country").Colspan(2).Editor("countryEditor"));
+            cells.Add(cell => cell.Binding("Product").Header("Product"));
+            cells.Add(cell => cell.Binding("Color").Header("Color").Editor("colorEditor"));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Amount").Header("Amount").Format("n2").Editor("amountEditor"));
+            cells.Add(cell => cell.Binding("Amount2").Header("Amount2"));
+        });
+    })
+    .Bind(bl => bl.Update(Url.Action("MultiRowEditorsUpdate"))
+        .Create(Url.Action("MultiRowEditorsCreate"))
+        .Delete(Url.Action("MultiRowEditorsDelete"))
+        .Bind(Model))
+    .CssClass("multirow")
+)
+
+<p>
+    @Html.Raw(Resources.MultiRowExplorer.CustomEditors_Text14)&nbsp;<input id="newRowAtTop" type="checkbox" onchange="setNewRowAtTop()" />
+</p>
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.CustomEditors_Text0)</p>
+<p>@Html.Raw(Resources.MultiRowExplorer.CustomEditors_Text15)</p>
+}

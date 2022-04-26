@@ -1,0 +1,67 @@
+﻿@model IEnumerable<CustomerOrder>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    object[] palettesModel = ViewBag.Palettes;
+}
+
+@(Html.C1().FlexPie<CustomerOrder>().Id(demoSettingsModel.ControlId)
+        .InnerRadius(demoSettingsModel.GetFloat("InnerRadius", 0f))
+        .Header("Sales").Bind("Country", "Count", Model).DataLabel(dl=>dl.Content("{value}"))
+        .InnerText("")
+        .Palette(C1.Web.Mvc.Chart.Palettes.Standard)
+        .InnerTextStyle(svgb => svgb.FontSize(28).FontWeight("400").Fill("#2244ff").Stroke("#0099ff").StrokeWidth(1).StrokeOpacity(0.6)))
+
+@section Settings{
+    <br />
+    @*<label style="display: inline-block; font-weight: normal">Palettes</label>*@
+    @(Html.C1().Menu().Id("paletteMenu").Bind(palettesModel)
+        .Header("Palette: <b>Standard</b>")
+        .ShowDropDownButton(true)
+        .CloseOnLeave(true)
+        .SubItemsPath("Items")
+        .OnClientItemClicked("itemPaletteClicked")
+    )
+
+}
+
+@section Scripts{
+    <script>
+
+        function customChangeInnerRadius(control, value) {
+            control.innerRadius = (typeof convertInnerRadius === 'undefined' ? value : convertInnerRadius(value));
+            if (value > 0) {
+                if (control.header != "") {
+                    control.innerText = control.header;
+                    control.header = "";
+                }
+            } else {
+                control.header = control.innerText;
+                control.innerText = "";
+            }
+        }
+
+        function itemPaletteClicked(sender) {
+            if (sender.selectedItem) {
+                let flexPie = wijmo.Control.getControl("#@(demoSettingsModel.ControlId)")
+                if (flexPie) {
+                    flexPie.palette = sender.selectedItem.Value;
+                    flexPie.invalidate();
+                }
+                let menu = wijmo.Control.getControl("#paletteMenu");
+                if (sender.selectedItem.GroupName && sender.selectedItem.GroupName.length) {
+                    menu.header = "Palette: <b>" + sender.selectedItem.GroupName + "." + sender.selectedItem.Header + "<b/>";
+                }
+                else {
+                    menu.header = "Palette: <b>" + sender.selectedItem.Header + "<b/>";
+                }
+                sender.invalidate();
+            }
+        }
+    </script>
+}
+@section Description{
+    <p>@Html.Raw(Resources.FlexPie.Index_Text0)</p>
+    <p>@Html.Raw(Resources.FlexPie.Index_Text1)</p>
+    <p>@Html.Raw(Resources.FlexPie.Index_Text2)</p>
+}

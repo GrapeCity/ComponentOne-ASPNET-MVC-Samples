@@ -1,0 +1,61 @@
+﻿@using MultiRowLOB.Localization;
+@model  IEnumerable<DataService.OrderDetail>
+
+@section Scripts{
+    <script src="~/Scripts/controllers/orderDetailCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.OrderDetail_Title</h2>
+
+    @(Html.C1().MultiRow<DataService.OrderDetail>()
+        .Id("orderDetail")
+        .Bind(b => b.Bind(Model).DisableServerRead(true))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Colspan(6).Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("OrderId").Width("90").Header(Resources.OrderDetail_Field_OrderId));
+                cells.Add(cell => cell.Binding("PartId").Width("80").Header(Resources.OrderDetail_Field_PartId));
+                cells.Add(cell => cell.Binding("HandlingId").Width("100").Header(Resources.OrderDetail_Field_HandlingId));
+                cells.Add(cell => cell.Binding("ProcessingStatus").Width("125").Header(Resources.OrderDetail_Field_ProcessingStatus));
+                cells.Add(cell => cell.Binding("PurchaseId").Width("100").Header(Resources.OrderDetail_Field_PurchaseId));
+                cells.Add(cell => cell.Binding("Completed").Width("100").Header(Resources.OrderDetail_Field_Completed));
+                cells.Add(cell => cell.Binding("OrderDate").Width("90").Header(Resources.OrderDetail_Field_OrderDate));
+                cells.Add(cell => cell.Binding("PartName").Header(Resources.OrderDetail_Field_PartName).Colspan(5).Align("center"));
+                cells.Add(cell => cell.Binding("Company").Header(Resources.OrderDetail_Field_Company).Colspan(3).Align("center"));
+                cells.Add(cell => cell.Binding("Person").Header(Resources.OrderDetail_Field_Person).Colspan(2).Align("center"));
+                cells.Add(cell => cell.Binding("Accepted").Width("100").Header(Resources.OrderDetail_Field_Accepted));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Quantity1").Width("90").Header(Resources.OrderDetail_Field_Quantity1));
+                cells.Add(cell => cell.Binding("Quantity2").Width("90").Header(Resources.OrderDetail_Field_Quantity2));
+                cells.Add(cell => cell.Binding("Quantity3").Width("90").Header(Resources.OrderDetail_Field_Quantity3));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Unit").Width("60").Header(Resources.OrderDetail_Field_Unit));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("DeliveryDate").Width("120").Header(Resources.OrderDetail_Field_DeliveryDate).Format("yyyy/MM/dd"));
+                cells.Add(cell => cell.Binding("ProcessingDate").Width("120").Header(Resources.OrderDetail_Field_ProcessingDate).Format("yyyy/MM/dd"));
+                cells.Add(cell => cell.Binding("ShippingDate").Width("120").Header(Resources.OrderDetail_Field_ShippingDate).Format("yyyy/MM/dd"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("PackingRequest").Header(Resources.OrderDetail_Field_PackingRequest));
+            });
+        })
+    )
+
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

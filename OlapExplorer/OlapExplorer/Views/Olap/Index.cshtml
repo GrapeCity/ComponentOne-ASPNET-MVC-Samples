@@ -1,0 +1,196 @@
+@model IEnumerable<ProductData>
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().PivotEngine().Id("indexEngine")        
+        .ShowRowTotals(ShowTotals.Subtotals)
+		.ShowColumnTotals(ShowTotals.Subtotals)
+        .TotalsBeforeData(true)
+        .Bind(Model)
+        .RowFields(pfcb => pfcb.Items("Country"))
+        .RowFields(pfcb => pfcb.Items("Date"))
+        .ColumnFields(cfcb=>cfcb.Items("Product"))
+        .ValueFields(vfcb => vfcb.Items("Sales")))
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().Id(optionsModel.ControlId).ItemsSourceId("indexEngine").DeferredUpdate(false)
+    </div>
+    <div class="col-sm-8 col-md-8">    
+        @(Html.C1().PivotGrid().Id("indexGrid")
+            .ItemsSourceId("indexEngine")
+            .OutlineMode(false)
+            .ShowValueFieldHeaders(false))
+        <p>
+            <span style="vertical-align:top; color:black;">
+                OutlineMode&nbsp;<input id="outlineMode" type="checkbox" onchange="toggleOutlineMode(event)" style="margin-right:5em;" />
+                ShowValueFieldHeaders&nbsp;<input id="ShowValueFieldHeaders" type="checkbox" onchange="toggleShowValueFieldHeaders(event)" />
+            </span>
+        </p>
+    </div>
+</div>
+<p>@Html.Raw(Resources.Olap.Index_Text0)</p>
+
+<button type="button" class="btn btn-default" onclick="saveView()">@Html.Raw(Resources.Olap.Index_Text7)</button>
+<button type="button" class="btn btn-default" onclick="loadView()">@Html.Raw(Resources.Olap.Index_Text8)</button>
+<p></p>
+<p>@Html.Raw(Resources.Olap.Index_Text2)</p>
+
+<p>@Html.Raw(Resources.Olap.Index_Text3)</p>
+
+<button type="button" class="btn btn-default"
+        onclick="excelExport()">
+    @Html.Raw(Resources.Olap.Index_Text9)
+</button>
+@section Scripts{
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/2.5.0/jszip.min.js"></script>
+    <script type="text/javascript">
+        function saveView() {
+            var ng = c1.getService('indexEngine');
+            if (ng && ng.isViewDefined) {
+                localStorage.viewDefinition = ng.viewDefinition;
+            }
+        }
+        function loadView() {
+            var ng = c1.getService('indexEngine');
+            if (ng && localStorage.viewDefinition) {
+                ng.viewDefinition = localStorage.viewDefinition;
+                var cmbRowTotals = wijmo.Control.getControl('#RowTotals');
+                if (cmbRowTotals) {
+                    cmbRowTotals.selectedValue = ng.showRowTotals;
+                }
+
+                var cmbColTotals = wijmo.Control.getControl('#ColTotals');
+                if (cmbColTotals) {
+                    cmbColTotals.selectedValue = ng.showColumnTotals;
+                }
+
+                var chkShowZeros = document.getElementById('ColTotals');
+                if (chkShowZeros) {
+                    chkShowZeros.checked = ng.showZeros;
+                }
+            }
+        }
+        function excelExport() {
+            var pivotGrid = wijmo.Control.getControl('#indexGrid');
+
+            // create book with current view
+            var book = wijmo.grid.xlsx.FlexGridXlsxConverter.save(pivotGrid, {
+                includeColumnHeaders: true,
+                includeRowHeaders: true
+            });
+            book.sheets[0].name = 'Main View';
+            addTitleCell(book.sheets[0], getViewTitle(pivotGrid.engine));
+
+            // add sheet with transposed view
+            transposeView(pivotGrid.engine);
+            var transposed = wijmo.grid.xlsx.FlexGridXlsxConverter.save(pivotGrid, {
+                includeColumnHeaders: true,
+                includeRowHeaders: true
+            });
+            transposed.sheets[0].name = 'Transposed View';
+            addTitleCell(transposed.sheets[0], getViewTitle(pivotGrid.engine));
+            book.sheets.push(transposed.sheets[0]);
+            transposeView(pivotGrid.engine);
+
+            // save the book
+            book.save('wijmo.olap.xlsx');
+        }
+
+        // build a title for the current view
+        function getViewTitle(ng) {
+            var title = '';
+            for (var i = 0; i < ng.valueFields.length; i++) {
+                if (i > 0) title += ', ';
+                title += ng.valueFields[i].header;
+            }
+            title += ' by ';
+            if (ng.rowFields.length) {
+                for (var i = 0; i < ng.rowFields.length; i++) {
+                    if (i > 0) title += ', ';
+                    title += ng.rowFields[i].header;
+                }
+            }
+            if (ng.rowFields.length && ng.columnFields.length) {
+                title += ' and by ';
+            }
+            if (ng.columnFields.length) {
+                for (var i = 0; i < ng.columnFields.length; i++) {
+                    if (i > 0) title += ', ';
+                    title += ng.columnFields[i].header;
+                }
+            }
+            return title;
+        }
+
+        function transposeView(ng) {
+            ng.deferUpdate(function () {
+
+                // save row/col fields
+                var rows = [],
+                    cols = [];
+                for (var r = 0; r < ng.rowFields.length; r++) {
+                    rows.push(ng.rowFields[r].header);
+                }
+                for (var c = 0; c < ng.columnFields.length; c++) {
+                    cols.push(ng.columnFields[c].header);
+                }
+
+                // clear row/col fields
+                ng.rowFields.clear();
+                ng.columnFields.clear();
+
+                // restore row/col fields in transposed order
+                for (var r = 0; r < rows.length; r++) {
+                    ng.columnFields.push(rows[r]);
+                }
+                for (var c = 0; c < cols.length; c++) {
+                    ng.rowFields.push(cols[c]);
+                }
+            });
+        }
+
+        // adds a title cell into an xlxs sheet
+        function addTitleCell(sheet, title) {
+
+            // create cell
+            var cell = new wijmo.xlsx.WorkbookCell();
+            cell.value = title;
+            cell.style = new wijmo.xlsx.WorkbookStyle();
+            cell.style.font = new wijmo.xlsx.WorkbookFont();
+            cell.style.font.bold = true;
+
+            // create row to hold the cell
+            var row = new wijmo.xlsx.WorkbookRow();
+            row.cells[0] = cell;
+
+            // and add the new row to the sheet
+            sheet.rows.splice(0, 0, row);
+        }
+
+        // toggle outline mode      
+        function toggleOutlineMode(e) {
+            var pivotGrid = wijmo.Control.getControl('#indexGrid');
+            pivotGrid.outlineMode = e.target.checked;    
+        }
+        // toggle ShowValueFieldHeaders   
+        function toggleShowValueFieldHeaders(e) {
+            var pivotGrid = wijmo.Control.getControl('#indexGrid');
+            pivotGrid.showValueFieldHeaders = e.target.checked;
+        }
+    </script>
+}
+
+@section Description{
+<p>
+    @Html.Raw(Resources.Olap.Index_Text4)<br />
+    @Html.Raw(Resources.Olap.Index_Text10)
+</p>
+<p>@Html.Raw(Resources.Olap.Index_Text5)</p>
+
+}
+@section Summary{
+<p>@Html.Raw(Resources.Olap.Index_Text6)</p>
+
+}

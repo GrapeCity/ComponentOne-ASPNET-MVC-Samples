@@ -1,7 +1,10 @@
-﻿@{
-    ViewData["Title"] = "Error";
+@model HandleErrorInfo
+
+@{
+    ViewBag.Title = "Error";
 }
 
-<h1 class="text-danger">@Html.Raw(TransposedGridRes.Error_Text0)</h1>
-<h2 class="text-danger">@Html.Raw(TransposedGridRes.Error_Text1)</h2>
-
+<hgroup class="title">
+    <h1 class="error">@Html.Raw(Resources.TransposedGrid.Error_Text0)</h1>
+    <h2 class="error">@Html.Raw(Resources.TransposedGrid.Error_Text1)</h2>
+</hgroup>

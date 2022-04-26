@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MvcExplorer.Models.NamedColor>
+
+<div>
+    <label>@Html.Raw(Resources.MultiAutoComplete.ComplexType_Text1)</label>
+    <p>@Html.Raw(Resources.MultiAutoComplete.ComplexType_Text0)</p>
+    @(Html.C1().MultiAutoComplete()
+        .Bind(Model)
+        .DisplayMemberPath("Name")
+        .SelectedIndexes(0,1)
+    )
+</div>
+
+@section Description{
+    @Html.Raw(Resources.MultiAutoComplete.ComplexType_Text2)
+}

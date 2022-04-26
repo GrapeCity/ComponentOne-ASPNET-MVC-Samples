@@ -1,0 +1,35 @@
+@{ 
+    var ranges = new[] { 0, 3, 4, 20, 50 };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Gauge.ElementsRanges_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsRanges_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsRanges_Text2)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="showRanges">@Html.Raw(Resources.C1Gauge.ElementsRanges_Text3)</label>
+        <input id="showRanges" type="checkbox" checked="checked">
+        <br />
+        <label for="ranges">@Html.Raw(Resources.C1Gauge.ElementsRanges_Text4)</label>
+        @(Html.C1().ComboBox<int>().Id("ranges").Bind(ranges))
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theGauge")
+            .StartAngle(-30).SweepAngle(240)
+            .Value(50).Max(100)
+            .IsReadOnly(false)
+            .HasShadow(false)
+            .ShowText(ShowText.All)
+            .ShowRanges(true)
+            .Pointer(p=>p.Thickness(0.25))
+            .ThumbSize(20)
+        )
+    </div>
+</div>

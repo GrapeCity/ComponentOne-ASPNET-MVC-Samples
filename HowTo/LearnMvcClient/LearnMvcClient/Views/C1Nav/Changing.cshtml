@@ -1,0 +1,26 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.Changing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.Changing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Changing_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Changing_Text3)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        @Html.C1().TreeView().Id("theTree")
+    </div>
+    <div class="col-xs-6">
+        <button id="btnTree" class="btn btn-default">
+            @Html.Raw(Resources.C1Nav.Changing_Text4)
+        </button>
+        <button id="btnNode" class="btn btn-default">
+            @Html.Raw(Resources.C1Nav.Changing_Text5)
+        </button>
+    </div>
+</div>

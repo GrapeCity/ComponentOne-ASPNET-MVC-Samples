@@ -1,0 +1,59 @@
+﻿@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+    var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+
+    ViewBag.ControlName = controllerName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+    ViewBag.Title = string.Format("{0} - {1}", controllerName, ViewBag.PageText);
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+    ViewBag.DocLink = group.Documentation;
+
+    var pages = group.Pages;
+    ViewBag.CurrentPageIndex = group.GetSelectedPageIndex(actionName);
+
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+
+    ViewBag.Pages = pages;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @RenderSection("Styles", false)
+}
+
+@section Scripts{
+    <script>
+        var CurrentPageIndex = @ViewBag.CurrentPageIndex;
+        var culture = '@C1Culture.CurrentCulture';
+    </script>
+    <script src="~/Scripts/services/exportService.js"></script>
+    <script src="~/Scripts/ControlLayout.js"></script>
+    @RenderSection("Scripts", false)
+}
+
+<div class="narrow-screen features-bar">
+    <span>MultiRow <span class="wj-glyph-down"></span></span>
+    <ul class="narrow-screen features-nav">
+        @foreach (var page in ViewBag.Pages)
+        {
+            <li><a href="@page.Path">@page.Text</a></li>
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 side">
+    @Html.Partial("_ControlsNav")
+</div>
+<div class="col-md-9">
+    <div class="padder">
+        <div>
+            <div class="demo-control">@RenderBody()</div>
+        </div>
+    </div>
+</div>

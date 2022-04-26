@@ -1,4 +1,4 @@
-## ASP.NET Core MVC Column Groups
+## ASP.NET MVC Column Groups
 #### [Download as zip](https://downgit.github.io/#/home?url=https://github.com/GrapeCity/ComponentOne-ASPNET-MVC-Samples/tree/master/HowTo/FlexGrid/ColumnGroups/ColumnGroups)
 ____
 #### Shows how you can show structured data with multi-level, merged headers.
@@ -13,7 +13,7 @@ This sample uses the "ColumnGroupProvider" class to create multi-level,
 merged headers based on a JavaScript object that describes the column
 hierarchy.
 
-For exmaple, you could create a table like this one:
+For example, you could create a table like this one:
 
     /-----------------------------------------\
     |          |      Average      |   Red    |

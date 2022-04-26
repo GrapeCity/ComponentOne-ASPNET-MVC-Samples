@@ -1,0 +1,59 @@
+﻿@model RangeSelectorModel
+
+@(Html.C1().FlexChart().Id("flexChart1").CssClass("chartRangeSelector")
+                        .BindingX("Date").Bind(Model.DateSaleList)
+                .Series(sers =>
+                {
+                    sers.Add().Binding("Sales").ChartType(C1.Web.Mvc.Chart.ChartType.Line);
+                }).AxisX(x =>
+                {
+                    x.Format("MM/dd/yyyy");
+                }).AxisY(y =>
+                {
+                    y.Labels(false);
+                    y.MajorGrid(false);
+                }).HeaderStyle(x =>
+                {
+                    x.Halign("left");
+                }).Legend(C1.Web.Mvc.Chart.Position.None)
+)
+
+<div id="theChartSelector" class="chart-selector"></div>
+@if (Model.Range != null && Model.Range.NStart.HasValue)
+{
+<script type="text/javascript">
+        var rangeMin = @Model.Range.NStart.Value;
+</script>
+}
+@if (Model.Range != null && Model.Range.NEnd.HasValue)
+{
+<script type="text/javascript">
+        var rangeMax =  @Model.Range.NEnd.Value;
+</script>
+}
+
+<script type="text/javascript">
+
+    // create the chart with range selector
+    var theChartSelector = wijmo.Control.getControl('#flexChart1');
+    var rangeSelectorOpts = {
+        seamless: true
+    };
+    if (typeof (rangeMin) === 'number') {
+        rangeSelectorOpts['min'] = rangeMin;
+    }
+    if (typeof (rangeMax) === 'number') {
+        rangeSelectorOpts['max'] = rangeMax;
+    }
+    var rangeSelector = new wijmo.chart.interaction.RangeSelector(theChartSelector, rangeSelectorOpts);
+    rangeSelector.rangeChanged.addHandler(function (sender, e) {
+        setRange(Math.round(rangeSelector.min), Math.round(rangeSelector.max));
+    });
+
+    var rangeSelectorLayout = function(){
+        theChartSelector.invalidate();
+    };
+
+    window.addEventListener('resize', rangeSelectorLayout, false);
+
+</script>

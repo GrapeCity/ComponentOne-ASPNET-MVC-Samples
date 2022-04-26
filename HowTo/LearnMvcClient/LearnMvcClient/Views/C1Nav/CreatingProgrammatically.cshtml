@@ -1,0 +1,36 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.CreatingProgrammatically_Title)
+    
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.CreatingProgrammatically_Text1)
+    
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.CreatingProgrammatically_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.CreatingProgrammatically_Text3)
+</p>
+
+<div>
+    <div>
+        <a id="headerEmployees">EMPLOYEES</a>
+        <div id="paneEmployees">
+            @(Html.C1().FlexGrid().IsReadOnly(true).AllowSorting(false)
+                        .BindODataSource(os => os.ServiceUrl("https://services.odata.org/Northwind/Northwind.svc/").TableName("Employees").Fields("EmployeeID", "LastName", "FirstName", "Title", "TitleOfCourtesy")))
+        </div>
+    </div>
+    <div>
+        <a id="headerCategories">CATEGORIES</a>
+        <div id="paneCategories">
+            @(Html.C1().FlexGrid().IsReadOnly(true).AllowSorting(false)
+                         .BindODataSource(os => os.ServiceUrl("https://services.odata.org/Northwind/Northwind.svc/").TableName("Categories").Fields("CategoryID", "CategoryName", "Description")))
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel().Id("tabInCode").Tabs(ts =>
+{
+    ts.Add().Header("#headerEmployees").Pane("#paneEmployees");
+    ts.Add().Header("#headerCategories").Pane("#paneCategories");
+})

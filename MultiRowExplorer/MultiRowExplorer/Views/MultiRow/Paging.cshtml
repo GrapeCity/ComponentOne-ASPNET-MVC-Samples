@@ -1,0 +1,38 @@
+@model IEnumerable<Orders.Order>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Styles{
+    <style>
+        .customMultiRow {
+            margin-top: 5px;
+        }
+    </style>
+}
+
+@(Html.C1().CollectionViewService<Orders.Order>().Bind(Model).Id("collectionViewService")
+.PageSize(Convert.ToInt32(optionsModel.Options["PageSize"].CurrentValue)))
+
+@(Html.C1().Pager().Owner("collectionViewService"))
+
+@(Html.C1().MultiRow<Orders.Order>().Id("pagingMultiRow").CssClass("multirow customMultiRow")
+    .ItemsSourceId("collectionViewService").IsReadOnly(true)
+    .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+)
+
+@(Html.C1().Pager().Owner("pagingMultiRow"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.Paging_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Paging_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Paging_Text2)</p>
+
+}

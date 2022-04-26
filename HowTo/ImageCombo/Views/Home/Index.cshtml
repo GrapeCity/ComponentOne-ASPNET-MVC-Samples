@@ -1,0 +1,70 @@
+﻿@using ImageCombo.Controls
+@using ImageCombo.Models
+
+@model IEnumerable<Category>
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    @Styles.Render("~/Content/SyntaxHighlighter/codeHighlight")
+}
+
+@section Scripts{
+    <script src="~/Scripts/app.js"></script>
+    @Scripts.Render("~/bundles/SyntaxHighlighter/codeHighlight")
+}
+<link href="~/Content/css/bootstrap/css/bootstrap.min.css" rel="stylesheet" />
+<div>
+    <div class="col-md-10">
+        <div>
+            <ul id="navList" class="nav nav-tabs" role="tablist">
+                <li><a class="semi-bold" role="tab" href="#sample" data-toggle="tab">Sample</a></li>
+                <li><a class="semi-bold" role="tab" href="#source" data-toggle="tab">Source</a></li>
+            </ul>
+            <div id="panelList" class="tab-content">
+                <div class="tab-pane pane-content active collapse-panel" id="sample">
+                    <div class="demo-control">
+                        <div>
+                            <label>ImageCombo</label>
+                            @(Html.Custom().ImageCombo().Bind(Model)
+                                .DisplayMemberPath("CategoryName")
+                                .ImageMemberPath("Picture")
+                                .ImageType(ImageType.Bmp))
+                        </div>
+                    </div>
+                    <br />
+                    <br />
+                    <br />
+                    <br />
+                    <div class="demo-description">
+                        <h3 class="semi-bold">Description</h3>
+                        <div>
+                            This sample shows how to inherit C1 MVC Control.
+                            <ul>
+                                <li><b>ImageCombo</b> is inherited from ComboBox.</li>
+                                <li>Two new properties are added.
+                                    <ul style="list-style-type:square">
+                                        <li><b>ImageMemberPath</b> is bound to field name of Image column in underlying data source.</li>
+                                        <li><b>ImageType</b> is the type of Image.</li>
+                                    </ul>
+                                </li>
+                                <li>ImageCombo override <b>Register</b> method of ComboBox.</li>
+                                <li>Customized template is set to <b>ItemTemplateContent</b> if <i>ImageMemberPath</i> is set.</li>
+                                <li><b>ImageComboBuilder</b> and <b>ImageComboBuilderFactory</b> classes are defined to support extended properties.</li>
+                                <li>Custom HtmlHelper extension method is added.</li>
+                                <li><b>Base64StringConverter</b> is inherited from JsonConverter and it support conversion from byte array to Base64 string to display image.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                    <div>
+                        @Html.Partial("_DemoSource", ControlPages.GetPageSources())
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,71 @@
+﻿<div id="tabGettingStarted">
+    <div>
+        <a>Africa</a>
+        <div>
+            <ul>
+                <li>Algeria</li>
+                <li>Angola</li>
+                <li>Benin</li>
+                <li>Botswana</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a class="wj-state-active">
+            America
+        </a>
+        <div>
+            <ul>
+                <li>Canada</li>
+                <li>Chile</li>
+                <li>Mexico</li>
+                <li>United States</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div>
+            <ul>
+                <li>China</li>
+                <li>Korea</li>
+                <li>India</li>
+                <li>Japan</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Europe</a>
+        <div>
+            <ul>
+                <li>Austria</li>
+                <li>England</li>
+                <li>France</li>
+                <li>Germany</li>
+                <li>Netherlands</li>
+                <li>Switzerland</li>
+            </ul>
+        </div>
+    </div>
+    <div>
+        <a>Oceania</a>
+        <div>
+            <ul>
+                <li>Australia</li>
+                <li>Fiji</li>
+                <li>New Zealand</li>
+                <li>Samoa</li>
+            </ul>
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel("#tabGettingStarted")
+
+@section Summary{
+    <p>@Html.Raw(Resources.TabPanel.Index_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TabPanel.Index_Text1)</p>
+    <p>@Html.Raw(Resources.TabPanel.Index_Text2)</p>
+}

@@ -1,0 +1,65 @@
+@{ 
+    var countries = new[] { "US", "Germany", "UK", "Japan", "Sweden", "Norway", "Denmark" };
+    var coutriesMap = new object[countries.Length];
+    for (var i = 0; i < countries.Length; i++)
+    {
+        coutriesMap[i] = new KeyValuePair<int, string>(i, countries[i]);
+    }
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.PopupEditors_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.PopupEditors_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupEditors_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupEditors_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .Columns(cols=>
+    {
+        cols.Add().Binding("id").Header("ID").Width("50").IsReadOnly(true);
+        cols.Add().Binding("country").Header("Country").DataMap(dm=>dm.Bind(coutriesMap).DisplayMemberPath("Value").SelectedValuePath("Value"));
+        cols.Add().Binding("sales").Header("Sales").Format("n2");
+        cols.Add().Binding("expenses").Header("Expenses").Format("n2");
+    })
+)
+
+<!-- the popup editor -->
+<div id="popup" class="modal-content">
+    <div class="modal-header">
+        <button type="button" tabindex="-1" class="close wj-hide">
+            <span>&times;</span>
+        </button>
+        <h4 class="modal-title">@Html.Raw(Resources.C1Input.PopupEditors_Title1)<span id="item-id"></span></h4>
+    </div>
+    <div class="modal-body">
+        <div class="wj-labeled-input">
+            <input id="country" />
+            <label for="country">@Html.Raw(Resources.C1Input.PopupEditors_Text4)</label>
+            @Html.C1().ComboBox("#country").Bind(countries).SelectedIndex(countries.Length-1)
+        </div>
+        <div class="wj-labeled-input">
+            <input id="sales" />
+            <label for="sales">@Html.Raw(Resources.C1Input.PopupEditors_Text5)</label>
+            @Html.C1().InputNumber("#sales").Format("n2").Min(0).Step(100)
+        </div>
+        <div class="wj-labeled-input">
+            <input id="expenses" />
+            <label for="expenses">@Html.Raw(Resources.C1Input.PopupEditors_Text6)</label>
+            @Html.C1().InputNumber("#expenses").Format("n2").Min(0).Step(100)
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-primary wj-hide-ok">@Resources.Resource.Btn_Ok</button>
+            <button type="button" class="btn btn-default wj-hide">@Resources.Resource.Btn_Cancel</button>
+        </div>
+    </div>
+</div>
+@Html.C1().Popup("#popup")

@@ -1,0 +1,145 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    var avgTypes = new List<string>
+    {
+        "Simple", "Weighted", "Exponential", "Triangular"
+    };
+}
+
+<script type="text/javascript">
+     var day = 'Day',
+        settings = 'Settings';
+
+    c1.documentReady(function () {
+        day = '@Html.Raw(Home.MovingAverages_Day)';
+        settings = '@Html.Raw(Home.MovingAverages_Settings)';
+    });
+
+    function shortPeriodChanged(number, args) {
+        if (!checkValue(number)) {
+            return;
+        }
+        updatePeriod(1, number.value);
+    }
+
+    function updatePeriod(seriesIndex, value) {
+        var chart = wijmo.Control.getControl('#movingAvg'),
+            series, text,
+            titleEle = wijmo.getElement(seriesIndex == 1 ? '#shortTitle' : '#longTitle');
+
+        if (chart) {
+            series = chart.series[seriesIndex];
+            text = value.toString() + ' ' + day +' MA';
+            series.name = text;
+            series.period = value;
+            if (titleEle) {
+                titleEle.innerText = text + ' ' + settings;
+            }
+        }
+    }
+
+    function updateMenu(menu, seriesIndex, headerName) {
+        var chart = wijmo.Control.getControl('#movingAvg'),
+            series;
+        if (chart) {
+            menu.header = headerName + ': <b>' + menu.selectedItem.Header + '</b>';
+            series = chart.series[seriesIndex];
+            series.type = wijmo.chart.analytics.MovingAverageType[menu.selectedItem.CommandParameter];
+        }
+    }
+
+    function shortTypeChanged(menu) {
+        updateMenu(menu, 1, '@Home.MovingAverages_MovingAvgType');
+    }
+
+    function longPeriodChanged(number, args) {
+        if (!checkValue(number)) {
+            return;
+        }
+        updatePeriod(2, number.value);
+    }
+
+    function longTypeChanged(menu) {
+        updateMenu(menu, 2, '@Home.MovingAverages_MovingAvgType');
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+</script>
+
+<c1-financial-chart id="movingAvg" binding-x="X" chart-type="Line">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-movingaverage binding="Close" period="5" type="Simple" name="5 Day MA"></c1-flex-chart-movingaverage>
+    <c1-flex-chart-movingaverage binding="Close" period="20" type="Simple" name="20 Day MA"></c1-flex-chart-movingaverage>
+    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Settings{
+    <!-- "Short" MA Settings -->
+    <div class="panel-group" id="settingsShort">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a id="shortTitle" data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">@Html.Raw(Home.MovingAverages_5DayMASettings)</a>
+                </h4>
+            </div>
+            <div id="settingsBody" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li>
+                            <label>@Html.Raw(Home.MovingAverages_Period)</label>
+                            <c1-input-number value="5" min="2" step="1" format="n0" max="@(Model.Count-1)" value-changed="shortPeriodChanged"></c1-input-number>
+                        </li>
+                        <li>
+                            <c1-menu header="@Html.Raw(Home.MovingAverages_Header1)" item-clicked="shortTypeChanged">
+                                <c1-menu-item header="@Home.MovingAverages_TypeSimple" command-parameter="@avgTypes[0]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeWeighted" command-parameter="@avgTypes[1]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeExponential" command-parameter="@avgTypes[2]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeTriangular" command-parameter="@avgTypes[3]"></c1-menu-item>
+                            </c1-menu>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- "Long" MA Settings -->
+    <div class="panel-group" id="settingsLong">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a id="longTitle" data-toggle="collapse" data-parent="#settings" href="#settingsBody" target="_self">@Html.Raw(Home.MovingAverages_20DayMASettings)</a>
+                </h4>
+            </div>
+            <div id="settingsBody" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    <ul class="list-inline">
+                        <li>
+                            <label>@Html.Raw(Home.MovingAverages_Period)</label>
+                            <c1-input-number value="20" min="2" step="1" format="n0" max="@(Model.Count-1)" value-changed="longPeriodChanged"></c1-input-number>
+                        </li>
+                        <li>
+                            <c1-menu header="@Html.Raw(Home.MovingAverages_Header2)" item-clicked="longTypeChanged">
+                                <c1-menu-item header="@Home.MovingAverages_TypeSimple" command-parameter="@avgTypes[0]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeWeighted" command-parameter="@avgTypes[1]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeExponential" command-parameter="@avgTypes[2]"></c1-menu-item>
+                                <c1-menu-item header="@Home.MovingAverages_TypeTriangular" command-parameter="@avgTypes[3]"></c1-menu-item>
+                            </c1-menu>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+}
+
+@section Description{
+<p>@Html.Raw(Home.MovingAverages_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.MovingAverages_Text1)</p>
+}

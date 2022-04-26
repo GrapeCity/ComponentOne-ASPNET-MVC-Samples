@@ -1,0 +1,56 @@
+﻿@section Scripts{
+<script type="text/javascript">
+    function changeOpenOnhover() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showOnHover");
+        menu.openOnHover = checkbox.checked;
+    }
+
+    function changeCloseOnLeave() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("closeOnLeave");
+        menu.closeOnLeave = checkbox.checked;
+    }
+
+    function changeShowDropDownButton() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showButton");
+        menu.showDropDownButton = checkbox.checked;
+    }
+
+     function changeSubItems() {
+        var menu = wijmo.Control.getControl("#hierMenu");
+        var checkbox = document.getElementById("showSubItems");
+        menu.subItemsPath = checkbox.checked ? "Items" : null;
+    }
+
+    function itemClicked(sender) {
+        alert('You\'ve selected option ' + sender.text + ' from the menu!');
+    }
+
+    
+</script>
+}
+<div>
+
+    @(Html.C1().CollectionViewService().Bind("GetMenuItems").Id("mn"))
+    @(Html.C1().Menu().Id("hierMenu").ItemsSourceId("mn")
+        .Header("Hierachial Menu").HeaderPath("Header").ShowDropDownButton(false)
+        .OpenOnHover(true)
+        .CloseOnLeave(true)
+        .OnClientItemClicked("itemClicked")
+        .SubItemsPath("Items")
+    )
+
+</div>
+<div>
+    <p></p>
+    @Html.Raw(Resources.Menu.Customize_OpenOnhover)&nbsp;<input id="showOnHover" type="checkbox" checked="checked" onchange="changeOpenOnhover()" /><br />
+    @Html.Raw(Resources.Menu.Customize_CloseOnLeave)&nbsp;<input id="closeOnLeave" type="checkbox" checked="checked" onchange="changeCloseOnLeave()" /><br />
+    @Html.Raw(Resources.Menu.Customize_ShowButton)&nbsp;<input id="showButton" type="checkbox" onchange="changeShowDropDownButton()" /><br />
+    @Html.Raw(Resources.Menu.Customize_ShowSubItems)&nbsp;<input id="showSubItems" type="checkbox" checked="checked" onchange="changeSubItems()" /><br />
+</div>
+
+@section Description{
+    @Html.Raw(Resources.Menu.Customize_Description)
+}

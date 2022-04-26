@@ -1,0 +1,21 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.StickyHeaders_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.StickyHeaders_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.StickyHeaders_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.StickyHeaders_Text3)
+</p>
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model)
+@Html.C1().FlexGrid().Id("theGridSticky").ItemsSourceId("collectionView").Height(500)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.StickyHeaders_Text4)
+</p>
+@Html.C1().FlexGrid().Id("theGridNormal").ItemsSourceId("collectionView").Height(500)

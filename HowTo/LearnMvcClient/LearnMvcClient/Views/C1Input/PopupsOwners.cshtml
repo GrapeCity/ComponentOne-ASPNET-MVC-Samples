@@ -1,0 +1,87 @@
+<h1>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text3)
+</p>
+
+<h3>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text5)
+</p>
+<button id="btnClickBlur" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text12)
+</button>
+<div id="popClickBlur" class="popover">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.C1Input.PopupsOwners_Title2)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.C1Input.PopupsOwners_Text6)
+    </div>
+</div>
+@Html.C1().Popup("#popClickBlur").Owner("#btnClickBlur")
+
+<h3>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Title3)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text7)
+</p>
+<button id="btnClickClick" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text12)
+</button>
+<div id="popClickClick" class="popover">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.C1Input.PopupsOwners_Title2)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.C1Input.PopupsOwners_Text8)
+    </div>
+</div>
+@Html.C1().Popup("#popClickClick").Owner("#btnClickClick")
+
+<h3>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Title5)
+</h3>
+<p>
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text9)
+</p>
+<button id="btnClickNone" class="btn btn-primary">
+    @Html.Raw(Resources.C1Input.PopupsOwners_Text12)
+</button>
+<div id="popClickNone" class="popover">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.C1Input.PopupsOwners_Title2)
+    </h3>
+    <div class="popover-content">
+        <form name="popoverForm">
+            <p>
+                @Html.Raw(Resources.C1Input.PopupsOwners_Text10)
+            </p>
+            <pre>2 + 3 = <span class="">5</span></pre>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">@@</div>
+                    <input class="form-control" type="email" placeholder="@Resources.C1Input.PopupsOwners_Text11">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button class="btn btn-danger wj-hide">@Resources.Resource.Btn_Close</button>
+                <button class="btn btn-primary wj-hide-ok">@Resources.Resource.Btn_SaveChanges</button>
+            </div>
+        </form>
+    </div>
+</div>
+@Html.C1().Popup("#popClickNone").Owner("#btnClickNone")

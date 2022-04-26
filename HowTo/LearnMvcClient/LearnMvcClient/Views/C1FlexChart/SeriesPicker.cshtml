@@ -1,0 +1,35 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Summary>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.SeriesPicker_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.SeriesPicker_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.SeriesPicker_Text2)
+</p>
+
+<div style="position:relative">
+    @(Html.C1().FlexChart<FlexChartData.Summary>().Id("theChart")
+    .Bind("Country", Model)
+    )
+    <div id="pickerButton">
+        <span class="column-picker-icon glyphicon glyphicon-cog"></span>
+    </div>
+</div>
+
+<div style="display:none">
+    @(Html.C1().ListBox().Id("theSeriesPicker")
+        .CssClass("series-picker")
+        .CheckedMemberPath("visible")
+        .DisplayMemberPath("name")
+    )
+</div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1FlexChart.SeriesPicker_Text3)
+    </div>
+</div>

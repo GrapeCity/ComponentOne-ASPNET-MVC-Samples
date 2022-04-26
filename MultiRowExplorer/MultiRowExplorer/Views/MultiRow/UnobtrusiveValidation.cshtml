@@ -1,0 +1,44 @@
+@model List<UserInfo>
+
+@section Scripts{
+    @Scripts.Render("~/jquery")
+    @Scripts.Render("~/jqueryval")
+}
+
+@(Html.C1().MultiRow<UserInfo>()
+    .Id("uvMultiRow")
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Colspan(1).Cells(cells =>
+        {
+            cells.Add(c => c.Binding("Id").IsReadOnly(true));
+        });
+        ld.Add().Colspan(1).Cells(cells =>
+        {
+            cells.Add(c => c.Binding("Name"))
+            .Add(c => c.Binding("Industry"));
+        });
+        ld.Add().Colspan(3).Cells(cells =>
+        {
+            cells.Add(c => c.Binding("Country"))
+            .Add(c => c.Binding("Phone").Colspan(2))
+            .Add(c => c.Binding("Email").Colspan(2))
+            .Add(c => c.Binding("Birthdate").Format("M/d/yyyy"));
+        });
+    })
+    .Bind(ib => ib.Bind(Model)
+        .Update(Url.Action("MultiRowUpdateUserInfo"))
+        .Create(Url.Action("MultiRowCreateUserInfo"))
+        .Delete(Url.Action("MultiRowDeleteUserInfo"))
+    )
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .CssClass("multirow")
+)
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.UnobtrusiveValidation_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.UnobtrusiveValidation_Text1)</p>
+
+}

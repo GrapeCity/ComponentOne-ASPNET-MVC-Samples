@@ -1,0 +1,1004 @@
+﻿@model Input101.Models.InputModel
+
+@{
+    ViewBag.Title = "Input Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>@Html.Raw(Resources.Input101Res.Project_Name_Text0)</h1>
+        <p>
+            @Html.Raw(Resources.Input101Res.Project_Short_Description_Text0)
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(Resources.Input101Res.Getting_Started_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.Getting_Started_Step_Title_Text0)
+        </p>
+        <ol>
+            <li>@Html.Raw(Resources.Input101Res.Getting_Started_Step1_Text0)</li>
+            <li>@Html.Raw(Resources.Input101Res.Getting_Started_Step2_Text0)</li>
+            <li>@Html.Raw(Resources.Input101Res.Getting_Started_Step3_Text0)</li>
+            <li>@Html.Raw(Resources.Input101Res.Getting_Started_Step4_Text0)</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;body&gt;
+
+@@(Html.C1().InputNumber().Value(3.5).Step(.5).Format("n"))
+
+&lt;/body&gt;
+&lt;/html&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                @(Html.C1().InputNumber().Value(3.5).Step(.5).Format("n"))
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- AutoComplete -->
+    <div>
+        <h2>AutoComplete</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.AutoComplete_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.AutoComplete_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.AutoComplete_Description_Text2)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#acHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#acCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                        <li><a href="#acCss" role="tab" data-toggle="tab">CSS</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="acHtml">
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Bind_Only_Text0)&lt;/label&gt;
+@@(Html.C1().AutoComplete().Bind(Model.CountryList))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Bind &amp;amp; CssMatch&lt;/label&gt;
+@@(Html.C1().AutoComplete().Bind(Model.CountryList).CssMatch("highlight"))
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="acCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new InputModel());
+        }
+    }
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="acCss">
+.highlight {
+    background-color: #ff0;
+    color: #000;
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Bind_Only_Text0)</label>
+                    @(Html.C1().AutoComplete().Bind(Model.CountryList))
+                </div>
+                <div class="app-input-group">
+                    <label>Bind &amp; cssMatch</label>
+                    @(Html.C1().AutoComplete().Bind(Model.CountryList).CssMatch("highlight"))
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <!-- ComboBox -->
+    <div>
+        <h2>ComboBox</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.ComboBox_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.ComboBox_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.ComboBox_Description_Text2)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#cbHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cbCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="cbHtml">
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Non_Editable_Text0)&lt;/label&gt;
+@@(Html.C1().ComboBox().Bind(Model.CountryList).IsEditable(false))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Editable&lt;/label&gt;
+@@(Html.C1().ComboBox().Bind(Model.CountryList).IsEditable(true))
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="cbCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View(new InputModel());
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Non_Editable_Text0)</label>
+                    @(Html.C1().ComboBox().Bind(Model.CountryList).IsEditable(false))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Editable_Text0)</label>
+                    @(Html.C1().ComboBox().Bind(Model.CountryList).IsEditable(true))
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- InputDate and Calendar -->
+    <div>
+        <h2>InputDate &amp; Calendar</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDate_Calendar_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDate_Calendar_Property_Title_Text0)
+        </p>
+        <ul>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputDate_Calendar_Property_Text0)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputDate_Calendar_Property_Text1)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputDate_Calendar_Property_Text2)
+            </li>
+        </ul>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDate_Calendar_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#idcHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#idcCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="idcHtml">
+@@{
+var today = DateTime.Today.Date;
+var minDate = new DateTime(today.Year, 1, 1);
+var maxDate = new DateTime(today.Year, 12, 31);
+}
+&lt;div&gt;
+&lt;label&gt;Bound InputDate with min &amp;amp; max&lt;/label&gt;
+@@(Html.C1().InputDate().Id("idcInputDate").Value(today).Min(minDate).Max(maxDate))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;Bound Calendar with min &amp;amp; max&lt;/label&gt;
+@@(Html.C1().Calendar().Id("idcCalendar").Value(today).Min(minDate).Max(maxDate).Width("300px"))
+&lt;/div&gt;
+&lt;p&gt;
+&lt;b&gt;@Html.Raw(Resources.Input101Res.Valid_Range_Text0): &lt;span id="idcMinDate"&gt;@@minDate&lt;/span&gt; to &lt;span id="idcMaxDate"&gt;&lt;/span&gt;@@maxDate&lt;/b&gt;
+&lt;/p&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="idcCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                @{
+                    var today = DateTime.Today.Date;
+                    var minDate = new DateTime(today.Year, 1, 1);
+                    var maxDate = new DateTime(today.Year, 12, 31);
+                    var minTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 7, 0, 0);
+                    var maxTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 19, 0, 0);
+                    var format = "MMM dd, yyyy";
+                }
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Bound_InputDate_Text0)</label>
+                    @(Html.C1().InputDate().Id("idcInputDate").Value(today).Min(minDate).Max(maxDate))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Bound_Calendar_Text0)</label>
+                    @(Html.C1().Calendar().Id("idcCalendar").Value(today).Min(minDate).Max(maxDate).Width("300px"))
+                </div>
+                <p>
+                    <b>@Html.Raw(Resources.Input101Res.Valid_Range_Text0) <span id="idcMinDate">@minDate</span> to <span id="idcMaxDate">@maxDate</span></b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- InputDate, InputTime and InputDateTime -->
+    <div>
+        <h2>InputDate, InputTime and InputDateTime</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDateTime_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDateTime_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDateTime_Description_Text2)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputDateTime_Description_Text3)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#iditHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#iditJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#iditCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="iditHtml">
+@@{
+var today = DateTime.Today.Date;
+var minDate = new DateTime(today.Year, 1, 1);
+var maxDate = new DateTime(today.Year, 12, 31);
+var minTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 7, 0, 0);
+var maxTime = new DateTime(DateTime.Today.Year, DateTime.Today.Month, DateTime.Today.Day, 19, 0, 0);
+var format = "MMM dd, yyyy";
+}
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.InputDate_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputDate().Id("iditInputDate").Value(today).Min(minDate).Max(maxDate).Format(format).OnClientValueChanged("inputDate_ValueChanged"))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.InputTime_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputTime().Id("iditInputTime").Value(today).Min(minTime).Max(maxTime).Step(15).OnClientValueChanged("inputTime_ValueChanged"))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.InputDateTime_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputDateTime().Id("iditInputDateTime").Value(today).Min(minDate).Max(maxDate).TimeMin(minTime).TimeMax(maxTime).TimeStep(15).OnClientValueChanged("inputDateTime_ValueChanged"))
+&lt;/div&gt;
+&lt;p&gt;
+&lt;b&gt;@Html.Raw(Resources.Input101Res.Selected_Date_And_Time_Text0): &lt;span id="iditSelectedValue"&gt;&lt;/span&gt;&lt;/b&gt;
+&lt;/p&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="iditJs">
+function inputTime_ValueChanged(sender) {
+    var inputDateTime = wijmo.Control.getControl("#iditInputDateTime");
+    inputDateTime.value = wijmo.DateTime.fromDateTime(inputDateTime.value, sender.value);
+}
+
+function inputDate_ValueChanged(sender) {
+    var inputDateTime = wijmo.Control.getControl("#iditInputDateTime");
+    inputDateTime.value = wijmo.DateTime.fromDateTime(sender.value, inputDateTime.value);
+}
+
+function inputDateTime_ValueChanged(sender) {
+    var inputDate = wijmo.Control.getControl("#iditInputDate");
+    var inputTime = wijmo.Control.getControl("#iditInputTime");
+    inputDate.value = wijmo.DateTime.fromDateTime(sender.value, inputDate.value);
+    inputTime.value = wijmo.DateTime.fromDateTime(inputTime.value, sender.value);
+    document.getElementById('iditSelectedValue').innerHTML = wijmo.Globalize.format(sender.value, 'MMM dd, yyyy h:mm:ss tt');
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="iditCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.InputDate_Format_Text0)</label>
+                    @(Html.C1().InputDate().Id("iditInputDate").Value(today).Min(minDate).Max(maxDate).Format(format).OnClientValueChanged("inputDate_ValueChanged"))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.InputTime_Format_Text0)</label>
+                    @(Html.C1().InputTime().Id("iditInputTime").Value(today).Min(minTime).Max(maxTime).Step(15).OnClientValueChanged("inputTime_ValueChanged"))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.InputDateTime_Format_Text0)</label>
+                    @(Html.C1().InputDateTime().Id("iditInputDateTime").Value(today).Min(minDate).Max(maxDate).TimeStep(15).Format("MMM dd, yyyy hh:mm tt").TimeMin(minTime).TimeMax(maxTime).OnClientValueChanged("inputDateTime_ValueChanged"))
+                </div>
+                <p>
+                    <b>@Html.Raw(Resources.Input101Res.Selected_Date_And_Time_Text0): <span id="iditSelectedValue"></span></b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- ListBox -->
+    <div>
+        <h2>ListBox</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.ListBox_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.ListBox_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#lbHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#lbJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#lbCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="lbHtml">
+&lt;div&gt;
+@@(Html.C1().ListBox().Id("lbListBox").Height("150px").Width("250px").Bind(Model.CitiesList).OnClientSelectedIndexChanged("selectedIndexChanged"))
+&lt;/div&gt;
+&lt;p&gt;
+&lt;b&gt;selectedIndex: &lt;span id="lbSelIdx"&gt;&lt;/span&gt;&lt;/b&gt;
+&lt;/p&gt;
+&lt;p&gt;
+&lt;b&gt;selectedValue: &lt;span id="lbSelVal"&gt;&lt;/span&gt;&lt;/b&gt;
+&lt;/p&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="lbJs">
+$(document).ready(function () {
+    var ListBox = wijmo.Control.getControl("#lbListBox");
+    selectedIndexChanged(ListBox);
+});
+
+//selectedIndexChanged event handler
+function selectedIndexChanged(sender) {
+    //set selectedIndex and selectedValue text
+    if (document.getElementById("lbListBox") && document.getElementById("lbSelIdx") 
+    && document.getElementById("lbSelVal")) {
+        document.getElementById('lbSelIdx').innerHTML = sender.selectedIndex;
+        document.getElementById('lbSelVal').innerHTML = sender.selectedValue;
+    }
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="lbCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    @(Html.C1().ListBox().Id("lbListBox").Height("150px").Width("250px").Bind(Model.CitiesList).OnClientSelectedIndexChanged("selectedIndexChanged"))
+                </div>
+                <p>
+                    <b>selectedIndex: <span id="lbSelIdx"></span></b>
+                </p>
+                <p>
+                    <b>selectedValue: <span id="lbSelVal"></span></b>
+                </p>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- InputNumber -->
+    <div>
+        <h2>InputNumber</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputNumber_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputNumber_Property_Title_Text0)
+        </p>
+        <ul>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputNumber_Property_Text0)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputNumber_Property_Text1)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputNumber_Property_Text2)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.InputNumber_Property_Text3)
+            </li>
+        </ul>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputNumber_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#inHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#inCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="inHtml">
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Unbound_N0_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputNumber().Id("inInputNumber1").Value(0).Format("n0"))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Bound_N0_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputNumber().Id("inInputNumber2").Value(Math.PI).Format("n"))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Bound_Format_Text0)&lt;/label&gt;
+@@(Html.C1().InputNumber().Id("inInputNumber3").Value(3.5).Format("C2").Step(.5).Min(0).Max(10))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Unbound_Placeholder_IsRequired_Text0)&lt;/label&gt;
+@@(Html.C1().InputNumber().Id("inInputNumber4").Placeholder("Enter a number...").IsRequired(false).Value(null))
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="inCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Unbound_N0_Format_Text0)</label>
+                    @(Html.C1().InputNumber().Id("inInputNumber1").Value(0).Format("n0"))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Bound_N0_Format_Text0)</label>
+                    @(Html.C1().InputNumber().Id("inInputNumber2").Value(Math.PI).Format("n"))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Bound_Format_Text0)</label>
+                    @(Html.C1().InputNumber().Id("inInputNumber3").Value(3.5).Format("C2").Step(.5).Min(0).Max(10))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Unbound_Placeholder_IsRequired_Text0)</label>
+                    @(Html.C1().InputNumber().Id("inInputNumber4").Placeholder("Enter a number...").IsRequired(false).Value(null))
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- InputMask -->
+    <div>
+        <h2>InputMask</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputMask_Description_Text0)
+        </p>
+        <dl class="dl-horizontal">
+            <dt>0</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Digit_Text0)</dd>
+            <dt>9</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Digit_Space_Text0)</dd>
+            <dt>#</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Digit_Sign_Space_Text0)</dd>
+            <dt>L</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Letter_Text0)</dd>
+            <dt>l</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Letter_Space_Text0)</dd>
+            <dt>A</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Alphanumeric_Text0)</dd>
+            <dt>a</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Alphanumeric_Space_Text0)</dd>
+            <dt>.</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Localized_Decimal_Point_Text0)</dd>
+            <dt>,</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Localized_Thousand_Separator_Text0)</dd>
+            <dt>:</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Localized_Time_Separator_Text0)</dd>
+            <dt>/</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Localized_Date_Separator_Text0)</dd>
+            <dt>$</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Localized_Currency_Symbol_Text0)</dd>
+            <dt>&lt;</dt>
+            <dd>@Html.Raw(Resources.Input101Res.To_Lowercase_Text0)</dd>
+            <dt>&gt;</dt>
+            <dd>@Html.Raw(Resources.Input101Res.To_Uppercase_Text0)</dd>
+            <dt>|</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Disables_Case_Conversion_Text)</dd>
+            <dt>\</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Escapes_Character_Text0)</dd>
+            <dt>９ (\uff19)</dt>
+            <dd>DBCS@Html.Raw(Resources.Input101Res.Digit_Text0)</dd>
+            <dt>Ｊ (\uff2a)</dt>
+            <dd>DBCS Hiragana.</dd>
+            <dt>Ｇ (\uff27)</dt>
+            <dd>DBCS big Hiragana.</dd>
+            <dt>Ｋ (\uff2b)</dt>
+            <dd>DBCS Katakana.</dd>
+            <dt>Ｎ (\uff2e)</dt>
+            <dd>DBCS big Katakana.</dd>
+            <dt>K</dt>
+            <dd>SBCS Katakana.</dd>
+            <dt>N</dt>
+            <dd>SBCS big Katakana.</dd>
+            <dt>Ｚ (\uff3a)</dt>
+            <dd>Any DBCS character.</dd>
+            <dt>H</dt>
+            <dd>Any SBCS character.</dd>
+            <dt>@Html.Raw(Resources.Input101Res.All_Others_Text0)</dt>
+            <dd>@Html.Raw(Resources.Input101Res.Literals_Text0)</dd>
+        </dl>
+        <p>
+            @Html.Raw(Resources.Input101Res.InputMask_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#imHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#imJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#imCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="imHtml">
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Social_Security_Number_Text0)&lt;/label&gt;
+@@(Html.C1().InputMask().Id("imSocial").Mask("000-00-0000").HtmlAttributes(new { title = "Mask: 000-00-0000" }))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Phone_Number_Text0)&lt;/label&gt;
+@@(Html.C1().InputMask().Id("imPhone").Mask("(999) 000-0000").HtmlAttributes(new { title = "Mask: (999) 000-0000" }))
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.Try_Your_Own_Text0)&lt;/label&gt;
+@@(Html.C1().InputMask().Id("imCustomInput")
+.Placeholder("@Html.Raw(Resources.Input101Res.Enter_Input_Mask_Placeholder_Text0)")
+.OnClientValueChanged("MaskvalueChanged")
+)
+@@(Html.C1().InputMask().Id("imCustomTrial")
+.Placeholder("@Html.Raw(Resources.Input101Res.Try_Your_Input_Mask_Placeholder_Text0)")
+)
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.InputDate_Mask_Text0)&lt;/label&gt;
+@@(Html.C1().InputDate().Value(DateTime.Now)
+.Format("MM/dd/yyyy").Mask("99/99/9999")
+.HtmlAttributes(new { title = "Mask: 99/99/9999" })
+)
+&lt;/div&gt;
+&lt;div&gt;
+&lt;label&gt;@Html.Raw(Resources.Input101Res.InputTime_Mask_Text0)&lt;/label&gt;
+@@(Html.C1().InputTime().Value(DateTime.Now)
+.Format("hh:mm tt").Mask("00:00 &gt;LL")
+.HtmlAttributes(new { title = "Mask: 00:00 &gt;LL" })
+)
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="imJs">
+// InputMask valueChanged event handler
+function MaskvalueChanged(sender) {
+    var customMaskTrial = wijmo.Control.getControl("#imCustomTrial");
+    customMaskTrial.mask = sender.value;
+    customMaskTrial.hostElement.title = 'Mask: ' + (sender.value || 'N/A');
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="imCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Social_Security_Number_Text0)</label>
+                    @(Html.C1().InputMask().Id("imSocial").Mask("000-00-0000").HtmlAttributes(new { title = "Mask: 000-00-0000" }))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Phone_Number_Text0)</label>
+                    @(Html.C1().InputMask().Id("imPhone").Mask("(999) 000-0000").HtmlAttributes(new { title = "Mask: (999) 000-0000" }))
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.Try_Your_Own_Text0)</label>
+                    @(Html.C1().InputMask().Id("imCustomInput")
+                        .Placeholder(string.Format("{0}", Html.Raw(Resources.Input101Res.Enter_Input_Mask_Placeholder_Text0)))
+                        .OnClientValueChanged("MaskvalueChanged")
+                    )
+                    @(Html.C1().InputMask().Id("imCustomTrial")
+                        .Placeholder(string.Format("{0}", Html.Raw(Resources.Input101Res.Try_Your_Input_Mask_Placeholder_Text0)))
+                    )
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.InputDate_Mask_Text0)</label>
+                    @(Html.C1().InputDate().Value(DateTime.Now)
+                        .Format("MM/dd/yyyy").Mask("99/99/9999")
+                        .HtmlAttributes(new { title = "Mask: 99/99/9999" })
+                    )
+                </div>
+                <div class="app-input-group">
+                    <label>@Html.Raw(Resources.Input101Res.InputTime_Mask_Text0)</label>
+                    @(Html.C1().InputTime().Id("itMask").Value(DateTime.Now)
+                        .Format("hh:mm tt").Mask("00:00 >LL")
+                        .HtmlAttributes(new { title = "Mask: 00:00 >LL" })
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Menu -->
+    <div>
+        <h2>Menu</h2>
+        <p>
+            @Html.Raw(Resources.Input101Res.Menu_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.Input101Res.Menu_Handling_Title_Text0)
+        </p>
+        <ul>
+            <li>
+                @Html.Raw(Resources.Input101Res.Menu_Handling_Text0)
+            </li>
+            <li>
+                @Html.Raw(Resources.Input101Res.Menu_Handling_Text1)
+            </li>
+        </ul>
+        <p>
+            @Html.Raw(Resources.Input101Res.Menu_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-7">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#mHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#mJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#mCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="mHtml">
+&lt;div&gt;
+&lt;label&gt;itemClicked Event&lt;/label&gt;
+
+@@(Html.C1().Menu().Id("mFileMenu").Header("File").OnClientItemClicked("itemClicked")
+.MenuItems(items =&gt; items
+.Add(item =&gt; item.Header("New: create a new document"))
+.Add(item =&gt; item.Header("Open: load an existing document from a file"))
+.Add(item =&gt; item.Header("Save: save the current document to a file"))
+.Add(item =&gt; item.IsSeparator(true))
+.Add(item =&gt; item.Header("Exit: save changes and exit the application"))
+))
+
+@@(Html.C1().Menu().Id("mEditMenu").Header("Edit")
+.OnClientItemClicked("itemClicked")
+.MenuItems(items =&gt;
+{
+items.Add().Header("Cut: move the current selection to the clipboard");
+items.Add().Header("Copy: copy the current selection to the clipboard");
+items.Add().Header("Paste: insert the clipboard content at the cursor position");
+items.Add().IsSeparator(true);
+items.Add().Header("Find: search the current document for some text");
+items.Add().Header("Replace: replace occurrences of a string in the current document");
+})
+)
+
+&lt;/div&gt;
+&lt;div class="app-input-group"&gt;
+&lt;label&gt;Commands&lt;/label&gt;
+@@(Html.C1().Menu().Header("Change Tax")
+.Command(cmd =&gt; cmd.ExecuteCommand("execute").CanExecuteCommand("canExecute"))
+.MenuItems(items =&gt;
+{
+items.Add().Header("+ 25%").CommandParameter(0.25);
+items.Add().Header("+ 10%").CommandParameter(0.10);
+items.Add().Header("+ 5%").CommandParameter(0.05);
+items.Add().Header("+ 1%").CommandParameter(0.01);
+items.Add().IsSeparator(true);
+items.Add().Header("- 1%").CommandParameter(-0.01);
+items.Add().Header("- 5%").CommandParameter(-0.05);
+items.Add().Header("- 10%").CommandParameter(-0.10);
+items.Add().Header("- 25%").CommandParameter(-0.25);
+})
+)
+@@(Html.C1().InputNumber().Id("mInputNumber")
+.Value(0.07).Step(0.05).Format("p0").Min(0).Max(1)
+)
+&lt;/div&gt;
+                        </div>
+                        <div class="tab-pane pane-content" id="mJs">
+function itemClicked(sender) {
+    alert('You\'ve selected option ' + sender.selectedIndex + ' from the ' + sender.header + ' menu!');
+}
+
+function execute(arg) {
+    var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+    // convert argument to Number
+    arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+    // check if the conversion was successful
+    if (wijmo.isNumber(arg)) {
+
+        // update the value
+        inputNumber.value += arg;
+    }
+}
+
+function canExecute(arg) {
+    var inputNumber = wijmo.Control.getControl("#mInputNumber");
+
+    // convert argument to Number
+    arg = wijmo.changeType(arg, wijmo.DataType.Number);
+
+    // check if the conversion was successful
+    if (wijmo.isNumber(arg)) {
+        var val = inputNumber.value + arg;
+
+        // check if the value is valid
+        return val &gt;= 0 && val &lt;= 1;
+    }
+
+    return false;
+}
+                        </div>
+                        <div class="tab-pane pane-content" id="mCS">
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using Input101.Models;
+
+namespace Input101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-5">
+                <h4>@Html.Raw(Resources.Input101Res.Result_Live_Text0):</h4>
+                <div class="app-input-group">
+                    <label>itemClicked Event</label>
+                    @(Html.C1().Menu().Id("mFileMenu").Header("File").OnClientItemClicked("itemClicked")
+                        .MenuItems(items => items
+                            .Add(item => item.Header("New: create a new document"))
+                            .Add(item => item.Header("Open: load an existing document from a file"))
+                            .Add(item => item.Header("Save: save the current document to a file"))
+                            .Add(item => item.IsSeparator(true))
+                            .Add(item => item.Header("Exit: save changes and exit the application"))
+                    ))
+                    @(Html.C1().Menu().Id("mEditMenu").Header("Edit")
+        .OnClientItemClicked("itemClicked")
+        .MenuItems(items =>
+        {
+            items.Add().Header("Cut: move the current selection to the clipboard");
+            items.Add().Header("Copy: copy the current selection to the clipboard");
+            items.Add().Header("Paste: insert the clipboard content at the cursor position");
+            items.Add().IsSeparator(true);
+            items.Add().Header("Find: search the current document for some text");
+            items.Add().Header("Replace: replace occurrences of a string in the current document");
+        })
+                    )
+                </div>
+                <div class="app-input-group">
+                    <label>Commands</label>
+                    @(Html.C1().Menu().Header("Change Tax")
+        .Command(cmd => cmd.ExecuteCommand("execute").CanExecuteCommand("canExecute"))
+        .MenuItems(items =>
+        {
+            items.Add().Header("+ 25%").CommandParameter(0.25);
+            items.Add().Header("+ 10%").CommandParameter(0.10);
+            items.Add().Header("+ 5%").CommandParameter(0.05);
+            items.Add().Header("+ 1%").CommandParameter(0.01);
+            items.Add().IsSeparator(true);
+            items.Add().Header("- 1%").CommandParameter(-0.01);
+            items.Add().Header("- 5%").CommandParameter(-0.05);
+            items.Add().Header("- 10%").CommandParameter(-0.10);
+            items.Add().Header("- 25%").CommandParameter(-0.25);
+        })
+                    )
+                    @(Html.C1().InputNumber().Id("mInputNumber")
+        .Value(0.07).Step(0.05).Format("p0").Min(0).Max(1)
+                    )
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+    });
+</script>

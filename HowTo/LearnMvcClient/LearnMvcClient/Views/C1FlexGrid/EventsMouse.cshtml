@@ -1,0 +1,15 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.EventsMouse_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsMouse_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsMouse_Text2)
+</p>
+<div id="log">
+    @Html.Raw(Resources.C1FlexGrid.EventsMouse_Text3)
+</div>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).GroupBy("Country").Height(220)

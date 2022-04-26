@@ -1,8 +1,9 @@
-﻿@model List<FinanceData>
+﻿@using FinancialChartExplorer.Models
+@model List<FinanceData>
 @{
     ViewBag.DemoSettings = false;
     ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
-    var chartType = ViewBag.ChartType;
+    C1.Web.Mvc.Finance.ChartType chartType = ViewBag.ChartType;
 }
 <script>
     function rangeChangedHandler(sender, e) {
@@ -49,9 +50,17 @@
         };
     }
 </script>
-<c1-financial-chart id="rs" binding-x="X" chart-type="@chartType" height="200px">
-    <c1-items-source source-collection="@Model"></c1-items-source>
-    <c1-financial-chart-series binding="High,Low,Open,Close,Volume"></c1-financial-chart-series>
-    <c1-range-selector range-changed="rangeChangedHandler" id="RangeSelector" seamless="true"></c1-range-selector>
-    <c1-flex-chart-tooltip content=""></c1-flex-chart-tooltip>
-</c1-financial-chart>
+
+@(Html.C1().FinancialChart()
+.Id("rs")
+.Height("200px")
+.Bind(Model)
+.BindingX("X")
+.SymbolSize(6)
+.ChartType(@chartType)
+.Series(sers =>
+    {
+        sers.Add().Binding("High,Low,Open,Close,Volume");
+    })
+.AddRangeSelector(rs => rs.OnClientRangeChanged("rangeChangedHandler").Id("RangeSelector").Seamless(true))
+.Tooltip(t => t.Content("")))

@@ -1,0 +1,20 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.SizingScrolling_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingScrolling_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingScrolling_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingScrolling_Text3)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(150)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.SizingScrolling_Text4)
+</p>
+@Html.C1().FlexGrid().Id("theGridAuto").Bind(Model)

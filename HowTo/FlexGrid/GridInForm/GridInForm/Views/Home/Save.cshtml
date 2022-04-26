@@ -1,0 +1,56 @@
+﻿@using GridInForm.Models
+@model Company
+
+@Html.ActionLink("Back to edit", "Index")
+
+<div class="param-item">
+    <div>
+        @Html.LabelFor(company => company.Name)
+        <label class="saved-Label">@Model.Name</label>
+    </div>
+    <div>
+        @Html.LabelFor(company => company.WebSite)
+        <label class="saved-Label">@Model.WebSite</label>
+    </div>
+</div>
+<div class="param-item">
+    <div>
+        @Html.LabelFor(company => company.Headquarters)
+        <label class="saved-Label">@Model.Headquarters</label>
+    </div>
+    <div>
+        @Html.LabelFor(company => company.Type)
+        <label class="saved-Label">@Model.Type</label>
+    </div>
+</div>
+<div class="param-item">
+    <div>
+        @Html.LabelFor(company => company.Industry)
+        <label class="saved-Label">@Model.Industry</label>
+    </div>
+    <div>
+        @Html.LabelFor(company => company.Founded)
+        <label class="saved-Label">@Model.Founded.ToShortDateString()</label>
+    </div>
+</div>
+<div class="param-item">
+    @Html.LabelFor(company => company.Description)
+    <span class="saved-Label">@Model.Description</span>
+</div>
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .Height(450)
+    .IsReadOnly(true)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Cell)
+    .Bind(b => b.Bind(Model.Sales).DisableServerRead(true))
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Amount").Width("*"));
+        bl.Add(cb => cb.Binding("Discount"));
+        bl.Add(cb => cb.Binding("Active"));
+        bl.Add(cb => cb.Binding("Rank"));
+    })
+)

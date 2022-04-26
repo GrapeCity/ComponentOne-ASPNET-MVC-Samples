@@ -1,0 +1,103 @@
+@{
+    var controlName = "FinancialChart";
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+
+    ViewBag.ControlName = controlName;
+    ViewBag.PageText = ControlPages.GetPageText(actionName);
+    ViewBag.Title = string.Format("{0} - {1}", controlName, ViewBag.PageText);
+    ViewBag.DemoDescription = ViewBag.DemoDescription ?? true;
+    ViewBag.DemoSettings = ViewBag.DemoSettings ?? false;
+    ViewBag.DemoLog = ViewBag.DemoLog ?? false;
+    ViewBag.DemoSource = ViewBag.DemoSource ?? true;
+
+    var control = ControlPages.GetControl(controlName);
+    ViewBag.DocLink = control.Documentation;
+
+    var pages = ControlPages.GetPages(controlName);
+    foreach (var page in pages)
+    {
+        page.Path = Url.Action(page.Name, controllerName).ToString();
+    }
+    ViewBag.Pages = pages;
+
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Styles{
+    <link href="~/Content/css/SyntaxHighlighter/shCore.css" rel="stylesheet" />
+    <link href="~/Content/css/SyntaxHighlighter/shCoreEclipse.css" rel="stylesheet" />
+    @RenderSection("Styles", false)
+}
+
+@section Scripts{
+    <script src="~/Scripts/ControlLayout.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shCore.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushXml.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushJScript.js"></script>
+    <script src="~/Scripts/SyntaxHighlighter/shBrushCSharp.js"></script>
+    @RenderSection("Scripts", false)
+}
+
+<div class="narrow-screen features-bar">
+    <span>@Resource.ControlLayout_Features <span class="wj-glyph-down"></span></span>
+    <ul class="narrow-screen features-nav">
+        @foreach (var controlPage in ViewBag.Pages)
+        {
+            <li><a href="@controlPage.Path">@controlPage.Text</a></li>
+        }
+    </ul>
+</div>
+<div class="col-md-3 side">
+    <div>
+        <h4 class="semi-bold wide-screen">@ViewBag.PageText</h4>
+        <h4 class="semi-bold narrow-screen">@ViewBag.PageText</h4>
+        <div class="description">@RenderSection("Summary", false)</div>
+    </div>
+    @await Html.PartialAsync("_ControlsNav")
+</div>
+<div class="col-md-9">
+    <div class="padder">
+        <div>
+            <ul id="navList" class="nav nav-tabs">
+                <li><a class="semi-bold">@Resource.ControlLayout_Sample</a></li>
+                <li><a class="semi-bold">@Resource.ControlLayout_Source</a></li>
+                <li><span onclick="gotoDoc('@ViewBag.DocLink')" class="doc-tab semi-bold">@Resource.ControlLayout_Documentation</span></li>
+            </ul>
+            <div id="panelList" class="tab-content">
+                <div class="tab-pane pane-content active collapse-panel" id="sample">
+                    <div class="demo-control">@RenderBody()</div>
+                    @{
+                        if (ViewBag.DemoSettings)
+                        {
+                            <div class="demo-settings">
+                                <h3 class="semi-bold">@Resource.ControlLayout_Settings</h3>
+                                @if (ViewBag.DemoSettingsModel != null)
+                                {
+                                    @await Html.PartialAsync("_ClientSettingsByMenu", ViewBag.DemoSettingsModel as ClientSettingsModel)
+                                }
+                                @RenderSection("Settings", false)
+                            </div>
+                        }
+                    }
+                    @{
+                        if (ViewBag.DemoDescription)
+                        {
+                            <div class="demo-description">
+                                <h3 class="semi-bold">@Resource.ControlLayout_Description</h3>
+                                <div>
+                                    @RenderSection("Description", false)
+                                </div>
+                            </div>
+                        }
+                    }
+                </div>
+                <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                    <div class="demo-source">
+                        @await Html.PartialAsync("_DemoSource", ControlPages.GetPageSources(controllerName, actionName))
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

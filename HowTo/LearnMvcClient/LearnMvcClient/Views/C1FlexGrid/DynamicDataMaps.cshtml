@@ -1,0 +1,66 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text3)
+</p>
+<ul>
+    <li>
+        <p>
+            @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text4)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text5)
+        </p>
+        <pre>
+// create data map
+var cityMap = new wijmo.grid.DataMap(getCities(), 'id', 'name');
+// override cityMap's getDisplayValues method to get cities that
+// correspond to the current item
+cityMap.getDisplayValues = function(dataItem) {
+  var arr = [],
+  cities = getCities(),
+  country = theGrid.collectionView.currentItem.country;
+  for (var i = 0; i &lt; cities.length; i++) {
+    var city = cities[i];
+    if (city.country == country) {
+      arr.push(city.name);
+    }
+  }
+  return arr;
+};</pre>
+    </li>
+    <li>
+        <p>
+            @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text6)
+        </p>
+        <p>
+            @Html.Raw(Resources.C1FlexGrid.DynamicDataMaps_Text5)
+        </p>
+<pre>
+// update cities data map depending on country
+beginningEdit: function(s, e) {
+  var col = s.columns[e.col];
+  if (col.binding == 'city') {
+    switch (s.rows[e.row].dataItem.country) {
+      case 'US':
+        col.dataMap = ['Washington', 'Miami', 'Seattle'];
+        break;
+      case 'UK':
+        col.dataMap = ['London', 'Oxford', 'Bath'];
+        break;
+      // ... other countries ...
+      default:
+        col.dataMap = ['Unknown Country!'];
+        break;
+    }
+  }
+});</pre>
+    </li>
+</ul>

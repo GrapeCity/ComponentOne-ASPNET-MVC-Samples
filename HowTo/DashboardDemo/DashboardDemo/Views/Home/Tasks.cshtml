@@ -1,0 +1,70 @@
+﻿@model IEnumerable<CampainTaskItem>
+@{
+    ViewBag.PageTitle = @Resources.DashboardDemo.TaskPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Tasks.js")"></script>
+<script type="text/javascript">
+    function setRange(start, end) {
+        reset();
+        getData(start, end);
+    }
+
+    function getData(start, end) {
+        updateData(start, end, '@Url.Action("GetTasks")');
+    }
+</script>
+<div class="flex vertical auto" style="overflow:hidden;">
+    <div id="tpTasks">
+        <div>
+            <a>@Resources.DashboardDemo.AllTasks_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@Resources.DashboardDemo.InProgress_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@Resources.DashboardDemo.Completed_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@Resources.DashboardDemo.Deferred_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@Resources.DashboardDemo.Urgent_Header</a>
+            <div>
+            </div>
+        </div>
+    </div>
+    @Html.C1().TabPanel("#tpTasks").OnClientSelectedIndexChanged("selectedIndexChanged")
+    <div id="groupPanel"></div>
+    <div class="auto" style="overflow:hidden">
+        @(Html.C1().FlexGrid<CampainTaskItem>()
+                .Id("gridTasks")
+                .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+                .SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                .AutoGenerateColumns(false)
+                .AlternatingRowStep(0)
+                .IsReadOnly(true)
+                .ShowGroups(true)
+                .ItemFormatter("completeFormatter")
+                .ShowGroupPanel(gpb => gpb.MaxGroups(4).Placeholder(Resources.DashboardDemo.Assigned_Task_Placeholder), "#groupPanel")
+                .Columns(bl =>
+                {
+                    bl.Add(cb => cb.Binding("AssignedTo").Width("*").Header("Assigned To"));
+                    bl.Add(cb => cb.Binding("Subject").Width("*"));
+                    bl.Add(cb => cb.Binding("ItemName").Width("*").Header("Item Name"));
+                    bl.Add(cb => cb.Binding("DueDate").Width("*").Header("Due Date"));
+                    bl.Add(cb => cb.Binding("Complete").Width("*"));
+                }))
+    </div>
+    <div>
+        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+    </div>
+</div>

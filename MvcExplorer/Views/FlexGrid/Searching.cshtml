@@ -1,0 +1,124 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    var cssMatch = optionsModel.Options["Css Match"].CurrentValue;
+    if (cssMatch == "Default")
+    {
+        cssMatch = "wj-state-match";
+    }
+}
+
+<p id="theSearch" style="width:300px;"></p>
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .Id("theFlexGrid")
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Bind(Model)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color").Visible(false));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+    .Filterable(f => f.DefaultFilterType(FilterType.Both))
+    .AutoSearch(true)
+    .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
+)
+
+@(Html.C1().FlexGridSearch("#theSearch")
+    .Grid("theFlexGrid")
+    .Delay(Convert.ToInt32(optionsModel.Options["Delay"].CurrentValue))
+    .CssMatch(cssMatch)
+    .Placeholder(string.Format("{0}", Html.Raw(Resources.FlexGrid.EnterTextSearch_Text0)))
+    .SearchAllColumns(Convert.ToBoolean(optionsModel.Options["Search All Columns"].CurrentValue))
+)
+
+<p>
+    @Html.Raw(Resources.FlexGrid.Searching_Text2) <b><span id="searchCount"></span></b>.
+</p>
+
+<style type="text/css">
+    .color-match {
+        color: orangered !important;
+        background-color: #C3EFA2 !important;
+        font-weight: bold;
+    }
+
+    .underline-match {
+        color: black !important;
+        background-color: yellow !important;
+        font-weight: bold;
+        text-decoration: underline !important;
+    }
+
+    .style-match {
+        color: darkgreen !important;
+        background-color: lightyellow !important;
+        font-style: oblique;
+        text-shadow: 2px 2px 5px green;
+    }
+</style>
+
+@section Scripts{
+    <script>
+        function saveValue(key, value) {
+            if (sessionStorage) {
+                sessionStorage.setItem(key, value);
+            } else {
+                $.cookies.set(key, value);
+            }
+        }
+
+        function getValue(key) {
+            if (sessionStorage) {
+                return sessionStorage.getItem(key);
+            } else {
+                return $.cookies.get(key);
+            }
+        }
+
+        function updateSearchCount(theGrid) {
+            let cnt = theGrid.collectionView.items.length;
+            document.getElementById('searchCount').textContent = cnt;
+        }
+        
+        window.onbeforeunload = function () {
+            let theSearch = wijmo.Control.getControl("#theSearch");
+            saveValue("SearchValue", theSearch.text || "");
+        }
+
+        c1.documentReady(function () {
+            let theSearch = wijmo.Control.getControl("#theSearch");
+            theSearch.text = getValue("SearchValue") || theSearch.text || "";
+
+            let theGrid = wijmo.Control.getControl("#theFlexGrid");
+            theGrid.collectionView.collectionChanged.addHandler(function () {
+                updateSearchCount(theGrid);
+            });
+        });        
+    </script>
+}
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.Searching_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.Searching_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Searching_Text3)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Searching_SearchAllColumns)</p>
+}

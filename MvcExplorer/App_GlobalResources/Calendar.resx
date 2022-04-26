@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>This sample shows the basic usage of the Calendar control.</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>Bound Calendar with Min &amp;amp; Max</value>
+  </data>
+  <data name="Index_ValidRange" xml:space="preserve">
+    <value>Valid Range:</value>
+  </data>
+  <data name="Index_To" xml:space="preserve">
+    <value>to</value>
+  </data>
+  <data name="Index_DateFormat" xml:space="preserve">
+    <value>MMM d, yyyy</value>
+  </data>
+  <data name="Validation_Text0" xml:space="preserve">
+    <value>Use this &lt;b&gt;Calendar&lt;/b&gt; control to select a date. 
+    Notice that you won't be able to select weekends.</value>
+  </data>
+  <data name="Validation_Text1" xml:space="preserve">
+    <value>This sample shows how to use &lt;b&gt;ItemValidator&lt;/b&gt; function to determine whether the dates
+    are valid for a selection.</value>
+  </data>
+  <data name="Index_RepeatButtons" xml:space="preserve">
+    <value>&lt;i&gt;RepeatButtons&lt;/i&gt; = True: the calendar buttons (Previous and Next buttons) should act as repeat buttons, firing repeatedly as the button remains pressed.</value>
+  </data>
+  <data name="Index_ShowYearPicker" xml:space="preserve">
+    <value>&lt;i&gt;ShowYearPicker&lt;/i&gt; = True: the calendar should display a list of years when the user clicks the header element on the year calendar.</value>
+  </data>
+  <data name="Ranges_CurrentSelection" xml:space="preserve">
+    <value>The current range is:</value>
+  </data>
+  <data name="Ranges_RangeMin" xml:space="preserve">
+    <value>RangeMin</value>
+  </data>
+  <data name="Ranges_RangeMax" xml:space="preserve">
+    <value>RangeMax</value>
+  </data>
+  <data name="Ranges_Description" xml:space="preserve">
+    <value>This sample shows how to use DateSelectionMode.Range selection mode that allows users to select date ranges. 
+    Selected ranges are defined by the &lt;b&gt;Value&lt;/b&gt; and &lt;b&gt;RangeEnd&lt;/b&gt; properties. 
+    You may specify the minimum and maximum valid range lengths with the &lt;b&gt;RangeMin&lt;/b&gt; and &lt;b&gt;RangeMax&lt;/b&gt; properties.</value>
+  </data>
+  <data name="Ranges_Description1" xml:space="preserve">
+    <value>&lt;b&gt;RangeMin&lt;/b&gt;: The default value for this property is 0, which means there is no minimum value for range lengths.</value>
+  </data>
+  <data name="Ranges_Description2" xml:space="preserve">
+    <value>&lt;b&gt;RangeMax&lt;/b&gt;: The default value for this property is 0, which means there is no maximum value for range lengths.</value>
+  </data>
+  <data name="Index_MonthCount" xml:space="preserve">
+    <value>Month Count</value>
+  </data>
+  <data name="Index_WeekBefore" xml:space="preserve">
+    <value>Week Before</value>
+  </data>
+  <data name="Index_WeekAfter" xml:space="preserve">
+    <value>Week After</value>
+  </data>
+  <data name="Index_FirstDayOfWeek" xml:space="preserve">
+    <value>&lt;i&gt;FirstDayOfWeek&lt;/i&gt;: Represents the first day of the week, the one displayed in the first column of the calendar.</value>
+  </data>
+  <data name="Index_MonthsCount" xml:space="preserve">
+    <value>&lt;i&gt;MonthCount&lt;/i&gt;: The number of months to display within the calendar.</value>
+  </data>
+  <data name="Index_MonthView" xml:space="preserve">
+    <value>&lt;i&gt;MonthView&lt;/i&gt;: Indicating whether the calendar displays a month or a year.</value>
+  </data>
+  <data name="Index_ShowHeader" xml:space="preserve">
+    <value>&lt;i&gt;ShowHeader&lt;/i&gt;: Indicating whether the control displays the header area with the current month and navigation buttons.</value>
+  </data>
+  <data name="Index_WeeksAfter" xml:space="preserve">
+    <value>&lt;i&gt;WeekAfter&lt;/i&gt;: The number of weeks to show on the calendar after the current month.</value>
+  </data>
+  <data name="Index_WeeksBefore" xml:space="preserve">
+    <value>&lt;i&gt;WeekBefore&lt;/i&gt;: The number of weeks to show on the calendar before the current month.</value>
+  </data>
+  <data name="Ranges_RangeEnd" xml:space="preserve">
+    <value>Range End</value>
+  </data>
+  <data name="Index_HandleWheel" xml:space="preserve">
+    <value>&lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can change the current displayMonth using the mouse wheel.</value>
+  </data>
+</root>

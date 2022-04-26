@@ -1,0 +1,163 @@
+﻿@section Styles{
+    <style>
+        .custom-gauge.wj-gauge .wj-face path {
+            fill: #f8f8f8;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge .wj-pointer path {
+            fill: #404040;
+            stroke: none;
+        }
+
+        .custom-gauge.wj-gauge circle.wj-pointer {
+            fill: #404040;
+            stroke: none;
+            transform-origin: center center 0px;
+            transform: scale(1);
+            transition: transform .5s;
+        }
+
+        .custom-gauge.wj-gauge.wj-state-focused circle.wj-pointer {
+            fill: red;
+            stroke: black;
+            transform: scale(1.3);
+            transition: transform 1s, fill 0.5s, stroke 0.5s;
+        }
+    </style>
+}
+
+@section Scripts{
+<script>
+    var redValue = 100, greenValue = redValue, blueValue = redValue, colorSpan, boundValue = 0, defaultRed,
+        defaultGreen, defaultBlue, customRed, customGreen, customBlue, valueInput, firstGauge, secondGauge;
+    c1.documentReady(function () {
+        getEles();
+        resetSpanBackGround();
+    });
+
+    function getEles() {
+        colorSpan = document.getElementById('colorSpan');
+        defaultRed = wijmo.Control.getControl('#defaultRed');
+        defaultGreen = wijmo.Control.getControl('#defaultGreen');
+        defaultBlue = wijmo.Control.getControl('#defaultBlue');
+        customRed = wijmo.Control.getControl('#customRed');
+        customGreen = wijmo.Control.getControl('#customGreen');
+        customBlue = wijmo.Control.getControl('#customBlue');
+        valueInput = wijmo.Control.getControl('#valueInput');
+        firstGauge = wijmo.Control.getControl('#firstGauge');
+        secondGauge = wijmo.Control.getControl('#secondGauge');
+    }
+
+    function resetSpanBackGround() {
+        colorSpan.style.background = "rgb(" + redValue + "," + greenValue + "," + blueValue + ")";
+    }
+
+    function setRedColor(sender) {
+        if (sender.value != redValue) {
+            redValue = sender.value;
+            defaultRed.value = customRed.value = redValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setGreenColor(sender) {
+        if (sender.value != greenValue) {
+            greenValue = sender.value;
+            defaultGreen.value = customGreen.value = greenValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setBlueColor(sender) {
+        if (sender.value != blueValue) {
+            blueValue = sender.value;
+            defaultBlue.value = customBlue.value = blueValue;
+            resetSpanBackGround();
+        }
+    }
+
+    function setValue(sender) {
+        if (boundValue != sender.value) {
+            boundValue = sender.value;
+            firstGauge.value = secondGauge.value = valueInput.value = boundValue;
+        }
+    }
+</script>
+}
+
+<h3>
+    @Html.Raw(Resources.LinearGauge.Scaling_Text0)
+    <span id="colorSpan" style="border: 1px solid #333;">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    </span>
+</h3>
+<div class="row" style="width:100%;">
+    <div class="col-md-4">
+        <h4>
+            @Html.Raw(Resources.LinearGauge.Scaling_DefaultStyles)
+        </h4>
+        @(Html.C1().LinearGauge().Id("defaultRed").IsReadOnly(false).Min(0).Max(255).Value(100).Step(5).OnClientValueChanged("setRedColor")
+            .Pointer(pointer => pointer.Color(System.Drawing.Color.Red))
+        )
+
+        @(Html.C1().LinearGauge().Id("defaultGreen").IsReadOnly(false).Min(0).Max(255).Value(100).Step(5).OnClientValueChanged("setGreenColor")
+            .Pointer(pointer => pointer.Color(System.Drawing.Color.Green))
+        )
+
+        @(Html.C1().LinearGauge().Id("defaultBlue").IsReadOnly(false).Min(0).Max(255).Value(100).Step(5).OnClientValueChanged("setBlueColor")
+            .Pointer(pointer => pointer.Color(System.Drawing.Color.Blue))
+        )
+    </div>
+    <div class="col-md-4">
+        <h4>
+            @Html.Raw(Resources.LinearGauge.Scaling_CustomCSS)
+        </h4>
+        @(Html.C1().LinearGauge().Id("customRed").CssClass("custom-gauge").ThumbSize(12).HasShadow(false).IsReadOnly(false).Min(0).Max(255).Value(100).Step(5)
+            .Face(face => face.Thickness(0.25)).OnClientValueChanged("setRedColor")
+            .Pointer(pointer => pointer.Thickness(0.25).Color(System.Drawing.Color.Red))
+        )
+        @(Html.C1().LinearGauge().Id("customGreen").CssClass("custom-gauge").ThumbSize(12).HasShadow(false).IsReadOnly(false).Min(0).Max(255).Value(100).Step(5)
+            .Face(face => face.Thickness(0.25)).OnClientValueChanged("setGreenColor")
+            .Pointer(pointer => pointer.Thickness(0.25).Color(System.Drawing.Color.Green))
+        )
+        @(Html.C1().LinearGauge().Id("customBlue").CssClass("custom-gauge").ThumbSize(12).HasShadow(false).IsReadOnly(false).Min(0).Max(255).Value(100).Step(5)
+            .Face(face => face.Thickness(0.25)).OnClientValueChanged("setBlueColor")
+            .Pointer(pointer => pointer.Thickness(0.25).Color(System.Drawing.Color.Blue))
+        )
+    </div>
+</div>
+
+<h2>
+    @Html.Raw(Resources.LinearGauge.Scaling_Text1)
+</h2>
+<br />
+@(Html.C1().InputNumber().Id("valueInput").Format("n0,").Value(0).Step(1000).Min(0)
+    .Max(64000).OnClientValueChanged("setValue"))
+<br />
+
+@(Html.C1().LinearGauge().Id("firstGauge").CssStyle("margin", "0px 10px").ThumbSize(12).HasShadow(false)
+    .Value(0).Min(0).Max(64000).Step(1000).IsReadOnly(false).OnClientValueChanged("setValue")
+    .Face(face => face.Thickness(0.25))
+    .Pointer(pointer => pointer.Thickness(0.25))
+)
+<br />
+@(Html.C1().LinearGauge().Id("secondGauge").CssStyles(new Dictionary<string, string> { { "height", "2.5em" }, { "margin", "10px" } })
+    .HasShadow(false).Value(0).Min(0).Max(64000).Step(1000).IsReadOnly(false).ShowText(ShowText.Value)
+    .OnClientValueChanged("setValue").Format("n0,")
+    .Face(face => face.Thickness(0.25))
+    .Pointer(pointer => pointer.Thickness(0.25))
+)
+<br />
+@for (var val = 1; val < 7; val++)
+{
+    @(Html.C1().LinearGauge().CssStyle("margin", "0px 10px").ThumbSize(12).HasShadow(false).Value(10000 * val)
+        .Min(0).Max(64000).Step(1000).IsReadOnly(false)
+        .Face(face => face.Thickness(0.25))
+        .Pointer(pointer => pointer.Thickness(0.25))
+    )
+}
+
+@section Description{
+    @Html.Raw(Resources.LinearGauge.Scaling_Text2)
+}

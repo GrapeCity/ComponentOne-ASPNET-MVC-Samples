@@ -1,0 +1,73 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+
+@section Scripts{
+<script>
+    function updateHeaders() {
+        var flex = wijmo.Control.getControl("#@settings.ControlId");
+        if (flex) {
+            // insert new row if not yet
+            if (flex.columnHeaders.rows.length === 1) {
+                flex.columnHeaders.rows.insert(0, new wijmo.grid.Row());
+            }
+            flex.columnHeaders.rows[0].allowMerging = true;
+
+            // set headings so the cells merge
+            for (var i = 0; i < flex.columns.length; i++) {
+                var hdr = 'String';
+                switch (flex.columns[i].binding) {
+                    case 'ID':
+                    case 'Amount':
+                    case 'Discount':
+                        hdr = 'Number';
+                        break;
+                    case 'Active':
+                        hdr = 'Boolean';
+                        break;
+                }
+                flex.columnHeaders.setCellData(0, i, hdr);
+            }
+
+            @*// do the same to row headers
+            var col = flex.rowHeaders.columns[0];
+            col.allowMerging = true;
+            col.width = 80;
+            for (i = 0; i < flex.rows.length; i++) {
+                var start = Math.floor(i / 10) * 10, end = start + 9;
+                flex.rowHeaders.setCellData(i, 0, start + " - " + end);
+            }*@
+        }
+    }
+
+    c1.documentReady(function () {
+        updateHeaders();
+    });
+</script>
+}
+@(Html.C1().FlexGrid<Sale>().Id(settings.ControlId)
+    .AutoGenerateColumns(false)
+    .AllowMerging(AllowMerging.All)
+    .ExpandSelectionOnCopyPaste(true)
+    .IsReadOnly(false)
+    .Bind(Model)
+    .CssClass("grid")
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID").Width("70"));
+        columns.Add(column => column.Binding("Country").AllowMerging(true));
+        columns.Add(column => column.Binding("Product").AllowMerging(true));
+        columns.Add(column => column.Binding("Color").AllowMerging(true));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Discount").Width("100").Format("p0"));
+        columns.Add(column => column.Binding("Active").Width("80").AllowMerging(true));
+    })
+)
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.MergeCells_Text0)
+    <br />
+    @Html.Raw(Resources.FlexGrid.MergeCells_Text1)
+}

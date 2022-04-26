@@ -1,0 +1,28 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.BetweenTrees_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.BetweenTrees_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.BetweenTrees_Text2)
+</p>
+
+<label>
+    <input id="dragWithin" type="checkbox" checked="checked">
+    @Html.Raw(Resources.C1Nav.BetweenTrees_Text3)
+</label>
+<label>
+    <input id="dragBetween" type="checkbox" checked="checked">
+    @Html.Raw(Resources.C1Nav.BetweenTrees_Text4)
+</label>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        @Html.C1().TreeView().Id("firstTree").CssClass("short-tree")
+    </div>
+    <div class="col-xs-6">
+        @Html.C1().TreeView().Id("secondTree").CssClass("short-tree")
+    </div>
+</div>

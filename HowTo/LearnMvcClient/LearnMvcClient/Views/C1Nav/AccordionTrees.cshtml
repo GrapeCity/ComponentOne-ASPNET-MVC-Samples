@@ -1,0 +1,19 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.AccordionTrees_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.AccordionTrees_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.AccordionTrees_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.AccordionTrees_Text3)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1Nav.AccordionTrees_Text4)
+    <input id="customCss" type="checkbox" checked="checked">
+</label>
+<div id="msg" class="msg">@Html.Raw(Resources.C1Nav.AccordionTrees_Text5)</div>
+@Html.C1().TreeView().Id("theTree").CssClass("accordion")

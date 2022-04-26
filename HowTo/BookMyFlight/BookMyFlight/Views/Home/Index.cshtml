@@ -1,0 +1,101 @@
+﻿@model BookMyFlight.Models.MainModel
+
+@{
+    ViewBag.Title = "Airlines Reservation System";
+    Layout = "~/Views/_HomeLayout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/index.js")" type="text/javascript"></script>
+<script id="RecentSearchesTemplate" type="text/template">
+    <div id="RecSearchTempMainDiv_{{Id}}" class="RecentS_MainDivClass">
+        <img src="@Url.Content("~/images/PlaneImg.png")" style="height:30px;float:left;" />
+        <div class="RecentS_DestClass">{{FromDest}}&nbsp;&nbsp;<img src="@Url.Content("~/images/{{TripType}}.PNG")" style="width:40px;" />&nbsp;&nbsp;{{ToDest}} </div>
+        <div class="RecentS_DatesClass">{{DepartDateStr}}&nbsp;-&nbsp;{{ReturnDateStr}}</div>
+        <div class="RecentS_FareClass">$&nbsp;{{Fare}}</div>
+    </div>    
+</script>
+
+    <div id="PnlHomePage">
+        <div id="HomePageTitle">BOOK MY FLIGHT</div>        
+        <div id="PnlHomeSearch">
+            <div id="LblMsg"></div><br />
+            <div class="MyRow">
+                <input type="radio" name="TripType" id="TripTypeSingle" value="SINGLE" autocomplete="off" class="HomeRadio"/>
+                <label for="TripTypeSingle"><span></span>ONE WAY</label>
+                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="radio" name="TripType" id="TripTypeRound" value="ROUND" autocomplete="off" checked class="HomeRadio"/>
+                <label for="TripTypeRound"><span></span>ROUND TRIP</label>
+            </div>
+
+            <div class="MyRow">
+                <div class="TextBCK">
+                    <span id="Title">From:</span>
+                    @(Html.C1().AutoComplete().Id("ACFromDest").ShowDropDownButton(false).Bind(Model.TravelDestList)
+.DisplayMemberPath("AirportInfo").SelectedValuePath("id").Placeholder("Leaving From..").Width("75%").Height("100%").CssStyle("border", "none")
+                .SelectedValue(Model.FromDest).OnClientSelectedIndexChanged("ACFromDest_SelectedIndexChanged")
+                    )
+                </div>
+                <div class="flightdirection" id="FlightDir">
+                    <img id="ImgFlightDir" src="~/images/ROUND.PNG" style="height:35px" />
+                </div>
+                <div style="float:right;">
+                    <div class="TextBCK">
+                        <span id="Title">To:</span>
+                        @(Html.C1().AutoComplete().Id("ACToDest").ShowDropDownButton(false).Bind(Model.TravelDestList)
+    .DisplayMemberPath("AirportInfo").SelectedValuePath("id").Placeholder("Going To..").Width("80%").Height("100%").CssStyle("border", "none")
+                .SelectedValue(Model.ToDest).OnClientSelectedIndexChanged("ACToDest_SelectedIndexChanged")
+                        )
+                    </div>
+                </div>
+            </div>
+
+            <br /> <br />
+            <div class="MyRow">
+                <div class="DateBCK">
+                    @(Html.C1().InputDateFor(m => m.DepartDate).Id("IDDepartDate").Format("MMM dd yyyy").Value(Model.DepartDate)
+                    .Min(Model.DepartDate).OnClientValueChanged("IDDepartDate_valueChanged").Width("100%").Height("100%")
+                    .CssStyle("border", "none")
+                    )
+                </div>
+                <div id="DivRetDateMsg" class="RetDateMsgClass">&nbsp;Save upto 20% on Round Trip</div>
+                <div class="DateBCK" id="DivReturnDate">
+                    @(Html.C1().InputDateFor(m => m.ReturnDate).Id("IDReturnDate").Format("MMM dd yyyy").Value(Model.ReturnDate)
+                    .Min(Model.DepartDate).OnClientValueChanged("IDReturnDate_valueChanged").Width("100%").Height("100%")
+                    .CssStyle("border", "none")
+                    )
+                </div>
+
+                <div class="PSGRTypeBCK">
+                    @Html.C1().ComboBox().Id("INAdult").Bind(Model.AdultCountList).SelectedIndex(Model.Adult - 1).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                </div>
+                <div class="PSGRTypeBCK">
+                    @Html.C1().ComboBox().Id("INChild").Bind(Model.ChildCountList).SelectedIndex(Model.Child).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                    <br /><span class="BottomText">Under 12</span>
+                </div>
+                <div class="PSGRTypeBCK">
+                    @Html.C1().ComboBox().Id("INInfant").Bind(Model.InfantCountList).SelectedIndex(Model.Infant).CssClass("INCustom").CssStyle("border", "none").Height("100%")
+                    <br /><span class="BottomText">Under 2</span>
+                </div>
+                <div class="ClassBCK">
+                    @(Html.C1().ComboBox().Id("CmbClass").ShowDropDownButton(true).Bind(Model.ClassList).Height("100%")
+                    .Placeholder("Select Class").SelectedValue(Model.Class).CssClass("INCustom").CssStyle("border", "none")
+                    )
+                </div>
+            </div>
+
+            <br /><br /><br />
+            <div class="MyRow">
+                <a class="mybtn" onclick="CallSearch();">Search Flights</a>
+            </div>
+        </div>        
+        <div id="PnlRecentSearches">
+            <div class="MyRow">
+                <div class="DivHeader">RECENT SEARCH HISTORY</div>
+            </div>
+            <div class="MyRow">
+                @(Html.C1().ListBox().Id("LBRecentSearches").ItemTemplateId("RecentSearchesTemplate")
+                                    .Bind(Model.RecentSearchesList).Width("100%").CssStyle("border", "none").CssStyle("background-color", "rgba(255,255,255,0.0)")
+                    .OnClientSelectedIndexChanged("LBRecentSearches_SelectedIndexChanged")
+                    )
+            </div>
+        </div>
+            <div id="countryName" style=" color: #5C00FF; font-size: 18px;"></div> <div id="city" style=" color: #5C00FF; font-size: 18px;"></div> <div id="timezone" style=" color: #5C00FF; font-size: 18px;"></div> <div id="ipaddress" style=" color: #5C00FF; font-size: 18px;"></div> <div id="language" style=" color: #5C00FF; font-size: 18px;"></div> <div id="latitude" style=" color: #5C00FF; font-size: 18px;"></div> <div id="longitude" style=" color: #5C00FF; font-size: 18px;"></div>
+        </div>

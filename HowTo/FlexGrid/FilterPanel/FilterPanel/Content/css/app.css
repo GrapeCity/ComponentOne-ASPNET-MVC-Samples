@@ -1,0 +1,26 @@
+﻿.wj-flexgrid {
+    height: 450px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+
+/* make grid selection lighter so links are easy to read */
+    .wj-flexgrid .wj-state-selected {
+        background-color: #c9edff;
+        color: #000;
+    }
+    .wj-flexgrid .wj-state-multi-selected {
+        background-color: #e1f5ff;
+        color: #000;
+    }
+
+/* remove gridlines */
+    .wj-flexgrid .wj-cell {
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+    }
+    .wj-flexgrid .wj-colheaders .wj-cell {
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+    }

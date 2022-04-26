@@ -1,0 +1,2196 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertsPrompts_Text1" xml:space="preserve">
+    <value>The Popup control can be used to implement static
+    methods for showing alert and prompt dialogs:</value>
+  </data>
+  <data name="AlertsPrompts_Text10" xml:space="preserve">
+    <value>Dialog Class</value>
+  </data>
+  <data name="AlertsPrompts_Text11" xml:space="preserve">
+    <value>Header Class</value>
+  </data>
+  <data name="AlertsPrompts_Text12" xml:space="preserve">
+    <value>Body Class</value>
+  </data>
+  <data name="AlertsPrompts_Text13" xml:space="preserve">
+    <value>Input Class</value>
+  </data>
+  <data name="AlertsPrompts_Text14" xml:space="preserve">
+    <value>Body Class</value>
+  </data>
+  <data name="AlertsPrompts_Text15" xml:space="preserve">
+    <value>OK Class</value>
+  </data>
+  <data name="AlertsPrompts_Text16" xml:space="preserve">
+    <value>Cancel Class</value>
+  </data>
+  <data name="AlertsPrompts_Text2" xml:space="preserve">
+    <value>Show</value>
+  </data>
+  <data name="AlertsPrompts_Text3" xml:space="preserve">
+    <value>Type</value>
+  </data>
+  <data name="AlertsPrompts_Text4" xml:space="preserve">
+    <value>Header</value>
+  </data>
+  <data name="AlertsPrompts_Text5" xml:space="preserve">
+    <value>Body</value>
+  </data>
+  <data name="AlertsPrompts_Text6" xml:space="preserve">
+    <value>Default Value</value>
+  </data>
+  <data name="AlertsPrompts_Text7" xml:space="preserve">
+    <value>Small</value>
+  </data>
+  <data name="AlertsPrompts_Text8" xml:space="preserve">
+    <value>OK Text</value>
+  </data>
+  <data name="AlertsPrompts_Text9" xml:space="preserve">
+    <value>Cancel Text</value>
+  </data>
+  <data name="AlertsPrompts_Title" xml:space="preserve">
+    <value>Alerts and Prompts</value>
+  </data>
+  <data name="ArchitectureComboBox_Text1" xml:space="preserve">
+    <value>The ComboBox control is one of the most powerful and flexible in C1 MVC's input module.
+    It can be used to edit strings and to select items from lists. It is used as a base class
+    for several other controls including AutoComplete, MultiSelect, InputTime, and Menu.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text10" xml:space="preserve">
+    <value>&lt;b&gt;isRequired&lt;/b&gt;
+        Gets or sets a value that determines whether users should be
+        allowed clear the text in the control.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text11" xml:space="preserve">
+    <value>This example illustrates the use of these properties:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text12" xml:space="preserve">
+    <value>displayMemberPath:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text2" xml:space="preserve">
+    <value>The main properties in the ComboBox control are:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text3" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt;
+        Gets or sets an array (or CollectionView) containing the items
+        (values or objects) to choose from.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text4" xml:space="preserve">
+    <value>&lt;b&gt;displayMemberPath&lt;/b&gt;
+        Gets or sets the name of the property of the items to display
+        in the input element and in the drop-down list.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text5" xml:space="preserve">
+    <value>&lt;b&gt;selectedValuePath&lt;/b&gt;
+        Gets or sets the name of the property of the items to use
+        when getting or setting the value of the &lt;b&gt;selectedValue&lt;/b&gt;
+        property.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text6" xml:space="preserve">
+    <value>&lt;b&gt;selectedItem&lt;/b&gt;
+        Gets or sets the currently selected item in the
+        &lt;b&gt;itemsSource&lt;/b&gt; collection.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text7" xml:space="preserve">
+    <value>&lt;b&gt;selectedIndex&lt;/b&gt;
+        Gets or sets the index of the currently selected item.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text8" xml:space="preserve">
+    <value>&lt;b&gt;selectedValue&lt;/b&gt;
+        Gets or sets the value of the &lt;b&gt;selectedValuePath&lt;/b&gt;
+        property in the currently selected item.</value>
+  </data>
+  <data name="ArchitectureComboBox_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isEditable&lt;/b&gt;
+        Gets or sets a value that determines whether users should
+        be allowed to enter values not present in the &lt;b&gt;itemsSource&lt;/b&gt;.</value>
+  </data>
+  <data name="ArchitectureComboBox_Title" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="Architecture_Text1" xml:space="preserve">
+    <value>C1 MVC's input controls are composed of standard HTML elements.
+    Many have an inner input element where the user can type,
+    buttons used to show drop-down editors, or clickable/seletable
+    areas.</value>
+  </data>
+  <data name="Architecture_Text10" xml:space="preserve">
+    <value>text &lt;span class="detail"&gt;formatted value&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text11" xml:space="preserve">
+    <value>value &lt;span class="detail"&gt;parsed text&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text12" xml:space="preserve">
+    <value>format &lt;span class="detail"&gt;format used to convert between text and value&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text13" xml:space="preserve">
+    <value>And controls used to input numbers, dates, and times have the
+    folowing properties in common:</value>
+  </data>
+  <data name="Architecture_Text14" xml:space="preserve">
+    <value>min &lt;span class="detail"&gt;minimum value&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text15" xml:space="preserve">
+    <value>max &lt;span class="detail"&gt;maximum value&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text16" xml:space="preserve">
+    <value>step &lt;span class="detail"&gt;increment applied with mouse wheel or spinner buttons&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text2" xml:space="preserve">
+    <value>All C1 MVC input controls were designed to make data-entry easy
+    and effective by providing early validation whenever possible.
+    Users cannot, for example, clear the content of any controls if
+    the &lt;b&gt;isRequired&lt;/b&gt; property is set to true, or type
+    alphabetical characters in numeric input controls.</value>
+  </data>
+  <data name="Architecture_Text3" xml:space="preserve">
+    <value>Most of C1 MVC's input controls have a set of common properties
+    that reflect basic HTML attributes:</value>
+  </data>
+  <data name="Architecture_Text4" xml:space="preserve">
+    <value>isRequired &lt;span class="detail"&gt;"required" attribute&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text5" xml:space="preserve">
+    <value>isDisabled &lt;span class="detail"&gt;"disabled" attribute&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text6" xml:space="preserve">
+    <value>The "is" prefix prevents conflicts in markup between the names
+    of control properties and HTML attributes.</value>
+  </data>
+  <data name="Architecture_Text7" xml:space="preserve">
+    <value>Input controls based on HTML input elements have more properties
+    in common:</value>
+  </data>
+  <data name="Architecture_Text8" xml:space="preserve">
+    <value>inputElement &lt;span class="detail"&gt;reference to the inner input element&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Text9" xml:space="preserve">
+    <value>isReadOnly &lt;span class="detail"&gt;"readonly" attribute&lt;/span&gt;</value>
+  </data>
+  <data name="Architecture_Title" xml:space="preserve">
+    <value>Input Control Arquitecture</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text1" xml:space="preserve">
+    <value>The AutoComplete below populates the drop-down list
+    asynchronously using the &lt;b&gt;itemsSourceFunction&lt;/b&gt;
+    property.</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text2" xml:space="preserve">
+    <value>Try typing "ch" or "chi" and waiting a second to see
+    the drop-down.</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text3" xml:space="preserve">
+    <value>AutoComplete:</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text5" xml:space="preserve">
+    <value>Selected product: &lt;b id="msg"&gt;None&lt;/b&gt;</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text6" xml:space="preserve">
+    <value>This feature is especially useful when the number
+    of items is large (thousands or millions of items)
+    and the data is stored in a server database capable
+    of fast searches.</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Title" xml:space="preserve">
+    <value>AutoComplete Async Loading</value>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text1" xml:space="preserve">
+    <value>The first AutoComplete controls below uses the default
+    search algorithm. The second uses the &lt;b&gt;itemsSourceFunction&lt;/b&gt;
+    property to customize the search algorithm.
+    Instead of looking for items that &lt;b&gt;contain&lt;/b&gt; the user input,
+    it looks for items that &lt;b&gt;start&lt;/b&gt; with it (like the ComboBox):</value>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text2" xml:space="preserve">
+    <value>Compare the two by typing a string such as "no" or "un".</value>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text3" xml:space="preserve">
+    <value>Default:</value>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text4" xml:space="preserve">
+    <value>Custom:</value>
+  </data>
+  <data name="AutoCompleteCustomSearch_Title" xml:space="preserve">
+    <value>Custom Search</value>
+  </data>
+  <data name="AutoCompleteSearching_Text1" xml:space="preserve">
+    <value>By default, the AutoComplete control highlights matches by
+    applying the &lt;b&gt;wj-autocomplete-match&lt;/b&gt; class to matching
+    spans in the drop-down list. C1 MVC's css defines a rule
+    that makes those elements bold.</value>
+  </data>
+  <data name="AutoCompleteSearching_Text2" xml:space="preserve">
+    <value>If you want to use a different style to highlight matches,
+    use CSS to customize the rules applied to the
+    &lt;b&gt;wj-autocomplete-match&lt;/b&gt; class:</value>
+  </data>
+  <data name="AutoCompleteSearching_Text3" xml:space="preserve">
+    <value>AutoComplete:</value>
+  </data>
+  <data name="AutoCompleteSearching_Title" xml:space="preserve">
+    <value>AutoComplete Match Style</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text1" xml:space="preserve">
+    <value>By default, the AutoComplete control starts searching
+    for matches 500ms after the user types at least two
+    characters into the control, and stops searching after
+    finding six matches.</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text2" xml:space="preserve">
+    <value>You can change these defaults by changing the values
+    of the &lt;b&gt;delay&lt;/b&gt;, &lt;b&gt;minLength&lt;/b&gt;, and
+    &lt;b&gt;maxItems&lt;/b&gt; properties:</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text3" xml:space="preserve">
+    <value>delay:</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text4" xml:space="preserve">
+    <value>minLength:</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text5" xml:space="preserve">
+    <value>maxItems:</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text6" xml:space="preserve">
+    <value>AutoComplete:</value>
+  </data>
+  <data name="AutoCompleteSearchParameters_Title" xml:space="preserve">
+    <value>AutoComplete delay, minLength, and maxItems</value>
+  </data>
+  <data name="AutoCompleteSearchPath_Text1" xml:space="preserve">
+    <value>By default, the AutoComplete control searches for matches against the
+    property specified by the &lt;b&gt;displayMemberPath&lt;/b&gt; property.
+    You can extend the search to other properties by setting the
+    &lt;b&gt;searchMemberPath&lt;/b&gt; property to a comma-delimited list
+    of properties to search on.</value>
+  </data>
+  <data name="AutoCompleteSearchPath_Text2" xml:space="preserve">
+    <value>For example, the AutoComplete below is configured to search for
+    country and continent names. Try typing "asia", "america", or
+    "euro or" for example:</value>
+  </data>
+  <data name="AutoCompleteSearchPath_Text3" xml:space="preserve">
+    <value>AutoComplete:</value>
+  </data>
+  <data name="AutoCompleteSearchPath_Title" xml:space="preserve">
+    <value>AutoComplete Searching</value>
+  </data>
+  <data name="AutoComplete_Text1" xml:space="preserve">
+    <value>The AutoComplete control extends the ComboBox to provide
+    two additional features:</value>
+  </data>
+  <data name="AutoComplete_Text2" xml:space="preserve">
+    <value>It automatically filters the items in the drop-down list
+        to include only those that match the current user input, and</value>
+  </data>
+  <data name="AutoComplete_Text3" xml:space="preserve">
+    <value>It supports populating the drop-down asynchromously based
+        on the current user input and changing the search logic
+        (by default, the ComboBox looks for items that &lt;b&gt;start&lt;/b&gt;
+        with the user input, while AutoComplete looks for items that
+        &lt;b&gt;contain&lt;/b&gt; the user input).</value>
+  </data>
+  <data name="AutoComplete_Text4" xml:space="preserve">
+    <value>The AutoComplete and ComboBox controls below are bound to the
+    same &lt;b&gt;itemsSource&lt;/b&gt;. Try typing "un" into either control
+    to see the difference:</value>
+  </data>
+  <data name="AutoComplete_Text5" xml:space="preserve">
+    <value>AutoComplete:</value>
+  </data>
+  <data name="AutoComplete_Text6" xml:space="preserve">
+    <value>ComboBox:</value>
+  </data>
+  <data name="AutoComplete_Title" xml:space="preserve">
+    <value>AutoComplete</value>
+  </data>
+  <data name="CalendarCustomization_Text1" xml:space="preserve">
+    <value>You can customize the appearance of the whole calendar using
+    CSS, and you can use the calendar's &lt;b&gt;formatItem&lt;/b&gt; event
+    to customize the appearance of specific dates.</value>
+  </data>
+  <data name="CalendarCustomization_Text2" xml:space="preserve">
+    <value>For example, the calendar below uses a custom style to show
+    weekends and holidays:</value>
+  </data>
+  <data name="CalendarCustomization_Text3" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="CalendarCustomization_Title" xml:space="preserve">
+    <value>Calendar Customization</value>
+  </data>
+  <data name="CalendarRanges_Text1" xml:space="preserve">
+    <value>Use the Calendar's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of dates that can be entered.</value>
+  </data>
+  <data name="CalendarRanges_Text2" xml:space="preserve">
+    <value>For example, the calendar below only accepts dates
+    within the current week:</value>
+  </data>
+  <data name="CalendarRanges_Title" xml:space="preserve">
+    <value>Calendar Ranges</value>
+  </data>
+  <data name="CalendarValidation_Text1" xml:space="preserve">
+    <value>The Calendar control prevents users from selecting values
+    outside the range determined by the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt;
+    properties.</value>
+  </data>
+  <data name="CalendarValidation_Text2" xml:space="preserve">
+    <value>In many cases, however, not all dates in the range are valid.
+    To handle these situations, the Calendar control has an
+    &lt;b&gt;itemValidator&lt;/b&gt; property. This property represents a
+    function that takes a date as a parameter and returns true
+    if the date is valid for selection, or false otherwise.</value>
+  </data>
+  <data name="CalendarValidation_Text3" xml:space="preserve">
+    <value>The calendar below demonstrates this. It prevents users
+    from selecting dates on weekends and holidays:</value>
+  </data>
+  <data name="CalendarValidation_Text4" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="CalendarValidation_Title" xml:space="preserve">
+    <value>Calendar Validation</value>
+  </data>
+  <data name="Calendar_Text1" xml:space="preserve">
+    <value>The Calendar control displays a one-month calendar and allows users
+    to select a date.</value>
+  </data>
+  <data name="Calendar_Text2" xml:space="preserve">
+    <value>Use the &lt;b&gt;value&lt;/b&gt; property to get or set the currently selected date.
+    Use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to restrict the range of
+    dates that the user can select.
+    Use the &lt;b&gt;selectionMode&lt;/b&gt; property to determine whether users should
+    be allowed to select days, months, or no values at all.</value>
+  </data>
+  <data name="Calendar_Text3" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="Calendar_Title" xml:space="preserve">
+    <value>Calendar</value>
+  </data>
+  <data name="ClearButtons_Text1" xml:space="preserve">
+    <value>This sample shows how you can add a "Clear" button to the
+    input elements in C1 MVC input controls.</value>
+  </data>
+  <data name="ClearButtons_Text2" xml:space="preserve">
+    <value>The "Clear" button allows users to clear the control using
+    the mouse, which may be more convenient than pressing the
+    Ctrl+A/Delete keys.</value>
+  </data>
+  <data name="ClearButtons_Title" xml:space="preserve">
+    <value>Clear Buttons</value>
+  </data>
+  <data name="ColorPicker_Text2" xml:space="preserve">
+    <value>The ColorPicker control is a panel that allows users to pick
+    colors. It is uses as a drop-down by the InputColor control:</value>
+  </data>
+  <data name="ColorPicker_Text3" xml:space="preserve">
+    <value>You can customize the ColorPicker by changing the value of the
+    &lt;b&gt;showAlphaChannel&lt;/b&gt;, &lt;b&gt;showColorString&lt;/b&gt;, and &lt;b&gt;palette&lt;/b&gt;
+    properties:</value>
+  </data>
+  <data name="ColorPicker_Text4" xml:space="preserve">
+    <value>showAlphaChannel:</value>
+  </data>
+  <data name="ColorPicker_Text5" xml:space="preserve">
+    <value>showColorString:</value>
+  </data>
+  <data name="ColorPicker_Text6" xml:space="preserve">
+    <value>palette:</value>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>ColorPicker
+</value>
+  </data>
+  <data name="Colors_Text2" xml:space="preserve">
+    <value>Use the InputColor control to edit color values
+    when you have only a little room:</value>
+  </data>
+  <data name="Colors_Text4" xml:space="preserve">
+    <value>Use the ColorPicker control to edit color values
+    when you have enough room:</value>
+  </data>
+  <data name="Colors_Title" xml:space="preserve">
+    <value>Color Input
+</value>
+  </data>
+  <data name="ComboBoxChainingCombos_Text1" xml:space="preserve">
+    <value>ComboBox controls automatically create CollectionView
+    objects based on their &lt;b&gt;itemsSource&lt;/b&gt;, and expose
+    this view through the &lt;b&gt;collectionView&lt;/b&gt; property.</value>
+  </data>
+  <data name="ComboBoxChainingCombos_Text2" xml:space="preserve">
+    <value>You can use this feature to apply filters to the combo
+    items. For example, when you select a country from the
+    first combo below, the second will be filtered to show
+    only cities in that country:</value>
+  </data>
+  <data name="ComboBoxChainingCombos_Title" xml:space="preserve">
+    <value>Chaining Combos</value>
+  </data>
+  <data name="ComboBoxColors_Text1" xml:space="preserve">
+    <value>If you want users to select from a short set of well-known
+    colors, the ComboBox may be a better choice than an
+    InputColor control.</value>
+  </data>
+  <data name="ComboBoxColors_Text2" xml:space="preserve">
+    <value>You can set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array
+    containing the colors, and use the &lt;b&gt;formatItem&lt;/b&gt;
+    to show a preview of the colors on the drop-down list:</value>
+  </data>
+  <data name="ComboBoxColors_Title" xml:space="preserve">
+    <value>ComboBox as Color Input</value>
+  </data>
+  <data name="ComboBoxHtmlContent_Text1" xml:space="preserve">
+    <value>Most ComboBox controls display items in the drop-down list
+    as plain text. You can override this using the
+    &lt;b&gt;isContentHTML&lt;/b&gt; property or by assigning HTML directly
+    to the items using the &lt;b&gt;formatItem&lt;/b&gt; event.</value>
+  </data>
+  <data name="ComboBoxHtmlContent_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;formatItem&lt;/b&gt; event provides more flexibility because
+    it can be used to apply arbitrary templates to raw Javascript
+    objects. If you do this, remember to set the combo's
+    &lt;b&gt;headerPath&lt;/b&gt; property to the name of a property to display
+    in the combo's input element (which can only show plain text):</value>
+  </data>
+  <data name="ComboBoxHtmlContent_Title" xml:space="preserve">
+    <value>ComboBox with HTML Content</value>
+  </data>
+  <data name="ComboBoxMasterDetail_Text1" xml:space="preserve">
+    <value>You can use the ComboBox as an item selector, and bind
+    other controls to the combo's &lt;b&gt;selectedItem&lt;/b&gt;
+    property:</value>
+  </data>
+  <data name="ComboBoxMasterDetail_Text2" xml:space="preserve">
+    <value>Select an item:</value>
+  </data>
+  <data name="ComboBoxMasterDetail_Title" xml:space="preserve">
+    <value>ComboBox Master/Detail</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text1" xml:space="preserve">
+    <value>By default, the ComboBox displays one item per line in
+    its drop-down list:</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text2" xml:space="preserve">
+    <value>Default:</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text3" xml:space="preserve">
+    <value>If you have many short items, it may be interesting to
+    use multiple columns in the drop-down.
+    You can accomplish this with a little CSS and the
+    &lt;b&gt;dropDownCssClass&lt;/b&gt; property:</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text4" xml:space="preserve">
+    <value>Three Columns:</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text5" xml:space="preserve">
+    <value>If the items are complex objects, you may want to render
+    a single item per line, but with additional detail,
+    as in a table or grid.
+    You can accomplish this with the &lt;b&gt;formatItem&lt;/b&gt;
+    event and &lt;b&gt;headerPath&lt;/b&gt; property::</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Text6" xml:space="preserve">
+    <value>Table-Style:</value>
+  </data>
+  <data name="ComboBoxMultiColumn_Title" xml:space="preserve">
+    <value>Multi-Column Combos</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text1" xml:space="preserve">
+    <value>You can use ComboBoxes to select from lists of numbers:</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text2" xml:space="preserve">
+    <value>Select a number:</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text3" xml:space="preserve">
+    <value>You have selected this value: &lt;b id="theComboNumberValue"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text4" xml:space="preserve">
+    <value>You can use ComboBoxes to select from lists of dates.
+    In this case, we use the &lt;b&gt;formatItem&lt;/b&gt; event to
+    format the date objects using C1 MVC's &lt;b&gt;Globalize&lt;/b&gt;
+    class:</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text5" xml:space="preserve">
+    <value>Select a date:</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Text6" xml:space="preserve">
+    <value>You have selected this date: &lt;b id="theComboDateValue"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxNumbersDates_Title" xml:space="preserve">
+    <value>ComboBox with Numbers and Dates</value>
+  </data>
+  <data name="ComboBoxObjects_Text1" xml:space="preserve">
+    <value>You can use ComboBoxes to select arbitrary Javascript
+    objects from arrays:</value>
+  </data>
+  <data name="ComboBoxObjects_Text2" xml:space="preserve">
+    <value>Set the &lt;b&gt;itemsSource&lt;/b&gt; property to the object array,</value>
+  </data>
+  <data name="ComboBoxObjects_Text3" xml:space="preserve">
+    <value>Set the &lt;b&gt;displayMemberPath&lt;/b&gt; property to the name of
+        the property that should be displayed in the Combo,</value>
+  </data>
+  <data name="ComboBoxObjects_Text4" xml:space="preserve">
+    <value>Optionally set the &lt;b&gt;selectedValuePath&lt;/b&gt; property to the
+        name of the property that should be used to calculate the
+        combo's &lt;b&gt;selectedValue&lt;/b&gt; property,</value>
+  </data>
+  <data name="ComboBoxObjects_Text5" xml:space="preserve">
+    <value>Use the combo's &lt;b&gt;selectedIndex&lt;/b&gt;, &lt;b&gt;selectedValue&lt;/b&gt;,
+        or &lt;b&gt;text&lt;/b&gt; to retrieve the current selection.</value>
+  </data>
+  <data name="ComboBoxObjects_Text6" xml:space="preserve">
+    <value>Select an item:</value>
+  </data>
+  <data name="ComboBoxObjects_Text7" xml:space="preserve">
+    <value>The current text is: &lt;b id="theComboText"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxObjects_Text8" xml:space="preserve">
+    <value>The selectedIndex is: &lt;b id="theComboIndex"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxObjects_Text9" xml:space="preserve">
+    <value>The selectedValue is: &lt;b id="theComboValue"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxObjects_Title" xml:space="preserve">
+    <value>ComboBox with Objects</value>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text1" xml:space="preserve">
+    <value>When you set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array
+    of objects, the ComboBox automatically creates a
+    &lt;b&gt;CollectionView&lt;/b&gt; and exposes that through its
+    &lt;b&gt;collectionView&lt;/b&gt; property.</value>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text2" xml:space="preserve">
+    <value>You can use the collection view to filter and sort
+    the data, and you can use the view's &lt;b&gt;currentItem&lt;/b&gt;
+    instead of the combo's &lt;b&gt;selectedItem&lt;/b&gt;:</value>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text3" xml:space="preserve">
+    <value>Select an item:</value>
+  </data>
+  <data name="ComboBoxSortingFiltering_Title" xml:space="preserve">
+    <value>Sorting and Filtering Items</value>
+  </data>
+  <data name="ComboBoxStrings_Text1" xml:space="preserve">
+    <value>By default, the ComboBox acts as a regular HTML input element,
+    with the additional styling and object model associated with
+    all Wijmo controls. The &lt;b&gt;text&lt;/b&gt; property gets or sets the
+    user's input:</value>
+  </data>
+  <data name="ComboBoxStrings_Text2" xml:space="preserve">
+    <value>Any string:</value>
+  </data>
+  <data name="ComboBoxStrings_Text3" xml:space="preserve">
+    <value>You have typed this: &lt;b id="theComboText"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxStrings_Text4" xml:space="preserve">
+    <value>If you want to provide a list of strings for users to choose
+    from, set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array containing
+    those items and users will be able to select one of them:</value>
+  </data>
+  <data name="ComboBoxStrings_Text5" xml:space="preserve">
+    <value>Select a Country:</value>
+  </data>
+  <data name="ComboBoxStrings_Text6" xml:space="preserve">
+    <value>You have selected this country: &lt;b id="theComboValue"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBoxStrings_Text7" xml:space="preserve">
+    <value>By default, the ComboBox will force users to select one of the
+    items on the list. Users will not be able to leave the combo
+    empty or to enter values that are not on the list.</value>
+  </data>
+  <data name="ComboBoxStrings_Text8" xml:space="preserve">
+    <value>You can change these behaviors by setting the &lt;b&gt;isRequired&lt;/b&gt;
+    and &lt;b&gt;isEditable&lt;/b&gt; properties:</value>
+  </data>
+  <data name="ComboBoxStrings_Title" xml:space="preserve">
+    <value>ComboBox with Strings</value>
+  </data>
+  <data name="ComboBox_Text1" xml:space="preserve">
+    <value>The ComboBox combines an input element with a drop-down
+    list. You can use it to select and/or edit strings or
+    objects from lists.</value>
+  </data>
+  <data name="ComboBox_Text2" xml:space="preserve">
+    <value>The ComboBox provides as-you-type auto-completion,
+    making it easy to find items in long lists.</value>
+  </data>
+  <data name="ComboBox_Text3" xml:space="preserve">
+    <value>For example, the combo boxes below allow you to
+    select from lists of strings and objects:</value>
+  </data>
+  <data name="ComboBox_Text4" xml:space="preserve">
+    <value>Strings:</value>
+  </data>
+  <data name="ComboBox_Text5" xml:space="preserve">
+    <value>The current value is: &lt;b id="theComboStringCurrent"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBox_Text6" xml:space="preserve">
+    <value>Objects:</value>
+  </data>
+  <data name="ComboBox_Text7" xml:space="preserve">
+    <value>The current value is: &lt;b id="theComboObjectCurrent"&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="ComboBox_Title" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="DatesTimes_Text1" xml:space="preserve">
+    <value>Javascript Date objects contain date and time information.</value>
+  </data>
+  <data name="DatesTimes_Text2" xml:space="preserve">
+    <value>Because in many cases only the date or time are relevant to
+    the application, Wijmo offers separate controls for editing
+    dates, times, or both.</value>
+  </data>
+  <data name="DatesTimes_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in a Javascript &lt;b&gt;Date&lt;/b&gt; object.</value>
+  </data>
+  <data name="DatesTimes_Text4" xml:space="preserve">
+    <value>InputDate:</value>
+  </data>
+  <data name="DatesTimes_Text5" xml:space="preserve">
+    <value>InputTime:</value>
+  </data>
+  <data name="DatesTimes_Text6" xml:space="preserve">
+    <value>If you prefer to edit the date and time parts of a &lt;b&gt;Date&lt;/b&gt;
+    object using a single control, use the &lt;b&gt;InputDateTime&lt;/b&gt;:</value>
+  </data>
+  <data name="DatesTimes_Text7" xml:space="preserve">
+    <value>InputDateTime:</value>
+  </data>
+  <data name="DatesTimes_Text8" xml:space="preserve">
+    <value>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="DatesTimes_Title" xml:space="preserve">
+    <value>Input Dates and Times</value>
+  </data>
+  <data name="Dialogs_Text1" xml:space="preserve">
+    <value>Dialogs are Popup controls without owner elements. They allow
+    users to enter or edit information without switching to a new
+    page or view. They can be modal or modeless, and are usually
+    centered on the screen.</value>
+  </data>
+  <data name="Dialogs_Text2" xml:space="preserve">
+    <value>Dialogs are displayed using the &lt;b&gt;show&lt;/b&gt; method, which has
+    optional arguments to define whether the dialog should be
+    modal or modeless, and a callback function invoked when the
+    dialog is closed.</value>
+  </data>
+  <data name="Dialogs_Text3" xml:space="preserve">
+    <value>Dialogs are dismissed when the user presses the Escape key
+    oe when the dialog loses focus. They are also dismissed when
+    the user clicks an element with a class that starts with
+    "wj-hide" (e.g. "wj-hide", "wj-hide-ok", or "wj-hide-cancel").
+    In the latter case, the class name is assigned to the dialog's
+    &lt;b&gt;dialogResult&lt;/b&gt; property, and can be used by the callback
+    function or by the &lt;b&gt;hidden&lt;/b&gt; event handler to decide how
+    to process the dialog's content.</value>
+  </data>
+  <data name="Dialogs_Text4" xml:space="preserve">
+    <value>This demo demonstrates this by defining three dialogs that
+    simulate a user authorization UI. Notice how the dialogs provide
+    HTML5-style validation and the ability to invoke a dialog from
+    another (you can invoke the create account dialog from within
+    the log-in dialog):</value>
+  </data>
+  <data name="Dialogs_Title" xml:space="preserve">
+    <value>Dialogs</value>
+  </data>
+  <data name="DropDown_Text1" xml:space="preserve">
+    <value>The DropDown control is an abstract class, used as a base
+    for several controls. It is composed of the following elements:</value>
+  </data>
+  <data name="DropDown_Text10" xml:space="preserve">
+    <value>&lt;b&gt;isAnimated&lt;/b&gt;
+        Property that determines whether the control should use
+        animations when showing the drop-down.</value>
+  </data>
+  <data name="DropDown_Text11" xml:space="preserve">
+    <value>&lt;b&gt;dropDownCssClass&lt;/b&gt;
+        Class added to the drop-down element in order to allow CSS
+        styling of the drop-down.&lt;br /&gt;
+        This property is useful because when the drop-down is displayed,
+        it is usually re-parented to become a direct child of the
+        document's body, which prevents it from inheriting the styles
+        of the control's host element.</value>
+  </data>
+  <data name="DropDown_Text12" xml:space="preserve">
+    <value>Here is a simple example that demonstrates some of these
+    properties:</value>
+  </data>
+  <data name="DropDown_Text13" xml:space="preserve">
+    <value>isAnimated:</value>
+  </data>
+  <data name="DropDown_Text14" xml:space="preserve">
+    <value>isDroppedDown:</value>
+  </data>
+  <data name="DropDown_Text15" xml:space="preserve">
+    <value>dropDownCssClass:</value>
+  </data>
+  <data name="DropDown_Text2" xml:space="preserve">
+    <value>&lt;b&gt;input element&lt;/b&gt; (exposed by the &lt;b&gt;inputElement&lt;/b&gt; property):&lt;br /&gt;
+        An HTML input element used to display and edit the current value.
+        In a few cases, this element may be replaced with a non-editable
+        element (e.g. Menu and MultiSelect controls).</value>
+  </data>
+  <data name="DropDown_Text3" xml:space="preserve">
+    <value>&lt;b&gt;drop-down button&lt;/b&gt;
+        A button used to show or hide the drop-down element.</value>
+  </data>
+  <data name="DropDown_Text4" xml:space="preserve">
+    <value>&lt;b&gt;drop-down element (exposed by the &lt;b&gt;dropDown&lt;/b&gt; property)&lt;/b&gt;:
+        An HTML element shown when the user presses the drop-down
+        button or the F4 key. The user interacts with the drop-down
+        element to update the value of the input element and of the
+        control.</value>
+  </data>
+  <data name="DropDown_Text5" xml:space="preserve">
+    <value>All DropDown controls have the following properties and events:</value>
+  </data>
+  <data name="DropDown_Text6" xml:space="preserve">
+    <value>&lt;b&gt;text&lt;/b&gt;
+        Gets or sets the current value of the &lt;b&gt;inputElement&lt;/b&gt;.</value>
+  </data>
+  <data name="DropDown_Text7" xml:space="preserve">
+    <value>&lt;b&gt;textChanged&lt;/b&gt;
+        Event that fires when the value of the &lt;b&gt;text&lt;/b&gt; property changes..</value>
+  </data>
+  <data name="DropDown_Text8" xml:space="preserve">
+    <value>&lt;b&gt;isDroppedDown&lt;/b&gt;
+        Gets or sets a value that determines whether the drop-down is
+        currently visible.</value>
+  </data>
+  <data name="DropDown_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isDroppedDownChanging, isDroppedDownChanged&lt;/b&gt;
+        Events that fire when the value of the &lt;b&gt;isDroppedDown&lt;/b&gt;
+        property changes.</value>
+  </data>
+  <data name="DropDown_Title" xml:space="preserve">
+    <value>DropDown</value>
+  </data>
+  <data name="FocusedState_Text1" xml:space="preserve">
+    <value>This sample uses the &lt;b&gt;wj-focused-state&lt;/b&gt; pseudo-class
+    to change the pointer of some Gauge controls when they
+    have the focus:</value>
+  </data>
+  <data name="FocusedState_Title" xml:space="preserve">
+    <value>Focused State</value>
+  </data>
+  <data name="Gauges_Text1" xml:space="preserve">
+    <value>In addition to the InputNumber control, you can use
+    gauges to display and edit numbers.</value>
+  </data>
+  <data name="Gauges_Text2" xml:space="preserve">
+    <value>Although they are normally used in dashboard-style
+    applications to display numeric data, C1 MVC gauges have
+    an &lt;b&gt;isReadOnly&lt;/b&gt; property that allows you to use
+    them as input controls, much like the HTML input range
+    element.</value>
+  </data>
+  <data name="Gauges_Text3" xml:space="preserve">
+    <value>Gauge controls are similar to HTML input range elements,
+    but with some advantages:</value>
+  </data>
+  <data name="Gauges_Text4" xml:space="preserve">
+    <value>Gauges have a consistent look among browsers.
+        Input range elements look different depending on the browser.</value>
+  </data>
+  <data name="Gauges_Text5" xml:space="preserve">
+    <value>Gauges can be styled using CSS, and customized with a rich
+        set of properties.</value>
+  </data>
+  <data name="Gauges_Title" xml:space="preserve">
+    <value>Gauges (Sliders)</value>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>C1 MVC's input module contains input controls designed to make
+    data entry easy and efficient, using mouse or touch.</value>
+  </data>
+  <data name="Index_Text14" xml:space="preserve">
+    <value>InputDate &lt;span class="detail"&gt;dates&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text16" xml:space="preserve">
+    <value>InputMask &lt;span class="detail"&gt;strings&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text17" xml:space="preserve">
+    <value>InputNumber &lt;span class="detail"&gt;numbers&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text18" xml:space="preserve">
+    <value>ListBox &lt;span class="detail"&gt;items/strings&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text19" xml:space="preserve">
+    <value>Popup &lt;span class="detail"&gt;container&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>C1 MVC's input controls are specialized and optimized for each
+    data type. The input module currently contains 16 controls
+    with the following class hierarchy:</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>Control &lt;span class="detail"&gt;abstract&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>Calendar &lt;span class="detail"&gt;dates&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>ColorPicker &lt;span class="detail"&gt;colors&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>InputTime &lt;span class="detail"&gt;times&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text11" xml:space="preserve">
+    <value>Menu &lt;span class="detail"&gt;commands&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text12" xml:space="preserve">
+    <value>MultiSelect &lt;span class="detail"&gt;multiple items/strings&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text13" xml:space="preserve">
+    <value>InputColor &lt;span class="detail"&gt;colors&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>Input</value>
+  </data>
+  <data name="InputColor_Text1" xml:space="preserve">
+    <value>The InputColor control is a drop-down that allows you
+    to type a color using the HTML color specification or
+    select one from a ColorPicker dropdown:</value>
+  </data>
+  <data name="InputColor_Text2" xml:space="preserve">
+    <value>Default:</value>
+  </data>
+  <data name="InputColor_Text3" xml:space="preserve">
+    <value>You can customize the InputColor using the
+    &lt;b&gt;colorPicker&lt;/b&gt; property, which exposes
+    the color picker drop-down:</value>
+  </data>
+  <data name="InputColor_Text4" xml:space="preserve">
+    <value>showAlphaChannel:</value>
+  </data>
+  <data name="InputColor_Text5" xml:space="preserve">
+    <value>palette:</value>
+  </data>
+  <data name="InputColor_Text6" xml:space="preserve">
+    <value>Custom:</value>
+  </data>
+  <data name="InputColor_Title" xml:space="preserve">
+    <value>InputColor</value>
+  </data>
+  <data name="InputColor_OutputText" xml:space="preserve">
+    <value>Select a background for me!</value>
+  </data>
+  <data name="InputDateCustomization_Text1" xml:space="preserve">
+    <value>You can customize the appearance of the InputDate and
+    its drop-down calendar using CSS. You can also use the
+    calendar's &lt;b&gt;formatItem&lt;/b&gt; event to customize the
+    appearance of specific dates in the drop-down
+    calendar.</value>
+  </data>
+  <data name="InputDateCustomization_Text2" xml:space="preserve">
+    <value>For example, the InputDate below applies custom styles to
+    weekends and holidays:</value>
+  </data>
+  <data name="InputDateCustomization_Text3" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputDateCustomization_Title" xml:space="preserve">
+    <value>InputDate Customization</value>
+  </data>
+  <data name="InputDateFormatting_Text1" xml:space="preserve">
+    <value>Use the InputDate's &lt;b&gt;format&lt;/b&gt; property to format
+    and parse date values to suit your app.</value>
+  </data>
+  <data name="InputDateFormatting_Text2" xml:space="preserve">
+    <value>The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
+    the one used in .NET and is
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;documented here&lt;/a&gt;.</value>
+  </data>
+  <data name="InputDateFormatting_Title" xml:space="preserve">
+    <value>InputDate Formatting</value>
+  </data>
+  <data name="InputDateMoreCustomization_Text1" xml:space="preserve">
+    <value>You can customize the icon shown in the drop-down button
+    by changing the InputDate's controlTemplate property,
+    or by using code to change the control content. The
+    first option would affect all InputDate controls in the
+    application; the second would affect only a single
+    control.</value>
+  </data>
+  <data name="InputDateMoreCustomization_Text2" xml:space="preserve">
+    <value>You can also customize the format used to display the
+    current month/year in the drop-down Calendar by changing
+    the Globalization's standard 'y' format, or by using
+    code to change the control content. Again, the first
+    option would affect all InputDate and Calendar controls
+    in the application; the second would affect only a single
+    control.</value>
+  </data>
+  <data name="InputDateMoreCustomization_Title" xml:space="preserve">
+    <value>More InputDate Customization</value>
+  </data>
+  <data name="InputDateRanges_Text1" xml:space="preserve">
+    <value>Use the InputDate's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of dates that can be entered.</value>
+  </data>
+  <data name="InputDateRanges_Text2" xml:space="preserve">
+    <value>For example, the InputDate below only accepts dates
+    within the current week:</value>
+  </data>
+  <data name="InputDateRanges_Text3" xml:space="preserve">
+    <value>The Date</value>
+  </data>
+  <data name="InputDateRanges_Title" xml:space="preserve">
+    <value>InputDate Ranges</value>
+  </data>
+  <data name="InputDateTime_Text1" xml:space="preserve">
+    <value>The InputDateTime control unifies InputDate and InputTime
+    into a single control, saving some screen real-estate in
+    scenarios where you do want to edit the date and time
+    parts of a Date object.</value>
+  </data>
+  <data name="InputDateTime_Text10" xml:space="preserve">
+    <value>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputDateTime_Text2" xml:space="preserve">
+    <value>The InputDateTime control &lt;b&gt;format&lt;/b&gt; property should be
+    set to a format such as "g", which displays both date and time.
+    It has two drop-down buttons, one for showing a calendar and
+    one for a list of times.</value>
+  </data>
+  <data name="InputDateTime_Text3" xml:space="preserve">
+    <value>The InputDateTime control extends the InputDate, so all
+    properties and events are available as usual. It adds a
+    group of properties to control the time-specific parameters
+    of the control:</value>
+  </data>
+  <data name="InputDateTime_Text4" xml:space="preserve">
+    <value>&lt;b&gt;inputTime&lt;/b&gt;: Gets a reference to the inner
+        InputTime control.</value>
+  </data>
+  <data name="InputDateTime_Text5" xml:space="preserve">
+    <value>&lt;b&gt;timeMin&lt;/b&gt;, &lt;b&gt;timeMax&lt;/b&gt;, &lt;b&gt;timeStep&lt;/b&gt;:
+        Get or set the parameters used to populate the list
+        of times shown in the time drop-down.</value>
+  </data>
+  <data name="InputDateTime_Text6" xml:space="preserve">
+    <value>&lt;b&gt;timeFormat&lt;/b&gt;: Gets or sets the format used to
+        show time values in the InputTime drop-down.</value>
+  </data>
+  <data name="InputDateTime_Text7" xml:space="preserve">
+    <value>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in a Javascript &lt;b&gt;Date&lt;/b&gt; object.</value>
+  </data>
+  <data name="InputDateTime_Text8" xml:space="preserve">
+    <value>For example:</value>
+  </data>
+  <data name="InputDateTime_Text9" xml:space="preserve">
+    <value>InputDateTime:</value>
+  </data>
+  <data name="InputDateTime_Title" xml:space="preserve">
+    <value>InputDateTime</value>
+  </data>
+  <data name="InputDateValidation_Text1" xml:space="preserve">
+    <value>The InputDate control prevents users from selecting values
+    outside the range determined by the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt;
+    properties.</value>
+  </data>
+  <data name="InputDateValidation_Text2" xml:space="preserve">
+    <value>In many cases, however, not all dates in the range are valid.
+    To handle these situations, the control has an &lt;b&gt;itemValidator&lt;/b&gt;
+    property. This property represents a function that takes a date
+    as a parameter and returns true if the date is valid for selection,
+    or false otherwise.</value>
+  </data>
+  <data name="InputDateValidation_Text3" xml:space="preserve">
+    <value>The InputDate below demonstrates this. It prevents users from
+    selecting dates on weekends and holidays:</value>
+  </data>
+  <data name="InputDateValidation_Text4" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputDateValidation_Title" xml:space="preserve">
+    <value>InputDate Validation</value>
+  </data>
+  <data name="InputDate_Text1" xml:space="preserve">
+    <value>The InputDate control allows users to enter and edit dates.
+    It has the following advantages over regular input elements:</value>
+  </data>
+  <data name="InputDate_Text2" xml:space="preserve">
+    <value>Users cannot enter non-numeric values at all.</value>
+  </data>
+  <data name="InputDate_Text3" xml:space="preserve">
+    <value>You can use the &lt;b&gt;format&lt;/b&gt; property to format the number
+        as it is edited, making it easy to read.</value>
+  </data>
+  <data name="InputDate_Text4" xml:space="preserve">
+    <value>You can use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to
+        specify the valid range of values (users will not be
+        able to enter values outside this range).</value>
+  </data>
+  <data name="InputDate_Text5" xml:space="preserve">
+    <value>You can use the &lt;b&gt;step&lt;/b&gt; property to specify an
+        increment that is added to the value when the user
+        clicks the increment/decrement buttons on the control.</value>
+  </data>
+  <data name="InputDate_Text6" xml:space="preserve">
+    <value>For example, here is an InputDate with default
+    settings:</value>
+  </data>
+  <data name="InputDate_Text7" xml:space="preserve">
+    <value>InputDate</value>
+  </data>
+  <data name="InputDate_Text8" xml:space="preserve">
+    <value>The current date is &lt;b&gt;&lt;span id="theDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputDate_Title" xml:space="preserve">
+    <value>InputDate</value>
+  </data>
+  <data name="InputMaskMaskFull_Text1" xml:space="preserve">
+    <value>The InputMask control exposes a &lt;b&gt;maskFull&lt;/b&gt; property that
+    indicates whether the mask has been completely filled.</value>
+  </data>
+  <data name="InputMaskMaskFull_Text2" xml:space="preserve">
+    <value>For example, these controls will show their content in
+    red until the masks are completely filled out, and
+    optionally clears their content when the control loses
+    focus and the mask is not full:</value>
+  </data>
+  <data name="InputMaskMaskFull_Text3" xml:space="preserve">
+    <value>Clear Incomplete:</value>
+  </data>
+  <data name="InputMaskMaskFull_Title" xml:space="preserve">
+    <value>InputMask maskFull</value>
+  </data>
+  <data name="InputMaskPromptChar_Text1" xml:space="preserve">
+    <value>By default, the InputMask control uses an underscore character
+    to indicate positions where input is expected.</value>
+  </data>
+  <data name="InputMaskPromptChar_Text2" xml:space="preserve">
+    <value>You can change this by assigning a new string to the &lt;b&gt;promptChar&lt;/b&gt;
+    property:</value>
+  </data>
+  <data name="InputMaskPromptChar_Text3" xml:space="preserve">
+    <value>Social Security Number</value>
+  </data>
+  <data name="InputMaskPromptChar_Text4" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="InputMaskPromptChar_Text5" xml:space="preserve">
+    <value>Zip+4 Code</value>
+  </data>
+  <data name="InputMaskPromptChar_Text6" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="InputMaskPromptChar_Title" xml:space="preserve">
+    <value>InputMask promptChar</value>
+  </data>
+  <data name="InputMaskRawValue_Text1" xml:space="preserve">
+    <value>The InputMask's &lt;b&gt;value&lt;/b&gt; property returns the full text
+    content of the control, including the user's input and
+    any template characters.</value>
+  </data>
+  <data name="InputMaskRawValue_Text2" xml:space="preserve">
+    <value>You can use the &lt;b&gt;rawValue&lt;/b&gt; property to get or set the
+    control value including only the input characters and excluding
+    any template characters:</value>
+  </data>
+  <data name="InputMaskRawValue_Text3" xml:space="preserve">
+    <value>Social Security Number</value>
+  </data>
+  <data name="InputMaskRawValue_Text4" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="InputMaskRawValue_Text5" xml:space="preserve">
+    <value>Zip Code + 4</value>
+  </data>
+  <data name="InputMaskRawValue_Text6" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="InputMaskRawValue_Title" xml:space="preserve">
+    <value>InputMask rawValue</value>
+  </data>
+  <data name="InputMask_Text1" xml:space="preserve">
+    <value>The InputMask control allows you to validate and format user input
+    as it is entered, preventing invalid data.</value>
+  </data>
+  <data name="InputMask_Text2" xml:space="preserve">
+    <value>To use the InputMask control, set the &lt;b&gt;mask&lt;/b&gt; property to a
+    string that specifies the valid character classes for each input\
+    position, as described in the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.input.InputMask.Class.html" target="_blank"&gt;InputMask documentation&lt;/a&gt;.</value>
+  </data>
+  <data name="InputMask_Text3" xml:space="preserve">
+    <value>Here are a few examples to demonstrate:</value>
+  </data>
+  <data name="InputMask_Text4" xml:space="preserve">
+    <value>Social Security Number</value>
+  </data>
+  <data name="InputMask_Text5" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="InputMask_Text6" xml:space="preserve">
+    <value>Zip+4 Code</value>
+  </data>
+  <data name="InputMask_Text7" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="InputMask_Title" xml:space="preserve">
+    <value>InputMask</value>
+  </data>
+  <data name="InputNumberFormatting_Text1" xml:space="preserve">
+    <value>Use the InputNumber's &lt;b&gt;format&lt;/b&gt; property to format numbers
+    as they are edited, making them easy to read.</value>
+  </data>
+  <data name="InputNumberFormatting_Text2" xml:space="preserve">
+    <value>The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
+    the one used in .NET and is
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;documented here&lt;/a&gt;.</value>
+  </data>
+  <data name="InputNumberFormatting_Title" xml:space="preserve">
+    <value>InputNumber Formatting</value>
+  </data>
+  <data name="InputNumberRanges_Text1" xml:space="preserve">
+    <value>Use the InputNumber's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of values that can be entered.</value>
+  </data>
+  <data name="InputNumberRanges_Text2" xml:space="preserve">
+    <value>For example, the InputNumber below only accepts values
+    between one and five:</value>
+  </data>
+  <data name="InputNumberRanges_Text3" xml:space="preserve">
+    <value>Guests</value>
+  </data>
+  <data name="InputNumberRanges_Text4" xml:space="preserve">
+    <value>Note that the control will not validate the range
+    as the value is being edited, but will clamp the
+    value to the valid range when the control loses focus.</value>
+  </data>
+  <data name="InputNumberRanges_Text5" xml:space="preserve">
+    <value>For example, you can type "123" in the control above,
+    but as soon as you move the focus to another element
+    the control will apply the constraints and change the
+    value to five, the value of the &lt;b&gt;max&lt;/b&gt; property:</value>
+  </data>
+  <data name="InputNumberRanges_Title" xml:space="preserve">
+    <value>InputNumber Ranges</value>
+  </data>
+  <data name="InputNumberStep_Text1" xml:space="preserve">
+    <value>Use the InputNumber's &lt;b&gt;step&lt;/b&gt; property to enable
+    spinner buttons, used to increment or decrement the
+    current value.</value>
+  </data>
+  <data name="InputNumberStep_Title" xml:space="preserve">
+    <value>InputNumber Step</value>
+  </data>
+  <data name="InputNumber_Text1" xml:space="preserve">
+    <value>The InputNumber control allows users to enter and edit numbers.
+    It has the following advantages over regular input elements:</value>
+  </data>
+  <data name="InputNumber_Text2" xml:space="preserve">
+    <value>Users cannot enter non-numeric values at all.</value>
+  </data>
+  <data name="InputNumber_Text3" xml:space="preserve">
+    <value>You can use the &lt;b&gt;format&lt;/b&gt; property to format the number
+        as it is edited, making it easy to read.</value>
+  </data>
+  <data name="InputNumber_Text4" xml:space="preserve">
+    <value>You can use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to
+        specify the valid range of values (users will not be
+        able to enter values outside this range).</value>
+  </data>
+  <data name="InputNumber_Text5" xml:space="preserve">
+    <value>You can use the &lt;b&gt;step&lt;/b&gt; property to specify an
+        increment that is added to the value when the user
+        clicks the increment/decrement buttons on the control.</value>
+  </data>
+  <data name="InputNumber_Text6" xml:space="preserve">
+    <value>For example, here is an InputNumber with default
+    settings:</value>
+  </data>
+  <data name="InputNumber_Text7" xml:space="preserve">
+    <value>InputNumber</value>
+  </data>
+  <data name="InputNumber_Text8" xml:space="preserve">
+    <value>The current value is &lt;b&gt;&lt;span id="theNumberOutput"&gt;0&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputNumber_Title" xml:space="preserve">
+    <value>InputNumber</value>
+  </data>
+  <data name="InputTime_Text1" xml:space="preserve">
+    <value>The InputTime control extends the ComboBox class to allow
+    easy entry and editing of time values.</value>
+  </data>
+  <data name="InputTime_Text2" xml:space="preserve">
+    <value>&lt;b&gt;value&lt;/b&gt;: Gets or sets the currently selected time.</value>
+  </data>
+  <data name="InputTime_Text3" xml:space="preserve">
+    <value>&lt;b&gt;min, max, step&lt;/b&gt;: Determine the times shown in the
+            control's drop-down list.</value>
+  </data>
+  <data name="InputTime_Text4" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt;: Gets or sets the format string used to
+            display and parse time values.</value>
+  </data>
+  <data name="InputTime_Text5" xml:space="preserve">
+    <value>&lt;b&gt;isEditable&lt;/b&gt;: Determines whether users should be
+            allowed to enter time values not shown on the drop-down list.</value>
+  </data>
+  <data name="InputTime_Text6" xml:space="preserve">
+    <value>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in Javascript &lt;b&gt;Date&lt;/b&gt; objects.</value>
+  </data>
+  <data name="InputTime_Text7" xml:space="preserve">
+    <value>InputDate:</value>
+  </data>
+  <data name="InputTime_Text8" xml:space="preserve">
+    <value>InputTime:</value>
+  </data>
+  <data name="InputTime_Text9" xml:space="preserve">
+    <value>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</value>
+  </data>
+  <data name="InputTime_Title" xml:space="preserve">
+    <value>InputTime</value>
+  </data>
+  <data name="LinearGauge_Text1" xml:space="preserve">
+    <value>In addition to the InputNumber control, you can use the
+    LinearGauge to input numbers. The LinearGauge is similar
+    to an HTML input range control, but with some improvements:</value>
+  </data>
+  <data name="LinearGauge_Text2" xml:space="preserve">
+    <value>The LinearGauge has a consistent look among browsers.
+        Input range elements look different depending on the browser.</value>
+  </data>
+  <data name="LinearGauge_Text3" xml:space="preserve">
+    <value>The LinearGauge can be styled using CSS, and customized
+        with a rich set of properties.</value>
+  </data>
+  <data name="LinearGauge_Text4" xml:space="preserve">
+    <value>For example, here is an input range element that can be used
+    to enter values between zero and 255:</value>
+  </data>
+  <data name="LinearGauge_Text5" xml:space="preserve">
+    <value>Here is a LinearGauge control set for the same range.
+    The &lt;b&gt;isReadOnly&lt;/b&gt; property is set to false, so you
+    can change the gauge value using the mouse or keyboard:</value>
+  </data>
+  <data name="LinearGauge_Text6" xml:space="preserve">
+    <value>And here is another LinearGauge control with some styling
+    applied:</value>
+  </data>
+  <data name="LinearGauge_Text7" xml:space="preserve">
+    <value>And here is an equalizer-style group of vertical gauges used
+    to edit several numbers:</value>
+  </data>
+  <data name="LinearGauge_Title" xml:space="preserve">
+    <value>LinearGauge as NumberInput</value>
+  </data>
+  <data name="ListBoxCheckBoxes_Text1" xml:space="preserve">
+    <value>The ListBox control has a &lt;b&gt;checkedMemberPath&lt;/b&gt; property
+    that allows you to add checkboxes to items on the list.
+    It has a &lt;b&gt;checkedItems&lt;/b&gt; property that gets or sets
+    the list of checked items.</value>
+  </data>
+  <data name="ListBoxCheckBoxes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;Checked Items:&lt;/b&gt;</value>
+  </data>
+  <data name="ListBoxCheckBoxes_Title" xml:space="preserve">
+    <value>ListBox and checkboxes</value>
+  </data>
+  <data name="ListBoxFormatItem_Text1" xml:space="preserve">
+    <value>The ListBox has a &lt;b&gt;formatItem&lt;/b&gt; event you can use to
+    customize the display of the items in the list:</value>
+  </data>
+  <data name="ListBoxFormatItem_Title" xml:space="preserve">
+    <value>ListBox formatItem</value>
+  </data>
+  <data name="ListBox_Text1" xml:space="preserve">
+    <value>The ListBox control is used as a drop-down for the ComboBox.
+    It shows a list and allows users to select items with
+    the mouse or keyboard (it has a nice search as-you-type
+    feature):</value>
+  </data>
+  <data name="ListBox_Title" xml:space="preserve">
+    <value>ListBox</value>
+  </data>
+  <data name="MaterialDesign_Text1" xml:space="preserve">
+    <value>This sample uses C1 MVC's pseudo-classes to implement
+    a form with dynamic labels, validation, and focus
+    indicators similar to those in Google's Material Design
+    spec.</value>
+  </data>
+  <data name="MaterialDesign_Text2" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="MaterialDesign_Title" xml:space="preserve">
+    <value>Material Design</value>
+  </data>
+  <data name="MenusCommands_Text1" xml:space="preserve">
+    <value>The Menu control also supports MVVM-style commanding, which
+    requires no event handlers at all.</value>
+  </data>
+  <data name="MenusCommands_Text2" xml:space="preserve">
+    <value>To use the Menu control with commands, set the Menu's
+    &lt;b&gt;command&lt;/b&gt; property to an object with two methods:</value>
+  </data>
+  <data name="MenusCommands_Text3" xml:space="preserve">
+    <value>&lt;b&gt;canExecuteCommand&lt;/b&gt;: This method takes an argument that
+        represents a parameter and returns a Boolean value indicating
+        whether the command can be executed in the current application
+        state.</value>
+  </data>
+  <data name="MenusCommands_Text4" xml:space="preserve">
+    <value>&lt;b&gt;executeCommand&lt;/b&gt;: This method takes an argument that
+        represents a parameter and executes the command.</value>
+  </data>
+  <data name="MenusCommands_Text5" xml:space="preserve">
+    <value>For example, the InputNumber below shows a tax value that
+    can be edited directly or by using menu commands. Notice
+    how some commands are automatically disabled depending
+    on the current tax value:</value>
+  </data>
+  <data name="MenusCommands_Text6" xml:space="preserve">
+    <value>Current Tax</value>
+  </data>
+  <data name="MenusCommands_Text7" xml:space="preserve">
+    <value>Change Tax</value>
+  </data>
+  <data name="MenusCommands_Title" xml:space="preserve">
+    <value>Menu Commands</value>
+  </data>
+  <data name="MenusContextMenus_Text1" xml:space="preserve">
+    <value>You can use the Menu control to create context menus.</value>
+  </data>
+  <data name="MenusContextMenus_Text2" xml:space="preserve">
+    <value>For example, this fiddle creates a single context menu and
+    handles the 'contextmenu' event on several elements to show
+    the menu when the user requests it:</value>
+  </data>
+  <data name="MenusContextMenus_Text3" xml:space="preserve">
+    <value>I have a Context Menu.</value>
+  </data>
+  <data name="MenusContextMenus_Text4" xml:space="preserve">
+    <value>I have the same Context Menu.</value>
+  </data>
+  <data name="MenusContextMenus_Text5" xml:space="preserve">
+    <value>You guessed it, me too.</value>
+  </data>
+  <data name="MenusContextMenus_Text6" xml:space="preserve">
+    <value>The same approach works with all Wijmo controls:</value>
+  </data>
+  <data name="MenusContextMenus_Title" xml:space="preserve">
+    <value>Context Menus</value>
+  </data>
+  <data name="MenusSplitButtons_Text1" xml:space="preserve">
+    <value>Split Buttons allow users to select a value by clicking a
+    primary button, or select from a list of mutually exclusive
+    values displayed in a drop-down list.</value>
+  </data>
+  <data name="MenusSplitButtons_Text2" xml:space="preserve">
+    <value>To use C1 MVC Menu controls as split buttons, all you have to
+    do is set the &lt;b&gt;isButton&lt;/b&gt; property to true. Once you do
+    that, clicking the menu header will raise the &lt;b&gt;itemClicked&lt;/b&gt;
+    event instead of showing the drop-down list.</value>
+  </data>
+  <data name="MenusSplitButtons_Title" xml:space="preserve">
+    <value>Split Buttons</value>
+  </data>
+  <data name="MenusValuePickers_Text1" xml:space="preserve">
+    <value>The Menu control can be used as a simple value picker.
+    It extends the ComboBox control, which allows you to bind
+    variables to the control's &lt;b&gt;selectedValue&lt;/b&gt; property
+    as you would with a ComboBox.</value>
+  </data>
+  <data name="MenusValuePickers_Text2" xml:space="preserve">
+    <value>This example ises the &lt;b&gt;selectedIndexChanged&lt;/b&gt; event
+    to update the Menu's &lt;b&gt;header&lt;/b&gt; and show the current
+    value:</value>
+  </data>
+  <data name="MenusValuePickers_Title" xml:space="preserve">
+    <value>Value Pickers</value>
+  </data>
+  <data name="Menus_Text1" xml:space="preserve">
+    <value>The Menu control extends the ComboBox to add features
+    like a non-editable header, an &lt;b&gt;itemClicked&lt;/b&gt; event,
+    and commands.</value>
+  </data>
+  <data name="Menus_Text2" xml:space="preserve">
+    <value>The simplest way to use the Menu control is by populating
+    the Menu via its &lt;b&gt;itemsSource&lt;/b&gt; property and handling
+    the &lt;b&gt;itemClicked&lt;/b&gt; event. The event handler can inspect
+    the menu's &lt;b&gt;selectedItem&lt;/b&gt; property to determine which
+    item was clicked and take the appropriate action.</value>
+  </data>
+  <data name="Menus_Text4" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-asterisk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;New&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;create a new file&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Text5" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-folder-open"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Open&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;open an existing file or folder&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Text6" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-floppy-disk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Save&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;save the current file&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Title" xml:space="preserve">
+    <value>Menu</value>
+  </data>
+  <data name="MultiAutoComplete_Text1" xml:space="preserve">
+    <value>The MultiAutoComplete control is similar to the MultiSelect.
+        Both controls allow users to select multiple items from lists.
+        The main differences between the two are:</value>
+  </data>
+  <data name="MultiAutoComplete_Text2" xml:space="preserve">
+    <value>The MultiAutoComplete shows a drop-down that includes only
+            items that match the current input (like the AutoComplete).</value>
+  </data>
+  <data name="MultiAutoComplete_Text3" xml:space="preserve">
+    <value>The MultiAutoComplete shows all the items that are currently
+            selected, and allows users to remove items by clicking them on
+            the list.</value>
+  </data>
+  <data name="MultiAutoComplete_Text4" xml:space="preserve">
+    <value>The MultiAutoComplete exposes the list of selected items through
+            the &lt;b&gt;selectedItems&lt;/b&gt; property (the MultiSelect uses
+            &lt;b&gt;checkedItems&lt;/b&gt; instead).</value>
+  </data>
+  <data name="MultiAutoComplete_Text5" xml:space="preserve">
+    <value>For example, try typing "land" or "uni":</value>
+  </data>
+  <data name="MultiAutoComplete_Text7" xml:space="preserve">
+    <value>&lt;b&gt;Selected Items:&lt;/b&gt;</value>
+  </data>
+  <data name="MultiAutoComplete_Title" xml:space="preserve">
+    <value>MultiAutoComplete</value>
+  </data>
+  <data name="MultiItem_Text1" xml:space="preserve">
+    <value>C1 MVC has several controls you can use to select multiple
+    items from a list:</value>
+  </data>
+  <data name="MultiItem_Text2" xml:space="preserve">
+    <value>&lt;b&gt;MultiSelect&lt;/b&gt;:
+        This is a drop-down control that extends ComboBox and adds
+        checkboxes next to each item in the drop-down list.
+        Currently checked items are exposed through the
+        &lt;b&gt;checkedItems&lt;/b&gt; property.</value>
+  </data>
+  <data name="MultiItem_Text3" xml:space="preserve">
+    <value>&lt;b&gt;MultiAutoComplete&lt;/b&gt;:
+        This is a drop-down control that extends AutoComplete so
+        selected items are shown as 'tokens' next to the control
+        header, where they can be removed with the mouse or keyboard.
+        Currently selected items are exposed through the
+        &lt;b&gt;selectedItems&lt;/b&gt; property.</value>
+  </data>
+  <data name="MultiItem_Text4" xml:space="preserve">
+    <value>&lt;b&gt;ListBox&lt;/b&gt;:
+        The ListBox control has a &lt;b&gt;checkedMemberPath&lt;/b&gt; property
+        that allows you to add checkboxes to items on the list.
+        It has a &lt;b&gt;checkedItems&lt;/b&gt; property that gets or sets
+        the list of checked items.</value>
+  </data>
+  <data name="MultiItem_Title" xml:space="preserve">
+    <value>Multi-Item Input</value>
+  </data>
+  <data name="MultiSelect_Text1" xml:space="preserve">
+    <value>The MultiSelect control extends the ComboBox and adds
+    checkboxes to each item in the drop-down list.</value>
+  </data>
+  <data name="MultiSelect_Text2" xml:space="preserve">
+    <value>The control exposes the list of checked items through
+    the &lt;b&gt;checkedItems&lt;/b&gt; property:</value>
+  </data>
+  <data name="MultiSelect_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Checked Items:&lt;/b&gt;</value>
+  </data>
+  <data name="MultiSelect_Title" xml:space="preserve">
+    <value>MultiSelect</value>
+  </data>
+  <data name="PopupDialogs_Text1" xml:space="preserve">
+    <value>You can handle keyboard events in the FlexGrid by adding
+    HTML event listeners to &lt;b&gt;hostElement&lt;/b&gt; of the grid.</value>
+  </data>
+  <data name="PopupDialogs_Text2" xml:space="preserve">
+    <value>For example, the grid below listens to the 'keydown' event.
+    If you press Ctrl+Delete, it shows a prompt and deletes the
+    current row. Note that:</value>
+  </data>
+  <data name="PopupDialogs_Text3" xml:space="preserve">
+    <value>The event listener is added with the &lt;b&gt;capture&lt;/b&gt;
+        parameter set to true, so that it is called before the
+        grid gets it.</value>
+  </data>
+  <data name="PopupDialogs_Text4" xml:space="preserve">
+    <value>The event handler calls the event's &lt;b&gt;preventDefault&lt;/b&gt;
+        method, so that the grid does not handle the Delete key as
+        it normally would.</value>
+  </data>
+  <data name="PopupDialogs_Text5" xml:space="preserve">
+    <value>Press Ctrl+Delete to remove the current row:</value>
+  </data>
+  <data name="PopupDialogs_Text6" xml:space="preserve">
+    <value>Deleting Row</value>
+  </data>
+  <data name="PopupDialogs_Text7" xml:space="preserve">
+    <value>Do you really want to delete this row?</value>
+  </data>
+  <data name="PopupDialogs_Title" xml:space="preserve">
+    <value>Delete Rows with Ctrl+Delete</value>
+  </data>
+  <data name="PopupEditors_Text1" xml:space="preserve">
+    <value>Although FlexGrid provides efficient, Excel-style
+    editing by default, you may want to customize the
+    editing behavior.</value>
+  </data>
+  <data name="PopupEditors_Text2" xml:space="preserve">
+    <value>This example shows how you can use the grid to display
+    the data and a custom form to edit the items.
+    The custom form is hosted in a C1 MVC &lt;b&gt;Popup&lt;/b&gt;
+    control and contains Wijmo input controls.</value>
+  </data>
+  <data name="PopupEditors_Text3" xml:space="preserve">
+    <value>Click the pencil glyphs in the row headers to edit
+    the item.</value>
+  </data>
+  <data name="PopupEditors_Text4" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="PopupEditors_Text5" xml:space="preserve">
+    <value>Sales</value>
+  </data>
+  <data name="PopupEditors_Text6" xml:space="preserve">
+    <value>Expenses</value>
+  </data>
+  <data name="PopupEditors_Title" xml:space="preserve">
+    <value>Popup Editors</value>
+  </data>
+  <data name="PopupsDialogs_Text1" xml:space="preserve">
+    <value>The Popup control shows arbitrary HTML content next to an
+    "owner" element or centered on the screen. It can be used
+    to implement drop-downs and dialogs.</value>
+  </data>
+  <data name="PopupsDialogs_Text2" xml:space="preserve">
+    <value>For example, click the buttons below to see a drop-down
+    or a dialog:</value>
+  </data>
+  <data name="PopupsDialogs_Text3" xml:space="preserve">
+    <value>This is a drop-down.</value>
+  </data>
+  <data name="PopupsDialogs_Text4" xml:space="preserve">
+    <value>It may contain other controls.</value>
+  </data>
+  <data name="PopupsDialogs_Text5" xml:space="preserve">
+    <value>Dialog Header</value>
+  </data>
+  <data name="PopupsDialogs_Text6" xml:space="preserve">
+    <value>This is a modal dialog.</value>
+  </data>
+  <data name="PopupsDialogs_Text7" xml:space="preserve">
+    <value>The dialog body may contain any HTML content.</value>
+  </data>
+  <data name="PopupsDialogs_Text8" xml:space="preserve">
+    <value>The dialog will close when you click the OK or Cancel buttons,
+            &lt;br /&gt; or the grey background outside the dialog,
+            &lt;br /&gt; or when you press the Escape key.</value>
+  </data>
+  <data name="PopupsDialogs_Title" xml:space="preserve">
+    <value>Popups</value>
+  </data>
+  <data name="PopupsOwners_Text1" xml:space="preserve">
+    <value>Popups may have owner elements that control their position
+    and visibility.</value>
+  </data>
+  <data name="PopupsOwners_Text10" xml:space="preserve">
+    <value>Hello Popup&lt;br /&gt;
+                This is a multi-line message!</value>
+  </data>
+  <data name="PopupsOwners_Text2" xml:space="preserve">
+    <value>The Popup's &lt;b&gt;showTrigger&lt;/b&gt; and &lt;b&gt;hideTrigger&lt;/b&gt; properties
+    determine whether the Popups should be shown or hidden when the
+    owner element is clicked or when the popup loses the focus.</value>
+  </data>
+  <data name="PopupsOwners_Text3" xml:space="preserve">
+    <value>In Bootstrap CSS, Popups with owner elements are called "Popovers".</value>
+  </data>
+  <data name="PopupsOwners_Text4" xml:space="preserve">
+    <value>The most common type of Popover is the one with &lt;b&gt;showTrigger&lt;/b&gt;
+    set to 'Click' and &lt;b&gt;hideTrigger&lt;/b&gt; set to 'Blur'.</value>
+  </data>
+  <data name="PopupsOwners_Text5" xml:space="preserve">
+    <value>In this example, the owner element is a button. Click the button
+    to show the Popover. Click anywhere outside the Popover to take
+    the focus away and hide it:</value>
+  </data>
+  <data name="PopupsOwners_Text6" xml:space="preserve">
+    <value>Hello Popup&lt;br /&gt;
+        This is a multi-line message!
+        This is a long line in my popover, which uses Bootstrap's
+        'popover-content' style.</value>
+  </data>
+  <data name="PopupsOwners_Text7" xml:space="preserve">
+    <value>If you set the &lt;b&gt;showTrigger&lt;/b&gt; and &lt;b&gt;hideTrigger&lt;/b&gt;
+    to 'Click', the Popover will appear when you click the owner
+    element and will remain visible until you click the owner
+    element again:</value>
+  </data>
+  <data name="PopupsOwners_Text8" xml:space="preserve">
+    <value>Hello Popup&lt;br /&gt;
+        This is a multi-line message!
+        This is a long line in my popover, which uses Boostrap's 'popover-content' style.</value>
+  </data>
+  <data name="PopupsOwners_Text9" xml:space="preserve">
+    <value>If you set the &lt;b&gt;showTrigger&lt;/b&gt; to 'Click' and
+    &lt;b&gt;hideTrigger&lt;/b&gt; to 'None', the Popover will appear
+    when you click the owner element and will remain visible
+    until you call the &lt;b&gt;hide&lt;/b&gt; method in code or until the
+    user presses the Escape key or clicks an element with the
+    'wj-hide' class:</value>
+  </data>
+  <data name="PopupsOwners_Title" xml:space="preserve">
+    <value>Popups with Owner Elements</value>
+  </data>
+  <data name="PseudoClasses_Text1" xml:space="preserve">
+    <value>CSS pseudo-classes are keywords added to selectors that specify
+    a special state of the element to be selected. For example,
+    &lt;code&gt;:hover&lt;/code&gt; will apply a style when the user hovers
+    over the element specified by the selector.</value>
+  </data>
+  <data name="PseudoClasses_Text5" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-focused&lt;/b&gt;: Added to control host elements when
+        the control &lt;b&gt;contains&lt;/b&gt; the active element (not necessarily
+        when the host element &lt;b&gt;is&lt;/b&gt; the active element).</value>
+  </data>
+  <data name="PseudoClasses_Text6" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-invalid&lt;/b&gt;: Added to control host elements when
+        the control contains input elements in an invalid state.</value>
+  </data>
+  <data name="PseudoClasses_Text7" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-empty&lt;/b&gt;: Added to control host elements when the
+        control contains an input element with no content (this is different
+        from the &lt;code&gt;:empty&lt;/code&gt; pseudo-class which is applied to
+        elements that have no children.</value>
+  </data>
+  <data name="PseudoClasses_Text8" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-readonly&lt;/b&gt;: Added to control host elements when
+        the control's &lt;b&gt;isReadOnly&lt;/b&gt; property is set to true.</value>
+  </data>
+  <data name="PseudoClasses_Text9" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-disabled&lt;/b&gt;: Added to control host elements when the
+        control's &lt;b&gt;isDisabled&lt;/b&gt; property is set to true (which
+        corresponds to adding a "disabled" attribute to the control's
+        host element).</value>
+  </data>
+  <data name="PseudoClasses_Title" xml:space="preserve">
+    <value>Pseudo Classes</value>
+  </data>
+  <data name="RadialGauge_Text1" xml:space="preserve">
+    <value>In addition to the InputNumber control, you can use the
+    RadialGauge to input numbers. The RadialGauge control
+    is similar in features and behavior to the LinearGauge,
+    but with a circular layout.</value>
+  </data>
+  <data name="RadialGauge_Text2" xml:space="preserve">
+    <value>Here is an input range element that can be used
+    to enter values between zero and 255:</value>
+  </data>
+  <data name="RadialGauge_Text3" xml:space="preserve">
+    <value>Here is a RadialGauge control set for the same range.
+    The &lt;b&gt;isReadOnly&lt;/b&gt; property is set to false, so you
+    can change the gauge value using the mouse or keyboard:</value>
+  </data>
+  <data name="RadialGauge_Text4" xml:space="preserve">
+    <value>And here is another RadialGauge control with some styling
+    applied:</value>
+  </data>
+  <data name="RadialGauge_Title" xml:space="preserve">
+    <value>RadialGauge as NumberInput</value>
+  </data>
+  <data name="StringObjects_Text1" xml:space="preserve">
+    <value>C1 MVC's input module includes several controls for entering
+    and editing strings:</value>
+  </data>
+  <data name="StringObjects_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ComboBox&lt;/b&gt;: Combines an input element with a drop-down
+            list and provides as-you-type search, making it quick and
+            easy to find items in long lists. Use it to enter strings
+            or to select objects from lists.</value>
+  </data>
+  <data name="StringObjects_Title" xml:space="preserve">
+    <value>String and Objects</value>
+  </data>
+  <data name="Transitions_Text1" xml:space="preserve">
+    <value>The Popup control's &lt;b&gt;fadeIn&lt;/b&gt; and &lt;b&gt;fadeOut&lt;/b&gt; properties
+    add simple animations when the &lt;b&gt;Popup&lt;/b&gt; is shown or hidden.</value>
+  </data>
+  <data name="Transitions_Text2" xml:space="preserve">
+    <value>You can create your own custom CSS-based animations by adding and
+    removing classes to the Popup's host element in response to the
+    &lt;b&gt;shown&lt;/b&gt; and &lt;b&gt;hiding&lt;/b&gt; events, and defining CSS rules
+    that apply animations based on those classes.</value>
+  </data>
+  <data name="Transitions_Title" xml:space="preserve">
+    <value>CSS Transitions</value>
+  </data>
+  <data name="ArchitectureComboBox_Text13" xml:space="preserve">
+    <value>selectedValuePath:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text14" xml:space="preserve">
+    <value>selectedItem:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text15" xml:space="preserve">
+    <value>selectedIndex:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text16" xml:space="preserve">
+    <value>selectedValue:</value>
+  </data>
+  <data name="ArchitectureComboBox_Text17" xml:space="preserve">
+    <value>text:</value>
+  </data>
+  <data name="ArchitectureComboBox_Title1" xml:space="preserve">
+    <value>Data</value>
+  </data>
+  <data name="ArchitectureComboBox_Title2" xml:space="preserve">
+    <value>ComboBox</value>
+  </data>
+  <data name="ColorPicker_Text1" xml:space="preserve">
+    <value>Select a background for me!</value>
+  </data>
+  <data name="Colors_Text1" xml:space="preserve">
+    <value>Select a background for me!</value>
+  </data>
+  <data name="ComboBoxStrings_Text10" xml:space="preserve">
+    <value>isEditable</value>
+  </data>
+  <data name="ComboBoxStrings_Text11" xml:space="preserve">
+    <value>Select a Country:</value>
+  </data>
+  <data name="ComboBoxStrings_Text13" xml:space="preserve">
+    <value>You have selected this country:</value>
+  </data>
+  <data name="ComboBoxStrings_Text9" xml:space="preserve">
+    <value>isRequired</value>
+  </data>
+  <data name="ComboBoxStrings_Title1" xml:space="preserve">
+    <value>Choosing from Lists</value>
+  </data>
+  <data name="ComboBoxStrings_Title2" xml:space="preserve">
+    <value>Simple Customizations</value>
+  </data>
+  <data name="Dialogs_Text10" xml:space="preserve">
+    <value>Remember Me</value>
+  </data>
+  <data name="Dialogs_Text11" xml:space="preserve">
+    <value>Don't have an account yet?</value>
+  </data>
+  <data name="Dialogs_Text12" xml:space="preserve">
+    <value>Name:</value>
+  </data>
+  <data name="Dialogs_Text13" xml:space="preserve">
+    <value>Confirm Password:</value>
+  </data>
+  <data name="Dialogs_Text14" xml:space="preserve">
+    <value>Current Password:</value>
+  </data>
+  <data name="Dialogs_Text15" xml:space="preserve">
+    <value>New Name:</value>
+  </data>
+  <data name="Dialogs_Text16" xml:space="preserve">
+    <value>New Password:</value>
+  </data>
+  <data name="Dialogs_Text17" xml:space="preserve">
+    <value>Confirm New Password:</value>
+  </data>
+  <data name="Dialogs_Text18" xml:space="preserve">
+    <value>Update Account</value>
+  </data>
+  <data name="Dialogs_Text19" xml:space="preserve">
+    <value>Please enter {0} characters or more.</value>
+  </data>
+  <data name="Dialogs_Text5" xml:space="preserve">
+    <value>Log In</value>
+  </data>
+  <data name="Dialogs_Text6" xml:space="preserve">
+    <value>Create Account</value>
+  </data>
+  <data name="Dialogs_Text7" xml:space="preserve">
+    <value>Edit Account</value>
+  </data>
+  <data name="Dialogs_Text8" xml:space="preserve">
+    <value>Email:</value>
+  </data>
+  <data name="Dialogs_Text9" xml:space="preserve">
+    <value>Password:</value>
+  </data>
+  <data name="Index_Text15" xml:space="preserve">
+    <value>InputDateTime &lt;span class="detail"&gt;dates and times&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>DropDown &lt;span class="detail"&gt;abstract&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>ComboBox &lt;span class="detail"&gt;items/strings&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>AutoComplete &lt;span class="detail"&gt;items/strings&lt;/span&gt;</value>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>MultiAutoComplete &lt;span class="detail"&gt;multiple items/strings&lt;/span&gt;</value>
+  </data>
+  <data name="InputDate_Text10" xml:space="preserve">
+    <value>Not Required</value>
+  </data>
+  <data name="InputDate_Text9" xml:space="preserve">
+    <value>By default, InputDate values are required, so you can't
+    delete the entire content of the control. If you want to
+    enter dates that are optional, set the &lt;b&gt;isRequired&lt;/b&gt;
+    property to false:</value>
+  </data>
+  <data name="InputNumberStep_Text2" xml:space="preserve">
+    <value>Step {0}:</value>
+  </data>
+  <data name="InputNumber_Text10" xml:space="preserve">
+    <value>Not Required</value>
+  </data>
+  <data name="InputNumber_Text9" xml:space="preserve">
+    <value>By default, InputNumber values are required, so you can't
+    delete the entire content of the control. If you want to
+    enter a number that is optional, set the &lt;b&gt;isRequired&lt;/b&gt;
+    property to false:</value>
+  </data>
+  <data name="MaterialDesign_Text10" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;D&lt;/span&gt;ate</value>
+  </data>
+  <data name="MaterialDesign_Text11" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;T&lt;/span&gt;ime</value>
+  </data>
+  <data name="MaterialDesign_Text12" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;Q&lt;/span&gt;uantity</value>
+  </data>
+  <data name="MaterialDesign_Text13" xml:space="preserve">
+    <value>D&lt;span class="accesskey"&gt;i&lt;/span&gt;scount</value>
+  </data>
+  <data name="MaterialDesign_Text14" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;F&lt;/span&gt;avorite Colors</value>
+  </data>
+  <data name="MaterialDesign_Text15" xml:space="preserve">
+    <value>{count:n0} favorite colors</value>
+  </data>
+  <data name="MaterialDesign_Text3" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;N&lt;/span&gt;ame</value>
+  </data>
+  <data name="MaterialDesign_Text4" xml:space="preserve">
+    <value>We do need your name...</value>
+  </data>
+  <data name="MaterialDesign_Text5" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;E&lt;/span&gt;-mail</value>
+  </data>
+  <data name="MaterialDesign_Text6" xml:space="preserve">
+    <value>We need a valid e-mail...</value>
+  </data>
+  <data name="MaterialDesign_Text7" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;C&lt;/span&gt;ountry</value>
+  </data>
+  <data name="MaterialDesign_Text8" xml:space="preserve">
+    <value>C&lt;span class="accesskey"&gt;r&lt;/span&gt;edit Card #</value>
+  </data>
+  <data name="MaterialDesign_Text9" xml:space="preserve">
+    <value>Four groups of four digits...</value>
+  </data>
+  <data name="MenusContextMenus_Title1" xml:space="preserve">
+    <value>FlexChart with ContextMenu</value>
+  </data>
+  <data name="MenusContextMenus_Title2" xml:space="preserve">
+    <value>FlexGrid with ContextMenu</value>
+  </data>
+  <data name="Menus_Text10" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-copy"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Copy&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;copy the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Text11" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-paste"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Paste&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;insert clipboard content at the cursor position&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Text3" xml:space="preserve">
+    <value>File</value>
+  </data>
+  <data name="Menus_Text7" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Exit&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;exit the application&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="Menus_Text8" xml:space="preserve">
+    <value>Edit</value>
+  </data>
+  <data name="Menus_Text9" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-scissors"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Cut&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;move the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;</value>
+  </data>
+  <data name="PopupEditors_Title1" xml:space="preserve">
+    <value>Edit Item</value>
+  </data>
+  <data name="PopupsOwners_Text11" xml:space="preserve">
+    <value>Enter email</value>
+  </data>
+  <data name="PopupsOwners_Text12" xml:space="preserve">
+    <value>Show the Popover</value>
+  </data>
+  <data name="PopupsOwners_Title1" xml:space="preserve">
+    <value>Show on Click, Hide on Blur</value>
+  </data>
+  <data name="PopupsOwners_Title2" xml:space="preserve">
+    <value>Title</value>
+  </data>
+  <data name="PopupsOwners_Title3" xml:space="preserve">
+    <value>Show on Click, Hide on Click</value>
+  </data>
+  <data name="PopupsOwners_Title5" xml:space="preserve">
+    <value>Show on Click, Hide with Code</value>
+  </data>
+  <data name="PseudoClasses_Text2" xml:space="preserve">
+    <value>Pseudo-classes are important in forms because they let you apply
+  styles to elements not only in relation to the content of the
+  document tree, but also in relation to external factors like whether
+  the element has the focus (&lt;code&gt;:focus&lt;/code&gt;) or is in an invalid
+  state (&lt;code&gt;:invalid&lt;/code&gt;).</value>
+  </data>
+  <data name="PseudoClasses_Text3" xml:space="preserve">
+    <value>Some of the standard pseudo-classes are limited in their usefulness
+    because they apply only to specific elements, and not to the elements
+    ancestors. For example, many C1 MVC input controls contain input elements;
+    when the input elements have the focus, the inner input element gets
+    the &lt;code&gt;:focus&lt;/code&gt; pseudo-class, but the host element that contains
+    the control does not.</value>
+  </data>
+  <data name="PseudoClasses_Text4" xml:space="preserve">
+    <value>For this reason, C1 MVC adds some pseudo-classes of its own to make
+    building effective forms easier:</value>
+  </data>
+  <data name="StringObjects_Text3" xml:space="preserve">
+    <value>For example, select a country:</value>
+  </data>
+  <data name="StringObjects_Text4" xml:space="preserve">
+    <value>&lt;b&gt;AutoComplete&lt;/b&gt;: Extends the ComboBox to provide
+            as-you-type async loading of items and a customizable
+            search algorithm. Use it to select items from large
+            datasets on the server.</value>
+  </data>
+  <data name="StringObjects_Text5" xml:space="preserve">
+    <value>For example, type 'land' or 'uni':</value>
+  </data>
+  <data name="StringObjects_Text7" xml:space="preserve">
+    <value>&lt;b&gt;InputMask&lt;/b&gt;: Provides character-level validation
+            by allowing you to specify a mask composed of templates
+            that constrain each character typed by the user.</value>
+  </data>
+  <data name="StringObjects_Text8" xml:space="preserve">
+    <value>For example, type a phone number:</value>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text4" xml:space="preserve">
+    <value>Product Name</value>
+  </data>
+  <data name="Colors_Text3" xml:space="preserve">
+    <value>Select the color</value>
+  </data>
+  <data name="ComboBoxStrings_Text12" xml:space="preserve">
+    <value>No Country Selected</value>
+  </data>
+  <data name="InputDate_Text11" xml:space="preserve">
+    <value>Your birth date (optional)</value>
+  </data>
+  <data name="InputMaskMaskFull_Text4" xml:space="preserve">
+    <value>SSN</value>
+  </data>
+  <data name="InputMaskMaskFull_Text5" xml:space="preserve">
+    <value>Zip Code</value>
+  </data>
+  <data name="InputMaskMaskFull_Text6" xml:space="preserve">
+    <value>Zip Code + 4</value>
+  </data>
+  <data name="InputMaskMaskFull_Text7" xml:space="preserve">
+    <value>Phone Number</value>
+  </data>
+  <data name="InputNumberFormatting_Text3" xml:space="preserve">
+    <value>Format {0}: </value>
+  </data>
+  <data name="InputNumber_Text11" xml:space="preserve">
+    <value>Your age (optional)</value>
+  </data>
+  <data name="MultiAutoComplete_Text6" xml:space="preserve">
+    <value>Select some countries</value>
+  </data>
+  <data name="MultiSelect_Text3" xml:space="preserve">
+    <value>countries</value>
+  </data>
+  <data name="StringObjects_Text6" xml:space="preserve">
+    <value>Country</value>
+  </data>
+  <data name="MenusCommands_Text10" xml:space="preserve">
+    <value>Increment by 25%</value>
+  </data>
+  <data name="MenusCommands_Text11" xml:space="preserve">
+    <value>Increment by 5%</value>
+  </data>
+  <data name="MenusCommands_Text12" xml:space="preserve">
+    <value>Decrement by 5%</value>
+  </data>
+  <data name="MenusCommands_Text13" xml:space="preserve">
+    <value>Decrement by 25%</value>
+  </data>
+  <data name="MenusCommands_Text14" xml:space="preserve">
+    <value>Decrement by 50%</value>
+  </data>
+  <data name="MenusCommands_Text8" xml:space="preserve">
+    <value>Tax Commands</value>
+  </data>
+  <data name="MenusCommands_Text9" xml:space="preserve">
+    <value>Increment by 50%</value>
+  </data>
+  <data name="MenusContextMenus_Text10" xml:space="preserve">
+    <value>Exit</value>
+  </data>
+  <data name="MenusContextMenus_Text7" xml:space="preserve">
+    <value>New</value>
+  </data>
+  <data name="MenusContextMenus_Text8" xml:space="preserve">
+    <value>Open</value>
+  </data>
+  <data name="MenusContextMenus_Text9" xml:space="preserve">
+    <value>Save</value>
+  </data>
+</root>

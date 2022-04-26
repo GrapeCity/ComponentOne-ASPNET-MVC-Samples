@@ -1,0 +1,28 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.ControlsElements_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.ControlsElements_Text1)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.ControlsElements_Text2)
+</p>
+
+
+<p>@Html.Raw(Resources.C1Mvc.ControlsElements_Text3)</p>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.ControlsElements_Text4)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.ControlsElements_Text5)
+</p>
+
+<button id="toggleFont" class="btn btn-primary">@Html.Raw(Resources.C1Mvc.ControlsElements_Text6)</button>
+<button id="resizeBad" class="btn btn-danger">@Html.Raw(Resources.C1Mvc.ControlsElements_Text7)</button>
+<button id="resizeGood" class="btn btn-success">@Html.Raw(Resources.C1Mvc.ControlsElements_Text8)</button>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).ShowMarquee(true).ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All).ShowAlternatingRows(false)

@@ -1,0 +1,9 @@
+﻿@(Html.C1().RadialGauge()
+    .Min(0).Max(10).Value(5)
+    .Width(300).Height(180)
+    .ShowText(ShowText.None)
+)
+
+@section Description{
+    @Html.Raw(Resources.RadialGauge.Index_Text0)
+}

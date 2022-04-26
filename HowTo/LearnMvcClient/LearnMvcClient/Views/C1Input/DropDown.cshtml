@@ -1,0 +1,68 @@
+@{ 
+    var countries = new[] { "Ringo", "George", "John", "Paul" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1Input.DropDown_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.DropDown_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text4)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1Input.DropDown_Text5)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text7)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text8)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text9)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text10)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.DropDown_Text11)
+    </li>
+</ul>
+
+<p>
+    @Html.Raw(Resources.C1Input.DropDown_Text12)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="isAnimated">@Html.Raw(Resources.C1Input.DropDown_Text13) </label>
+        <input id="isAnimated" type="checkbox" value="false">
+        <br />
+        <label for="isDroppedDown">@Html.Raw(Resources.C1Input.DropDown_Text14) </label>
+        <input id="isDroppedDown" type="checkbox" value="false">
+        <br />
+        <label for="dropDownCssClass">@Html.Raw(Resources.C1Input.DropDown_Text15) </label>
+        <input id="dropDownCssClass" type="checkbox" value="false">
+    </div>
+    <div class="col-xs-6">
+        <div id="theComboBox"></div>
+        @(Html.C1().ComboBox().Id("theComboBox")
+            .Bind(countries))
+        <br />
+        @(Html.C1().InputDate().Id("theDate"))
+    </div>
+</div>

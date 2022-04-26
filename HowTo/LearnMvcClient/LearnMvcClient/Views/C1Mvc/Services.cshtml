@@ -1,0 +1,35 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.Services_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.Services_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Mvc.Services_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Mvc.Services_Text3)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1Mvc.Services_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Services_Text5)
+</p>
+@Html.C1().CollectionViewService().Id("sCV").Bind(Model).DisableServerRead(true).PageSize(10)
+@(Html.C1().FlexGrid().ItemsSourceId("sCV").AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+<input type="button" value="@Resources.C1Mvc.Services_Text6" name="Previous" onclick="movePage(this)" />
+<input type="button" value="@Resources.C1Mvc.Services_Text7" name="Next" onclick="movePage(this)" />

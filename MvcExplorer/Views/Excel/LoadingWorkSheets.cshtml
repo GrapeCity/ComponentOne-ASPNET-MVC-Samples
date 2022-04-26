@@ -1,0 +1,16 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<DrillDataPoint>
+
+@Html.C1().FlexChart().Bind("Depth", Model).Series(series => {
+    series.Add(ChartType.Line, "Temperature").Binding("Temperature");
+    series.Add(ChartType.Area, "Pressure").Binding("Pressure");
+    series.Add(ChartType.Spline, "Conductivity").Binding("Conductivity");
+    series.Add(ChartType.Line, "Ph").Binding("Ph");
+}).AxisX(x=>x.MajorUnit(200))
+
+@section Description{
+<p>@Html.Raw(Resources.Excel.LoadingWorkSheets_Text0)</p>
+    }
+
+

@@ -1,0 +1,67 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    var fields = new[] { "ID", "Start", "End", "Country", "Product", "Color", "Amount", "Amount2", "Discount", "Active" };
+    var orders = new[] { "Ascending", "Descending" };
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsByMenu = false;
+}
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(false)
+    .Id("flexgrid")
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Bind(Model)
+    .OrderBy("ID")
+    .SortingType((AllowSorting)Enum.Parse(typeof(AllowSorting), optionsModel.Options["Sorting type"].CurrentValue))
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start"));
+        bl.Add(cb => cb.Binding("End"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+)
+@section Scripts{
+<script>
+    var field = "ID", order = "Ascending";
+    function sortGrid(combo) {
+        var flexGrid, ascending, sd;
+        if (combo.hostElement.id === "sortingfield")
+            field = combo.selectedValue;
+        if (combo.hostElement.id === "sortingorder")
+            order = combo.selectedValue;
+
+        if (!field || !order) {
+            return;
+        }
+
+        flexGrid = wijmo.Control.getControl("#flexgrid");
+        ascending = order === "Ascending";
+        sd = flexGrid.collectionView.sortDescriptions;
+        sdNew = new wijmo.collections.SortDescription(field, ascending);
+
+        // remove any old sort descriptors and add the new one
+        sd.splice(0, sd.length, sdNew);
+    }
+</script>
+}
+
+@section Settings {
+    @Html.Raw(Resources.FlexGrid.Sorting_SortingField) : @(Html.C1().ComboBox().Id("sortingfield").Bind(fields).SelectedIndex(0).IsEditable(false).OnClientSelectedIndexChanged("sortGrid"))
+    @Html.Raw(Resources.FlexGrid.Sorting_SortingOrder) : @(Html.C1().ComboBox().Id("sortingorder").Bind(orders).SelectedIndex(0).IsEditable(false).OnClientSelectedIndexChanged("sortGrid"))
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.Sorting_Text0)<br/>
+    @Html.Raw(Resources.FlexGrid.SortingType_Text0)
+}

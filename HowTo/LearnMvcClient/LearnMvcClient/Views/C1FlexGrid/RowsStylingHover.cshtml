@@ -1,0 +1,26 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Text1)
+</p>
+
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model)
+
+<h2>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Title1)
+</h2>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Text2)
+</p>
+@Html.C1().FlexGrid().Id("hoverCell").ItemsSourceId("collectionView")
+
+<h2>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Title2)
+</h2>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStylingHover_Text3)
+</p>
+@Html.C1().FlexGrid().Id("hoverRow").ItemsSourceId("collectionView")

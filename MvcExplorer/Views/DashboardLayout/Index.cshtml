@@ -1,0 +1,64 @@
+﻿@model DashboardData
+
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.SettingsAtTop = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@Html.Partial("_DashboardElements", Model)
+
+@(Html.C1().DashboardLayout()
+        .Id(demoSettingsModel.ControlId)
+        .AttachAutoGridLayout(aglb => aglb.Orientation(LayoutOrientation.Vertical)
+        .MaxRowsOrColumns(4)
+        .CellSize(303)
+        .Items(isb =>
+        {
+            isb.Add().Children(cb =>
+            {
+                cb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.SalesDashboard, Model.SalesDashboardStr))
+                    .Content("#salesDashboardFGrid").RowSpan(1).ColumnSpan(1));
+                cb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.KPIs, Model.KPIsStr))
+                    .Content("#kpiGauges").RowSpan(1).ColumnSpan(1));
+            });
+            isb.Add().Children(cb =>
+            {
+                cb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.CostBudget, Model.CostBudgetingStr))
+                    .Content("#costBudgetingChart").RowSpan(1).ColumnSpan(1));
+                cb.Add(ftb => ftb.HeaderText(string.Format(Resources.DashboardLayout.Countrywise, Model.CountrywiseSalesStr))
+                    .Content("#countrywiseSalesChart").RowSpan(1).ColumnSpan(1));
+            });
+        }))
+        .OnClientFormatTile("formatTile")
+)
+
+@section Scripts{
+    <script type="text/javascript">
+        function formatTile(dashboardLayout, e) {
+            var tile = e.tile,
+                toolbar = e.toolbar;
+            if(tile.headerText == ('@(string.Format(Resources.DashboardLayout.CostBudget, @Model.CostBudgetingStr))')){
+                var strExportIcon = '<img style="vertical-align:middle" src="@Href("~/Content/images/icon_export.png")" alt="Export" title="Export" />';
+                toolbar.insertToolbarItem({
+                    icon: strExportIcon,
+                    title: '@Resources.DashboardLayout.CustomTile_Text2',
+                    command: function () {
+                        var selector = e.tile.content,
+                            chart = wijmo.Control.getControl(selector);
+                        chart.saveImageToFile(selector.substr(1) + '.png');
+                    }
+                });
+            }
+        }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.DashboardLayout.Index_Summary)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.DashboardLayout.Index_Desc1)</p>
+    <p>@Html.Raw(Resources.DashboardLayout.Index_Desc2)</p>
+}

@@ -1,0 +1,11 @@
+﻿@model IEnumerable<Sale>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Bind(bl => bl.InitialItemsCount(100).Bind(Model))
+    .IsReadOnly(true)
+    .CssClass("grid")
+)
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.VirtualScrolling_Text0)
+}

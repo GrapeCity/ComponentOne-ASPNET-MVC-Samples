@@ -1,0 +1,230 @@
+﻿@using C1.Web.Mvc.Chart
+@using System.Drawing
+
+@{
+    List<BasicSale> basicData = ViewBag.BasicData;
+    List<FinanceData> fbData = ViewBag.FbData;
+    var circleTooltip = Resources.FlexChart.Annotation_CircleTooltip;
+    var squareTooltip = Resources.FlexChart.Annotation_SquareTooltip;
+    var lineTooltip = Resources.FlexChart.Annotation_LineTooltip;
+    var textTooltip = Resources.FlexChart.Annotation_TextTooltip;
+    var ellipseTooltip = Resources.FlexChart.Annotation_EllipseTooltip;
+    var rectTooltip = Resources.FlexChart.Annotation_RectTooltip;
+    var imageTooltip = Resources.FlexChart.Annotation_ImageTooltip;
+    var polygonTooltip = Resources.FlexChart.Annotation_PolygonTooltip;
+}
+
+@section Styles{
+    <link rel="stylesheet" href="~/Content/css/AdvancedAnnotation.css" />
+}
+
+@section Scripts{
+    <script src="~/Scripts/AxisScrollbar.js"></script>
+    <script src="~/Scripts/advancedAnnotation.js"></script>
+}
+
+<h2>@Html.Raw(Resources.FlexChart.Annotation_Basic)</h2>
+<p>@Html.Raw(Resources.FlexChart.Annotation_Text0)</p>
+@(Html.C1().FlexChart().Bind(basicData)
+.BindingX("Date").Series(series =>
+{
+    series.Add().Binding("Sale").ChartType(ChartType.Line);
+}).AddAnnotationLayer(layer =>
+{
+    layer.AddCircle(circle => circle.Attachment(AnnotationAttachment.DataIndex)
+        .Radius(40).Offset(new Point(0, -15))
+        .SeriesIndex(0).PointIndex(33)
+        .Content(Resources.FlexChart.Annotation_CircleContent)
+        .Position(AnnotationPosition.Center)
+        .Tooltip(circleTooltip)
+        .Style(style => style.Fill("#e6e6e6").Stroke("#7b9e7e").StrokeWidth(2))
+        );
+    layer.AddSquare(square => square.Attachment(AnnotationAttachment.DataIndex)
+        .Length(80).Offset(new Point(0, -15))
+        .SeriesIndex(0).PointIndex(45)
+        .Content(Resources.FlexChart.Annotation_SquareContent)
+        .Position(AnnotationPosition.Center)
+        .Tooltip(squareTooltip)
+        .Style(style => style.Fill("#e6e6e6").Stroke("#918254"))
+        );
+    layer.AddLine(line => line.Attachment(AnnotationAttachment.Absolute)
+        .Position(AnnotationPosition.Center)
+        .Content(Resources.FlexChart.Annotation_LineContent)
+        .Start(new DataPoint(50, 150))
+        .End(new DataPoint(240, 350))
+        .Tooltip(lineTooltip)
+        .Style(style => style.Stroke("#01A9DB").StrokeWidth(4)
+        ));
+    layer.AddText(text => text.Attachment(AnnotationAttachment.Relative)
+        .Content(Resources.FlexChart.Annotation_TextContent)
+        .Position(AnnotationPosition.Center)
+        .Point(new DataPoint(0.55, 0.15))
+        .Tooltip(textTooltip)
+        .Style(style => style.Fill("#bbbbbb").FontSize(26))
+        );
+    layer.AddEllipse(ellipse => ellipse.Attachment(AnnotationAttachment.Relative)
+        .Position(AnnotationPosition.Center)
+        .Point(new DataPoint(0.4, 0.5))
+        .Width(100).Height(80)
+        .Content(Resources.FlexChart.Annotation_EllipseContent)
+        .Tooltip(ellipseTooltip)
+        .Style(style => style.Fill("#e6e6e6").Stroke("#c2955f"))
+        );
+    layer.AddRectangle(rectangle => rectangle.Attachment(AnnotationAttachment.DataCoordinate)
+        .Point(new DataPoint(new DateTime(2014, 2, 11), 30))
+        .Content(Resources.FlexChart.Annotation_RectangleContent)
+        .Position(AnnotationPosition.Center)
+        .Tooltip(rectTooltip)
+        .Style(style => style.Fill("#e6e6e6").Stroke("#937f99"))
+        );
+    layer.AddImage(image => image.Attachment(AnnotationAttachment.DataCoordinate)
+        .Href(@Url.Content("~/Content/images/c1icon.png"))
+        .Point(new DataPoint(new DateTime(2014, 1, 26), 30))
+        .Width(80).Height(80)
+        .Tooltip(imageTooltip)
+        );
+    layer.AddPolygon(polygon => polygon.Attachment(AnnotationAttachment.Absolute)
+        .AddPoint(new DataPoint(200, 0))
+        .AddPoint(new DataPoint(150, 50))
+        .AddPoint(new DataPoint(175, 100))
+        .AddPoint(new DataPoint(225, 100))
+        .AddPoint(new DataPoint(250, 50))
+        .Position(AnnotationPosition.Center).Content(Resources.FlexChart.Annotation_PolygonContent)
+        .Tooltip(polygonTooltip)
+        .Style(style => style.Fill("#fff").Stroke("#01A9DB").StrokeWidth(4))
+        );
+}))
+
+<h2>@Html.Raw(Resources.FlexChart.Annotation_Advanced)</h2>
+<p>@Html.Raw(Resources.FlexChart.Annotation_Text1)</p>
+<div class="panel panel-default chartcontainer">
+    @(Html.C1().FlexChart().Id("anChart").Bind(fbData).ChartType(ChartType.Line).BindingX("X")
+            .CssClass("anchart")
+        .Series(series =>
+        {
+            series.Add().Binding("Close").Name("Close").ChartType(ChartType.Line);
+            series.Add().Binding("Volume").Name("Volume").ChartType(ChartType.Column)
+                .AxisY(y => y.Max(fbData[0].Volume * 8).Labels(false)
+                    .AxisLine(false).MajorTickMarks(AxisTickMark.None));
+        }).AxisX(x => x.AxisLine(false).Format("MM/dd/yy"))
+        .AxisY(y => y.Position(Position.Right))
+        .AddAnnotationLayer(layer =>
+        {
+            layer.Id("AnnotationLayer");
+
+            layer.AddText(text => text.Content("componentone.com").Attachment(AnnotationAttachment.Relative)
+                .Name("waterMarker").Point(new DataPoint(0.5, 0.5))
+                .Style(style => style.Fill("#B45F04").FillOpacity(0.1).Stroke("rgba(124,240,10,0.2)").FontSize(60)));
+
+            layer.AddLine(line => line.Name("trendLine1").Attachment(AnnotationAttachment.DataCoordinate)
+                .Start(new DataPoint(new DateTime(2014, 5, 8), 64)).End(new DataPoint(new DateTime(2014, 9, 8), 84))
+                .Position(AnnotationPosition.Center).Style(style => style.Fill("#FF0040").Stroke("#3ADF00")
+                    .StrokeWidth(1).StrokeOpacity(0.5)));
+
+            layer.AddLine(line => line.Name("trendLine1").Attachment(AnnotationAttachment.DataCoordinate)
+                .Start(new DataPoint(new DateTime(2014, 5, 8), 56)).End(new DataPoint(new DateTime(2014, 9, 8), 76))
+                .Position(AnnotationPosition.Center).Style(style => style.Fill("#FF0040").Stroke("#3ADF00")
+                    .StrokeWidth(1).StrokeOpacity(0.5)));
+
+            layer.AddRectangle(rect => rect.Name("eventa").Offset(new Point(0, -10)).Attachment(AnnotationAttachment.DataIndex)
+                .Content("E").Width(20).Height(20).PointIndex(73).SeriesIndex(0)
+                .Tooltip(Resources.FlexChart.Annotation_Tooltip1)
+                .Style(style => style.Fill("#01DFD7").Stroke("#000000")));
+
+            layer.AddRectangle(rect => rect.Name("eventb").Offset(new Point(0, 10)).Attachment(AnnotationAttachment.DataIndex)
+                .Content("E").Width(20).Height(20).PointIndex(124).SeriesIndex(0)
+                .Tooltip(Resources.FlexChart.Annotation_Tooltip2)
+                .Style(style => style.Fill("#01DFD7").Stroke("#000000")));
+
+            layer.AddRectangle(rect => rect.Name("eventc").Offset(new Point(0, -10)).Attachment(AnnotationAttachment.DataIndex)
+                .Content("E").Width(20).Height(20).PointIndex(202).SeriesIndex(0)
+                .Tooltip(Resources.FlexChart.Annotation_Tooltip3)
+                .Style(style => style.Fill("#01DFD7").Stroke("#000000")));
+
+            layer.AddRectangle(rect => rect.Name("eventd").Offset(new Point(0, -20)).Attachment(AnnotationAttachment.DataIndex)
+                .Content("E").Width(20).Height(20).PointIndex(235).SeriesIndex(0)
+                .Tooltip(Resources.FlexChart.Annotation_Tooltip4)
+                .Style(style => style.Fill("#01DFD7").Stroke("#000000")));
+
+            layer.AddSquare(rect => rect.Name("detailContainer").Length(110).IsVisible(false).Point(new DataPoint(55, 55))
+                .Style(style => style.Fill("#CCCC00").Stroke("#0B2F3A").StrokeOpacity(0.4)));
+
+            layer.AddText(text => text.Name("detailLow").Position(AnnotationPosition.Center).Point(new DataPoint(52, 20))
+                .Style(style => style.Fill("#6E6E6E").FontSize(12)));
+
+            layer.AddText(text => text.Name("detailHigh").Position(AnnotationPosition.Center).Point(new DataPoint(52, 40))
+                .Style(style => style.Fill("#6E6E6E").FontSize(12)));
+
+            layer.AddText(text => text.Name("detailOpen").Position(AnnotationPosition.Center).Point(new DataPoint(52, 60))
+                .Style(style => style.Fill("#6E6E6E").FontSize(12)));
+
+            layer.AddText(text => text.Name("detailClose").Position(AnnotationPosition.Center).Point(new DataPoint(52, 80))
+                .Style(style => style.Fill("#6E6E6E").FontSize(12)));
+
+            layer.AddText(text => text.Name("detailVolume").Position(AnnotationPosition.Center).Point(new DataPoint(52, 100))
+                .Style(style => style.Fill("#6E6E6E").FontSize(12)));
+
+            layer.AddLine(line => line.Name("startLine").Attachment(AnnotationAttachment.DataCoordinate)
+                .Start(new DataPoint(new DateTime(2014, 4, 10), 59.16)).End(new DataPoint(new DateTime(2016, 4, 10), 59.16))
+                .Style(style => style.Fill("#000000").Stroke("#000000").StrokeWidth(1)).Tooltip("Previous close"));
+
+            layer.AddImage(image => image.Name("dividea").Offset(new Point(0, -20)).Width(20).Height(20)
+                .Attachment(AnnotationAttachment.DataIndex).PointIndex(42).SeriesIndex(1)
+                .Href(@Url.Content("~/Content/images/divide.png")).Tooltip("Dividend"));
+
+            layer.AddImage(image => image.Name("divideb").Offset(new Point(0, -10)).Width(20).Height(20)
+                .Attachment(AnnotationAttachment.DataIndex).PointIndex(73).SeriesIndex(1)
+                .Href(@Url.Content("~/Content/images/divide.png")).Tooltip("Dividend"));
+
+            layer.AddImage(image => image.Name("dividec").Offset(new Point(0, -10)).Width(20).Height(20)
+                .Attachment(AnnotationAttachment.DataIndex).PointIndex(92).SeriesIndex(1)
+                .Href(@Url.Content("~/Content/images/divide.png")).Tooltip("Dividend"));
+
+            layer.AddImage(image => image.Name("divided").Offset(new Point(0, -10)).Width(20).Height(20)
+                .Attachment(AnnotationAttachment.DataIndex).PointIndex(142).SeriesIndex(1)
+                .Href(@Url.Content("~/Content/images/divide.png")).Tooltip("Dividend"));
+
+            layer.AddImage(image => image.Name("dividee").Offset(new Point(0, -10)).Width(20).Height(20)
+                .Attachment(AnnotationAttachment.DataIndex).PointIndex(202).SeriesIndex(1)
+                .Href(@Url.Content("~/Content/images/divide.png")).Tooltip("Dividend"));
+
+            layer.AddRectangle(rect => rect.Name("tradeRange").Offset(new Point(0, -80)).Attachment(AnnotationAttachment.DataCoordinate)
+                .Width(465).Height(430).Point(new DataPoint(new DateTime(2014, 11, 26), 70))
+                .Style(style => style.Fill("#669999").Stroke("#B40431").FillOpacity(0.2).StrokeWidth(1).StrokeOpacity(0.1)));
+
+            layer.AddText(text => text.Name("newsa").Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataCoordinate)
+                .Content(Resources.FlexChart.Annotation_Content1).Point(new DataPoint(new DateTime(2015, 3, 2), 80))
+                .Offset(new Point(0, 25)));
+
+            layer.AddImage(image => image.Name("newsaMarker").Offset(new Point(0, -10)).Width(14).Height(24)
+                .Attachment(AnnotationAttachment.DataCoordinate)
+                .Point(new DataPoint(new DateTime(2015, 3, 2), 80)).Href(@Url.Content("~/Content/images/flag.png"))
+                .Tooltip(Resources.FlexChart.Annotation_Tooltip5));
+
+            layer.AddText(text => text.Name("newsb").Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataCoordinate)
+                .Content(Resources.FlexChart.Annotation_Content2).Point(new DataPoint(new DateTime(2014, 7, 8), 62)));
+
+            layer.AddImage(image => image.Name("newsbMarker").Offset(new Point(7, -20)).Width(14).Height(24)
+                .Attachment(AnnotationAttachment.DataCoordinate)
+                .Point(new DataPoint(new DateTime(2014, 7, 8), 62))
+                .Href(@Url.Content("~/Content/images/flag.png")));
+
+            layer.AddText(text => text.Name("trendDesc").Position(AnnotationPosition.Center).Attachment(AnnotationAttachment.DataCoordinate)
+                .Content(Resources.FlexChart.Annotation_Content3).Point(new DataPoint(new DateTime(2014, 5, 8), 64)).Style(style => style.FontSize(20))
+                .Offset(new Point(0, -30)));
+
+            layer.AddImage(image => image.Name("buyAnno").Offset(new Point(0, 15)).Width(24).Height(24)
+                .Attachment(AnnotationAttachment.DataCoordinate).Tooltip("Bid: $73.59")
+                .Point(new DataPoint(new DateTime(2014, 10, 14), 73))
+                .Href(@Url.Content("~/Content/images/up.png")));
+
+            layer.AddImage(image => image.Name("cellAnno").Offset(new Point(0, -10)).Width(24).Height(24)
+                .Attachment(AnnotationAttachment.DataCoordinate).Tooltip("Bid: $73.59")
+                .Point(new DataPoint(new DateTime(2015, 1, 8), 73))
+                .Href(@Url.Content("~/Content/images/down.png")));
+        })
+    )
+</div>
+@section Description{
+    @Html.Raw(Resources.FlexChart.Annotation_Text2)
+}

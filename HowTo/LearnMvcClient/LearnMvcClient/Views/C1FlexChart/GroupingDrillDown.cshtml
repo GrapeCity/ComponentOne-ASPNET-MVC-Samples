@@ -1,0 +1,23 @@
+<h1>
+    @Html.Raw(Resources.C1FlexChart.GroupingDrillDown_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.GroupingDrillDown_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.GroupingDrillDown_Text2)
+</p>
+
+<div class="chart-host">
+    <h4 id="header">@Html.Raw(Resources.C1FlexChart.GroupingDrillDown_Text3)</h4>
+    @(Html.C1().FlexChart().Id("theChart")
+        .BindingX("name")
+        .Series(sb=>sb.Add().Binding("sales").Name("Sales"))
+        .AxisX(x=>x.Title("Country"))
+        .AxisY(y=>y.Title("Sales (US$ thousands)").Format("n0,"))
+        .Legend(C1.Web.Mvc.Chart.Position.None)
+        .Tooltip(t=>t.Content(""))
+        .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Point)
+    )
+</div>

@@ -1,0 +1,29 @@
+﻿/* the container for the grids */
+.freeze-right {
+  background: rgba(0,0,0,.1);
+  border: 1px solid grey;
+  height: 350px;
+  width: auto;
+  display: inline-block;
+}
+
+/* the grids in the container */
+.freeze-right > .wj-flexgrid {
+  display: inline-block;
+  height: 100%;
+  width: auto;
+  max-width: 400px;
+  border: none;
+  border-radius: 0;
+}
+
+/* remove the vertical scrollbar from the grids grid */
+.freeze-right > .wj-flexgrid:first-child div[wj-part=root] {
+  overflow-y: hidden !important;
+}
+
+/* don't show selection on grids that don't have the focus */
+.freeze-right .wj-flexgrid:not(.wj-state-focused) .wj-cell.wj-state-selected {
+  background-color: inherit;
+  color: inherit;
+}

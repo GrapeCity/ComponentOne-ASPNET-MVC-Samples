@@ -1,10 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+using System;
+using System.Collections.Generic;
+using System.Globalization;
 using System.IO;
-using Newtonsoft.Json;
-using System.Reflection;
+using System.Linq;
+using System.Web;
 
 namespace FinancialChartExplorer.Models
 {
@@ -20,7 +21,8 @@ namespace FinancialChartExplorer.Models
                 return _jsonData;
             }
 
-            string jsonText = new StreamReader(GetJsonStream("fb.json")).ReadToEnd();
+            string path = HttpContext.Current.Server.MapPath("~/Content/fb.json");
+            string jsonText = new StreamReader(path, System.Text.Encoding.Default).ReadToEnd();
             JObject jo = (JObject)JsonConvert.DeserializeObject(jsonText);
             var jDataset = (JObject)jo.GetValue("dataset");
             var jColumns = (JArray)jDataset.GetValue("column_names");
@@ -59,7 +61,8 @@ namespace FinancialChartExplorer.Models
                 return _omxData;
             }
 
-            string jsonText = new StreamReader(GetJsonStream("NDX.json")).ReadToEnd();
+            string path = HttpContext.Current.Server.MapPath("~/Content/NDX.json");
+            string jsonText = new StreamReader(path, System.Text.Encoding.Default).ReadToEnd();
             JObject jo = (JObject)JsonConvert.DeserializeObject(jsonText);
             var jDataset = (JObject)jo.GetValue("dataset");
             var jColumns = (JArray)jDataset.GetValue("column_names");
@@ -81,7 +84,7 @@ namespace FinancialChartExplorer.Models
                 double value = Convert.ToDouble(jItem[valueIndex].ToString());
                 double high = Convert.ToDouble(jItem[highIndex].ToString());
                 double low = Convert.ToDouble(jItem[lowIndex].ToString());
-                list.Add(new FinanceData { X = date, High = high, Low = low, Close = value });
+                list.Add(new FinanceData { X = date, High = high, Low = low, Close = value});
             }
             _omxData = list;
             return list;
@@ -98,7 +101,7 @@ namespace FinancialChartExplorer.Models
             var factor = 10000d;
 
             var omxData = GetOmxDataFromJson();
-            foreach (var item in GetDataFromJson())
+            foreach(var item in GetDataFromJson())
             {
                 var omxItem = omxData.FirstOrDefault(d => d.X == item.X);
                 if (omxItem != null)
@@ -106,24 +109,12 @@ namespace FinancialChartExplorer.Models
                     var close = item.Close / omxItem.Close * factor;
                     var high = item.High / omxItem.Close * factor;
                     var low = item.Low / omxItem.Close * factor;
-                    list.Add(new FinanceData { X = item.X, High = high, Low = low, Close = close });
+                    list.Add(new FinanceData { X = item.X, High=high, Low=low, Close = close });
                 }
             }
 
             _rsData = list;
             return list;
-        }
-
-        public static Stream GetJsonStream(string name)
-        {
-            var assembly = typeof(ControlPages).GetTypeInfo().Assembly;
-            var ress = assembly.GetManifestResourceNames();
-            var res = assembly.GetManifestResourceNames().Where(resName => resName.Contains(name)).ToList();
-            if (res.Count == 0)
-            {
-                throw new ArgumentOutOfRangeException("name");
-            }
-            return assembly.GetManifestResourceStream(res[0]);
         }
     }
 }

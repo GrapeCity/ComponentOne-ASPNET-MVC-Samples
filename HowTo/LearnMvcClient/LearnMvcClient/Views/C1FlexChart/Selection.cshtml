@@ -1,0 +1,60 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{
+    var selectionModes = new[] { "None", "Series", "Point" };
+    var chartTypes = new[] { "Column", "Bar", "Scatter", "Line", "LineSymbols", "Area" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Selection_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Selection_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Selection_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Selection_Text3)
+</p>
+
+<div class="demo-settings">
+    <label for="selectionMode">@Html.Raw(Resources.C1FlexChart.Selection_Text4) </label>
+    @Html.C1().ComboBox().Id("selectionMode").Bind(selectionModes).Text("Series")
+    <br />
+    <label for="chartType">@Html.Raw(Resources.C1FlexChart.Selection_Text5) </label>
+    @Html.C1().ComboBox().Id("chartType").Bind(chartTypes).Text("Column")
+</div>
+
+@(Html.C1().CollectionViewService<FlexChartData.Sale>().Id("collectionView1")
+        .Bind(Model)
+)
+
+<div class="row demo-settings">
+    <div class="col-xs-8">
+        @(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+            .Header(Resources.C1FlexChart.Selection_Text6)
+            .Legend(C1.Web.Mvc.Chart.Position.None)
+            .ItemsSourceId("collectionView1")
+            .BindingX("Country")
+            .Series(sb =>
+            {
+                sb.Add().Binding("Sales").Name("Sales");
+                sb.Add().Binding("Expenses").Name("Expenses");
+            })
+            .Tooltip(t => t.Content(""))
+            .SelectionIndex(-1)
+            .SelectionMode(C1.Web.Mvc.Chart.SelectionMode.Series)
+        )
+    </div>
+    <div class="col-xs-4">
+        @(Html.C1().FlexGrid<FlexChartData.Sale>().Id("theGrid")
+            .CssStyle("display", "none")
+            .ItemsSourceId("collectionView1")
+            .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+            .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+        )
+    </div>
+</div>

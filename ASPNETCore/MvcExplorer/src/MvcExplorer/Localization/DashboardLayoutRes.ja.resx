@@ -1,0 +1,294 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AutoGridLayout_Desc" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、自動グリッドレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply an auto-grid layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="AutoGridLayout_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、自動グリッドレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply an auto-grid layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="CostBudget" xml:space="preserve">
+    <value>{0} の予算管理コスト</value>
+  <comment>Cost Budgeting for {0}</comment>
+    </data>
+  <data name="Countrywise" xml:space="preserve">
+    <value>{0} の Countrywise の売上</value>
+  <comment>Countrywise Sales for {0}</comment>
+    </data>
+  <data name="CustomTile_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+  <comment>Cancel</comment>
+    </data>
+  <data name="CustomTile_ChartType" xml:space="preserve">
+    <value>ChartType</value>
+  <comment>ChartType</comment>
+    </data>
+  <data name="CustomTile_Desc1" xml:space="preserve">
+    <value>&lt;b&gt;DashboardLayout&lt;/b&gt; コントロール内には多数のタイルがあります。
+        タイルのプロパティにさまざまな値を設定してさまざまなタイルを表示できます。</value>
+  <comment>There are many tiles in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.
+        We can set the properties of a tile with different values to show different tile.</comment>
+    </data>
+  <data name="CustomTile_Desc2" xml:space="preserve">
+    <value>タイルは、ヘッダー、コンテンツ、ツールバーの各領域で構成されます。
+        これらの領域はすべてカスタマイズ可能です。</value>
+  <comment>A tile is composed of several areas: Header, Content and Toolbar.
+        All these areas could be customized.</comment>
+    </data>
+  <data name="CustomTile_Desc3" xml:space="preserve">
+    <value>DashboardLayout コントロールには &lt;b&gt;OnClientFormatTile&lt;/b&gt; イベントが用意されています。
+        このイベントハンドラで、関連する DOM 要素またはオブジェクトを取得し、それらを自由にカスタマイズできます。</value>
+  <comment>In DashboardLayout control, the &lt;b&gt;OnClientFormatTile&lt;/b&gt; event is provided.
+        In this event handler, the related Dom elements or objects can be obtained and you can do customization with them as you want.</comment>
+    </data>
+  <data name="CustomTile_Desc4" xml:space="preserve">
+    <value>このサンプルでは、このイベントを使用して、ヘッダータイルとコンテンツを 
+        カスタマイズし、ツールバー項目を追加します。
+        詳細については、&lt;b&gt;OnClientFormatTile&lt;/b&gt; イベントのドキュメントを参照してください。</value>
+  <comment>In this sample, we use the event to customize the header title, 
+        the content and add the toolbar items.
+        You can refer to the &lt;b&gt;OnClientFormatTile&lt;/b&gt; event documentation for detail.</comment>
+    </data>
+  <data name="CustomTile_OK" xml:space="preserve">
+    <value>OK</value>
+  <comment>OK</comment>
+    </data>
+  <data name="CustomTile_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、タイルをカスタマイズする方法を示します。</value>
+  <comment>This sample shows how to customize the tiles in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="CustomTile_Text1" xml:space="preserve">
+    <value>設定</value>
+  <comment>Settings</comment>
+    </data>
+  <data name="CustomTile_Text2" xml:space="preserve">
+    <value>エクスポート</value>
+  <comment>Export</comment>
+    </data>
+  <data name="FlowLayout_Desc" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、フローレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a flow layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="FlowLayout_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、フローレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a flow layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="Index_Desc1" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールに自動グリッドレイアウトを適用します。
+    FlowLayout、SplitLayout、AutoGridLayout、ManualGridLayout の 4 種類のレイアウトがサポートされるようになりました。
+    詳細については、レイアウトカテゴリにあるページを参照してください。</value>
+  <comment>In this sample an auto-grid layout is applied on a &lt;b&gt;DashboardLayout&lt;/b&gt; control. 
+    Now there are four kinds of layouts supported: FlowLayout, SplitLayout, AutoGridLayout and ManualGridLayout. 
+    You can turn to the pages in Layouts category for detail.</comment>
+    </data>
+  <data name="Index_Desc2" xml:space="preserve">
+    <value>このサンプルでは、タイルを移動、サイズ変更、および削除します。&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールには、これらの機能をオン/オフにするための関連プロパティがあります。</value>
+  <comment>In the sample, the tile can be moved, resized and removed. The &lt;b&gt;DashboardLayout&lt;/b&gt; control has related properties to turn on or off these features.</comment>
+    </data>
+  <data name="Index_Summary" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールの使用方法を示します。</value>
+  <comment>This sample shows how to use a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="KPIs" xml:space="preserve">
+    <value>{0} の KPI</value>
+  <comment>KPIs for {0}</comment>
+    </data>
+  <data name="ManualGridLayout_Desc" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、手動グリッドレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a manual-grid layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="ManualGridLayout_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、手動グリッドレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a manual-grid layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="SalesDashboard" xml:space="preserve">
+    <value>{0} の売上ダッシュボード</value>
+  <comment>Sales Dashboard for {0}</comment>
+    </data>
+  <data name="SaveLoadLayout_Desc1" xml:space="preserve">
+    <value>&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールでは、クライアントメソッド &lt;b&gt;saveLayout()&lt;/b&gt; を使用して、コントロールのレイアウトをレイアウト定義テキストに保存できます。
+        クライアントメソッド &lt;b&gt;loadLayout(def)&lt;/b&gt; を使用して、レイアウト定義テキストからレイアウトを読み込むこともできます。</value>
+  <comment>The &lt;b&gt;DashboardLayout&lt;/b&gt; control supports saving its layout into a layout definition text via the client method &lt;b&gt;saveLayout()&lt;/b&gt;.
+        It also supports loading a layout from the layout definition text via the client method &lt;b&gt;loadLayout(def)&lt;/b&gt;.</comment>
+    </data>
+  <data name="SaveLoadLayout_Desc2" xml:space="preserve">
+    <value>これはたいへん便利な機能です。この機能を使用して、&lt;b&gt;DashboardLayout&lt;/b&gt; でユーザーごとに異なるレイアウトを表示できます。
+        また、ダッシュボードレイアウトが変更されたときに、ユーザーがレイアウトを元に戻すこともできます。</value>
+  <comment>It is a very helpful feature. It can be used in cases for different users the &lt;b&gt;DashboardLayout&lt;/b&gt; control shows different layouts.
+        Or when the dashboard layout is changed, the user wants to get it back.</comment>
+    </data>
+  <data name="SaveLoadLayout_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、レイアウトを保存および読み込む方法を示します。</value>
+  <comment>This sample shows how to save and load layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="Share_Header1" xml:space="preserve">
+    <value>国</value>
+  <comment>Country</comment>
+    </data>
+  <data name="Share_Header2" xml:space="preserve">
+    <value>最近 12 か月</value>
+  <comment>Last 12 Months</comment>
+    </data>
+  <data name="Share_Header3" xml:space="preserve">
+    <value>今年（100 万）</value>
+  <comment>Current Year(mil.)</comment>
+    </data>
+  <data name="Share_Header4" xml:space="preserve">
+    <value>状況</value>
+  <comment>Status</comment>
+    </data>
+  <data name="Share_Text1" xml:space="preserve">
+    <value>売上</value>
+  <comment>Sales</comment>
+    </data>
+  <data name="Share_Text2" xml:space="preserve">
+    <value>経費</value>
+  <comment>Expenses</comment>
+    </data>
+  <data name="Share_Text3" xml:space="preserve">
+    <value>利益</value>
+  <comment>Profit</comment>
+    </data>
+  <data name="Share_Text4" xml:space="preserve">
+    <value>売上傾向線</value>
+  <comment>Sales Trend Line</comment>
+    </data>
+  <data name="Share_Text5" xml:space="preserve">
+    <value>予算</value>
+  <comment>Budget</comment>
+    </data>
+  <data name="Share_Text6" xml:space="preserve">
+    <value>単位：100 万</value>
+  <comment>in millions</comment>
+    </data>
+  <data name="SplitLayout_Desc" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、スプリットレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a split layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="SplitLayout_Summary" xml:space="preserve">
+    <value>このサンプルは、&lt;b&gt;DashboardLayout&lt;/b&gt; コントロールで、スプリットレイアウトを適用する方法を示します。</value>
+  <comment>This sample shows how to apply a split layout in a &lt;b&gt;DashboardLayout&lt;/b&gt; control.</comment>
+    </data>
+  <data name="SplitLayout_Text0" xml:space="preserve">
+    <value>四半期売上（{0}）</value>
+  <comment>Quarter Sales ({0})</comment>
+    </data>
+</root>

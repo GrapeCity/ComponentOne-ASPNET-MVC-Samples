@@ -1,0 +1,20 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.MainProperties_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.MainProperties_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.MainProperties_Text2)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <div id="properties"></div>
+        <button id="btnCollapse" class="btn btn-default">@Html.Raw(Resources.C1Nav.MainProperties_Text3)</button>
+        <button id="btnExpand" class="btn btn-default">@Html.Raw(Resources.C1Nav.MainProperties_Text4)</button>
+    </div>
+    <div class="col-xs-6">
+        @Html.C1().TreeView().Id("theTree").DisplayMemberPath("header").ChildItemsPath("items")
+    </div>
+</div>

@@ -1,3 +1,3 @@
-﻿ASP.NET Core MVC FinancialChart Explorer
+﻿ASP.NET MVC FinancialChart Explorer
 ---------------------------------------------
-This sample demonstrates how to use MVC's FinancialChart.
+FinancialChart Explorer sample demonstrates how to use MVC's FinancialChart. This sample is based on MVC5.

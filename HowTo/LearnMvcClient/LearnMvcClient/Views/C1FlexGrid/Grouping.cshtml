@@ -1,0 +1,35 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Text3)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).OrderBy("Country", "Product").Height(250)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Text4)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Grouping_Text5)
+</p>
+@(Html.C1().FlexGrid().Id("theGridHideCols").Height(250)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Product").Header("Product");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+    .OrderBy("Country", "Product")
+)

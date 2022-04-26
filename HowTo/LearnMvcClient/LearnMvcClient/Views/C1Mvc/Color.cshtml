@@ -1,0 +1,27 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.Color_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Color_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Color_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Color_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Color_Text4)
+</p>
+<div>
+    @Html.C1().InputColor().Id("clrStart").Value(System.Drawing.Color.Purple)
+    @Html.C1().InputColor().Id("clrEnd").Value(System.Drawing.Color.Red)
+</div>
+<table style="width:100%;margin-top:12px;">
+    <tr id="theColorRow"></tr>
+</table>
+<div id="theColor">
+    <div>
+
+    </div>
+</div>

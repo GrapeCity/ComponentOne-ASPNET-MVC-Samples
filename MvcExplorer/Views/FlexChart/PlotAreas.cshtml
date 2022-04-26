@@ -1,0 +1,25 @@
+﻿@model IEnumerable<AVDRelation>
+
+@(Html.C1().FlexChart().Id("flexChart").ChartType(C1.Web.Mvc.Chart.ChartType.Area)
+    .CssClass("chart").Bind(Model).BindingX("T")
+    .AxisX(axis => axis.Title("time, s"))
+    .Series(sers =>
+    {
+        sers.Add().Binding("A").Name("acceleration");
+        sers.Add().Binding("V").Name("velocity").AxisY(axis =>
+            axis.Position(C1.Web.Mvc.Chart.Position.Left).MajorGrid(true).PlotAreaIndex(2));
+        sers.Add().Binding("D").Name("distance").AxisY(axis =>
+            axis.Position(C1.Web.Mvc.Chart.Position.Left).MajorGrid(true).PlotAreaIndex(4));
+    })
+    .PlotAreas(plotareas=> {
+        plotareas.Add().Style(style => style.Fill("rgba(136,189,230,0.2)"));
+        plotareas.Add().Row(1).Height("20px");
+        plotareas.Add().Row(2).Style(style => style.Fill("rgba(136,189,230,0.2)"));
+        plotareas.Add().Row(3).Height("20px");
+        plotareas.Add().Row(4).Style(style => style.Fill("rgba(136,189,230,0.2)"));
+    })
+)
+
+@section Description{
+    @Html.Raw(Resources.FlexChart.PlotAreas_Text0)
+}

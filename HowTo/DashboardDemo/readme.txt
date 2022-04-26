@@ -1,4 +1,4 @@
-ASP.NET Core MVC Dashboard Demo
+ASP.NET MVC Dashboard Demo
 ---------------------------
 A multiple screen dashboard app that displays data.
 

@@ -1,0 +1,18 @@
+﻿@model C1NWindEntities
+
+<div>
+    <label>@Html.Raw(Resources.MultiSelect.ComplexType_Text0)</label>
+
+    @(Html.C1().MultiSelect()
+    .Bind(Model.Products)
+    .Name("products")
+    .HeaderPath("ProductName")
+    .DisplayMemberPath("ProductName")
+    .SelectedValuePath("ProductID")
+    .CheckedMemberPath("Discontinued")
+    )
+</div>
+@section Description{
+    <p>@Html.Raw(Resources.MultiSelect.ComplexType_Text1)</p>
+    <p>@Html.Raw(Resources.MultiSelect.ComplexType_Text2)</p>
+}

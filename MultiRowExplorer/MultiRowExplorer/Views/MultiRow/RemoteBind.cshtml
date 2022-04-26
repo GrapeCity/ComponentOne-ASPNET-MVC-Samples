@@ -1,0 +1,19 @@
+@using C1.Web.Mvc.MultiRow
+
+@{
+    ViewBag.DemoDescription = false;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+            .Id("remoteBindMultiRow")
+            .SortingType(AllowSorting.SingleColumn)
+            .IsReadOnly(true)
+            .Bind(Url.Action("RemoteBind_Read"))
+            .CssClass("multirow")
+            .SelectionMode(SelectionMode.Row)
+            .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+)
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.RemoteBind_Text0)
+}

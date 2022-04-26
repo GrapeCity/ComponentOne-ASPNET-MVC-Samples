@@ -1,0 +1,428 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add_Level_Text0" xml:space="preserve">
+    <value>レベルの追加</value>
+    <comment>Add Level</comment>
+  </data>
+  <data name="Alignment_Text0" xml:space="preserve">
+    <value>配置</value>
+    <comment>Alignment</comment>
+  </data>
+  <data name="Banded_Columns_Text0" xml:space="preserve">
+    <value>縞模様の列</value>
+    <comment>Banded Columns</comment>
+  </data>
+  <data name="Banded_Rows_Text0" xml:space="preserve">
+    <value>縞模様の行</value>
+    <comment>Banded Rows</comment>
+  </data>
+  <data name="Built_In_Styles" xml:space="preserve">
+    <value>組み込みスタイル:</value>
+    <comment>Built-in Styles:</comment>
+  </data>
+  <data name="Cell_Content_Text0" xml:space="preserve">
+    <value>セルコンテンツ</value>
+    <comment>Cell Content</comment>
+  </data>
+  <data name="Cell_Merging_Description_Text0" xml:space="preserve">
+    <value>FlexSheetは、&lt;b&gt;mergeRange&lt;/b&gt;メソッドの呼び出しにより、選択された複数のセルを1つのセルに結合する操作をサポートします。</value>
+    <comment>FlexSheet supports merging the selected cells into one by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.</comment>
+  </data>
+  <data name="Cell_Merging_Description_Text1" xml:space="preserve">
+    <value>選択されたセルに結合されたセルが含まれている場合、mergeRangeメソッドは、結合されたセルの結合を解除します。 そうでない場合は、選択されたセルを1つのセルに結合します。</value>
+    <comment>If the selected cells contain merged cell, the mergeRange method will un-merge the merged cell. Otherwise, it will merge the selected cells into one cell.</comment>
+  </data>
+  <data name="Cell_Merging_Description_Text2" xml:space="preserve">
+    <value>FlexSheetでは、含まれているデータにかかわらず、セルを結合できます。 これは、コンテンツ依存のセル結合をサポートするFlexGridと異なります。</value>
+    <comment>FlexSheet allows merging of cells that contain any data. This is different from FlexGrid, which supports content-driven cell merging.</comment>
+  </data>
+  <data name="Cell_Merging_Text0" xml:space="preserve">
+    <value>セル結合</value>
+    <comment>Cell Merging</comment>
+  </data>
+  <data name="Color_Text0" xml:space="preserve">
+    <value>色</value>
+    <comment>Color</comment>
+  </data>
+  <data name="Column_Text0" xml:space="preserve">
+    <value>列</value>
+    <comment>Column</comment>
+  </data>
+  <data name="Copy_Level_Text0" xml:space="preserve">
+    <value>レベルのコピー</value>
+    <comment>Copy Level</comment>
+  </data>
+  <data name="Currency_Format_Text0" xml:space="preserve">
+    <value>通貨形式</value>
+    <comment>Currency Format</comment>
+  </data>
+  <data name="Custom_Function_Description_Text0" xml:space="preserve">
+    <value>FlexSheetで提供されている関数はほとんどの使用シナリオに対応できるはずですが、それでも場合によっては、追加の関数が必要になることがあります。</value>
+    <comment>Although the functions provided in FlexSheet should cover a vast majority of use scenarios, still there may be some cases where users may need additional functions.</comment>
+  </data>
+  <data name="Custom_Function_Description_Text1" xml:space="preserve">
+    <value>FlexSheetでは、独自のカスタム関数を追加するための2つのメソッド、&lt;b&gt;addFunction&lt;/b&gt;と&lt;b&gt;unknownFunction&lt;/b&gt;が提供されています。</value>
+    <comment>FlexSheet provides two methods that allow you to add your own custom functions: &lt;b&gt;addFunction&lt;/b&gt; and &lt;b&gt;unknownFunction&lt;/b&gt;.</comment>
+  </data>
+  <data name="Custom_Function_Description_Text2" xml:space="preserve">
+    <value>&lt;b&gt;addFunction&lt;/b&gt;メソッドは、カスタム関数を組み込み関数のリストに追加します。</value>
+    <comment>The &lt;b&gt;addFunction&lt;/b&gt; method adds a custom function to the list of built-in functions.</comment>
+  </data>
+  <data name="Custom_Function_Description_Text3" xml:space="preserve">
+    <value>通常は、addFunctionメソッドがカスタム関数をFlexSheet計算エンジンに追加するための最適な方法です。 しかし、関数名が可変であったり、事前にわからない場合があります。 たとえば、名前付き範囲や値の辞書の場合です。</value>
+    <comment>The addFunction method is usually the best way to add custom functions to the FlexSheet calculation engine. However, there are scenarios where the function names are variable or unknown ahead of time. For example, named ranges or value dictionaries.</comment>
+  </data>
+  <data name="Custom_Function_Description_Text4" xml:space="preserve">
+    <value>このような場合は、&lt;b&gt;unknownFunction&lt;/b&gt;イベントを使用して、関数の値を動的に検索することができます。 FlexSheetは、不明な関数名を検出すると、unknownFunctionイベントを発生させ、関数名とパラメータを含むパラメータを提供します。 次に、イベントハンドラで結果を計算し、値を返します。</value>
+    <comment>In these situations, you can use the &lt;b&gt;unknownFunction&lt;/b&gt; event to look up the value of a function dynamically. When the FlexSheet detects an unknown function name, it raises the unknownFunction event and provides parameters that contain the function name and parameters. The event handler then calculates the result and returns the value.</comment>
+  </data>
+  <data name="Custom_Function_Text0" xml:space="preserve">
+    <value>カスタム関数</value>
+    <comment>Custom Function</comment>
+  </data>
+  <data name="Decimal_Format_Text0" xml:space="preserve">
+    <value>10進数形式</value>
+    <comment>Decimal Format</comment>
+  </data>
+  <data name="Delete_Level_Text0" xml:space="preserve">
+    <value>レベルの削除</value>
+    <comment>Delete Level</comment>
+  </data>
+  <data name="Drag_Drop_Description_Text0" xml:space="preserve">
+    <value>FlexSheetは、列や行を別の列や行にドラッグアンドドロップする操作をサポートします。</value>
+    <comment>FlexSheet supports dragging and dropping the columns or rows into other columns or rows.</comment>
+  </data>
+  <data name="Drag_Drop_Description_Text1" xml:space="preserve">
+    <value>FlexSheetでは、セルのデータがコピーまたは移動されるだけでなく、セルのスタイルもコピーまたは移動されます。</value>
+    <comment>FlexSheet not only copies or moves the data of the cells, but also copies or moves the style of the cells.</comment>
+  </data>
+  <data name="Drag_Drop_Description_Text2" xml:space="preserve">
+    <value>キーを何も押さずに列/行をドラッグアンドドロップすると、選択された列または行がドロップ先の列または行に移動します。</value>
+    <comment>When you drag and drop columns/rows without pressing any key, it will move the selected columns or rows into the target columns or rows.</comment>
+  </data>
+  <data name="Drag_Drop_Description_Text3" xml:space="preserve">
+    <value>&lt;b&gt;［Ctrl］&lt;/b&gt;キーを押しながら列/行をドラッグアンドドロップすると、選択された列または行がドロップ先の列または行にコピーされます。</value>
+    <comment>When you drag and drop columns/rows with &lt;b&gt;'Ctrl'&lt;/b&gt; key pressed, it will copy the selected columns or rows into the target columns or rows.</comment>
+  </data>
+  <data name="Drag_Drop_Description_Text4" xml:space="preserve">
+    <value>&lt;b&gt;［Shift］&lt;/b&gt;キーを押しながら列/行をドラッグアンドドロップすると、選択された列または行の位置がドロップ先の列または行と入れ替わります。</value>
+    <comment>When you drag and drop columns/rows with &lt;b&gt;'Shift'&lt;/b&gt; key pressed, it will change the position of the selected columns or rows with the target columns or rows.</comment>
+  </data>
+  <data name="Drag_Drop_Text0" xml:space="preserve">
+    <value>ドラッグアンドドロップ</value>
+    <comment>Drag &amp; Drop</comment>
+  </data>
+  <data name="Excel_IO_Description_Text0" xml:space="preserve">
+    <value>FlexSheetは、&lt;b&gt;save&lt;/b&gt;および&lt;b&gt;load&lt;/b&gt;クライアントメソッドにより、xlsxファイルの保存/ロードをサポートします。</value>
+    <comment>FlexSheet supports saving/loading xlsx file by using the client &lt;b&gt;'save'&lt;/b&gt; and &lt;b&gt;'load'&lt;/b&gt; method.</comment>
+  </data>
+  <data name="Excel_IO_Text0" xml:space="preserve">
+    <value>Excel入出力</value>
+    <comment>Excel I/O</comment>
+  </data>
+  <data name="File_Name_Text0" xml:space="preserve">
+    <value>ファイル名</value>
+    <comment>File Name</comment>
+  </data>
+  <data name="First_Column_Text0" xml:space="preserve">
+    <value>最初の列</value>
+    <comment>First Column</comment>
+  </data>
+  <data name="Font_Text0" xml:space="preserve">
+    <value>フォント</value>
+    <comment>Font</comment>
+  </data>
+  <data name="Format_Cells_Description_Text0" xml:space="preserve">
+    <value>FlexSheetでは、セルごとの書式を設定できます。 書式には、フォントスタイル、セル値のデータ形式（日付/数値の形式）、セルの塗りつぶし色、水平方向の配置などの設定が含まれます。</value>
+    <comment>FlexSheet allows you to set format for each cell. This includes setting font style, data format of cell value (Date/Number format), cell's fill color and horizontal alignment.</comment>
+  </data>
+  <data name="Formulas_Description_Text0" xml:space="preserve">
+    <value>FlexSheetコントロールは組み込みの計算エンジンを備えており、Microsoft Excelと同様の80を超える関数をサポートしています。 (&lt;a href="http://c1.grapecity.com/help/web/aspmvc/aspmvc_helpers/In-builtFormulasSupportedinFlexSheet.html" target="_blank"&gt;完全なリストはこちら&lt;/a&gt;)</value>
+    <comment>The FlexSheet control has a built-in calculation engine that supports over 80 functions just like Microsoft Excel. (&lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#In-builtFormulasSupportedinFlexSheet.html" target="_blank"&gt;See complete list.&lt;/a&gt;)</comment>
+  </data>
+  <data name="Formulas_Text0" xml:space="preserve">
+    <value>数式</value>
+    <comment>Formulas</comment>
+  </data>
+  <data name="Frozen_Cells_Description_Text0" xml:space="preserve">
+    <value>FlexSheetでは、&lt;b&gt;freezeAtCursor&lt;/b&gt;メソッドを使用して、選択されたセルの行や列を固定することができます。</value>
+    <comment>FlexSheet allows you to freeze the rows and columns of the selected cell by the &lt;b&gt;freezeAtCursor&lt;/b&gt; method.</comment>
+  </data>
+  <data name="Frozen_Cells_Text0" xml:space="preserve">
+    <value>固定セル</value>
+    <comment>Frozen Cells</comment>
+  </data>
+  <data name="Full_DateTime_Long_Time_Text0" xml:space="preserve">
+    <value>完全な日時（長い時刻）</value>
+    <comment>Full Date/TIme (long time)</comment>
+  </data>
+  <data name="Full_DateTime_Short_Time_Text0" xml:space="preserve">
+    <value>"完全な日時（短い時刻）</value>
+    <comment>Full Date/TIme (short time)</comment>
+  </data>
+  <data name="Getting_Started_Description_Text0" xml:space="preserve">
+    <value>これによって作成されるFlexSheetは、デフォルトの動作を行います。</value>
+    <comment>This will create a FlexSheet with default behavior.</comment>
+  </data>
+  <data name="Getting_Started_Step_Text0" xml:space="preserve">
+    <value>ComponentOne ASP.NET MVCアプリケーションテンプレートを使用して、新しいMVCプロジェクトを作成します。</value>
+    <comment>Create a new MVC project using the C1 ASP.NET MVC application template.</comment>
+  </data>
+  <data name="Getting_Started_Step_Text1" xml:space="preserve">
+    <value>プロジェクトに、コントローラおよび対応するビューを追加します。</value>
+    <comment>Add controller and corresponding view to the project.</comment>
+  </data>
+  <data name="Getting_Started_Step_Text2" xml:space="preserve">
+    <value>razor構文を使用して、ビューのFlexSheetコントロールを初期化します。</value>
+    <comment>Initialize the FlexSheet control in view using razor syntax.</comment>
+  </data>
+  <data name="Getting_Started_Step_Text3" xml:space="preserve">
+    <value>（オプション）CSSを追加して、FlexSheetコントロールの外観をカスタマイズします。</value>
+    <comment>(Optional) Add some CSS to customize the FlexSheet control's appearance.</comment>
+  </data>
+  <data name="Getting_Started_Step_Title_Text0" xml:space="preserve">
+    <value>MVCアプリケーションでFlexSheetコントロールの使用を開始する際の手順。</value>
+    <comment>Steps for getting started with the FlexSheet control in MVC applications</comment>
+  </data>
+  <data name="Getting_Started_Text0" xml:space="preserve">
+    <value>はじめに</value>
+    <comment>Getting Started</comment>
+  </data>
+  <data name="Header_Row_Text0" xml:space="preserve">
+    <value>見出し行</value>
+    <comment>Header Row</comment>
+  </data>
+  <data name="Last_Column_Text0" xml:space="preserve">
+    <value>最後の列</value>
+    <comment>Last Column</comment>
+  </data>
+  <data name="Long_Date_Text0" xml:space="preserve">
+    <value>長い日付</value>
+    <comment>Long Date</comment>
+  </data>
+  <data name="Menu_Format_Text0" xml:space="preserve">
+    <value>menu形式</value>
+    <comment>menuFormat</comment>
+  </data>
+  <data name="Merge_Text0" xml:space="preserve">
+    <value>セルの結合</value>
+    <comment>Merge</comment>
+  </data>
+  <data name="Number_Format_Text0" xml:space="preserve">
+    <value>数値形式</value>
+    <comment>Number Format</comment>
+  </data>
+  <data name="Order_Text0" xml:space="preserve">
+    <value>順序</value>
+    <comment>Order</comment>
+  </data>
+  <data name="Percentage_Format_Text0" xml:space="preserve">
+    <value>パーセンテージ形式</value>
+    <comment>Percentage Format</comment>
+  </data>
+  <data name="Project_Name_Text0" xml:space="preserve">
+    <value>FlexSheet入門</value>
+    <comment>ASP.NET MVC FlexSheet 101</comment>
+  </data>
+  <data name="Project_Short_Description_Text0" xml:space="preserve">
+    <value>このページでは、FlexSheetコントロールを使用する基本的な方法を示します。</value>
+    <comment>This page shows how to get started with ASP.Net MVC's FlexSheet control.</comment>
+  </data>
+  <data name="Result_Live_Text0" xml:space="preserve">
+    <value>結果（ライブ）</value>
+    <comment>Result (live)</comment>
+  </data>
+  <data name="Short_Date_Text0" xml:space="preserve">
+    <value>短い日付</value>
+    <comment>Short Date</comment>
+  </data>
+  <data name="Sorting_Description_Text0" xml:space="preserve">
+    <value>FlexSheetは任意の列でソートできます。</value>
+    <comment>FlexSheet can be sorted by any of its columns.</comment>
+  </data>
+  <data name="Sorting_Description_Text1" xml:space="preserve">
+    <value>&lt;b&gt;SortManager&lt;/b&gt;を使用すると、FlexSheetでソート処理を管理できます。 次の例では、SortManagerを使用して、ソート順の指定、ソート列の追加や削除、ソート列の順序の変更を行います。</value>
+    <comment>The &lt;b&gt;SortManager&lt;/b&gt; helps FlexSheet to manage the sort process. The following example uses SortManager to specify the order of the sorting, add or remove sort columns, and change the order of the sort columns.</comment>
+  </data>
+  <data name="Sorting_Text0" xml:space="preserve">
+    <value>ソート</value>
+    <comment>Sorting</comment>
+  </data>
+  <data name="Table_Description_Text2" xml:space="preserve">
+    <value>FlexSheetでは、データをテーブルにバインドすることで、データソースを含むテーブルを追加することもできます。</value>
+    <comment>FlexSheet also allows to add table with data source by binding the data to table.</comment>
+  </data>
+  <data name="Table_Description_Text0" xml:space="preserve">
+    <value>関連するデータのグループを簡単に管理および分析するために、セル範囲をテーブルに変換することができます。</value>
+    <comment>To make managing and analyzing a group of related data easier, you can turn a range of cells into a Table.</comment>
+  </data>
+  <data name="Table_Description_Text1" xml:space="preserve">
+    <value>空のテーブルを追加する場合は、Sheetのテーブルコレクションにテーブルを追加する必要があります。</value>
+    <comment>You can add an empty table by adding the Table into the tables collection of the sheet.</comment>
+  </data>  
+  <data name="Table_Style_Option_Text0" xml:space="preserve">
+    <value>テーブルスタイル</value>
+    <comment>Table Style Options</comment>
+  </data>
+  <data name="Table_Text0" xml:space="preserve">
+    <value>テーブル</value>
+    <comment>Table</comment>
+  </data>
+  <data name="Total_Row_Text0" xml:space="preserve">
+    <value>集計行</value>
+    <comment>Total Row</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text0" xml:space="preserve">
+    <value>&lt;b&gt;セルの編集&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Editing cells&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text1" xml:space="preserve">
+    <value>&lt;b&gt;行/列のサイズ変更&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Resizing row/column&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text2" xml:space="preserve">
+    <value>&lt;b&gt;行/列の追加/削除&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Adding/Removing rows/columns&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text3" xml:space="preserve">
+    <value>&lt;b&gt;セルスタイルの変更&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Changing cell style&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text4" xml:space="preserve">
+    <value>&lt;b&gt;セルの結合&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Merging cells&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text5" xml:space="preserve">
+    <value>&lt;b&gt;ソート&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Sorting&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Text6" xml:space="preserve">
+    <value>&lt;b&gt;行/列のドラッグ＆ドロップ&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Dragging and Dropping rows/columns&lt;/b&gt;</comment>
+  </data>
+  <data name="Undo_Redo_Operation_Title_Text0" xml:space="preserve">
+    <value>FlexSheetコントロールでは、次の操作を元に戻す/やり直すことができます。</value>
+    <comment>The FlexSheet control enables you to undo/redo following operations:</comment>
+  </data>
+  <data name="Undo_Redo_Text0" xml:space="preserve">
+    <value>元に戻す/やり直し</value>
+    <comment>Undo / Redo</comment>
+  </data>
+</root>

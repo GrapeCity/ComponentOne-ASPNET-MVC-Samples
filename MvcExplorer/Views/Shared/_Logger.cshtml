@@ -1,0 +1,15 @@
+﻿<div id="sampleLog">
+</div>
+<script type="text/javascript">
+    function ClientLogger() {
+
+    }
+    ClientLogger.prototype = {
+        message: function (msg) {
+            msg = "[" + new Date().toLocaleTimeString() + "] " + msg;
+            $("#sampleLog").html(msg + "<br />" + $("#sampleLog").html());
+        }
+    }
+    window.log = new ClientLogger();
+
+</script>

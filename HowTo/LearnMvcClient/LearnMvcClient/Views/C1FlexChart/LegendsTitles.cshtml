@@ -1,0 +1,37 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.LegendsTitles_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.LegendsTitles_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.LegendsTitles_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="header">@Html.Raw(Resources.C1FlexChart.LegendsTitles_Text3) </label>
+    @Html.C1().ComboBox().Id("header").ShowDropDownButton(false)
+    <br>
+    <label for="footer">@Html.Raw(Resources.C1FlexChart.LegendsTitles_Text4) </label>
+    @Html.C1().ComboBox().Id("footer").ShowDropDownButton(false)
+    <br>
+    <label for="xTitle">@Html.Raw(Resources.C1FlexChart.LegendsTitles_Text5) </label>
+    @Html.C1().ComboBox().Id("xTitle").ShowDropDownButton(false)
+    <br>
+    <label for="yTitle">@Html.Raw(Resources.C1FlexChart.LegendsTitles_Text6) </label>
+    @Html.C1().ComboBox().Id("yTitle").ShowDropDownButton(false)
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

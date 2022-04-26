@@ -1,0 +1,57 @@
+﻿@using MultiRowLOB.Localization
+@model  IEnumerable<DataService.OrderSlip>
+
+@section Scripts{
+    <script src="~/Scripts/controllers/ordersSlipCtrl.js"></script>
+}
+
+<div>
+    <h2 class="title">@Resources.OrdersSlip_Title</h2>
+
+    @(Html.C1().MultiRow<DataService.OrderSlip>()
+        .Id("ordersSlip")
+        .Bind(b => b.Bind(Model).DisableServerRead(true))
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Colspan(3).Cells(cells =>
+            {
+                cells.Add(cell=>cell.Binding("ProductId").Width("90").Header(Resources.OrdersSlip_Field_ProductId));
+                cells.Add(cell => cell.Binding("CategoryId").Width("90").Header(Resources.OrdersSlip_Field_CategoryId));
+                cells.Add(cell => cell.Binding("CategoryName").Width("90").Header(Resources.OrdersSlip_Field_Category));
+                cells.Add(cell => cell.Binding("ProductName").Header(Resources.OrdersSlip_Field_ProductName).Colspan(3));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Quantity").Width("140").Header(Resources.OrdersSlip_Field_Quantity));
+                cells.Add(cell => cell.Binding("PackageUnit").Width("140").Header(Resources.OrdersSlip_Field_PackageUnit));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("UnitPrice").Width("80").Header(Resources.OrdersSlip_Field_UnitPrice).Format("c2"));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Amount").Width("70").Header(Resources.OrdersSlip_Field_Amount).Format("c2").IsReadOnly(true));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("ShippingId").Width("100").Header(Resources.OrdersSlip_Field_ShippingId));
+                cells.Add(cell => cell.Binding("Discontinued").Width("100").Header(Resources.OrdersSlip_Field_Discontinued));
+            });
+            ld.Add().Cells(cells =>
+            {
+                cells.Add(cell => cell.Binding("Remarks").Width("280").Header(Resources.OrdersSlip_Field_Remarks));
+                cells.Add(cell => cell.Binding("Description").Width("280").Header(Resources.OrdersSlip_Field_Description));
+            });
+        })
+    )
+
+    <div class="btn-group">
+        <button class="btn btn-default" onClick="exportToExcel()">
+            @Resources.ExportXlsx
+        </button>
+        <button class="btn btn-default" onClick="exportToPDF()">
+            @Resources.ExportPDF
+        </button>
+    </div>
+</div>

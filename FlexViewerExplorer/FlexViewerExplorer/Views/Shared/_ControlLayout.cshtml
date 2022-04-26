@@ -1,0 +1,68 @@
+﻿@using FlexViewerExplorer.Models
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+    ViewBag.DocLink = "http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@section Head{
+    @RenderSection("Head", false)
+}
+
+@section Scripts{
+    @RenderSection("Scripts", false)
+}
+
+@section ContentTitle {
+<div class="title-container">
+    <div class="navigator ui-helper-clearfix">
+        <div class="home-title wide-screen">
+            <span>@Html.Raw(Resources.FlexViewer._ControlLayout_Text7) - @ReportFiles.SelectedReportTitle</span>
+        </div>
+        @Html.Partial("_ControlsMobNav")
+    </div>
+</div>
+}
+
+<div class="col-md-3 side wide-screen">
+    <div class="padder">
+        @Html.Partial("_ControlsNav")
+    </div>
+</div>
+<div class="col-md-9">
+    <div class="padder">
+        <div class="sample-title mob-show-0">
+            @ViewBag.PageText
+        </div>
+        <div id="sampleTabs">
+            <ul id="navList" class="nav nav-tabs ui-helper-clearfix mob-hide-1" role="tablist">
+                <li><a>@Html.Raw(Resources.FlexViewer._ControlLayout_Text0)</a></li>
+                <li><a>@Html.Raw(Resources.FlexViewer._ControlLayout_Text1)</a></li>
+            </ul>
+            <div id="panelList" class="tab-content">
+                <a class="mob-show-1 tab-title collapse-title" href="#">@Html.Raw(Resources.FlexViewer._ControlLayout_Text0)<span class="caret"></span></a>
+                <div class="tab-pane pane-content active collapse-panel" id="sample">
+                    <div class="demo-control">@RenderBody()</div>
+                </div>
+                <a class="mob-show-1 tab-title collapse-title" href="#">@Html.Raw(Resources.FlexViewer._ControlLayout_Text1)<span class="caret"></span></a>
+                <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                    <div class="demo-source">
+                        @Html.Partial("_DemoSource", PageSources.GetPageSources(controllerName, actionName))
+                    </div>
+                </div>
+                <div class="mob-tab-title mob-show-1"><a class="collapse-title" href=@ViewBag.DocLink target="_blank" style="text-decoration: underline;">@Html.Raw(Resources.FlexViewer._ControlLayout_Text2)</a></div>
+            </div>
+            <a id="docs" href=@ViewBag.DocLink target="_blank" style="display:none"><span class="mob-hide-1">@Html.Raw(Resources.FlexViewer._ControlLayout_Text2)</span><span class="mob-show-1">@Html.Raw(Resources.FlexViewer._ControlLayout_Text3)</span></a>
+        </div>
+
+    </div>
+</div>
+<div id="popupFullScreen" class="popup">
+    <label>@Html.Raw(Resources.FlexViewer._ControlLayout_Text4)<span class="countdown-text" id="countdownText"></span></label>
+    <div class="btn-group-popup">
+        <input class="btn btn-primary" type="button" value="@Html.Raw(Resources.FlexViewer._ControlLayout_Text5)" onclick="fullScreenViewer()" />
+        <input class="btn btn-primary" type="button" value="@Html.Raw(Resources.FlexViewer._ControlLayout_Text6)" onclick="showFullScreenPopup(false)" />
+    </div>
+</div>
+@(Html.C1().Popup("#popupFullScreen").Modal(true).HideTrigger(PopupTrigger.None))

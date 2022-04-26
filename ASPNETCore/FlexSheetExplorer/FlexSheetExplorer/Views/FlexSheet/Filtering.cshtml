@@ -1,0 +1,23 @@
+@model IEnumerable<Sale>
+
+@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/filtering.js"></script>}
+<div>
+    <div class="copy">
+<h3>@Html.Raw(FlexSheetRes.Filtering_Text2)</h3>
+
+<p>@Html.Raw(FlexSheetRes.Filtering_Text0)</p>
+
+    </div>
+    <button type="button" id="filterBtn" class="btn btn-default" onclick="showFilter()">@Html.Raw(FlexSheetRes.Filtering_Text3)</button>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="filterSheet" selected-sheet-changed="sheetChanged">
+            <c1-bound-sheet>
+                <c1-items-source source-collection="@Model"></c1-items-source>
+            </c1-bound-sheet>
+        </c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.Filtering_Text1)</p>
+
+}

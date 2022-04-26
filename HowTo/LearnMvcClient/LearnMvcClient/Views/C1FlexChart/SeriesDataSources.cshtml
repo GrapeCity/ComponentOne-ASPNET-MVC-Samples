@@ -1,0 +1,36 @@
+@using LearnMvcClient.Models
+
+@{ 
+    IEnumerable<FlexChartData.Point> points1 = ViewBag.Points1;
+    IEnumerable<FlexChartData.Point> points2 = ViewBag.Points2;
+    IEnumerable<FlexChartData.Point> points3 = ViewBag.Points3;
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.SeriesDataSources_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.SeriesDataSources_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.SeriesDataSources_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.SeriesDataSources_Text3)
+</p>
+
+<div class="demo-settings">
+    <label for="axisOrigin">@Html.Raw(Resources.C1FlexChart.SeriesDataSources_Text4)</label>
+    <input id="axisOrigin" type="checkbox">
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Scatter)
+    .AxisY(a=>a.AxisLine(true))
+    .Series(sb=>
+    {
+        sb.Add().Bind("X", "Y", points1).Name("Experiment 1");
+        sb.Add().Bind("X", "Y", points2).Name("Experiment 2");
+        sb.Add().Bind("X", "Y", points3).Name("Experiment 3");
+    })
+)

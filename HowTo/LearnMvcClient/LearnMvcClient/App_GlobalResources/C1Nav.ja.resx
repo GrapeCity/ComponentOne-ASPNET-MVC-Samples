@@ -1,0 +1,1270 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AccordionTrees_Text1" xml:space="preserve">
+    <value>アコーディオンは、一度に 1 つのパネルのみを展開したままにするマルチペインパネルです。ナビゲーションによく使用されます。</value>
+    <comment>Accordions are multi-pane panels that keep only one panel expanded
+    at a time. They are commonly used for navigation.</comment>
+  </data>
+  <data name="AccordionTrees_Text2" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールを使用してアコーディオンを実装できます。</value>
+    <comment>You can use the &lt;b&gt;TreeView&lt;/b&gt; control to implement accordions.</comment>
+  </data>
+  <data name="AccordionTrees_Text3" xml:space="preserve">
+    <value>ヘッダーの表示をカスタマイズして、折りたたみ/展開グリフを非表示にするには、CSS を使用します。アクティブでないパネルが自動的に折りたたまれるように、&lt;b&gt;autoCollapse&lt;/b&gt; プロパティは true に設定してください（デフォルト）。</value>
+    <comment>Use CSS to customize the header display and to hide the
+    collapse/expand glyphs, and make sure the &lt;b&gt;autoCollapse&lt;/b&gt;
+    property is set to true (the default), so non-active panels
+    are automatically collapsed.</comment>
+  </data>
+  <data name="AccordionTrees_Text4" xml:space="preserve">
+    <value>カスタム CSS の使用</value>
+    <comment>Use Custom CSS</comment>
+  </data>
+  <data name="AccordionTrees_Text5" xml:space="preserve">
+    <value>準備完了</value>
+    <comment>Ready</comment>
+  </data>
+  <data name="AccordionTrees_Title" xml:space="preserve">
+    <value>アコーディオンツリー</value>
+    <comment>Accordion Trees</comment>
+  </data>
+  <data name="Adding_Text1" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールにノードを追加するには、ツリーの &lt;b&gt;itemsSource&lt;/b&gt; 配列に（適切な位置に）新しいデータ項目を追加してから、&lt;b&gt;loadTree&lt;/b&gt; メソッドを呼び出してツリーを更新します。</value>
+    <comment>To add nodes to a &lt;b&gt;TreeView&lt;/b&gt; control, add a new data item
+    to the tree's &lt;b&gt;itemsSource&lt;/b&gt; array (at the proper position),
+    then refresh the tree by calling the &lt;b&gt;loadTree&lt;/b&gt; method:</comment>
+  </data>
+  <data name="Adding_Text2" xml:space="preserve">
+    <value>新しいノード：</value>
+    <comment>New Node:</comment>
+  </data>
+  <data name="Adding_Text3" xml:space="preserve">
+    <value>ノードの追加：</value>
+    <comment>Add Node:</comment>
+  </data>
+  <data name="Adding_Text4" xml:space="preserve">
+    <value>前</value>
+    <comment>Before</comment>
+  </data>
+  <data name="Adding_Text5" xml:space="preserve">
+    <value>後</value>
+    <comment>After</comment>
+  </data>
+  <data name="Adding_Text6" xml:space="preserve">
+    <value>子</value>
+    <comment>Child</comment>
+  </data>
+  <data name="Adding_Title" xml:space="preserve">
+    <value>ノードの追加</value>
+    <comment>Adding Nodes</comment>
+  </data>
+  <data name="AnotherAccordion_Text1" xml:space="preserve">
+    <value>次のコントロールはアコーディオンのように見えますが、実際は CSS と &lt;b&gt;formatItem&lt;/b&gt; イベントハンドラを使用した TreeView です。</value>
+    <comment>The control below looks like an Accordion but is really
+    a TreeView with some CSS and a &lt;b&gt;formatItem&lt;/b&gt;
+    event handler.</comment>
+  </data>
+  <data name="AnotherAccordion_Text2" xml:space="preserve">
+    <value>選択項目が自動的に展開され、他の項目は折りたたまれます。また、最上位ノードのみを選択できます。</value>
+    <comment>The tree automatically expands the selected item
+    and collapses all others, and ensures only top-level
+    nodes can be selected:</comment>
+  </data>
+  <data name="AnotherAccordion_Text3" xml:space="preserve">
+    <value>選択項目：&lt;b&gt;&lt;span id="selected"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>Selected item: &lt;b&gt;&lt;span id="selected"&gt;&lt;/span&gt;&lt;/b&gt;</comment>
+  </data>
+  <data name="AnotherAccordion_Title" xml:space="preserve">
+    <value>TreeView アコーディオン</value>
+    <comment>TreeView Accordion</comment>
+  </data>
+  <data name="Architecture_Text1" xml:space="preserve">
+    <value>TreeView は、多くの作業をブラウザの DOM に任せているため、そのアーキテクチャは極めて単純です。</value>
+    <comment>The TreeView architecture is very simple, because it
+    delegates a lot of the work to the browser's DOM.</comment>
+  </data>
+  <data name="Architecture_Text2" xml:space="preserve">
+    <value>コントロールは完全なデータ連結です。&lt;b&gt;itemsSource&lt;/b&gt; プロパティはノードを表すデータ項目の配列を定義し、（&lt;b&gt;childItemsPath&lt;/b&gt; プロパティで定義される）子要素が含まれる場合もあります。連結プロパティの 1 つが変更されると、itemsSource 配列がスキャンされ、ノードを表す DOM 要素が作成されて、DOM が生成されます。</value>
+    <comment>The control is 100% data-bound. The &lt;b&gt;itemsSource&lt;/b&gt; property
+    defines an array of data items that represent nodes and may
+    contain child elements (as defined by the &lt;b&gt;childItemsPath&lt;/b&gt;
+    property).
+    When one of the binding properties change, the control populates
+    its DOM by scanning the itemsSource array and creating DOM elements
+    to represent the nodes.</comment>
+  </data>
+  <data name="Architecture_Text3" xml:space="preserve">
+    <value>仮想化は行われません。ユーザーがコントロールをスクロールしたり、ノードの折りたたみ/展開を行っても、DOM 要素の数は一定のままです。TreeView は遅延ロードをサポートするため、これは大きな制限にはなりません。遅延ロードにより、データは、ユーザーが（ノードを展開して）要求したときにロードされます。</value>
+    <comment>There is no virtualization, so the number of DOM elements remains
+    constant as the user scrolls the control, collapses or expands nodes.
+    This is not a significant limitation since the TreeView supports
+    lazy-loading, which allows you to load data as the user requests it
+    (by expanding the nodes).</comment>
+  </data>
+  <data name="Architecture_Text4" xml:space="preserve">
+    <value>TreeView には、現在選択されている &lt;b&gt;itemsSource&lt;/b&gt; 配列内のデータ項目を取得または設定する &lt;b&gt;selectedItem&lt;/b&gt; プロパティがあります。現在の項目をラップしているツリーノードを取得または設定する &lt;b&gt;selectedNode&lt;/b&gt; プロパティもあります。&lt;b&gt;selectedNode&lt;/b&gt; プロパティを使用して、選択項目の折りたたみ、展開、または移動を行うことができます。特定のデータ項目を表すノードへの参照を取得するには、TreeView の &lt;b&gt;getNode&lt;/b&gt; メソッドを使用します。</value>
+    <comment>The TreeView has a &lt;b&gt;selectedItem&lt;/b&gt; property that gets or sets
+    the data item in the &lt;b&gt;itemsSource&lt;/b&gt; array that is currently selected.
+    It also has a &lt;b&gt;selectedNode&lt;/b&gt; property that gets or sets the tree
+    node that wraps the current item. You can use the &lt;b&gt;selectedNode&lt;/b&gt;
+    property to collapse, expand, or move the selection.
+    You use the TreeView's &lt;b&gt;getNode&lt;/b&gt; method to get a reference to
+    the node that represents a given data item.</comment>
+  </data>
+  <data name="Architecture_Text5" xml:space="preserve">
+    <value>ツリーを変更するには、通常は &lt;b&gt;itemsSource&lt;/b&gt; 配列を変更し、&lt;b&gt;loadTree&lt;/b&gt; メソッドを呼び出してノードを再生成します。次の例は、さまざまなサイズのソースに連結された場合の TreeView のパフォーマンスを示します。</value>
+    <comment>To change the tree, you will normally change the &lt;b&gt;itemsSource&lt;/b&gt;
+    array and call the &lt;b&gt;loadTree&lt;/b&gt; method to re-generate the nodes.
+    The example below shows the performance of the TreeView when binding
+    to sources of different sizes:</comment>
+  </data>
+  <data name="Architecture_Text6" xml:space="preserve">
+    <value>レベル：</value>
+    <comment>Levels:</comment>
+  </data>
+  <data name="Architecture_Text7" xml:space="preserve">
+    <value>ノード/レベル：</value>
+    <comment>Nodes/Level:</comment>
+  </data>
+  <data name="Architecture_Text8" xml:space="preserve">
+    <value>ツリーの連結</value>
+    <comment>Bind Tree</comment>
+  </data>
+  <data name="Architecture_Title" xml:space="preserve">
+    <value>TreeView のアーキテクチャ</value>
+    <comment>TreeView Architecture</comment>
+  </data>
+  <data name="AutoGridLayout_Text1" xml:space="preserve">
+    <value>自動グリッドレイアウトは、その名前が示すように、自動的にタイルを表形式に配置します。自動グリッドレイアウトは、&lt;b&gt;orientation&lt;/b&gt;プロパティで指定された方向にレンダリングされるグループで構成されます。このプロパティは、各グループが展開される方向も定義します。また、&lt;b&gt;maxRowsOrCols&lt;/b&gt;プロパティを使用して、水平方向または垂直方向の各グループに含めることができる最大行数または最大列数を定義することもできます。</value>
+    <comment>Auto grid layout, as the name suggests, arranges the tiles in the tabular form automatically. An auto grid layout consists of groups which are rendered in the direction specified by the &lt;b&gt;orientation&lt;/b&gt; property. The property also defines the direction in which each group expands. You can also define the maximum number of rows or columns that each group can have in horizontal or vertical orientation respectively using &lt;b&gt;maxRowsOrCols&lt;/b&gt; property.</comment>
+  </data>
+  <data name="AutoGridLayout_Text2" xml:space="preserve">
+    <value>たとえば、orientationが水平に設定されている場合は、最大行数に達するまで、1行方ずつタイルが追加されます。最大行数に達すると、レイアウトが水平方向に拡張し始め、新しい列が順に追加されます。水平方向に追加できる列数に制限はありません。</value>
+    <comment>For instance, when orientation is set to horizontal, tiles are added row-wise until the maximum row count is reached. Once that limit is reached, the layout starts expanding horizontally by adding new columns one after the other. There is no limit to the number of columns that can be added in the horizontal orientation.</comment>
+  </data>
+  <data name="AutoGridLayout_Text3" xml:space="preserve">
+    <value>自動グリッドレイアウトは、セルの結合もサポートします。それには、デザイナでタイルの&lt;b&gt;rowSpan&lt;/b&gt;プロパティと&lt;b&gt;columnSpan&lt;/b&gt;プロパティを使用して、複数の行または列をまとめます。</value>
+    <comment>The auto grid layout also supports cell merging by spanning rows or columns through &lt;b&gt;rowSpan&lt;/b&gt; and &lt;b&gt;columnSpan&lt;/b&gt; properties of the tile  available in the designer.</comment>
+  </data>
+  <data name="AutoGridLayout_Text4" xml:space="preserve">
+    <value>このレイアウトでは、DashboardLayoutコントロールにタイルが自動的に配置されます。テーブル内の各セルには、複数のコントロールを含めることができ、これらのコントロールは、グループオブジェクトを使用してグループ化することができます。</value>
+    <comment>The layout automatically positions the tiles in the DashboardLayout control. Each cell in the table can contain multiple controls, and these controls can be grouped together with the help of the group object.</comment>
+  </data>
+  <data name="AutoGridLayout_Title" xml:space="preserve">
+    <value>自動グリッドレイアウト</value>
+    <comment>Auto Grid Layout</comment>
+  </data>
+  <data name="BetweenTrees_Text1" xml:space="preserve">
+    <value>&lt;b&gt;allowDrag&lt;/b&gt; プロパティを true に設定すると、同じ &lt;b&gt;TreeView&lt;/b&gt; 内でノードのドラッグアンドドロップを行うことができます。</value>
+    <comment>Setting the &lt;b&gt;allowDrag&lt;/b&gt; property to true allows users
+    to drag and drop nodes within the same &lt;b&gt;TreeView&lt;/b&gt;.</comment>
+  </data>
+  <data name="BetweenTrees_Text2" xml:space="preserve">
+    <value>異なる &lt;b&gt;TreeView&lt;/b&gt; コントロールの間でノードのドラッグアンドドロップを可能にするには、&lt;b&gt;dragOver&lt;/b&gt; イベントを処理して、操作が無効な場合は &lt;b&gt;cancel&lt;/b&gt; パラメータを true に設定し、有効な場合は false に設定します。</value>
+    <comment>To allow dragging and dropping nodes between different
+    &lt;b&gt;TreeView&lt;/b&gt; controls, you must handle the &lt;b&gt;dragOver&lt;/b&gt;
+    event and set the &lt;b&gt;cancel&lt;/b&gt; parameter to true if
+    the operation is invalid, or to false if it is valid.</comment>
+  </data>
+  <data name="BetweenTrees_Text3" xml:space="preserve">
+    <value>ツリー内でドラッグを許可する</value>
+    <comment>allow dragging within trees</comment>
+  </data>
+  <data name="BetweenTrees_Text4" xml:space="preserve">
+    <value>ツリー間でドラッグを許可する</value>
+    <comment>allow dragging between trees</comment>
+  </data>
+  <data name="BetweenTrees_Title" xml:space="preserve">
+    <value>ツリー間のドラッグアンドドロップ</value>
+    <comment>Drag and Drop Between Trees</comment>
+  </data>
+  <data name="Changing_Text1" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; 配列内の項目を変更した後にノードを更新するには、TreeView の &lt;b&gt;loadTree&lt;/b&gt; メソッドを呼び出します。これによってツリーが更新され、現在選択されているノードが表示されます。</value>
+    <comment>To refresh nodes after making changes to the items in the
+    &lt;b&gt;itemsSource&lt;/b&gt; array, you may call the TreeView's
+    &lt;b&gt;loadTree&lt;/b&gt; method. This will update the tree and
+    will ensure the currently selected node is visible.</comment>
+  </data>
+  <data name="Changing_Text2" xml:space="preserve">
+    <value>ただし、1 つのノードのコンテンツを更新する場合は、ツリー全体を再ロードするのではなく、そのノード要素を直接変更する方が効率的です。</value>
+    <comment>If you want to refresh the content of a single node,
+    however, it may be more efficient to change the node
+    element directly without reloading the whole tree.</comment>
+  </data>
+  <data name="Changing_Text3" xml:space="preserve">
+    <value>次のボタンは、この両方の方法を示します。</value>
+    <comment>The buttons below show both approaches:</comment>
+  </data>
+  <data name="Changing_Text4" xml:space="preserve">
+    <value>TreeView の変更と再ロード</value>
+    <comment>Change and reload the TreeView</comment>
+  </data>
+  <data name="Changing_Text5" xml:space="preserve">
+    <value>TreeNode の変更と更新</value>
+    <comment>Change and update the TreeNode</comment>
+  </data>
+  <data name="Changing_Title" xml:space="preserve">
+    <value>ノードの更新</value>
+    <comment>Refreshing Nodes</comment>
+  </data>
+  <data name="Checkboxes_Text1" xml:space="preserve">
+    <value>&lt;b&gt;showCheckboxes&lt;/b&gt; プロパティを true に設定すると、TreeView の各ノードにチェックボックスが追加されます。</value>
+    <comment>Set the &lt;b&gt;showCheckboxes&lt;/b&gt; property to true and the TreeView will
+    add checkboxes to each node.</comment>
+  </data>
+  <data name="Checkboxes_Text2" xml:space="preserve">
+    <value>チェックボックスが表示されると、TreeView がその階層を管理します。チェックボックスがオンまたはオフにされると、新しい値がすべての子ノードに自動的に適用され、また親ノードの状態に反映されます。</value>
+    <comment>When checkboxes are displayed, the TreeView manages their
+    hierarchy so that when a checkbox is checked or cleared, the new
+    value is automatically applied to all child nodes, and reflected
+    on the state of the parent nodes.</comment>
+  </data>
+  <data name="Checkboxes_Text3" xml:space="preserve">
+    <value>項目をオンまたはオフにすると、&lt;b&gt;checkedItemsChanged&lt;/b&gt; イベントが生成され、&lt;b&gt;checkedItems&lt;/b&gt; プロパティに含まれる現在オンの項目のリストが更新されます。</value>
+    <comment>When items are checked or unchecked, the &lt;b&gt;checkedItemsChanged&lt;/b&gt;
+    event is raised, and the &lt;b&gt;checkedItems&lt;/b&gt; property is updated
+    with a list of the items that are currently checked:</comment>
+  </data>
+  <data name="Checkboxes_Text4" xml:space="preserve">
+    <value>すべてオン</value>
+    <comment>Check All</comment>
+  </data>
+  <data name="Checkboxes_Text5" xml:space="preserve">
+    <value>すべてオフ</value>
+    <comment>Uncheck All</comment>
+  </data>
+  <data name="Checkboxes_Text6" xml:space="preserve">
+    <value>状態の保存</value>
+    <comment>Save State</comment>
+  </data>
+  <data name="Checkboxes_Text7" xml:space="preserve">
+    <value>状態の復元</value>
+    <comment>Restore State</comment>
+  </data>
+  <data name="Checkboxes_Title" xml:space="preserve">
+    <value>ノードのチェックボックス</value>
+    <comment>Node Checkboxes</comment>
+  </data>
+  <data name="ContextMenus_Text1" xml:space="preserve">
+    <value>次の TreeView には、カスタムコンテキストメニューがあります。ツリーを右クリックして表示してください。</value>
+    <comment>The TreeView below has a custom context menu.
+    Right-click the tree to see it:</comment>
+  </data>
+  <data name="ContextMenus_Text2" xml:space="preserve">
+    <value>オプション 1</value>
+    <comment>Option 1</comment>
+  </data>
+  <data name="ContextMenus_Text3" xml:space="preserve">
+    <value>オプション 2</value>
+    <comment>Option 2</comment>
+  </data>
+  <data name="ContextMenus_Text4" xml:space="preserve">
+    <value>オプション 3</value>
+    <comment>Option 3</comment>
+  </data>
+  <data name="ContextMenus_Text5" xml:space="preserve">
+    <value>オプション 4</value>
+    <comment>Option 4</comment>
+  </data>
+  <data name="ContextMenus_Title" xml:space="preserve">
+    <value>コンテキストメニューを持つ TreeView</value>
+    <comment>TreeView with Context Menu</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text1" xml:space="preserve">
+    <value>HTML マークアップではなくプログラムを使用して TabPanel コントロールにタブを追加したい場合があります。</value>
+    <comment>In some cases, you may want to add tabs to a TabPanel control programmatically rather than using HTML markup.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text2" xml:space="preserve">
+    <value>それには、TabPanel 内のタブのコレクションへのアクセスを提供する &lt;b&gt;tabs&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can do this using the &lt;b&gt;tabs&lt;/b&gt; property, which provides access to the collection of tabs in the TabPanel.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Text3" xml:space="preserve">
+    <value>&lt;b&gt;tabs&lt;/b&gt; プロパティを使用して、TabPanel 内のタブの削除、変更、または並べ替えを行うこともできます。</value>
+    <comment>You can also use the &lt;b&gt;tabs&lt;/b&gt; property to remove, modify, or reorder the tabs within the TabPanel.</comment>
+  </data>
+  <data name="CreatingProgrammatically_Title" xml:space="preserve">
+    <value>コードによるTabPanelの作成</value>
+    <comment>Creating TabPanels In Code</comment>
+  </data>
+  <data name="CustomContent_Text1" xml:space="preserve">
+    <value>TreeView ノードのコンテンツは、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用してカスタマイズすることができます。イベントハンドラのパラメータには、ノードとレンダリングされるデータ項目を表す要素が含まれます。</value>
+    <comment>You can customize the content of the TreeView nodes using the &lt;b&gt;formatItem&lt;/b&gt;
+    event. The event handler parameters include the element that represents the node
+    and the data item being rendered.</comment>
+  </data>
+  <data name="CustomContent_Text2" xml:space="preserve">
+    <value>次の例では &lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、ツリーの新しい項目の右に「New」バッジを追加します。</value>
+    <comment>The example below uses the &lt;b&gt;formatItem&lt;/b&gt; event to add a "new" badge to the
+    right of new items on the tree.</comment>
+  </data>
+  <data name="CustomContent_Title" xml:space="preserve">
+    <value>カスタムノードコンテンツ</value>
+    <comment>Custom Node Content</comment>
+  </data>
+  <data name="CustomTile_Text1" xml:space="preserve">
+    <value>DashboardLayoutコントロールでは、タイルをカスタマイズできます。タイルには、ヘッダー、ツールバー、コンテンツの3つの領域があります。これらの領域はすべて、このイベントを使用してカスタマイズできます。関連するDOM要素またはオブジェクトは、イベント引数headerElement、toolbar、およびcontentElementで取得できます。これらの領域は、&lt;b&gt;formatTile&lt;/b&gt;イベントによってカスタマイズできます。</value>
+    <comment>The tile could be customized in the DashboardLayout control. For a tile, there are three areas: Header, Toolbar and Content. All these areas can be customized via this event. The related dom elements or objects can be obtained in the event argument: headerElement, toolbar and contentElement. You can customize these areas by the &lt;b&gt;formatTile&lt;/b&gt; event.</comment>
+  </data>
+  <data name="CustomTile_Title" xml:space="preserve">
+    <value>カスタムタイル</value>
+    <comment>Custom Tile</comment>
+  </data>
+  <data name="DashboardLayouts_Text1" xml:space="preserve">
+    <value>&lt;b&gt;DashboardLayout&lt;/b&gt;では、フロー、自動グリッド、手動グリッド、スプリットという4種類のレイアウトが提供されています。これらのレイアウトは、DashboardLayoutコントロール内にタイルを配置するさまざまな方法を指定します。画面の要件に適したレイアウトを選択できることは、このコントロールの中核となる機能です。</value>
+    <comment>&lt;b&gt;DashboardLayout&lt;/b&gt; provides four types of layouts, namely Flow, AutoGrid, ManualGrid and Split. These layouts specify the arrangement of the tiles in different ways on the DashboardLayout control. Being able to choose layouts that fits screen requirements is the core feature of the control.</comment>
+  </data>
+  <data name="DashboardLayouts_Title" xml:space="preserve">
+    <value>さまざまなレイアウト</value>
+    <comment>Different layouts</comment>
+  </data>
+  <data name="DashboardLayout_Text1" xml:space="preserve">
+    <value>&lt;b&gt;DashboardLayout&lt;/b&gt;は、対話式のデータ視覚化のために動的なダッシュボードを作成することができるレイアウトコントロールです。このコントロールを使用し、さまざまなレイアウトで、画像、グリッド、チャート、マップなどを活用して、データを集約した形式に整理し、提示できます。これにより、提示された情報を簡単に監視できます。</value>
+    <comment>&lt;b&gt;DashboardLayout&lt;/b&gt; is a layout control that allows you to create dynamic dashboards for interactive data visualization. It allows you to organize and present data in a consolidated form with the help of images, grids, charts, maps, etc in different layouts. This makes it easy for you to monitor the presented information.</comment>
+  </data>
+  <data name="DashboardLayout_Text2" xml:space="preserve">
+    <value>&lt;b&gt;DashboardLayout&lt;/b&gt;コントロールは、タイル（子コンテナ）内にコントロールを動的に配置できるコンテナです。子コンテナは、DashboardLayoutコントロールでサポートされている4種類のレイアウト（フローレイアウト、自動グリッドレイアウト、手動グリッドレイアウト、スプリットレイアウト）を使用して配置できます。DashboardLayoutレイアウトに適切なレイアウトをアタッチすることで、特定のレイアウトを実現できます。このコントロールでは、実行時にこれらの子コンテナのサイズや配置を変更して、理想的な作業領域を作成できます。</value>
+    <comment>The &lt;b&gt;DashboardLayout&lt;/b&gt; control acts as a container which lets you dynamically place controls within tiles also called child containers. These child containers can be arranged in four different types of layouts supported by the DashboardLayout control i.e. Flow, AutoGrid, ManualGrid and Split. The appropriate layout is attached to the DashboardLayout control to achieve the specific layout. The control lets you resize and rearrange these child containers at runtime to create an ideal workspace.</comment>
+  </data>
+  <data name="DashboardLayout_Text3" xml:space="preserve">
+    <value>画面の要件に適したレイアウトを選択できることは、このコントロールの中核となる機能です。コントロールには、このほかに、ドラッグアンドドロップ、最大化と復元、レイアウトの保存とロードなどの機能が組み込まれています。</value>
+    <comment>Being able to choose layouts that fits screen requirements is the core feature of the control. Other built-in features include drag and drop, maximize and restore, and save and load layouts.</comment>
+  </data>
+  <data name="DashboardLayout_Title" xml:space="preserve">
+    <value>DashboardLayoutの概念</value>
+    <comment>DashboardLayout Concepts</comment>
+  </data>
+  <data name="Disabling_Text1" xml:space="preserve">
+    <value>&lt;b&gt;TreeNode&lt;/b&gt; の &lt;b&gt;isDisabled&lt;/b&gt; プロパティを使用すると、ノードを無効にすることができます。</value>
+    <comment>You can disable nodes using the &lt;b&gt;TreeNode&lt;/b&gt;'s &lt;b&gt;isDisabled&lt;/b&gt;
+    property.</comment>
+  </data>
+  <data name="Disabling_Text2" xml:space="preserve">
+    <value>無効にされたノードは、マウスまたはキーボードを使用して選択することができません。</value>
+    <comment>Disabled nodes cannot be selected using the mouse or keyboard.</comment>
+  </data>
+  <data name="Disabling_Text3" xml:space="preserve">
+    <value>選択したノードを無効にする</value>
+    <comment>Disable Selected Node</comment>
+  </data>
+  <data name="Disabling_Text4" xml:space="preserve">
+    <value>すべてのノードを有効にする</value>
+    <comment>Enable All Nodes</comment>
+  </data>
+  <data name="Disabling_Title" xml:space="preserve">
+    <value>無効のノード</value>
+    <comment>Disabled Nodes</comment>
+  </data>
+  <data name="DragDrop_Text1" xml:space="preserve">
+    <value>&lt;b&gt;allowDragging&lt;/b&gt; プロパティを true に設定すると、&lt;b&gt;TreeView&lt;/b&gt; 内でノードを新しい位置にドラッグすることができます。</value>
+    <comment>Set the &lt;b&gt;allowDragging&lt;/b&gt; property to true to allow users
+    to drag nodes to new positions within the &lt;b&gt;TreeView&lt;/b&gt;.</comment>
+  </data>
+  <data name="DragDrop_Text10" xml:space="preserve">
+    <value>空のノードへのドロップを許可する</value>
+    <comment>allow dropping into empty nodes</comment>
+  </data>
+  <data name="DragDrop_Text2" xml:space="preserve">
+    <value>ドラッグが許可されると、ツリー内の任意のノードを任意の位置にドラッグできます。具体的には、他のノードの上、下、または中（子となる）にノードをドラッグできます。</value>
+    <comment>When dragging is allowed, users may drag any node to any position
+    within the tree. Specifically, nodes can be dragged to a position
+    above, below, or into (as a child of) other nodes.</comment>
+  </data>
+  <data name="DragDrop_Text3" xml:space="preserve">
+    <value>この動作は、&lt;b&gt;TreeView&lt;/b&gt; のドラッグイベントとドロップイベントを処理することでカスタマイズできます。</value>
+    <comment>You can customize this behavior by handling the &lt;b&gt;TreeView&lt;/b&gt;
+    drag/drop events:</comment>
+  </data>
+  <data name="DragDrop_Text4" xml:space="preserve">
+    <value>&lt;b&gt;dragStart：&lt;/b&gt;ドラッグまたはドロップ操作を開始しようとしたときに発生します。イベントの &lt;b&gt;cancel&lt;/b&gt; パラメータを true に設定することで、ドラッグしようとしているノードを調べて操作をキャンセルすることができます。</value>
+    <comment>&lt;b&gt;dragStart:&lt;/b&gt; Occurs when a drag/drop operation is about to start.
+        You may examine the node about to be dragged and cancel the operation
+        by setting the event's &lt;b&gt;cancel&lt;/b&gt; parameter to true.</comment>
+  </data>
+  <data name="DragDrop_Text5" xml:space="preserve">
+    <value>&lt;b&gt;dragOver：&lt;/b&gt;ノードをツリーの他のノード上にドラッグしているときに発生します。現在のターゲットノードとドロップ位置を調べ、イベントの &lt;b&gt;cancel&lt;/b&gt; パラメータと &lt;b&gt;position&lt;/b&gt; パラメータを設定することで、ドロップできないようにしたり、場所を変更することができます。</value>
+    <comment>&lt;b&gt;dragOver:&lt;/b&gt; Occurs while the user drags the node over other nodes
+        on the tree. You may examine the current target node and drop position
+        and prevent the drop or modify its location setting the event's
+        &lt;b&gt;cancel&lt;/b&gt; and &lt;b&gt;position&lt;/b&gt; parameters.</comment>
+  </data>
+  <data name="DragDrop_Text6" xml:space="preserve">
+    <value>&lt;b&gt;drop：&lt;/b&gt;ノードを別の場所にドロップしたときに発生します。現在のターゲットノードとドロップ位置を調べ、イベントの &lt;b&gt;cancel&lt;/b&gt; パラメータと &lt;b&gt;position&lt;/b&gt; パラメータを設定することで、ドロップできないようにしたり、場所を変更することができます。</value>
+    <comment>&lt;b&gt;drop:&lt;/b&gt; Occurs when the user drops the node into its new location.
+        You may examine the current target node and drop position and
+        prevent the drop or modify its location setting the event's
+        &lt;b&gt;cancel&lt;/b&gt; and &lt;b&gt;position&lt;/b&gt; parameters.</comment>
+  </data>
+  <data name="DragDrop_Text7" xml:space="preserve">
+    <value>&lt;b&gt;dragEnd：&lt;/b&gt;ドラッグ/ドロップ操作が終了した後に、操作がキャンセルされたりソースノードが移動されなかった場合でも、発生します。</value>
+    <comment>&lt;b&gt;dragEnd:&lt;/b&gt; Occurs after the drag/drop operation is finished,
+        even if it was canceled and the source node was not moved.</comment>
+  </data>
+  <data name="DragDrop_Text8" xml:space="preserve">
+    <value>ドラッグを許可する</value>
+    <comment>allow dragging</comment>
+  </data>
+  <data name="DragDrop_Text9" xml:space="preserve">
+    <value>親ノードのドラッグを許可する</value>
+    <comment>allow dragging parent nodes</comment>
+  </data>
+  <data name="DragDrop_Title" xml:space="preserve">
+    <value>ドラッグアンドドロップ</value>
+    <comment>Drag and Drop</comment>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールは編集がサポートされています。&lt;b&gt;isReadOnly&lt;/b&gt; プロパティを false に設定すると、［F2］キーを押してノードのコンテンツを編集することができます。</value>
+    <comment>The &lt;b&gt;TreeView&lt;/b&gt; control provides editing support. Set the
+    &lt;b&gt;isReadOnly&lt;/b&gt; property to false and users will be able to
+    edit the content of the nodes by pressing the F2 key.</comment>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>ノードのコンテンツに行われた編集は、&lt;b&gt;displayMemberPath&lt;/b&gt; プロパティによって指定されたプロパティを使用して、&lt;b&gt;itemsSource&lt;/b&gt; 配列内の項目に自動的に適用されます。</value>
+    <comment>Edits made to node contents are automatically applied to the
+    items in the &lt;b&gt;itemsSource&lt;/b&gt; array using the properties
+    specified by the &lt;b&gt;displayMemberPath&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>編集の動作は、&lt;b&gt;nodeEditStarting&lt;/b&gt;、&lt;b&gt;nodeEditStarted&lt;/b&gt;、&lt;b&gt;nodeEditEnding&lt;/b&gt;、&lt;b&gt;nodeEditEnded&lt;/b&gt; の各イベントを使用してカスタマイズすることができます。</value>
+    <comment>You may customize the editing behavior using the following events:
+    &lt;b&gt;nodeEditStarting&lt;/b&gt;, &lt;b&gt;nodeEditStarted&lt;/b&gt;,
+    &lt;b&gt;nodeEditEnding&lt;/b&gt;, and &lt;b&gt;nodeEditEnded&lt;/b&gt;.</comment>
+  </data>
+  <data name="Editing_Text4" xml:space="preserve">
+    <value>次の例では、子を持たないノードに対してのみ編集を有効にします。編集するには、ノードを選択し、［F2］キーを押します。</value>
+    <comment>In the example below, we enable editing only for nodes that
+    contain no children. To edit, select a node and press F2:</comment>
+  </data>
+  <data name="Editing_Title" xml:space="preserve">
+    <value>ノードの編集</value>
+    <comment>Editing Nodes</comment>
+  </data>
+  <data name="FlowLayout_Text1" xml:space="preserve">
+    <value>DashboardLayoutコントロールにフローレイアウトを適用すると、子コンテナがdirectionプロパティに基づいて行または列に配置されます。デフォルトでは、項目のフローがコントロールの端で折り返され、1つの列/行が終わると、自動的に次の列/行が開始されます。</value>
+    <comment>When the flow layout is applied in the DashboardLayout control, it arranges child containers into either rows or columns, per the direction property. By default, the flow of items is wrapped at the control's edge, so when one column/row ends, another one automatically starts.</comment>
+  </data>
+  <data name="FlowLayout_Title" xml:space="preserve">
+    <value>フローレイアウト</value>
+    <comment>Flow Layout</comment>
+  </data>
+  <data name="HeterogeneousData_Text1" xml:space="preserve">
+    <value>ほとんどの TreeView アプリケーションでは、&lt;b&gt;displayMemberPath&lt;/b&gt; プロパティと &lt;b&gt;childItemsPath&lt;/b&gt; プロパティに、ノードに表示する必要があるプロパティの名前と子項目が含まれるプロパティの名前を定義する文字列を設定します（これらのプロパティのデフォルト値は「header」と「items」です）。</value>
+    <comment>In most TreeView applications, the &lt;b&gt;displayMemberPath&lt;/b&gt;
+    and &lt;b&gt;childItemsPath&lt;/b&gt; properties are set to strings that
+    define the name of the property that should be displayed on
+    the nodes and the name of the property that contains child
+    items (the default values for these properties are 'header'
+    and 'items').</comment>
+  </data>
+  <data name="HeterogeneousData_Text2" xml:space="preserve">
+    <value>ただし、これらの連結プロパティの名前がデータの階層レベルによって異なるアプリケーションもあります。このような場合は、どちらのプロパティにも名前の配列を使用できます。</value>
+    <comment>In some applications, however, the names of these binding
+    properties depends on the hierarchical level of the data.
+    In these cases, you can use an array of names for either
+    property.</comment>
+  </data>
+  <data name="HeterogeneousData_Text3" xml:space="preserve">
+    <value>次のツリーは、「continent」項目のリストに連結されていますが、その各項目は「countries」メンバを持ち、そのメンバは「country」項目のリストを保持し、その各項目は「cities」メンバを持ちます。</value>
+    <comment>The tree below is bound to a list of 'continent' items,
+    each with a 'countries' member that contains a list of
+    'country' items with a 'cities' member:</comment>
+  </data>
+  <data name="HeterogeneousData_Title" xml:space="preserve">
+    <value>異種データ</value>
+    <comment>Heterogeneous Data</comment>
+  </data>
+  <data name="Images_Text1" xml:space="preserve">
+    <value>&lt;b&gt;imageMemberPath&lt;/b&gt; プロパティを使用して、画像 URL を含むデータ項目のプロパティの名前を指定することで、ノードに画像を追加します。</value>
+    <comment>Use the &lt;b&gt;imageMemberPath&lt;/b&gt; property to add images to nodes
+    by specifying the name of a property on the data items that
+    contains an image URL.</comment>
+  </data>
+  <data name="Images_Text2" xml:space="preserve">
+    <value>たとえば、次のサンプル配列項目のいくつかは、"Image" プロパティが画像 URL に設定されています。</value>
+    <comment>For example, some our sample items array have an "Image" property
+    set to image URLs:</comment>
+  </data>
+  <data name="Images_Title" xml:space="preserve">
+    <value>ノードの画像</value>
+    <comment>Node Images</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールは、階層化データを表示します。このコントロールを使用して、ノードの折りたたみ/展開、項目の選択、データのロード/検索/編集を行うことができます。また、必要に応じて、ドラッグアンドドロップジェスチャを使用して項目を再構成できます。</value>
+    <comment>The &lt;b&gt;TreeView&lt;/b&gt; control shows hierarchical data. It enables
+    users to collapse or expand nodes, select items, load, search,
+    and edit data, and to use drag and drop gestures to re-organize
+    the items if needed.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールを使用するには、通常は次の 3 つのプロパティを使用します。</value>
+    <comment>To use the &lt;b&gt;TreeView&lt;/b&gt; control, you will normally use the
+    following three properties:</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; は、階層化データを含む配列を定義します。配列の各項目には、ノードおよび（オプションで）子ノードの配列に関する情報が含まれます。</value>
+    <comment>&lt;b&gt;itemsSource&lt;/b&gt; defines the array that contains the hierarchical data.
+        Each item in the array contains information about a node and (optionally)
+        an array of child nodes.</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>&lt;b&gt;displayMemberPath&lt;/b&gt; は、ツリーノードに表示されるテキストを含む、項目内のプロパティの名前を定義します。デフォルトでは、このプロパティは文字列「header」に設定されています。</value>
+    <comment>&lt;b&gt;displayMemberPath&lt;/b&gt; defines the name of the property in the items
+        that contains the text to be displayed in the tree nodes. By default,
+        this property is set to the string 'header'.</comment>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>&lt;b&gt;childItemsPath&lt;/b&gt; は、子ノードの配列を含む、項目内のプロパティの名前を定義します。デフォルトでは、このプロパティは文字列「items」に設定されています。</value>
+    <comment>&lt;b&gt;childItemsPath&lt;/b&gt; defines the name of the property in the items that
+        contains the array of child nodes. By default, this property is set to the
+        string 'items'.</comment>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>ツリーを設定したら、&lt;b&gt;itemClicked&lt;/b&gt; イベントまたは &lt;b&gt;selectedItemChanged&lt;/b&gt; イベントを使用してユーザー アクションを追跡し、&lt;b&gt;selectedItem&lt;/b&gt; プロパティを使用してそれらを処理します。</value>
+    <comment>Once the tree is set up, use the &lt;b&gt;itemClicked&lt;/b&gt; or
+    &lt;b&gt;selectedItemChanged&lt;/b&gt; events to track user actions and handle them
+    with the &lt;b&gt;selectedItem&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>たとえば、次の &lt;b&gt;TreeView&lt;/b&gt; は製品の階層リストを表示します。折りたたみアイコンをクリックするか、ノードを選択している場合は右矢印キーを押して、ノードを展開することができます。</value>
+    <comment>For example, the &lt;b&gt;TreeView&lt;/b&gt; below shows a hierarchical list of
+    products. Users may expand nodes by clicking the collapsed icons,
+    or by pressing the right-arrow key when a node is selected.</comment>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>ComponentOne MVC TreeView</value>
+    <comment>C1 MVC TreeView</comment>
+  </data>
+  <data name="InitialState_Text1" xml:space="preserve">
+    <value>TreeView をデータに連結すると、デフォルトでは、各レベルの最初のノードが展開され、その他のすべてが折りたたまれます。</value>
+    <comment>By default, the TreeView expands the first node at each
+    level and collapsed all others when it is bound to some
+    data:</comment>
+  </data>
+  <data name="InitialState_Text2" xml:space="preserve">
+    <value>ツリーをロードするときに項目を選択すると、必要に応じてツリーが展開およびスクロールされて、選択したノードが自動的に表示されます。次の例では、［ソーラーパネル］項目を選択しました。</value>
+    <comment>If you select an item when the tree loads, it will
+    automatically ensure the selected node is visible,
+    expanding the tree and scrolling as needed.
+    In this case, we selected the 'Solar Panel' item:</comment>
+  </data>
+  <data name="InitialState_Text3" xml:space="preserve">
+    <value>ツリーをロードするときに、特定のレベルに折りたたむ/展開するには、&lt;b&gt;collapseToLevel&lt;/b&gt; メソッドを使用します。たとえば、次の 2 つは、最初に全体が折りたたまれたツリーおよび全体が展開されたツリーです。</value>
+    <comment>Use the &lt;b&gt;collapseToLevel&lt;/b&gt; method to collapse or expand
+    the tree to a given level when it loads. For example, the
+    trees below start totally collapsed and totally expanded:</comment>
+  </data>
+  <data name="InitialState_Title" xml:space="preserve">
+    <value>初期状態</value>
+    <comment>Initial State</comment>
+  </data>
+  <data name="InitialState_Title1" xml:space="preserve">
+    <value>デフォルト項目の選択</value>
+    <comment>Selecting a default item</comment>
+  </data>
+  <data name="InitialState_Title2" xml:space="preserve">
+    <value>特定のレベルへの折りたたみ</value>
+    <comment>Collapsing to a given Level</comment>
+  </data>
+  <data name="LazyLoading_Text1" xml:space="preserve">
+    <value>大きな階層化データソースを扱う場合、データセット全体を一度にロードする際の遅延を避けるには、遅延ロードが役立ちます。</value>
+    <comment>Lazy loading is useful when you are dealing with large hierarchical
+    data sources and would like to avoid the delays involved in loading
+    the entire data set at once.</comment>
+  </data>
+  <data name="LazyLoading_Text2" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールは遅延ロードを極めて容易にしています。必要なのは、次の 2 ステップだけです。</value>
+    <comment>The &lt;b&gt;TreeView&lt;/b&gt; control makes lazy-loading super easy. Only two
+    steps are required:</comment>
+  </data>
+  <data name="LazyLoading_Text3" xml:space="preserve">
+    <value>親ノードデータ項目の &lt;b&gt;items&lt;/b&gt; プロパティを空の配列に設定します。</value>
+    <comment>Set the &lt;b&gt;items&lt;/b&gt; property in the parent node data item to an
+        empty array.</comment>
+  </data>
+  <data name="LazyLoading_Text4" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; の &lt;b&gt;lazyLoadFunction&lt;/b&gt; プロパティに、ノードを展開したときに呼び出される関数を設定します。この関数は、2 つのパラメータとして、親ノードと、データが利用可能になったときに呼び出されるコールバック関数を受け取ります。</value>
+    <comment>Set the &lt;b&gt;TreeView's&lt;/b&gt; &lt;b&gt;lazyLoadFunction&lt;/b&gt; property to a
+        function to be called when the user expands the node. This function
+        takes two parameters: the parent node and a callback function to be
+        invoked when the data becomes available.</comment>
+  </data>
+  <data name="LazyLoading_Text5" xml:space="preserve">
+    <value>次の例のツリーでは、最初に 3 つの遅延ロードノードが表示されます。ノードを展開すると、&lt;b&gt;lazyLoadFunction&lt;/b&gt; が呼び出されます。この関数は、タイムアウトを使用して http の遅延をシミュレーションし、3 つの子ノードのデータを返します。その子ノードの 1 つも遅延ロードされます。</value>
+    <comment>The tree in example below starts with three lazy-loaded nodes.
+    When you expand them, the &lt;b&gt;lazyLoadFunction&lt;/b&gt; is invoked.
+    The function uses a timeout to simulate an http delay and
+    returns data for three child nodes, one of which is also a
+    lazy-loaded node.</comment>
+  </data>
+  <data name="LazyLoading_Title" xml:space="preserve">
+    <value>ノードの遅延ロード</value>
+    <comment>Lazy-Loading Nodes</comment>
+  </data>
+  <data name="LazyOdata_Text1" xml:space="preserve">
+    <value>この例では、&lt;b&gt;TreeView&lt;/b&gt; コントロールを使用して OData ソースから階層化データを表示する方法を示します。</value>
+    <comment>This example shows how you can use the &lt;b&gt;TreeView&lt;/b&gt; control to
+    display hierarchical data from OData sources.</comment>
+  </data>
+  <data name="LazyOdata_Text2" xml:space="preserve">
+    <value>サンプルは、最初に Northwind employees テーブルをロードします。データがロードされると、コードで各従業員に "Orders" 空配列を追加します。従業員ノードが展開されたときに注文をロードするために、&lt;b&gt;lazyLoadFunction&lt;/b&gt; が使用されます。</value>
+    <comment>The sample starts by loading the Northwind employees table. When the
+    data is loaded, the code adds an "Orders" empty array to each employee.
+    The &lt;b&gt;lazyLoadFunction&lt;/b&gt; is used to load the orders when an employee
+    node is expanded.</comment>
+  </data>
+  <data name="LazyOdata_Text3" xml:space="preserve">
+    <value>orders テーブルも各注文に "Order_Details" 空配列を追加します。注文ノードが展開されたときに注文詳細をロードするために、&lt;b&gt;lazyLoadFunction&lt;/b&gt; が使用されます。</value>
+    <comment>The orders tablThe orders table also adds an "Order_Details" empty array to each
+    order. The &lt;b&gt;lazyLoadFunction&lt;/b&gt; is used to load the order details
+    when an order node is expanded.e also adds an Order_Details" empty array to each</comment>
+  </data>
+  <data name="LazyOdata_Title" xml:space="preserve">
+    <value>遅延ロードと OData</value>
+    <comment>Lazy-Loading and OData</comment>
+  </data>
+  <data name="MainProperties_Text1" xml:space="preserve">
+    <value>TreeView のコンテンツを定義するデータ連結プロパティのほかに、TreeView の動作をカスタマイズするプロパティもいくつか用意されています。</value>
+    <comment>In addition to the data-binding properties that define the
+    TreeView content, the control provides several properties that
+    customize its behavior.</comment>
+  </data>
+  <data name="MainProperties_Text2" xml:space="preserve">
+    <value>次のサンプルでは、これらのプロパティの一部について、その効果を示します。</value>
+    <comment>This sample shows the effect of some of these properties:</comment>
+  </data>
+  <data name="MainProperties_Text3" xml:space="preserve">
+    <value>すべて折りたたむ</value>
+    <comment>Collapse All</comment>
+  </data>
+  <data name="MainProperties_Text4" xml:space="preserve">
+    <value>すべて展開</value>
+    <comment>Expand All</comment>
+  </data>
+  <data name="MainProperties_Title" xml:space="preserve">
+    <value>TreeView のプロパティ</value>
+    <comment>TreeView Properties</comment>
+  </data>
+  <data name="ManualGridLayout_Text1" xml:space="preserve">
+    <value>手動グリッドレイアウトは、その名前が示すように、指定された方法でタイルを表形式に配置します。このレイアウトは、自動グリッドレイアウトに似ていますが、行番号と列番号を指定して特定のタイルを配置できる点が異なります。</value>
+    <comment>Manual grid layout, as the name suggests, arranges the tiles in the tabular form in the specified manner. The layout is similar to auto grid layout except the fact that you can specify the row and column numbers where a particular tile should be positioned.</comment>
+  </data>
+  <data name="ManualGridLayout_Text2" xml:space="preserve">
+    <value>手動グリッドレイアウトでは、RowプロパティとColumnプロパティを使用してタイルの位置が指定されます。手動グリッドレイアウト内の各セルは複数のコントロールを含むことができ、それらのコントロールをグループ化することもできます。</value>
+    <comment>Position of the tiles in the manual grid layout is specified using the Row and Column properties. Each cell in the manual grid layout can contain multiple controls, and these controls can be grouped together.</comment>
+  </data>
+  <data name="ManualGridLayout_Title" xml:space="preserve">
+    <value>手動グリッドレイアウト</value>
+    <comment>Manual Grid Layout</comment>
+  </data>
+  <data name="NavigationTrees_Text1" xml:space="preserve">
+    <value>TreeView コントロールの最も単純で一般的な用途はナビゲーションです。&lt;b&gt;TreeView&lt;/b&gt; の階層構造と自動検索機能により、目的の項目へのドリルダウンと検索を容易に行うことができます。</value>
+    <comment>The simplest and most common use for the TreeView control is navigation.
+    The &lt;b&gt;TreeView&lt;/b&gt;'s hierarchical structure and auto-search functionality
+    make it easy for users to drill-down and find the items they are
+    interested in.</comment>
+  </data>
+  <data name="NavigationTrees_Text2" xml:space="preserve">
+    <value>ナビゲーションには、&lt;b&gt;selectedItemChanged&lt;/b&gt; イベントまたは &lt;b&gt;itemClicked&lt;/b&gt; イベントを使用できます。両者の違いは、キーボードを使用して選択項目を移動したときには &lt;b&gt;selectedItemChanged&lt;/b&gt; が発生するのに対して、項目をクリックするか［Enter］キーを押したときには &lt;b&gt;itemClicked&lt;/b&gt; が発生する点です。</value>
+    <comment>You can use the &lt;b&gt;selectedItemChanged&lt;/b&gt; or &lt;b&gt;itemClicked&lt;/b&gt; events
+    for navigation. The difference is that &lt;b&gt;selectedItemChanged&lt;/b&gt; occurs
+    when the user moves the selection with the keyboard, and &lt;b&gt;itemClicked&lt;/b&gt;
+    occurs when the user clicks an item or presses the Enter key.</comment>
+  </data>
+  <data name="NavigationTrees_Text3" xml:space="preserve">
+    <value>この例では、&lt;b&gt;itemClicked&lt;/b&gt; イベントを使用します。</value>
+    <comment>This example uses the &lt;b&gt;itemClicked&lt;/b&gt; event:</comment>
+  </data>
+  <data name="NavigationTrees_Text4" xml:space="preserve">
+    <value>準備完了</value>
+    <comment>Ready</comment>
+  </data>
+  <data name="NavigationTrees_Title" xml:space="preserve">
+    <value>ナビゲーションツリー</value>
+    <comment>Navigation Trees</comment>
+  </data>
+  <data name="Nodes_Text1" xml:space="preserve">
+    <value>通常、TreeView を使用する場合は、ツリーのデータ連結プロパティ、選択プロパティ、およびツリーに連結された元のデータ項目のみを使用します。</value>
+    <comment>In most cases, you can work with a TreeView using only its
+    data-binding and selection properties, and the original
+    data items bound to the tree.</comment>
+  </data>
+  <data name="Nodes_Text10" xml:space="preserve">
+    <value>&lt;b&gt;index&lt;/b&gt;：このノードが含まれるノードコレクションのこのノードのインデックスを取得します。</value>
+    <comment>&lt;b&gt;index&lt;/b&gt;: Gets the index of this node in the node collection
+        that contains it.</comment>
+  </data>
+  <data name="Nodes_Text11" xml:space="preserve">
+    <value>&lt;b&gt;level&lt;/b&gt;：アウトライン構造内のノードのレベルを取得します。最上位ノードのレベルは 0 です。</value>
+    <comment>&lt;b&gt;level&lt;/b&gt;: Gets the node's level in the outline structure.
+        Top level nodes have level zero.</comment>
+  </data>
+  <data name="Nodes_Text12" xml:space="preserve">
+    <value>&lt;b&gt;nodes&lt;/b&gt;：ノードの子ノードを含む配列を取得します。</value>
+    <comment>&lt;b&gt;nodes&lt;/b&gt;: Gets an array containing the node's child nodes.</comment>
+  </data>
+  <data name="Nodes_Text13" xml:space="preserve">
+    <value>&lt;b&gt;previous、next、previousSibling、nextSibling&lt;/b&gt;：ツリーの隣接ノードへの参照を取得します。オプションで、折りたたまれているノードまたは兄弟以外のノードを除外します。</value>
+    <comment>&lt;b&gt;previous, next, previousSibling, nextSibling&lt;/b&gt;:
+        Get references to adjacent nodes on the tree, optionally excluding
+        collapsed or non-sibling nodes.</comment>
+  </data>
+  <data name="Nodes_Text14" xml:space="preserve">
+    <value>&lt;b&gt;isChecked、isCollapsed、isDisabled&lt;/b&gt;：ノードの状態を変更する値を取得または設定します。</value>
+    <comment>&lt;b&gt;isChecked, isCollapsed, isDisabled:&lt;/b&gt; Get or set values that
+        change the state of the node.</comment>
+  </data>
+  <data name="Nodes_Text15" xml:space="preserve">
+    <value>たとえば、次のボタンをクリックすると、TreeView の&lt;i&gt;可視&lt;/i&gt;のノードをスキャンできます。いくつかのノードを展開または折りたたんで、ボタンをクリックしたときの違いを確認してください。</value>
+    <comment>For example, click the button below to scan the &lt;i&gt;visible&lt;/i&gt;
+    nodes on the TreeView. Try expanding and collapsing some
+    nodes to see the difference when you click the button:</comment>
+  </data>
+  <data name="Nodes_Text16" xml:space="preserve">
+    <value>可視ノードのスキャン</value>
+    <comment>Scan Visible Nodes</comment>
+  </data>
+  <data name="Nodes_Text17" xml:space="preserve">
+    <value>可視ノード：</value>
+    <comment>Visible Nodes:</comment>
+  </data>
+  <data name="Nodes_Text2" xml:space="preserve">
+    <value>ただし、実際のツリーを構成する &lt;b&gt;TreeNode&lt;/b&gt; オブジェクトのプロパティにアクセスしなければならない場合もあります。</value>
+    <comment>There are a few scenarios where you may need access to
+    properties of the &lt;b&gt;TreeNode&lt;/b&gt; objects that make up
+    the actual tree.</comment>
+  </data>
+  <data name="Nodes_Text3" xml:space="preserve">
+    <value>特定のデータ項目に対応する &lt;b&gt;TreeNode&lt;/b&gt; を取得するには、TreeView の &lt;b&gt;getNode&lt;/b&gt; メソッドを呼び出すか、&lt;b&gt;nodes&lt;/b&gt; プロパティを使用して TreeView のルートノードのコレクションを取得します。</value>
+    <comment>You can get the &lt;b&gt;TreeNode&lt;/b&gt; that corresponds to a given
+    data item by calling the TreeView's &lt;b&gt;getNode&lt;/b&gt; method,
+    or use the &lt;b&gt;nodes&lt;/b&gt; property to get the collection of
+    root nodes on the TreeView.</comment>
+  </data>
+  <data name="Nodes_Text4" xml:space="preserve">
+    <value>ノードを取得できたら、そのプロパティやメソッドを使用してツリーを調査したり変更することができます。次のようなプロパティとメソッドがあります。</value>
+    <comment>Once you have a node, you can use its properties and methods
+    to inspect or modify the tree. These properties and methods
+    include:</comment>
+  </data>
+  <data name="Nodes_Text5" xml:space="preserve">
+    <value>&lt;b&gt;dataItem&lt;/b&gt;：このノードに連結されているデータソース内の項目を取得します。</value>
+    <comment>&lt;b&gt;dataItem&lt;/b&gt;: Gets the item in the data source that is
+        bound to this node.</comment>
+  </data>
+  <data name="Nodes_Text6" xml:space="preserve">
+    <value>&lt;b&gt;element&lt;/b&gt;：このノードを表す HTML 要素を取得します。</value>
+    <comment>&lt;b&gt;element&lt;/b&gt;: Gets the HTML element that represents this
+        node.</comment>
+  </data>
+  <data name="Nodes_Text7" xml:space="preserve">
+    <value>&lt;b&gt;ensureVisible&lt;/b&gt;：ノードが表示されるように、必要に応じて親ノードを展開し、TreeView をスクロールします。</value>
+    <comment>&lt;b&gt;ensureVisible&lt;/b&gt;: Expands parent nodes and scrolls the
+        TreeView as needed to ensure the node is currently visible.</comment>
+  </data>
+  <data name="Nodes_Text8" xml:space="preserve">
+    <value>&lt;b&gt;select&lt;/b&gt;：ノードを選択し、それが表示されるようにします。</value>
+    <comment>&lt;b&gt;select&lt;/b&gt;: Selects the node and ensures it is visible.</comment>
+  </data>
+  <data name="Nodes_Text9" xml:space="preserve">
+    <value>&lt;b&gt;parentNode&lt;/b&gt;：ノードの親ノードへの参照を取得します。</value>
+    <comment>&lt;b&gt;parentNode&lt;/b&gt;: Gets a reference to the node's parent node.</comment>
+  </data>
+  <data name="Nodes_Title" xml:space="preserve">
+    <value>TreeView のノード</value>
+    <comment>TreeView Nodes</comment>
+  </data>
+  <data name="Reloading_Text1" xml:space="preserve">
+    <value>TreeView の &lt;b&gt;lazyLoadFunction&lt;/b&gt; プロパティを使用して、ノードが展開されたときにのみロードされるノードを作成することができます。</value>
+    <comment>The TreeView's &lt;b&gt;lazyLoadFunction&lt;/b&gt; property allows you to
+    create nodes that are loaded only when the node is expanded.</comment>
+  </data>
+  <data name="Reloading_Text2" xml:space="preserve">
+    <value>データが非同期にロードされるケースでは、これを使用してパフォーマンスを向上させることができます。</value>
+    <comment>This can be used to improve performance in cases where data is
+    loaded asynchronously.</comment>
+  </data>
+  <data name="Reloading_Text3" xml:space="preserve">
+    <value>デフォルトでは、遅延ノードは、初めて展開されたときに一度だけデータをロードします。次のサンプルは、選択したノードについてはその動作を変更して、ノードが展開されるたびにデータを再ロードする方法を示します。次の手順を実行しています。</value>
+    <comment>By default, lazy nodes load their data only once, when the node
+    is expanded for the first time. This sample shows how you can
+    change that behavior for selected nodes causing them to re-load
+    their data whenever they are expanded. The sample does this by:</comment>
+  </data>
+  <data name="Reloading_Text4" xml:space="preserve">
+    <value>ノードが折りたたまれたときに、遅延ロードされたノードデータをクリアします。</value>
+    <comment>Clearing the node's lazy-loaded data when the node is
+        collapsed, and</comment>
+  </data>
+  <data name="Reloading_Text5" xml:space="preserve">
+    <value>ツリーを再連結して、古いノードを削除します。</value>
+    <comment>Re-binding the tree to remove the old nodes.</comment>
+  </data>
+  <data name="Reloading_Title" xml:space="preserve">
+    <value>遅延ロードノードの再ロード</value>
+    <comment>Re-loading Lazy-Loaded Nodes</comment>
+  </data>
+  <data name="Removing_Text1" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; コントロールからノードを削除するには、ツリーの &lt;b&gt;itemsSource&lt;/b&gt; 配列からデータ項目を削除し、&lt;b&gt;loadTree&lt;/b&gt; メソッドを呼び出してツリーを更新します。</value>
+    <comment>To remove nodes from a &lt;b&gt;TreeView&lt;/b&gt; control, remove the data
+    item from the tree's &lt;b&gt;itemsSource&lt;/b&gt; array, then refresh the
+    tree by calling the &lt;b&gt;loadTree&lt;/b&gt; method:</comment>
+  </data>
+  <data name="Removing_Text2" xml:space="preserve">
+    <value>選択したノードを削除</value>
+    <comment>Remove Selected Node</comment>
+  </data>
+  <data name="Removing_Title" xml:space="preserve">
+    <value>ノードの削除</value>
+    <comment>Removing Nodes</comment>
+  </data>
+  <data name="Rtl_Text1" xml:space="preserve">
+    <value>ページの右から左にコンテンツをレンダリングする言語もあります（典型的な例はアラビア語とヘブライ語）。HTML は、「dir」属性を使用してこれに適応しています。任意の要素で「dir」を「rtl」に設定すると、要素のコンテンツが右から左に配置されます。</value>
+    <comment>Some languages render content from the right to the left of the page
+    (Arabic and Hebrew are typical examples) . HTML accommodates this
+    with the 'dir' attribute. Setting 'dir' to 'rtl' on any element
+    causes the element's content to flow from right to left.</comment>
+  </data>
+  <data name="Rtl_Text2" xml:space="preserve">
+    <value>&lt;b&gt;TreeView&lt;/b&gt; は、これを自動的にサポートします。ツリーをホストしている要素の「dir」属性を「rtl」に設定すると、右から左に続くノードがレンダリングされます。コントロールのプロパティを設定する必要はありません。</value>
+    <comment>The &lt;b&gt;TreeView&lt;/b&gt; supports this automatically. If the element hosting
+    the tree has the 'dir' attribute set to 'rtl', the tree will render with
+    nodes extending from right to left. You don't have to set any properties
+    on the control.</comment>
+  </data>
+  <data name="Rtl_Text3" xml:space="preserve">
+    <value>「dir」属性値は継承されるため、それを body タグなどに設定すると、ツリーを含めページ全体が右から左にレンダリングされます。</value>
+    <comment>Note that the 'dir' attribute value is inherited, so if you set it on the
+    body tag for example, the entire page will be rendered from right to left,
+    including the tree.</comment>
+  </data>
+  <data name="Rtl_Text4" xml:space="preserve">
+    <value>CSS には、「dir」要素属性と同じ機能を持つ「direction」属性もあります。「dir」属性は CSS ルール内で使用できるなどのいくつかの理由で、一般には「dir」属性の方が適切だと考えられています。</value>
+    <comment>Note also that CSS has a 'direction' attribute that performs the same
+    function as the 'dir' element attribute. The 'dir' attribute is generally
+    considered more appropriate for several reasons, including the fact that
+    it can be used in CSS rules.</comment>
+  </data>
+  <data name="Rtl_Text5" xml:space="preserve">
+    <value>右から左にレイアウト</value>
+    <comment>Right to Left Layout</comment>
+  </data>
+  <data name="Rtl_Text6" xml:space="preserve">
+    <value>これは &lt;b&gt;TreeView&lt;/b&gt; の前に置かれた通常のコンテンツです：</value>
+    <comment>This is some regular content, followed by a &lt;b&gt;TreeView&lt;/b&gt;:</comment>
+  </data>
+  <data name="Rtl_Title" xml:space="preserve">
+    <value>RTL サポート</value>
+    <comment>RTL Support</comment>
+  </data>
+  <data name="SaveLoadLayout_Text1" xml:space="preserve">
+    <value>DashboardLayoutコントロールには、&lt;b&gt;saveLayout&lt;/b&gt;メソッドと&lt;b&gt;loadLayout&lt;/b&gt;メソッドを使用してレイアウトをJSON形式でローカルストレージに保存したりロードすることができるパブリックAPIが提供されています。特定のレイアウトを保存したりロードする必要がある場合や、ユーザーがレイアウトを変更して保存し、それを後でロードできるようにする場合などに、この機能は役立ちます。</value>
+    <comment>The DashboardLayout control provides a public API to save and load the layout to local storage in JSON format through the &lt;b&gt;saveLayout&lt;/b&gt; and &lt;b&gt;loadLayout&lt;/b&gt; methods. This feature is helpful if you need to save a particular layout and load, or to provide an option to users that may need to change layout and save it to load later.</comment>
+  </data>
+  <data name="SaveLoadLayout_Title" xml:space="preserve">
+    <value>レイアウトの保存とロード</value>
+    <comment>Save and Load Layout</comment>
+  </data>
+  <data name="Searching_Text1" xml:space="preserve">
+    <value>TreeView には階層的であるという特徴があるため、検索は些細な問題ではありません。通常、ノードは、親ノードのコンテキストだけでなく、そのノードに関連する他のコンテンツに基づくコンテキストも反映しています。</value>
+    <comment>Searching TreeViews is not trivial because of their hierarchical nature.
+    Nodes typically reflect a context defined by in part by their parent
+    nodes but also by additional content associated with the node.</comment>
+  </data>
+  <data name="Searching_Text2" xml:space="preserve">
+    <value>たとえば、次の TreeView で「Electronics」を検索した場合は、結果に子ノードを含めたい場合もあれば、そうでない場合もあります。さらに、項目に詳細な説明が含まれているとしたら、検索に役立つキーワードを追加したいと考えるでしょう。たとえば、「beard」（ひげ）と入力されたら、「Trimmers/Shavers」（ひげそり）ノードが選択されるようにしたいと考えるはずです。</value>
+    <comment>For example, if a user searched the TreeView below for "Electronics",
+    you may or may not want to include the child nodes in the results.
+    Furthermore, if items contained detailed descriptions, you might want
+    to add keywords to help in the search. So if a user typed for example
+    "beard", you would probably want the "Trimmers/Shavers" node to be
+    selected.</comment>
+  </data>
+  <data name="Searching_Text3" xml:space="preserve">
+    <value>AutoComplete コントロールは、TreeView で使用する検索ボックスを実装するにはよい方法です。次のサンプルでは、完全ノードパスとキーワードを含むフラットな searchArray を作成し、それを TreeView 内を検索するための itemsSource として使用します。</value>
+    <comment>The AutoComplete control provides a good way to implement a search
+    box to be used with the TreeView. In this sample, we build a flat
+    searchArray with the full node paths and keywords and use that as
+    an itemsSource for searching through the TreeView.</comment>
+  </data>
+  <data name="Searching_Text4" xml:space="preserve">
+    <value>「itemsSource」プロパティと「displayMemberPath」プロパティのほかに、「searchMemberPath」プロパティを使用して、検索に含めるキーワードを保持するフィールドの名前を指定します。たとえば、検索ボックスに「collect」または「food」と入力してみてください。</value>
+    <comment>In addition to the 'itemsSource'and 'displayMemberPath' properties,
+    we use the 'searchMemberPath' property to specify the name of the
+    field that contains the keywords to include in the search.
+    For example, try typing 'collect' or 'food' in the search box:</comment>
+  </data>
+  <data name="Searching_Text5" xml:space="preserve">
+    <value>検索：</value>
+    <comment>Search:</comment>
+  </data>
+  <data name="Searching_Title" xml:space="preserve">
+    <value>TreeView の検索</value>
+    <comment>Searching TreeViews</comment>
+  </data>
+  <data name="SplitLayout_Text1" xml:space="preserve">
+    <value>スプリットレイアウトは、グループごとに異なる方向にタイルを追加したい場合に便利です。ユーザーは、ネストしたグループの各グループを異なる方向にすることができます。グループは、別のグループまたは1つのタイルで構成できます。各タイルには、任意のMVCコントロールまたはHTMLコントロールをレンダリングできます。グループがレンダリングされる順番は、&lt;b&gt;orientation&lt;/b&gt;プロパティで決まります。orientationがHorizontalに設定されている場合、グループまたはタイルは水平方向にレンダリングされ、Verticalに設定されている場合は垂直方向にレンダリングされます。</value>
+    <comment>The split layout is helpful when we want to add the tiles in different orientations for different groups. It enables the users to have nested groups where in each group can have a different orientation. The group can either consist of another or a tile. Each tile can render any MVC or HTML control. The order in which the groups are rendered is determined by the &lt;b&gt;orientation&lt;/b&gt; property. When the orientation is set to Horizontal, the groups or tiles are rendered horizontally and when the orientation is set to Vertical, then the groups or tiles are rendered vertically.</comment>
+  </data>
+  <data name="SplitLayout_Text2" xml:space="preserve">
+    <value>スプリットレイアウトでは、ダッシュボードを複数のセクションに分割し、そこで、複数のタイルをレイアウトに追加できます。</value>
+    <comment>The split layout divides the dashboard into multiple section where in you can add multiple tiles to the layout.</comment>
+  </data>
+  <data name="SplitLayout_Title" xml:space="preserve">
+    <value>スプリットレイアウト</value>
+    <comment>Split Layout</comment>
+  </data>
+  <data name="StylingCSS_Text1" xml:space="preserve">
+    <value>CSS を使用して TreeView の外観をカスタマイズできます。</value>
+    <comment>You can customize the appearance of the TreeView using CSS.</comment>
+  </data>
+  <data name="StylingCSS_Text2" xml:space="preserve">
+    <value>この例では、折りたたみ/展開アイコンを変更し、ノードレベルに応じて異なるフォントサイズを使用し、レベル 1 のノードの左側に縦棒を追加しています。</value>
+    <comment>This example changes the collapse/expand icons, uses different
+    font sizes depending on node level, and adds a vertical bar to
+    the left of the level one nodes.</comment>
+  </data>
+  <data name="StylingCSS_Text3" xml:space="preserve">
+    <value>カスタム CSS の使用</value>
+    <comment>Use Custom CSS</comment>
+  </data>
+  <data name="StylingCSS_Title" xml:space="preserve">
+    <value>スタイル設定と CSS</value>
+    <comment>Styling and CSS</comment>
+  </data>
+  <data name="TabPanelAccessibility_Text1" xml:space="preserve">
+    <value>TabPanel は、WAI-ARIA アクセシビリティガイドラインを実装します。
+        すべてのタブ要素は、適切なロール属性と、適用可能なすべての ARIA 属性を持ちます。</value>
+    <comment>The TabPanel implements WAI-ARIA accessibility guidelines. All tab elements have the proper role attributes as well as all applicable ARIA attributes.</comment>
+  </data>
+  <data name="TabPanelAccessibility_Text2" xml:space="preserve">
+    <value>次の例では、タブヘッダーとタブペインに一意の ID を割り当てます。
+        TabPanel はこれを使用して自動的に「aria-controls」属性と「aria-labelledby」属性を生成します。</value>
+    <comment>The example below assigns unique IDs to the tab headers and panes, which the TabPanel automatically uses to generate "aria-controls" and "aria-labelledby" attributes.</comment>
+  </data>
+  <data name="TabPanelAccessibility_Text3" xml:space="preserve">
+    <value>また、マークアップで「America」ペインに「wj-state-active」クラスを追加して、初期状態で選択されるタブを定義します。
+        これを行わない場合は、最初のタブがデフォルトで選択されます。</value>
+    <comment>The example also adds a "wj-state-active" class to the "America" pane in markup to define the tab that is initially selected. Without that, the first tab would have been selected by default.</comment>
+  </data>
+  <data name="TabPanelAccessibility_Text4" xml:space="preserve">
+    <value>最後に、この例は &lt;b&gt;AutoSwitch&lt;/b&gt; プロパティの効果を示します。
+        このプロパティは、コントロールがタブと矢印キーを処理する方法に影響します。
+        このトピック関する詳細な考察は、
+        &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA Practices&lt;/a&gt; の記事と
+        &lt;a href="http://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;Simply Accessible&lt;/a&gt; の記事を参照してください。</value>
+    <comment>Finally, the example shows the effect of the &lt;b&gt;autoSwitch&lt;/b&gt; property, which affects how the control handles the tab and cursor keys. For a detailed discussion of this topic, please see the &lt;a href="https://www.w3.org/TR/wai-aria-practices/#kbd_selection_follows_focus" target="_blank"&gt;W3C ARIA practices&lt;/a&gt; and &lt;a href="https://simplyaccessible.com/article/danger-aria-tabs/" target="_blank"&gt;SimplyAccessible articles.&lt;/a&gt;</comment>
+  </data>
+  <data name="TabPanelAccessibility_Title" xml:space="preserve">
+    <value>TabPanelのアクセシビリティ</value>
+    <comment>TabPanel Accessibility</comment>
+  </data>
+  <data name="TabPanelDetachedPanels_Text1" xml:space="preserve">
+    <value>TabPanel は、選択されたタブのコンテンツを表示する組み込みパネルを持ちます。
+        このコンテンツを別の要素内に表示したい場合があります。</value>
+    <comment>The TabPanel has a built-in panel that shows the content of the selected tab. In some cases, you may want to display the content in a different element.</comment>
+  </data>
+  <data name="TabPanelDetachedPanels_Text2" xml:space="preserve">
+    <value>それには、組み込みコンテンツ要素を非表示にし、&lt;b&gt;selectedIndexChanged&lt;/b&gt; イベントを使用してコンテンツを更新するだけです。</value>
+    <comment>To do that, hide the built-in content element and use the &lt;b&gt;OnClientSelectedIndexChanged&lt;/b&gt; event to update the content.</comment>
+  </data>
+  <data name="TabPanelDetachedPanels_Title" xml:space="preserve">
+    <value>デタッチされたパネル</value>
+    <comment>Detached Panels</comment>
+  </data>
+  <data name="TabPanelDisabledInvisibleTabs_Text1" xml:space="preserve">
+    <value>個々のタブを無効または非表示にするには、Tab の &lt;b&gt;isDisabled&lt;/b&gt; プロパティと &lt;b&gt;isVisible&lt;/b&gt; プロパティを使用します。</value>
+    <comment>You can disable or hide individual tabs using the Tab's &lt;b&gt;isDisabled&lt;/b&gt; and &lt;b&gt;isVisible&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="TabPanelDisabledInvisibleTabs_Text2" xml:space="preserve">
+    <value>非表示のタブおよび無効状態のタブは選択できません。</value>
+    <comment>Invisible and disabled tabs cannot be selected by the user.</comment>
+  </data>
+  <data name="TabPanelDisabledInvisibleTabs_Title" xml:space="preserve">
+    <value>無効状態および非表示のタブ</value>
+    <comment>Disabled and Invisible Tabs</comment>
+  </data>
+  <data name="TabPanelHostC1Controls_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの主なメリットの 1 つは、新しいタブが選択されると、TabPanel コントロール内の ComponentOne MVC コントロールが自動的に更新されることです。</value>
+    <comment>One of the main benefits of the TabPanel control is that it automatically updates any C1 controls it contains when a new tab is selected.</comment>
+  </data>
+  <data name="TabPanelHostC1Controls_Text2" xml:space="preserve">
+    <value>他のタブコントロールを使用する場合は、それらのタブに含まれる ComponentOne MVC コントロールを更新するコードを追加する必要があります。</value>
+    <comment>When using other tab controls, you must add code to refresh any C1 controls contained in the tabs.</comment>
+  </data>
+  <data name="TabPanelHostC1Controls_Title" xml:space="preserve">
+    <value>ComponentOne MVC コントロールのホスティング</value>
+    <comment>Hosting C1 Controls</comment>
+  </data>
+  <data name="TabPanelMarkup_Text1" xml:space="preserve">
+    <value>TabPanel コントロールの初期化に使用されるマークアップは、タブごとに 1 つの要素で構成されます。
+        各子要素には、2 つの子（タブヘッダーとタブコンテンツ）が含まれています。</value>
+    <comment>The markup used to initialize TabPanel controls consists of one element per tab, each with two children: the tab header and the tab content.</comment>
+  </data>
+  <data name="TabPanelMarkup_Text2" xml:space="preserve">
+    <value>タブヘッダーにはアンカー要素（a タグ）の使用をお勧めします。その方が
+        普通の div 要素より意味的にわかりやすいからです。</value>
+    <comment>We suggest you use anchor elements (tag a) for the tab headers because they are semantically more meaningful than plain div elements.</comment>
+  </data>
+  <data name="TabPanelMarkup_Text3" xml:space="preserve">
+    <value>この例では、「America」ペインのマークアップに「wj-state-active」クラスを追加しました。これは、最初に選択されるタブを定義します。代わりに、TabPanelの&lt;b&gt;selectedIndex&lt;/b&gt;プロパティを設定することもできます。</value>
+    <comment>In this example, we added a "wj-state-active" class to the "America" pane markup. That defines the tab that is initially selected. Alternatively, we could have set the TabPanel's &lt;b&gt;selectedIndex&lt;/b&gt; property.</comment>
+  </data>
+  <data name="TabPanelMarkup_Title" xml:space="preserve">
+    <value>TabPanelのマークアップ</value>
+    <comment>TabPanel Markup</comment>
+  </data>
+  <data name="TabPanelRightToLeft_Text1" xml:space="preserve">
+    <value>ページの右から左にコンテンツをレンダリングする言語もあります（典型的な例はアラビア語とヘブライ語）。
+        HTML は、「dir」属性を使用してこれに適応しています。任意の要素で「dir」を「rtl」に設定すると、要素のコンテンツが右から左に配置されます。</value>
+    <comment>Some languages render content from the right to the left of the page(Arabic and Hebrew are typical examples). HTML accommodates this with the 'dir' attribute. Setting 'dir' to 'rtl' on any element causes the element's content to flow from right to left.</comment>
+  </data>
+  <data name="TabPanelRightToLeft_Text2" xml:space="preserve">
+    <value>TabPanel は、これを自動的にサポートします。コントロールをホストする要素で「dir」属性が「rtl」に設定されている場合は、
+        タブを右から左に揃えてパネルがレンダリングします。コントロールのプロパティを設定する必要はありません。</value>
+    <comment>The TabPanel supports this automatically. If the element hosting the control has the 'dir' attribute set to 'rtl', the panel will render with tabs aligned from right to left. You don't have to set any properties on the control.</comment>
+  </data>
+  <data name="TabPanelRightToLeft_Text3" xml:space="preserve">
+    <value>「dir」属性値は継承されるので、たとえばそれを body タグなどに設定すると、
+        TabPanel を含めたページ全体が右から左にレンダリングされます。</value>
+    <comment>Note that the 'dir' attribute value is inherited, so if you set it on the body tag for example, the entire page will be rendered from right to left, including the TabPanel.</comment>
+  </data>
+  <data name="TabPanelRightToLeft_Text4" xml:space="preserve">
+    <value>CSS には、「dir」要素属性と同じ機能を持つ「direction」属性もあります。
+        「dir」属性は CSS ルール内で使用できるなどのいくつかの理由で、一般には「dir」属性の方が適切だと考えられています。</value>
+    <comment>Note also that CSS has a 'direction' attribute that performs the same function as the 'dir' element attribute. The 'dir' attribute is generally considered more appropriate for several reasons, including the fact that it can be used in CSS rules.</comment>
+  </data>
+  <data name="TabPanelRightToLeft_Title" xml:space="preserve">
+    <value>TabPanelの右から左への表示</value>
+    <comment>TabPanel Right to Left</comment>
+  </data>
+  <data name="TabPanelStyling_Text1" xml:space="preserve">
+    <value>TabPanel コントロールのレイアウトはシンプルなので、CSS を使用して簡単にスタイルを設定できます。
+        たとえば、タブはデフォルトでコンテンツの上に表示されますが、CSS を使用してその位置を変更し、
+        コンテンツの下に表示したり、左または右に縦に並べて表示することができます。</value>
+    <comment>The TabPanel control has a simple layout, which makes it easy to style using CSS. For example, tabs appear above the content by default, but you can use CSS to change their position and show the below or vertically stacked, to the left or to the right of the content.</comment>
+  </data>
+  <data name="TabPanelStyling_Text2" xml:space="preserve">
+    <value>タブを切り替えるときにアニメーションを使用するかどうかも選択できます。</value>
+    <comment>You can also choose whether or not to use animation when switching tabs.</comment>
+  </data>
+  <data name="TabPanelStyling_Title" xml:space="preserve">
+    <value>スタイル設定と CSS</value>
+    <comment>Styling and CSS</comment>
+  </data>
+  <data name="TabPanel_Text1" xml:space="preserve">
+    <value>TabPanelコントロールは、ビュー間、データセット間、またはアプリケーションの機能面での切り替えなど、高レベルでのコンテンツ編成を可能にします。</value>
+    <comment>The TabPanel control enables content organization at a high level, such as switching between views, data sets, or functional aspects of an application.</comment>
+  </data>
+  <data name="TabPanel_Text2" xml:space="preserve">
+    <value>タブは、関連するコンテンツの上に単一行で示されます。タブヘッダーは、そのコンテンツを簡潔に記述します。</value>
+    <comment>Tabs are presented as a single row above their associated content. Tab headers succinctly describe the content within.</comment>
+  </data>
+  <data name="TabPanel_Text3" xml:space="preserve">
+    <value>タブは、マウスまたはキーボードで選択することができます。また、現在の選択を反映して自動的にコンテンツが更新されます。</value>
+    <comment>Tabs can be selected with the mouse or keyboard, and automatically update the content to reflect the current selection.</comment>
+  </data>
+  <data name="TabPanel_Text4" xml:space="preserve">
+    <value>各タブは、ヘッダー要素（常に表示される）と、タブコンテンツが含まれるペイン要素で構成されます。ペイン要素は、対応するヘッダーがマウスまたはキーボードで選択されると表示されます。</value>
+    <comment>Each tab consists of a header element (always visible) and a pane element that contains the tab content. The pane element is visible when the corresponding header is selected with the mouse or keyboard.</comment>
+  </data>
+  <data name="TabPanel_Title" xml:space="preserve">
+    <value>TabPanelの概念</value>
+    <comment>TabPanel Concepts</comment>
+  </data>
+  <data name="Export" xml:space="preserve">
+    <value>エクスポート</value>
+    <comment>Export</comment>
+  </data>
+  <data name="Settings" xml:space="preserve">
+    <value>設定</value>
+    <comment>Settings</comment>
+  </data>
+  <data name="Countrywise" xml:space="preserve">
+    <value>{0} の Countrywise の売上</value>
+    <comment>Countrywise Sales for {0}</comment>
+  </data>
+  <data name="CustomTile_Cancel" xml:space="preserve">
+    <value>キャンセル</value>
+    <comment>Cancel</comment>
+  </data>
+  <data name="CustomTile_ChartType" xml:space="preserve">
+    <value>ChartType</value>
+    <comment>ChartType</comment>
+  </data>
+  <data name="CustomTile_OK" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
+  <data name="KPIs" xml:space="preserve">
+    <value>{0} の KPI</value>
+    <comment>KPIs for {0}</comment>
+  </data>
+  <data name="SalesDashboard" xml:space="preserve">
+    <value>{0} の売上ダッシュボード</value>
+    <comment>Sales Dashboard for {0}</comment>
+  </data>
+  <data name="Share_Header1" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="Share_Text1" xml:space="preserve">
+    <value>売上</value>
+    <comment>Sales</comment>
+  </data>
+  <data name="Share_Text2" xml:space="preserve">
+    <value>経費</value>
+    <comment>Expenses</comment>
+  </data>
+  <data name="Share_Text3" xml:space="preserve">
+    <value>利益</value>
+    <comment>Profit</comment>
+  </data>
+  <data name="CostBudget" xml:space="preserve">
+    <value>{0} の予算管理コスト</value>
+    <comment>Cost Budgeting for {0}</comment>
+  </data>
+  <data name="SplitLayout_Text0" xml:space="preserve">
+    <value>四半期売上（{0}）</value>
+    <comment>Quarter Sales ({0})</comment>
+  </data>
+  <data name="Share_Text4" xml:space="preserve">
+    <value>売上傾向線</value>
+    <comment>Sales Trend Line</comment>
+  </data>
+  <data name="Share_Header2" xml:space="preserve">
+    <value>最近 12 か月</value>
+    <comment>Last 12 Months</comment>
+  </data>
+  <data name="Share_Header3" xml:space="preserve">
+    <value>今年（100 万）</value>
+    <comment>Current Year(mil.)</comment>
+  </data>
+  <data name="Share_Header4" xml:space="preserve">
+    <value>状況</value>
+    <comment>Status</comment>
+  </data>
+  <data name="Share_Text5" xml:space="preserve">
+    <value>予算</value>
+    <comment>Budget</comment>
+  </data>
+  <data name="Share_Text6" xml:space="preserve">
+    <value>単位：100 万</value>
+    <comment>in millions</comment>
+  </data>
+</root>

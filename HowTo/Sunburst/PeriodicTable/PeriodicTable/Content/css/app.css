@@ -1,0 +1,213 @@
+﻿body {
+    background-color: #f8f8f8;
+    font-family: -apple-system-font, 'Segoe UI', 'Roboto', sans-serif;
+    padding: 0 0 10px;
+    -ms-overflow-style: scrollbar;
+}
+
+    body a,
+    body a:focus,
+    body a:hover {
+        text-decoration: none;
+        outline: none;
+    }
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: -apple-system-font, 'Segoe UI Light', 'Segoe UI', 'Roboto', sans-serif;
+    font-weight: 300;
+}
+
+h2 {
+    margin-top: 24px;
+    margin-left: -12px;
+}
+
+.container {
+    min-width: 248px;
+}
+
+    .container p {
+        min-width: 358px;
+    }
+
+.header {
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+.sample-page download-link {
+    margin: 0,0,50px,0;
+}
+
+.pane-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-top: none;
+    font-family: Monaco, Menlo, Consolas, 'Courier New', monospace;
+    font-size: 13px;
+    overflow: auto;
+    padding: 0 8px;
+    white-space: pre;
+}
+
+.wj-viewer {
+    width: 100%;
+    height: 600px;
+}
+
+.row {
+    margin-top: 40px;
+    margin-bottom: 25px;
+}
+
+@media (max-width: 991px) {
+    .header h1 {
+        font-size: 22px;
+        line-height: 1;
+        margin-top: 7px;
+        color: #fff;
+    }
+
+    h2 {
+        font-size: 22px;
+        margin: 10px 0 25px 0;
+    }
+
+    .wj-flexgrid {
+        box-shadow: 2px 2px 8px 0 rgba(50, 50, 50, 0.5);
+        margin-bottom: 12px;
+    }
+
+    .wj-dropdown {
+        margin-bottom: 10px;
+        width: 100%;
+    }
+
+    .dl-horizontal,
+    .btn-group,
+    .input-group {
+        margin-bottom: 10px;
+    }
+}
+
+@media (max-width: 767px) {
+    body {
+        font-size: 16px;
+    }
+
+    .dl-horizontal dd {
+        width: 48%;
+        float: right;
+    }
+
+    .dl-horizontal dt {
+        width: 48%;
+        float: left;
+        text-align: right;
+    }
+}
+
+@media (max-width: 381px) {
+}
+
+
+.tab-pane {
+    max-height: 620px;
+}
+
+.wj-glyph-down {
+    border-top: 5px solid;
+    border-right: 4px solid transparent;
+    border-left: 4px solid transparent;
+    margin-bottom: 3px;
+}
+
+#navi,
+#divEleInfo {
+    position: absolute;
+    z-index: 10;
+    margin-top: 50px;
+    visibility: collapse;
+}
+
+#divGrp,
+#divEle,
+#divSubGrp {
+    visibility: collapse;
+    position: absolute;
+    cursor: pointer;
+    width: 100%;
+}
+
+#divEleSymbol {
+    font-size: 32px;
+    font-weight: bold;
+    margin: 0 auto;
+}
+
+#divEleSymbol,
+#divEleName {
+    text-align: center;
+    height: 40px;
+    vertical-align: bottom;
+    font-family: 'Segoe UI';
+    font-size: 24px;
+    margin: 0 auto;
+}
+
+#divAtomicNo,
+#divSubGrps,
+#divHdrSubGrps,
+#divCharacterstics,
+#divHdrCharacterstics,
+#divNoOfEle,
+#divSubGrpName,
+#divAtomicWeight {
+    text-align: center;
+    height: 18px;
+    vertical-align: bottom;
+    font-family: 'Segoe UI';
+    margin: 0 auto;
+}
+
+#divHdrCharacterstics,
+#divHdrSubGrps {
+    font-weight: bold;
+    font-size: 16px;
+    margin: 0 auto;
+}
+
+#divSubGrpName {
+    font-weight: bold;
+    font-size: 16px;
+    height: 30px;
+    margin: 0 auto;
+}
+
+#divNoOfEle {
+    height: 25px;
+    margin: 0 auto;
+}
+
+#divGrpName {
+    text-align: center;
+    height: 32px;
+    vertical-align: bottom;
+    font-family: 'Segoe UI';
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0 auto;
+}

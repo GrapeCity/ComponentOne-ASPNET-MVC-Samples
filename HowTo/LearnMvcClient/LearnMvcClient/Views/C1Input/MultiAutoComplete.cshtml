@@ -1,0 +1,38 @@
+@model IEnumerable<Gdp>
+
+    <h1>
+        @Html.Raw(Resources.C1Input.MultiAutoComplete_Title)
+    </h1>
+
+    <p>
+        @Html.Raw(Resources.C1Input.MultiAutoComplete_Text1)
+    </p>
+    <ul>
+        <li>
+            @Html.Raw(Resources.C1Input.MultiAutoComplete_Text2)
+        </li>
+        <li>
+            @Html.Raw(Resources.C1Input.MultiAutoComplete_Text3)
+        </li>
+        <li>
+            @Html.Raw(Resources.C1Input.MultiAutoComplete_Text4)
+        </li>
+    </ul>
+    <p>
+        @Html.Raw(Resources.C1Input.MultiAutoComplete_Text5)
+    </p>
+    <div class="row demo-settings">
+        <div class="col-xs-6">
+            @(Html.C1().MultiAutoComplete<Gdp>().Id("theMultiAutoComplete")
+                .Bind(Model).DisplayMemberPath("Country")
+                .Placeholder(Resources.C1Input.MultiAutoComplete_Text6)
+                .SelectedIndex(-1) //start empty
+            )
+        </div>
+        <div class="col-xs-6">
+            <p>
+                @Html.Raw(Resources.C1Input.MultiAutoComplete_Text7)
+            </p>
+            <ul id="selectedItems"></ul>
+        </div>
+    </div>

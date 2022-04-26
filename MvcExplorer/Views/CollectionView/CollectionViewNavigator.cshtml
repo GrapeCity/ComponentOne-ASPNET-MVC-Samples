@@ -1,0 +1,143 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<style type="text/css">
+    .Red {
+        color: red !important;
+    }
+
+    .Blue {
+        color: blue !important;
+    }
+
+    .Green {
+        color: green !important;
+    }
+
+    .None {
+        color: none;
+    }
+
+    .wj-collectionview-navigator .wj-btn .wj-glyph-right,
+    .wj-collectionview-navigator .wj-btn .wj-glyph-left,
+    .wj-collectionview-navigator .wj-btn .wj-glyph-step-forward,
+    .wj-collectionview-navigator .wj-btn .wj-glyph-step-backward
+    {
+        pointer-events: none;
+    }
+</style>
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            function getCSS(el) {
+                if (el.currentStyle)
+                    return el.currentStyle;
+                else if (window.getComputedStyle)
+                    return document.defaultView.getComputedStyle(el, null);
+                else return {};
+            }
+            function setCSS(el, css, rxFilter) {
+                for (var key in css) {
+                    if (!rxFilter || rxFilter.test(key))
+                        el.style[key] = css[key];
+                }
+            }
+
+            function measureWidthPx(input) {
+                var el = document.createElement('div');
+                setCSS(el, getCSS(input), /padding|border|padding|font|zoom/);
+                el.style.position = 'absolute';
+                el.style.float = "left";
+                el.style.visibility = 'hidden';
+                el.style.whiteSpace = 'nowrap';
+                el.style.width = "auto";
+                el.style.height = "auto";
+                el.textContent = input.value;
+                el = document.body.appendChild(el);
+                var w = el.offsetWidth + 20;
+                el.parentNode.removeChild(el);
+                return w + "px";
+            }
+
+            function updateCvnWidth(headerElem) {
+                setTimeout(function () {
+                    if (headerElem.value != headerElem._value) {
+                        headerElem.style.width = measureWidthPx(headerElem);
+                        headerElem._value = headerElem.value;
+                    } else updateCvnWidth(headerElem);
+                },10)
+            }
+
+            var cvnIds = ['#CVNavigatorToCV', '#CVNavigatorToGridCV'];
+            cvnIds.forEach(function (cvnId) {
+                var cvn = wijmo.Control.getControl(cvnId);
+                var headerElem = cvn._txtCurr;
+                updateCvnWidth(headerElem);
+                cvn.cv.currentChanged.addHandler(function (s, e) { updateCvnWidth(headerElem) });
+                cvn.cv.pageChanged.addHandler(function (s, e) { updateCvnWidth(headerElem) });
+            })
+        });
+    </script>
+}
+
+@(Html.C1().CollectionViewService()
+        .Id("CVService").Bind(Model).InitialItemsCount(500)
+        .PageSize(16))
+
+@(Html.C1().CollectionViewNavigator()
+    .Id("CVNavigatorToCV")
+    .ItemsSourceId("CVService")
+    .ByPage(false)
+    .HeaderFormat("Item: {current:n0} / {count:n0} - Page {currentPage}") //'{currentItem}', '{itemCount}'
+    .RepeatButtons(Convert.ToBoolean(optionsModel.Options["Repeat Buttons"].CurrentValue))
+    .CssClass(optionsModel.Options["Css Class"].CurrentValue)
+    .CssStyle("background-color", "lightgray")
+)
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("FlexGridCVN")
+    .ItemsSourceId("CVService")
+    .AutoGenerateColumns(false)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+        bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Color"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+        bl.Add(cb => cb.Binding("Active"));
+    })
+    .SortingType(AllowSorting.SingleColumn)
+    .SelectionMode(SelectionMode.Row)
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Height(500)
+)
+
+@(Html.C1().CollectionViewNavigator()
+    .Id("CVNavigatorToGridCV")
+    .ItemsSourceId("FlexGridCVN")
+    .ByPage(true)
+    .HeaderFormat("Page: {currentPage} / {pageCount}") //'{currentItem}', '{itemCount}'
+    .RepeatButtons(Convert.ToBoolean(optionsModel.Options["Repeat Buttons"].CurrentValue))
+    .CssClass(optionsModel.Options["Css Class"].CurrentValue)
+    .CssStyle("background-color", "lightgray")
+)
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.CollectionView.CollectionViewNavigator_Text0)
+}

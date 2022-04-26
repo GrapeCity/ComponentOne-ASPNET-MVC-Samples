@@ -1,0 +1,37 @@
+@model IEnumerable<Orders.Order>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    Dictionary<string, FilterType> filterTypes = ViewBag.FilterTypes;
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoDescription = false;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+        .Id("filteringMultiRow")
+        .Bind(Model)
+        .PageSize(25)
+        .IsReadOnly(true)
+        .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+        .SelectionMode(SelectionMode.Row)
+        .SortingType(AllowSorting.SingleColumn)
+        .Filterable(f => f.DefaultFilterType(FilterType.Both)
+            .ColumnFilters(cfsb =>
+            {
+                foreach (var item in filterTypes)
+                {
+                    cfsb.Add(cfb => cfb.Column(item.Key).FilterType(item.Value));
+                }
+            })
+        )
+        .CssClass("multirow")
+)
+
+@(Html.C1().Pager().Owner("filteringMultiRow"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.Filter_Text0)
+}

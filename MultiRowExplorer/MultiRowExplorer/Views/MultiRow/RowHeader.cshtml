@@ -1,0 +1,50 @@
+@model IEnumerable<Orders.Order>
+@{
+    ControlOptions optionsModel = ViewBag.RowHeaderOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id("ovMultiRow")
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
+    .CssClass("multirow")
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Header("Customer").IsRowHeader(Convert.ToBoolean(optionsModel.Options["Row Header"].CurrentValue)).Colspan(3).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Customer.Name").Name("CustomerName").Header("Customer").Width("200"))
+                .Add(cell => cell.Binding("Customer.Email").Name("CustomerEmail").Header("Customer Email").Colspan(2).CssClass("email"))
+                .Add(cell => cell.Binding("Customer.Address").Name("CustomerAddress").Header("Address"))
+                .Add(cell => cell.Binding("Customer.City").Name("CustomerCity").Header("City").DataMapEditor(DataMapEditor.DropDownList)
+                        .DataMap(dm => { dm.DisplayMemberPath("Value").SelectedValuePath("Value").Bind(Orders.GetCities().ToValues()); }))
+                    .Add(cell => cell.Binding("Customer.State").Name("CustomerState").Header("State"));
+        });
+        ld.Add().Header("Order").Colspan(3).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Id").Header("ID").CssClass("id").Rowspan(2))
+                .Add(cell => cell.Binding("Amount").Header("Amount").Format("c").CssClass("amount").Width("150").Rowspan(2))
+                .Add(cell => cell.Binding("Date").Header("Ordered").Width("150"))
+                .Add(cell => cell.Binding("ShippedDate").Header("Shipped").Width("150"));
+        });
+        ld.Add().Header("Shipper").Colspan(3).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Shipper.Name").Name("ShipperName").Header("Shipper").Width("200"))
+                .Add(cell => cell.Binding("Shipper.Email").Name("ShipperEmail").Header("Shipper Email").Width("300").CssClass("email"))
+                .Add(cell => cell.Binding("Shipper.Express").Name("ShipperExpress").Header("Express"));
+        });
+    })
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+    
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.MultiRowExplorer.RowHeader_Summary_Text0)</p>
+}
+
+@section Description{
+    <p>
+        @Html.Raw(Resources.MultiRowExplorer.RowHeader_Description_Text0)
+    </p>
+}

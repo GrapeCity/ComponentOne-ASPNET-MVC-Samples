@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+using System.Web.Mvc;
 
 namespace CloudFileExplorer.Controllers
 {
     public partial class FileManagerController : Controller
     {
-        public IActionResult Index()
+        public ActionResult Index()
         {
             return View();
         }

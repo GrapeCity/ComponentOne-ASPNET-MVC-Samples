@@ -1,0 +1,81 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<h4>ODataCollectionView</h4>
+<p id="itemCount"></p>
+@(Html.C1().FlexGrid()
+    .Id("ODataCollectionView")
+    .CssStyle("height", "400px")
+    .IsReadOnly(true)
+    .BindODataSource(odsb =>
+                        odsb.ServiceUrl("~/MyNorthWind")
+                        .TableName("Orders")
+                        .Keys("OrderID")
+                        .SortOnServer(Convert.ToBoolean(optionsModel.Options["Sort On Server"].CurrentValue))
+                        .FilterOnServer(Convert.ToBoolean(optionsModel.Options["Filter On Server"].CurrentValue))
+                        )
+    .Filterable(fb => fb.DefaultFilterType(FilterType.Both))
+    .OnClientLoadedRows("oDataCVLoaded")
+)
+<br />
+<br />
+<h4>ODataVirtualCollectionView</h4>
+<p id="totalItemCount"></p>
+@(Html.C1().FlexGrid()
+    .Id("ODataVirtualCollectionView")
+    .CssStyle("height", "400px")
+    .IsReadOnly(true)
+    .BindODataVirtualSource(odsb =>
+                        // Non-core MS SQLite library doesn't fully support functions for Virtual Scrolling.
+                        //odsb.ServiceUrl("~/MyNorthWind")
+                        odsb.ServiceUrl("https://services.odata.org/Northwind/Northwind.svc")
+                        .TableName("Orders")
+                        .Keys("OrderID")
+                        )
+    .Filterable(fb => fb.DefaultFilterType(FilterType.Both))
+    .OnClientScrollPositionChanged("scrollPositionChanged")
+    .OnClientLoadedRows("oDataVCVLoaded")
+)
+
+@section Scripts{
+    <script type="text/javascript">
+        function customChangeSortOnServer(grid, value) {
+            if (grid && grid.collectionView) {
+                grid.collectionView.sortOnServer = value;
+            }
+        }
+        function customChangeFilterOnServer(grid, value) {
+            if (grid && grid.collectionView) {
+                grid.collectionView.filterOnServer = value;
+            }
+        }
+        function scrollPositionChanged(grid) {
+            var rng = grid.viewRange;
+            grid.collectionView.setWindow(rng.row, rng.row2);
+        }
+        function oDataCVLoaded(grid, e) {
+            var el = document.getElementById('itemCount');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+        }
+        function oDataVCVLoaded(grid, e) {
+            var el = document.getElementById('totalItemCount');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+        }
+    </script>
+}
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.ODataBind_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text2)</p>
+}

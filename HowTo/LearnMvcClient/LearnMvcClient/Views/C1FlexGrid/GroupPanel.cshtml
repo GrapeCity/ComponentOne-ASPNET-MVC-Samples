@@ -1,0 +1,13 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.GroupPanel_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GroupPanel_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.GroupPanel_Text2) 
+</p>
+<div id="theGroupPanel"></div>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250)

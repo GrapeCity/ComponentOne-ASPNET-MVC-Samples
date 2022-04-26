@@ -1,0 +1,276 @@
+﻿@model StockChart.Models.StockDataModel
+@using System.Drawing
+@using StockChart.Models
+@using C1.Web.Mvc.Chart
+@{
+    ViewBag.Title = "C1 StockChart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    StockSymbol Current = Model.CurrentStockSymbol;
+    List<StockData> CurrentStockDatas = Model.StockDataDic[Current.symbol];
+    List<StockEvent> CurrentStockEvents = Model.StockEventDic[Current.symbol];
+    SVGStyle waterPrintStyle = new SVGStyle { Fill = "#B45F04", FillOpacity = 0.1, Stroke = "rgba(124,240,10,0.2)", FontSize = 100 };
+    SVGStyle eventStyle = new SVGStyle { Fill = "#888888", Stroke = "#000000", StrokeWidth = 1, FillOpacity = 1 };
+    bool noData = CurrentStockDatas.Count == 0;
+
+    #region Quote Infos
+
+    string QuoteName = Current.name + " (" + Current.symbol + ")";
+    double QuoteCurrent = noData ? 0 : CurrentStockDatas[0].Close;
+    double QuoteIncre = noData ? 0 : CurrentStockDatas[0].Close;
+    string QIColor = QuoteIncre > 0 ? "#129B14" : "#BA2418";
+    string Incre = QuoteIncre.ToString("0.00");
+    string QISymbol = QuoteIncre > 0 ? "+" + Incre : Incre;
+
+    #endregion
+
+    string resetDisabled = Model.StockDataDic.Count > 1 ? "" : "disabled=disabled";
+
+    double volumeAxisMax = noData ? 0 : CurrentStockDatas.Max(item => item.Volume) * 8;
+}
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+
+    <div class="container">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4>
+                    <span id="quotename" style="color: @(Model.Palettes[0])">@(QuoteName)</span>
+                    <span id="quoteinfo"><span style="font-size: 1.5em">@(QuoteCurrent)</span><span style="color: @(QIColor)"> @(QISymbol)</span> </span>
+                    <div class="portfolio-search pull-right">
+                        <span id="goToSymbol" style="display: none">@Html.EditorFor(m => m.CurrentSymbol)</span>
+                        @(Html.C1().AutoComplete().Id("CurrentAuto").Bind(Model.StockSymbolList)
+                    .Placeholder("Go To symbol").ShowDropDownButton(false)
+                        .DisplayMemberPath("symbolname").SelectedValue("")
+                        .SelectedValuePath("symbol").CssMatch("match").OnClientTextChanged("changeGoToBtn"))
+                        <span>
+                            <button id="goToBtn" type="button" class="btn btn-primary" onclick="setCurrentItem()" disabled="disabled">
+                                <span class="glyphicon glyphicon-search"></span>
+                            </button>
+                        </span>
+                    </div>
+
+                </h4>
+            </div>
+
+        </div>
+
+        <!-- chart -->
+        <div class="panel panel-default chartcontainer">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="portfolio-search col-md-3">
+                        <span id="addSymbol" style="display: none">@Html.EditorFor(m => m.AddSymbol)</span>
+                        @(Html.C1().AutoComplete().Id("AddAuto").Bind(Model.StockSymbolList)
+                    .Placeholder("Add Compasion: symbol").ShowDropDownButton(false)
+                        .DisplayMemberPath("symbolname").SelectedValue("")
+                        .SelectedValuePath("symbol").CssMatch("match").OnClientTextChanged("changeAddBtn"))
+                        <span>
+                            <button id="addBtn" type="button" class="btn btn-primary" onclick="addNewItem()" disabled="disabled">
+                                <span class="glyphicon glyphicon-plus"></span>
+                            </button>
+                        </span>
+                    </div>
+                    <div class="col-md-5">
+                        <div id="rangeBtnCon" class="btn-group btn-group-xs">
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(0)">1m</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(1)">3m</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(2)">6m</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(3)">YTD</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(4)">1y</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(5)">2y</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(6)">3y</button>
+                            <button type="button" class="btn btn-default" onclick="chartPeriodChange(7)">All</button>
+                        </div>
+                        <span id="dateRangePanel"></span>
+                        <span id="reset" style="display: none">
+                            @Html.EditorFor(m => m.NeedReset)
+                        </span>
+                        <button type="button" class="btn btn-primary" onclick="resetItems()" @resetDisabled>
+                            Reset
+                        </button>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="pull-right">
+                            <button id="volumeBtn" type="button" class="btn btn-sm btn-default active" title="Show Volume" ng-class="{active: volSeriesIsVisible}"
+                                onclick="toggleVolDisplay()">
+                                <span class="glyphicon glyphicon-stats"></span>
+                            </button>
+                            @(Html.C1().Menu().Id("ChartTypeMenu").Header("Chart Type: <b>Line</b>")
+                    .MenuItems(mis => { mis.Add("Line"); mis.Add("Area"); mis.Add("Candlestick"); mis.Add("HLOC"); })
+                    .OnClientSelectedIndexChanged("changeChartType"))
+                            @(Html.C1().Menu().Id("ExportMenu").Header("Export To")
+                    .MenuItems(mis => { mis.Add("PNG"); mis.Add("JPG"); mis.Add("BMP"); })
+                    .OnClientSelectedIndexChanged("itemClicked"))
+                        </div>
+                    </div>
+                </div>
+                <div class="row moving-average">
+                    <div class="col-md-12">
+                        <label id="labelShowMovingAverage" for="checkboxShowMovingAverage">MovingAverage</label>
+                        <input type="checkbox" id="checkboxShowMovingAverage" onclick="updateMovingAverage()" />
+                        <span id="movingAverage">
+                            @(Html.C1().Menu().Id("movingAverageTypeMenu").Header("Type: <b>Simple</b>").OnClientItemClicked("updateMovingAverage")
+                            .MenuItems(items =>
+                            {
+                                items.Add("Simple", "Simple");
+                                items.Add("Weighted", "Weighted");
+                                items.Add("Exponential", "Exponential");
+                                items.Add("Triangular", "Triangular");
+                            }))
+                            <label id="labelPeriod" class="period" for="inputPeriod">Period:</label>
+                            @(Html.C1().InputNumber().Id("periodInput").Value(10).Min(2).Max(200).Step(1).Format("n0").OnClientValueChanged("updateMovingAverage"))
+                        </span>
+                        <div class="pull-right">
+                            <label id="labelShowLineMarker" for="checkboxShowLineMarker">Line Marker</label>
+                            <input type="checkbox" id="checkboxShowLineMarker" onclick="updateLineMarker()" />
+                            <label id="labelShowNews" for="checkboxShowNews">News</label>
+                            <input type="checkbox" id="checkboxShowNews" onclick="updateNews()" />
+                        </div>
+                    </div>
+                </div>
+                <div id="stockInfos" class="stock-info">
+                    @{
+    for (int i = 0; i < Model.CurrentSymbolList.Count; i++)
+    {
+        if (i == 0)
+        {
+                        <div></div>
+        }
+        else
+        {
+            string name = Model.CurrentSymbolList[i];
+                        <div>
+                            <label style="color: @(Model.Palettes[i])" for="@name">@name</label>
+                            <input type="checkbox" id="@name" onchange="toggleSeriesDisplay(@i)" checked="checked" />
+                        </div>
+        }
+    }
+                    }
+
+                    <span class="pull-right" id="detail"></span>
+                </div>
+            </div>
+            @(Html.C1().FlexChart().Id("stockChart")
+        .CssClass("stchart")
+        .ChartType(ChartType.Line)
+        .SymbolSize(4)
+        .SelectionMode(SelectionMode.None)
+        .PlotMargin("NaN 100 NaN 50")
+        .AxisX(ax => ax.AxisLine(false).Format("MMM-yyyy"))
+        .AxisY(ay => ay.Position(Position.Right).AxisLine(false)
+            .Format(Model.CurrentSymbolList.Count > 1 ? "p0" : ""))
+        .Series(s =>
+        {
+            int length = Model.CurrentSymbolList.Count;
+            string binding = length > 1 ? "CloseChg" : "Close";
+
+            for (int i = 0; i < length; i++)
+            {
+                string name = Model.CurrentSymbolList[i];
+                Model.StockDataDic[name].Sort((left, right) =>
+                {
+                    if (left.TimeSlab > right.TimeSlab)
+                        return 1;
+                    else
+                        return -1;
+                });
+                if (Model.StockDataDic[name].Count > 0)
+                {
+                    s.Add().Bind("TimeSlab", binding, Model.StockDataDic[name]).Name(name).Style(st => st.Stroke(Model.Palettes[i]));
+                    s.AddMovingAverage().Bind("TimeSlab", binding, Model.StockDataDic[name]).Period(10).Visibility(SeriesVisibility.Hidden);
+                }
+            }
+            
+            if (Model.StockDataDic[Current.symbol].Count > 0)
+            {
+                s.Add().ChartType(ChartType.Column)
+                    .Bind("TimeSlab", "Volume", Model.StockDataDic[Current.symbol])
+                    .Style(st => st.Stroke(Model.Palettes[0]).Fill(Model.Palettes[0]))
+                    .AxisY(ay => ay.Max(volumeAxisMax).Labels(false).AxisLine(false).MajorTickMarks(AxisTickMark.None));
+            }
+        }).Tooltip(tp => tp.Content("")).OnClientRendered("updatePOffset")
+        .AddLineMarker(lm => lm
+          .Lines(LineMarkerLines.Both)
+          .Interaction(LineMarkerInteraction.Move)
+          .Alignment(LineMarkerAlignment.Left | LineMarkerAlignment.Top)
+          .Content("changeContent").IsVisible(false))
+        .AddLineMarker(lm => lm.Lines(LineMarkerLines.None)
+          .Interaction(LineMarkerInteraction.Move)
+          .HorizontalPosition(1)
+          .Content("changeYContent").IsVisible(false))
+        .AddLineMarker(lm => lm.Lines(LineMarkerLines.None)
+          .Interaction(LineMarkerInteraction.Move)
+          .VerticalPosition(1).IsVisible(false)
+          .Content("changeXContent"))
+      .AddAnnotationLayer(layer =>
+      {
+          layer.Id("AnnotationLayer").AddText(
+              text => text.Attachment(AnnotationAttachment.Relative)
+              .Point(new DataPoint(0.5, 0.5)).Content("NO DATA")
+              .IsVisible(noData).Style(waterPrintStyle)
+              );
+          if (!noData)
+          {
+              bool multi = Model.CurrentSymbolList.Count > 1;
+              foreach (StockEvent ev in CurrentStockEvents)
+              {
+                  StockData stockData = CurrentStockDatas.Find(data => data.TimeSlab == ev.Date);
+                  if (stockData != null)
+                  {
+                      layer.AddRectangle(rect => rect.Content("N").Style(eventStyle)
+                        .Attachment(AnnotationAttachment.DataCoordinate)
+                        .Point(new DataPoint(ev.Date, multi ? stockData.CloseChg : stockData.Close))
+                        .Width(20).Height(20).Tooltip(ev.Title).IsVisible(false));
+                  }
+              }
+          }
+      }))
+
+            <script type="text/javascript">
+                function rangeChanged(rs, ui) {
+                    updateStChartRange(rs.min, rs.max);
+                }
+            </script>
+
+            @(Html.C1().FlexChart().Id("rangeSelector")
+        .ChartType(ChartType.Line)
+        .CssClass("rschart")
+        .PlotMargin("NaN 80 NaN NaN")
+        .AxisX(ax => ax.Format("MMM-yyyy"))
+        .AxisY(ay => ay.Labels(false).MajorGrid(false))
+        .Tooltip(tp => tp.Content(""))
+        .Series(s =>
+        {
+            s.Add().Bind("TimeSlab", "Close", Model.IXIC).Style(st => st.Stroke("#79aad1"));
+        })
+        .AddRangeSelector(rs => rs.Id("RangeSelectorExtender").Min(Model.RangeMin).Max(Model.RangeMax).OnClientRangeChanged("rangeChanged")))
+
+            <div id="storeRange" style="display: none">
+                @Html.EditorFor(m => m.RangeMin)
+                @Html.EditorFor(m => m.RangeMax)
+            </div>
+        </div>
+
+        <script type="text/javascript">
+            c1.documentReady(function () {
+                InitialWhenDReady();
+            });
+        </script>
+
+        <!-- Google analytics -->
+        <script>
+            (function (i, s, o, g, r, a, m) {
+                i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+                    (i[r].q = i[r].q || []).push(arguments)
+                }, i[r].l = 1 * new Date(); a = s.createElement(o),
+                m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+            })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
+
+            ga('create', 'UA-208280-14', 'auto');
+            ga('send', 'pageview');
+        </script>
+    </div>
+
+}

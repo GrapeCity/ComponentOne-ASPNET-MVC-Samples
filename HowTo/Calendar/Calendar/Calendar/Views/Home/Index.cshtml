@@ -1,0 +1,50 @@
+﻿@{
+    ViewBag.Title = Resources.Calendar.PageTitle;
+}
+<script>
+    window.Resources = {
+        Calendar: {
+            NoEvent: "@Resources.Calendar.NoEvent",
+            Events: "@Resources.Calendar.Events",
+            Images: {
+                "Maintenance": "@Url.Content("~/resources/TableMaintenance.png")",
+                "Incident": "@Url.Content("~/resources/TableIncident.png")",
+                "Notice": "@Url.Content("~/resources/TableNotice.png")",
+                "Outage": "@Url.Content("~/resources/TableOutage.png")"
+            }
+        }
+    }
+</script>
+<script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+<div class="container">
+    <!-- Getting Started -->
+    <div class="row">
+        <h1>@Html.Raw(Resources.Calendar.Title)</h1>
+        <p>
+            @Html.Raw(Resources.Calendar.Description)
+        </p>
+    </div>
+    <div class="legend">
+        <div><img src="@Url.Content("~/resources/TableMaintenance.png")"> @Resources.Calendar.Maintenance</div>
+        <div><img src="@Url.Content("~/resources/TableIncident.png")"> @Resources.Calendar.Incident</div>
+        <div><img src="@Url.Content("~/resources/TableNotice.png")"> @Resources.Calendar.Notice</div>
+        <div><img src="@Url.Content("~/resources/TableOutage.png")"> @Resources.Calendar.Outage</div>
+    </div>
+    <div class="row">        
+        <div id="calendar" class="calendar">
+            @{
+                for (int i = 0; i < 12; i++)
+                {
+                    @(Html.C1().Calendar().Id("month" + i)
+                        .DisplayMonth(DateTime.Now.AddMonths(-i))
+                        .MonthView(true)
+                        .ShowHeader(false)
+                        .SelectionMode(DateSelectionMode.None)
+                        .CssClass("month")
+                        .OnClientFormatItem("formatDayCell")
+                    )
+                }
+            }
+        </div>
+    </div>
+</div>

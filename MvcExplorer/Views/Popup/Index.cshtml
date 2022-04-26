@@ -1,0 +1,198 @@
+﻿@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+}
+@section Styles{
+<style>
+    .btn {
+        height: auto;
+    }
+
+    .popover {
+        display: block;
+    }
+
+    .tab-content > .tab-pane {
+        display: block;
+    }
+</style>
+}
+
+<label>@Html.Raw(Resources.Popup.Index_Text1)</label>
+
+<!-- The contents of popup controls. --> 
+<div class="popover" style="display:none;" id="popup1">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.Popup.Index_Title1)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.Popup.Index_Content1)
+    </div>
+</div>
+<div class="popover" style="display:none;" id="popup2">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.Popup.Index_Title2)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.Popup.Index_Content2)
+    </div>
+</div>
+<div class="popover" style="display:none;" id="popup3">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.Popup.Index_Title3)
+    </h3>
+    <div class="popover-content ">
+        <form name="popoverForm">
+            <p>@Html.Raw(Resources.Popup.Index_Text0)</p>
+            <pre>2 + 3 = <span class="">5</span></pre>
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-addon">@@</div>
+                    <input class="form-control" type="email" placeholder="@(Resources.Popup.Index_EnterEmail)">
+                </div>
+            </div>
+            <div class="form-actions">
+                <button type="button" class="btn btn-danger wj-hide">@Html.Raw(Resources.Popup.Index_Close)</button>
+                <button type="button" class="btn btn-primary wj-hide">@Html.Raw(Resources.Popup.Index_SaveChanges)</button>
+            </div>
+        </form>
+    </div>
+</div>
+<div class="popover" style="display:none;" id="popup4">
+    <h3 class="popover-title">
+        @Html.Raw(Resources.Popup.Index_Title1)
+    </h3>
+    <div class="popover-content">
+        @Html.Raw(Resources.Popup.Index_Content1)
+    </div>
+</div>
+<div class="popover" style="display:none;" id="eventPopup">
+    <h3 class="wj-dialog-header" style="margin:0">
+        @Html.Raw(Resources.Popup.Index_Title1)
+    </h3>
+    <div class="popover-content">
+        <div class="container">
+            <ul>
+                <li>onDragging</li>
+                <li>onDragged</li>
+                <li>onPositionChanging</li>
+                <li>onPositionChanged</li>
+                <li>onResizing</li>
+                <li>onResized</li>
+                <li>onSizeChanging</li>
+                <li>onSizeChanged</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- The popup owners. -->
+<button id="btn1" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Index_ClickToShowPopupForm)
+    <br>
+    <small>(ShowTrigger=Click, HideTrigger=Click, IsResizable=True)</small>
+</button>
+<button id="btn2" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Index_ClickToShowPopupForm)
+    <br>
+    <small>(ShowTrigger=Click, HideTrigger=Blur)</small>
+</button>
+<button id="btn3" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Index_ClickToShowPopupForm)
+    <br>
+    <small>(ShowTrigger=Click, HideTrigger=None)</small>
+</button>
+<button id="eventPopupBtn" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Index_ClickToShowPopupWithEvents)
+    <br>
+    <small>(ShowTrigger=Click, HideTrigger=Click, IsResizable=True, IsDraggable=True)</small>
+</button>
+<br /><br />
+
+<strong style="color:red">@Html.Raw(Resources.Popup.Index_Title4)</strong><br />
+<p style="color:red">@Html.Raw(Resources.Popup.Index_Description5)</p>
+<button id="btn4" type="button" class="btn btn-default">
+    <small>(@Html.Raw(Resources.Popup.Index_Description4))</small>
+</button>
+<br /><br /><br />
+
+@* Create popup controls with HtmlHelper *@
+@(Html.C1().Popup("#popup1").Owner("#btn1").ShowTrigger(PopupTrigger.Click).HideTrigger(PopupTrigger.Click).IsResizable(true))
+@(Html.C1().Popup("#popup2").Owner("#btn2").ShowTrigger(PopupTrigger.Click).HideTrigger(PopupTrigger.Blur))
+@(Html.C1().Popup("#popup3").Owner("#btn3").ShowTrigger(PopupTrigger.Click).HideTrigger(PopupTrigger.None))
+@(Html.C1().Popup("#eventPopup").Owner("#eventPopupBtn").ShowTrigger(PopupTrigger.Click).HideTrigger(PopupTrigger.Click)
+        .IsDraggable(true)
+        .IsResizable(true)
+        .OnClientDragging("onDragging")
+        .OnClientDragged("onDragged")
+        .OnClientPositionChanging("onPositionChanging")
+        .OnClientPositionChanged("onPositionChanged")
+        .OnClientResizing("onResizing")
+        .OnClientResized("onResized")
+        .OnClientSizeChanging("onSizeChanging")
+        .OnClientSizeChanged("onSizeChanged")
+)
+@(Html.C1().Popup("#popup4").Owner("#btn4")
+.ShowTrigger(settings.GetEnum("HideTrigger", PopupTrigger.None))
+.HideTrigger(settings.GetEnum("HideTrigger", PopupTrigger.None))
+)
+
+@section Scripts{
+    <script>
+        function setProperty(property, value) {
+            var control = wijmo.Control.getControl('#popup4');
+            if (control) {
+                control[property] = value;
+            }
+        }
+
+        function customChangeShowTrigger(popup, value) {
+            setProperty('showTrigger', value);
+        }
+
+        function customChangeHideTrigger(popup, value) {
+            setProperty('hideTrigger', value);
+        }
+
+        //events
+        function onDragging() {
+            console.log("onDragging!!!")
+        }
+        function onDragged() {
+            console.log("onDragged!!!")
+        }
+        function onPositionChanging() {
+            console.log("onPositionChanging!!!")
+        }
+        function onPositionChanged() {
+            console.log("onPositionChanged!!!")
+        }
+        function onResizing() {
+            console.log("onResizing!!!")
+        }
+        function onResized() {
+            console.log("onResized!!!")
+        }
+        function onSizeChanging() {
+            console.log("onSizeChanging!!!")
+        }
+        function onSizeChanged() {
+            console.log("onSizeChanged!!!")
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.Popup.Index_Text2)</p>
+    <p>@Html.Raw(Resources.Popup.Index_Text3)</p>
+    <p>@Html.Raw(Resources.Popup.Index_IsDraggable_Description)</p>
+    <p>
+        @Html.Raw(Resources.Popup.Index_OnClientDragged_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientDragging_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientPositionChanged_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientPositionChanging_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientResized_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientResizing_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientSizeChanged_Description)
+        <br />@Html.Raw(Resources.Popup.Index_OnClientSizeChanging_Description)
+    </p>
+}

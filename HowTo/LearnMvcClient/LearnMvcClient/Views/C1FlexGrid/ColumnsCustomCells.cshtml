@@ -1,0 +1,26 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsCustomCells_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsCustomCells_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsCustomCells_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsCustomCells_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .IsReadOnly(true)
+    .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+    .ShowAlternatingRows(false)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("rank").Header("#").Width("50");
+        cs.Add().Binding("title").Header("Title").Width("2*");
+        cs.Add().Binding("rating").Header("Rating").Align("center").CssClass("cell-rating").Width("*");
+        cs.Add().Binding("attendance").Header("Attendance").CssClass("cell-attendance").Width("2*");
+        cs.Add().Binding("revenue").Header("Revenue").CssClass("cell-revenue").Width("2*");
+    })
+)

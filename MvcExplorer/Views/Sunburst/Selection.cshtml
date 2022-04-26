@@ -1,0 +1,25 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<HierarchicalData>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().Sunburst<HierarchicalData>()
+    .Id(demoSettingsModel.ControlId)
+    .Bind("Year", "Value", Model)
+    .DataLabel(dl => dl.Content("{name}").Position(PieLabelPosition.Center))
+    .BindingName("Year, Quarter, Month"))
+
+@section Description{
+    <p>@Html.Raw(Resources.Sunburst.Selection_Text0)</p>
+    <p>@Html.Raw(Resources.Sunburst.Selection_Text1)</p>
+    <p>@Html.Raw(Resources.Sunburst.Selection_Text2)</p>
+    <ul>
+        <li>@Html.Raw(Resources.Sunburst.Selection_Li1)</li>
+        <li>@Html.Raw(Resources.Sunburst.Selection_Li2)</li>
+        <li>@Html.Raw(Resources.Sunburst.Selection_Li3)</li>
+    </ul>
+}

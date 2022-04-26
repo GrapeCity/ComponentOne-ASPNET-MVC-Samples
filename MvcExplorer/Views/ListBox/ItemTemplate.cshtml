@@ -1,0 +1,55 @@
+﻿@model List<CustomerOrder>
+
+@section Styles{
+<style>
+    .badge {
+        color: white;
+        background-color: darkred;
+        border-radius: 10px;
+        padding: 1px 10px;
+    }
+
+    .label {
+        color: black;
+        background-color: orange;
+        border-radius: 10px;
+        padding: 1px 10px;
+    }
+</style>
+}
+
+<script id="template1" type="text/template">
+    <span>
+        <span class="label">{{Product}}</span>
+        <span class="badge">{{Count}}</span>
+    </span>
+</script>
+
+<script id="template2" type="text/template">
+    <span>
+        @Html.C1().InputNumber().TemplateBind("Value", "Count").Min(0).Max(10).Step(1).ToTemplate()
+    </span>
+</script>
+
+<div>
+    <label>@Html.Raw(Resources.ListBox.ItemTemplate_CustomHTML)</label>
+    @(Html.C1().ListBox()
+        .Bind(Model)
+        .ItemTemplateId("template1")
+        .Width(300).Height(250)
+    )
+</div>
+
+<div>
+    <label>@Html.Raw(Resources.ListBox.ItemTemplate_C1MVCControls)</label>
+    @(Html.C1().ListBox()
+        .Bind(Model)
+        .ItemTemplateId("template2")
+        .Width(300).Height(250)
+    )
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.ListBox.ItemTemplate_Text0)</p>
+    <p>@Html.Raw(Resources.ListBox.ItemTemplate_Text1)</p>
+}

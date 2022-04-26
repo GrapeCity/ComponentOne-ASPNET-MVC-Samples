@@ -1,0 +1,192 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 1.3
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+  ... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Register_CreateAnAccount" xml:space="preserve">
+    <value>アカウントを作成します</value>
+    <comment>Create an account</comment>
+  </data>
+  <data name="Register_HobbiesPrompt" xml:space="preserve">
+    <value>［SPACE］キーを押すと趣味のリストが表示されます。</value>
+    <comment>Press SPACE key to show hobbies list.</comment>
+  </data>
+  <data name="Register_Text0" xml:space="preserve">
+    <value>このサンプルでは、控えめな検証の基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the unobtrusive validation.</comment>
+  </data>
+  <data name="Register_Register" xml:space="preserve">
+    <value>登録</value>
+    <comment>Register</comment>
+  </data>
+  <data name="Register_RegistrationComplete" xml:space="preserve">
+    <value>登録完了</value>
+    <comment>Registration Complete</comment>
+  </data>
+  <data name="Register_CongratulationsTo" xml:space="preserve">
+    <value>おめでとうございます！ </value>
+    <comment>Congratulations to </comment>
+  </data>
+  <data name="Register_RegistrationSuccessfully" xml:space="preserve">
+    <value>! 登録内容は正常に送信されました。</value>
+    <comment>! Your registration has been successfuly submitted.</comment>
+  </data>
+  <data name="Register_Name_ErrorMessage" xml:space="preserve">
+    <value>ユーザー名は英数字で、4〜10文字でなければなりません。</value>
+    <comment>The username must be alphanumeric and contains 4 to 10 characters.</comment>
+  </data>
+  <data name="Register_Email_ErrorMessage" xml:space="preserve">
+    <value>電子メールフィールドが有効なアドレスではありません。</value>
+    <comment>The Email field is not a valid e-mail address.</comment>
+  </data>
+  <data name="Change_Required_ErrorMessage" xml:space="preserve">
+    <value>値を変更してください。</value>
+    <comment>Change value is required.</comment>
+  </data>
+  <data name="Discount_DataType_ErrorMessage" xml:space="preserve">
+    <value>正の整数のみを入力します。</value>
+    <comment>Discount value must be a positive number.</comment>
+  </data>
+  <data name="Discount_Required_ErrorMessage" xml:space="preserve">
+    <value>割引を入力してください。</value>
+    <comment>Discount value is required.</comment>
+  </data>
+  <data name="EndTime_Required_ErrorMessage" xml:space="preserve">
+    <value>終了時間を入力してください。</value>
+    <comment>EndTime value is required.</comment>
+  </data>
+  <data name="Price_DataType_ErrorMessage" xml:space="preserve">
+    <value>正の整数のみを入力します。</value>
+    <comment>Price value must be a positive number.</comment>
+  </data>
+  <data name="Price_Required_ErrorMessage" xml:space="preserve">
+    <value>価格を入力してください。</value>
+    <comment>Price value is required.</comment>
+  </data>
+  <data name="Start_DataType_ErrorMessage" xml:space="preserve">
+    <value>日付時刻のみを入力します。</value>
+    <comment>Start value must be DateTime.</comment>
+  </data>
+  <data name="Start_Required_ErrorMessage" xml:space="preserve">
+    <value>開始値を入力してください。</value>
+    <comment>Start value is required.</comment>
+  </data>
+  <data name="Required_Name_ErrorMessage" xml:space="preserve">
+    <value>Name フィールドは必須です。</value>
+    <comment>The Name field is required.</comment>
+  </data>
+  <data name="Required_Birthdate_ErrorMessage" xml:space="preserve">
+    <value>BirthDate フィールドは必須です。</value>
+    <comment>The Birthdate field is required.</comment>
+  </data>
+  <data name="Required_Country_ErrorMessage" xml:space="preserve">
+    <value>Country フィールドは必須です。</value>
+    <comment>The Country field is required.</comment>
+  </data>
+  <data name="Required_Email_ErrorMessage" xml:space="preserve">
+    <value>Email フィールドは必須です。</value>
+    <comment>The Email field is required.</comment>
+  </data>
+  <data name="Required_Industry_ErrorMessage" xml:space="preserve">
+    <value>Industry フィールドは必須です。</value>
+    <comment>The Industry field is required.</comment>
+  </data>
+  <data name="Required_Phone_ErrorMessage" xml:space="preserve">
+    <value>Phone フィールドは必須です。</value>
+    <comment>The Phone field is required.</comment>
+  </data>
+</root>

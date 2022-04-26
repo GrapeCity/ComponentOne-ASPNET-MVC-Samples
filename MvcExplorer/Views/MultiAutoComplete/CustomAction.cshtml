@@ -1,0 +1,27 @@
+﻿@section Styles{
+<style>
+    .highlight {
+        background-color: #ff0;
+        color: #000;
+    }
+</style>
+}
+
+<div>
+    <label>@Html.Raw(Resources.MultiAutoComplete.CustomAction_CustomAction)</label>
+    @(Html.C1().MultiAutoComplete()
+        .ItemsSourceAction(Url.Action("Heuristic"))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.MultiAutoComplete.CustomAction_CustomActionWithMaxItems)</label>
+    <p>@Html.Raw(Resources.MultiAutoComplete.CustomAction_Text0)</p>
+    @(Html.C1().MultiAutoComplete()
+        .MaxItems(10).CssMatch("highlight")
+        .ItemsSourceAction(Url.Action("TypesInMscorlib"))
+    )
+</div>
+
+@section Description{
+    @Html.Raw(Resources.MultiAutoComplete.CustomAction_Text1)
+}

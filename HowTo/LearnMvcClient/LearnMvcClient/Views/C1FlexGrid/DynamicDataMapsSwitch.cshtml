@@ -1,0 +1,25 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsSwitch_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsSwitch_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsSwitch_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsSwitch_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("country").Header("Country");
+        cs.Add().Binding("city").Header("City");
+        cs.Add().Binding("downloads").Header("Downloads");
+        cs.Add().Binding("sales").Header("Sales");
+    })
+)

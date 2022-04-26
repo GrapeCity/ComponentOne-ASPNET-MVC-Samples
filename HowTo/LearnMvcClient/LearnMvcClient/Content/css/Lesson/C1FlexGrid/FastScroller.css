@@ -1,0 +1,32 @@
+﻿.wj-flexgrid {
+    font-size: 120%;
+    height: 80vh;
+}
+    .wj-flexgrid .wj-cell {
+        padding: 6px;
+        border: none;
+    }
+    .wj-flexgrid .wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+        background-color: #f0f0f0;
+    }
+.fast-scroller {
+    display: flex;
+    flex-flow: column wrap;
+    height: 100%;
+    padding: 2em 0;
+    justify-content: center;
+    align-items: center;
+
+    position: absolute;
+    top: 0;
+    right: 2.5em;
+    cursor: pointer;
+    font-size: 80%;
+    font-weight: 800;
+    color: navy;
+    opacity: .5;
+}
+    .fast-scroller div {
+        text-align: center;
+        padding: 0 3px;
+    }

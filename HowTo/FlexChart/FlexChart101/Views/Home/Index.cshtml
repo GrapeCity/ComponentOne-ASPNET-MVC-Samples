@@ -1,0 +1,1398 @@
+﻿@model FlexChart101.Models.FlexChartModal
+
+@{
+    ViewBag.Title = "ASP.NET MVC FlexChart Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            @Html.Raw(Resource.FlexChart101.TXT_FlexChart_Header)
+        </h1>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_FlexChart_Header_0)
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">
+            @Html.Raw(Resource.FlexChart101.TXT_FreeTrial)
+        </a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Getting_Started)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Getting_Started_0)
+        </p>
+        <ol>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Getting_Started_1)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Getting_Started_2)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Getting_Started_3)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Getting_Started_4)</li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#gsCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="gsHtml">
+
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;                                    
+                                
+    &lt;/head&gt;
+    &lt;body&gt;
+
+        &lt;!-- this is the FlexChart --&gt;
+        @@(Html.C1().FlexChart().Id("gettingStartedChart")
+            .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =&gt;
+            {
+                sers.Add().Binding("Sales").Name("Sales");
+                sers.Add().Binding("Expenses").Name("Expenses");
+                sers.Add().Binding("Downloads").Name("Downloads");
+            })
+        )
+
+    &lt;/body&gt;
+&lt;/html&gt;
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="gsCss">
+
+.wj-flexchart {
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    height: 400px;
+    margin-bottom: 12px;
+    padding: 8px;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+                        </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("gettingStartedChart")
+                    .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- chart types -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Chart_Types)</h2>
+        <p>@Html.Raw(Resource.FlexChart101.TXT_Chart_Types_0)</p>
+        <ol>
+            <li>
+                @Html.Raw(Resource.FlexChart101.TXT_Chart_Types_1)
+            </li>
+            <li>
+                @Html.Raw(Resource.FlexChart101.TXT_Chart_Types_2)
+            </li>
+            <li>
+                @Html.Raw(Resource.FlexChart101.TXT_Chart_Types_3)
+            </li>
+        </ol>
+        <p>@Html.Raw(Resource.FlexChart101.TXT_Chart_Types_4)</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#ctHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#ctJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#ctCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="ctHtml">
+
+@@(Html.C1().FlexChart().Id("chartTypes")
+    .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =&gt;
+    {
+        sers.Add().Binding("Sales").Name("Sales");
+        sers.Add().Binding("Expenses").Name("Expenses");
+        sers.Add().Binding("Downloads").Name("Downloads");
+    })
+)
+
+&lt;label class="col-md-3 control-label"&gt;Chart Type&lt;/label&gt;
+@@(Html.C1().ComboBox().Id("typeMenu").Bind(Model.Settings["ChartType"])
+    .SelectedValue("Column").OnClientSelectedIndexChanged("typeMenu_SelectedIndexChanged")
+)
+
+&lt;label class="col-md-3 control-label"&gt;Stacking&lt;/label&gt;
+@@(Html.C1().ComboBox().Id("stackingMenu").Bind(Model.Settings["Stacking"])
+    .SelectedValue("None").OnClientSelectedIndexChanged("stackingMenu_SelectedIndexChanged")
+)
+
+&lt;label class="col-md-3 control-label"&gt;Rotated&lt;/label&gt;
+@@(Html.C1().ComboBox().Id("rotatedMenu").Bind(Model.Settings["Rotated"])
+    .SelectedValue("False").OnClientSelectedIndexChanged("rotatedMenu_SelectedIndexChanged")
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="ctJs">
+
+//Chart Types Module
+function typeMenu_SelectedIndexChanged(sender) {
+    if(sender.selectedValue)
+    {
+        var chartTypes = wijmo.Control.getControl("#chartTypes");
+        chartTypes.chartType = sender.selectedValue;
+    }    
+}
+
+function stackingMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        var chartTypes = MVC.Control.getControl("#chartTypes");
+        chartTypes.stacking = parseInt(sender.selectedIndex);//sender.selectedValue;
+    }
+}
+
+function rotatedMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        var chartTypes = MVC.Control.getControl("#chartTypes");
+        chartTypes.rotated = sender.selectedValue == 'True' ? true : false;
+    }
+}
+
+
+                        </div>
+<div class="tab-pane pane-content" id="ctCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+</div>              
+</div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartTypes")
+                    .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Chart Type</label>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox().Id("typeMenu").Bind(Model.Settings["ChartType"])
+                                .SelectedValue("Column").OnClientSelectedIndexChanged("typeMenu_SelectedIndexChanged")
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Stacking</label>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox().Id("stackingMenu").Bind(Model.Settings["Stacking"])
+                                    .SelectedValue("None").OnClientSelectedIndexChanged("stackingMenu_SelectedIndexChanged")
+                            )
+                        </div>
+                    </div>
+                            <div class="form-group">
+                                <label class="col-md-3 control-label">Rotated</label>
+                                <div class="col-md-9">
+                                    @(Html.C1().ComboBox().Id("rotatedMenu").Bind(Model.Settings["Rotated"])
+                            .SelectedValue("False").OnClientSelectedIndexChanged("rotatedMenu_SelectedIndexChanged")
+                                    )
+                                    </div>
+                                </div>
+                            
+                        </div>
+    </div>
+</div>
+        </div>
+
+
+    <!-- mixed chart types -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Mixed_Chart_Types)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Mixed_Chart_Types_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Mixed_Chart_Types_1)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#mctHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#mctCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="mctHtml">
+                            
+    @@(Html.C1().FlexChart().Id("mixedTypesChart")
+        .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =&gt;
+        {
+            sers.Add().Binding("Sales").Name("Sales");
+            sers.Add().Binding("Expenses").Name("Expenses");
+            sers.Add().Binding("Downloads").Name("Downloads").Type(C1.Web.Mvc.Chart.ChartType.LineSymbols);
+        })
+    )
+
+                        </div>
+                        <div class="tab-pane pane-content" id="mctCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("mixedTypesChart")
+                    .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads").ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols);
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- legend and titles -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Legend_and_Titles)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Legend_and_Titles_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Legend_and_Titles_1)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#ltHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#ltJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#ltCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#ltCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="ltHtml">
+
+@@(Html.C1().FlexChart().Id("chartLegendAndTitles").Header("Sample Chart").Footer("Copyright (c) ComponentOne")
+    .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x =&gt; x.Title("Country")).AxisY(y =&gt; y.Title("Amount"))
+    .Series(sers =&gt;
+    {
+        sers.Add().Binding("Sales").Name("Sales");
+        sers.Add().Binding("Expenses").Name("Expenses");
+        sers.Add().Binding("Downloads").Name("Downloads");
+    })
+)
+&lt;dl class="dl-horizontal"&gt;
+    &lt;dt&gt;Header&lt;/dt&gt;&lt;dd&gt;&lt;input id="headerInput" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Footer&lt;/dt&gt;&lt;dd&gt;&lt;input id="footerInput" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;X-Axis Title&lt;/dt&gt;&lt;dd&gt;&lt;input id="xTitleInput" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;Y-Axis Title&lt;/dt&gt;&lt;dd&gt;&lt;input id="yTitleInput" class="form-control"/&gt;&lt;/dd&gt;
+    &lt;dt&gt;&lt;/dt&gt;
+    &lt;dd&gt;
+        @@(Html.C1().ComboBox().Id("positionMenu").Bind(Model.Settings["Position"])
+            .SelectedValue("Right").OnClientSelectedIndexChanged("positionMenu_SelectedIndexChanged")
+        )
+    &lt;/dd&gt;
+&lt;/dl&gt;
+
+</div>
+                        <div class="tab-pane pane-content" id="ltJs">
+
+$(document).ready(function () {
+
+    //Legend & Title Module
+    var ltchart = MVC.Control.getControl("#chartLegendAndTitles");
+    var ltHeader = document.getElementById('headerInput');
+    var ltFooter = document.getElementById('footerInput');
+    var ltXTitle = document.getElementById('xTitleInput');
+    var ltYTitle = document.getElementById('yTitleInput');
+
+    ltHeader.value = 'Sample Chart';
+    ltHeader.addEventListener('input', function () {
+        ltchart.header = this.value;
+    });
+
+    ltFooter.value = 'Copyright (c) ComponentOne';
+    ltFooter.addEventListener('input', function () {
+        ltchart.footer = this.value;
+    });
+
+    ltXTitle.value = 'Country';
+    ltXTitle.addEventListener('input', function () {
+        ltchart.axisX.title = this.value;
+    });
+
+    ltYTitle.value = 'Amount';
+    ltYTitle.addEventListener('input', function () {
+        ltchart.axisY.title = this.value;
+    });
+
+});
+
+//Legend and Title Module
+function positionMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        var chart = MVC.Control.getControl("#chartLegendAndTitles");
+        chart.legend.position = parseInt(sender.selectedIndex);
+    }
+}
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="ltCss">
+
+    .wj-flexchart .wj-title {
+        font-weight: bold;
+    }
+    .wj-flexchart .wj-header .wj-title {
+        fill: #80044d;
+        font-size: 18pt;
+    }
+    .wj-flexchart .wj-footer .wj-title {
+        fill: #80044d;
+    }
+    .wj-flexchart .wj-axis-x .wj-title,
+    .wj-flexchart .wj-axis-y .wj-title {
+        font-style: italic;
+    }
+
+</div>
+                        <div class="tab-pane pane-content" id="ltCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartLegendAndTitles").Header("Sample Chart").Footer("Copyright (c) ComponentOne")
+                    .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x=>x.Title("Country")).AxisY(y=>y.Title("Amount"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+                <dl class="dl-horizontal">
+                    <dt>Header</dt>
+                    <dd><input id="headerInput" class="form-control" /></dd>
+                    <dt>Footer</dt>
+                    <dd><input id="footerInput" class="form-control" /></dd>
+                    <dt>X-Axis Title</dt>
+                    <dd><input id="xTitleInput" class="form-control" /></dd>
+                    <dt>Y-Axis Title</dt>
+                    <dd><input id="yTitleInput" class="form-control" /></dd>
+                    <dt>Legend</dt>
+                    <dd>
+                        @(Html.C1().ComboBox().Id("positionMenu").Bind(Model.Settings["Position"])
+                                        .SelectedValue("Right").OnClientSelectedIndexChanged("positionMenu_SelectedIndexChanged")
+                        )
+                    </dd>
+                </dl>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- tooltips -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Tooltips)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Tooltips_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Tooltips_1)
+        </p>
+        <ul>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Tooltips_2)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Tooltips_3)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Tooltips_4)</li>
+            <li>@Html.Raw(Resource.FlexChart101.TXT_Tooltips_5)</li>
+        </ul>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Tooltips_6)
+        </p>
+        <p>@Html.Raw(Resource.FlexChart101.TXT_Tooltips_7)</p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tooltipHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#tooltipCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="tooltipHtml">
+                            
+    @@(Html.C1().FlexChart().Id("chartTooltip").Header("Sample Chart").Footer("Copyright (c) ComponentOne")
+        .Tooltip(tt =&gt; tt.Content("&lt;img src='"+@@Url.Content("~/Content/images/{x}.png")+"' /&gt; &lt;b&gt;{seriesName}&lt;/b&gt;&lt;br /&gt;{y}"))
+        .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x =&gt; x.Title("Country")).AxisY(y =&gt; y.Title("Amount"))
+        .Series(sers =&gt;
+        {
+            sers.Add().Binding("Sales").Name("Sales");
+            sers.Add().Binding("Expenses").Name("Expenses");
+            sers.Add().Binding("Downloads").Name("Downloads");
+        })
+    )
+
+</div>
+                        <div class="tab-pane pane-content" id="tooltipCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartTooltip").Header("Sample Chart").Footer("Copyright (c) ComponentOne")
+                    .Tooltip(tt=>tt.Content("<img src='"+@Url.Content("~/Content/images/{x}.png")+"' /> <b>{seriesName}</b><br />{y}"))
+                    .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x => x.Title("Country")).AxisY(y => y.Title("Amount"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- styling series -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Styling_Series)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Styling_Series_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Styling_Series_1)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Styling_Series_2)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#seriesStyleHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#seriesStyleCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="seriesStyleHtml">
+                            
+@@(Html.C1().FlexChart().Id("chartSeriesStyle")
+    .Tooltip(tt =&gt; tt.Content("&lt;img src='"+@@Url.Content("~/Content/images/{x}.png")+"' /&gt; &lt;b&gt;{seriesName}&lt;/b&gt;&lt;br /&gt;{y}"))
+    .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x =&gt; x.Title("Country")).AxisY(y =&gt; y.Title("Amount"))
+    .Series(sers =&gt;
+    {
+        sers.Add().Binding("Sales").Name("Sales").Style(ss =&gt; ss.Fill("green").Stroke("darkgreen").StrokeWidth(1));
+        sers.Add().Binding("Expenses").Name("Expenses").Style(ss =&gt; ss.Fill("red").Stroke("darkred").StrokeWidth(1));
+        sers.Add().Binding("Downloads").Name("Downloads")
+            .Type(C1.Web.Mvc.Chart.ChartType.LineSymbols).Style(ss =&gt;
+                {
+                    ss.Fill("gold");
+                    ss.Stroke("orange");
+                    ss.StrokeWidth(5);
+                });
+    })
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="seriesStyleCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>                
+                @(Html.C1().FlexChart().Id("chartSeriesStyle")
+                .Tooltip(tt => tt.Content("<img src='"+@Url.Content("~/Content/images/{x}.png")+"' /> <b>{seriesName}</b><br />{y}"))
+                    .Bind(Model.CountrySalesData).BindingX("Country").AxisX(x => x.Title("Country")).AxisY(y => y.Title("Amount"))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales").Style(ss => ss.Fill("green").Stroke("darkgreen").StrokeWidth(1));
+                        sers.Add().Binding("Expenses").Name("Expenses").Style(ss => ss.Fill("red").Stroke("darkred").StrokeWidth(1));
+                        sers.Add().Binding("Downloads").Name("Downloads")
+                            .ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols).Style(ss => 
+                                {
+                                    ss.Fill("gold");
+                                    ss.Stroke("orange");
+                                    ss.StrokeWidth(5);
+                                }); 
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- customizing axes -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Customizing_Axes)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Customizing_Axes_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Customizing_Axes_1)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#customizeAxesHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#customizeAxesCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="customizeAxesHtml">
+                            
+@@(Html.C1().FlexChart().Id("chartCustomizeAxes")
+    .Tooltip(tt =&gt; tt.Content("&lt;img src='"+@@Url.Content("~/Content/images/{x}.png")+"' /&gt; &lt;b&gt;{seriesName}&lt;/b&gt;&lt;br /&gt;{y}"))
+    .Bind(Model.CountrySalesData).BindingX("Country")
+    .AxisX(x =&gt; x.ShowAxisLine(true).MajorGrid(true))
+    .AxisY(y =&gt; y.Format("c0").Max(12000000).MajorUnit(1000000)
+        .ShowAxisLine(true).MajorGrid(true))
+    .Series(sers =&gt;
+    {
+        sers.Add().Binding("Sales").Name("Sales");
+        sers.Add().Binding("Expenses").Name("Expenses");                        
+    })
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="customizeAxesCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>                
+                @(Html.C1().FlexChart().Id("chartCustomizeAxes")
+                .Tooltip(tt => tt.Content("<img src='"+@Url.Content("~/Content/images/{x}.png")+"' /> <b>{seriesName}</b><br />{y}"))
+                    .Bind(Model.CountrySalesData).BindingX("Country")
+                    .AxisX(x => x.AxisLine(true).MajorGrid(true))
+                    .AxisY(y => y.Format("c0").Max(12000000).MajorUnit(1000000)
+                        .AxisLine(true).MajorGrid(true))
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");                        
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- theming -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Theming)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Theming_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Theming_1)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Theming_2)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#themeHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#themeCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#themeCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="themeHtml">
+
+@@(Html.C1().FlexChart().Id("chartTheme").CssClass("custom-flex-chart")    
+        .Bind(Model.CountrySalesData).BindingX("Country")
+        .Series(sers =&gt;
+        {
+            sers.Add().Binding("Sales").Name("Sales");
+            sers.Add().Binding("Expenses").Name("Expenses");
+            sers.Add().Binding("Downloads").Name("Downloads");
+        })
+)                            
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="themeCss">
+                            
+/* custom chart theme */
+.custom-flex-chart.wj-flexchart .wj-axis-x .wj-label,
+.custom-flex-chart.wj-flexchart .wj-legend .wj-label {
+    font-family: 'Courier New', Courier, monospace;
+    font-weight: bold;
+}
+
+.custom-flex-chart.wj-flexchart .wj-legend > rect,
+.custom-flex-chart.wj-flexchart .wj-plot-area >  rect {
+    fill: #f8f8f8;
+    stroke: #c0c0c0;
+}
+
+                        </div>
+                        <div id="themeCS" class="tab-pane pane-content">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartTheme").CssClass("custom-flex-chart")                
+                    .Bind(Model.CountrySalesData).BindingX("Country")
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- selection modes -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_SelectionModes)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_SelectionModes_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_SelectionModes_1)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_SelectionModes_2)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#selectionModeHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#selectionModeJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#selectionModeCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="selectionModeHtml">
+
+@@(Html.C1().FlexChart().Id("chartSelectionMode").OnClientSelectionChanged("chartSelectionMode_SelectionChanged")    
+        .Bind(Model.CountrySalesData).BindingX("Country")
+        .Series(sers =&gt;
+        {
+            sers.Add().Binding("Sales").Name("Sales");
+            sers.Add().Binding("Expenses").Name("Expenses");
+            sers.Add().Binding("Downloads").Name("Downloads");
+        })
+    )
+
+&lt;label class="col-md-3 control-label"&gt;Selection Mode&lt;/label&gt;
+@@(Html.C1().ComboBox().Id("selectionModeMenu").Bind(Model.Settings["SelectionMode"])
+    .SelectedValue("None").OnClientSelectedIndexChanged("selectionModeMenu_SelectedIndexChanged")
+)
+&lt;label class="col-md-3 control-label"&gt;Chart Type&lt;/label&gt;
+@@(Html.C1().ComboBox().Id("chartTypeMenu").Bind(Model.Settings["ChartType"])
+    .SelectedValue("Column").OnClientSelectedIndexChanged("chartTypeMenu_SelectedIndexChanged")
+)
+
+&lt;div id="seriesContainer" style="display:none"&gt;
+    &lt;h4&gt;Current Selection&lt;/h4&gt;
+    &lt;p&gt;Series: &lt;b id="seriesName"&gt;&lt;/b&gt;&lt;/p&gt;
+    &lt;dl id="detailContainer" class="dl-horizontal" style="display:none"&gt;
+        &lt;dt&gt;Country&lt;/dt&gt;&lt;dd id="seriesCountry"&gt;&lt;/dd&gt;
+        &lt;dt&gt;Sales&lt;/dt&gt;&lt;dd id="seriesSales"&gt;&lt;/dd&gt;
+        &lt;dt&gt;Expenses&lt;/dt&gt;&lt;dd id="seriesExpenses"&gt;&lt;/dd&gt;
+        &lt;dt&gt;Downloads&lt;/dt&gt;&lt;dd id="seriesDownloads"&gt;&lt;/dd&gt;
+    &lt;/dl&gt;
+&lt;/div&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="selectionModeJs">                            
+                            
+var chartSelectionMode = typeMenu = selectionModeMenu = seriesContainer = detailContainer = null;
+
+$(document).ready(function () {
+
+    //Selection Modes Module  
+    chartSelectionMode = wijmo.Control.getControl('#chartSelectionMode'),
+        typeMenu = wijmo.Control.getControl('#chartTypeMenu'),
+        selectionModeMenu = wijmo.Control.getControl('#selectionModeMenu'),
+        seriesContainer = document.getElementById('seriesContainer'),
+        detailContainer = document.getElementById('detailContainer');
+
+    var chartLegendToggle = wijmo.Control.getControl('#chartSelectionMode'),
+        cbSales = document.getElementById('cbSales'),
+        cbExpenses = document.getElementById('cbExpenses'),
+        cbDownloads = document.getElementById('cbDownloads');
+
+
+});
+
+//Selection Modes Module
+function selectionModeMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        //var chart = wijmo.Control.getControl("#chartSelectionMode");
+        chartSelectionMode.selectionMode = parseInt(sender.selectedIndex);
+
+        // toggle the series panel's visiblity
+        if (sender.selectedIndex === 0 || !chartSelectionMode.selection) {
+            if (seriesContainer)
+                seriesContainer.style.display = 'none';
+        }
+        else {
+            if (seriesContainer)
+            seriesContainer.style.display = 'block';
+        }
+
+        // toggle the series panel's visiblity
+        if (sender.selectedIndex !== 2 || !chartSelectionMode.selection || !chartSelectionMode.selection.collectionView.currentItem) {
+            if (detailContainer)
+            detailContainer.style.display = 'none';
+        }
+        else {
+            // update the details
+            setSeriesDetail(chartSelectionMode.selection.collectionView.currentItem);
+        }
+
+        // update Menu header
+        //updateMenuHeader(sender, 'Selection Mode');
+
+    }
+}
+
+function chartTypeMenu_SelectedIndexChanged(sender) {
+    if (sender.selectedValue) {
+        //var chart = wijmo.Control.getControl("#chartSelectionMode");
+        chartSelectionMode.chartType = parseInt(sender.selectedIndex);
+    }
+}
+
+// update details when the FlexChart's selection changes
+function chartSelectionMode_SelectionChanged(sender) {
+    //var chartSelectionMode = wijmo.Control.getControl("#chartSelectionMode");
+    var currentSelection = sender.selection,
+        currentSelectItem;
+    if (currentSelection) {
+        var seriesContainer = document.getElementById('seriesContainer'),
+            selectionModeMenu = document.getElementById('selectionModeMenu');
+        seriesContainer.style.display = 'block'; // show container
+
+        document.getElementById('seriesName').innerHTML = currentSelection.name;
+        currentSelectItem = currentSelection.collectionView.currentItem;
+
+        if (currentSelectItem && selectionModeMenu.selectedValue === '2') {
+            setSeriesDetail(currentSelectItem); // update details
+        }
+    }
+}
+
+// helper method to show details of the FlexChart's current selection
+function setSeriesDetail(currentSelectItem) {
+    detailContainer.style.display = 'block';
+    document.getElementById('seriesCountry').innerHTML = currentSelectItem.Country;
+    document.getElementById('seriesSales').innerHTML = wijmo.Globalize.format(currentSelectItem.Sales, 'c2');
+    document.getElementById('seriesExpenses').innerHTML = wijmo.Globalize.format(currentSelectItem.Expenses, 'c2');
+    document.getElementById('seriesDownloads').innerHTML = wijmo.Globalize.format(currentSelectItem.Downloads, 'n0');
+};
+
+                        </div>
+                        <div class="tab-pane pane-content" id="selectionModeCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartSelectionMode").OnClientSelectionChanged("chartSelectionMode_SelectionChanged")                
+                    .Bind(Model.CountrySalesData).BindingX("Country")
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Selection Mode</label>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox().Id("selectionModeMenu").Bind(Model.Settings["SelectionMode"])
+                    .SelectedValue("None").OnClientSelectedIndexChanged("selectionModeMenu_SelectedIndexChanged")
+                            )
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="col-md-3 control-label">Chart Type</label>
+                        <div class="col-md-9">
+                            @(Html.C1().ComboBox().Id("chartTypeMenu").Bind(Model.Settings["ChartType"])
+                    .SelectedValue("Column").OnClientSelectedIndexChanged("chartTypeMenu_SelectedIndexChanged")
+                            )
+                        </div>
+                    </div>
+                </div>
+                                
+                <div id="seriesContainer" style="display:none">
+                    <h4>Current Selection</h4>
+                    <p>Series: <b id="seriesName"></b></p>
+                    <dl id="detailContainer" class="dl-horizontal" style="display:none">
+                        <dt>Country</dt>
+                        <dd id="seriesCountry"></dd>
+                        <dt>Sales</dt>
+                        <dd id="seriesSales"></dd>
+                        <dt>Expenses</dt>
+                        <dd id="seriesExpenses"></dd>
+                        <dt>Downloads</dt>
+                        <dd id="seriesDownloads"></dd>
+                    </dl>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- toggle series visibility -->
+    <div>
+        <h2>@Html.Raw(Resource.FlexChart101.TXT_Toggle_Series)</h2>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Toggle_Series_0)
+        </p>
+        <p>
+            @Html.Raw(Resource.FlexChart101.TXT_Toggle_Series_1)
+        </p>
+        <ol>
+            <li>
+                @Html.Raw(Resource.FlexChart101.TXT_Toggle_Series_2)
+            </li>
+            <li>
+                @Html.Raw(Resource.FlexChart101.TXT_Toggle_Series_3)
+            </li>
+        </ol>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#legendToggleHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#legendToggleJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#legendToggleCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane pane-content active" id="legendToggleHtml">
+                            
+@@(Html.C1().FlexChart().Id("chartLegendToggle")
+    .LegendToggle(true).OnClientSeriesVisibilityChanged("chartLegendToggle_SeriesVisibilityChanged")    
+    .Bind(Model.CountrySalesData).BindingX("Country")
+    .Series(sers =&gt;
+    {
+        sers.Add().Binding("Sales").Name("Sales");
+        sers.Add().Binding("Expenses").Name("Expenses");
+        sers.Add().Binding("Downloads").Name("Downloads");
+    })
+)
+Sales &lt;input id="cbSales" type="checkbox"/&gt;&lt;br /&gt;
+Expenses &lt;input id="cbExpenses" type="checkbox"/&gt;&lt;br /&gt;
+Downloads &lt;input id="cbDownloads" type="checkbox"/&gt;
+
+                        </div>
+                        <div class="tab-pane pane-content" id="legendToggleJs">
+
+$(document).ready(function () {
+    //Toggle Series Module  
+
+    // loop through custom check boxes
+    ['cbSales', 'cbExpenses', 'cbDownloads'].forEach(function (item, index) {
+        // update checkbox and toggle FlexChart's series visibility when clicked
+        var el = document.getElementById(item);
+        el.checked = chartLegendToggle.series[index].visibility === wijmo.chart.SeriesVisibility.Visible;
+        el.addEventListener('click', function () {
+            if (this.checked) {
+                chartLegendToggle.series[index].visibility = wijmo.chart.SeriesVisibility.Visible;
+            }
+            else {
+                chartLegendToggle.series[index].visibility =wijmo.chart.SeriesVisibility.Legend;
+            }
+        });
+    });
+
+});
+
+//Toggle Series Module  
+function chartLegendToggle_SeriesVisibilityChanged(sender) {
+    // loop through chart series
+    sender.series.forEach(function (series) {
+        var seriesName = series.name,
+        checked = series.visibility === wijmo.chart.SeriesVisibility.Visible;
+
+        // update custom checkbox panel
+        document.getElementById('cb' + seriesName).checked = checked;
+    });
+}
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="legendToggleCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexChart101.Models;
+using C1.Web.Mvc.Chart;
+
+namespace FlexChart101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexChartModal ModelObj = new FlexChartModal();
+            ModelObj.Settings = CreateIndexSettings();
+            ModelObj.CountrySalesData = CountryData.GetCountryData();
+            
+            return View(ModelObj);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateIndexSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
+                {"Stacking", new object[]{"None", "Stacked", "Stacked 100%"}},
+                {"Rotated", new object[]{false.ToString(), true.ToString()}},
+                {"Palette", new object[]{"standard", "cocoa", "coral", "dark", "highcontrast", "light", "midnight", "minimal", "modern", "organic", "slate"}},
+                {"GroupWidth", new object[]{"25%", "70%", "100%", "50 pixels"}},
+                {"Position",new object[]{Position.None.ToString(),Position.Left.ToString(),Position.Top.ToString(),Position.Right.ToString(),Position.Bottom.ToString()}},
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Series.ToString(),SelectionMode.Point.ToString()}}
+            };
+
+            return settings;
+        }        
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resource.FlexChart101.TXT_Result_Live)</h4>
+                @(Html.C1().FlexChart().Id("chartLegendToggle")
+                    .LegendToggle(true).OnClientSeriesVisibilityChanged("chartLegendToggle_SeriesVisibilityChanged")
+                    .Bind(Model.CountrySalesData).BindingX("Country")
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+                )
+                @Html.Raw(Resource.FlexChart101.TXT_Sales) <input id="cbSales" type="checkbox" /><br />
+                @Html.Raw(Resource.FlexChart101.TXT_Expenses) <input id="cbExpenses" type="checkbox" /><br />
+                @Html.Raw(Resource.FlexChart101.TXT_Downloads) <input id="cbDownloads" type="checkbox" />
+            </div>
+        </div>
+    </div>
+
+    
+
+</div>

@@ -1,0 +1,44 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text4)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text6)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text7)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1FlexGrid.RowsStyling_Text8)
+    <input id="showAlternatingRows" type="checkbox" checked="true">
+</label>
+@(Html.C1().FlexGrid().Id("theGrid").Bind(Model)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("50");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Product").Header("Product");
+        cs.Add().Binding("Sales").Header("Sales").Format("c0");
+        cs.Add().Binding("Expenses").Header("Expenses").Format("c0");
+    })
+)

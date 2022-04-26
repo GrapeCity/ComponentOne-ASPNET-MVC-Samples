@@ -1,0 +1,40 @@
+﻿
+@{    
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            FlexGrid Custom Merging
+        </h1>
+        <p>
+            Merge multiple rows and columns in a single grid.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <p>
+        This sample applies custom merging to a <b>FlexGrid</b> by defining a custom <b>MergeManager</b>
+        class and assigning an instance of that class to the grid's <b>mergeManager</b> property.
+    </p>
+    <p>
+        The custom merge manager creates merged ranges that span rows and columns, which is something
+        the default merge manager does not do (it merges either rows or columns, but not both).
+    </p>
+
+    @Html.C1().FlexGrid().Id("flexGrid")
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["initialControls"]) {
+            window["initialControls"]();
+        }
+    });
+</script>
+

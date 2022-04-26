@@ -1,0 +1,20 @@
+@model IEnumerable<TreeViewData>
+
+@section Scripts{
+<script>
+    var newImageUrl = '@Href("~/Content/images/new.png")';
+</script>
+}
+
+<h1>
+    @Html.Raw(Resources.C1Nav.CustomContent_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.CustomContent_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.CustomContent_Text2)
+</p>
+
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")

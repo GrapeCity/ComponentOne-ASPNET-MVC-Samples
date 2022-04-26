@@ -1,0 +1,23 @@
+﻿@model IEnumerable<Population>
+
+@(Html.C1().FlexChart().ChartType(C1.Web.Mvc.Chart.ChartType.Bubble)
+.Bind("POP", Model).Legend(C1.Web.Mvc.Chart.Position.None)
+.Tooltip(ttb => ttb.Content("<b>{Country}</b>:<br/>{PCI:n0} US$/year/capita").IsContentHtml(true))
+.AxisY(cab => cab.Title(Resources.FlexChart.Scaling_AxisYText).Format("g4,").LogBase(10))
+.AxisX(cab => cab.Title(Resources.FlexChart.Scaling_AxisXText).Format("g4,,").LogBase(10))
+.Series(sers =>
+    {
+        sers.Add()
+            .Name("GDP")
+            .SymbolStyle(svgsb => svgsb.Fill("gold").Stroke("orange"))
+            .Binding("GDP,PCI");
+    }))
+
+@section Description{
+    <h3>
+
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.Scaling_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.Scaling_Text1)</p>
+    <p>@Html.Raw(Resources.FlexChart.Scaling_Text2)</p>
+}

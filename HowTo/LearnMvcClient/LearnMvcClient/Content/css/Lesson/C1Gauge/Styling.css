@@ -1,0 +1,22 @@
+﻿#thePanel {
+  width: 70%;
+  margin: 20px auto;
+  height: 100px;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+.wj-gauge {
+  width: 70%;
+  margin: 20px auto;
+}
+.wj-gauge .wj-ticks {
+  stroke: f0f0f0;
+  stroke-width: 2px;
+}
+.wj-gauge .wj-face path {
+  fill: #f0f0f0;
+  stroke: #e0e0e0;
+}
+.wj-gauge.wj-state-focused circle.wj-pointer {
+  stroke-width: 8px;
+  stroke: currentColor;
+}

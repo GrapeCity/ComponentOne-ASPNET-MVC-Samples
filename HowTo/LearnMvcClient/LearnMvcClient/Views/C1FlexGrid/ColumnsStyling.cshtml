@@ -1,0 +1,44 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text4)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text6) 
+</p>
+@Html.C1().CollectionViewService().Id("collectionView").Bind(Model)
+@(Html.C1().FlexGrid().Id("theGrid")
+    .ItemsSourceId("collectionView")
+    .ShowAlternatingRows(false)
+)
+
+<h3>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Title1)
+</h3>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text7)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStyling_Text8) 
+</p>
+@(Html.C1().FlexGrid().Id("theGridFormatItem")
+    .ItemsSourceId("collectionView")
+    .ShowAlternatingRows(false)
+)

@@ -1,0 +1,50 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{ 
+    var chartTypes = new[] { "Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea" };
+    var stackings = new[] { "None", "Stacked", "Stacked100pc" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.ChartTypes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.ChartTypes_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartTypes_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartTypes_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartTypes_Text4)
+    </li>
+</ol>
+<p>
+    @Html.Raw(Resources.C1FlexChart.ChartTypes_Text5)
+</p>
+
+<div class="demo-settings">
+    <label for="chartType">@Html.Raw(Resources.C1FlexChart.ChartTypes_Text6) </label>
+    @Html.C1().ComboBox().Id("chartType").Bind(chartTypes)
+    <br>
+    <label for="stacking">@Html.Raw(Resources.C1FlexChart.ChartTypes_Text7) </label>
+    @Html.C1().ComboBox().Id("stacking").Bind(stackings)
+    <br>
+    <label for="rotated">@Html.Raw(Resources.C1FlexChart.ChartTypes_Text8) </label>
+    <input id="rotated" type="checkbox"><br>
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .Series(sb=>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

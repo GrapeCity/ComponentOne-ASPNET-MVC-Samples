@@ -1,0 +1,32 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Checkboxes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text3)
+</p>
+
+@Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+<button id="btnCheckAll" class="btn btn-default">
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text4)
+</button>
+<button id="btnUncheckAll" class="btn btn-default">
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text5)
+</button>
+  &nbsp;&nbsp;&nbsp;&nbsp;
+<button id="btnSaveState" class="btn btn-default">
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text6)
+</button>
+<button id="btnRestoreState" class="btn btn-default">
+    @Html.Raw(Resources.C1Nav.Checkboxes_Text7)
+</button>
+
+<div id="tvChkStatus"></div>    

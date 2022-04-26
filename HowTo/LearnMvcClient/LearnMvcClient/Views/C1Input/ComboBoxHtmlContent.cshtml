@@ -1,0 +1,11 @@
+<h1>
+    @Html.Raw(Resources.C1Input.ComboBoxHtmlContent_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxHtmlContent_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.ComboBoxHtmlContent_Text2)
+</p>
+
+@Html.C1().ComboBox().Id("theCombo").DisplayMemberPath("name").HeaderPath("name")

@@ -1,0 +1,30 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesCustom_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesCustom_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesCustom_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesCustom_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AggregatesCustom_Text4)
+</p>
+@(Html.C1().FlexGrid<FlexGridData.Sale>().Id("theGrid").Height(250)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("60").IsReadOnly(true);
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Product").Header("Product");
+        cs.Add().Binding("Sales").Header("Sales").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+        cs.Add().Binding("Expenses").Header("Expenses").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum);
+        cs.Add().Binding("Profit").Header("Profit").DataType(C1.Web.Mvc.Grid.DataType.Number).IsReadOnly(true);
+    })
+)

@@ -1,0 +1,75 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Order>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+@(Html.C1().FlexGrid<Order>().Id(controlId).Height(350).IsReadOnly(true).Bind(Model)
+.AutoGenerateColumns(false).PageSize(50).GroupBy("ShipCountry").ShowGroups(true)
+.Columns(columns =>
+{
+    columns.Add().Binding("OrderID").Header("Id");
+    columns.Add().Binding("ShipCountry").Header("Ship Country");
+    columns.Add().Binding("ShipCity").Header("Ship City");
+    columns.Add().Binding("ShippedDate").Header("Shipped Date");
+    columns.Add().Binding("ShipAddress").Header("Ship Address").Width("*");
+    columns.Add().Binding("Freight").Header("Freight").Format("c2").Aggregate(Aggregate.Sum);
+})
+)
+
+@(Html.C1().Pager().Owner(controlId))
+
+@section Settings{
+    <script>
+        function customChangeGroupBy(grid, name) {
+            var groupDescriptions = grid.collectionView.groupDescriptions;
+            grid.beginUpdate();
+            groupDescriptions.clear();
+
+            if (name.indexOf("ShipCountry") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShipCountry"));
+            }
+
+            if (name.indexOf("ShipCity") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShipCity"));
+            }
+
+            if (name.indexOf("ShippedDate") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShippedDate", function (item, prop) {
+                    var value = item[prop];
+                    if (!value) {
+                        return "";
+                    } else {
+                        return value.getFullYear() + "/" + (value.getMonth() + 1);
+                    }
+                }));
+            }
+
+            if (name.indexOf("Freight") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Freight", function (item, prop) {
+                    var value = item[prop];
+                    if (value <= 50) {
+                        return "0 to 50";
+                    }
+
+                    if (value > 50 && value <= 100) {
+                        return "50 to 100";
+                    }
+
+                    if (value > 100 && value <= 150) {
+                        return "100 to 150";
+                    }
+
+                    return "More than 150";
+                }));
+            }
+
+            grid.endUpdate();
+        }
+    </script>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.Grouping_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Grouping_Text1)</p>
+}

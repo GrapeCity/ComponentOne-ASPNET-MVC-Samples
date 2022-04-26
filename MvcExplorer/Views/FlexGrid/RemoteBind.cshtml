@@ -1,0 +1,27 @@
+﻿@using C1.Web.Mvc.Grid
+
+@(Html.C1().FlexGrid()
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.SingleColumn)
+    .IsReadOnly(true)
+    .Bind(Url.Action("RemoteBind_Read"))
+    .CssClass("grid")
+    .SelectionMode(SelectionMode.Row)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID").Visible(false));
+        columns.Add(column => column.Binding("Start").Format("MMM d yy"));
+        columns.Add(column => column.Binding("End").Format("HH:mm"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Color"));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+        columns.Add(column => column.Binding("Discount").Format("p0"));
+        columns.Add(column => column.Binding("Active"));
+    })
+)
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.RemoteBind_Text0)
+}

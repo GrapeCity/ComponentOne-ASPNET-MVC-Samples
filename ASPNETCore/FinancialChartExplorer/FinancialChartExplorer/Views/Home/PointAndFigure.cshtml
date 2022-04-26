@@ -1,0 +1,143 @@
+@{
+    IEnumerable<FinanceData> fbData = ViewBag.FbData;
+    IEnumerable<FinanceData> rsData = ViewBag.RsData;
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var chartStyle = new SVGStyle() { Stroke = "Black" };
+    var chartAltStyle = new SVGStyle() { Stroke = "Red" };
+}
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        var scaling = wijmo.Control.getControl('#Scaling');
+        var boxSize = wijmo.Control.getControl('#BoxSize');
+        var period = wijmo.Control.getControl('#Period');
+
+        function updateStatus(s) {
+            boxSize.isDisabled = s.selectedIndex != 1;
+            period.isDisabled = s.selectedIndex != 2;
+        }
+
+        updateStatus(scaling);
+        scaling.selectedIndexChanged.addHandler(function (s, e) {
+            updateStatus(s);
+        });
+
+        function updateX(cv) {
+            var items = cv.sourceCollection;
+            for (var i = 0; i < items.length; i++) {
+                var item = items[i];
+                item['X'] = wijmo.Globalize.parseDate(item['X'], "yyyy-MM-dd");
+            }
+        }
+
+        updateX(c1.getService("cvFb"));
+        updateX(c1.getService("cvRs"));
+    });
+
+    function customChangeFields(control, value) {
+        var options = getPointAndFigureOptions(control);
+        options.fields = wijmo.chart.finance.DataFields[value];
+        control.invalidate();
+    }
+
+    function customChangeReversal(control, value) {
+        var options = getPointAndFigureOptions(control);
+        options.reversal = +value;
+        control.invalidate();
+    }
+
+    function customChangeScaling(control, value) {
+        var options = getPointAndFigureOptions(control);
+        options.scaling = wijmo.chart.finance.PointAndFigureScaling[value];
+        control.invalidate();
+    }
+
+    function customChangeBoxSize(control, value) {
+        var options = getPointAndFigureOptions(control);
+        options.boxSize = +value;
+        control.invalidate();
+    }
+
+    function customChangePeriod(control, value) {
+        var options = getPointAndFigureOptions(control);
+        options.period = +value;
+        control.invalidate();
+    }
+
+    function getPointAndFigureOptions(control) {
+        var options = control.options;
+        if (!options) {
+            options = control.options = {};
+        }
+
+        var pointAndFigure = options.pointAndFigure;
+        if (!pointAndFigure) {
+            pointAndFigure = options.pointAndFigure = {};
+        }
+
+        return pointAndFigure;
+    }
+
+    function customChangeStroke(control, value) {
+        setColor(control, "style", "stroke", value);
+    }
+
+    function customChangeAltStroke(control, value) {
+        setColor(control, "altStyle", "stroke", value);
+    }
+
+    function setColor(control, styleName, attName, value) {
+        control.series[0][styleName][attName] = value;
+        control.invalidate();
+    }
+
+        function changeStockData(menu) {
+            var chart = wijmo.Control.getControl('#@demoSettingsModel.ControlId');
+            var fields = wijmo.Control.getControl('#Fields');
+
+            // update header
+            menu.header = "@Html.Raw(Home.PointAndFigure_StockData) <b>" + menu.selectedItem.Header + "</b>";
+
+            // change the items source and default fields setting
+            var value = menu.selectedItem.CommandParameter;
+            switch (value) {
+                case "rs":
+                    chart.itemsSource = c1.getService("cvRs");
+                    fields.selectedIndex = 1;
+                    break;
+                case "fb":
+                default:
+                    chart.itemsSource = c1.getService("cvFb");
+                    fields.selectedIndex = 0;
+
+                    break;
+            }
+
+            // update fields
+            changeFields(fields);
+        }
+
+</script>
+
+<c1-menu id="stockData" header="@(Html.Raw(Home.PointAndFigure_StockData) + " <b>" + Home.PointAndFigure_FacebookIncFB +"</b>")" item-clicked="changeStockData">
+    <c1-menu-item header="@Html.Raw(Home.PointAndFigure_FacebookIncFB)" command-parameter="@("fb")"></c1-menu-item>
+    <c1-menu-item header="@Html.Raw(Home.PointAndFigure_FBRelativeToNASDAQNDX)" command-parameter="@("rs")"></c1-menu-item>
+</c1-menu>
+
+<c1-items-source id="cvFb" source-collection="@fbData"></c1-items-source>
+<c1-items-source id="cvRs" source-collection="@rsData"></c1-items-source>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" chart-type="PointAndFigure" items-source-id="cvFb"
+                    point-and-figure-fields="HighLow" point-and-figure-reversal="3" point-and-figure-scaling="Traditional"
+                    point-and-figure-box-size="1" point-and-figure-period="20">
+    <c1-financial-chart-series binding="High,Low,Open,Close" name="FB" style="@chartStyle" alt-style="chartAltStyle"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="{x:d}<br/>{y}"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Description{
+    <p>@Html.Raw(Home.PointAndFigure_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.PointAndFigure_Text1)</p>
+}

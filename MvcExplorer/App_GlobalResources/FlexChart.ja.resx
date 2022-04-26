@@ -1,0 +1,779 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Annotation_Text0" xml:space="preserve">
+    <value>以下のサンプルは、&lt;b&gt;AnnotationLayer&lt;/b&gt; の基本的な使用方法と、注釈のさまざまな組み込みタイプを示します。
+    注釈のタイプには、&lt;b&gt;Circle&lt;/b&gt;、&lt;b&gt;Ellipse&lt;/b&gt;、&lt;b&gt;Image&lt;/b&gt;、&lt;b&gt;Line&lt;/b&gt;、&lt;b&gt;Polygon&lt;/b&gt;、&lt;b&gt;Rectangle&lt;/b&gt;、&lt;b&gt;Square&lt;/b&gt;、&lt;b&gt;Text&lt;/b&gt;.&lt;br /&gt; があります。
+    &lt;b&gt;Attachment&lt;/b&gt; プロパティを使用して、注釈にさまざまな添付タイプを設定することもできます。</value>
+    <comment>The sample below shows basic usage of &lt;b&gt;AnnotationLayer&lt;/b&gt; and various built-in types of Annotations,
+    including: &lt;b&gt;Circle&lt;/b&gt;, &lt;b&gt;Ellipse&lt;/b&gt;, &lt;b&gt;Image&lt;/b&gt;, &lt;b&gt;Line&lt;/b&gt;, &lt;b&gt;Polygon&lt;/b&gt;, &lt;b&gt;Rectangle&lt;/b&gt;, &lt;b&gt;Square&lt;/b&gt; and &lt;b&gt;Text&lt;/b&gt;.&lt;br /&gt;
+    You can use &lt;b&gt;Attachment&lt;/b&gt; property to set different attach types of annotation.</comment>
+  </data>
+  <data name="Annotation_Text1" xml:space="preserve">
+    <value>このサンプルは、FlexChart に注釈を簡単に表示したり、プロット領域自体にデータポイントに関するコメントや役立つ情報を表示する方法を示します。</value>
+    <comment>The sample below shows how to display annotations easily on a FlexChart to show comments and useful information about data points on the plot area itself.</comment>
+  </data>
+  <data name="Axes_Text0" xml:space="preserve">
+    <value>このビューは、2 つの y 軸を持つ &lt;b&gt;FlexChart&lt;/b&gt; を示します。</value>
+    <comment>This view shows the &lt;b&gt;FlexChart&lt;/b&gt; with two y-axes.</comment>
+  </data>
+  <data name="Binding_Text0" xml:space="preserve">
+    <value>このビューは &lt;b&gt;FlexChart&lt;/b&gt; を使用して、モデルの 2 組の値を表示する方法を示します。
+         これは、
+        &lt;b&gt;FlexChart&lt;/b&gt; の最も一般的な使用例です。</value>
+    <comment>This view shows how you can use the &lt;b&gt;FlexChart&lt;/b&gt; to show two sets of values
+        from Model. This is the most common usage scenario for the
+        &lt;b&gt;FlexChart&lt;/b&gt;.</comment>
+  </data>
+  <data name="Binding_Text1" xml:space="preserve">
+    <value>このサンプルは、次の処理を実行します。</value>
+    <comment>The sample does the following:</comment>
+  </data>
+  <data name="Binding_Text2" xml:space="preserve">
+    <value>連結のほかに、このサンプルは &lt;b&gt;InterpolateNulls&lt;/b&gt; プロパティと
+        &lt;b&gt;LegendToggle&lt;/b&gt; プロパティの効果を示します。
+        &lt;b&gt;InterpolateNulls&lt;/b&gt; を true に設定すると、
+        null 値によって生成されたデータ間のギャップが埋められます。
+        &lt;b&gt;LegendToggle&lt;/b&gt; を true に設定すると、凡例の系列の名前をクリックしたときに
+        系列の表示が切り替わります。</value>
+    <comment>In addition to binding, this sample shows the effect of the &lt;b&gt;InterpolateNulls&lt;/b&gt;
+        and &lt;b&gt;LegendToggle&lt;/b&gt; properties.
+        When you set &lt;b&gt;InterpolateNulls&lt;/b&gt; to true, the chart fills in gaps created by
+        null values in the data.
+        When you set &lt;b&gt;LegendToggle&lt;/b&gt; to true, the chart toggles the visibility of the
+        series when you click its name in the legend.</comment>
+  </data>
+  <data name="BoxWhisker_Text0" xml:space="preserve">
+    <value>BoxWhisker 系列は、複数の数値データセット間の分布を比較するために使用されます。</value>
+    <comment>BoxWhisker series is used to compare distributions between different sets of numerical data.</comment>
+  </data>
+  <data name="Bubble_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; コントロールを使用してバブルチャートを作成する方法を示します。</value>
+    <comment>This view shows how to create bubble charts using the &lt;b&gt;FlexChart&lt;/b&gt; control.</comment>
+  </data>
+  <data name="Bubble_Text1" xml:space="preserve">
+    <value>バブルチャートは、X と Y のほかにバブルサイズの連結を指定する必要があることを除き、
+        他のチャートタイプと同じです。バブルサイズに対応する連結を指定するには、&lt;b&gt;Binding&lt;/b&gt; プロパティを、
+        各バブルの Y 値とサイズ値に使用されるプロパティの名前を指定する
+        カンマ区切りの文字列に設定します。</value>
+    <comment>Bubble charts are similar to other chart types, except in addition to X and Y you must
+        specify a binding for the bubble size. This is done by setting the &lt;b&gt;Binding&lt;/b&gt; property
+        to a comma-delimited string that specifies the name of the properties to be used for the
+        Y and size values for each bubble.</comment>
+  </data>
+  <data name="Bubble_Text2" xml:space="preserve">
+    <value>この例では、チャートを「X」プロパティ、「Y」プロパティ、および「Size」プロパティを使用するオブジェクトを含むリストに連結します。
+         このチャートには 1 つの系列が含まれ、その &lt;b&gt;Binding&lt;/b&gt; プロパティは
+        文字列「Y,Size」に設定されます。</value>
+    <comment>In this example, the chart is bound to a list containing objects with "X", "Y", and "Size"
+        properties. The chart contains a single series and its &lt;b&gt;Binding&lt;/b&gt; property is set to
+        the string "Y,Size".</comment>
+  </data>
+  <data name="ChartAnimation_Text0" xml:space="preserve">
+    <value>このビューでは、&lt;b&gt;FlexChart&lt;/b&gt; コントロールのアニメーションを示します。</value>
+    <comment>This view shows animation for the &lt;b&gt;FlexChart&lt;/b&gt; control.</comment>
+  </data>
+  <data name="ChartAnimation_Text1" xml:space="preserve">
+    <value>ChartAnimation クラスの &lt;b&gt;AnimationMode&lt;/b&gt; プロパティを設定することで、FlexChart でさまざまなアニメーションモードを使用できます。</value>
+    <comment>You can use different animation modes for FlexChart by setting the &lt;b&gt;AnimationMode&lt;/b&gt; property of the ChartAnimation class.</comment>
+  </data>
+  <data name="ChartAnimation_Text2" xml:space="preserve">
+    <value>ChartAnimation クラスには、アニメーションの継続時間をミリ秒単位で設定できる &lt;b&gt;Duration&lt;/b&gt; プロパティがあります。</value>
+    <comment>The ChartAnimation class has a &lt;b&gt;Duration&lt;/b&gt; property that allows you to set the length of animation in milliseconds.</comment>
+  </data>
+  <data name="ErrorBar_Text0" xml:space="preserve">
+    <value>ErrorBar を使用すると、誤差の範囲や標準偏差を一目で確認することができます。これらは、標準誤差量、パーセント値、または標準偏差として表示することができます。必要に応じて、正確な誤差量を表示するために独自の値を設定することもできます。</value>
+    <comment>ErrorBar helps you see margins of error and standard deviations at a glance. They can be shown as a standard error amount, a percentage, or a standard deviation. You can also set your own values to display the exact error amounts you want.</comment>
+  </data>
+  <data name="FinancialChart_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; を使用して株価チャートを作成する方法を示します。</value>
+    <comment>This view shows how to create financial charts with the &lt;b&gt;FlexChart&lt;/b&gt;.</comment>
+  </data>
+  <data name="FinancialChart_Text1" xml:space="preserve">
+    <value>&lt;b&gt;FlexChart&lt;/b&gt; は、ローソク足チャートと HiLowOpenClose の 2 タイプの株価チャートをサポートします。
+        これらを使用するには、&lt;b&gt;ChartType&lt;/b&gt; プロパティを目的のタイプに設定し、系列の
+        &lt;b&gt;Binding&lt;/b&gt; プロパティをデータソースの
+        高値、低値、始値、終値を含むフィールドを指定する文字列に設定します。</value>
+    <comment>The &lt;b&gt;FlexChart&lt;/b&gt; supports two types of financial chart: Candlestick and HiLowOpenClose.
+        To use them, set the &lt;b&gt;ChartType&lt;/b&gt; property to the type you want, and set the
+        series &lt;b&gt;Binding&lt;/b&gt; property to a string that specifies the fields that contain the
+        High, Low, Open, and Close values in the data source.</comment>
+  </data>
+  <data name="Funnel_Text0" xml:space="preserve">
+    <value>この例は、ファンネルグラフを作成してカスタマイズする方法を示します。</value>
+    <comment>This example shows how to create and customize a Funnel chart.</comment>
+  </data>
+  <data name="Gradients_Text0" xml:space="preserve">
+    <value>FlexChart は、グラデーション色をサポートします。</value>
+    <comment>The FlexChart supports gradient colors.</comment>
+  </data>
+  <data name="Gradients_Text1" xml:space="preserve">
+    <value>グラデーションのディスクリプタは、次のように書式設定された式です。</value>
+    <comment>The gradient descriptor is an expression formatted as follows:</comment>
+  </data>
+  <data name="Gradients_Text2" xml:space="preserve">
+    <value>&amp;lt;type&amp;gt; は、線形または円形にすることができます。
+        大文字の L または R は、SVG サーフェスからの絶対座標オフセットを示します。
+        小文字の l または r は、グラデーションが適用される要素を基準にして計算される座標を示します。</value>
+    <comment>The &amp;lt;type&amp;gt; can be either linear or radial.
+        The uppercase L or R letters indicate absolute coordinates offset from the SVG surface.
+        Lowercase l or r letters indicate coordinates calculated relative to the element to which the gradient is applied.</comment>
+  </data>
+  <data name="Gradients_Text3" xml:space="preserve">
+    <value>&amp;lt;coords&amp;gt; は、直線グラデーションベクトルを「x1, y1, x2, y2」で指定します。または、放射状グラデーションを「cx, cy, r」で指定し、オプションで円の中心から離れた焦点を「fx, fy, fr」で指定します。</value>
+    <comment>The &amp;lt;coords&amp;gt; specify a linear gradient vector as x1, y1, x2, y2, or a radial gradient as cx, cy, r and optional fx, fy, fr specifying a focal point away from the center of the circle.</comment>
+  </data>
+  <data name="Gradients_Text4" xml:space="preserve">
+    <value>&amp;lt;colors&amp;gt; は、ダッシュで区切られた CSS カラー値のリストを指定します。各色の後に、カスタムのオフセットと不透明度の値をコロン文字で区切って指定することができます。</value>
+    <comment>Specify &amp;lt;colors&amp;gt; as a list of dash-separated CSS color values. Each color may be followed by a custom offset and opacity value, separated with a colon character.</comment>
+  </data>
+  <data name="Gradients_Text5" xml:space="preserve">
+    <value>直線グラデーション形式の例：</value>
+    <comment>Linear gradient format example:</comment>
+  </data>
+  <data name="HeaderFooter_Text0" xml:space="preserve">
+    <value>このビューは、チャートにヘッダーとフッターを追加する方法を示します。</value>
+    <comment>This view shows how you can add a header and a footer to the chart.</comment>
+  </data>
+  <data name="HeaderFooter_Text1" xml:space="preserve">
+    <value>&lt;b&gt;Header&lt;/b&gt; プロパティと &lt;b&gt;Footer&lt;/b&gt; プロパティはコンテンツを決定し、
+        &lt;b&gt;HeaderStyle&lt;/b&gt; プロパティと &lt;b&gt;FooterStyle&lt;/b&gt; プロパティは
+        ヘッダーとフッターの外観を決定します。</value>
+    <comment>The &lt;b&gt;Header&lt;/b&gt; and &lt;b&gt;Footer&lt;/b&gt; properties determine the content, and the
+        &lt;b&gt;HeaderStyle&lt;/b&gt; and &lt;b&gt;FooterStyle&lt;/b&gt; properties determine the appearance
+        of the header and footer.</comment>
+  </data>
+  <data name="HitTest_Text0" xml:space="preserve">
+    <value>このビューは、クライアント側で &lt;b&gt;FlexChart&lt;/b&gt; の &lt;b&gt;hitTest&lt;/b&gt; メソッドを使用する方法を示します。</value>
+    <comment>This view demonstrates the use of the &lt;b&gt;FlexChart&lt;/b&gt;'s &lt;b&gt;hitTest&lt;/b&gt; method in client-side.</comment>
+  </data>
+  <data name="HitTest_Text1" xml:space="preserve">
+    <value>&lt;b&gt;hitTest&lt;/b&gt; メソッドはポイントを受け取り、最も近いチャート要素を返します。
+        これを使用して、クリック可能な領域、ドリルダウンなどの対話式機能を提供できます。</value>
+    <comment>The &lt;b&gt;hitTest&lt;/b&gt; method takes a point and returns the nearest chart element. It
+        can be used to provide interactive features such as clickable regions, drill-downs, etc.</comment>
+  </data>
+  <data name="HitTest_Text2" xml:space="preserve">
+    <value>チャートの上にマウスを移動すると、マウスに最も近いチャート要素に関する情報が表示されます。
+        </value>
+    <comment>Move mouse over chart to see information about the chart element that is closest to
+        the mouse.</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このビューでは、&lt;b&gt;FlexChart&lt;/b&gt; コントロールの基本機能を示します。チャートをモデルに連結し、
+        ユーザーがチャートタイプ、系列の積み上げ、および回転を選択できるようにします。</value>
+    <comment>This view shows basic features of the &lt;b&gt;FlexChart&lt;/b&gt; control. It binds the chart to a
+        Model and allows you to select the chart type, the series stacking, and the rotation.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>マウスをチャート要素の上に移動すると、そのデータポイントの詳細を示すツールチップが表示されます。
+        </value>
+    <comment>If you move the mouse over a chart element, a tooltip will appear showing details
+        about the data point.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>FlexChart を使用する最も単純な方法は、次のとおりです。</value>
+    <comment>The simplest way to use the FlexChart is to:</comment>
+  </data>
+  <data name="ItemFormatter_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; の &lt;b&gt;ItemFormatter&lt;/b&gt; 
+        プロパティを使用して、データポイントの値に基づいてデータポイントの外観をカスタマイズする方法を示します。</value>
+    <comment>This view demonstrates how you can use the &lt;b&gt;FlexChart&lt;/b&gt;'s &lt;b&gt;ItemFormatter&lt;/b&gt;
+        property to customize the appearance of the data points based on their values.</comment>
+  </data>
+  <data name="ItemFormatter_Text1" xml:space="preserve">
+    <value>この例で、&lt;b&gt;ItemFormatter&lt;/b&gt; プロパティは、
+        チャートのレンダリングエンジンの &lt;b&gt;Fill&lt;/b&gt; プロパティを、
+        プロットされるデータポイントの値に基づいて計算される値に設定する関数です。</value>
+    <comment>In this example, the &lt;b&gt;ItemFormatter&lt;/b&gt; property is a function that sets the
+        &lt;b&gt;Fill&lt;/b&gt; property of the chart's rendering engine to a value calculated based
+        on the value of the data point being plotted.</comment>
+  </data>
+  <data name="Labels_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; の &lt;b&gt;DataLabel&lt;/b&gt; 
+        プロパティを使用して、各データポイントにラベルを追加する方法を示します。</value>
+    <comment>This view demonstrates how you can use the &lt;b&gt;FlexChart&lt;/b&gt;'s &lt;b&gt;DataLabel&lt;/b&gt;
+        property to add labels to each data point.</comment>
+  </data>
+  <data name="Marker_Text0" xml:space="preserve">
+    <value>このビューは、マウスポインタに追随しすべての系列のデータ値を表示する垂直マーカーを使用する折れ線グラフを示します。</value>
+    <comment>This view shows line chart with vertical marker that follows mouse pointer and displays data values for all series.</comment>
+  </data>
+  <data name="Scaling_Text0" xml:space="preserve">
+    <value>対数軸を使用して、データが集中する範囲を拡大し、精度を落とすことなくチャートの明確さを向上させることができます。</value>
+    <comment>Use logarithmic axes to spread clustered data and improve the clarity of your charts without compromising accuracy.</comment>
+  </data>
+  <data name="Scaling_Text1" xml:space="preserve">
+    <value>スケーリング形式を使用すると、軸ラベルを明瞭かつ簡潔な方法で表示できます。</value>
+    <comment>Use scaling formats to display axis labels in a clear and concise manner.</comment>
+  </data>
+  <data name="Scaling_Text2" xml:space="preserve">
+    <value>この例のバブルチャートは、約 200 か国の人口（x 軸）、GDP（y 軸）、および 1 人当たりの所得（バブルサイズ）を示しています。
+             対数軸を使用することでデータが拡散し、
+            チャートが読みやすくなっています。</value>
+    <comment>The bubble chart, in this example, shows the population (x), GDP (y), and per-capita income
+            (bubble size) for about 200 countries. Notice how the usage of log-axes spreads
+            out the data and makes the chart easy to read.</comment>
+  </data>
+  <data name="Selection_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; の選択機能を示します。</value>
+    <comment>This view demonstrates the &lt;b&gt;FlexChart&lt;/b&gt;'s selection feature.</comment>
+  </data>
+  <data name="Selection_Text1" xml:space="preserve">
+    <value>&lt;b&gt;SelectionMode&lt;/b&gt; プロパティは、ユーザーがチャートをクリックしたときに、
+        系列とポイントのどちらが選択されるかを決定します。</value>
+    <comment>The &lt;b&gt;SelectionMode&lt;/b&gt; property determines whether the chart should select series
+        or points when the user clicks on the chart.</comment>
+  </data>
+  <data name="Selection_Text2" xml:space="preserve">
+    <value>&lt;b&gt;メモ：&lt;/b&gt;このサンプルでは、&lt;b&gt;サーバー側&lt;/b&gt;から FlexChart のプロパティを変更します</value>
+    <comment>&lt;b&gt;Note:&lt;/b&gt; In this sample, FlexChart changes its properties from &lt;b&gt;Server-Side&lt;/b&gt;</comment>
+  </data>
+  <data name="SeriesBinding_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; を使用して、
+        複数のデータソースから（系列ごとに 1 つの）データを表示する方法を示します。</value>
+    <comment>This view shows how you can use the &lt;b&gt;FlexChart&lt;/b&gt; to show data from
+        multiple data sources, one per series.</comment>
+  </data>
+  <data name="SeriesBinding_Text1" xml:space="preserve">
+    <value>このサンプルは、次の処理を実行します。</value>
+    <comment>The sample does the following:</comment>
+  </data>
+  <data name="SeriesBinding_Text2" xml:space="preserve">
+    <value>&lt;b&gt;BindingX&lt;/b&gt; プロパティと &lt;b&gt;Binding&lt;/b&gt; プロパティをチャートではなく 
+        &lt;b&gt;Series&lt;/b&gt; オブジェクトに設定することもできます。</value>
+    <comment>Alternatively, we could have set the &lt;b&gt;BindingX&lt;/b&gt; and &lt;b&gt;Binding&lt;/b&gt; properties on the
+        &lt;b&gt;Series&lt;/b&gt; objects instead of setting then on the chart.</comment>
+  </data>
+  <data name="Waterfall_Text0" xml:space="preserve">
+    <value>ウォータフォール系列は、系列の開始位置からの増加または減少の様子を一連の変化量によって表示するために使用されます。</value>
+    <comment>The Waterfall series is used to demonstrate how the starting position of the series either increases or decreases through a sequence of changes.</comment>
+  </data>
+  <data name="Zones_Text0" xml:space="preserve">
+    <value>このビューは、学生の成績の散布図を作成し、ゾーンを使用して各成績範囲を強調表示します。</value>
+    <comment>The view creates a scatter chart of student grades, highlighting each grade range using zones.</comment>
+  </data>
+  <data name="Zones_Text1" xml:space="preserve">
+    <value>&lt;b&gt;FlexChart&lt;/b&gt; の OnClientRendering プロパティにクライアント関数名を設定すると、
+        クライアント側の FlexChart の &lt;b&gt;Rendering&lt;/b&gt; イベントでゾーンが描画されます。</value>
+    <comment>Set the porperty "OnClientRendering" for &lt;b&gt;FlexChart&lt;/b&gt; as a client function name,
+        the zones will be drawn in &lt;b&gt;Rendering&lt;/b&gt; event of FlexChart in client-side.</comment>
+  </data>
+  <data name="Annotation_CircleTooltip" xml:space="preserve">
+    <value>これは円注釈です。&lt;/br&gt; radius: 40 &lt;/br&gt; pointIndex: 33 &lt;/br&gt; attachment: DataIndex</value>
+    <comment>This is Circle annotation. &lt;/br&gt; radius: 40 &lt;/br&gt; pointIndex: 33 &lt;/br&gt; attachment: DataIndex</comment>
+  </data>
+  <data name="Annotation_SquareTooltip" xml:space="preserve">
+    <value>これは正方形注釈です。&lt;/br&gt; length: 80 &lt;/br&gt; pointIndex: 45 &lt;/br&gt; attachment: DataIndex</value>
+    <comment>This is square annotation. &lt;/br&gt; length: 80 &lt;/br&gt; pointIndex: 45 &lt;/br&gt; attachment: DataIndex</comment>
+  </data>
+  <data name="Annotation_LineTooltip" xml:space="preserve">
+    <value>これは線注釈です。&lt;/br&gt; start: { x: 50, y: 150 } end: { x: 240, y: 350 } &lt;/br&gt; attachment: Absolute</value>
+    <comment>This is line annotation. &lt;/br&gt; start: { x: 50, y: 150 } end: { x: 240, y: 350 } &lt;/br&gt; attachment: Absolute</comment>
+  </data>
+  <data name="Annotation_TextTooltip" xml:space="preserve">
+    <value>これはテキスト注釈です。&lt;/br&gt; point: { x: 0.55, y: 0.15 }&lt;/br&gt; attachment: Relative</value>
+    <comment>This is text annotation.&lt;/br&gt; point: { x: 0.55, y: 0.15 }&lt;/br&gt; attachment: Relative</comment>
+  </data>
+  <data name="Annotation_EllipseTooltip" xml:space="preserve">
+    <value>これは楕円注釈です。&lt;/br&gt; point: { x: 0.4, y: 0.5 }&lt;/br&gt; attachment: Relative</value>
+    <comment>This is ellipse annotation.&lt;/br&gt; point: { x: 0.4, y: 0.5 }&lt;/br&gt; attachment: Relative</comment>
+  </data>
+  <data name="Annotation_RectTooltip" xml:space="preserve">
+    <value>これは四角形注釈です。&lt;/br&gt; point:{ x: new DateTime(2014, 2, 11), y: 30 }&lt;/br&gt; attachment: DataCoordinate</value>
+    <comment>This is rectangle annotation.&lt;/br&gt; point:{ x: new DateTime(2014, 2, 11), y: 30 }&lt;/br&gt; attachment: DataCoordinate</comment>
+  </data>
+  <data name="Annotation_ImageTooltip" xml:space="preserve">
+    <value>これは画像注釈です。&lt;/br&gt; point:{x: new DateTime(2014, 1, 26), y: 30}&lt;/br&gt; attachment: DataCoordinate</value>
+    <comment>This is image annotation.&lt;/br&gt; point:{x: new DateTime(2014, 1, 26), y: 30}&lt;/br&gt; attachment: DataCoordinate</comment>
+  </data>
+  <data name="Annotation_PolygonTooltip" xml:space="preserve">
+    <value>これは多角形注釈です。&lt;/br&gt; paths: [(200,0),(150,50),(175,100),(255,100),(250, 50)]&lt;/br&gt; attachment: Absolute</value>
+    <comment>This is polygon annotation.&lt;/br&gt; paths: [(200,0),(150,50),(175,100),(255,100),(250, 50)]&lt;/br&gt; attachment: Absolute</comment>
+  </data>
+  <data name="Annotation_Basic" xml:space="preserve">
+    <value>Basic</value>
+    <comment>Basic</comment>
+  </data>
+  <data name="Annotation_CircleContent" xml:space="preserve">
+    <value>DataIndex</value>
+    <comment>DataIndex</comment>
+  </data>
+  <data name="Annotation_SquareContent" xml:space="preserve">
+    <value>DataIndex</value>
+    <comment>DataIndex</comment>
+  </data>
+  <data name="Annotation_LineContent" xml:space="preserve">
+    <value>Absolute</value>
+    <comment>Absolute</comment>
+  </data>
+  <data name="Annotation_TextContent" xml:space="preserve">
+    <value>Relative</value>
+    <comment>Relative</comment>
+  </data>
+  <data name="Annotation_EllipseContent" xml:space="preserve">
+    <value>Relative</value>
+    <comment>Relative</comment>
+  </data>
+  <data name="Annotation_RectangleContent" xml:space="preserve">
+    <value>DataCoordinate</value>
+    <comment>DataCoordinate</comment>
+  </data>
+  <data name="Annotation_PolygonContent" xml:space="preserve">
+    <value>Absolute</value>
+    <comment>Absolute</comment>
+  </data>
+  <data name="Annotation_Advanced" xml:space="preserve">
+    <value>Advanced</value>
+    <comment>Advanced</comment>
+  </data>
+  <data name="Annotation_Tooltip1" xml:space="preserve">
+    <value>運用の結果と株価の状況。</value>
+    <comment>Results of Operations and Financial Condition.</comment>
+  </data>
+  <data name="Annotation_Tooltip2" xml:space="preserve">
+    <value>買収の完了または資産の処分、役員または代表者の変更。</value>
+    <comment>Completion of Acquisition or Disposition of Assets, Change in Directors or Principal.</comment>
+  </data>
+  <data name="Annotation_Tooltip3" xml:space="preserve">
+    <value>Facebook Inc の業績発表が、本日東部標準時午後 5:00 に予定されています。</value>
+    <comment>Facebook Inc Earnings Call scheduled for 5:00 pm ET today.</comment>
+  </data>
+  <data name="Annotation_Tooltip4" xml:space="preserve">
+    <value>Brean Capital によって開始された Facebook に関する説明。</value>
+    <comment>Coverage initiated on Facebook by Brean Capital.</comment>
+  </data>
+  <data name="Annotation_Tooltip5" xml:space="preserve">
+    <value>2015 年 3 月 2 日、JP モルガン・チェースとモルガン・スタンレーの両社は、ソーシャルメディアの巨人に対して好意的なコメントを発表しました。JP モルガンは、Facebook の中核サービスが米国の全スマートフォンアクティビティの 24% を占めており、その数値は以前の報告よりも 2% 上昇し ...</value>
+    <comment>2015/3/2, Both JPMorgan Chase and Morgan Stanley offered up favorable comments on the social media giant, with JPMorgan citing that Facebook's core services accounted for 24% of all smartphone activity in the u.s. the figure was up 2% from reported usage in ...</comment>
+  </data>
+  <data name="Annotation_Content1" xml:space="preserve">
+    <value>Alibaba Group Holding Ltd (BABA) と ...</value>
+    <comment>Alibaba Group Holding Ltd (BABA) and ...</comment>
+  </data>
+  <data name="Annotation_Content2" xml:space="preserve">
+    <value>Facebook Inc が LiveRail を買収。</value>
+    <comment>Facebook Inc to acquire LiveRail.</comment>
+  </data>
+  <data name="Annotation_Content3" xml:space="preserve">
+    <value>V 字上昇</value>
+    <comment>Rising wedge</comment>
+  </data>
+  <data name="Annotation_Text2" xml:space="preserve">
+    <value>このページでは、FlexChart に注釈を表示する方法を示します。</value>
+    <comment>This page shows how to display annotations on FlexChart.</comment>
+  </data>
+  <data name="Axes_MultipleAxes" xml:space="preserve">
+    <value>複数の軸</value>
+    <comment>Multiple axes</comment>
+  </data>
+  <data name="Binding_ChartBinding" xml:space="preserve">
+    <value>グラフの連結</value>
+    <comment>Chart binding</comment>
+  </data>
+  <data name="Binding_Li1" xml:space="preserve">
+    <value>FlexChart を IEnumerable DataSource と連結します。この各項目には、値「Date」、「SalesInUSA」、「SalesInJapan」が含まれます。
+            X データラベルを「Date」と設定します。</value>
+    <comment>Bind the FlexChart with a IEnumerable DataSource, each item contains value "Date", "SalesInUSA", "SalesInJapan".
+            Set the X data label as "Date".</comment>
+  </data>
+  <data name="Binding_Li2" xml:space="preserve">
+    <value>&lt;b&gt;Series&lt;/b&gt; オブジェクトを FlexChart の &lt;b&gt;Series&lt;/b&gt; 配列に追加し、
+            その &lt;b&gt;Binding&lt;/b&gt; プロパティに「SalesInUSA」を設定します。</value>
+    <comment>Add a &lt;b&gt;Series&lt;/b&gt; object to the FlexChart's &lt;b&gt;Series&lt;/b&gt; array and
+            set its &lt;b&gt;Binding&lt;/b&gt; property to "SalesInUSA".</comment>
+  </data>
+  <data name="Binding_Li3" xml:space="preserve">
+    <value>2 番目の &lt;b&gt;Series&lt;/b&gt; オブジェクトを FlexChart の &lt;b&gt;Series&lt;/b&gt; 配列に追加し、
+            その &lt;b&gt;Binding&lt;/b&gt; プロパティに「SalesInJapan」を設定します。</value>
+    <comment>Add a second &lt;b&gt;Series&lt;/b&gt; object to the FlexChart's &lt;b&gt;Series&lt;/b&gt; array
+            and set its &lt;b&gt;Binding&lt;/b&gt; property to "SalesInJapan".</comment>
+  </data>
+  <data name="Bubble_Bubble" xml:space="preserve">
+    <value>バブル</value>
+    <comment>Bubble</comment>
+  </data>
+  <data name="ChartAnimation_ChartType" xml:space="preserve">
+    <value>チャートタイプ</value>
+    <comment>Chart Type</comment>
+  </data>
+  <data name="ChartAnimation_AnimationMode" xml:space="preserve">
+    <value>AnimationMode</value>
+    <comment>AnimationMode</comment>
+  </data>
+  <data name="ChartAnimation_Easing" xml:space="preserve">
+    <value>イージング</value>
+    <comment>Easing</comment>
+  </data>
+  <data name="ChartAnimation_Duration" xml:space="preserve">
+    <value>継続時間</value>
+    <comment>Duration</comment>
+  </data>
+  <data name="FinancialChart_FinancialChart" xml:space="preserve">
+    <value>株価チャート（財務チャート）</value>
+    <comment>Financial chart</comment>
+  </data>
+  <data name="Funnel_NeckWidth" xml:space="preserve">
+    <value>ネックの幅：</value>
+    <comment>Neck Width: </comment>
+  </data>
+  <data name="Funnel_NeckHeight" xml:space="preserve">
+    <value>ネックの高さ：</value>
+    <comment>Neck Height: </comment>
+  </data>
+  <data name="Gradients_Text6" xml:space="preserve">
+    <value>放射状グラデーション形式の例：</value>
+    <comment>Radial gradient format example:</comment>
+  </data>
+  <data name="HeaderFooter_ChartHeaderAndFooter" xml:space="preserve">
+    <value>チャートのヘッダーとフッター</value>
+    <comment>Chart header and footer</comment>
+  </data>
+  <data name="HeaderFooter_Header" xml:space="preserve">
+    <value>中国での 3 か月間の売上</value>
+    <comment>Sales In China In 3 Months</comment>
+  </data>
+  <data name="HeaderFooter_Footer" xml:space="preserve">
+    <value>フッター (c) 2015</value>
+    <comment>Footer (c) 2015</comment>
+  </data>
+  <data name="HitTest_HitTest" xml:space="preserve">
+    <value>ヒットテスト</value>
+    <comment>Hit Test</comment>
+  </data>
+  <data name="HitTest_ChartElement" xml:space="preserve">
+    <value>チャート要素：</value>
+    <comment>Chart element: </comment>
+  </data>
+  <data name="HitTest_SeriesName" xml:space="preserve">
+    <value>系列名：</value>
+    <comment>Series name: </comment>
+  </data>
+  <data name="Index_Li1" xml:space="preserve">
+    <value>FlexChart を IEnumerable DataSource に連結します。</value>
+    <comment>Bind the FlexChart to an IEnumerable DataSource.</comment>
+  </data>
+  <data name="Index_Li2" xml:space="preserve">
+    <value>チャートの &lt;b&gt;BindingX&lt;/b&gt; プロパティを、
+            X 値（この例ではフルーツ名）を含むプロパティの名前に設定すると、
+            チャートの &lt;b&gt;ItemsSource&lt;/b&gt; のフィールドがマップされます。</value>
+    <comment>Set the &lt;b&gt;BindingX&lt;/b&gt; property of the chart to the name of the property that
+            contains the X values (in this example fruit names), and it will map the field of 
+            chart's &lt;b&gt;ItemsSource&lt;/b&gt;.</comment>
+  </data>
+  <data name="Index_Li3" xml:space="preserve">
+    <value>1 つ以上の &lt;b&gt;Series&lt;/b&gt; オブジェクトをチャートの &lt;b&gt;Series&lt;/b&gt; 配列に追加して、
+            その &lt;b&gt;Binding&lt;/b&gt; プロパティを、
+            Y 値（この例では、March、April、May などの月）を含むプロパティの名前に設定します。</value>
+    <comment>Add one or more &lt;b&gt;Series&lt;/b&gt; objects to the chart's &lt;b&gt;Series&lt;/b&gt; array
+            and set their &lt;b&gt;Binding&lt;/b&gt; property to the name of the property that
+            contains the Y values (in this example the months of March, April, and May).</comment>
+  </data>
+  <data name="ItemFormatter_ItemFormatter" xml:space="preserve">
+    <value>項目フォーマッタ</value>
+    <comment>Item Formatter</comment>
+  </data>
+  <data name="Labels_Labels" xml:space="preserve">
+    <value>ラベル</value>
+    <comment>Labels</comment>
+  </data>
+  <data name="Marker_ChartMarker" xml:space="preserve">
+    <value>チャートマーカー</value>
+    <comment>Chart marker</comment>
+  </data>
+  <data name="PanningAndScaling_MouseAction" xml:space="preserve">
+    <value>マウス操作</value>
+    <comment>Mouse Action</comment>
+  </data>
+  <data name="PanningAndScaling_InteractiveAxes" xml:space="preserve">
+    <value>操作軸</value>
+    <comment>Interactive Axes</comment>
+  </data>
+  <data name="PanningAndScaling_ResetZoom" xml:space="preserve">
+    <value>ズームをリセット</value>
+    <comment>Reset Zoom</comment>
+  </data>
+  <data name="PanningAndScaling_Text0" xml:space="preserve">
+    <value>マウス操作：</value>
+    <comment>Mouse action:</comment>
+  </data>
+  <data name="PanningAndScaling_Li1" xml:space="preserve">
+    <value>ズームモード：ズームインするチャート領域を選択するか、またはマウスホイールでスクロールしてズームイン/アウトします。</value>
+    <comment>Zoom mode: Select the chart area to zoom in, or scroll mouse wheel to zoom in/out.</comment>
+  </data>
+  <data name="PanningAndScaling_Li2" xml:space="preserve">
+    <value>パンモード：チャート領域内でクリックしてドラッグし、表示範囲を変更します。</value>
+    <comment>Pan mode: Click and drag within the chart area to change the display range.</comment>
+  </data>
+  <data name="PanningAndScaling_Text1" xml:space="preserve">
+    <value>タッチアクション：</value>
+    <comment>Touch action:</comment>
+  </data>
+  <data name="PanningAndScaling_Li3" xml:space="preserve">
+    <value>チャート領域をパンして、表示範囲を変更します。ピンチしてズームイン/アウトを行います。</value>
+    <comment>Pan the chart area to change the display range; pinch it to zoom in/out.</comment>
+  </data>
+  <data name="PlotAreas_Text0" xml:space="preserve">
+    <value>このビューは、複数のプロット領域を持つ &lt;b&gt;FlexChart&lt;/b&gt; を示します。</value>
+    <comment>This view shows the &lt;b&gt;FlexChart&lt;/b&gt; with several plot areas.</comment>
+  </data>
+  <data name="RemoteBind_Text0" xml:space="preserve">
+    <value>このビューは、FlexChart をリモートデータに連結する方法を示します。</value>
+    <comment>This view shows how to bind FlexChart to a remote data.</comment>
+  </data>
+  <data name="Scaling_AxisYText" xml:space="preserve">
+    <value>GDP（十億米ドル）</value>
+    <comment>GDP (US$ billions)</comment>
+  </data>
+  <data name="Scaling_AxisXText" xml:space="preserve">
+    <value>人口（百万）</value>
+    <comment>Population (millions)</comment>
+  </data>
+  <data name="Selection_ChartType" xml:space="preserve">
+    <value>チャートタイプ：</value>
+    <comment>ChartType: </comment>
+  </data>
+  <data name="Selection_Stacking" xml:space="preserve">
+    <value>積層：</value>
+    <comment>Stacking: </comment>
+  </data>
+  <data name="Selection_SelectionMode" xml:space="preserve">
+    <value>選択モード：</value>
+    <comment>Selection Mode: </comment>
+  </data>
+  <data name="SeriesBinding_ChartSeriesBinding" xml:space="preserve">
+    <value>グラフ系列の連結</value>
+    <comment>Chart series binding</comment>
+  </data>
+  <data name="SeriesBinding_Li1" xml:space="preserve">
+    <value>チャートの &lt;b&gt;BindingX&lt;/b&gt; プロパティと &lt;b&gt;Binding&lt;/b&gt; プロパティを「X」と「Y」に設定します。</value>
+    <comment>Set the chart's &lt;b&gt;BindingX&lt;/b&gt; and &lt;b&gt;Binding&lt;/b&gt; properties to "X" and "Y".</comment>
+  </data>
+  <data name="SeriesBinding_Li2" xml:space="preserve">
+    <value>&lt;b&gt;Series&lt;/b&gt; オブジェクトをチャートの &lt;b&gt;Series&lt;/b&gt; 配列に追加し、それを「X」プロパティと「Y」プロパティを含むオブジェクトの配列と連結します。</value>
+    <comment>Add a &lt;b&gt;Series&lt;/b&gt; object to the chart's &lt;b&gt;Series&lt;/b&gt; array and bind it with an array of objects that have "X" and "Y" properties.</comment>
+  </data>
+  <data name="SeriesBinding_Li3" xml:space="preserve">
+    <value>2 番目の &lt;b&gt;Series&lt;/b&gt; オブジェクトをチャートの &lt;b&gt;Series&lt;/b&gt; 配列に追加し、それを「X」プロパティと「Y」プロパティを含むオブジェクトの別の配列と連結します。
+            </value>
+    <comment>Add a second &lt;b&gt;Series&lt;/b&gt; object to the chart's &lt;b&gt;Series&lt;/b&gt; array and bind it with a different array of objects that have "X" and "Y"
+            properties.</comment>
+  </data>
+  <data name="Gradients_Text7" xml:space="preserve">
+    <value>この例では、系列スタイルプロパティにグラデーションを指定する方法を示します。</value>
+    <comment>This example shows how to specify gradients for series style properties.</comment>
+  </data>
+  <data name="Tooltips_Text0" xml:space="preserve">
+    <value>この例では、CssClassプロパティを使用してツールチップのスタイルを指定する方法を示します。</value>
+    <comment>This example shows how to specify style for Tooltips using CssClass properties.</comment>
+  </data>
+  <data name="Tooltips_Text1" xml:space="preserve">
+    <value>次のようにCSSでCssClassプロパティを設定することでツールチップスタイルを変更できます。</value>
+    <comment>The Tooltips style can be changed by setting CssClass property with CSS like following:</comment>
+  </data>
+  <data name="SeriesCustomization_Text0" xml:space="preserve">
+    <value>このビューは、FlexChartの特定の系列をカスタマイズする方法を示しています。</value>
+    <comment>This view demonstrates how you can customize specific series of FlexChart.</comment>
+  </data>
+  <data name="SeriesCustomization_Text1" xml:space="preserve">
+    <value>最初の系列(Cos(x))はデフォルト設定を使って描画します。</value>
+    <comment>The first series (Cos(x)) use default setting to draw.</comment>
+  </data>
+  <data name="SeriesCustomization_Text2" xml:space="preserve">
+    <value>2番目の系列(Sin(x))：</value>
+    <comment>The second series (Sin(x)):</comment>
+  </data>
+  <data name="SeriesCustomization_Text3" xml:space="preserve">
+    <value>プロットされている値に基づいて計算されたデータポイントの外観をカスタマイズするための関数として系列の&lt;b&gt;ItemFormater&lt;/b&gt;プロパティを使用します。</value>
+    <comment>Using &lt;b&gt;ItemFormater&lt;/b&gt; property of series as a function to customize the appearance of the data points calcutated based on their values being plotted.</comment>
+  </data>
+  <data name="SeriesCustomization_Text4" xml:space="preserve">
+    <value>系列の&lt;b&gt;TooltipContent&lt;/b&gt;プロパティを使用して、マウスを移動したときに表示されるtooltipの内容をカスタマイズします。</value>
+    <comment>Using &lt;b&gt;TooltipContent&lt;/b&gt; property of series to customize the content of tooltip showing when move mouse on it.</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>&lt;b&gt;LegendOrientation&lt;/b&gt;を使用して、凡例の方向を決定します。</value>
+    <comment>Uses &lt;b&gt;LegendOrientation&lt;/b&gt; to determine the orientation of the legend.</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Legend.MaxSize&lt;/b&gt;を使用して、凡例の最大サイズ（左または右の位置の幅と上または下の位置の高さ）を取得または設定します。サイズはピクセル単位（例、maxSize = '100px'）またはパーセント単位（例、maxSize = '50％'）で指定できます。</value>
+    <comment>Uses &lt;b&gt;Legend.MaxSize&lt;/b&gt; to Gets or sets the maximum legend size (width for left or right position and height for top or bottom position).
+The size can be specified in pixels: MaxSize = '100px' or percents: MaxSize = '50%'.</comment>
+  </data>
+  <data name="RangeArea_Text0" xml:space="preserve">
+    <value>このビューには、範囲エリアチャートが表示されます。 範囲エリアチャートタイプは、指定された期間の高値と低値を同時に表示するために使用されます。 X軸は通常、時間スケールを表し、時間の経過に伴うデータの変化を表示します。</value>
+    <comment>This view shows a range area chart. The Range Area Chart type is used to simultaneously show high and low values in a given time period. The X axis usually represents a time scale to display how data changes over time.</comment>
+  </data>
+  <data name="StepChart_Text0" xml:space="preserve">
+    <value>このデモでは、ライン、シンボル、エリアステップチャートを示します。 ステップチャートは、金利と時間など、不規則な時間間隔で変化するあらゆるタイプのデータを表示するのに役立ちます。</value>
+    <comment>This demo shows line, symbols and area step charts. Step charts are useful to display any type of data that has changes at irregular intervals of time, for example, interest rates vs time.</comment>
+  </data>
+  <data name="BreakEven_Text0" xml:space="preserve">
+    <value>このビューは、&lt;b&gt;FlexChart&lt;/b&gt; を使用して損益分岐点チャートを作成する方法を示します。損益分岐点チャートは、販売量に応じた売上高と総費用をグラフ化して、利益を得るためにどのくらいの数を販売する必要があるかを示します。</value>
+    <comment>This view shows how to create BreakEven charts using the &lt;b&gt;FlexChart&lt;/b&gt; control. A break even chart is a chart that shows the sales volume level at which total costs equal sales.</comment>
+  </data>
+  <data name="RenderEngine_Description_Text0" xml:space="preserve">
+    <value>このサンプルは、WebGLでGPUを使用して大きなデータの散布図を高速に描画する方法を示しています。</value>
+    <comment>The sample shows a scatter chart with large data which uses high performance WebGL rendering.</comment>
+  </data>
+  <data name="EnhancedChart_Description" xml:space="preserve">
+    <value>タスクの依存関係と完了割合を表示するための要素を追加する関数を
+            &lt;b&gt;ItemFormatter&lt;/b&gt;プロパティに設定して、チャートを
+            カスタマイズします。</value>
+    <comment>Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+            to a function that adds elements to show task dependencies
+            and percent complete.</comment>
+  </data>
+  <data name="EnhancedGanttChartHeader" xml:space="preserve">
+    <value>強化版ガントチャート</value>
+    <comment>Enhanced Gantt Chart</comment>
+  </data>
+  <data name="EnhancedGanttChartTitle" xml:space="preserve">
+    <value>依存関係と完了割合</value>
+    <comment>Dependencies &amp; Percent Complete</comment>
+  </data>
+  <data name="GranttTooltip1" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</comment>
+  </data>
+  <data name="GranttTooltip2" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;完了割合: {Percent}%&lt;/i&gt;</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;</comment>
+  </data>
+  <data name="SimpleChart_Step1" xml:space="preserve">
+    <value>チャートを初期化します（ChartTypeを'C1.Web.Mvc.Chart.ChartType.Bar'に設定し、データに連結します）。</value>
+    <comment>Initialize the chart (set the ChartType to 'C1.Web.Mvc.Chart.ChartType.Bar' and Bind to the data).</comment>
+  </data>
+  <data name="SimpleChart_Step2" xml:space="preserve">
+    <value>チャートに系列を追加し、系列の連結プロパティを開始日付と終了日付のフィールドに設定します。</value>
+    <comment>Add a series to the chart and set its binding property to the fields Start and End dates.</comment>
+  </data>
+  <data name="SimpleChart_Step3" xml:space="preserve">
+    <value>AxisYをカスタマイズして、主グリッド線を非表示にし、副グリッド線を表示します。</value>
+    <comment>Customize AxisY to hide the major grid and show minor grid.</comment>
+  </data>
+  <data name="SimpleGanttChartHeader" xml:space="preserve">
+    <value>単純なガントチャート</value>
+    <comment>Plain Gantt Chart</comment>
+  </data>
+  <data name="SimpleGanttChartTitle" xml:space="preserve">
+    <value>FlexChartを使用してガントチャートをカスタマイズする手順</value>
+    <comment>Steps for getting started with the FlexChart to customize a GanttChart:</comment>
+  </data>
+</root>

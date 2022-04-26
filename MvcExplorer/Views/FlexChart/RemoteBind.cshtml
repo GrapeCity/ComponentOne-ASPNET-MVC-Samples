@@ -1,0 +1,13 @@
+﻿@(Html.C1().FlexChart().Header("Sales ( remote data )")
+    .Bind("Country", Url.Action("RemoteBind_Read"))
+    .Series(series =>
+    {
+        series.Add().Binding("Count").Name("Count");
+        series.Add().Binding("Price").Name("Price");
+    })
+    .LegendToggle(true)
+)
+
+@section Description{
+    @Html.Raw(Resources.FlexChart.RemoteBind_Text0)
+}

@@ -1,0 +1,18 @@
+﻿@section Styles{
+<style>
+.custom-gauge .wj-pointer path{
+  fill: #ffa500;
+  stroke: #cd853f;
+}
+</style>
+}
+
+@(Html.C1().BulletGraph()
+    .Min(0).Max(10).Good(3)
+    .Bad(4).Value(5).Target(6)
+    .Width(500).CssClass("custom-gauge")
+)
+
+@section Description{
+    @Html.Raw(Resources.BulletGraph.Styling_Text0)
+}

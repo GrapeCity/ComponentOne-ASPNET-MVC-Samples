@@ -1,0 +1,57 @@
+﻿/* use Bootstrap icons for sorting/grouping glyphs */
+.wj-flexgrid .wj-colheaders .wj-glyph-up,
+.wj-flexgrid .wj-colheaders .wj-glyph-down,
+.wj-flexgrid .wj-group .wj-glyph-right,
+.wj-flexgrid .wj-group .wj-glyph-down-right,
+.wj-flexgrid .wj-rowheaders .wj-glyph-pencil {
+    position: relative;
+    top: 1px;
+    display: inline-block;
+    font-family: 'Glyphicons Halflings';
+    font-style: normal;
+    border: none;
+    font-weight: 400;
+    line-height: 1;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.wj-flexgrid .wj-group .wj-glyph-right:after,
+.wj-flexgrid .wj-group .wj-glyph-down-right:after {
+    content: "\e080";
+}
+.wj-flexgrid .wj-group .wj-glyph-down-right {
+    transform: rotate(90deg);
+}
+.wj-flexgrid .wj-colheaders .wj-glyph-up:after {
+  content: "\e151";
+  color: #800000;
+}
+.wj-flexgrid .wj-colheaders .wj-glyph-down:after {
+  content: "\e152";
+  color: #800000;
+}
+.wj-flexgrid .wj-rowheaders .wj-glyph-pencil:after {
+  content: "\270f";
+  color: #000080;
+}    
+
+/* use a custom image for filter glyphs */
+.wj-flexgrid .wj-colheaders .wj-glyph-filter {
+    background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAAzElEQVQ4je3OqwrCYByG8TctWCwmEQ0GURC8gjXDLmIDD80m3skGFhGbpyYIFosYTIJ6GR6aaHsMYxqmoq76wj99PD8+uRXRrgnPEa792XmOaNeFWxWyTfHrbFNIko9cLTg2YF8GBAfBRrAUTA3oZKCbhkES+oVHHOyOHFpwLsFFsBUsYjBJQq8I49zzOITsm/4vdoJ5HEZZGObfxyHkasFaMEtAv/BZHEJWBkxS38XBPEdwEqwMPOfL+A/4s82IwB2JAgRIJCBAXr3dAEN0JFBLhgDhAAAAAElFTkSuQmCC');
+    background-repeat: no-repeat;
+    background-position: bottom right;
+    margin-top: 4px;
+    width: 1em; height: 1em;
+    border: none;
+}
+.wj-flexgrid .wj-colheaders .wj-glyph-filter:after {
+    display: none;
+}
+.wj-filter-off .wj-glyph-filter {
+    opacity: .5;
+}
+
+/* make active filter images 25% larger */
+.wj-flexgrid .wj-colheaders .wj-filter-on .wj-glyph-filter {
+    transform: scale(1.25)
+}

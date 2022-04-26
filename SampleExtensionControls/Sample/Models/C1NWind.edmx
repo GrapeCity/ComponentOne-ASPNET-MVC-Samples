@@ -1,0 +1,1681 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="C1NWindModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.ATBillReport' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ATBillReport">
+          <Key>
+            <PropertyRef Name="BillingID" />
+          </Key>
+          <Property Name="BillingID" Type="int" Nullable="false" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PreviousBill" Type="float" />
+          <Property Name="CurrentCharges" Type="float" />
+          <Property Name="AccNO" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingDate" Type="datetime" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="WireLessCharge" Type="float" />
+          <Property Name="TVCharge" Type="float" />
+          <Property Name="VoiceCharge" Type="float" />
+          <Property Name="Area" Type="nvarchar" MaxLength="255" />
+          <Property Name="AreaCode" Type="nvarchar" MaxLength="255" />
+          <Property Name="Street" Type="nvarchar" MaxLength="255" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.BloodReport_PatientInfo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BloodReport_PatientInfo">
+          <Property Name="PatientID" Type="int" />
+          <Property Name="PatientNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="AccountNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="SpecimanNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="ControlNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientFName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientMName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientLName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientSex" Type="nvarchar" MaxLength="255" />
+          <Property Name="Age" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fasting" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientDoctor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="DoctorID" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataFile" Type="nvarchar" MaxLength="255" />
+          <Property Name="Technician" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateCollected" Type="datetime" />
+          <Property Name="DateEntered" Type="datetime" />
+          <Property Name="DateReported" Type="datetime" />
+          <Property Name="DOB" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar(max)" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.BloodReport_Result' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="BloodReport_Result">
+          <Property Name="Flag" Type="nvarchar" MaxLength="255" />
+          <Property Name="ID" Type="int" />
+          <Property Name="Lab" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="ReferenceInterval" Type="nvarchar" MaxLength="255" />
+          <Property Name="Result" Type="nvarchar" MaxLength="255" />
+          <Property Name="Test" Type="nvarchar" MaxLength="255" />
+          <Property Name="TestGroup" Type="nvarchar" MaxLength="255" />
+          <Property Name="Units" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Cars' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Cars">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Brand" Type="nvarchar" MaxLength="50" />
+          <Property Name="Model" Type="nvarchar" MaxLength="50" />
+          <Property Name="HP" Type="smallint" />
+          <Property Name="Liter" Type="float" />
+          <Property Name="Cyl" Type="smallint" />
+          <Property Name="TransmissSpeedCount" Type="smallint" />
+          <Property Name="TransmissAutomatic" Type="nvarchar" MaxLength="3" />
+          <Property Name="MPG_City" Type="smallint" />
+          <Property Name="MPG_Highway" Type="smallint" />
+          <Property Name="Category" Type="nvarchar" MaxLength="7" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Hyperlink" Type="nvarchar" MaxLength="50" />
+          <Property Name="Picture" Type="image" />
+          <Property Name="Price" Type="float" />
+        </EntityType>
+        <EntityType Name="Categories">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CategoryName" Type="nvarchar" MaxLength="15" Nullable="false" />
+          <Property Name="Description" Type="nvarchar(max)" />
+          <Property Name="Picture" Type="image" />
+        </EntityType>
+        <EntityType Name="Cities">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" />
+        </EntityType>
+        <EntityType Name="Customers">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="5" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Customers_Map' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Customers_Map">
+          <Key>
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="5" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.DoughtNutChartData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="DoughtNutChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Task" Type="nvarchar" MaxLength="255" />
+          <Property Name="Worker1" Type="int" />
+          <Property Name="Worker2" Type="int" />
+        </EntityType>
+        <EntityType Name="Employees">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="LastName" Type="nvarchar" MaxLength="20" Nullable="false" />
+          <Property Name="FirstName" Type="nvarchar" MaxLength="10" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="30" />
+          <Property Name="TitleOfCourtesy" Type="nvarchar" MaxLength="25" />
+          <Property Name="BirthDate" Type="datetime" />
+          <Property Name="HireDate" Type="datetime" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="HomePhone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Extension" Type="nvarchar" MaxLength="4" />
+          <Property Name="Photo" Type="image" />
+          <Property Name="Notes" Type="nvarchar(max)" />
+          <Property Name="ReportsTo" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.EmployeeTerritories' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmployeeTerritories">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="TerritoryID" />
+          </Key>
+          <Property Name="EmployeeID" Type="int" Nullable="false" />
+          <Property Name="TerritoryID" Type="nvarchar" MaxLength="20" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.EmployeeTravelExp' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="EmployeeTravelExp">
+          <Key>
+            <PropertyRef Name="Exp_ID" />
+          </Key>
+          <Property Name="Exp_ID" Type="int" Nullable="false" />
+          <Property Name="EmpName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Desc_of_Exp" Type="nvarchar" MaxLength="255" />
+          <Property Name="Date_From" Type="datetime" />
+          <Property Name="Date_To" Type="datetime" />
+          <Property Name="Date of Submission" Type="datetime" />
+          <Property Name="Autherised BY" Type="nvarchar" MaxLength="255" />
+          <Property Name="Airfare" Type="int" />
+          <Property Name="lodging" Type="int" />
+          <Property Name="Ground_transportation" Type="int" />
+          <Property Name="Meals_Tips" Type="int" />
+          <Property Name="Conferences_seminars" Type="int" />
+          <Property Name="Miles" Type="int" />
+          <Property Name="Mileage_Reimbursement" Type="int" />
+          <Property Name="Miscellaneous" Type="int" />
+          <Property Name="Curr_Exchange_rate" Type="int" />
+          <Property Name="Expence_Curr" Type="nvarchar" MaxLength="255" />
+          <Property Name="Dept" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.GanttChartData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="GanttChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Description" Type="nvarchar" MaxLength="255" />
+          <Property Name="StartDate" Type="datetime" />
+          <Property Name="EndDate" Type="datetime" />
+          <Property Name="Duration" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.InventoryManagement' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="InventoryManagement">
+          <Property Name="Sales_ID" Type="int" />
+          <Property Name="Item_Category" Type="nvarchar" MaxLength="255" />
+          <Property Name="Item_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Qty_Sold" Type="int" />
+          <Property Name="Sold_Date" Type="datetime" />
+          <Property Name="NetRevenue" Type="int" />
+          <Property Name="Customer_Name" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Invoices' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Invoices">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+          <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+          <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="5" />
+          <Property Name="Customers.CompanyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Salesperson" Type="nvarchar" MaxLength="255" />
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="RequiredDate" Type="datetime" />
+          <Property Name="ShippedDate" Type="datetime" />
+          <Property Name="Shippers.CompanyName" Type="nvarchar" MaxLength="40" />
+          <Property Name="ProductID" Type="int" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="40" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="Quantity" Type="smallint" />
+          <Property Name="Discount" Type="real" />
+          <Property Name="ExtendedPrice" Type="money" />
+          <Property Name="Freight" Type="money" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.MarketingProjectPlanData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MarketingProjectPlanData">
+          <Key>
+            <PropertyRef Name="Task_ID" />
+          </Key>
+          <Property Name="Task_ID" Type="int" Nullable="false" />
+          <Property Name="Task_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Task_Status" Type="nvarchar" MaxLength="255" />
+          <Property Name="Task_Owner" Type="nvarchar" MaxLength="255" />
+          <Property Name="AssignTO" Type="nvarchar" MaxLength="255" />
+          <Property Name="Anticipated_StartDate" Type="datetime" />
+          <Property Name="Anticipated_EndDate" Type="datetime" />
+          <Property Name="Actual_StartDate" Type="datetime" />
+          <Property Name="Actual_EndDate" Type="datetime" />
+          <Property Name="Estimated_Cost" Type="int" />
+          <Property Name="Actual_Cost" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.MonthlyBudget' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MonthlyBudget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Tran_Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Tran_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Estimated_Value" Type="int" />
+          <Property Name="Actual_Value" Type="int" />
+          <Property Name="Tran_MainType" Type="nvarchar" MaxLength="255" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.MonthlyProjectCostTracking' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="MonthlyProjectCostTracking">
+          <Key>
+            <PropertyRef Name="ExpenseID" />
+          </Key>
+          <Property Name="ExpenseID" Type="int" Nullable="false" />
+          <Property Name="ExpenseCategory" Type="nvarchar" MaxLength="255" />
+          <Property Name="ExpenseName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OperationName" Type="nvarchar" MaxLength="255" />
+          <Property Name="OperationRate" Type="money" />
+          <Property Name="HrsForWeek1" Type="int" />
+          <Property Name="HrsForWeek2" Type="int" />
+          <Property Name="HrsForWeek3" Type="int" />
+          <Property Name="HrsForWeek4" Type="int" />
+          <Property Name="HrsForWeek5" Type="int" />
+          <Property Name="HrsForWeek6" Type="int" />
+          <Property Name="HrsForWeek7" Type="int" />
+          <Property Name="HrsForWeek8" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Order Details' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Order Details">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Discount" />
+          </Key>
+          <Property Name="OrderID" Type="int" />
+          <Property Name="ProductID" Type="int" Nullable="false" />
+          <Property Name="UnitPrice" Type="money" Nullable="false" />
+          <Property Name="Quantity" Type="smallint" Nullable="false" />
+          <Property Name="Discount" Type="real" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Order Subtotals' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Order Subtotals">
+          <Property Name="OrderID" Type="int" />
+          <Property Name="Subtotal" Type="money" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Orders' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="Orders">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="int" Nullable="false" />
+          <Property Name="CustomerID" Type="nvarchar" MaxLength="5" />
+          <Property Name="EmployeeID" Type="int" />
+          <Property Name="OrderDate" Type="datetime" />
+          <Property Name="RequiredDate" Type="datetime" />
+          <Property Name="ShippedDate" Type="datetime" />
+          <Property Name="ShipVia" Type="int" />
+          <Property Name="Freight" Type="money" />
+          <Property Name="ShipName" Type="nvarchar" MaxLength="40" />
+          <Property Name="ShipAddress" Type="nvarchar" MaxLength="60" />
+          <Property Name="ShipCity" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipRegion" Type="nvarchar" MaxLength="15" />
+          <Property Name="ShipPostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="ShipCountry" Type="nvarchar" MaxLength="15" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.PatientInfo' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PatientInfo">
+          <Property Name="PatientID" Type="int" />
+          <Property Name="PatientNo" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientName" Type="nvarchar" MaxLength="255" />
+          <Property Name="PatientDoctor" Type="nvarchar" MaxLength="255" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="255" />
+          <Property Name="DoctorID" Type="nvarchar" MaxLength="255" />
+          <Property Name="DataFile" Type="nvarchar" MaxLength="255" />
+          <Property Name="Technician" Type="nvarchar" MaxLength="255" />
+          <Property Name="DateCollected" Type="datetime" />
+          <Property Name="DateReceived" Type="datetime" />
+          <Property Name="DateRun" Type="datetime" />
+          <Property Name="DateReported" Type="datetime" />
+          <Property Name="Comments" Type="nvarchar" MaxLength="255" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.PatientTestResult' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="PatientTestResult">
+          <Property Name="Row_ID" Type="int" />
+          <Property Name="PatientID" Type="int" />
+          <Property Name="AllergenCategory" Type="nvarchar" MaxLength="255" />
+          <Property Name="AllergenName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Result" Type="nvarchar" MaxLength="255" />
+          <Property Name="ResultValue" Type="int" />
+          <Property Name="InsignificantValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="ModerateValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="SignificantValue" Type="nvarchar" MaxLength="255" />
+          <Property Name="InsignificantValue2" Type="int" />
+          <Property Name="ModerateValue2Min" Type="int" />
+          <Property Name="ModerateValue2Max" Type="int" />
+          <Property Name="SignificantValue2" Type="int" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.PolarSample' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PolarSample">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Angle" Type="int" />
+          <Property Name="Value1" Type="int" />
+          <Property Name="Value2" Type="int" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.PriceComparison' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="PriceComparison">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="int" Nullable="false" />
+          <Property Name="Product_Type" Type="nvarchar" MaxLength="255" />
+          <Property Name="Product_Name" Type="nvarchar" MaxLength="255" />
+          <Property Name="Price_2013" Type="int" />
+          <Property Name="Price_2014" Type="int" />
+          <Property Name="Product_Type_Photo" Type="image" />
+        </EntityType>
+        <EntityType Name="Products">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="ProductName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="SupplierID" Type="int" />
+          <Property Name="CategoryID" Type="int" />
+          <Property Name="QuantityPerUnit" Type="nvarchar" MaxLength="20" />
+          <Property Name="UnitPrice" Type="money" />
+          <Property Name="UnitsInStock" Type="smallint" />
+          <Property Name="UnitsOnOrder" Type="smallint" />
+          <Property Name="ReorderLevel" Type="smallint" />
+          <Property Name="Discontinued" Type="bit" Nullable="false" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.SalesByQuarter' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SalesByQuarter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="QuarterMonth" Type="nvarchar" MaxLength="255" />
+          <Property Name="ProductX" Type="float" />
+          <Property Name="ProductY" Type="float" />
+          <Property Name="ProductZ" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.ScatterPoints' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="ScatterPoints">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="x" Type="int" />
+          <Property Name="y" Type="int" />
+          <Property Name="y1" Type="int" />
+          <Property Name="y2" Type="int" />
+          <Property Name="y3" Type="int" />
+        </EntityType>
+        <EntityType Name="Shippers">
+          <Key>
+            <PropertyRef Name="ShipperID" />
+          </Key>
+          <Property Name="ShipperID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.StateNamesGeo' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StateNamesGeo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="StateName" Type="nvarchar" MaxLength="255" />
+          <Property Name="Abbr" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="Comment" Type="nvarchar" MaxLength="255" />
+          <Property Name="Latitude" Type="float" />
+          <Property Name="Longitude" Type="float" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.Statuses' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="Statuses">
+          <Property Name="StatusId" Type="uniqueidentifier" />
+          <Property Name="Text" Type="nvarchar" MaxLength="50" />
+          <Property Name="Description" Type="nvarchar" MaxLength="50" />
+          <Property Name="Color" Type="nvarchar" MaxLength="50" />
+        </EntityType>-->
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.StockChartData' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="StockChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="PriceDate" Type="nvarchar" MaxLength="255" />
+          <Property Name="High" Type="float" />
+          <Property Name="Low" Type="float" />
+          <Property Name="Close" Type="float" />
+          <Property Name="Volumn" Type="float" />
+          <Property Name="AdjClose" Type="float" />
+        </EntityType>
+        <EntityType Name="Suppliers">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="CompanyName" Type="nvarchar" MaxLength="40" Nullable="false" />
+          <Property Name="ContactName" Type="nvarchar" MaxLength="30" />
+          <Property Name="ContactTitle" Type="nvarchar" MaxLength="30" />
+          <Property Name="Address" Type="nvarchar" MaxLength="60" />
+          <Property Name="City" Type="nvarchar" MaxLength="15" />
+          <Property Name="Region" Type="nvarchar" MaxLength="15" />
+          <Property Name="PostalCode" Type="nvarchar" MaxLength="10" />
+          <Property Name="Country" Type="nvarchar" MaxLength="15" />
+          <Property Name="Phone" Type="nvarchar" MaxLength="24" />
+          <Property Name="Fax" Type="nvarchar" MaxLength="24" />
+          <Property Name="HomePage" Type="nvarchar(max)" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6002: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.SystemAdaptability' does not have a primary key defined. The key has been inferred and the definition was created as a read-only table/view.-->
+        <EntityType Name="SystemAdaptability">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Adaptability" Type="nvarchar" MaxLength="255" />
+          <Property Name="New Transport" Type="real" />
+          <Property Name="OTIS" Type="real" />
+          <Property Name="Mobile Walk" Type="real" />
+        </EntityType>
+        <!--Errors Found During Generation:
+warning 6013: The table/view 'C:\USERS\TESTER\SOURCE\REPOS\PROJ_CUSTOMEDITOR\PROJ_CUSTOMEDITOR\APP_DATA\C1NWIND.MDF.dbo.TelephoneBill' does not have a primary key defined and no valid primary key could be inferred. This table/view has been excluded. To use the entity, you will need to review your schema, add the correct keys, and uncomment it.
+        <EntityType Name="TelephoneBill">
+          <Property Name="BillingID" Type="int" />
+          <Property Name="CustomerName" Type="nvarchar" MaxLength="255" />
+          <Property Name="CustomerAddress" Type="nvarchar(max)" />
+          <Property Name="City" Type="nvarchar" MaxLength="255" />
+          <Property Name="State" Type="nvarchar" MaxLength="255" />
+          <Property Name="Country" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillCycle" Type="nvarchar" MaxLength="255" />
+          <Property Name="PreviousBill" Type="float" />
+          <Property Name="PaymentReceived" Type="int" />
+          <Property Name="Adjustments" Type="int" />
+          <Property Name="Balance" Type="int" />
+          <Property Name="CurrentCharges" Type="float" />
+          <Property Name="TotalDueAmt" Type="float" />
+          <Property Name="AccNO" Type="nvarchar" MaxLength="255" />
+          <Property Name="BillingDate" Type="datetime" />
+          <Property Name="DueDate" Type="datetime" />
+          <Property Name="WireLessCharge" Type="float" />
+          <Property Name="TVCharge" Type="float" />
+          <Property Name="VoiceCharge" Type="float" />
+        </EntityType>-->
+        <EntityContainer Name="C1NWindModelStoreContainer">
+          <EntitySet Name="Categories" EntityType="Self.Categories" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Cities" EntityType="Self.Cities" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Customers" EntityType="Self.Customers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Employees" EntityType="Self.Employees" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Products" EntityType="Self.Products" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Shippers" EntityType="Self.Shippers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Suppliers" EntityType="Self.Suppliers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="ATBillReport" EntityType="Self.ATBillReport" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ATBillReport].[BillingID] AS [BillingID], 
+    [ATBillReport].[CustomerName] AS [CustomerName], 
+    [ATBillReport].[PreviousBill] AS [PreviousBill], 
+    [ATBillReport].[CurrentCharges] AS [CurrentCharges], 
+    [ATBillReport].[AccNO] AS [AccNO], 
+    [ATBillReport].[BillingDate] AS [BillingDate], 
+    [ATBillReport].[DueDate] AS [DueDate], 
+    [ATBillReport].[WireLessCharge] AS [WireLessCharge], 
+    [ATBillReport].[TVCharge] AS [TVCharge], 
+    [ATBillReport].[VoiceCharge] AS [VoiceCharge], 
+    [ATBillReport].[Area] AS [Area], 
+    [ATBillReport].[AreaCode] AS [AreaCode], 
+    [ATBillReport].[Street] AS [Street], 
+    [ATBillReport].[City] AS [City]
+    FROM [dbo].[ATBillReport] AS [ATBillReport]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Cars" EntityType="Self.Cars" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Cars].[ID] AS [ID], 
+    [Cars].[Brand] AS [Brand], 
+    [Cars].[Model] AS [Model], 
+    [Cars].[HP] AS [HP], 
+    [Cars].[Liter] AS [Liter], 
+    [Cars].[Cyl] AS [Cyl], 
+    [Cars].[TransmissSpeedCount] AS [TransmissSpeedCount], 
+    [Cars].[TransmissAutomatic] AS [TransmissAutomatic], 
+    [Cars].[MPG_City] AS [MPG_City], 
+    [Cars].[MPG_Highway] AS [MPG_Highway], 
+    [Cars].[Category] AS [Category], 
+    [Cars].[Description] AS [Description], 
+    [Cars].[Hyperlink] AS [Hyperlink], 
+    [Cars].[Picture] AS [Picture], 
+    [Cars].[Price] AS [Price]
+    FROM [dbo].[Cars] AS [Cars]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Customers_Map" EntityType="Self.Customers_Map" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Customers_Map].[CustomerID] AS [CustomerID], 
+    [Customers_Map].[CompanyName] AS [CompanyName], 
+    [Customers_Map].[ContactName] AS [ContactName], 
+    [Customers_Map].[ContactTitle] AS [ContactTitle], 
+    [Customers_Map].[Address] AS [Address], 
+    [Customers_Map].[City] AS [City], 
+    [Customers_Map].[Region] AS [Region], 
+    [Customers_Map].[PostalCode] AS [PostalCode], 
+    [Customers_Map].[Country] AS [Country], 
+    [Customers_Map].[Phone] AS [Phone], 
+    [Customers_Map].[Fax] AS [Fax], 
+    [Customers_Map].[Latitude] AS [Latitude], 
+    [Customers_Map].[Longitude] AS [Longitude]
+    FROM [dbo].[Customers_Map] AS [Customers_Map]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="DoughtNutChartData" EntityType="Self.DoughtNutChartData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [DoughtNutChartData].[ID] AS [ID], 
+    [DoughtNutChartData].[Task] AS [Task], 
+    [DoughtNutChartData].[Worker1] AS [Worker1], 
+    [DoughtNutChartData].[Worker2] AS [Worker2]
+    FROM [dbo].[DoughtNutChartData] AS [DoughtNutChartData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmployeeTerritories" EntityType="Self.EmployeeTerritories" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmployeeTerritories].[EmployeeID] AS [EmployeeID], 
+    [EmployeeTerritories].[TerritoryID] AS [TerritoryID]
+    FROM [dbo].[EmployeeTerritories] AS [EmployeeTerritories]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="EmployeeTravelExp" EntityType="Self.EmployeeTravelExp" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [EmployeeTravelExp].[Exp_ID] AS [Exp_ID], 
+    [EmployeeTravelExp].[EmpName] AS [EmpName], 
+    [EmployeeTravelExp].[Desc_of_Exp] AS [Desc_of_Exp], 
+    [EmployeeTravelExp].[Date_From] AS [Date_From], 
+    [EmployeeTravelExp].[Date_To] AS [Date_To], 
+    [EmployeeTravelExp].[Date of Submission] AS [Date of Submission], 
+    [EmployeeTravelExp].[Autherised BY] AS [Autherised BY], 
+    [EmployeeTravelExp].[Airfare] AS [Airfare], 
+    [EmployeeTravelExp].[lodging] AS [lodging], 
+    [EmployeeTravelExp].[Ground_transportation] AS [Ground_transportation], 
+    [EmployeeTravelExp].[Meals_Tips] AS [Meals_Tips], 
+    [EmployeeTravelExp].[Conferences_seminars] AS [Conferences_seminars], 
+    [EmployeeTravelExp].[Miles] AS [Miles], 
+    [EmployeeTravelExp].[Mileage_Reimbursement] AS [Mileage_Reimbursement], 
+    [EmployeeTravelExp].[Miscellaneous] AS [Miscellaneous], 
+    [EmployeeTravelExp].[Curr_Exchange_rate] AS [Curr_Exchange_rate], 
+    [EmployeeTravelExp].[Expence_Curr] AS [Expence_Curr], 
+    [EmployeeTravelExp].[Dept] AS [Dept]
+    FROM [dbo].[EmployeeTravelExp] AS [EmployeeTravelExp]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="GanttChartData" EntityType="Self.GanttChartData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [GanttChartData].[ID] AS [ID], 
+    [GanttChartData].[Description] AS [Description], 
+    [GanttChartData].[StartDate] AS [StartDate], 
+    [GanttChartData].[EndDate] AS [EndDate], 
+    [GanttChartData].[Duration] AS [Duration]
+    FROM [dbo].[GanttChartData] AS [GanttChartData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Invoices" EntityType="Self.Invoices" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Invoices].[ShipName] AS [ShipName], 
+    [Invoices].[ShipAddress] AS [ShipAddress], 
+    [Invoices].[ShipCity] AS [ShipCity], 
+    [Invoices].[ShipRegion] AS [ShipRegion], 
+    [Invoices].[ShipPostalCode] AS [ShipPostalCode], 
+    [Invoices].[ShipCountry] AS [ShipCountry], 
+    [Invoices].[CustomerID] AS [CustomerID], 
+    [Invoices].[Customers.CompanyName] AS [Customers.CompanyName], 
+    [Invoices].[Address] AS [Address], 
+    [Invoices].[City] AS [City], 
+    [Invoices].[Region] AS [Region], 
+    [Invoices].[PostalCode] AS [PostalCode], 
+    [Invoices].[Country] AS [Country], 
+    [Invoices].[Salesperson] AS [Salesperson], 
+    [Invoices].[OrderID] AS [OrderID], 
+    [Invoices].[OrderDate] AS [OrderDate], 
+    [Invoices].[RequiredDate] AS [RequiredDate], 
+    [Invoices].[ShippedDate] AS [ShippedDate], 
+    [Invoices].[Shippers.CompanyName] AS [Shippers.CompanyName], 
+    [Invoices].[ProductID] AS [ProductID], 
+    [Invoices].[ProductName] AS [ProductName], 
+    [Invoices].[UnitPrice] AS [UnitPrice], 
+    [Invoices].[Quantity] AS [Quantity], 
+    [Invoices].[Discount] AS [Discount], 
+    [Invoices].[ExtendedPrice] AS [ExtendedPrice], 
+    [Invoices].[Freight] AS [Freight]
+    FROM [dbo].[Invoices] AS [Invoices]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MarketingProjectPlanData" EntityType="Self.MarketingProjectPlanData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MarketingProjectPlanData].[Task_ID] AS [Task_ID], 
+    [MarketingProjectPlanData].[Task_Name] AS [Task_Name], 
+    [MarketingProjectPlanData].[Task_Status] AS [Task_Status], 
+    [MarketingProjectPlanData].[Task_Owner] AS [Task_Owner], 
+    [MarketingProjectPlanData].[AssignTO] AS [AssignTO], 
+    [MarketingProjectPlanData].[Anticipated_StartDate] AS [Anticipated_StartDate], 
+    [MarketingProjectPlanData].[Anticipated_EndDate] AS [Anticipated_EndDate], 
+    [MarketingProjectPlanData].[Actual_StartDate] AS [Actual_StartDate], 
+    [MarketingProjectPlanData].[Actual_EndDate] AS [Actual_EndDate], 
+    [MarketingProjectPlanData].[Estimated_Cost] AS [Estimated_Cost], 
+    [MarketingProjectPlanData].[Actual_Cost] AS [Actual_Cost]
+    FROM [dbo].[MarketingProjectPlanData] AS [MarketingProjectPlanData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MonthlyBudget" EntityType="Self.MonthlyBudget" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MonthlyBudget].[ID] AS [ID], 
+    [MonthlyBudget].[Tran_Type] AS [Tran_Type], 
+    [MonthlyBudget].[Tran_Name] AS [Tran_Name], 
+    [MonthlyBudget].[Estimated_Value] AS [Estimated_Value], 
+    [MonthlyBudget].[Actual_Value] AS [Actual_Value], 
+    [MonthlyBudget].[Tran_MainType] AS [Tran_MainType]
+    FROM [dbo].[MonthlyBudget] AS [MonthlyBudget]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="MonthlyProjectCostTracking" EntityType="Self.MonthlyProjectCostTracking" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [MonthlyProjectCostTracking].[ExpenseID] AS [ExpenseID], 
+    [MonthlyProjectCostTracking].[ExpenseCategory] AS [ExpenseCategory], 
+    [MonthlyProjectCostTracking].[ExpenseName] AS [ExpenseName], 
+    [MonthlyProjectCostTracking].[OperationName] AS [OperationName], 
+    [MonthlyProjectCostTracking].[OperationRate] AS [OperationRate], 
+    [MonthlyProjectCostTracking].[HrsForWeek1] AS [HrsForWeek1], 
+    [MonthlyProjectCostTracking].[HrsForWeek2] AS [HrsForWeek2], 
+    [MonthlyProjectCostTracking].[HrsForWeek3] AS [HrsForWeek3], 
+    [MonthlyProjectCostTracking].[HrsForWeek4] AS [HrsForWeek4], 
+    [MonthlyProjectCostTracking].[HrsForWeek5] AS [HrsForWeek5], 
+    [MonthlyProjectCostTracking].[HrsForWeek6] AS [HrsForWeek6], 
+    [MonthlyProjectCostTracking].[HrsForWeek7] AS [HrsForWeek7], 
+    [MonthlyProjectCostTracking].[HrsForWeek8] AS [HrsForWeek8]
+    FROM [dbo].[MonthlyProjectCostTracking] AS [MonthlyProjectCostTracking]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Order Details" EntityType="Self.Order Details" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Order Details].[OrderID] AS [OrderID], 
+    [Order Details].[ProductID] AS [ProductID], 
+    [Order Details].[UnitPrice] AS [UnitPrice], 
+    [Order Details].[Quantity] AS [Quantity], 
+    [Order Details].[Discount] AS [Discount]
+    FROM [dbo].[Order Details] AS [Order Details]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="Orders" EntityType="Self.Orders" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [Orders].[OrderID] AS [OrderID], 
+    [Orders].[CustomerID] AS [CustomerID], 
+    [Orders].[EmployeeID] AS [EmployeeID], 
+    [Orders].[OrderDate] AS [OrderDate], 
+    [Orders].[RequiredDate] AS [RequiredDate], 
+    [Orders].[ShippedDate] AS [ShippedDate], 
+    [Orders].[ShipVia] AS [ShipVia], 
+    [Orders].[Freight] AS [Freight], 
+    [Orders].[ShipName] AS [ShipName], 
+    [Orders].[ShipAddress] AS [ShipAddress], 
+    [Orders].[ShipCity] AS [ShipCity], 
+    [Orders].[ShipRegion] AS [ShipRegion], 
+    [Orders].[ShipPostalCode] AS [ShipPostalCode], 
+    [Orders].[ShipCountry] AS [ShipCountry]
+    FROM [dbo].[Orders] AS [Orders]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PolarSample" EntityType="Self.PolarSample" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PolarSample].[ID] AS [ID], 
+    [PolarSample].[Angle] AS [Angle], 
+    [PolarSample].[Value1] AS [Value1], 
+    [PolarSample].[Value2] AS [Value2]
+    FROM [dbo].[PolarSample] AS [PolarSample]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="PriceComparison" EntityType="Self.PriceComparison" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [PriceComparison].[Product_ID] AS [Product_ID], 
+    [PriceComparison].[Product_Type] AS [Product_Type], 
+    [PriceComparison].[Product_Name] AS [Product_Name], 
+    [PriceComparison].[Price_2013] AS [Price_2013], 
+    [PriceComparison].[Price_2014] AS [Price_2014], 
+    [PriceComparison].[Product_Type_Photo] AS [Product_Type_Photo]
+    FROM [dbo].[PriceComparison] AS [PriceComparison]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SalesByQuarter" EntityType="Self.SalesByQuarter" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SalesByQuarter].[ID] AS [ID], 
+    [SalesByQuarter].[QuarterMonth] AS [QuarterMonth], 
+    [SalesByQuarter].[ProductX] AS [ProductX], 
+    [SalesByQuarter].[ProductY] AS [ProductY], 
+    [SalesByQuarter].[ProductZ] AS [ProductZ]
+    FROM [dbo].[SalesByQuarter] AS [SalesByQuarter]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="ScatterPoints" EntityType="Self.ScatterPoints" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [ScatterPoints].[ID] AS [ID], 
+    [ScatterPoints].[x] AS [x], 
+    [ScatterPoints].[y] AS [y], 
+    [ScatterPoints].[y1] AS [y1], 
+    [ScatterPoints].[y2] AS [y2], 
+    [ScatterPoints].[y3] AS [y3]
+    FROM [dbo].[ScatterPoints] AS [ScatterPoints]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StateNamesGeo" EntityType="Self.StateNamesGeo" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StateNamesGeo].[ID] AS [ID], 
+    [StateNamesGeo].[StateName] AS [StateName], 
+    [StateNamesGeo].[Abbr] AS [Abbr], 
+    [StateNamesGeo].[Country] AS [Country], 
+    [StateNamesGeo].[Comment] AS [Comment], 
+    [StateNamesGeo].[Latitude] AS [Latitude], 
+    [StateNamesGeo].[Longitude] AS [Longitude]
+    FROM [dbo].[StateNamesGeo] AS [StateNamesGeo]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="StockChartData" EntityType="Self.StockChartData" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [StockChartData].[ID] AS [ID], 
+    [StockChartData].[PriceDate] AS [PriceDate], 
+    [StockChartData].[High] AS [High], 
+    [StockChartData].[Low] AS [Low], 
+    [StockChartData].[Close] AS [Close], 
+    [StockChartData].[Volumn] AS [Volumn], 
+    [StockChartData].[AdjClose] AS [AdjClose]
+    FROM [dbo].[StockChartData] AS [StockChartData]</DefiningQuery>
+          </EntitySet>
+          <EntitySet Name="SystemAdaptability" EntityType="Self.SystemAdaptability" store:Type="Tables" store:Schema="dbo">
+            <DefiningQuery>SELECT 
+    [SystemAdaptability].[ID] AS [ID], 
+    [SystemAdaptability].[Adaptability] AS [Adaptability], 
+    [SystemAdaptability].[New Transport] AS [New Transport], 
+    [SystemAdaptability].[OTIS] AS [OTIS], 
+    [SystemAdaptability].[Mobile Walk] AS [Mobile Walk]
+    FROM [dbo].[SystemAdaptability] AS [SystemAdaptability]</DefiningQuery>
+          </EntitySet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="C1NWindModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Category">
+          <Key>
+            <PropertyRef Name="CategoryID" />
+          </Key>
+          <Property Name="CategoryID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CategoryName" Type="String" MaxLength="15" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="City">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="City1" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Customer">
+          <Key>
+            <PropertyRef Name="CustomerID" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Employee">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="LastName" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="FirstName" Type="String" MaxLength="10" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Title" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="TitleOfCourtesy" Type="String" MaxLength="25" FixedLength="false" Unicode="true" />
+          <Property Name="BirthDate" Type="DateTime" Precision="3" />
+          <Property Name="HireDate" Type="DateTime" Precision="3" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="HomePhone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Extension" Type="String" MaxLength="4" FixedLength="false" Unicode="true" />
+          <Property Name="Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Notes" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ReportsTo" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Product">
+          <Key>
+            <PropertyRef Name="ProductID" />
+          </Key>
+          <Property Name="ProductID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="ProductName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="SupplierID" Type="Int32" />
+          <Property Name="CategoryID" Type="Int32" />
+          <Property Name="QuantityPerUnit" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="UnitsInStock" Type="Int16" />
+          <Property Name="UnitsOnOrder" Type="Int16" />
+          <Property Name="ReorderLevel" Type="Int16" />
+          <Property Name="Discontinued" Type="Boolean" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Shipper">
+          <Key>
+            <PropertyRef Name="ShipperID" />
+          </Key>
+          <Property Name="ShipperID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Supplier">
+          <Key>
+            <PropertyRef Name="SupplierID" />
+          </Key>
+          <Property Name="SupplierID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="HomePage" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="ATBillReport">
+          <Key>
+            <PropertyRef Name="BillingID" />
+          </Key>
+          <Property Name="BillingID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="PreviousBill" Type="Double" />
+          <Property Name="CurrentCharges" Type="Double" />
+          <Property Name="AccNO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="BillingDate" Type="DateTime" Precision="3" />
+          <Property Name="DueDate" Type="DateTime" Precision="3" />
+          <Property Name="WireLessCharge" Type="Double" />
+          <Property Name="TVCharge" Type="Double" />
+          <Property Name="VoiceCharge" Type="Double" />
+          <Property Name="Area" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AreaCode" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Street" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Car">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Brand" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Model" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="HP" Type="Int16" />
+          <Property Name="Liter" Type="Double" />
+          <Property Name="Cyl" Type="Int16" />
+          <Property Name="TransmissSpeedCount" Type="Int16" />
+          <Property Name="TransmissAutomatic" Type="String" MaxLength="3" FixedLength="false" Unicode="true" />
+          <Property Name="MPG_City" Type="Int16" />
+          <Property Name="MPG_Highway" Type="Int16" />
+          <Property Name="Category" Type="String" MaxLength="7" FixedLength="false" Unicode="true" />
+          <Property Name="Description" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="Hyperlink" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+          <Property Name="Picture" Type="Binary" MaxLength="Max" FixedLength="false" />
+          <Property Name="Price" Type="Double" />
+        </EntityType>
+        <EntityType Name="Customers_Map">
+          <Key>
+            <PropertyRef Name="CompanyName" />
+          </Key>
+          <Property Name="CustomerID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ContactName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="ContactTitle" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Phone" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Fax" Type="String" MaxLength="24" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+        </EntityType>
+        <EntityType Name="DoughtNutChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Task" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Worker1" Type="Int32" />
+          <Property Name="Worker2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="EmployeeTerritory">
+          <Key>
+            <PropertyRef Name="EmployeeID" />
+            <PropertyRef Name="TerritoryID" />
+          </Key>
+          <Property Name="EmployeeID" Type="Int32" Nullable="false" />
+          <Property Name="TerritoryID" Type="String" MaxLength="20" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="EmployeeTravelExp">
+          <Key>
+            <PropertyRef Name="Exp_ID" />
+          </Key>
+          <Property Name="Exp_ID" Type="Int32" Nullable="false" />
+          <Property Name="EmpName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Desc_of_Exp" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Date_From" Type="DateTime" Precision="3" />
+          <Property Name="Date_To" Type="DateTime" Precision="3" />
+          <Property Name="Date_of_Submission" Type="DateTime" Precision="3" />
+          <Property Name="Autherised_BY" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Airfare" Type="Int32" />
+          <Property Name="lodging" Type="Int32" />
+          <Property Name="Ground_transportation" Type="Int32" />
+          <Property Name="Meals_Tips" Type="Int32" />
+          <Property Name="Conferences_seminars" Type="Int32" />
+          <Property Name="Miles" Type="Int32" />
+          <Property Name="Mileage_Reimbursement" Type="Int32" />
+          <Property Name="Miscellaneous" Type="Int32" />
+          <Property Name="Curr_Exchange_rate" Type="Int32" />
+          <Property Name="Expence_Curr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Dept" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="GanttChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Description" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="StartDate" Type="DateTime" Precision="3" />
+          <Property Name="EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Duration" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Invoice">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="ShipName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ShipAddress" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ShipCity" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ShipRegion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ShipPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ShipCountry" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="CustomerID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="Customers_CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="Address" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="City" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Region" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="PostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="Salesperson" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="3" />
+          <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="Shippers_CompanyName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ProductID" Type="Int32" />
+          <Property Name="ProductName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Quantity" Type="Int16" />
+          <Property Name="Discount" Type="Single" />
+          <Property Name="ExtendedPrice" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="Freight" Type="Decimal" Precision="19" Scale="4" />
+        </EntityType>
+        <EntityType Name="MarketingProjectPlanData">
+          <Key>
+            <PropertyRef Name="Task_ID" />
+          </Key>
+          <Property Name="Task_ID" Type="Int32" Nullable="false" />
+          <Property Name="Task_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Task_Status" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Task_Owner" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="AssignTO" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Anticipated_StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Anticipated_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Actual_StartDate" Type="DateTime" Precision="3" />
+          <Property Name="Actual_EndDate" Type="DateTime" Precision="3" />
+          <Property Name="Estimated_Cost" Type="Int32" />
+          <Property Name="Actual_Cost" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MonthlyBudget">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Tran_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Tran_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Estimated_Value" Type="Int32" />
+          <Property Name="Actual_Value" Type="Int32" />
+          <Property Name="Tran_MainType" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="MonthlyProjectCostTracking">
+          <Key>
+            <PropertyRef Name="ExpenseID" />
+          </Key>
+          <Property Name="ExpenseID" Type="Int32" Nullable="false" />
+          <Property Name="ExpenseCategory" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ExpenseName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OperationName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="OperationRate" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="HrsForWeek1" Type="Int32" />
+          <Property Name="HrsForWeek2" Type="Int32" />
+          <Property Name="HrsForWeek3" Type="Int32" />
+          <Property Name="HrsForWeek4" Type="Int32" />
+          <Property Name="HrsForWeek5" Type="Int32" />
+          <Property Name="HrsForWeek6" Type="Int32" />
+          <Property Name="HrsForWeek7" Type="Int32" />
+          <Property Name="HrsForWeek8" Type="Int32" />
+        </EntityType>
+        <EntityType Name="Order_Detail">
+          <Key>
+            <PropertyRef Name="ProductID" />
+            <PropertyRef Name="UnitPrice" />
+            <PropertyRef Name="Quantity" />
+            <PropertyRef Name="Discount" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" />
+          <Property Name="ProductID" Type="Int32" Nullable="false" />
+          <Property Name="UnitPrice" Type="Decimal" Precision="19" Scale="4" Nullable="false" />
+          <Property Name="Quantity" Type="Int16" Nullable="false" />
+          <Property Name="Discount" Type="Single" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Order">
+          <Key>
+            <PropertyRef Name="OrderID" />
+          </Key>
+          <Property Name="OrderID" Type="Int32" Nullable="false" />
+          <Property Name="CustomerID" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <Property Name="EmployeeID" Type="Int32" />
+          <Property Name="OrderDate" Type="DateTime" Precision="3" />
+          <Property Name="RequiredDate" Type="DateTime" Precision="3" />
+          <Property Name="ShippedDate" Type="DateTime" Precision="3" />
+          <Property Name="ShipVia" Type="Int32" />
+          <Property Name="Freight" Type="Decimal" Precision="19" Scale="4" />
+          <Property Name="ShipName" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+          <Property Name="ShipAddress" Type="String" MaxLength="60" FixedLength="false" Unicode="true" />
+          <Property Name="ShipCity" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ShipRegion" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+          <Property Name="ShipPostalCode" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+          <Property Name="ShipCountry" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="PolarSample">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Angle" Type="Int32" />
+          <Property Name="Value1" Type="Int32" />
+          <Property Name="Value2" Type="Int32" />
+        </EntityType>
+        <EntityType Name="PriceComparison">
+          <Key>
+            <PropertyRef Name="Product_ID" />
+          </Key>
+          <Property Name="Product_ID" Type="Int32" Nullable="false" />
+          <Property Name="Product_Type" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Product_Name" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Price_2013" Type="Int32" />
+          <Property Name="Price_2014" Type="Int32" />
+          <Property Name="Product_Type_Photo" Type="Binary" MaxLength="Max" FixedLength="false" />
+        </EntityType>
+        <EntityType Name="SalesByQuarter">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="QuarterMonth" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="ProductX" Type="Double" />
+          <Property Name="ProductY" Type="Double" />
+          <Property Name="ProductZ" Type="Double" />
+        </EntityType>
+        <EntityType Name="ScatterPoint">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="x" Type="Int32" />
+          <Property Name="y" Type="Int32" />
+          <Property Name="y1" Type="Int32" />
+          <Property Name="y2" Type="Int32" />
+          <Property Name="y3" Type="Int32" />
+        </EntityType>
+        <EntityType Name="StateNamesGeo">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="StateName" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Abbr" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Country" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Comment" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="Latitude" Type="Double" />
+          <Property Name="Longitude" Type="Double" />
+        </EntityType>
+        <EntityType Name="StockChartData">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="PriceDate" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="High" Type="Double" />
+          <Property Name="Low" Type="Double" />
+          <Property Name="Close" Type="Double" />
+          <Property Name="Volumn" Type="Double" />
+          <Property Name="AdjClose" Type="Double" />
+        </EntityType>
+        <EntityType Name="SystemAdaptability">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Adaptability" Type="String" MaxLength="255" FixedLength="false" Unicode="true" />
+          <Property Name="New_Transport" Type="Single" />
+          <Property Name="OTIS" Type="Single" />
+          <Property Name="Mobile_Walk" Type="Single" />
+        </EntityType>
+        <EntityContainer Name="C1NWindEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Categories" EntityType="Self.Category" />
+          <EntitySet Name="Cities" EntityType="Self.City" />
+          <EntitySet Name="Customers" EntityType="Self.Customer" />
+          <EntitySet Name="Employees" EntityType="Self.Employee" />
+          <EntitySet Name="Products" EntityType="Self.Product" />
+          <EntitySet Name="Shippers" EntityType="Self.Shipper" />
+          <EntitySet Name="Suppliers" EntityType="Self.Supplier" />
+          <EntitySet Name="ATBillReports" EntityType="Self.ATBillReport" />
+          <EntitySet Name="Cars" EntityType="Self.Car" />
+          <EntitySet Name="Customers_Map" EntityType="Self.Customers_Map" />
+          <EntitySet Name="DoughtNutChartDatas" EntityType="Self.DoughtNutChartData" />
+          <EntitySet Name="EmployeeTerritories" EntityType="Self.EmployeeTerritory" />
+          <EntitySet Name="EmployeeTravelExps" EntityType="Self.EmployeeTravelExp" />
+          <EntitySet Name="GanttChartDatas" EntityType="Self.GanttChartData" />
+          <EntitySet Name="Invoices" EntityType="Self.Invoice" />
+          <EntitySet Name="MarketingProjectPlanDatas" EntityType="Self.MarketingProjectPlanData" />
+          <EntitySet Name="MonthlyBudgets" EntityType="Self.MonthlyBudget" />
+          <EntitySet Name="MonthlyProjectCostTrackings" EntityType="Self.MonthlyProjectCostTracking" />
+          <EntitySet Name="Order_Details" EntityType="Self.Order_Detail" />
+          <EntitySet Name="Orders" EntityType="Self.Order" />
+          <EntitySet Name="PolarSamples" EntityType="Self.PolarSample" />
+          <EntitySet Name="PriceComparisons" EntityType="Self.PriceComparison" />
+          <EntitySet Name="SalesByQuarters" EntityType="Self.SalesByQuarter" />
+          <EntitySet Name="ScatterPoints" EntityType="Self.ScatterPoint" />
+          <EntitySet Name="StateNamesGeos" EntityType="Self.StateNamesGeo" />
+          <EntitySet Name="StockChartDatas" EntityType="Self.StockChartData" />
+          <EntitySet Name="SystemAdaptabilities" EntityType="Self.SystemAdaptability" />
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="C1NWindModelStoreContainer" CdmEntityContainer="C1NWindEntities">
+          <EntitySetMapping Name="Categories">
+            <EntityTypeMapping TypeName="C1NWindModel.Category">
+              <MappingFragment StoreEntitySet="Categories">
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="CategoryName" ColumnName="CategoryName" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cities">
+            <EntityTypeMapping TypeName="C1NWindModel.City">
+              <MappingFragment StoreEntitySet="Cities">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="City1" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers">
+            <EntityTypeMapping TypeName="C1NWindModel.Customer">
+              <MappingFragment StoreEntitySet="Customers">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Employees">
+            <EntityTypeMapping TypeName="C1NWindModel.Employee">
+              <MappingFragment StoreEntitySet="Employees">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="LastName" ColumnName="LastName" />
+                <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+                <ScalarProperty Name="Title" ColumnName="Title" />
+                <ScalarProperty Name="TitleOfCourtesy" ColumnName="TitleOfCourtesy" />
+                <ScalarProperty Name="BirthDate" ColumnName="BirthDate" />
+                <ScalarProperty Name="HireDate" ColumnName="HireDate" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="HomePhone" ColumnName="HomePhone" />
+                <ScalarProperty Name="Extension" ColumnName="Extension" />
+                <ScalarProperty Name="Photo" ColumnName="Photo" />
+                <ScalarProperty Name="Notes" ColumnName="Notes" />
+                <ScalarProperty Name="ReportsTo" ColumnName="ReportsTo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Products">
+            <EntityTypeMapping TypeName="C1NWindModel.Product">
+              <MappingFragment StoreEntitySet="Products">
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="CategoryID" ColumnName="CategoryID" />
+                <ScalarProperty Name="QuantityPerUnit" ColumnName="QuantityPerUnit" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="UnitsInStock" ColumnName="UnitsInStock" />
+                <ScalarProperty Name="UnitsOnOrder" ColumnName="UnitsOnOrder" />
+                <ScalarProperty Name="ReorderLevel" ColumnName="ReorderLevel" />
+                <ScalarProperty Name="Discontinued" ColumnName="Discontinued" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Shippers">
+            <EntityTypeMapping TypeName="C1NWindModel.Shipper">
+              <MappingFragment StoreEntitySet="Shippers">
+                <ScalarProperty Name="ShipperID" ColumnName="ShipperID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Suppliers">
+            <EntityTypeMapping TypeName="C1NWindModel.Supplier">
+              <MappingFragment StoreEntitySet="Suppliers">
+                <ScalarProperty Name="SupplierID" ColumnName="SupplierID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="HomePage" ColumnName="HomePage" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ATBillReports">
+            <EntityTypeMapping TypeName="C1NWindModel.ATBillReport">
+              <MappingFragment StoreEntitySet="ATBillReport">
+                <ScalarProperty Name="BillingID" ColumnName="BillingID" />
+                <ScalarProperty Name="CustomerName" ColumnName="CustomerName" />
+                <ScalarProperty Name="PreviousBill" ColumnName="PreviousBill" />
+                <ScalarProperty Name="CurrentCharges" ColumnName="CurrentCharges" />
+                <ScalarProperty Name="AccNO" ColumnName="AccNO" />
+                <ScalarProperty Name="BillingDate" ColumnName="BillingDate" />
+                <ScalarProperty Name="DueDate" ColumnName="DueDate" />
+                <ScalarProperty Name="WireLessCharge" ColumnName="WireLessCharge" />
+                <ScalarProperty Name="TVCharge" ColumnName="TVCharge" />
+                <ScalarProperty Name="VoiceCharge" ColumnName="VoiceCharge" />
+                <ScalarProperty Name="Area" ColumnName="Area" />
+                <ScalarProperty Name="AreaCode" ColumnName="AreaCode" />
+                <ScalarProperty Name="Street" ColumnName="Street" />
+                <ScalarProperty Name="City" ColumnName="City" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Cars">
+            <EntityTypeMapping TypeName="C1NWindModel.Car">
+              <MappingFragment StoreEntitySet="Cars">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Brand" ColumnName="Brand" />
+                <ScalarProperty Name="Model" ColumnName="Model" />
+                <ScalarProperty Name="HP" ColumnName="HP" />
+                <ScalarProperty Name="Liter" ColumnName="Liter" />
+                <ScalarProperty Name="Cyl" ColumnName="Cyl" />
+                <ScalarProperty Name="TransmissSpeedCount" ColumnName="TransmissSpeedCount" />
+                <ScalarProperty Name="TransmissAutomatic" ColumnName="TransmissAutomatic" />
+                <ScalarProperty Name="MPG_City" ColumnName="MPG_City" />
+                <ScalarProperty Name="MPG_Highway" ColumnName="MPG_Highway" />
+                <ScalarProperty Name="Category" ColumnName="Category" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="Hyperlink" ColumnName="Hyperlink" />
+                <ScalarProperty Name="Picture" ColumnName="Picture" />
+                <ScalarProperty Name="Price" ColumnName="Price" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Customers_Map">
+            <EntityTypeMapping TypeName="C1NWindModel.Customers_Map">
+              <MappingFragment StoreEntitySet="Customers_Map">
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="CompanyName" ColumnName="CompanyName" />
+                <ScalarProperty Name="ContactName" ColumnName="ContactName" />
+                <ScalarProperty Name="ContactTitle" ColumnName="ContactTitle" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Phone" ColumnName="Phone" />
+                <ScalarProperty Name="Fax" ColumnName="Fax" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DoughtNutChartDatas">
+            <EntityTypeMapping TypeName="C1NWindModel.DoughtNutChartData">
+              <MappingFragment StoreEntitySet="DoughtNutChartData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Task" ColumnName="Task" />
+                <ScalarProperty Name="Worker1" ColumnName="Worker1" />
+                <ScalarProperty Name="Worker2" ColumnName="Worker2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTerritories">
+            <EntityTypeMapping TypeName="C1NWindModel.EmployeeTerritory">
+              <MappingFragment StoreEntitySet="EmployeeTerritories">
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="TerritoryID" ColumnName="TerritoryID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="EmployeeTravelExps">
+            <EntityTypeMapping TypeName="C1NWindModel.EmployeeTravelExp">
+              <MappingFragment StoreEntitySet="EmployeeTravelExp">
+                <ScalarProperty Name="Exp_ID" ColumnName="Exp_ID" />
+                <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+                <ScalarProperty Name="Desc_of_Exp" ColumnName="Desc_of_Exp" />
+                <ScalarProperty Name="Date_From" ColumnName="Date_From" />
+                <ScalarProperty Name="Date_To" ColumnName="Date_To" />
+                <ScalarProperty Name="Date_of_Submission" ColumnName="Date of Submission" />
+                <ScalarProperty Name="Autherised_BY" ColumnName="Autherised BY" />
+                <ScalarProperty Name="Airfare" ColumnName="Airfare" />
+                <ScalarProperty Name="lodging" ColumnName="lodging" />
+                <ScalarProperty Name="Ground_transportation" ColumnName="Ground_transportation" />
+                <ScalarProperty Name="Meals_Tips" ColumnName="Meals_Tips" />
+                <ScalarProperty Name="Conferences_seminars" ColumnName="Conferences_seminars" />
+                <ScalarProperty Name="Miles" ColumnName="Miles" />
+                <ScalarProperty Name="Mileage_Reimbursement" ColumnName="Mileage_Reimbursement" />
+                <ScalarProperty Name="Miscellaneous" ColumnName="Miscellaneous" />
+                <ScalarProperty Name="Curr_Exchange_rate" ColumnName="Curr_Exchange_rate" />
+                <ScalarProperty Name="Expence_Curr" ColumnName="Expence_Curr" />
+                <ScalarProperty Name="Dept" ColumnName="Dept" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="GanttChartDatas">
+            <EntityTypeMapping TypeName="C1NWindModel.GanttChartData">
+              <MappingFragment StoreEntitySet="GanttChartData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Description" ColumnName="Description" />
+                <ScalarProperty Name="StartDate" ColumnName="StartDate" />
+                <ScalarProperty Name="EndDate" ColumnName="EndDate" />
+                <ScalarProperty Name="Duration" ColumnName="Duration" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Invoices">
+            <EntityTypeMapping TypeName="C1NWindModel.Invoice">
+              <MappingFragment StoreEntitySet="Invoices">
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+                <ScalarProperty Name="ShipCity" ColumnName="ShipCity" />
+                <ScalarProperty Name="ShipRegion" ColumnName="ShipRegion" />
+                <ScalarProperty Name="ShipPostalCode" ColumnName="ShipPostalCode" />
+                <ScalarProperty Name="ShipCountry" ColumnName="ShipCountry" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="Customers_CompanyName" ColumnName="Customers.CompanyName" />
+                <ScalarProperty Name="Address" ColumnName="Address" />
+                <ScalarProperty Name="City" ColumnName="City" />
+                <ScalarProperty Name="Region" ColumnName="Region" />
+                <ScalarProperty Name="PostalCode" ColumnName="PostalCode" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Salesperson" ColumnName="Salesperson" />
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+                <ScalarProperty Name="Shippers_CompanyName" ColumnName="Shippers.CompanyName" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="ProductName" ColumnName="ProductName" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+                <ScalarProperty Name="ExtendedPrice" ColumnName="ExtendedPrice" />
+                <ScalarProperty Name="Freight" ColumnName="Freight" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MarketingProjectPlanDatas">
+            <EntityTypeMapping TypeName="C1NWindModel.MarketingProjectPlanData">
+              <MappingFragment StoreEntitySet="MarketingProjectPlanData">
+                <ScalarProperty Name="Task_ID" ColumnName="Task_ID" />
+                <ScalarProperty Name="Task_Name" ColumnName="Task_Name" />
+                <ScalarProperty Name="Task_Status" ColumnName="Task_Status" />
+                <ScalarProperty Name="Task_Owner" ColumnName="Task_Owner" />
+                <ScalarProperty Name="AssignTO" ColumnName="AssignTO" />
+                <ScalarProperty Name="Anticipated_StartDate" ColumnName="Anticipated_StartDate" />
+                <ScalarProperty Name="Anticipated_EndDate" ColumnName="Anticipated_EndDate" />
+                <ScalarProperty Name="Actual_StartDate" ColumnName="Actual_StartDate" />
+                <ScalarProperty Name="Actual_EndDate" ColumnName="Actual_EndDate" />
+                <ScalarProperty Name="Estimated_Cost" ColumnName="Estimated_Cost" />
+                <ScalarProperty Name="Actual_Cost" ColumnName="Actual_Cost" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonthlyBudgets">
+            <EntityTypeMapping TypeName="C1NWindModel.MonthlyBudget">
+              <MappingFragment StoreEntitySet="MonthlyBudget">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Tran_Type" ColumnName="Tran_Type" />
+                <ScalarProperty Name="Tran_Name" ColumnName="Tran_Name" />
+                <ScalarProperty Name="Estimated_Value" ColumnName="Estimated_Value" />
+                <ScalarProperty Name="Actual_Value" ColumnName="Actual_Value" />
+                <ScalarProperty Name="Tran_MainType" ColumnName="Tran_MainType" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="MonthlyProjectCostTrackings">
+            <EntityTypeMapping TypeName="C1NWindModel.MonthlyProjectCostTracking">
+              <MappingFragment StoreEntitySet="MonthlyProjectCostTracking">
+                <ScalarProperty Name="ExpenseID" ColumnName="ExpenseID" />
+                <ScalarProperty Name="ExpenseCategory" ColumnName="ExpenseCategory" />
+                <ScalarProperty Name="ExpenseName" ColumnName="ExpenseName" />
+                <ScalarProperty Name="OperationName" ColumnName="OperationName" />
+                <ScalarProperty Name="OperationRate" ColumnName="OperationRate" />
+                <ScalarProperty Name="HrsForWeek1" ColumnName="HrsForWeek1" />
+                <ScalarProperty Name="HrsForWeek2" ColumnName="HrsForWeek2" />
+                <ScalarProperty Name="HrsForWeek3" ColumnName="HrsForWeek3" />
+                <ScalarProperty Name="HrsForWeek4" ColumnName="HrsForWeek4" />
+                <ScalarProperty Name="HrsForWeek5" ColumnName="HrsForWeek5" />
+                <ScalarProperty Name="HrsForWeek6" ColumnName="HrsForWeek6" />
+                <ScalarProperty Name="HrsForWeek7" ColumnName="HrsForWeek7" />
+                <ScalarProperty Name="HrsForWeek8" ColumnName="HrsForWeek8" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Order_Details">
+            <EntityTypeMapping TypeName="C1NWindModel.Order_Detail">
+              <MappingFragment StoreEntitySet="Order Details">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="ProductID" ColumnName="ProductID" />
+                <ScalarProperty Name="UnitPrice" ColumnName="UnitPrice" />
+                <ScalarProperty Name="Quantity" ColumnName="Quantity" />
+                <ScalarProperty Name="Discount" ColumnName="Discount" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="Orders">
+            <EntityTypeMapping TypeName="C1NWindModel.Order">
+              <MappingFragment StoreEntitySet="Orders">
+                <ScalarProperty Name="OrderID" ColumnName="OrderID" />
+                <ScalarProperty Name="CustomerID" ColumnName="CustomerID" />
+                <ScalarProperty Name="EmployeeID" ColumnName="EmployeeID" />
+                <ScalarProperty Name="OrderDate" ColumnName="OrderDate" />
+                <ScalarProperty Name="RequiredDate" ColumnName="RequiredDate" />
+                <ScalarProperty Name="ShippedDate" ColumnName="ShippedDate" />
+                <ScalarProperty Name="ShipVia" ColumnName="ShipVia" />
+                <ScalarProperty Name="Freight" ColumnName="Freight" />
+                <ScalarProperty Name="ShipName" ColumnName="ShipName" />
+                <ScalarProperty Name="ShipAddress" ColumnName="ShipAddress" />
+                <ScalarProperty Name="ShipCity" ColumnName="ShipCity" />
+                <ScalarProperty Name="ShipRegion" ColumnName="ShipRegion" />
+                <ScalarProperty Name="ShipPostalCode" ColumnName="ShipPostalCode" />
+                <ScalarProperty Name="ShipCountry" ColumnName="ShipCountry" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PolarSamples">
+            <EntityTypeMapping TypeName="C1NWindModel.PolarSample">
+              <MappingFragment StoreEntitySet="PolarSample">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Angle" ColumnName="Angle" />
+                <ScalarProperty Name="Value1" ColumnName="Value1" />
+                <ScalarProperty Name="Value2" ColumnName="Value2" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PriceComparisons">
+            <EntityTypeMapping TypeName="C1NWindModel.PriceComparison">
+              <MappingFragment StoreEntitySet="PriceComparison">
+                <ScalarProperty Name="Product_ID" ColumnName="Product_ID" />
+                <ScalarProperty Name="Product_Type" ColumnName="Product_Type" />
+                <ScalarProperty Name="Product_Name" ColumnName="Product_Name" />
+                <ScalarProperty Name="Price_2013" ColumnName="Price_2013" />
+                <ScalarProperty Name="Price_2014" ColumnName="Price_2014" />
+                <ScalarProperty Name="Product_Type_Photo" ColumnName="Product_Type_Photo" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SalesByQuarters">
+            <EntityTypeMapping TypeName="C1NWindModel.SalesByQuarter">
+              <MappingFragment StoreEntitySet="SalesByQuarter">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="QuarterMonth" ColumnName="QuarterMonth" />
+                <ScalarProperty Name="ProductX" ColumnName="ProductX" />
+                <ScalarProperty Name="ProductY" ColumnName="ProductY" />
+                <ScalarProperty Name="ProductZ" ColumnName="ProductZ" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="ScatterPoints">
+            <EntityTypeMapping TypeName="C1NWindModel.ScatterPoint">
+              <MappingFragment StoreEntitySet="ScatterPoints">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="x" ColumnName="x" />
+                <ScalarProperty Name="y" ColumnName="y" />
+                <ScalarProperty Name="y1" ColumnName="y1" />
+                <ScalarProperty Name="y2" ColumnName="y2" />
+                <ScalarProperty Name="y3" ColumnName="y3" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StateNamesGeos">
+            <EntityTypeMapping TypeName="C1NWindModel.StateNamesGeo">
+              <MappingFragment StoreEntitySet="StateNamesGeo">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="StateName" ColumnName="StateName" />
+                <ScalarProperty Name="Abbr" ColumnName="Abbr" />
+                <ScalarProperty Name="Country" ColumnName="Country" />
+                <ScalarProperty Name="Comment" ColumnName="Comment" />
+                <ScalarProperty Name="Latitude" ColumnName="Latitude" />
+                <ScalarProperty Name="Longitude" ColumnName="Longitude" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="StockChartDatas">
+            <EntityTypeMapping TypeName="C1NWindModel.StockChartData">
+              <MappingFragment StoreEntitySet="StockChartData">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PriceDate" ColumnName="PriceDate" />
+                <ScalarProperty Name="High" ColumnName="High" />
+                <ScalarProperty Name="Low" ColumnName="Low" />
+                <ScalarProperty Name="Close" ColumnName="Close" />
+                <ScalarProperty Name="Volumn" ColumnName="Volumn" />
+                <ScalarProperty Name="AdjClose" ColumnName="AdjClose" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="SystemAdaptabilities">
+            <EntityTypeMapping TypeName="C1NWindModel.SystemAdaptability">
+              <MappingFragment StoreEntitySet="SystemAdaptability">
+                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="Adaptability" ColumnName="Adaptability" />
+                <ScalarProperty Name="New_Transport" ColumnName="New Transport" />
+                <ScalarProperty Name="OTIS" ColumnName="OTIS" />
+                <ScalarProperty Name="Mobile_Walk" ColumnName="Mobile Walk" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

@@ -1,0 +1,19 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsCustomize_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsCustomize_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DynamicDataMapsCustomize_Text2)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("country").Header("Country");
+        cs.Add().Binding("city").Header("City");
+        cs.Add().Binding("downloads").Header("Downloads");
+        cs.Add().Binding("sales").Header("Sales");
+    })
+)

@@ -1,0 +1,11 @@
+<h1>
+    @Html.Raw(Resources.C1Input.MenusSplitButtons_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.MenusSplitButtons_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.MenusSplitButtons_Text2)
+</p>
+
+@Html.C1().Menu().Id("theSplitButton").DisplayMemberPath("header").SelectedValuePath("value")

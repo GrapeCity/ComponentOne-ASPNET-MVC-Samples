@@ -1,0 +1,55 @@
+﻿@using CustomReportProvider.Models;
+
+@{
+    ViewBag.Title = "ReportViewer Custom Report Provider";
+}
+
+<div class="header ">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            ReportViewer Custom Report Provider
+        </h1>
+        <p>
+            This page shows how to set the dataset in memory to FlexReport.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>Getting Started</h2>
+        <p>
+            Steps for getting started with the Custom Report Provider application:
+        </p>
+        <ol>
+            <li>Implement a custom report provider which sets the FlexReport's data source with the dataset in memory.</li>
+            <li>Register this report provider in Startup.</li>
+            <li>Create a ReportViewer control and set its FilePath and ReportName properties.</li>
+            <li>Add handler for client queryLoadingData event to provide selected country on loading the report.</li>
+        </ol>
+        <div class="row">
+            Select Country:
+            <span>
+                @(Html.C1().ComboBox()
+                    .Id("countriesMenu")
+                    .Bind(Employees.CountryNames).SelectedIndex(0)
+                    .OnClientSelectedIndexChanged("countriesMenu_selectedIndexChanged"))
+            </span>
+        </div>
+        <div class="row">
+            @(Html.C1().ReportViewer()
+           .Id("reportViewer")
+           .Width("100%")
+           .FilePath("memoryreports/ReportsRoot/DataSourceInMemory.flxr")
+           .ReportName("Simple List")
+           .OnClientQueryLoadingData("reportViewer_queryLoadingData"))
+        </div>
+    </div>
+</div>

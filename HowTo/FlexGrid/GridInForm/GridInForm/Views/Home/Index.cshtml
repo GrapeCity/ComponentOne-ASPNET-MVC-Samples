@@ -1,0 +1,73 @@
+﻿@using GridInForm.Models
+@model Company
+
+@using (Html.BeginForm("Save", "Home"))
+{
+    <input type="button" value="Save" onclick="submitPage()" />
+    <div class="param-item">
+        <div>
+        @Html.LabelFor(company => company.Name)
+        @Html.EditorFor(company => company.Name)
+        </div>
+        <div>
+            @Html.LabelFor(company => company.WebSite)
+            @Html.EditorFor(company => company.WebSite)
+        </div>
+    </div>
+    <div class="param-item">
+        <div>
+            @Html.LabelFor(company => company.Headquarters)
+            @Html.EditorFor(company => company.Headquarters)
+        </div>
+        <div>
+            @Html.LabelFor(company => company.Type)
+            @Html.EditorFor(company => company.Type)
+        </div>
+    </div>
+    <div class="param-item">
+        <div>
+            @Html.LabelFor(company => company.Industry)
+            @Html.EditorFor(company => company.Industry)
+        </div>
+        <div>
+            @Html.LabelFor(company => company.Founded)
+            <span>
+            @Html.C1().InputDateFor(company => company.Founded)
+            </span>
+        </div>
+    </div>
+    <div class="param-item">
+        @Html.LabelFor(company => company.Description)
+        @Html.TextAreaFor(company => company.Description)
+    </div>
+    @(Html.C1().FlexGrid<Sale>().Id("flexGrid")
+    .AutoGenerateColumns(false)
+    .Height(450)
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .Bind(b => b.Bind(Model.Sales).DisableServerRead(true))
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product"));
+        bl.Add(cb => cb.Binding("Amount").Width("*"));
+        bl.Add(cb => cb.Binding("Discount"));
+        bl.Add(cb => cb.Binding("Active"));
+        bl.Add(cb => cb.Binding("Rank"));
+    })
+    )
+    <input type="hidden" id="dataInput" name="Sales">
+    <script>
+        function updateDataInput() {
+            var flexGrid = wijmo.Control.getControl('#flexGrid'),
+                cv = flexGrid.collectionView;
+            $("#dataInput").val(JSON.stringify(cv.items.slice()));
+        }
+
+        function submitPage() {
+            updateDataInput();
+            $("form")[0].submit();
+        }
+    </script>
+}

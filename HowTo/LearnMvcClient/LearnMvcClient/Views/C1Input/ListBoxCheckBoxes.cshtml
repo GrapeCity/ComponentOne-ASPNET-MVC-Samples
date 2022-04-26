@@ -1,0 +1,24 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.ListBoxCheckBoxes_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ListBoxCheckBoxes_Text1)
+</p>
+
+<div class="row demo-settings">
+    <div class="col-xs-5">
+        @(Html.C1().ListBox<Gdp>().Id("theListBox")
+            .Height(200)
+            .Bind(Model).DisplayMemberPath("Country")
+        )
+    </div>
+    <div class="col-xs-7">
+        <p>
+            @Html.Raw(Resources.C1Input.ListBoxCheckBoxes_Text2)
+        </p>
+        <ul id="checkedItems"></ul>
+    </div>
+</div>

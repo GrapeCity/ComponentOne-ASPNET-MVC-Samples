@@ -1,0 +1,62 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.ChartElements_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.ChartElements_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text7)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text8)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text9)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text10)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.ChartElements_Text11)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1FlexChart.ChartElements_Text12)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.ChartElements_Text13)
+</p>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols)
+    .Header(Resources.C1FlexChart.ChartElements_Text14)
+    .Footer(Resources.C1FlexChart.ChartElements_Text15)
+    .DataLabel(dl=>dl.Content("{value:0}").Position(C1.Web.Mvc.Chart.LabelPosition.Top).Offset(5))
+    .Tooltip(t=>t.Content(""))
+    .Series(sb=>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+    })
+)

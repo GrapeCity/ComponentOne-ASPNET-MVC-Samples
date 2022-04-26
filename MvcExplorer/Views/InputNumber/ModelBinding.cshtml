@@ -1,0 +1,12 @@
+﻿@model MvcExplorer.Models.CustomerOrder
+
+<div>
+    <label>@Html.Raw(Resources.InputNumber.ModelBinding_Text2)</label>
+    @Html.C1().InputNumberFor(m => m.Count)
+    @Html.C1().InputTimeFor(m => m.OrderTime)
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.InputNumber.ModelBinding_Text0)</p>
+    <p>@Html.Raw(Resources.InputNumber.ModelBinding_Text1)</p>
+}

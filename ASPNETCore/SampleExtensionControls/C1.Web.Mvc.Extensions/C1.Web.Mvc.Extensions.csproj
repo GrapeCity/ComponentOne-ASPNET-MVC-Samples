@@ -1,0 +1,81 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ComponentOne Control for ASP.NET Core MVC Edition</Description>
+    <Copyright>(c) GrapeCity, Inc.. All rights reserved.</Copyright>
+    <AssemblyTitle>ComponentOne Control for ASP.NET Core MVC Edition</AssemblyTitle>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <VersionPrefix>1.0.0.0</VersionPrefix>
+    <Authors>GrapeCity, Inc.</Authors>
+    <TargetFramework>net5.0</TargetFramework>
+    <DefineConstants>$(DefineConstants);ASPNETCORE;</DefineConstants>
+    <AssemblyName>C1.Web.Mvc.Extensions</AssemblyName>
+    <SignAssembly>false</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>SampleExtensionControls</PackageId>
+    <PackageTags>ASP.NET</PackageTags>
+    <PackageIcon>c1-hex-logo.png</PackageIcon>
+    <PackageProjectUrl>https://www.grapecity.com/en/componentone</PackageProjectUrl>
+	  <PackageTargetFallback Condition=" '$(TargetFramework)' == 'net5.0' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
+    <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'net5.0' ">5.0.0</NetStandardImplicitPackageVersion>
+    <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
+    <GenerateAssemblyDescriptionAttribute>false</GenerateAssemblyDescriptionAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+    <GenerateAssemblyConfigurationAttribute>false</GenerateAssemblyConfigurationAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyVersionAttribute>false</GenerateAssemblyVersionAttribute>
+    <GenerateAssemblyFileVersionAttribute>false</GenerateAssemblyFileVersionAttribute>
+    <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
+    <Version>1.0.0.8</Version>
+    <RootNamespace>C1.Web.Mvc.Extensions</RootNamespace>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Resources\Scripts\input.js" />
+    <None Remove="Resources\Scripts\mvc.input.js" />
+    <None Remove="Resources\Images\c1-hex-logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\Scripts\input.js" />
+    <EmbeddedResource Include="Resources\Scripts\mvc.input.js" />
+    <EmbeddedResource Include="Resources\Images\c1-hex-logo.png" Pack="true" PackagePath="\" />
+  </ItemGroup>
+
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20221.333" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+    <DefineConstants>TRACE;DEBUG;NETCOREAPP2_0;RELOAD_ON_ERROR;ODATA_SERVER</DefineConstants>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
+    <DefineConstants>TRACE;RELEASE;NETCOREAPP2_0;RELOAD_ON_ERROR;ODATA_SERVER</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup Condition=" '$(TargetFramework)' == 'net5.0' ">
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(Configuration)' == 'Release' ">
+    <EmbeddedResource Include="ClientRelease\**\*.*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+
+  <PropertyGroup Condition=" '$(Configuration)' == 'GrapeCity' ">
+    <DefineConstants>$(DefineConstants);GRAPECITY</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup Condition=" '$(Configuration)' == 'GrapeCity' ">
+    <EmbeddedResource Include="ClientRelease\**\*.*" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Connected Services\" />
+  </ItemGroup>
+
+</Project>

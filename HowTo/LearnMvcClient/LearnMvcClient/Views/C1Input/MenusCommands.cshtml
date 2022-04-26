@@ -1,0 +1,44 @@
+<h1>
+    @Html.Raw(Resources.C1Input.MenusCommands_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.MenusCommands_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.MenusCommands_Text2)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Input.MenusCommands_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.MenusCommands_Text4)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1Input.MenusCommands_Text5)
+</p>
+
+<div class="demo-settings">
+    <label for="currentTax">
+        @Html.Raw(Resources.C1Input.MenusCommands_Text6)
+    </label>
+    @Html.C1().InputNumber().Id("currentTax").Format("p2").Min(0).Max(1).Step(0.025).Value(0.0825)
+    <br>
+    <label for="changeTax">
+        @Html.Raw(Resources.C1Input.MenusCommands_Text7)
+    </label>
+    @(Html.C1().Menu().Id("changeTax")
+        .Header(Resources.C1Input.MenusCommands_Text8)
+        .MenuItems(items =>
+        {
+            items.Add(Resources.C1Input.MenusCommands_Text9, 0.5);
+            items.Add(Resources.C1Input.MenusCommands_Text10, 0.25);
+            items.Add(Resources.C1Input.MenusCommands_Text11, 0.05);
+            items.AddSeparator();
+            items.Add(Resources.C1Input.MenusCommands_Text12, -0.05);
+            items.Add(Resources.C1Input.MenusCommands_Text13, -0.25);
+            items.Add(Resources.C1Input.MenusCommands_Text14, -0.5);
+        })
+    )
+</div>

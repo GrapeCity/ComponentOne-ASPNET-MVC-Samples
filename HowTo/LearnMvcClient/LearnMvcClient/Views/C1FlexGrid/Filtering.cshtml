@@ -1,0 +1,16 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Filtering_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Filtering_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Filtering_Text2)
+</p>
+<div class="input-group">
+    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+    <input id="filter" class="form-control" placeholder="@Resources.C1FlexGrid.Filtering_Text3">
+</div>
+@Html.C1().FlexGrid().Id("theGrid").Bind(b=>b.Bind(Model).DisableServerRead(true)).Height(250)

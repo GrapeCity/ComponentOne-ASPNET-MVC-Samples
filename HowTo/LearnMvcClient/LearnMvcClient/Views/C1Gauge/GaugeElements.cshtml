@@ -1,0 +1,49 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.GaugeElements_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeElements_Text1)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text6)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.GaugeElements_Text7)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1Gauge.GaugeElements_Text8)
+</p>
+
+@(Html.C1().RadialGauge().Id("radial")
+    .Max(100).Value(50)
+    .StartAngle(-30).SweepAngle(240)
+    .IsReadOnly(false)
+    .HasShadow(false)
+    .ShowText(ShowText.All)
+    .ShowRanges(true)
+    .ShowTicks(true)
+    .TickSpacing(10)
+    .Ranges(r=>
+    {
+        r.Add().Min(0).Max(30).Thickness(0.5).Color(System.Drawing.Color.Red);
+        r.Add().Min(30).Max(50).Thickness(0.5).Color(System.Drawing.Color.Orange);
+        r.Add().Min(50).Max(70).Thickness(0.5).Color(System.Drawing.Color.Gold);
+        r.Add().Min(70).Max(100).Thickness(0.5).Color(System.Drawing.Color.Green);
+    })
+    .Pointer(p=>p.Thickness(0.15))
+    .ThumbSize(20)
+)

@@ -1,0 +1,27 @@
+﻿@model Property[]
+
+@section Scripts{
+    <script type="text/javascript">
+        function formatItem(treeview, args) {
+            if (args.dataItem.NewItem) {
+                args.element.innerHTML +=
+                    '<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>';
+            }
+        }
+    </script>
+}
+
+@(Html.C1().TreeView()
+    .Bind(Model)
+    .DisplayMemberPath("Header")
+    .ChildItemsPath("Items")
+    .OnClientFormatItem("formatItem"))
+
+@section Summary{
+    <p>@Html.Raw(Resources.TreeView.CustomNodeContent_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeView.CustomNodeContent_Text1)</p>
+    <p>@Html.Raw(Resources.TreeView.CustomNodeContent_Text2)</p>
+}

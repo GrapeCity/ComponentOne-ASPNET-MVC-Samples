@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Fruit>
+@using C1.Web.Mvc.Chart
+
+@{
+    ViewBag.DemoSettings = true;
+    var palete = new List<System.Drawing.Color>() {
+            System.Drawing.Color.Orange,
+            System.Drawing.Color.LightGreen
+        };
+}
+
+@section Scripts{
+    <script>
+        var chart;
+
+        c1.documentReady(function () {
+            chart = wijmo.Control.getControl('#chartDemo');                      
+        });
+
+        function customChangeStyle(control, value) {            
+            chart.tooltip.cssClass = value;            
+        }
+    </script>
+}
+
+
+<style>
+
+    .orange-series {        
+        background-color: orange;        
+    }    
+
+    .green-white-tooltip {        
+        background-color: green;
+        color: white;
+    }    
+    .red-yellow-tooltip {
+        background-color: red;
+        color: yellow;
+    }        
+    .gradient-tooltip {
+        background-color: greenyellow;
+        background-image: radial-gradient(circle at top right, yellow, #f06d06 50%);
+        color: black;
+    }
+    .text-style-tooltip {
+        background-color: lightyellow;
+        color: black;
+        font-style: oblique;
+        text-shadow: 2px 2px 5px green;
+    }
+    .strong-round-tooltip {
+        background-color: palegreen;
+        color: black;
+        border-radius: 20%;
+    }
+
+</style>
+
+@(Html.C1().FlexChart().Id("chartDemo")
+    .ChartType(ChartType.Bar)
+    .Bind(Model)
+    .BindingX("Name").Legend(Position.None)
+    .DataLabel(label => { label.Content("{y}"); })
+    .Palette(palete)
+    .Series(sers =>
+    {
+        sers.Add().Name("March").Binding("MarPrice");
+        sers.Add().Name("April").Binding("AprPrice");
+
+    })
+    .Tooltip(toolt =>
+    {
+        toolt.CssClass("green-white-tooltip");
+    })
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexChart.Tooltips_Text0)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.Tooltips_Text1)</p>    
+    <pre>
+    .green-white-tooltip {        
+        background-color: green;
+        color: white;
+    }    
+    .red-yellow-tooltip {
+        background-color: red;
+        color: yellow;
+    }        
+    .gradient-tooltip {
+        background-color: greenyellow;
+        background-image: radial-gradient(circle at top right, yellow, #f06d06 50%);
+        color: black;
+    }
+    .text-style-tooltip {
+        background-color: lightyellow;
+        color: black;
+        font-style: oblique;
+        text-shadow: 2px 2px 5px green;
+    }
+    .strong-round-tooltip {
+        background-color: palegreen;
+        color: black;
+        border-radius: 20%;
+    }
+    </pre>
+    
+}

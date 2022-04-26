@@ -1,0 +1,76 @@
+﻿@using System.Web.Optimization;
+@using FlexViewerExplorer.Models;
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@Html.Raw(Resources.FlexViewer._Layout_Text4)</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+    @{
+        Theme.CurrentTheme = Request.QueryString["theme"];
+    }
+    @Html.C1().Styles()
+    @Styles.Render("~/bootstrapCSS")
+    @Styles.Render("~/Content/SyntaxHighlighter/codeHighlight")
+    @Styles.Render("~/Content/css/explorer")
+    @Styles.Render("~/siteCSS")
+
+    <script>
+        var siteRootUrl = '@Url.Content("~/")';
+    </script>
+
+    @Html.C1().Scripts().FlexViewer()
+    @RenderSection("Head", false)
+    @Scripts.Render("~/bundles/SyntaxHighlighter/codeHighlight")
+    @Scripts.Render("~/bootstrapJS")
+    @Scripts.Render("~/siteJS")
+    @RenderSection("Scripts", false)
+</head>
+<body>
+    <header>
+        <a class="logo-container" href="@Html.Raw(Resources.FlexViewer._SiteNav_Text5)" target="_blank">
+            <i class="gcicon-product-c1"></i>@Html.Raw(Resources.FlexViewer._Layout_Text3)
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Html.Raw(Resources.FlexViewer._Layout_Text2)</span>
+            <span class="semi-bold wide-screen">@Html.Raw(Resources.FlexViewer._Layout_Text1)</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+
+    <section class="content">
+        <div class="title-content ui-helper-clearfix">
+            @RenderSection("ContentTitle")
+        </div>
+    </section>
+
+    <div class="main-content">
+        @RenderBody()
+    </div>
+
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © @DateTime.Now.Year @Html.Raw(Resources.FlexViewer._Layout_Text0)
+        </p>
+        @{
+            var url = Request.Url;
+            var urlStr = url.OriginalString.Substring(0, url.OriginalString.Length - (url.Query == null ? 0 : url.Query.Length));
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

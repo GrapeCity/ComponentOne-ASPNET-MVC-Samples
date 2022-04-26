@@ -1,0 +1,102 @@
+@model IEnumerable<Orders.Order>
+@{
+    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+        function collapseAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(0);
+        }
+        function expandAllGroups() {
+            var mr = wijmo.Control.getControl("#@settings.ControlId");
+            mr.collapseGroupsToLevel(10);
+        }
+    </script>
+}
+
+<input type="button" value="@Resources.MultiRowExplorer.Grouping_Text3" class="btn" onclick="collapseAllGroups()" />
+<input type="button" value="@Resources.MultiRowExplorer.Grouping_Text4" class="btn" onclick="expandAllGroups()" />
+
+@(Html.C1().MultiRow<Orders.Order>()
+    .Id(settings.ControlId)
+    .CssClass("multirow")
+    .IsReadOnly(true)
+    .Bind(Model)
+    .GroupBy("Customer.State")
+    .ShowGroups(true)
+    .LayoutDefinition(LayoutDefinitionsBuilders.ThreeLines)
+)
+
+@section Settings{
+    <script>
+        function customChangeGroupBy(grid, name) {
+            var groupDescriptions = grid.collectionView.groupDescriptions;
+            grid.beginUpdate();
+            groupDescriptions.clear();
+
+            if (name.indexOf("Customer State") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Customer.State"));
+            }
+
+            if (name.indexOf("Customer City") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Customer.City"));
+            }
+
+            if (name.indexOf("Ordered Date") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Date", formatDateValue));
+            }
+
+            if (name.indexOf("Shipped Date") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("ShippedDate", formatDateValue));
+            }
+
+            if (name.indexOf("Amount") > -1) {
+                groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Amount", function (item, prop) {
+                    var value = item[prop];
+                    if (value <= 1000) {
+                        return "0 to 1000";
+                    }
+
+                    if (value > 1000 && value <= 2000) {
+                        return "1000 to 2000";
+                    }
+
+                    if (value > 2000 && value <= 3000) {
+                        return "2000 to 3000";
+                    }
+
+                    if (value > 3000 && value <= 4000) {
+                        return "3000 to 4000";
+                    }
+
+                    if (value > 4000 && value <= 5000) {
+                        return "4000 to 5000";
+                    }
+
+                    return "More than 5000";
+                }));
+            }
+
+            grid.endUpdate();
+        }
+
+        function formatDateValue(item, prop) {
+            var value = item[prop];
+            if (!value) {
+                return "";
+            } else {
+                return value.getFullYear() + "/" + (value.getMonth() + 1);
+            }
+        }
+    </script>
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.Grouping_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.Grouping_Text1)</p>
+
+}

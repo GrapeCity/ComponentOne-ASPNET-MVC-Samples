@@ -1,0 +1,135 @@
+@model DashboardData
+@using C1.Web.Mvc.Grid;
+@using C1.Web.Mvc.Chart;
+@using System.Drawing;
+
+@section Scripts{
+    <script type="text/javascript">
+        var kpisHeaderText = '@(string.Format(Resources.C1Nav.KPIs, Model.KPIsStr))';
+        var exportText = '@Resources.C1Nav.Export';
+        var settingsText = '@Resources.C1Nav.Settings';
+        var countryText = '@Resources.C1Nav.Share_Header1';
+        var share_Text1 = '@Resources.C1Nav.Share_Text1';
+        var share_Text2 = '@Resources.C1Nav.Share_Text2';
+        var share_Text3 = '@Resources.C1Nav.Share_Text3';
+        var countrywiseHeaderText = '@(string.Format(Resources.C1Nav.Countrywise, Model.CountrywiseSalesStr))';
+    </script>
+}
+
+<h1>
+    @Html.Raw(Resources.C1Nav.CustomTile_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.CustomTile_Text1)
+</p>
+
+<div style="position:absolute;left:-10000px; top:-10000px; visibility:hidden">
+    @(Html.C1().FlexGrid().Id("salesDashboardFGrid")
+    .IsReadOnly(true).AutoGenerateColumns(false)
+    .HeadersVisibility(HeadersVisibility.Column)
+    .AllowResizing(AllowResizing.None)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .Bind(Model.SalesDashboardData)
+    .Columns(clsb =>
+    {
+        clsb.Add(cb => cb.Header(Resources.C1Nav.Share_Header1).Binding("Country").Width("*"));
+        clsb.Add(cb => cb.Header(Resources.C1Nav.Share_Header3).Binding("Sales")
+            .Format("c0").Width("*"));
+    })
+    .OnClientSelectionChanged("gridSelectionChanged"))
+
+    <div id="kpiGauges">
+        <div id="kPIsSalesGaugeValue" style="display:inline-block;margin-bottom:8px;text-align:left;width:100%;">
+            @Resources.C1Nav.Share_Text1:
+        </div>
+        @(Html.C1().LinearGauge().Id("kPIsSalesGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Max).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Sales).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(Color.Green)))
+        <div id="kPIsExpensesGaugeValue" style="display:inline-block;margin:20px 0px 8px 0px;text-align:left;width:100%;">
+            @Resources.C1Nav.Share_Text2:
+        </div>
+        @(Html.C1().LinearGauge().Id("kPIsExpensesGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Max).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Expenses).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(Color.Red)))
+        <div id="kPIsProfitGaugeValue" style="display:inline-block;margin: 20px 0px 8px 0px;text-align:left;width:100%;">
+            @Resources.C1Nav.Share_Text3:
+        </div>
+        @(Html.C1().LinearGauge().Id("kPIsProfitGauge")
+            .Min(0)
+            .Max(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Sales).FirstOrDefault())
+            .Value(Model.KPIsData.Where(x => x.Country == "All").Select(x => x.Profit).FirstOrDefault())
+            .ThumbSize(30d)
+            .ShowText(ShowText.None)
+            .Width("90%")
+            .Pointer(rb => rb.Color(System.Drawing.Color.Gold)))
+
+    </div>
+
+    @(Html.C1().FlexChart().Id("countrywiseSalesChart")
+        .BindingX("Country").ChartType(ChartType.Bar)
+        .Legend(Position.Right)
+        .Bind(Model.CountrywiseSalesData)
+        .AxisY(ayb => ayb.Title(Resources.C1Nav.Share_Text6).Format("g4,,"))
+        .Series(ssb =>
+        {
+            ssb.Add().Name(Resources.C1Nav.Share_Text1).Binding("Sales");
+            ssb.Add().Name(Resources.C1Nav.Share_Text2).Binding("Expenses");
+        })
+        .Tooltip(ttb => ttb.Content("<b>{seriesName}</b><br/>{x} {y:c0}"))
+        .ShowAnimation(ab => ab.AnimationMode(AnimationMode.All)
+            .Easing(Easing.Swing).Duration(400)))
+
+    <div id="popup" class="modal-content">
+        <div class="modal-header">
+            <button type="button" tabindex="-1" class="close wj-hide">&times;</button>
+            <h4 class="modal-title">@Resources.C1Nav.CustomTile_ChartType</h4>
+        </div>
+        <div class="modal-body">
+            <div class="wj-labeled-input">
+                <input id="chartType" />
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary wj-hide-ok">@Resources.C1Nav.CustomTile_OK</button>
+                <button type="button" class="btn btn-default wj-hide">@Resources.C1Nav.CustomTile_Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@(Html.C1().DashboardLayout().Id("custom")
+    .AttachAutoGridLayout(aglb =>
+        aglb.Orientation(LayoutOrientation.Vertical)
+            .MaxRowsOrColumns(6)
+            .CellSize(152)
+            .Items(isb =>
+            {
+                isb.Add().Children(cb =>
+                {
+                    cb.Add().HeaderText(string.Format(Resources.C1Nav.SalesDashboard, Model.SalesDashboardStr))
+                        .Content("#salesDashboardFGrid")
+                        .ColumnSpan(2).RowSpan(2)
+                        .ShowToolbar(false);
+                    cb.Add().HeaderText("Country")
+                        .ColumnSpan(2).RowSpan(1)
+                        .ShowHeader(false).ShowToolbar(false);
+                    cb.Add().HeaderText("KPIs")
+                        .Content("#kpiGauges")
+                        .RowSpan(2).ColumnSpan(2);
+                    cb.Add().HeaderText("Countrywise Sales")
+                        .Content("#countrywiseSalesChart")
+                        .RowSpan(2).ColumnSpan(3);
+                });
+            }
+          )
+    )
+    .OnClientFormatTile("formatTile")
+)

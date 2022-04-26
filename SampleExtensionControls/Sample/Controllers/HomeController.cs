@@ -1,60 +1,44 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using C1.Web.Mvc;
-using C1.Web.Mvc.Serialization;
-using Microsoft.AspNetCore.Mvc;
+﻿using C1.Web.Mvc;
 using Sample.Models;
-using static Sample.Models.StaticModel;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+
 namespace Sample.Controllers
 {
     public class HomeController : Controller
     {
-
+        private static List<Sale> Source = Sale.GetData(10).ToList<Sale>();
         IEnumerable<Country> countrylist;
         List<Country> ncountrylist;
-        public ActionResult CountrySearch([C1JsonRequest] CollectionViewRequest<Country> requestData)
-        {
-            countrylist = GetCountriesForMultiColumnComboBox();
-            ncountrylist = countrylist.ToList();
-            IEnumerable<Country> selectedcountryList = ncountrylist;
-            if (requestData.ExtraRequestData.Count > 0)
-            {
-                var query = requestData.ExtraRequestData["AutoCompleteQuery"] as string;
-
-                if (query != null && query != "")
-                {
-                    var names = query.Split(',');
-                    selectedcountryList = countrylist.Where(item => names.Any(n => item.CountryName.IndexOf(n, StringComparison.OrdinalIgnoreCase) >= 0));
-                }
-            }
-            // Delay result
-            System.Threading.Thread.Sleep(50);
-            var resultList = selectedcountryList.Select(item => new Country
-            {
-                CountryName = item.CountryName,
-                CountryShortName = item.CountryShortName,
-                CountryCode = item.CountryCode
-            });
-            return this.C1Json(CollectionViewHelper.Read(requestData, resultList));
-        }
-
-        private static List<Sale> Source = Sale.GetData(10).ToList<Sale>();
+        // GET: FlexGrid
         public ActionResult Index()
         {
-            ViewBag.Countries = Sale.GetCountries();
             ViewBag.Products = Sale.GetProducts();
-            return View();
+            return View(Source);
         }
 
-        public ActionResult CustomEditorsBind([C1JsonRequest] CollectionViewRequest<Sale> requestData)
+        public ActionResult CountrySearch([C1JsonRequest] CollectionViewRequest<Country> requestData)
         {
-            return this.C1Json(CollectionViewHelper.Read(requestData, Source));
+            countrylist = Sale.GetCountries();
+            ncountrylist = countrylist.ToList();
+            var query = requestData.ExtraRequestData["AutoCompleteQuery"] as string;
+            IEnumerable<Country> selectedcountryList = ncountrylist;
+            if (query != null && query != "")
+            {
+                var names = query.Split(',');
+                selectedcountryList = countrylist.Where(item => names.Any(n => item.CountryName.IndexOf(n, StringComparison.OrdinalIgnoreCase) >= 0));
+            }
+            // Delay result
+            System.Threading.Thread.Sleep(1000);
+            var resultList = selectedcountryList.Select(item => new Country { CountryName = item.CountryName,
+                CountryShortName = item.CountryShortName, CountryCode = item.CountryCode });
+            return this.C1Json(CollectionViewHelper.Read(requestData, resultList));
         }
-
-        public ActionResult GridEditorsUpdate([C1JsonRequest] CollectionViewEditRequest<Sale> requestData)
+        public ActionResult GridEditorsUpdate([C1JsonRequest]CollectionViewEditRequest<Sale> requestData)
         {
             return this.C1Json(CollectionViewHelper.Edit(requestData, sale =>
             {
@@ -78,7 +62,7 @@ namespace Sample.Controllers
             }, () => Source));
         }
 
-        public ActionResult GridEditorsCreate([C1JsonRequest] CollectionViewEditRequest<Sale> requestData)
+        public ActionResult GridEditorsCreate([C1JsonRequest]CollectionViewEditRequest<Sale> requestData)
         {
             return this.C1Json(CollectionViewHelper.Edit(requestData, item =>
             {
@@ -103,7 +87,7 @@ namespace Sample.Controllers
             }, () => Source));
         }
 
-        public ActionResult GridEditorsDelete([C1JsonRequest] CollectionViewEditRequest<Sale> requestData)
+        public ActionResult GridEditorsDelete([C1JsonRequest]CollectionViewEditRequest<Sale> requestData)
         {
             return this.C1Json(CollectionViewHelper.Edit(requestData, item =>
             {

@@ -1,0 +1,125 @@
+﻿@using MvcExplorer.Models
+@model IEnumerable<Sale>
+
+<div class="header">
+    <div class="container">
+        <h1>FlexGrid Column Picker</h1>
+        <p>
+            Click the icon on the top-right corner of the grid to select
+            which columns you want to display.
+        </p>
+    </div>
+</div>
+
+<div class="container" style="position:relative">
+    @(Html.C1().FlexGrid<Sale>()
+        .Id("flexgrid")
+        .AutoGenerateColumns(true)
+        .IsReadOnly(true)
+        .SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+        .CssClass("grid")
+        .Bind(Model)
+    )
+</div>
+<script>
+    c1.documentReady(function () {
+        var flexGrid = wijmo.Control.getControl("#flexgrid"),
+            img = document.createElement("img"),
+            colHdr = document.querySelector('[wj-part="ch"]'),
+            frame = document.createElement("div"),
+            root = document.querySelector('[wj-part="root"]'),
+            gridEl = document.querySelector("#flexgrid"),
+            fs = frame.style;
+        img.className = "wj-col-picker-icon";
+        img.src = "@Url.Content("~/Content/image/colpicker.png")";
+        img.style.height = flexGrid.rows.defaultSize + 'px';
+        colHdr.appendChild(img);
+
+        frame.className = "wj-col-picker-dropdown";
+        frame.tabIndex = 0; // so it can get the focus on Chrome
+        frame.style.position = "absolute";
+        frame.style.outlineStyle = "none";
+        frame.style.display = "none";
+        //root.parentElement.appendChild(frame);
+        gridEl.parentNode.appendChild(frame);
+
+        img.addEventListener('mousedown', function (e) {
+            // we're done with this event
+            e.preventDefault();
+            e.stopImmediatePropagation();
+
+            // if frame is visible, hide it
+            if (fs.display != 'none') {
+                fs.display = 'none';
+                return;
+            }
+
+            // populate frame with checkboxes for the columns
+            populateFrame();
+
+            // show frame
+            fs.top = (gridEl.offsetTop + img.offsetHeight + 1) + 'px';
+            fs.right = (gridEl.parentNode.offsetWidth - gridEl.offsetLeft - root.clientWidth - 1) + 'px';  
+            //fs.top = flexGrid.rows.defaultSize + 'px';
+            //fs.right = (root.offsetWidth - root.clientWidth) + 'px';
+            fs.maxHeight = (root.clientHeight - flexGrid.rows.defaultSize) * 0.65 + 'px';
+            fs.display = '';
+            frame.focus();
+        });
+
+        // close frame when user clicks anywhere else
+        document.body.addEventListener('mousedown', function (e) {
+            var mde = document.elementFromPoint(e.clientX, e.clientY);
+            if (mde != img) {
+                if (contains(frame, mde)) {
+                    e.preventDefault();
+                    e.stopImmediatePropagation();
+                    frame.focus();
+                } else {
+                    frame.style.display = 'none';
+                }
+            }
+        }, true);
+
+        function contains(parent, child) {
+            for (var e = child; e; e = e.parentElement) {
+                if (e == parent) return true;
+            }
+            return false;
+        }
+
+        // handle checkbox changes to show/hide columns
+        frame.addEventListener('change', function (e) {
+            var sender = e.target, col;
+            if (sender instanceof HTMLInputElement &&
+                sender.type == 'checkbox' &&
+                sender.value != null) {
+                col = flexGrid.columns[parseInt(sender.value)];
+                col.visible = sender.checked;
+            }
+        });
+
+        // populate the frame with checkboxes for each column
+        function populateFrame() {
+            var col, hdr, checked, label, d, i;
+            frame.innerHTML = '';
+
+            d = document.createElement('div');
+            d.style.float = "left";
+            frame.appendChild(d);
+
+            // add one checkbox for each grid column
+            for (i = 0; i < flexGrid.columns.length; i++) {
+
+                // create checkbox
+                col = flexGrid.columns[i];
+                hdr = col.header ? col.header : col.binding;
+                checked = col.visible ? 'checked' : '';
+                label = document.createElement('label');
+                label.className = "wj-col-picker-item";
+                label.innerHTML = "<input type='checkbox' value=" + i + " " + checked + '> ' + '<b>' + hdr + '</b>';
+                d.appendChild(label);
+            }
+        }
+    });
+</script>

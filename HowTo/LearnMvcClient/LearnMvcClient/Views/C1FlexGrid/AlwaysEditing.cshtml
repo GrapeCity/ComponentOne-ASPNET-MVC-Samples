@@ -1,0 +1,27 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.AlwaysEditing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AlwaysEditing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AlwaysEditing_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.AlwaysEditing_Text3)
+</p>
+
+@(Html.C1().FlexGrid().Id("theGrid").Height(200)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("50");
+        cs.Add().Binding("Country").Header("Country").IsRequired(true);
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+        cs.Add().Binding("Overdue").Header("Overdue");
+    })
+)

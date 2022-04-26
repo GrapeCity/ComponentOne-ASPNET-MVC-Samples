@@ -1,0 +1,26 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.LegendToggle_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.LegendToggle_Text1)
+</p>
+
+<div class="demo-settings">
+    <label for="legendToggle">@Html.Raw(Resources.C1FlexChart.LegendToggle_Text2) </label>
+    <input id="legendToggle" type="checkbox" checked="checked">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .LegendToggle(true)
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

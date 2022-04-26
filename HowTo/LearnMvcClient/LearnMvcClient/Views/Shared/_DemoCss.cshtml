@@ -1,0 +1,6 @@
+﻿@model string
+
+@if (File.Exists(HttpContext.Current.Server.MapPath(Model)))
+{
+    <link href="@Href(Model)" rel="stylesheet" />
+}

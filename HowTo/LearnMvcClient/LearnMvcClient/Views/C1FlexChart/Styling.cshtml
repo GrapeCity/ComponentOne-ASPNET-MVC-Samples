@@ -1,0 +1,29 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.Styling_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.Styling_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.Styling_Text2)
+</p>
+
+<div class="demo-settings">
+    <label for="customCSS">@Html.Raw(Resources.C1FlexChart.Styling_Text3)</label>
+    <input id="customCSS" type="checkbox" checked="checked">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .CssClass("custom-chart")
+    .Bind("Country", Model)
+    .Series(sb=>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

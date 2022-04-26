@@ -1,0 +1,183 @@
+﻿@using C1.Web.Mvc.Chart
+@using System.Drawing
+
+@{
+    ViewBag.Title = "Index";
+
+    Color[] palette = ViewBag.Palette;
+    Dictionary<string, string> GroupBySet = ViewBag.GroupBySet;
+    Dictionary<string, string> AggregateSet = ViewBag.AggregateSet;
+    Dictionary<string, string> ChartTypeSet = ViewBag.ChartTypeSet;
+    string groupby = ViewBag.GroupBy, aggregate = ViewBag.Aggregate, charttype = ViewBag.ChartType;
+    int[] menuSelectedIndexes = ViewBag.SelectedIndexes;
+    List<FlexChartGroup.Models.SaleRecord> saleRecords = ViewBag.ItemsSource;
+    string bindingX = ViewBag.BindingX;
+
+    string targetFields = ViewBag.TargetFields;
+    int targetLevel = ViewBag.TargetLevel;
+    bool canClickDeeper = ViewBag.CanClickDeep;
+}
+
+<script type="text/javascript">
+    var targetFdIpt, targetLIpt;
+
+    submit = function () {
+        var form = document.forms ? document.forms[0] : null;
+        if(form){
+            form.submit();
+        }
+    };
+
+    groupSubmit = function (menu) {
+        if(menu.selectedIndex != @(menuSelectedIndexes[0])) {
+            targetFdIpt.value = "";
+            targetLIpt.value = "0";
+            submit();
+        }
+    };
+
+    aggregateSubmit = function(menu) {
+        if(menu.selectedIndex != @(menuSelectedIndexes[1])) {
+            submit();
+        }
+    };
+
+    charttypeSubmit = function(menu) {
+        if(menu.selectedIndex != @(menuSelectedIndexes[2])) {
+            submit();
+        }
+    };
+
+    navigate1Submit = function() {
+        targetFdIpt.value = "";
+        targetLIpt.value = "0";
+        submit();
+    };
+
+    navigate2Submit = function() {
+        targetFdIpt.value = targetFdIpt.value.split(",")[0];
+        targetLIpt.value = "1";
+        submit();
+    };
+
+    addLegendHoverStyle = function(sender) {
+        var groupMenu = wijmo.Control.getControl("#groupby"),
+            layer = groupMenu.selectedValue.CommandParameter.split(",").length;
+        if(@(canClickDeeper ? "true" : "false"))
+        {
+            var labels = sender.hostElement.querySelectorAll('.wj-legend .wj-label');
+            [].forEach.call(labels, function (label) {
+                wijmo.addClass(label, "labellink");
+            });
+        }
+    };
+</script>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary(true)
+    <div class="desc">
+        <strong>Step 1)</strong>  Select how would you like to group data.
+        @Html.C1().Menu().Id("groupby").HtmlAttribute("name", "groupby").HtmlAttribute("value", groupby).Header("groupBy: <b>" + groupby + "</b>").MenuItems(items =>
+    {
+        foreach (string key in GroupBySet.Keys)
+        {
+            items.Add().Header(key).CommandParameter(GroupBySet[key]);
+        }
+    }).SelectedIndex(menuSelectedIndexes[0]).OnClientItemClicked("groupSubmit")
+    </div>
+    <div class="desc">
+        <strong>Step 2)</strong>  Select how would you like to aggregate data.
+        @Html.C1().Menu().Id("aggregate").HtmlAttribute("name", "aggregate").HtmlAttribute("value", aggregate).Header("Aggregate: <b>" + aggregate + "</b>").MenuItems(items =>
+    {
+        foreach (string key in AggregateSet.Keys)
+        {
+            items.Add().Header(key).CommandParameter(AggregateSet[key]);
+        }
+    }).SelectedIndex(menuSelectedIndexes[1]).OnClientItemClicked("aggregateSubmit")
+    </div>
+    <div class="desc">
+        <strong>Step 3)</strong>  Select how would you like to show data.
+        @Html.C1().Menu().Id("charttype").HtmlAttribute("name", "charttype").HtmlAttribute("value", charttype).Header("Chart Type: <b>" + charttype + "</b>").MenuItems(items =>
+    {
+        foreach (string key in ChartTypeSet.Keys)
+        {
+            items.Add().Header(key).CommandParameter(ChartTypeSet[key]);
+        }
+    }).SelectedIndex(menuSelectedIndexes[2]).OnClientItemClicked("charttypeSubmit")
+    </div>
+
+    <input id="targetfields" type="hidden" name="tfields" value="@(targetFields)"/>
+    <input id="targetlevel" type="hidden" name="tlevel" value="@(targetLevel.ToString())"/>
+}
+<div class="desc">
+    <strong>Step 4)</strong>  Click a column, sector or legend to drill down into the details, or click on the header hyperlinks to return to a higher level.
+</div>
+<div class="chartcontainer">
+    <header>
+        <h3>
+            <span id="navigator1" style="display:@(targetLevel > 0 ? "inline" : "none")">
+                <a onclick="navigate1Submit()">@(ViewBag.Navigator1.ToString())</a>
+                <span>\</span>
+            </span>
+            <span id="navigator2" style="display:@(targetLevel > 1 ? "inline" : "none")">
+                <a onclick="navigate2Submit()">@(ViewBag.Navigator2.ToString())</a>
+                <span>\</span>
+            </span>
+            @(ViewBag.ChartTitle.ToString())
+        </h3>
+    </header>
+
+    @{
+        if (charttype == "Column")
+        {
+            @Html.C1().FlexChart().Id("flexChart").Bind(bindingX, saleRecords).Series(s =>
+            {
+                s.Add().Binding("Amount");
+            }).SelectionMode(SelectionMode.Point).Palette(new Color[] { palette[targetLevel] })
+        }else {
+            @(Html.C1().FlexPie().Id("flexChart").Bind(bindingX, "Amount", saleRecords)
+             .SelectionMode(SelectionMode.Point).OnClientRendered("addLegendHoverStyle"))
+        }
+    }
+
+    <script type="text/javascript">
+        targetFdIpt = document.getElementById("targetfields");
+        targetLIpt = document.getElementById("targetlevel");
+
+        c1.documentReady(function () {
+            var chart = wijmo.Control.getControl("#flexChart"),
+                groupMenu = wijmo.Control.getControl("#groupby"),
+                aggregateMenu = wijmo.Control.getControl("#aggregate"),
+                targetFdIptVal = targetFdIpt.value,
+                targetLIptVal = targetLIpt.value;
+
+            if(@(canClickDeeper ? "true" : "false"))
+            {
+                chart.hostElement.addEventListener("click", function (evt) {
+                    var ht = chart.hitTest(evt),
+                        idx = ht.pointIndex,
+                        bindingX = chart.bindingX || chart.bindingName,
+                        targetLabel,
+                        clklgdOnPie=false;
+
+                    if(idx != null) {
+                        if("@charttype" === "Pie" && ht.chartElement == wijmo.chart.ChartElement.Legend) {
+                            clklgdOnPie = true;
+                        }
+
+                        if(!clklgdOnPie && ht.distance > 0) {
+                            return;
+                        }
+                        targetLabel = chart.collectionView.items[idx][bindingX];
+                        targetFdIpt.value = targetFdIptVal + ((targetFdIptVal ? "," : "") + targetLabel);
+                        targetLIpt.value = (parseInt(targetLIptVal) + 1).toString();
+                        submit();
+                    }
+                });
+            }
+        });
+    </script>
+
+
+</div>

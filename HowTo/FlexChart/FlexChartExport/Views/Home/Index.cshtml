@@ -1,0 +1,70 @@
+﻿@model FlexChartExport.Models.FlexChartModel
+
+@{
+    ViewBag.Title = "ASP.NET MVC FlexChart Export";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            C1 ASP.NET MVC FlexChart Export
+        </h1>
+        <p>
+            This page shows how to export C1 ASP.NET MVC FlexChart control to an image.
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div>
+
+        <input type="text" id="typeMenu" />
+        
+        <input type="text" id="exportToMenu" />
+        
+
+    </div>
+
+    @(Html.C1().FlexChart().Id("FlexChart").Legend(C1.Web.Mvc.Chart.Position.None)
+                    .Bind(Model.CountrySalesData).BindingX("Country").Series(sers =>
+                    {
+                        sers.Add().Binding("Sales").Name("Sales");
+                        sers.Add().Binding("Expenses").Name("Expenses");
+                        sers.Add().Binding("Downloads").Name("Downloads");
+                    })
+    )
+
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            FlexChart = wijmo.Control.getControl("#FlexChart");
+        });
+    </script>
+
+    @(Html.C1().Menu("#typeMenu").MenuItems(items => 
+    {
+        for (int i = 0; i < Model.Settings["ChartType"].Length; i++)
+        {
+            string export = Model.Settings["ChartType"][i] as string;
+            items.Add(export, export);
+        }
+    }).Header("Chart Type: <b>Column</b>").OnClientItemClicked("typeMenu_ItemClicked")
+        )
+
+    @(Html.C1().Menu("#exportToMenu").MenuItems(items => 
+    {
+        for (int i = 0; i < Model.Settings["ExportTo"].Length; i++)
+        {
+            string export = Model.Settings["ExportTo"][i] as string;
+            items.Add(export.ToUpper(), export);
+        }
+    }).Header("Export To").OnClientItemClicked("exportToMenu_ItemClicked")
+        )
+
+    <div style="font-size:0.75em;font-style:italic">
+        *This solution is not supported in IE9.
+    </div>
+</div>

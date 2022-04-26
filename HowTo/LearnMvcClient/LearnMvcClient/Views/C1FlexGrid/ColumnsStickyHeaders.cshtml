@@ -1,0 +1,15 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStickyHeaders_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStickyHeaders_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStickyHeaders_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsStickyHeaders_Text3) 
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model)

@@ -1,0 +1,53 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+@{
+    var positions = new[] { "None", "Left", "Top", "Right", "Bottom", "Center" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.DataLabels_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.DataLabels_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.DataLabels_Text2)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.DataLabels_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.DataLabels_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.DataLabels_Text5)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.DataLabels_Text6)
+    </li>
+</ul>
+
+<div class="demo-settings">
+    <label for="labelPosition">@Html.Raw(Resources.C1FlexChart.DataLabels_Text7) </label>
+    @Html.C1().ComboBox().Id("labelPosition").Bind(positions).Text("Top")
+    <br />
+    <label for="linesAndBorders">@Html.Raw(Resources.C1FlexChart.DataLabels_Text8) </label>
+    <input id="linesAndBorders" type="checkbox"><br />
+    <label for="downloadsOnly">@Html.Raw(Resources.C1FlexChart.DataLabels_Text9) </label>
+    <input id="downloadsOnly" type="checkbox">
+</div>
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .Bind("Country", Model)
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Line)
+    .Tooltip(tb => tb.Content(""))
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)

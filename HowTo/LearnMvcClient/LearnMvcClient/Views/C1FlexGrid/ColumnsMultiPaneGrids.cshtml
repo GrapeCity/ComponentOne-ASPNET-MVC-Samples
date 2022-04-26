@@ -1,0 +1,11 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsMultiPaneGrids_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsMultiPaneGrids_Text1)
+</p>
+
+<div class="freeze-right">
+    @Html.C1().FlexGrid().Id("theGridLeft").ShowAlternatingRows(false)
+    @Html.C1().FlexGrid().Id("theGridRight").ShowAlternatingRows(false).HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+</div>

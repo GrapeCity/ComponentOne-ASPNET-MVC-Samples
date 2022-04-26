@@ -1,0 +1,23 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Text2)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Text3)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250)
+
+<p>
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Text4)
+</p>
+<div id="theTarget" style="height:100px;background-color:#e0e0e0">
+    @Html.Raw(Resources.C1FlexGrid.EventsDragDrop_Text5)
+</div>

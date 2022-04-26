@@ -1,0 +1,32 @@
+@model IEnumerable<ProductData>
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().PivotEngine().Id("remoteEngine")
+		.ShowRowTotals(ShowTotals.Subtotals)
+		.ShowColumnTotals(ShowTotals.Subtotals)
+		.Bind(Url.Action("RemoteBind_Read"))
+		.RowFields(pfcb => pfcb.Items("Country"))
+		.ColumnFields(cfcb => cfcb.Items("Product"))
+		.ValueFields(vfcb => vfcb.Items("Sales")))
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().Id(optionsModel.ControlId).ItemsSourceId("remoteEngine")
+    </div>
+    <div class="col-sm-8 col-md-8">
+        @Html.C1().PivotGrid().Id("indexGrid").ItemsSourceId("remoteEngine")
+    </div>
+</div>
+
+@section Description{
+<p>@Html.Raw(Resources.Olap.RemoteBind_Text0)</p>
+
+<p>@Html.Raw(Resources.Olap.RemoteBind_Text1)</p>
+
+}
+@section Summary{
+<p>@Html.Raw(Resources.Olap.RemoteBind_Text2)</p>
+
+}

@@ -1,0 +1,39 @@
+﻿@{
+    List<Dot> cos = new List<Dot>();
+    for (int i = 0; i < 300; i++)
+    {
+        cos.Add(new Dot { X = 0.16 * i, Y = Math.Cos(0.12 * i) });
+    }
+}
+
+@section Scripts{
+<script type="text/javascript">
+    var itemFormatter = function (engine, hitTestInfo, defaultFormat) {
+        if (hitTestInfo.chartElement == wijmo.chart.ChartElement.SeriesSymbol) {
+            var y = hitTestInfo.y;
+            var r = y >= 0 ? 255 : (255 * (1 + y)).toFixed();
+            var b = y < 0 ? 255 : (255 * (1 - y)).toFixed();
+            var g = ((1 - Math.abs(y)) * 255).toFixed();
+            engine.fill = 'rgb(' + r + ',' + g + ',' + b + ')';
+            defaultFormat();
+        }
+    };
+
+</script>
+}
+
+<div id="HitTest" style="height: 300px"></div>
+
+@(Html.C1().FlexChart("#HitTest").ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols).Series(sers =>
+    {
+        sers.Add().Bind(cos).BindingX("X").Binding("Y").Name("cos(x)");
+    }).Legend(C1.Web.Mvc.Chart.Position.None).ItemFormatter("itemFormatter")
+)
+
+@section Description{
+    <h3>
+        @Html.Raw(Resources.FlexChart.ItemFormatter_ItemFormatter)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.ItemFormatter_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.ItemFormatter_Text1)</p>
+}

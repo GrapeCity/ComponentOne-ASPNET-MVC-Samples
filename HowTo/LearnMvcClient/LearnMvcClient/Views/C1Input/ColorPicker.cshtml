@@ -1,0 +1,27 @@
+<h1>
+    @Html.Raw(Resources.C1Input.ColorPicker_Title)
+    <div id="output">
+        @Html.Raw(Resources.C1Input.ColorPicker_Text1)
+    </div>
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ColorPicker_Text2)
+</p>
+@Html.C1().ColorPicker().Id("theColorPicker")
+
+<p>
+    @Html.Raw(Resources.C1Input.ColorPicker_Text3)
+</p>
+<div class="demo-settings">
+    <label for="showAlphaChannel">@Html.Raw(Resources.C1Input.ColorPicker_Text4) </label>
+    <input id="showAlphaChannel" type="checkbox" checked="checked">
+    <br>
+    <label for="showColorString">@Html.Raw(Resources.C1Input.ColorPicker_Text5) </label>
+    <input id="showColorString" type="checkbox" checked="checked">
+    <br>
+    <label for="thePalette">@Html.Raw(Resources.C1Input.ColorPicker_Text6) </label>
+    @Html.C1().ComboBox().Id("thePalette").DisplayMemberPath("name")
+    <br>
+</div>
+@Html.C1().ColorPicker().Id("theColorPickerCst")

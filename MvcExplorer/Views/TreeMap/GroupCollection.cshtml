@@ -1,0 +1,16 @@
+﻿@model IEnumerable<FoodSale>
+
+@{
+    ViewBag.DemoSettings = false;
+}
+
+@(Html.C1().TreeMap()
+    .Binding("Sales")
+    .BindingName("Category", "SubCategory")
+    .Bind(isb => isb.Bind(Model).GroupBy("Category", "SubCategory"))
+    .Tooltip(t => t.Content("<b>{name}</b><br />{value:c}"))
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}")))
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeMap.GroupCollection_Text0)</p>
+}

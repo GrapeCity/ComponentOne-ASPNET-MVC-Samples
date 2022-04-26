@@ -1,0 +1,60 @@
+﻿<div>
+    <div>
+        <a id="headerEmployees">EMPLOYEES</a>
+        <div id="paneEmployees">
+            @(Html.C1().FlexGrid().IsReadOnly(true).SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+                        .BindODataSource(os => os.ServiceUrl("https://services.odata.org/Northwind/Northwind.svc/").TableName("Employees").Fields("EmployeeID", "LastName", "FirstName", "Title", "TitleOfCourtesy")))
+        </div>
+    </div>
+    <div>
+        <a id="headerCategories">CATEGORIES</a>
+        <div id="paneCategories">
+            @(Html.C1().FlexGrid().IsReadOnly(true).SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+                         .BindODataSource(os => os.ServiceUrl("https://services.odata.org/Northwind/Northwind.svc/").TableName("Categories").Fields("CategoryID", "CategoryName", "Description")))
+        </div>
+    </div>
+</div>
+@Html.C1().TabPanel().Id("tabInCode").Tabs(ts=>
+{
+    ts.Add().Header("#headerEmployees").Pane("#paneEmployees");
+    ts.Add().Header("#headerCategories").Pane("#paneCategories");
+})
+
+<script>
+    c1.documentReady(function () {
+        var tabInCode = wijmo.Control.getControl('#tabInCode'),
+            url = 'https://services.odata.org/Northwind/Northwind.svc/',
+            headers = 'Products,Customers'.split(',');
+        tabInCode.tabs.deferUpdate(function () { // update only when done
+            headers.forEach(function (header) {
+
+                // create the tab header element
+                var elHeader = document.createElement('a');
+                elHeader.textContent = header;
+
+                // create the tab pane element
+                var elPane = document.createElement('div'),
+                    elGrid = document.createElement('div'),
+                    grid = new wijmo.grid.FlexGrid(elGrid, {
+                        isReadOnly: true,
+                        itemsSource: new wijmo.odata.ODataCollectionView(url, header)
+                    });
+                elPane.appendChild(elGrid);
+
+                // add the new Tab to the TabPanel
+                tabInCode.tabs.push(new wijmo.nav.Tab(elHeader, elPane));
+            });
+        });
+    });
+</script>
+
+@section Summary{
+    <p>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text1)</p>
+    <p>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text2)</p>
+    <p>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text3)</p>
+    <p>@Html.Raw(Resources.TabPanel.CreatingProgrammatically_Text4)</p>
+}

@@ -1,0 +1,21 @@
+﻿.wj-gauge {
+  width: 50%;
+  margin: 20px auto;
+}
+.wj-gauge .wj-face path {
+  fill: #fefefe;
+  stroke: #e0e0e0;
+}
+.wj-radialgauge {
+  height: 120px;
+}
+.wj-gauge .wj-pointer {
+  fill: black;
+}
+.wj-gauge .wj-ranges {
+  opacity: .25;
+}
+.wj-gauge:hover .wj-ranges {
+  opacity: 1;
+  transition: opacity 600ms;
+}

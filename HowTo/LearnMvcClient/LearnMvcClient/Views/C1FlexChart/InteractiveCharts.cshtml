@@ -1,0 +1,31 @@
+@using LearnMvcClient.Models
+@model IEnumerable<FlexChartData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.InteractiveCharts_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.InteractiveCharts_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.InteractiveCharts_Text2)
+</p>
+
+@(Html.C1().CollectionViewService<FlexChartData.Sale>().Id("collectionView1").Bind(Model))
+
+@(Html.C1().FlexChart<FlexChartData.Sale>().Id("theChart")
+    .ItemsSourceId("collectionView1")
+    .BindingX("Country")
+    .Series(sb =>
+    {
+        sb.Add().Binding("Sales").Name("Sales");
+        sb.Add().Binding("Expenses").Name("Expenses");
+        sb.Add().Binding("Downloads").Name("Downloads");
+    })
+)
+@(Html.C1().FlexGrid<FlexChartData.Sale>().Id("theGrid").ItemsSourceId("collectionView1"))
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.InteractiveCharts_Text3)
+</p>

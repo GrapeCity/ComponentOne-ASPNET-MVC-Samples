@@ -1,0 +1,322 @@
+﻿@using ExcelBook.Models;
+@model IEnumerable<Sale>
+@{
+    IEnumerable<FontName> fontList = ViewBag.FontList;
+    IEnumerable<FontSize> fontSizeList = ViewBag.FontSizeList;
+}
+<script src="~/Scripts/wijmo.grid.sheet.chart/ChartEngine.js"></script>
+<script src="~/Scripts/wijmo.grid.sheet.chart/_ChartUndoAction.js"></script>
+<script src="~/Scripts/app/excelLike.js"></script>
+<script src="~/Scripts/app/initExcelbook.js"></script>
+<script src="~/Scripts/app/sorting.js"></script>
+<script src="~/Scripts/app/sheetData.js"></script>
+<div class="excelbook" style="width:100%; height: 100%; position: relative">
+    <div class="row title"><a href="@Url.Action("Index")">&lt; Return to sample home</a></div>
+    <!-- the ribbon markup -->
+    <div class="row ribbon-container">
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <div class="btn btn-default btn-large no-border">
+                        <span class="glyphicon glyphicon-open"></span>
+                        <span class="text">Load</span>
+                        <input type="file" class="upload"
+                               onchange="importExcel(this)"
+                               accept="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet" />
+                    </div>
+                    <button class="btn btn-default btn-large no-border" onclick="exportExcel()">
+                        <span class="glyphicon glyphicon-save"></span>
+                        <span class="text">Save</span>
+                    </button>
+                    <div class="btn btn-default btn-large no-border" onclick="newFile()">
+                        <span class="glyphicon glyphicon-file"></span>
+                        <span class="text">New</span>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">File</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group btn-group-h">
+                    <button type="button" id="undoBtn" class="btn btn-default btn-small" title="Undo" onclick="undo()">
+                        <span class="glyphicon glyphicon-share-alt flip"></span>
+                        <span class="text">Undo</span>
+                    </button>
+                    <button type="button" id="redoBtn" class="btn btn-default btn-small" title="Redo" onclick="redo()">
+                        <span class="glyphicon glyphicon-share-alt"></span>
+                        <span class="text">Redo</span>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Undo / Redo</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group-vertical">
+                    @(Html.C1().ComboBox<FontName>().Bind(fontList).SelectedIndex(10)
+                    .DisplayMemberPath("Name").SelectedValuePath("Value")
+                    .IsEditable(false).CssStyle("width", "120px")
+                    .OnClientSelectedIndexChanged("fontChanged")
+                    .Id("cboFontName"))
+
+                    @(Html.C1().ComboBox<FontSize>().Bind(fontSizeList).SelectedIndex(5)
+                    .DisplayMemberPath("Name").SelectedValuePath("Value")
+                    .IsEditable(false).CssStyle("width", "80px")
+                    .OnClientSelectedIndexChanged("fontSizeChanged")
+                    .Id("cboFontSize"))
+
+                    <div class="btn-group btn-group-h">
+                        <button type="button" id="boldBtn" class="btn btn-default btn-small" title="Bold" onclick="applyBoldStyle()">
+                            <span class="glyphicon glyphicon-bold"></span>
+                            <span class="text">Bold</span>
+                        </button>
+                        <button type="button" id="italicBtn" class="btn btn-default btn-small" title="Italic" onclick="applyItalicStyle()">
+                            <span class="glyphicon glyphicon-italic"></span>
+                            <span class="text">Italic</span>
+                        </button>
+                        <button type="button" id="underlineBtn" class="btn btn-default btn-small" title="Underline" onclick="applyUnderlineStyle()">
+                            <span class="underline ribbon-icon"></span>
+                            <span class="text">Underline</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small" title="Fill Color" onclick="showColorPicker(event, true)">
+                            <span class="glyphicon glyphicon-text-background"></span>
+                            <span class="text">Fill</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small" title="Font Color" onclick="showColorPicker(event, false)">
+                            <span class="glyphicon glyphicon-text-color"></span>
+                            <span class="text">Font</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Font</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group-vertical">
+                    <div class="btn-group btn-group-h">
+                        <button type="button" id="leftBtn" class="btn btn-default btn-small" title="Left" onclick="applyCellTextAlign('left')">
+                            <span class="glyphicon glyphicon-align-left"></span>
+                            <span class="text">Left</span>
+                        </button>
+                        <button type="button" id="centerBtn" class="btn btn-default btn-small" title="Center" onclick="applyCellTextAlign('center')">
+                            <span class="glyphicon glyphicon-align-center"></span>
+                            <span class="text">Center</span>
+                        </button>
+                        <button type="button" id="rightBtn" class="btn btn-default btn-small" title="Right" onclick="applyCellTextAlign('right')">
+                            <span class="glyphicon glyphicon-align-right"></span>
+                            <span class="text">Right</span>
+                        </button>
+
+                        <button type="button" id="mergeBtn" class="btn btn-default btn-small" title="Merge" onclick="mergeCells()" style="clear:both;">
+                            <span class="glyphicon glyphicon-th-large"></span>
+                            <span class="text">merge</span>
+                        </button>
+                    </div>
+                    <div class="btn-group btn-group-h" style="display:none;">
+                        <button type="button" class="btn btn-default btn-small" title="Top" onclick="applyCellVerticalAlign('top')">
+                            <span class="top ribbon-icon"></span>
+                            <span class="text">Top</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small" title="Middle" onclick="applyCellVerticalAlign('middle')">
+                            <span class="middle ribbon-icon"></span>
+                            <span class="text">Middle</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small" title="Bottom" onclick="applyCellVerticalAlign('bottom')">
+                            <span class="bottom ribbon-icon"></span>
+                            <span class="text">Bottom</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Alignment</div>
+        </div>
+        <div class="panel panel-default" style="display:none">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-large no-border">
+                        <span class="print ribbon-icon"></span>
+                        <span class="text">Print</span>
+                    </button>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-default btn-small no-border">
+                            <span class="pagewidth ribbon-icon"></span>
+                            <span class="text">Page Width</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small no-border">
+                            <span class="singlepage ribbon-icon"></span>
+                            <span class="text">Single Page</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small no-border">
+                            <span class="selection ribbon-icon"></span>
+                            <span class="text">Selection</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Print</div>
+        </div>
+        <div class="panel panel-default" style="display:none">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button type="button" class="btn btn-default btn-large no-border">
+                        <span class="group ribbon-icon"></span>
+                        <span class="text">Group</span>
+                    </button>
+                    <button type="button" class="btn btn-default btn-large no-border">
+                        <span class="ungroup ribbon-icon"></span>
+                        <span class="text">Ungroup</span>
+                    </button>
+                    <div class="btn-group-vertical">
+                        <button type="button" class="btn btn-default btn-small no-border">
+                            <span class="showdetail ribbon-icon"></span>
+                            <span class="text">Show Detail</span>
+                        </button>
+                        <button type="button" class="btn btn-default btn-small no-border">
+                            <span class="hidedetail ribbon-icon"></span>
+                            <span class="text">Hide Detail</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Group</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button type="button" id="frozenBtn" class="btn btn-default btn-large no-border" onclick="freeze()">
+                        <span class="glyphicon glyphicon-list"></span>
+                        <span class="text">Freeze</span>
+                    </button>
+                    <div class="btn-group-vertical" style="display:none">
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" /> Gridlines
+                            </label>
+                        </div>
+                        <div class="checkbox">
+                            <label>
+                                <input type="checkbox" /> Headings
+                            </label>
+                        </div>
+                        <select class="form-control input-sm">
+                            <option>Blue</option>
+                            <option>Silver</option>
+                            <option>Black</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="panel-footer text-center">View</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <button type="button" class="btn btn-default btn-large no-border" data-toggle="modal" data-target="#excelStyle">
+                    <span class="glyphicon glyphicon-pencil"></span>
+                    <span class="text">Styles</span>
+                </button>
+            </div>
+            <div class="panel-footer text-center">Styles</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button type="button" id="sortBtn" class="btn btn-default btn-large no-border" data-toggle="modal" data-target="#excelSort">
+                        <span class="glyphicon glyphicon-sort-by-attributes"></span>
+                        <span class="text">Sort</span>
+                    </button>
+                    <button type="button" id="filterBtn" class="btn btn-default btn-large no-border" onclick="showFilter()">
+                        <span class="glyphicon glyphicon-filter"></span>
+                        <span class="text">Filter</span>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Editing</div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-body">
+                <div class="btn-group">
+                    <button type="button" id="chartTypesBtn" class="btn btn-default btn-large no-border" onclick="showChartTypes()">
+                        <span class="glyphicon glyphicon-stats"></span>
+                        <span class="text">Insert Chart</span>
+                    </button>
+                </div>
+            </div>
+            <div class="panel-footer text-center">Charts</div>
+        </div>
+        <div id="tableOptionsPanel" class="panel panel-default" style="display:none;">
+            <div class="panel-body">
+                <div class="btn-group-vertical form-check">
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableHeaderRow" class="form-check-input" type="checkbox">
+                            Header Row
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableTotalRow" class="form-check-input" type="checkbox">
+                            Total Row
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableBandedRows" class="form-check-input" type="checkbox">
+                            Banded Rows
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-group-vertical form-check">
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableFirstColumn" class="form-check-input" type="checkbox">
+                            First Column
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableLastColumn" class="form-check-input" type="checkbox">
+                            Last Column
+                        </label>
+                    </div>
+                    <div>
+                        <label class="form-check-label">
+                            <input id="tableBandedColumns" class="form-check-input" type="checkbox">
+                            Banded Columns
+                        </label>
+                    </div>
+                </div>
+                <div class="btn-group-vertical">
+                    @Html.C1().ComboBox().Id("cboTableStyles").IsEditable(false)
+                </div>
+            </div>
+            <div class="panel-footer text-center">Table Style Options</div>
+        </div>
+    </div>
+    <!-- the boxes -->
+    <div class="top-boxes row" id="formulaBar">
+    </div>
+    <!-- the flexSheet -->
+    <div class="row" id="flexsheetContainer">
+        @(Html.C1().FlexSheet().Id("excelLikeSheet")
+        .AddBoundSheet(sheet => 
+            sheet.Bind(cv =>
+                cv.Bind(Model).DisableServerRead(true)).Name("Country"))
+        .AddUnboundSheet("Report", 25, 13)
+        .AddUnboundSheet("Formulas", 530, 12)
+        .AddUnboundSheet("Table", 40, 10)
+        .ShowFormulaBar("#formulaBar"))
+    </div>
+
+    <!-- the status bar -->
+    <div class="row status text-right" style="padding-right:10px">Ready</div>
+</div>
+@(Html.C1().ColorPicker().Id("colorPicker").CssStyles(new Dictionary<string, string> {
+                {"display","none"},{"position","fixed"},{"z-index","100" }
+  }))
+@(Html.C1().ListBox().Id("lbChartTypes").Bind((IEnumerable<string>)ViewBag.ChartTypes).CssStyles(new Dictionary<string, string> {
+                {"display","none"},{"position","fixed"},{"z-index","100" }
+  }))
+@Html.Partial("_SortDialog")
+@Html.Partial("_CellStyleDialog")

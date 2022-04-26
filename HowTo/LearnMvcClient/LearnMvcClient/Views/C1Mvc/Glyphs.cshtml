@@ -1,0 +1,49 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Text3)
+</p>
+
+<pre>&lt;span class="<b>wj-glyph-diamond</b>"&gt;&lt;/span&gt;</pre>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Text4)
+</p>
+
+<pre>/* hide the pencil glyph in FlexGrid controls */
+.wj-flexgrid .wj-glyph-pencil {
+    display: none;
+}</pre>
+
+<pre>/* replace the pencil glyph in FlexGrid controls with a custom image */
+.wj-flexgrid .wj-glyph-pencil {
+    background-image:url('../images/my-pencil.png');
+    background-repeat: round;
+    border: 0;
+    opacity: 1;
+}
+    .wj-flexgrid .wj-glyph-pencil:after {
+        display: none;
+    }</pre>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.Glyphs_Text5)
+</p>
+
+<table class="table table-condensed">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Glyph</th>
+            <th>Markup</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>

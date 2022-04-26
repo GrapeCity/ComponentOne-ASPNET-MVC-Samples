@@ -1,0 +1,64 @@
+﻿@section Styles{
+<style>
+    .btn {
+        height: auto;
+    }
+
+    .popover {
+        display: block;
+    }
+
+    .tab-content > .tab-pane {
+        display: block;
+    }
+</style>
+}
+
+<label>@Html.Raw(Resources.Popup.Content_PopupContents)</label><br />
+
+<!-- The popup owners. -->
+<button id="btn1" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Content_ClickToShowPopupForm)
+    <br>
+    <small>@Html.Raw(Resources.Popup.Content_Description1)</small>
+</button>
+<button id="btn2" type="button" class="btn btn-default">
+    @Html.Raw(Resources.Popup.Content_ClickToShowPopupForm)
+    <br>
+    <small>@Html.Raw(Resources.Popup.Content_Description2)</small>
+</button>
+
+<!-- Create popup controls with HtmlHelper. -->
+@(Html.C1().Popup().Content(
+    @<div class="popover-content">
+            @Html.Raw(Resources.Popup.Content_Content1)
+    </div>
+    ).Owner("#btn1").FadeIn(false))
+
+@(Html.C1().Popup().Content(
+    @<text>
+        <h3 class="popover-title">
+            @Html.Raw(Resources.Popup.Content_Title)
+        </h3>
+        <div class="popover-content ">
+            <form name="popoverForm">
+                <p>@Html.Raw(Resources.Popup.Content_Text0)</p>
+                <div class="form-group">
+                    @(Html.C1().InputDate().Value(DateTime.Now).Format("d"))
+                </div>
+                <div class="form-group">
+                    @(Html.C1().InputTime().Value(DateTime.Now).Format("t"))
+                </div>
+                <div class="form-actions">
+                    <button type="button" class="btn btn-danger wj-hide">@Html.Raw(Resources.Popup.Content_Close)</button>
+                    <button type="button" class="btn btn-primary wj-hide">@Html.Raw(Resources.Popup.Content_SaveChanges)</button>
+                </div>
+            </form>
+        </div>
+    </text>).CssClass("popover").CssStyle("display", "none")
+         .Owner("#btn2").FadeIn(false).HideTrigger(PopupTrigger.None))
+
+
+@section Description{
+    @Html.Raw(Resources.Popup.Content_Text1)
+}

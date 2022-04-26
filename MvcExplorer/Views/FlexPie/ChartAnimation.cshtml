@@ -1,0 +1,114 @@
+﻿@model IEnumerable<CustomerOrder>
+@{
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexPie<CustomerOrder>()
+.Id("animationChart")
+.Header("Sales")
+.Bind("Country", "Count", Model)
+.InnerRadius(0)
+.DataLabel(dl => dl.Content("{value}"))
+.ShowAnimation(cab => 
+    cab.Id("animation")
+    .AnimationMode(AnimationMode.All)
+    .Duration(400)
+    .Easing(Easing.Swing)))
+
+@section Scripts{
+<script type="text/javascript">
+    function updateMenu(menu, headerNamePrefix) {
+        menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+    }
+
+    function updateAnimation(prop, newValue) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            animationExt;
+
+        if (chart) {
+            animationExt = c1.getExtender(chart, 'animation');
+            if (animationExt) {
+                animationExt[prop] = newValue;
+            }
+        }
+    }
+
+    function animationModeChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(Resources.FlexPie.ChartAnimation_AnimationMode)');
+        updateAnimation('animationMode', wijmo.chart.animation.AnimationMode[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function easingChanged(menu) {
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateMenu(menu, '@(Resources.FlexPie.ChartAnimation_Easing)');
+        updateAnimation('easing', wijmo.chart.animation.Easing[menu.selectedItem.Header]);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function durationChanged(sender, args) {
+        if (!checkValue(sender)) {
+            return;
+        }
+
+        var chart = wijmo.Control.getControl('#animationChart'),
+            dataSource = chart.itemsSource.sourceCollection || chart.itemsSource;
+
+        updateAnimation('duration', sender.value);
+        //make the chart to replay the animation.
+        chart.itemsSource = dataSource.slice(0);
+    }
+
+    function innerRadiusChanged(sender, args) {
+        var chart = wijmo.Control.getControl('#animationChart');
+        if (chart) {
+            chart.innerRadius = sender.value;
+        }
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+</script>
+}
+
+@section Settings{
+    <div class="container-fluid well">
+        <div calss="row" style="margin:10px">
+            @(Html.C1().Menu().Header(Resources.FlexPie.ChartAnimation_AnimationMode + ": <b>All</b>").MenuItems(mifb =>
+               {
+                   foreach (var name in Enum.GetNames(typeof(AnimationMode)))
+                   {
+                       mifb.Add().Header(name);
+                   }
+               }).OnClientItemClicked("animationModeChanged"))
+            @(Html.C1().Menu().Header(Resources.FlexPie.ChartAnimation_Easing + ": <b>Swing</b>").MenuItems(mifb =>
+               {
+                   foreach (var name in Enum.GetNames(typeof(Easing)))
+                   {
+                       mifb.Add().Header(name);
+                   }
+               }).OnClientItemClicked("easingChanged"))
+            <div>
+                <label style="display:inline-block;font-weight:normal">@Html.Raw(Resources.FlexPie.ChartAnimation_Duration)</label>
+                @(Html.C1().InputNumber().Min(200).Max(5000).Step(200).Value(400).Format("n0").OnClientValueChanged("durationChanged"))
+            </div>
+            <div>
+                <label style="display:inline-block;font-weight:normal">@Html.Raw(Resources.FlexPie.ChartAnimation_InnerRadius)</label>
+                @(Html.C1().InputNumber().Min(0).Max(1).Step(0.1).Value(0).Format("n1").OnClientValueChanged("innerRadiusChanged"))
+            </div>
+        </div>
+    </div>
+}
+@section Description{
+    <p>@Html.Raw(Resources.FlexPie.ChartAnimation_Text0)</p>
+    <p>@Html.Raw(Resources.FlexPie.ChartAnimation_Text1)</p>
+    <p>@Html.Raw(Resources.FlexPie.ChartAnimation_Text2)</p>
+}

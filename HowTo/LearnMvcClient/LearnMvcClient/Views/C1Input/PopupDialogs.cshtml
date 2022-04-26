@@ -1,0 +1,36 @@
+<h1>
+    @Html.Raw(Resources.C1Input.PopupDialogs_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Input.PopupDialogs_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.PopupDialogs_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.PopupDialogs_Text3) 
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.PopupDialogs_Text4)
+    </li>
+</ol>
+
+<p>
+    @Html.Raw(Resources.C1Input.PopupDialogs_Text5)
+</p>
+
+@Html.C1().FlexGrid().Id("theGrid").AllowAddNew(true).Height(300)
+<div id="theDialog" style="display:none">
+    <div class="wj-dialog-header">
+        @Html.Raw(Resources.C1Input.PopupDialogs_Text6)
+    </div>
+    <div class="wj-dialog-body" tabindex="-1">
+        @Html.Raw(Resources.C1Input.PopupDialogs_Text7)
+    </div>
+    <div class="wj-dialog-footer">
+        <button class="btn btn-primary wj-hide-ok">@Resources.Resource.Btn_Yes</button>
+        <button class="btn btn-default wj-hide">@Resources.Resource.Btn_No</button>
+    </div>
+</div>
+@Html.C1().Popup("#theDialog")

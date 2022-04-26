@@ -1,0 +1,1261 @@
+﻿@model FlexGrid101.Models.FlexGridModel
+@using FlexGrid101.Models
+
+@{
+    ViewBag.Title = "ASP.NET MVC FlexGrid Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            @Html.Raw(Resources.FlexGrid101Res.Project_Name_Text0)
+        </h1>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Project_Name_Text0)
+        </p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="sample-page download-link">
+        <a href="https://www.grapecity.com/en/download/componentone-studio">Download Free Trial</a>
+    </div>
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Getting_Started_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Overview_Step_Title_Text0)
+        </p>
+        <ol>
+            <li>@Html.Raw(Resources.FlexGrid101Res.Overview_Step1_Text0)</li>
+            <li>@Html.Raw(Resources.FlexGrid101Res.Overview_Step2_Text0)</li>
+            <li>@Html.Raw(Resources.FlexGrid101Res.Overview_Step3_Text0)</li>
+            <li>@Html.Raw(Resources.FlexGrid101Res.Overview_Step4_Text0)</li>
+        </ol>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Overview_Description_Text0)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gsHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#gsCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#gsCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gsHtml">
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+    &lt;head&gt;
+
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;!-- this is the grid --&gt;
+        @@(Html.C1().FlexGrid().Id("gsFlexGrid")
+            .IsReadOnly(true)
+            .SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+            .Bind(Model.CountryData)
+            .AutoGenerateColumns(true)
+        )
+
+    &lt;/body&gt;
+&lt;/html&gt;
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="gsCss">
+                            
+/* set default grid style */
+.wj-flexgrid {
+    height: 300px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gsCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();            
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>().Id("gsFlexGrid")
+                    .IsReadOnly(true)
+                    .SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                    .Bind(Model.CountryData)
+                    .AutoGenerateColumns(true)
+                )
+
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- column definitions -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Column_Definitions_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Column_Definitions_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Column_Definitions_Description_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Column_Definitions_Description_Text2)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Column_Definitions_Description_Text3)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#cdHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#cdCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="cdHtml">
+
+@@(Html.C1().FlexGrid().Id("cdInitMethod").IsReadOnly(true).AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+    .Bind(Model.CountryData).CssClass("grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID"));
+        bl.Add(cb =&gt; cb.Binding("Start").Header("Start").Format("MMM d yy"));
+        bl.Add(cb =&gt; cb.Binding("End").Header("End").Format("HH:mm"));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("n0"));
+        bl.Add(cb =&gt; cb.Binding("Amount2"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0"));
+        bl.Add(cb =&gt; cb.Binding("Active"));
+    })
+)
+
+</div>
+                        <div class="tab-pane pane-content" id="cdCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();            
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>().Id("cdInitMethod").IsReadOnly(true).AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                    .Bind(Model.CountryData).CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Format("MMM d yy"));
+                        bl.Add(cb => cb.Binding("End").Header("End").Format("HH:mm"));
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*"));
+                        bl.Add(cb => cb.Binding("Amount").Format("n0"));
+                        bl.Add(cb => cb.Binding("Amount2"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+                        bl.Add(cb => cb.Binding("Active"));
+                    })
+                    )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- selection modes -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Description_Text1)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#smHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#smJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#smCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="smHtml">
+
+@@(Html.C1().FlexGrid().Id("smFlexGrid").IsReadOnly(true).AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.None)
+    .Bind(Model.CountryData).CssClass("grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("c").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Active").Width("*"));
+    })
+)
+&lt;br /&gt;@Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Text0)
+@@(Html.C1().ComboBox().Id("smMenu").Bind(Model.Settings["SelectionMode"])
+    .SelectedIndex(0).OnClientSelectedIndexChanged("smMenu_SelectedIndexChanged")
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="smJs">
+                            
+var smFlexGrid = smMenu = gFlexGrid = null;
+
+$(document).ready(function () {
+    //@Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Text0) Modules
+    smFlexGrid = wijmo.Control.getControl("#smFlexGrid");
+});
+
+//@Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Text0) Modules
+function smMenu_SelectedIndexChanged(sender)
+{
+    if(sender.selectedValue!=null && smFlexGrid!=null)
+    {
+        smFlexGrid.selectionMode = sender.selectedValue;
+    }
+
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="smCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.Settings = CreateSettings();
+            model.CountryData = Sale.GetData(500);            
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {
+                {"SelectionMode",new object[]{SelectionMode.None.ToString(),SelectionMode.Cell.ToString(),SelectionMode.CellRange.ToString(),SelectionMode.Row.ToString(),SelectionMode.RowRange.ToString(),SelectionMode.ListBox.ToString(),SelectionMode.MultiRange.ToString()}}                                
+            };
+            return settings;
+        }
+    }
+}
+
+                            </div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>().Id("smFlexGrid").IsReadOnly(true).AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.None)
+                .Bind(Model.CountryData).CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID").Width("*"));
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*"));
+                        bl.Add(cb => cb.Binding("Amount").Format("c").Width("*"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0").Width("*"));
+                        bl.Add(cb => cb.Binding("Active").Width("*"));
+                    })
+                )
+                <br />@Html.Raw(Resources.FlexGrid101Res.Selection_Modes_Text0)
+                @(Html.C1().ComboBox().Id("smMenu").Bind(Model.Settings["SelectionMode"])
+                                    .SelectedIndex(0).OnClientSelectedIndexChanged("smMenu_SelectedIndexChanged")
+                )
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- editing -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Editing_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text1)
+        </p>
+        <p>
+           @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text2)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text3)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text4)
+        </p>
+        <ol>
+            <li>
+                @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text5)
+            </li>
+            <li>
+                @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text6)
+            </li>
+        </ol>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Editing_Description_Text7)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#eHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#eCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="eHtml">
+
+@@(Html.C1().FlexGrid()
+    .Id("eFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+    .Bind(bl =&gt; 
+        bl.Bind(Url.Action("GridRead"))
+        .Update(Url.Action("EGridUpdate"))
+    )
+    .CssClass("grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID").Width("*").IsReadOnly(true));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("c").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Active").Width("*"));
+    })
+)
+
+</div>
+                        <div class="tab-pane pane-content" id="eCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+
+        public ActionResult GridRead([C1JsonRequest] CollectionViewRequest&lt;Sale&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Read(requestData, FlexGridModel.Source));
+        }
+
+        public ActionResult EGridUpdate([C1JsonRequest]CollectionViewEditRequest&lt;Sale&gt; requestData)
+        {
+            return this.C1Json(CollectionViewHelper.Edit&lt;Sale&gt;(requestData, sale =&gt;
+            {
+                string error = string.Empty;
+                bool success = true;
+                var fSale = FlexGridModel.Source.Find(item =&gt; item.ID == sale.ID);
+                fSale.Amount = sale.Amount;
+                fSale.Discount = sale.Discount;
+                fSale.Active = sale.Active;
+                return new CollectionViewItemResult&lt;Sale&gt;
+                {
+                    Error = error,
+                    Success = success && ModelState.IsValid,
+                    Data = fSale
+                };
+            }, () =&gt; FlexGridModel.Source));
+        }
+    }
+}
+
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("eFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                    .Bind(bl => 
+                        bl.Bind(Url.Action("GridRead"))
+                        .Update(Url.Action("EGridUpdate"))
+                    )
+                    .CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID").Width("*").IsReadOnly(true));
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*"));
+                        bl.Add(cb => cb.Binding("Amount").Format("c").Width("*"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0").Width("*"));
+                        bl.Add(cb => cb.Binding("Active").Width("*"));
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- grouping -->
+    <div>
+        <h2>
+            @Html.Raw(Resources.FlexGrid101Res.Grouping_Text0)
+        </h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Grouping_Desription_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Grouping_Desription_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Grouping_Desription_Text2)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#gHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#gJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#gCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="gHtml">
+
+@@(Html.C1().FlexGrid()
+    .Id("gFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+    .GroupBy("Country")
+    .Bind(Model.CountryData)
+    .CssClass("grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Color").Header("Color").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Start").Header("Start").Width("*"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Header("Amount").Format("n0").Width("*")
+            .Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum));
+    })
+)
+&lt;br /&gt;@Html.Raw(Resources.FlexGrid101Res.Group_By_Text0)
+@@(Html.C1().ComboBox().Id("gMenu").Bind(Model.Settings["GroupBy"])
+    .SelectedIndex(0).OnClientSelectedIndexChanged("gMenu_SelectedIndexChanged")
+)
+
+</div>
+                        <div class="tab-pane pane-content" id="gJs">
+                            
+//Group By Modules
+function gMenu_SelectedIndexChanged(sender) {
+    var grid = wijmo.Control.getControl("#gFlexGrid");
+    if (sender.selectedValue && grid) {
+        var name = sender.selectedValue;
+        var groupDescriptions = grid.collectionView.groupDescriptions;
+        grid.beginUpdate();
+        groupDescriptions.clear();
+
+        if (name.indexOf("Country") &gt; -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Country"));
+        }
+
+        if (name.indexOf("Product") &gt; -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Product"));
+        }
+
+        if (name.indexOf("Color") &gt; -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Color"));
+        }
+
+        if (name.indexOf("Start") &gt; -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Start", function (item, prop) {
+                var value = item[prop];
+                return value.getFullYear() + "/" + value.getMonth();
+            }));
+        }
+
+        if (name.indexOf("Amount") &gt; -1) {
+            groupDescriptions.push(new wijmo.collections.PropertyGroupDescription("Amount", function (item, prop) {
+                var value = item[prop];
+                if (value &lt;= 500) {
+                    return "&lt;500";
+                }
+
+                if (value &gt; 500 && value &lt;= 1000) {
+                    return "500 to 1000";
+                }
+
+                if (value &gt; 1000 && value &lt;= 5000) {
+                    return "1000 to 5000";
+                }
+
+                return "More than 5000";
+            }));
+        }
+        grid.endUpdate();
+    }
+}
+
+
+                        </div>
+                        <div class="tab-pane pane-content" id="gCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.Settings = CreateSettings();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+
+        private IDictionary&lt;string, object[]&gt; CreateSettings()
+        {
+            var settings = new Dictionary&lt;string, object[]&gt;
+            {                
+                {"GroupBy", new object[]{"Country", "Product", "Color","Start","Amount","Country and Product","Product and Color", "None"}}
+            };
+            return settings;
+        }
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("gFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+                    .GroupBy("Country")
+                    .Bind(Model.CountryData)
+                    .CssClass("grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("Country").Header("Country").Width("*"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product").Width("*"));
+                        bl.Add(cb => cb.Binding("Color").Header("Color").Width("*"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Width("*"));
+                        bl.Add(cb => cb.Binding("Amount").Header("Amount").Format("n0").Width("*")
+                            .Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum));
+                    })
+                )
+                <br />@Html.Raw(Resources.FlexGrid101Res.Group_By_Text0)
+                @(Html.C1().ComboBox().Id("gMenu").Bind(Model.Settings["GroupBy"])
+                    .SelectedIndex(0).OnClientSelectedIndexChanged("gMenu_SelectedIndexChanged")
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- filtering -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Filtering_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Filtering_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Filtering_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#fHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#fCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="fHtml">
+                            
+@@(Html.C1().FlexGrid&lt;Sale&gt;()
+    .Id("fFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+    .Bind(Model.CountryData)
+    .CssClass("grid")
+    .Filterable&lt;Sale&gt;(fl =&gt; fl.ColumnFilters(cfsb =&gt;
+    {
+        for(var index = 0; index &lt;  Model.FilterBy.Length; index++)
+        {
+            cfsb.Add(cfb =&gt; cfb.Column(Model.FilterBy[index]).FilterType(FilterType.Condition));
+        }              
+    }))
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID"));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country"));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product"));
+        bl.Add(cb =&gt; cb.Binding("Color").Header("Color"));
+        bl.Add(cb =&gt; cb.Binding("Start").Header("Start").Format("MMM d yy"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0"));
+    })
+)
+
+</div>
+                        <div class="tab-pane pane-content" id="fCS">
+                            
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            model.FilterBy = new string[] { "ID", "Country", "Product", "Color", "Start" };
+            return View(model);
+        }
+    }
+}
+
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("fFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+                    .Bind(Model.CountryData)
+                    .CssClass("grid")
+                    .Filterable<Sale>(fl => fl.DefaultFilterType(FilterType.None).ColumnFilters(cfsb =>
+                    {
+                        for (var index = 0; index < Model.FilterBy.Length; index++)
+                        {
+                            cfsb.Add(cfb => cfb.Column(Model.FilterBy[index]).FilterType(FilterType.Condition));
+                        }
+                    }))
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID"));
+                        bl.Add(cb => cb.Binding("Country").Header("Country"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product"));
+                        bl.Add(cb => cb.Binding("Color").Header("Color"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Format("MMM d yy"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- paging -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Paging_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Paging_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Paging_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#pHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#pCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="pHtml">
+                            
+@@(Html.C1().FlexGrid()
+    .Id("pFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true).CssStyle("height", "auto")
+    .Bind(Model.CountryData)
+    .CssClass("grid")
+    .PageSize(10)
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID"));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country"));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product"));
+        bl.Add(cb =&gt; cb.Binding("Color").Header("Color"));
+        bl.Add(cb =&gt; cb.Binding("Start").Header("Start").Format("MMM d yy"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0"));
+    })
+)
+@@Html.C1().Pager().Owner("pFlexGrid")
+                                                        
+                        </div>                        
+                        <div class="tab-pane pane-content" id="pCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+</div>
+
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("pFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true).CssStyle("height", "auto")
+                    .Bind(Model.CountryData)
+                    .CssClass("grid")
+                    .PageSize(10)
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID"));
+                        bl.Add(cb => cb.Binding("Country").Header("Country"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product"));
+                        bl.Add(cb => cb.Binding("Color").Header("Color"));
+                        bl.Add(cb => cb.Binding("Start").Header("Start").Format("MMM d yy"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+                    })
+                )
+                @Html.C1().Pager().Owner("pFlexGrid")
+            </div>
+        </div>
+    </div>
+
+    <!-- conditional styling -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Conditional_Styling_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Conditional_Styling_Description_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Conditional_Styling_Description_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#csHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#csJs" role="tab" data-toggle="tab">JS</a></li>
+                        <li><a href="#csCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="csHtml">
+                            
+@@(Html.C1().FlexGrid()
+    .Id("csFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+    .Bind(Model.CountryData)
+    .ItemFormatter("csFlexGrid_ItemFormatter")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country"));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("n0"));
+    })
+)
+
+</div>
+                        <div class="tab-pane pane-content" id="csJs">
+
+//@Html.Raw(Resources.FlexGrid101Res.Conditional_Styling_Text0) Modules
+function csFlexGrid_ItemFormatter(panel, r, c, cell) {
+    if (wijmo.grid.CellType.Cell == panel.cellType && panel.columns[c].binding == 'Amount') {
+        var cellData = panel.getCellData(r, c);
+        cell.style.color = cellData &lt; 0 ? 'red' : cellData &lt; 500 ? 'black' : 'green';
+    }
+    if (wijmo.grid.CellType.Cell == panel.cellType && panel.columns[c].binding == 'Discount') {
+        var cellData = panel.getCellData(r, c);
+        cell.style.color = cellData &lt; .1 ? 'red' : cellData &lt; .2 ? 'black' : 'green';
+    }
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="csCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("csFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+                    .Bind(Model.CountryData)
+                    .ItemFormatter("csFlexGrid_ItemFormatter")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("Country").Header("Country"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+                        bl.Add(cb => cb.Binding("Amount").Format("n0"));
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- themes -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Themes_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Themes_Description_Text0)
+        </p>
+         <p>
+            @Html.Raw(Resources.FlexGrid101Res.Themes_Description_Text0)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#tCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#tCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tHtml">
+                            
+@@(Html.C1().FlexGrid()
+    .Id("tFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+    .Bind(Model.CountryData)
+    .CssClass("custom-flex-grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country"));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product"));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0"));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("n0"));
+    })
+)
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="tCss">
+                            
+.custom-flex-grid .wj-header.wj-cell {
+    color: #fff;
+    background-color: #000;
+    border-bottom: solid 1px #404040;
+    border-right: solid 1px #404040;
+    font-weight: bold;
+}
+
+.custom-flex-grid .wj-cell {
+    background-color: #fff;
+    border: none;
+}
+
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #fff;
+}
+
+.custom-flex-grid .wj-state-selected {
+    background: #000;
+    color: #fff;
+}
+
+.custom-flex-grid .wj-state-multi-selected {
+    background: #222;
+    color: #fff;
+}
+
+                        </div>
+                        <div class="tab-pane pane-content" id="tCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>                
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("tFlexGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn).IsReadOnly(true)
+                    .Bind(Model.CountryData)
+                    .CssClass("custom-flex-grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("Country").Header("Country"));
+                        bl.Add(cb => cb.Binding("Product").Header("Product"));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0"));
+                        bl.Add(cb => cb.Binding("Amount").Format("n0"));
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+    <!-- trees/hierarchical data -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Trees_and_Hierarchical_Data_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Trees_and_Hierarchical_Data_Des_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Trees_and_Hierarchical_Data_Des_Text1)
+        </p>
+
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#tvHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>                        
+                        <li><a href="#tvCss" role="tab" data-toggle="tab">CSS</a></li>
+                        <li><a href="#tvCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="tvHtml">
+
+@@(Html.C1().FlexGrid()
+    .Id("tvFlexGrid").AutoGenerateColumns(false).IsReadOnly(true)
+    .Bind(Model.TreeData)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.ListBox)
+    .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+    .SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+    .ChildItemsPath("Children")
+    .CssClass("custom-flex-grid")
+    .Columns(bl =&gt;
+    {
+        bl.Add().Binding("Header").Width("*").Header("Folder/File Name");
+        bl.Add().Binding("Size").Width("80").Align("center");
+    })
+)
+
+                        </div>                        
+                        <div class="tab-pane pane-content" id="tvCss">
+
+.custom-flex-grid .wj-header.wj-cell {
+    color: #fff;
+    background-color: #000;
+    border-bottom: solid 1px #404040;
+    border-right: solid 1px #404040;
+    font-weight: bold;
+}
+
+.custom-flex-grid .wj-cell {
+    background-color: #fff;
+    border: none;
+}
+
+.custom-flex-grid .wj-alt:not(.wj-state-selected):not(.wj-state-multi-selected) {
+    background-color: #fff;
+}
+
+.custom-flex-grid .wj-state-selected {
+    background: #000;
+    color: #fff;
+}
+
+.custom-flex-grid .wj-state-multi-selected {
+    background: #222;
+    color: #fff;
+}
+
+</div>
+                        <div class="tab-pane pane-content" id="tvCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            FlexGridModel model = new FlexGridModel();
+            model.CountryData = Sale.GetData(500);
+            return View(model);
+        }
+    }
+}
+
+</div>
+                        </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>
+                @(Html.C1().FlexGrid<ITreeItem>()
+                    .Id("tvFlexGrid").AutoGenerateColumns(false).IsReadOnly(true)
+                    .Bind(Model.TreeData)
+                    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.ListBox)
+                    .AllowResizing(C1.Web.Mvc.Grid.AllowResizing.None)
+                    .SortingType(C1.Web.Mvc.Grid.AllowSorting.None)
+                    .ChildItemsPath("Children")
+                    .CssClass("custom-flex-grid")
+                    .Columns(bl =>
+                    {
+                        bl.Add().Binding("Header").Width("*").Header("Folder/File Name");
+                        bl.Add().Binding("Size").Width("80").Align("center");
+                    })
+                )
+            </div>
+        </div>
+    </div>
+
+
+    <!-- handling null values -->
+    <div>
+        <h2>@Html.Raw(Resources.FlexGrid101Res.Handling_Null_Values_Text0)</h2>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Handling_Null_Values_Des_Text0)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Handling_Null_Values_Des_Text1)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Handling_Null_Values_Des_Text2)
+        </p>
+        <p>
+            @Html.Raw(Resources.FlexGrid101Res.Handling_Null_Values_Des_Text3)
+        </p>
+        <div class="row">
+            <div class="col-md-6">
+                <div>
+                    <ul class="nav nav-tabs" role="tablist">
+                        <li class="active"><a href="#nvHtml" role="tab" data-toggle="tab">Index.cshtml</a></li>
+                        <li><a href="#nvCS" role="tab" data-toggle="tab">HomeController.cs</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active pane-content" id="nvHtml">
+                            
+@@(Html.C1().FlexGrid()
+    .Id("nvGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+    .Bind(bl =&gt; 
+        bl.Bind(Url.Action("GridRead"))
+        .Update(Url.Action("NVGridUpdate"))
+        )
+    .Columns(bl =&gt;
+    {
+        bl.Add(cb =&gt; cb.Binding("ID").Header("ID").IsReadOnly(true));
+        bl.Add(cb =&gt; cb.Binding("Country").Header("Country").IsRequired(false));
+        bl.Add(cb =&gt; cb.Binding("Product").Header("Product").IsRequired(true));
+        bl.Add(cb =&gt; cb.Binding("Discount").Format("p0").IsRequired(true));
+        bl.Add(cb =&gt; cb.Binding("Amount").Format("n0").IsRequired(true));
+    })
+)
+
+                        </div>
+                        <div class="tab-pane pane-content" id="nvCS">
+
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.Mvc;
+using FlexGrid101.Models;
+using C1.Web.Mvc.Grid;
+using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+
+namespace FlexGrid101.Controllers
+{
+    public class HomeController : Controller
+    {
+        public ActionResult Index()
+        {
+            return View();
+        }
+    }
+
+    public ActionResult GridRead([C1JsonRequest] CollectionViewRequest&lt;Sale&gt; requestData)
+    {
+        return this.C1Json(CollectionViewHelper.Read(requestData, FlexGridModel.Source));
+    }
+
+    public ActionResult NVGridUpdate([C1JsonRequest]CollectionViewEditRequest&lt;Sale&gt; requestData)
+    {
+        return this.C1Json(CollectionViewHelper.Edit&lt;Sale&gt;(requestData, sale =&gt;
+        {
+            string error = string.Empty;
+            bool success = true;
+            var fSale = FlexGridModel.Source.Find(item =&gt; item.ID == sale.ID);
+            fSale.Country = sale.Country;
+            fSale.Product = sale.Product;
+            fSale.Amount = sale.Amount;
+            fSale.Discount = sale.Discount;
+            return new CollectionViewItemResult&lt;Sale&gt;
+            {
+                Error = error,
+                Success = success && ModelState.IsValid,
+                Data = fSale
+            };
+        }, () =&gt; FlexGridModel.Source));
+    }
+}
+
+</div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <h4>@Html.Raw(Resources.FlexGrid101Res.Result_Live_Text0):</h4>                
+                @(Html.C1().FlexGrid<Sale>()
+                    .Id("nvGrid").AutoGenerateColumns(false).SortingType(C1.Web.Mvc.Grid.AllowSorting.SingleColumn)
+                    .Bind(bl => 
+                        bl.Bind(Url.Action("GridRead"))
+                        .Update(Url.Action("NVGridUpdate"))
+                     )
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Header("ID").IsReadOnly(true));
+                        bl.Add(cb => cb.Binding("Country").Header("Country").IsRequired(false));
+                        bl.Add(cb => cb.Binding("Product").Header("Product").IsRequired(true));
+                        bl.Add(cb => cb.Binding("Discount").Format("p0").IsRequired(true));
+                        bl.Add(cb => cb.Binding("Amount").Format("n0").IsRequired(true));
+                    })
+                )
+            </div>
+        </div>
+    </div>
+    
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+    });
+</script>

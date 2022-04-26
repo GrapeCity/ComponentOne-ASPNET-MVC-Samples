@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "SeriesBinding";
+    List<Dot> function1 = new List<Dot>();
+    List<Dot> function2 = new List<Dot>();
+    for (int i = 0; i < 300; i++)
+    {
+        function1.Add(new Dot { X = 2 * Math.Sin(0.16 * i), Y = 2 * Math.Cos(0.12 * i) });
+        function2.Add(new Dot { X = Math.Sin(0.1 * i), Y = Math.Cos(0.15 * i) });
+    }
+}
+
+<div id="FlexChartTestSample1"></div>
+
+@(Html.C1().FlexChart("#FlexChartTestSample1").ChartType(C1.Web.Mvc.Chart.ChartType.Spline).Series(sers =>
+    {
+        sers.Add().Bind(function1).BindingX("X").Binding("Y").Name("function 1");
+        sers.Add().Bind(function2).BindingX("X").Binding("Y").Name("function 2");
+    }).AxisX(x =>
+    {
+        x.Origin(0).MinorGrid(true).MajorGrid(true);
+    }).AxisY(y =>
+    {
+        y.Origin(0).MinorGrid(true);
+    }))
+
+@section Description{
+    <h3>
+        @Html.Raw(Resources.FlexChart.SeriesBinding_ChartSeriesBinding)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.SeriesBinding_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.SeriesBinding_Text1)</p>
+    <ol>
+        <li>@Html.Raw(Resources.FlexChart.SeriesBinding_Li1)</li>
+        <li>@Html.Raw(Resources.FlexChart.SeriesBinding_Li2)</li>
+        <li>@Html.Raw(Resources.FlexChart.SeriesBinding_Li3)</li>
+    </ol>
+    <p>@Html.Raw(Resources.FlexChart.SeriesBinding_Text2)</p>
+}

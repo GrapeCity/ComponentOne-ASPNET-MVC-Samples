@@ -1,0 +1,21 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsReordering_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsReordering_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsReordering_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsReordering_Text3)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model)
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1FlexGrid.ColumnsReordering_Text4)
+    </div>
+</div>

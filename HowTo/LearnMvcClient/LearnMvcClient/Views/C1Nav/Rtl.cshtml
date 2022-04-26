@@ -1,0 +1,31 @@
+@model IEnumerable<TreeViewData>
+
+<h1>
+    @Html.Raw(Resources.C1Nav.Rtl_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Nav.Rtl_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Rtl_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Rtl_Text3)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.Rtl_Text4)
+</p>
+<div>
+    <label>
+        @Html.Raw(Resources.C1Nav.Rtl_Text5)
+        <input id="rtl" type="checkbox" checked="true">
+    </label>
+</div>
+
+<div id="content" dir="rtl">
+    <div>
+        @Html.Raw(Resources.C1Nav.Rtl_Text6)
+    </div>
+    @Html.C1().TreeView().Id("theTree").Bind(Model).DisplayMemberPath("Header").ChildItemsPath("Items")
+</div>

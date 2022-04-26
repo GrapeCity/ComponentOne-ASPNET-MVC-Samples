@@ -1,0 +1,32 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.ElementsThumb_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsThumb_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsThumb_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsThumb_Text3)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="theColor">@Html.Raw(Resources.C1Gauge.ElementsThumb_Text4)</label>
+        @Html.C1().InputColor().Id("theColor")
+        <br />
+        <label for="theThumbSize">@Html.Raw(Resources.C1Gauge.ElementsThumb_Text5)</label>
+        @Html.C1().InputNumber().Id("theThumbSize").Min(0).Max(50).Step(5).Format("n0")
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theGauge")
+            .StartAngle(-30).SweepAngle(240)
+            .Value(50).Max(100)
+            .IsReadOnly(false)
+            .HasShadow(false)
+            .ShowText(ShowText.All)
+            .Pointer(p=>p.Thickness(0.15))
+            .ThumbSize(20)
+        )
+    </div>
+</div>

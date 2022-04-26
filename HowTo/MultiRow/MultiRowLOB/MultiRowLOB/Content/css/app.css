@@ -1,0 +1,70 @@
+﻿.title {
+    text-align: center;
+    text-decoration: underline;
+}
+
+.wj-flexgrid {
+    max-height: 400px;
+}
+
+.show-grid {
+    margin-left: 0px;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 4px;
+}
+
+.row.show-grid {
+    margin-right: 0px;
+}
+
+    .show-grid [class^=col-] {
+        padding-top: 5px;
+        padding-bottom: 5px;
+        border-style: solid solid solid none;
+        border-width: 1px;
+        border-color: #000000;
+        height: 44px;
+    }
+
+    .show-grid > .grid-title {
+        background-color: #8080ff;
+        font-size: 18px;
+        font-weight: bold;
+    }
+
+    .show-grid > .summary-cell {
+        padding: 5px;
+        border-style: solid solid solid none;
+        border-width: 1px;
+        border-color: #000000;
+        background-color: #99B4D1;
+        font-weight: bold;
+        text-align: center;
+        float: left;
+    }
+
+    .show-grid > div:first-child {
+        border-left-style: solid;
+        border-radius: 4px 0px 0px 4px;
+    }
+
+    .show-grid > div:last-child {
+        border-radius: 0px 4px 4px 0px;
+    }
+
+#orderDetail .wj-alt:not(.wj-header):not(.wj-group):not(.wj-state-selected):not(.wj-state-multi-selected){
+    background-color: #C0FFC0;
+}
+
+.profit-cell{
+    background-color: #FFFFC0 !important;
+    color: red;
+}
+
+.summary-footer{
+    font-weight: bold;
+}
+.summary-footer-title{
+    background-color: #EAEAEA !important;
+}

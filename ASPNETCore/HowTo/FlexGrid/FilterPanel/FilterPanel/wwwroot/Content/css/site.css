@@ -1,0 +1,99 @@
+﻿
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.param-item {
+    float:left;
+    width: 100%;
+    padding: 5px 0;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+    .param-item label,.param-item>span {
+        width: 150px;
+        display: inline-block;
+        font-weight: 700;
+        margin: 0px;
+        padding: 5px 0;
+        float:left;
+    }
+    .param-item>span {
+        width: 650px;
+    }
+    .param-item > div {
+        float:left;
+        margin-right: 100px;
+    }
+    .param-item > div>label {
+        font-weight:700;
+    }
+    .param-item .saved-Label {
+        font-weight:400;
+    }
+
+    .param-item textarea {
+        max-width: 650px;
+        width: 650px;
+        height:110px;
+        resize:none;
+    }
+
+    .param-item input {
+        width: 180px;
+    }
+
+.header {
+    background-color: #f27c0a;
+    margin-bottom: 14px;
+    padding: 12px 0;
+}
+
+    .header h1 {
+        font-size: 40px;
+        line-height: 1;
+        margin-top: 0;
+    }
+
+
+    .header img {
+        float: left;
+        margin: 0 10px 5px 0;
+    }
+
+.wj-flexgrid {
+    height: 450px;
+    background-color: white;
+    box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+    margin-bottom: 12px;
+}
+
+/* make grid selection lighter so links are easy to read */
+    .wj-flexgrid .wj-state-selected {
+        background-color: #c9edff;
+        color: #000;
+    }
+    .wj-flexgrid .wj-state-multi-selected {
+        background-color: #e1f5ff;
+        color: #000;
+    }
+
+/* remove gridlines */
+    .wj-flexgrid .wj-cell {
+        border-right-width: 0px;
+        border-bottom-width: 0px;
+    }
+    .wj-flexgrid .wj-colheaders .wj-cell {
+        border-right-width: 1px;
+        border-bottom-width: 1px;
+    }

@@ -1,0 +1,28 @@
+﻿@model BookMyFlight.Models.LoginModel
+
+@{
+    ViewBag.Title = "Login..";
+    Layout = "~/Views/_Layout.cshtml";
+}
+<script src="@Url.Content("~/Scripts/Login.js")" type="text/javascript"></script>
+<div id="PnlPage">
+    <div id="LblMsg"></div><br />    
+        <div class="MyRow">
+            <div class="CTRLBCK" style="width:50%;">
+                <span class="Title">Email/User Name:&nbsp;</span>
+                <input id="username" type="text" placeholder="Username" value="@Model.UserName" autofocus required style="width:60%;border:none;">
+            </div>
+        </div><br />    
+        <div class="MyRow">
+            <div class="CTRLBCK" style="width:50%;">
+                <span class="Title">Password:&nbsp;</span>
+                <input id="password" type="password" placeholder="Password" value="@Model.Password" required style="width:75%;border:none;">
+            </div>
+        </div>
+        <div class="MyRow">
+            <br />
+            <a href="#" id="BtnLogin" onclick="CallLogin();" class="mybtn">Login</a>
+        </div>
+
+
+</div>

@@ -1,0 +1,19 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="@Resources.Resource.SiteNavAboutLink" target="_blank">@Resources.Resource.SiteNavAbout</a>
+    </li>
+    <li>
+        <a href="@Resources.Resource.SiteNavSupportLink" target="_blank">@Resources.Resource.SiteNavSupport</a>
+    </li>
+    <li>
+        <a href="@Resources.Resource.SiteNavPricingLink" target="_blank">@Resources.Resource.SiteNavPricing</a>
+    </li>
+    <li class="bold">
+        <a href="@Resources.Resource.SiteNavFreeTrialLink" target="_blank">@Resources.Resource.SiteNavFreeTrial</a>
+    </li>
+</ul>
+

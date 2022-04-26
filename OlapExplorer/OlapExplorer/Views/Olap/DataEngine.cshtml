@@ -1,0 +1,34 @@
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().PivotEngine().Id("dataEngine")
+		.ShowRowTotals(ShowTotals.Subtotals)
+		.ShowColumnTotals(ShowTotals.Subtotals)
+		.BindService("~/api/dataengine/complex10")
+		.RowFields(pfcb => pfcb.Items("Country"))
+		.ColumnFields(cfcb => cfcb.Items("Product"))
+		.ValueFields(vfcb => vfcb.Items("Sales")))
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().ItemsSourceId("dataEngine")
+    </div>
+    <div class="col-sm-8 col-md-8">
+        @Html.C1().PivotGrid().Id("indexGrid").ItemsSourceId("dataEngine")
+    </div>
+</div>
+@Html.C1().PivotChart().Id(optionsModel.ControlId).ItemsSourceId("dataEngine")
+
+@section Description{
+<p>@Html.Raw(Resources.Olap.DataEngine_Text0)</p>
+
+<p>@Html.Raw(Resources.Olap.DataEngine_Text1)</p>
+
+<p>@Html.Raw(Resources.Olap.DataEngine_Text2)</p>
+
+}
+@section Summary{
+<p>@Html.Raw(Resources.Olap.DataEngine_Text3)</p>
+
+}

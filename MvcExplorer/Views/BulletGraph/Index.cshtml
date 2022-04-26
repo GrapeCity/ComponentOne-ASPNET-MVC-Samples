@@ -1,0 +1,9 @@
+﻿@(Html.C1().BulletGraph()
+    .Min(0).Max(10).Good(3)
+    .Bad(4).Value(5).Target(6)
+    .Width(500)
+)
+
+@section Description{
+    @Html.Raw(Resources.BulletGraph.Index_Text0)
+}

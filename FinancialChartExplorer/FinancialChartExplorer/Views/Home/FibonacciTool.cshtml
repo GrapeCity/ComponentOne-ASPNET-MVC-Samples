@@ -1,3 +1,5 @@
+@using FinancialChartExplorer.Models
+
 @model List<FinanceData>
 @{
     ViewBag.DemoSettings = true;
@@ -44,7 +46,7 @@
     }
 
     function updateType(chart, value) {
-		if (value !== 'Retracements') customChangeRangeSelector(chart, 'False');
+        if (value !== 'Retracements') customChangeRangeSelector(chart, 'False');
         var series;
         switch (value) {
             case 'Arcs':
@@ -191,20 +193,27 @@
     });
 </script>
 
-<c1-financial-chart id="@demoSettingsModel.ControlId" symbol-size="6"
-                    binding-x="X" chart-type="Candlestick">
-    <c1-items-source source-collection="@Model"></c1-items-source>
-    <c1-financial-chart-series binding="High,Low,Open,Close" name="BOX"></c1-financial-chart-series>
-    <c1-flex-chart-fibonacci binding="Close" uptrend="true" label-position="Left"></c1-flex-chart-fibonacci>
-    <c1-flex-chart-fibonacci-arcs binding="Close" start="new DataPoint(46, 19.75)" end="new DataPoint(54, 17.10)" label-position="Top"></c1-flex-chart-fibonacci-arcs>
-    <c1-flex-chart-fibonacci-fans binding="Close" start="new DataPoint(10, 18.12)" end="new DataPoint(32, 20.53)" label-position="Top"></c1-flex-chart-fibonacci-fans>
-    <c1-flex-chart-fibonacci-time-zones binding="Close" start-x="0" end-x="3"></c1-flex-chart-fibonacci-time-zones>
-    <c1-range-selector id="RangeSelector" seamless="true" is-visible="false" range-changed="rangeChanged"></c1-range-selector>
-</c1-financial-chart>
+
+@(Html.C1().FinancialChart()
+.Id(demoSettingsModel.ControlId)
+.Bind(Model)
+.BindingX("X")
+.SymbolSize(6)
+.ChartType(C1.Web.Mvc.Finance.ChartType.Candlestick)
+.Series(sers =>
+    {
+        sers.Add().Binding("High,Low,Open,Close").Name("BOX");
+        sers.AddFibonacci().Binding("Close").Uptrend(true).LabelPosition(C1.Web.Mvc.Chart.LabelPosition.Left).Style(svgb => svgb.FontSize(10));
+        sers.AddFibonacciArcs().Binding("Close").Start(new DataPoint(46, 19.75)).End(new DataPoint(54, 17.10)).LabelPosition(C1.Web.Mvc.Chart.LabelPosition.Top);
+        sers.AddFibonacciFans().Binding("Close").Start(new DataPoint(10, 18.12)).End(new DataPoint(32, 20.53)).LabelPosition(C1.Web.Mvc.Chart.LabelPosition.Top);
+        sers.AddFibonacciTimeZones().Binding("Close").StartX(0).EndX(3);
+    })
+.AddRangeSelector(rsb => rsb.Id("RangeSelector").Seamless(true).OnClientRangeChanged("rangeChanged").IsVisible(false))
+)
 
 @section Description{
-<p>@Html.Raw(Home.FibonacciTool_Text0)</p>
+    <p>@Html.Raw(Resources.Home.FibonacciTool_Text0)</p>
 }
 @section Summary{
-    <p>@Html.Raw(Home.FibonacciTool_Text1)</p>
+    <p>@Html.Raw(Resources.Home.FibonacciTool_Text1)</p>
 }

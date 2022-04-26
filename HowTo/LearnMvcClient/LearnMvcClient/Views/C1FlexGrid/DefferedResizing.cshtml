@@ -1,0 +1,18 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.DefferedResizing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DefferedResizing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.DefferedResizing_Text2)
+</p>
+
+<label for="deferResizing">
+    @Html.Raw(Resources.C1FlexGrid.DefferedResizing_Text3)
+    <input id="deferResizing" type="checkbox" checked="checked">
+</label>
+
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(500)

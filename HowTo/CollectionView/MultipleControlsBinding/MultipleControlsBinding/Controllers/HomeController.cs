@@ -1,6 +1,8 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
+using System.Web;
+using System.Web.Mvc;
 using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
 using MultipleControlsBinding.Models;
@@ -36,7 +38,7 @@ namespace MultipleControlsBinding.Controllers
                 return new CollectionViewItemResult<Fruit>
                 {
                     Error = error,
-                    Success = success,
+                    Success = success && ModelState.IsValid,
                     Data = fSale
                 };
             }, () => fruitsSales));
@@ -53,7 +55,7 @@ namespace MultipleControlsBinding.Controllers
                 return new CollectionViewItemResult<Fruit>
                 {
                     Error = error,
-                    Success = success,
+                    Success = success && ModelState.IsValid,
                     Data = fruit
                 };
             }, () => fruitsSales));
@@ -70,7 +72,7 @@ namespace MultipleControlsBinding.Controllers
                 return new CollectionViewItemResult<Fruit>
                 {
                     Error = error,
-                    Success = success,
+                    Success = success && ModelState.IsValid,
                     Data = fruit
                 };
             }, () => fruitsSales));

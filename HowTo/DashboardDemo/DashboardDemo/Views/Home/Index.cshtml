@@ -1,0 +1,234 @@
+﻿@using DashboardModel;
+@using C1.Web.Mvc.Grid;
+@using System.Drawing;
+
+@{
+    var teal = "#009688";
+    var red = "#F44336";
+    var palette = new List<Color>();
+    palette.Add(ColorTranslator.FromHtml(teal));
+    palette.Add(ColorTranslator.FromHtml(red));
+
+    ViewBag.PageTitle = @Resources.DashboardDemo.DashboardPage_Title;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Index.js")"></script>
+<script type="text/javascript">
+    function setRange(start, end) {
+        updateData(start, end, '@Url.Action("GetTopData")');
+    }
+
+    function isLayoutChanged() {
+        var group = wsSplitLayout.items[0];
+        var count = group.children.length;
+
+        if (count != 6) {
+            return true;
+        }
+
+        if((group.children[0].headerText == '@Html.Raw(Resources.DashboardDemo.BudgetVSProfit_Header)')
+             && (group.children[1].headerText == '@Html.Raw(Resources.DashboardDemo.SalesVsProfit_Header)')
+             && (group.children[2].headerText.indexOf('@Html.Raw(Resources.DashboardDemo.CategorySales_Header)') != -1)
+             && (group.children[3].headerText == '@Html.Raw(Resources.DashboardDemo.TopSaleProducts_Header)')
+             && (group.children[4].headerText == '@Html.Raw(Resources.DashboardDemo.TopSaleCustomer_Header)')
+             && (group.children[5].headerText.indexOf('@Html.Raw(Resources.DashboardDemo.RegionSales_Header)') != -1)) {
+            return false;
+        }
+
+        return true;
+    }
+</script>
+
+
+<div class="hidden">
+    @(Html.C1().CollectionViewService()
+        .Id("budgetItemList")
+        .Bind(ViewBag.BudgetItemList as List<CurrentPriorBudgetItem>)
+        .DisableServerRead(true))
+    @(Html.C1().CollectionViewService()
+        .Id("top3SellingProducts")
+        .Bind(ViewBag.Top3SellingProducts as List<SaleItem>)
+        .DisableServerRead(true))
+    @(Html.C1().CollectionViewService()
+        .Id("top7SaleCustomers")
+        .Bind(ViewBag.Top7SaleCustomers as List<SaleItem>)
+        .DisableServerRead(true))
+    @(Html.C1().CollectionViewService()
+        .Id("categorySalesVsGoal")
+        .Bind(ViewBag.CategorySalesVsGoal as List<SaleGoalItem>)
+        .DisableServerRead(true)
+        .OnClientSourceCollectionChanged("categorySalesVsGoalChanged"))
+    @(Html.C1().CollectionViewService()
+        .Id("regionSalesVsGoal")
+        .Bind(ViewBag.RegionSalesVsGoal as List<SaleGoalItem>)
+        .DisableServerRead(true)
+        .OnClientSourceCollectionChanged("regionSalesVsGoalChanged"))
+
+    @(Html.C1().FlexChart()
+                .Id("budgetVSProfitChart")
+                .ItemsSourceId("budgetItemList")
+                .BindingX("Date")
+                .Palette(palette)
+                .Series(sers =>
+                {
+                    sers.Add().Binding("Profit")
+                        .Name(Resources.DashboardDemo.CurrentYear_Series)
+                    .ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols);
+                    sers.Add().Binding("ProirProfit")
+                        .Name(Resources.DashboardDemo.PriorYear_Series)
+                    .ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols);
+                })
+                .AxisX(x => x.Format("MMM"))
+                .AxisY(y =>
+                {
+                    y.Format("N1,,");
+                    y.MajorUnit(200000d);
+                    y.Title("(US$ M)");
+                })
+                .HeaderStyle(x => x.Halign("left"))
+                .Legend(C1.Web.Mvc.Chart.Position.Top)
+                .Tooltip(x =>
+                {
+                    x.Content("tooltipTemplate");
+                })
+                .OnClientRefreshing("tileContentRefreshing")
+    )
+
+    @(Html.C1().FlexChart()
+                    .Id("chartSaleTopProd")
+                    .ItemsSourceId("top3SellingProducts")
+                    .BindingX("Name")
+                    .Palette(palette)
+                    .Series(sers =>
+                    {
+                        sers.Add().Binding("Sales")
+                        .Name(Resources.DashboardDemo.CurrentYear_Series)
+                        .ChartType(C1.Web.Mvc.Chart.ChartType.Column);
+                    })
+                    .AxisY(y =>
+                    {
+                        y.Format("N0,,");
+                        y.Title("(US$ M)");
+                        y.MajorUnit(20000000d);
+                    })
+                    .HeaderStyle(x => x.Halign("left"))
+                    .Legend(C1.Web.Mvc.Chart.Position.None)
+                    .OnClientRefreshing("chartSaleTopProdRefreshing")
+                    .ShowAnimation(ab => ab.AnimationMode(AnimationMode.All).Easing(Easing.Linear).Duration(400))
+    )
+
+    <div id="topSaleCustomer">
+        @(Html.C1().FlexGrid()
+        .CssStyle("width", "98%")
+                    .Id("gridTopSaleCustomer")
+                    .ItemsSourceId("top7SaleCustomers")
+                    .AlternatingRowStep(0)
+                    .AutoSizeMode(AutoSizeMode.Both)
+                    .SortingType(AllowSorting.None)
+                    .AutoGenerateColumns(false)
+                    .SelectionMode(SelectionMode.None)
+                    .HeadersVisibility(HeadersVisibility.Column)
+                    .IsReadOnly(true)
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("Name").Width("*"));
+                        bl.Add(cb => cb.Binding("Sales").Format("C0").Width("*"));
+                        bl.Add(cb => cb.Binding("Profit").Format("C0").Width("*"));
+                    })
+        )
+    </div>
+
+
+    @(Html.C1().FlexChart()
+                .Id("chartSalesVsProfit")
+                .ItemsSourceId("budgetItemList")
+                .BindingX("Date")
+                .Palette(palette)
+                .Series(sers =>
+                {
+                    sers.Add().Binding("Sales")
+                        .Name(Resources.DashboardDemo.Sale_Series)
+                        .ChartType(C1.Web.Mvc.Chart.ChartType.Column);
+                    sers.Add().Binding("Profit")
+                        .Name(Resources.DashboardDemo.Profit_Series)
+                        .ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols)
+                        .AxisY(y =>
+                        {
+                            y.Format("N1,,");
+                            y.MajorUnit(200000d);
+                            y.Title(@Resources.DashboardDemo.Profit_Series + " (US$ M)");
+                            y.Position(C1.Web.Mvc.Chart.Position.Left);
+                        });
+                }).AxisX(x =>
+                {
+                    x.OverlappingLabels(C1.Web.Mvc.Chart.AxisOverlappingLabels.Auto);
+                    x.Format("MMMM");
+                }).AxisY(y =>
+                    {
+                        y.Format("N0,,");
+                        y.MajorUnit(4000000d);
+                        y.Title(@Resources.DashboardDemo.Sale_Series + " (US$ M)");
+                        y.Position(C1.Web.Mvc.Chart.Position.Right);
+                    })
+                .HeaderStyle(x =>
+                {
+                    x.Halign("left");
+                })
+                .Legend(C1.Web.Mvc.Chart.Position.Bottom)
+                .Tooltip(x =>
+                {
+                    x.Content("tooltipTemplate");
+                })
+                .OnClientRefreshing("tileContentRefreshing")
+    )
+
+    <div class="gaugesChart" id="salesVSGoal">
+        <div class="gauges"></div>
+    </div>
+    <div class="gaugesChart" id="regionalSalesVsGoal">
+        <div class="gauges"></div>
+    </div>
+</div>
+@(Html.C1().AutoGridLayout().Id("wsSplitLayout")
+    .Orientation(LayoutOrientation.Vertical)
+    .MaxRowsOrColumns(6)
+    .CellSize(10)
+    .Items(isb =>
+    {
+        isb.Add().Children(cb =>
+        {
+            cb.Add()
+                .ShowHeader(true).HeaderText(Resources.DashboardDemo.BudgetVSProfit_Header)
+                .Content("#budgetVSProfitChart")
+                .RowSpan(3).ColumnSpan(4);
+            cb.Add()
+                .ShowHeader(true).HeaderText(Resources.DashboardDemo.SalesVsProfit_Header)
+                .Content("#chartSalesVsProfit")
+                .RowSpan(2).ColumnSpan(2);
+            cb.Add()
+                .ShowHeader(true).HeaderText("<span>" + Resources.DashboardDemo.CategorySales_Header + "</span><span class=\"lblUnits\">(" + Resources.DashboardDemo.Unit_Text + ")</span>")
+                .Content("#salesVSGoal")
+                .RowSpan(2).ColumnSpan(2);
+            cb.Add()
+                .ShowHeader(true).HeaderText(Resources.DashboardDemo.TopSaleProducts_Header)
+                .Content("#chartSaleTopProd")
+                .RowSpan(3).ColumnSpan(2);
+            cb.Add()
+                .ShowHeader(true).HeaderText(Resources.DashboardDemo.TopSaleCustomer_Header)
+                .Content("#topSaleCustomer")
+                .RowSpan(3).ColumnSpan(2);
+            cb.Add()
+                .ShowHeader(true).HeaderText("<span>" + Resources.DashboardDemo.RegionSales_Header + "</span><span class=\"lblUnits\">(" + Resources.DashboardDemo.Unit_Text + ")</span>")
+                .Content("#regionalSalesVsGoal")
+                .RowSpan(2).ColumnSpan(2);
+        });
+    }))
+
+<div class="flex vertical" style="width:100%;height:100%;overflow:hidden;">
+    <div class="auto" style="overflow:auto;">
+        @Html.C1().DashboardLayout().Id("dashboard").AllowResize(false)
+    </div>
+    <div>
+        @Html.Partial("RangeSelector", ViewBag.RangeSelectorModel as RangeSelectorModel)
+    </div>
+</div>

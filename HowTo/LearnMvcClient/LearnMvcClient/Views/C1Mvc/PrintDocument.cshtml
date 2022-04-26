@@ -1,0 +1,32 @@
+@model IEnumerable < FlexGridData.Sale >
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.PrintDocument_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.PrintDocument_Text1)
+</p>
+<p>
+    <button class="btn btn-default" id="btnPrintDoc">@Html.Raw(Resources.C1Mvc.PrintDocument_Text2)</button>
+    <button class="btn btn-default" id="btnPrintDirect">@Html.Raw(Resources.C1Mvc.PrintDocument_Text3)</button>
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.PrintDocument_Text4)
+</p>
+<table id="tblGauge">
+    <tr>
+        <td>
+            <div id="theGauge1"></div>
+        </td>
+        <td>
+            <div id="theGauge2"></div>
+        </td>
+    </tr>
+</table>
+@Html.C1().RadialGauge("#theGauge1").Max(100).Value(20).IsReadOnly(false)
+@Html.C1().RadialGauge("#theGauge2").Max(100).Value(20).IsReadOnly(false)
+
+<p>
+    @Html.Raw(Resources.C1Mvc.PrintDocument_Text5)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Bind(Model).Height(250))

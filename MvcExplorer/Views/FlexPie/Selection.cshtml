@@ -1,0 +1,13 @@
+﻿@using C1.Web.Mvc.Chart
+@model IEnumerable<CustomerOrder>
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().FlexPie<CustomerOrder>().Id(demoSettingsModel.ControlId).Header("Sales").Bind("Country", "Count", Model)
+.SelectionMode(SelectionMode.Point).IsAnimated(true).SelectedItemPosition(Position.Top))
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexPie.Selection_Text0)</p>
+}

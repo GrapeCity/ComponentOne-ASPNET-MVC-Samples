@@ -1,0 +1,41 @@
+@model IEnumerable<Sale>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<h4>@Html.Raw(Resources.MultiRowExplorer.DisableServerRead_Text2)</h4>
+@(Html.C1().MultiRow<Sale>()
+    .Id("dsrMultiRow")
+    .CssClass("multirow")
+    .IsReadOnly(true)
+    .Filterable()
+    .Bind(b => b.DisableServerRead(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue)).InitialItemsCount(10).Bind(Model))
+    .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+)
+<br />
+<br />
+<h4>@Html.Raw(Resources.MultiRowExplorer.DisableServerRead_Text3)</h4>
+
+@(Html.C1().MultiRow<Sale>()
+    .Id("dsrPagingMultiRow")
+    .CssClass("multirow")
+    .IsReadOnly(true)
+    .Filterable()
+    .Bind(b => b.DisableServerRead(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue)).PageSize(10).Bind(Model))
+    .LayoutDefinition(LayoutDefinitionsBuilders.Sales)
+)
+
+@(Html.C1().Pager().Owner("dsrPagingMultiRow"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.DisableServerRead_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.DisableServerRead_Text1)</p>
+
+}

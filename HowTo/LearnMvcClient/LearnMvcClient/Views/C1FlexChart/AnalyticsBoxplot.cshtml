@@ -1,0 +1,38 @@
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text2)
+</p>
+
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text5)
+    </li>
+</ol>
+
+<div class="demo-settings">
+    <label for="innerPoints">@Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text6) </label>
+    <input id="innerPoints" type="checkbox"><br />
+    <label for="outliers">@Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text7) </label>
+    <input id="outliers" type="checkbox"><br />
+    <label for="btnRandomize">@Html.Raw(Resources.C1FlexChart.AnalyticsBoxplot_Text8)</label>
+    <button id="btnRandomize" class="btn btn-default">
+        @Resources.Resource.Btn_Go
+    </button>
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .BindingX("country")
+    .Tooltip(t=>t.Content("{seriesName}: <b>{x}</b>"))
+)

@@ -1,0 +1,69 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    Dictionary<string, FilterType> filterTypes = ViewBag.FilterTypes;
+    ViewBag.DemoSettings = true;
+}
+
+<script type="text/javascript">
+    function toggleExclusiveValueSearch(e) {
+        var exclusiveValueSearch = e.target.checked;
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        var flexGridFilter = c1.getExtenders(filteringGrid, wijmo.grid.filter.FlexGridFilter)[0];
+        var cols = filteringGrid.columns;
+        for (var i = 0; i < cols.length; i++) {
+            var colFilter = flexGridFilter.getColumnFilter(cols[i]);
+            if (colFilter) {
+                colFilter.valueFilter.exclusiveValueSearch = exclusiveValueSearch;
+            } 
+        }
+    }
+</script>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("filteringGrid")
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .PageSize(25)
+    .IsReadOnly(true)
+    .Columns(columns =>
+    {
+        columns.Add(column => column.Binding("ID"));
+        columns.Add(column => column.Binding("Start"));
+        columns.Add(column => column.Binding("End").Format("t"));
+        columns.Add(column => column.Binding("Country"));
+        columns.Add(column => column.Binding("Product"));
+        columns.Add(column => column.Binding("Color"));
+        columns.Add(column => column.Binding("Amount").Format("c"));
+        columns.Add(column => column.Binding("Amount2").Format("c"));
+        columns.Add(column => column.Binding("Discount").Format("p0"));
+        columns.Add(column => column.Binding("Active"));
+    })
+    .SelectionMode(SelectionMode.Row)
+    .SortingType(AllowSorting.SingleColumn)
+    .Filterable(f => f.DefaultFilterType(FilterType.Both)
+            .ColumnFilters(cfsb =>
+            {
+                foreach (var item in filterTypes)
+                {                    
+                    cfsb.Add(cfb => cfb.Column(item.Key).FilterType(item.Value).ValueFilter(vfb => {                        
+                        vfb.ExclusiveValueSearch(true);                        
+                    }));
+                }
+            })
+     )
+    .CssClass("grid")
+)
+
+@(Html.C1().Pager().Owner("filteringGrid"))
+
+@section Settings{    
+    <p>@Html.Partial("_OptionsMenu", optionsModel)</p>    
+    ExclusiveValueSearch:&nbsp;<input id="exclusiveValueSearch" type="checkbox" checked="checked" onchange="toggleExclusiveValueSearch(event)" />
+}
+
+@section Description{    
+    <p>@Html.Raw(Resources.FlexGrid.Filter_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Filter_Text1)</p>
+}

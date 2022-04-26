@@ -1,0 +1,385 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = true;
+    var indicators = new List<AnalysisType> {
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeAtr, Abbreviation = "atr"},
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeRsi, Abbreviation = "rsi" },
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeCci, Abbreviation = "cci" },
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeWilliamsR, Abbreviation = "williamsR" },
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeMacd, Abbreviation = "macd" },
+        new AnalysisType{Name = Home.Indicators_AnalysisTypeStoch, Abbreviation = "stoch" }
+    };
+}
+
+<script type="text/javascript">
+    var indicatorAbbs = [@Html.Raw(string.Join(",", indicators.Select(idi => "'" + idi.Abbreviation + "'")))];
+
+    function showOption(indicator) {
+        for (var i = 0; i < indicatorAbbs.length; i++) {
+            toggleGroup(indicatorAbbs[i], indicatorAbbs[i] == indicator);
+        }
+    }
+
+    function toggleGroup(indicator, shown) {
+        var optGroup = wijmo.getElement('#' + indicator);
+        if (optGroup) {
+            if (shown) {
+                optGroup.style.display = '';
+            } else {
+                optGroup.style.display = 'none';
+            }
+        }
+    }
+
+    function updateIndicatorType(combox) {
+        var indicator = combox.selectedValue, index = combox.selectedIndex,
+            indexes = [];
+
+        if (index == 4) {
+            indexes = [index, index + 1];
+        } else if (index == 5) {
+            indexes.push(index + 1);
+        } else {
+            indexes.push(index);
+        }
+
+        showSeries(indexes);
+        showOption(indicator);
+    }
+
+    function showSeries(indexes) {
+        var chart = wijmo.Control.getControl('#indicator');
+
+        if (indexes == null || !indexes.length || !chart) {
+            return;
+        }
+
+        for (var i = 0; i < chart.series.length; i++) {
+            chart.series[i].visibility = (indexes.indexOf(i) != -1) ? wijmo.chart.SeriesVisibility.Visible : wijmo.chart.SeriesVisibility.Hidden;
+        }
+    }
+
+    function updateATRPeriod(atrPDNumber) {
+        var chart = wijmo.Control.getControl('#indicator');
+        if (!checkValue(atrPDNumber)) {
+            return;
+        }
+        if (chart) {
+            chart.series[0].period = atrPDNumber.value;
+        }
+    }
+
+    function updateRSIPeriod(rsiPDNumber) {
+        var chart = wijmo.Control.getControl('#indicator');
+        if (!checkValue(rsiPDNumber)) {
+            return;
+        }
+        if (chart) {
+            chart.series[1].period = rsiPDNumber.value;
+        }
+    }
+
+    function updateCCIPeriod(cciPDNumber) {
+        var chart = wijmo.Control.getControl('#indicator');
+        if (!checkValue(cciPDNumber)) {
+            return;
+        }
+        if (chart) {
+            chart.series[2].period = cciPDNumber.value;
+        }
+    }
+
+    function updateWilliamsRPeriod(wrPDNumber) {
+        var chart = wijmo.Control.getControl('#indicator');
+        if (!checkValue(wrPDNumber)) {
+            return;
+        }
+        if (chart) {
+            chart.series[3].period = wrPDNumber.value;
+        }
+    }
+
+    function getDataLength(){
+        return @(Model.Count);
+    }
+
+    function isValidSmoothingPeriod(newValue) {
+        var dataLength = getDataLength(),
+            chart = wijmo.Control.getControl('#indicator'),
+            max;
+        if (dataLength <= 0 || !chart) {
+            return false;
+        }
+
+        max = Math.max(chart.series[4].fastPeriod, chart.series[4].slowPeriod);
+        return newValue >= 2 && newValue <= Math.abs(dataLength - max);
+    }
+
+    function isValidPeriod(newValue) {
+        var dataLength = getDataLength(),
+            chart = wijmo.Control.getControl('#indicator'),
+            smoothing;
+        if (dataLength <= 0 || !chart) {
+            return false;
+        }
+
+        smoothing = chart.series[4].smoothingPeriod;
+        return newValue >= 2 && newValue <= Math.abs(dataLength - smoothing);
+    }
+
+    function updateFastPeriod(macdFPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = macdFPNumber.value;
+        if (!isValidPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[4].fastPeriod = validPeriod;
+            chart.series[5].fastPeriod = validPeriod;
+            macdFPNumber.value = validPeriod;
+        }
+    }
+
+    function updateSlowPeriod(macdSPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = macdSPNumber.value;
+        if (!isValidPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[4].slowPeriod = validPeriod;
+            chart.series[5].slowPeriod = validPeriod;
+            macdSPNumber.value = validPeriod;
+        }
+    }
+
+    function updateSmoothingPeriod(macdSPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = macdSPNumber.value;
+        if (!isValidSmoothingPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[4].smoothingPeriod = validPeriod;
+            chart.series[5].smoothingPeriod = validPeriod;
+            macdSPNumber.value = validPeriod;
+        }
+    }
+
+    function isValidKPeriod(newValue) {
+        var dataLength = getDataLength(),
+            chart = wijmo.Control.getControl('#indicator'),
+            kMax, smoothingPeriod;
+        if (dataLength <= 0 || !chart) {
+            return false;
+        }
+
+        kMax = Math.abs(dataLength - chart.series[6].dPeriod);
+        smoothingPeriod = chart.series[6].smoothingPeriod;
+        if (smoothingPeriod > 1) {
+            kMax -= smoothingPeriod;
+        }
+
+        return newValue >= 2 && newValue <= kMax;
+    }
+
+    function isValidDPeriod(newValue) {
+        var dataLength = getDataLength(),
+            chart = wijmo.Control.getControl('#indicator'),
+            dMax, smoothingPeriod;
+
+        if (dataLength <= 0 || !chart) {
+            return false;
+        }
+
+        dMax = Math.abs(dataLength - chart.series[6].kPeriod);
+        smoothingPeriod = chart.series[6].smoothingPeriod;
+        if (smoothingPeriod > 1) {
+            dMax -= smoothingPeriod;
+        }
+
+        return newValue >= 2 && newValue <= dMax;
+    }
+
+    function isValidStochSmoothingPeriod(newValue) {
+        var dataLength = getDataLength(),
+            chart = wijmo.Control.getControl('#indicator'),
+            sMax;
+
+        if (dataLength <= 0 || newValue <= 1) {
+            return false;
+        }
+
+        sMax = Math.abs(dataLength - chart.series[6].kPeriod - chart.series[6].dPeriod);
+        sMax = sMax || 1;
+        return newValue >= 1 && newValue <= sMax;
+    }
+
+    function updateKPeriod(stochKPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = stochKPNumber.value;
+        if (!isValidKPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[6].kPeriod = validPeriod;
+            stochKPNumber.value = validPeriod;
+        }
+    }
+
+    function updateDPeriod(stochDPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = stochDPNumber.value;
+        if (!isValidDPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[6].dPeriod = validPeriod;
+            stochDPNumber.value = validPeriod;
+        }
+    }
+
+    function updateStochSmoothingPeriod(stochSPNumber) {
+        var chart = wijmo.Control.getControl('#indicator'),
+            validPeriod = stochSPNumber.value;
+        if (!isValidStochSmoothingPeriod(validPeriod)) {
+            return;
+        }
+        if (chart) {
+            chart.series[6].smoothingPeriod = validPeriod;
+            stochSPNumber.value = validPeriod;
+        }
+    }
+
+    function checkValue(number) {
+        return number.value >= number.min && number.value <= number.max;
+    }
+
+    c1.documentReady(function () {
+        var combox = wijmo.Control.getControl('#indicatorSel');
+        if (combox) {
+            combox.selectedIndex = 0;
+            updateIndicatorType(combox);
+        }
+    });
+
+    function chartRendered(sender, args) {
+        // set min/max for indicator chart to match main chart
+        var indicatorChart = wijmo.Control.getControl('#indicator'),
+            chart = wijmo.Control.getControl('#financeChart');
+
+        if (chart && indicatorChart) {
+            indicatorChart.axisX.min = chart.axisX.actualMin;
+            indicatorChart.axisX.max = chart.axisX.actualMax;
+        }
+    };
+</script>
+
+<c1-financial-chart id="financeChart" binding-x="X" rendered="chartRendered" legend-position="Top">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="Close" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+<c1-financial-chart id="indicator" height="200px" binding-x="X" rendered="chartRendered" legend-position="Bottom">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-flex-chart-atr binding="High,Low,Open,Close" period="14" name="ATR"></c1-flex-chart-atr>
+    <c1-flex-chart-rsi binding="Close" period="14" name="RSI"></c1-flex-chart-rsi>
+    <c1-flex-chart-cci binding="High,Low,Open,Close" period="20" name="CCI"></c1-flex-chart-cci>
+    <c1-flex-chart-williams-r binding="High,Low,Open,Close" period="14" name="Williams %R"></c1-flex-chart-williams-r>
+    <c1-flex-chart-macd binding="Close" fast-period="12" slow-period="26" smoothing-period="9" name="MACD,Signal">
+        <c1-flex-chart-line-style c1-property="macdLine" stroke="#bfa554"></c1-flex-chart-line-style>
+        <c1-flex-chart-line-style c1-property="signalLine" stroke="#bf8c54"></c1-flex-chart-line-style>
+    </c1-flex-chart-macd>
+    <c1-flex-chart-macd-histogram binding="Close" fast-period="12" slow-period="26" smoothing-period="9" name="MACD Histogram"></c1-flex-chart-macd-histogram>
+    <c1-flex-chart-stochastic binding="High,Low,Open,Close" k-period="14" d-period="3" smoothing-period="1" name="%K,%D">
+        <c1-flex-chart-line-style c1-property="kLine" stroke="#eddd46"></c1-flex-chart-line-style>
+        <c1-flex-chart-line-style c1-property="dLine" stroke="#edb747"></c1-flex-chart-line-style>
+    </c1-flex-chart-stochastic>
+    <c1-flex-chart-tooltip content="tooltip"></c1-flex-chart-tooltip>
+</c1-financial-chart>
+
+@section Settings{
+<div class="panel-body">
+    <!-- Indicator Selector -->
+    <ul class="list-inline">
+        <li>
+            <label>@Html.Raw(Home.Indicators_IndicatorType)</label>
+            <c1-combo-box id="indicatorSel" selected-value-path="Abbreviation" display-member-path="Name" selected-index-changed="updateIndicatorType" is-editable="false">
+                <c1-items-source source-collection="indicators"></c1-items-source>
+            </c1-combo-box>
+        </li>
+    </ul>
+
+    <!-- ATR Properties -->
+    <ul class="list-inline" id="atr">
+        <li>
+            <label>@Html.Raw(Home.Indicators_Period)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateATRPeriod"></c1-input-number>
+        </li>
+    </ul>
+
+    <!-- RSI Properties -->
+    <ul class="list-inline" id="rsi">
+        <li>
+            <label>@Html.Raw(Home.Indicators_Period)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateRSIPeriod"></c1-input-number>
+        </li>
+    </ul>
+
+    <!-- CCI Properties -->
+    <ul class="list-inline" id="cci">
+        <li>
+            <label>@Html.Raw(Home.Indicators_Period)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="20" value-changed="updateCCIPeriod"></c1-input-number>
+        </li>
+    </ul>
+
+    <!-- Williams %R Properties -->
+    <ul class="list-inline" id="williamsR">
+        <li>
+            <label>@Html.Raw(Home.Indicators_Period)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateWilliamsRPeriod"></c1-input-number>
+        </li>
+    </ul>
+
+    <!-- MACD & MACD Histogram Properties -->
+    <ul class="list-inline" id="macd">
+        <li>
+            <label>@Html.Raw(Home.Indicators_FastPeriod)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="12" value-changed="updateFastPeriod"></c1-input-number>
+        </li>
+        <li>
+            <label>@Html.Raw(Home.Indicators_SlowPeriod)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="26" value-changed="updateSlowPeriod"></c1-input-number>
+        </li>
+        <li>
+            <label>@Html.Raw(Home.Indicators_SignalSmoothingPeriod)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="9" value-changed="updateSmoothingPeriod"></c1-input-number>
+        </li>
+    </ul>
+
+    <!-- Fast Stochastic Properties -->
+    <ul class="list-inline" id="stoch">
+        <li>
+            <label>@Html.Raw(Home.Indicators_KPeriod)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="14" value-changed="updateKPeriod"></c1-input-number>
+        </li>
+        <li>
+            <label>@Html.Raw(Home.Indicators_DPeriod)</label>
+            <c1-input-number min="2" step="1" format="n0" max="@(Model.Count-1)" value="3" value-changed="updateDPeriod"></c1-input-number>
+        </li>
+        <li>
+            <label>@Html.Raw(Home.Indicators_SmoothingPeriod)</label>
+            <c1-input-number min="1" step="1" format="n0" max="@(Model.Count-1)" value="1" value-changed="updateStochSmoothingPeriod"></c1-input-number>
+        </li>
+    </ul>
+</div>
+}
+
+@section Description{
+<p>@Html.Raw(Home.Indicators_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.Indicators_Text1)</p>
+}

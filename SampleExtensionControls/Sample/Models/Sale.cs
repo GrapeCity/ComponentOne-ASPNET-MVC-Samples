@@ -5,7 +5,8 @@ namespace Sample.Models
 {
     public class Sale
     {
-        public Sale(){
+        public Sale()
+        {
             Start = End = DateTime.Now;
         }
         public int ID { get; set; }
@@ -62,10 +63,59 @@ namespace Sample.Models
             return list;
         }
 
-        public static List<string> GetCountries()
-        {
-            var countries = new List<string>();
-            countries.AddRange(COUNTRIES);
+        public static List<Country> GetCountries()
+        {            
+            var countries = new List<Country>();
+            countries.Add(new Country() {CountryName = "United State",
+                CountryShortName = "US",CountryCode = "1" });
+            countries.Add(new Country()
+            {
+                CountryName = "United Kingdom",
+                CountryShortName = "UK",
+                CountryCode = "2"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "Canada",
+                CountryShortName = "CDN",
+                CountryCode = "3"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "Japan",
+                CountryShortName = "JP",
+                CountryCode = "4"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "China",
+                CountryShortName = "CN",
+                CountryCode = "5"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "German",
+                CountryShortName = "GER",
+                CountryCode = "6"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "Italy",
+                CountryShortName = "ITA",
+                CountryCode = "7"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "Korea",
+                CountryShortName = "KR",
+                CountryCode = "8"
+            });
+            countries.Add(new Country()
+            {
+                CountryName = "Australia",
+                CountryShortName = "AUS",
+                CountryCode = "9"
+            });
             return countries;
         }
 
@@ -82,7 +132,7 @@ namespace Sample.Models
             var i = data.Max(s => s.ID);
             data.Add(new Sale
             {
-                ID = ++ i,
+                ID = ++i,
                 Start = DateTime.Now,
                 End = DateTime.Now,
                 Country = "Russia",
@@ -97,7 +147,7 @@ namespace Sample.Models
             });
             data.Add(new Sale
             {
-                ID = ++ i,
+                ID = ++i,
                 Start = DateTime.Now,
                 End = DateTime.Now,
                 Country = "New Zealand",
@@ -146,4 +196,12 @@ namespace Sample.Models
             return list;
         }
     }
+
+    public class Country
+    {
+        public string CountryName { get; set; }
+        public string CountryShortName { get; set; }
+        public string CountryCode { get; set; }
+    }
+
 }

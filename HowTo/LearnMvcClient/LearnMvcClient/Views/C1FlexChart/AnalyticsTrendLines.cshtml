@@ -1,0 +1,46 @@
+@{
+    var fitTypes = new[] { "Linear", "Exponential", "Logarithmic", "Power", "Fourier", "Polynomial", "MinX", "MinY", "MaxX", "MaxY", "AverageX", "AverageY" };
+}
+
+<h1>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text2)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text4)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text5)
+    </li>
+</ol>
+
+<div class="demo-settings">
+    <label for="fitType">@Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text6) </label>
+    @Html.C1().ComboBox().Id("fitType").Bind(fitTypes).IsRequired(false).Placeholder(Resources.C1FlexChart.AnalyticsTrendLines_Text7).Text("")
+    <br />
+    <label for="order">@Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text8) </label>
+    @Html.C1().InputNumber().Id("order").Value(2).Step(1).Min(1).Max(6).IsDisabled(true)
+    <br />
+    <label>@Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text9) </label>
+    <div id="equation" class="equation"></div><br />
+    <label for="btnRandomize">@Html.Raw(Resources.C1FlexChart.AnalyticsTrendLines_Text10)</label>
+    <button id="btnRandomize" class="btn btn-default">
+        @Resources.Resource.Btn_Go
+    </button>
+</div>
+
+@(Html.C1().FlexChart().Id("theChart")
+    .ChartType(C1.Web.Mvc.Chart.ChartType.Scatter)
+    .AxisY(y => y.AxisLine(true))
+    .BindingX("x")
+    .Series(sb => sb.Add().Binding("y").Name("Raw Data"))
+)

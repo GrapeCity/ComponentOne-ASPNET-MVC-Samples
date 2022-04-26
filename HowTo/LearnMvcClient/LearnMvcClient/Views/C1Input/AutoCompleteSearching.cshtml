@@ -1,0 +1,14 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearching_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearching_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteSearching_Text2)
+</p>
+<label for="theAutoComplete">@Html.Raw(Resources.C1Input.AutoCompleteSearching_Text3)</label>
+@(Html.C1().AutoComplete<Gdp>().Id("theAutoComplete").Bind(Model).DisplayMemberPath("Country"))

@@ -1,0 +1,47 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text2)
+</p>
+
+<label>
+    <input type="radio" name="filter" value="" checked="true" />
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text3)
+</label>
+<label>
+    <input type="radio" name="filter" value="Country" />
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text4)
+</label>
+<label>
+    <input type="radio" name="filter" value="Sales" />
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text5)
+</label>
+<label>
+    <input type="radio" name="filter" value="Downloads" />
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text6)
+</label>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.CVFiltering_Text7)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Height(250)
+    .Bind(b=>b.Bind(Model).DisableServerRead(true))
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Downloads").Header("Downloads");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+    .ShowAlternatingRows(false)
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+)

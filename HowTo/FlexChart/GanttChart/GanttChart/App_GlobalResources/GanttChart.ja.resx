@@ -1,0 +1,244 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComponentOneLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone-studio/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="EnhancedChart_Description" xml:space="preserve">
+    <value>タスクの依存関係と完了割合を表示するための要素を追加する関数を
+            &lt;b&gt;ItemFormatter&lt;/b&gt;プロパティに設定して、チャートを
+            カスタマイズします。</value>
+    <comment>Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+            to a function that adds elements to show task dependencies
+            and percent complete.</comment>
+  </data>
+  <data name="EnhancedGanttChartHeader" xml:space="preserve">
+    <value>強化版ガントチャート</value>
+    <comment>Enhanced Gantt Chart</comment>
+  </data>
+  <data name="EnhancedGanttChartTitle" xml:space="preserve">
+    <value>依存関係と完了割合</value>
+    <comment>Dependencies &amp; Percent Complete</comment>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.ja.css</value>
+    <comment>~/Content/css/gcicons.css</comment>
+  </data>
+  <data name="GettingStarted" xml:space="preserve">
+    <value>はじめに</value>
+    <comment>Getting Started</comment>
+  </data>
+  <data name="PageDescription" xml:space="preserve">
+    <value>FlexChartを使用したガントチャートの作成</value>
+    <comment>Create a GanttChart with FlexChart</comment>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>FlexChart - GanttChart</value>
+    <comment>FlexChart - GanttChart</comment>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>結果</value>
+    <comment>Result</comment>
+  </data>
+  <data name="SimpleChart_Step1" xml:space="preserve">
+    <value>チャートを初期化します（ChartTypeを'C1.Web.Mvc.Chart.ChartType.Bar'に設定し、データに連結します）。</value>
+    <comment>Initialize the chart (set the ChartType to 'C1.Web.Mvc.Chart.ChartType.Bar' and Bind to the data).</comment>
+  </data>
+  <data name="SimpleChart_Step2" xml:space="preserve">
+    <value>チャートに系列を追加し、系列の連結プロパティを開始日付と終了日付のフィールドに設定します。</value>
+    <comment>Add a series to the chart and set its binding property to the fields Start and End dates.</comment>
+  </data>
+  <data name="SimpleChart_Step3" xml:space="preserve">
+    <value>AxisYをカスタマイズして、主グリッド線を非表示にし、副グリッド線を表示します。</value>
+    <comment>Customize AxisY to hide the major grid and show minor grid.</comment>
+  </data>
+  <data name="SimpleGanttChartHeader" xml:space="preserve">
+    <value>単純なガントチャート</value>
+    <comment>Plain Gantt Chart</comment>
+  </data>
+  <data name="SimpleGanttChartTitle" xml:space="preserve">
+    <value>FlexChartを使用してガントチャートをカスタマイズする手順</value>
+    <comment>Steps for getting started with the FlexChart to customize a GanttChart:</comment>
+  </data>
+  <data name="SiteError" xml:space="preserve">
+    <value>エラー</value>
+    <comment>Error</comment>
+  </data>
+  <data name="SiteErrorDescription" xml:space="preserve">
+    <value>要求の処理中にエラーが発生しました。</value>
+    <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="SiteFooter1" xml:space="preserve">
+    <value>GrapeCity, Inc. All Rights Reserved.</value>
+    <comment>GrapeCity, Inc. All Rights Reserved.</comment>
+  </data>
+  <data name="SiteFooter2" xml:space="preserve">
+    <value>ここで示されているすべての製品および会社名は、それぞれの所有者の商標である場合があります。</value>
+    <comment>All product and company names here in may be trademarks of their respective owners.</comment>
+  </data>
+  <data name="SiteNavAbout" xml:space="preserve">
+    <value>製品情報</value>
+    <comment>About</comment>
+  </data>
+  <data name="SiteNavAboutLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/componentone-studio/aspnet-mvc</value>
+    <comment>https://www.grapecity.com/en/aspnet-mvc</comment>
+  </data>
+  <data name="SiteNavFreeTrial" xml:space="preserve">
+    <value>トライアル版</value>
+    <comment>FREE TRIAL</comment>
+  </data>
+  <data name="SiteNavFreeTrialLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/download</value>
+    <comment>https://www.grapecity.com/en/download/componentone-studio</comment>
+  </data>
+  <data name="SiteNavPricing" xml:space="preserve">
+    <value>ご購入</value>
+    <comment>Pricing</comment>
+  </data>
+  <data name="SiteNavPricingLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/purchase</value>
+    <comment>https://www.grapecity.com/en/pricing</comment>
+  </data>
+  <data name="SiteNavSupport" xml:space="preserve">
+    <value>サポート</value>
+    <comment>Support</comment>
+  </data>
+  <data name="SiteNavSupportLink" xml:space="preserve">
+    <value>https://www.grapecity.co.jp/developer/support</value>
+    <comment>http://supportone.componentone.com/login</comment>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>ComponentOne</value>
+    <comment>ComponentOne</comment>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>ソース</value>
+    <comment>Source</comment>
+  </data>
+  <data name="Tooltip1" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</comment>
+  </data>
+  <data name="Tooltip2" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;完了割合: {Percent}%&lt;/i&gt;</value>
+    <comment>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;</comment>
+  </data>
+</root>

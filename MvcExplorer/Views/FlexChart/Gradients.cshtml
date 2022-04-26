@@ -1,0 +1,55 @@
+﻿@model IEnumerable<Fruit>
+@using C1.Web.Mvc.Chart
+
+@{
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+    <script>
+        var chart, series;
+
+        c1.documentReady(function () {
+            chart = wijmo.Control.getControl('#chartGradients');
+            series = chart.series[0];
+        });
+
+        function customChangeFill(control, value) {
+            series.style.fill = value.substr(value.indexOf('-') + 2);
+            chart.refresh();
+        }
+    </script>
+}
+
+@(Html.C1().FlexChart().Id("chartGradients")
+    .ChartType(ChartType.Column)
+    .Bind(Model)
+    .BindingX("Name").Legend(Position.None)
+    .DataLabel(label => { label.Content("{y}"); })
+    .Series(ser =>
+    {
+        ser.Add().Name("March").Binding("MarPrice").Style(s => s.Stroke("darkred").StrokeWidth(1).Fill("l(0,0,1,0)#89f7fe-#66a6ff"));
+    })
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexChart.Gradients_Text7)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text1)</p>
+    <pre>
+        &lt;type&gt;(&lt;coords&gt;)&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]][-&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]]]-&lt;colors&gt;[:&lt;offset&gt;[:&lt;opacity&gt;]]
+    </pre>
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text2)</p>
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text3)</p>
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text4)</p>
+    <pre>
+    'l(0,0,1,0)#ff0000-#00ff00-#0000ff', 'L(0,0,300,300)#ff0000:0.2:0.2-00ff00:0.8'
+    </pre>
+    <p>@Html.Raw(Resources.FlexChart.Gradients_Text5)</p>
+    <pre>
+    'r(0.5,0.5,1)#ff0000-#0000ff', 'R(100,100,100,200,200,200)#ff0000-#0000ff'
+    </pre>
+}

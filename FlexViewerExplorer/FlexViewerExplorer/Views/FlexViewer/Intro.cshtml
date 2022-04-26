@@ -1,0 +1,30 @@
+﻿@using FlexViewerExplorer.Models;
+<div id="reportViewerContainer">
+    @(Html.C1().ReportViewer()
+        .Id("reportViewer")
+        .CssStyle("width", "100%")
+        .FilePath(ReportFiles.SelectedReportPath)
+        .ReportName(ReportFiles.SelectedReportName)
+        .ZoomMode(ZoomMode.PageWidth).ThresholdWidth(650)
+        .OnClientZoomModeChanged("ReportViewerZoomModeChanged"))
+</div>
+<div id="pdfViewerContainer" class="hidden">
+    @(Html.C1().PdfViewer()
+        .Id("pdfViewer")
+        .CssStyle("width", "100%")
+        .FilePath(Documents.Pdfs.SelectedDocumentPath)
+        .ZoomMode(ZoomMode.PageWidth).ThresholdWidth(650)
+        .OnClientZoomModeChanged("PdfViewerZoomModeChanged"))
+</div>
+
+@section Scripts{
+    <script>
+        function PdfViewerZoomModeChanged() {
+            console.log("PdfViewerZoomModeChanged!!!")
+        }
+
+        function ReportViewerZoomModeChanged() {
+            console.log("ReportViewerZoomModeChanged!!!")
+        }
+    </script>
+}

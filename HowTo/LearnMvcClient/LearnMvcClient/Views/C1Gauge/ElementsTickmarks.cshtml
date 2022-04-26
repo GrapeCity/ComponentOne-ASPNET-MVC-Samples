@@ -1,0 +1,36 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.ElementsTickmarks_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text2)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-6">
+        <label for="showTicks">@Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text3)</label>
+        <input id="showTicks" type="checkbox" checked="checked">
+        <br />
+        <label for="tickSpacing">@Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text4)</label>
+        @Html.C1().InputNumber().Id("tickSpacing").Min(0).Max(100).Step(5).Format("n0")
+        <br />
+        <label for="tickWidth">@Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text5)</label>
+        @Html.C1().InputNumber().Id("tickWidth").Min(0).Max(5).Step(0.25).Format("n1").Value(2)
+        <br />
+        <label for="tickColor">@Html.Raw(Resources.C1Gauge.ElementsTickmarks_Text6)</label>
+        @Html.C1().InputColor().Id("tickColor").Value(System.Drawing.Color.White)
+    </div>
+    <div class="col-xs-6">
+        @(Html.C1().RadialGauge().Id("theGauge")
+            .StartAngle(-30).SweepAngle(240)
+            .Value(50).Max(100)
+            .IsReadOnly(false)
+            .HasShadow(false)
+            .ShowText(ShowText.All)
+            .ShowTicks(true)
+            .TickSpacing(10)
+            .Pointer(p=>p.Thickness(0.5))
+        )
+    </div>
+</div>

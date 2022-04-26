@@ -1,4 +1,4 @@
-﻿ASP.NET Core MVC Finance
+﻿ASP.NET MVC Finance
 ---------------------------
 A stock portfolio application written using the MVC pattern.
 

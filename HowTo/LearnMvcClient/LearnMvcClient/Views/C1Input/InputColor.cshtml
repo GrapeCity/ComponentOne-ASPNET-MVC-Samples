@@ -1,0 +1,28 @@
+<h1>
+    @Html.Raw(Resources.C1Input.InputColor_Title)
+    <div id="output">
+        @Resources.C1Input.InputColor_OutputText
+    </div>
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputColor_Text1)
+</p>
+<div class="demo-settings">
+    <label for="theInputColor">@Html.Raw(Resources.C1Input.InputColor_Text2) </label>
+    @Html.C1().InputColor().Id("theInputColor").Placeholder(Resources.C1Input.Colors_Text3)
+</div>
+
+<p>
+    @Html.Raw(Resources.C1Input.InputColor_Text3)
+</p>
+<div class="demo-settings">
+    <label for="showAlphaChannel">@Html.Raw(Resources.C1Input.InputColor_Text4) </label>
+    <input id="showAlphaChannel" type="checkbox" checked="checked">
+    <br>
+    <label for="thePalette">@Html.Raw(Resources.C1Input.InputColor_Text5) </label>
+    @Html.C1().ComboBox().Id("thePalette").DisplayMemberPath("name")
+    <br>
+    <label for="theInputColorCst">@Html.Raw(Resources.C1Input.InputColor_Text6) </label>
+    @Html.C1().InputColor().Id("theInputColorCst")
+</div>

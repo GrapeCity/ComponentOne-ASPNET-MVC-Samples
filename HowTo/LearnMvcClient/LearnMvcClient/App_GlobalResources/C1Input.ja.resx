@@ -1,0 +1,2751 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AlertsPrompts_Text1" xml:space="preserve">
+    <value>Popup コントロールを使用すると、アラートダイアログやプロンプトダイアログを表示するための静的メソッドを実装できます。</value>
+    <comment>The Popup control can be used to implement static
+    methods for showing alert and prompt dialogs:</comment>
+  </data>
+  <data name="AlertsPrompts_Text10" xml:space="preserve">
+    <value>ダイアログクラス</value>
+    <comment>Dialog Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text11" xml:space="preserve">
+    <value>ヘッダークラス</value>
+    <comment>Header Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text12" xml:space="preserve">
+    <value>本文クラス</value>
+    <comment>Body Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text13" xml:space="preserve">
+    <value>入力クラス</value>
+    <comment>Input Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text14" xml:space="preserve">
+    <value>本文クラス</value>
+    <comment>Body Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text15" xml:space="preserve">
+    <value>OK クラス</value>
+    <comment>OK Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text16" xml:space="preserve">
+    <value>キャンセルクラス</value>
+    <comment>Cancel Class</comment>
+  </data>
+  <data name="AlertsPrompts_Text2" xml:space="preserve">
+    <value>表示</value>
+    <comment>Show</comment>
+  </data>
+  <data name="AlertsPrompts_Text3" xml:space="preserve">
+    <value>タイプ</value>
+    <comment>Type</comment>
+  </data>
+  <data name="AlertsPrompts_Text4" xml:space="preserve">
+    <value>ヘッダー</value>
+    <comment>Header</comment>
+  </data>
+  <data name="AlertsPrompts_Text5" xml:space="preserve">
+    <value>本文</value>
+    <comment>Body</comment>
+  </data>
+  <data name="AlertsPrompts_Text6" xml:space="preserve">
+    <value>デフォルト値</value>
+    <comment>Default Value</comment>
+  </data>
+  <data name="AlertsPrompts_Text7" xml:space="preserve">
+    <value>サイズ小</value>
+    <comment>Small</comment>
+  </data>
+  <data name="AlertsPrompts_Text8" xml:space="preserve">
+    <value>OK テキスト</value>
+    <comment>OK Text</comment>
+  </data>
+  <data name="AlertsPrompts_Text9" xml:space="preserve">
+    <value>キャンセルテキスト</value>
+    <comment>Cancel Text</comment>
+  </data>
+  <data name="AlertsPrompts_Title" xml:space="preserve">
+    <value>アラートとプロンプト</value>
+    <comment>Alerts and Prompts</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text1" xml:space="preserve">
+    <value>ComboBox コントロールは、ComponentOne MVC 入力モジュールの中でも最も強力で柔軟性が高いコントロールの 1 つです。これを使用して、文字列の編集やリストからの項目の選択を行うことができます。AutoComplete、MultiSelect、InputTime、Menu などの他のコントロールの基本クラスとして使用されます。</value>
+    <comment>The ComboBox control is one of the most powerful and flexible in C1 MVC's input module.
+    It can be used to edit strings and to select items from lists. It is used as a base class
+    for several other controls including AutoComplete, MultiSelect, InputTime, and Menu.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text10" xml:space="preserve">
+    <value>&lt;b&gt;isRequired&lt;/b&gt;：ユーザーにコントロール内のテキストのクリアを許可するかどうかを決定する値を取得または設定します。</value>
+    <comment>&lt;b&gt;isRequired&lt;/b&gt;
+        Gets or sets a value that determines whether users should be
+        allowed clear the text in the control.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text11" xml:space="preserve">
+    <value>次の例に、これらのプロパティの使用例を示します。</value>
+    <comment>This example illustrates the use of these properties:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text12" xml:space="preserve">
+    <value>displayMemberPath：</value>
+    <comment>displayMemberPath:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text13" xml:space="preserve">
+    <value>selectedValuePath：</value>
+    <comment>selectedValuePath:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text14" xml:space="preserve">
+    <value>selectedItem：</value>
+    <comment>selectedItem:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text15" xml:space="preserve">
+    <value>selectedIndex：</value>
+    <comment>selectedIndex:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text16" xml:space="preserve">
+    <value>selectedValue：</value>
+    <comment>selectedValue:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text17" xml:space="preserve">
+    <value>text：</value>
+    <comment>text:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text2" xml:space="preserve">
+    <value>ComboBox コントロールの主なプロパティは次のとおりです。</value>
+    <comment>The main properties in the ComboBox control are:</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text3" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt;：選択できる項目（値またはオブジェクト）を含む配列（または CollectionView）を取得または設定します。</value>
+    <comment>&lt;b&gt;itemsSource&lt;/b&gt;
+        Gets or sets an array (or CollectionView) containing the items
+        (values or objects) to choose from.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text4" xml:space="preserve">
+    <value>&lt;b&gt;displayMemberPath&lt;/b&gt;：入力要素とドロップダウンリストに表示する項目のプロパティの名前を取得または設定します。</value>
+    <comment>&lt;b&gt;displayMemberPath&lt;/b&gt;
+        Gets or sets the name of the property of the items to display
+        in the input element and in the drop-down list.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text5" xml:space="preserve">
+    <value>&lt;b&gt;selectedValuePath&lt;/b&gt;：&lt;b&gt;selectedValue&lt;/b&gt; プロパティの値を取得または設定するときに使用する項目のプロパティの名前を取得または設定します。</value>
+    <comment>&lt;b&gt;selectedValuePath&lt;/b&gt;
+        Gets or sets the name of the property of the items to use
+        when getting or setting the value of the &lt;b&gt;selectedValue&lt;/b&gt;
+        property.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text6" xml:space="preserve">
+    <value>&lt;b&gt;selectedItem&lt;/b&gt;：&lt;b&gt;itemsSource&lt;/b&gt; コレクションの現在の選択項目を取得または設定します。</value>
+    <comment>&lt;b&gt;selectedItem&lt;/b&gt;
+        Gets or sets the currently selected item in the
+        &lt;b&gt;itemsSource&lt;/b&gt; collection.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text7" xml:space="preserve">
+    <value>&lt;b&gt;selectedIndex&lt;/b&gt;：現在の選択項目のインデックスを取得または設定します。</value>
+    <comment>&lt;b&gt;selectedIndex&lt;/b&gt;
+        Gets or sets the index of the currently selected item.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text8" xml:space="preserve">
+    <value>&lt;b&gt;selectedValue&lt;/b&gt;：現在の選択項目の &lt;b&gt;selectedValuePath&lt;/b&gt; プロパティの値を取得または設定します。</value>
+    <comment>&lt;b&gt;selectedValue&lt;/b&gt;
+        Gets or sets the value of the &lt;b&gt;selectedValuePath&lt;/b&gt;
+        property in the currently selected item.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isEditable&lt;/b&gt;：&lt;b&gt;itemsSource&lt;/b&gt; に存在しない値の入力をユーザーに許可するかどうかを決定する値を取得または設定します。</value>
+    <comment>&lt;b&gt;isEditable&lt;/b&gt;
+        Gets or sets a value that determines whether users should
+        be allowed to enter values not present in the &lt;b&gt;itemsSource&lt;/b&gt;.</comment>
+  </data>
+  <data name="ArchitectureComboBox_Title" xml:space="preserve">
+    <value>ComboBox</value>
+    <comment>ComboBox</comment>
+  </data>
+  <data name="ArchitectureComboBox_Title1" xml:space="preserve">
+    <value>データ</value>
+    <comment>Data</comment>
+  </data>
+  <data name="ArchitectureComboBox_Title2" xml:space="preserve">
+    <value>ComboBox</value>
+    <comment>ComboBox</comment>
+  </data>
+  <data name="Architecture_Text1" xml:space="preserve">
+    <value>ComponentOne MVC の入力コントロールは、標準の HTML 要素で構成されます。多くの入力コントロールには、ユーザーが入力を行う内部入力要素、ドロップダウンエディタの表示に使用されるボタン、クリック/選択が可能な領域が含まれます。</value>
+    <comment>C1 MVC's input controls are composed of standard HTML elements.
+    Many have an inner input element where the user can type,
+    buttons used to show drop-down editors, or clickable/seletable
+    areas.</comment>
+  </data>
+  <data name="Architecture_Text10" xml:space="preserve">
+    <value>text &lt;span class="detail"&gt;書式設定された値&lt;/span&gt;</value>
+    <comment>text &lt;span class="detail"&gt;formatted value&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text11" xml:space="preserve">
+    <value>value &lt;span class="detail"&gt;解析されたテキスト&lt;/span&gt;</value>
+    <comment>value &lt;span class="detail"&gt;parsed text&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text12" xml:space="preserve">
+    <value>format &lt;span class="detail"&gt;text と value の変換に使用される書式&lt;/span&gt;</value>
+    <comment>format &lt;span class="detail"&gt;format used to convert between text and value&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text13" xml:space="preserve">
+    <value>また、数値、日付、時刻などの入力に使用されるコントロールには、次の共通プロパティがあります。</value>
+    <comment>And controls used to input numbers, dates, and times have the
+    folowing properties in common:</comment>
+  </data>
+  <data name="Architecture_Text14" xml:space="preserve">
+    <value>min &lt;span class="detail"&gt;最小値&lt;/span&gt;</value>
+    <comment>min &lt;span class="detail"&gt;minimum value&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text15" xml:space="preserve">
+    <value>max &lt;span class="detail"&gt;最大値&lt;/span&gt;</value>
+    <comment>max &lt;span class="detail"&gt;maximum value&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text16" xml:space="preserve">
+    <value>step &lt;span class="detail"&gt;マウスホイールまたはスピナーボタンで適用される増分値&lt;/span&gt;</value>
+    <comment>step &lt;span class="detail"&gt;increment applied with mouse wheel or spinner buttons&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text2" xml:space="preserve">
+    <value>すべての ComponentOne MVC 入力コントロールは、可能な限り早期の検証を提供することで、簡単かつ効率的にデータ入力を行えるように設計されています。たとえば、&lt;b&gt;isRequired&lt;/b&gt; プロパティが true に設定されている場合は、コントロールのコンテンツをクリアできません。また、数値入力コントロールにはアルファベット文字を入力できません。</value>
+    <comment>All C1 MVC input controls were designed to make data-entry easy
+    and effective by providing early validation whenever possible.
+    Users cannot, for example, clear the content of any controls if
+    the &lt;b&gt;isRequired&lt;/b&gt; property is set to true, or type
+    alphabetical characters in numeric input controls.</comment>
+  </data>
+  <data name="Architecture_Text3" xml:space="preserve">
+    <value>ComponentOne MVC の入力コントロールの多くには、基本 HTML 属性に対応する次の共通プロパティがあります。</value>
+    <comment>Most of C1 MVC's input controls have a set of common properties
+    that reflect basic HTML attributes:</comment>
+  </data>
+  <data name="Architecture_Text4" xml:space="preserve">
+    <value>isRequired &lt;span class="detail"&gt;"required" 属性&lt;/span&gt;</value>
+    <comment>isRequired &lt;span class="detail"&gt;"required" attribute&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text5" xml:space="preserve">
+    <value>isDisabled &lt;span class="detail"&gt;"disabled" 属性&lt;/span&gt;</value>
+    <comment>isDisabled &lt;span class="detail"&gt;"disabled" attribute&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text6" xml:space="preserve">
+    <value>"is" プリフィックスは、コントロールのプロパティ名と HTML 属性がマークアップで競合しないように付けられています。</value>
+    <comment>The "is" prefix prevents conflicts in markup between the names
+    of control properties and HTML attributes.</comment>
+  </data>
+  <data name="Architecture_Text7" xml:space="preserve">
+    <value>HTML 入力要素に基づく入力コントロールには、さらに次の共通プロパティがあります。</value>
+    <comment>Input controls based on HTML input elements have more properties
+    in common:</comment>
+  </data>
+  <data name="Architecture_Text8" xml:space="preserve">
+    <value>inputElement &lt;span class="detail"&gt;内部入力要素への参照&lt;/span&gt;</value>
+    <comment>inputElement &lt;span class="detail"&gt;reference to the inner input element&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Text9" xml:space="preserve">
+    <value>isReadOnly &lt;span class="detail"&gt;"readonly" 属性&lt;/span&gt;</value>
+    <comment>isReadOnly &lt;span class="detail"&gt;"readonly" attribute&lt;/span&gt;</comment>
+  </data>
+  <data name="Architecture_Title" xml:space="preserve">
+    <value>入力コントロールのアーキテクチャ</value>
+    <comment>Input Control Arquitecture</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text1" xml:space="preserve">
+    <value>次の AutoComplete は、&lt;b&gt;itemsSourceFunction&lt;/b&gt; プロパティを使用して、ドロップダウンリストに非同期に値を挿入します。</value>
+    <comment>The AutoComplete below populates the drop-down list
+    asynchronously using the &lt;b&gt;itemsSourceFunction&lt;/b&gt;
+    property.</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text2" xml:space="preserve">
+    <value>"ch" または "chi" と入力し、少し待ってからドロップダウンを確認してください。</value>
+    <comment>Try typing "ch" or "chi" and waiting a second to see
+    the drop-down.</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text3" xml:space="preserve">
+    <value>AutoComplete：</value>
+    <comment>AutoComplete:</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text5" xml:space="preserve">
+    <value>選択された製品：&lt;b id="msg"&gt;なし&lt;/b&gt;</value>
+    <comment>Selected product: &lt;b id="msg"&gt;None&lt;/b&gt;</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text6" xml:space="preserve">
+    <value>この機能は、項目数が多く（数千から数百万の項目）、高速検索可能なサーバーデータベースにデータが格納されている場合に特に便利です。</value>
+    <comment>This feature is especially useful when the number
+    of items is large (thousands or millions of items)
+    and the data is stored in a server database capable
+    of fast searches.</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Title" xml:space="preserve">
+    <value>AutoComplete：非同期ロード</value>
+    <comment>AutoComplete Async Loading</comment>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text1" xml:space="preserve">
+    <value>以下の AutoComplete コントロールのうち、最初のコントロールはデフォルトの検索アルゴリズムを使用しています。2 番目は、&lt;b&gt;itemsSourceFunction&lt;/b&gt; プロパティを使用して検索アルゴリズムをカスタマイズしています。ユーザー入力を&lt;b&gt;含む&lt;/b&gt;項目を検索するのではなく、（ComboBox と同様に）ユーザー入力で&lt;b&gt;始まる&lt;/b&gt;項目を検索します。</value>
+    <comment>The first AutoComplete controls below uses the default
+    search algorithm. The second uses the &lt;b&gt;itemsSourceFunction&lt;/b&gt;
+    property to customize the search algorithm.
+    Instead of looking for items that &lt;b&gt;contain&lt;/b&gt; the user input,
+    it looks for items that &lt;b&gt;start&lt;/b&gt; with it (like the ComboBox):</comment>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text2" xml:space="preserve">
+    <value>文字列として "no" または "un" を入力して、2 つを比較してください。</value>
+    <comment>Compare the two by typing a string such as "no" or "un".</comment>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text3" xml:space="preserve">
+    <value>デフォルト：</value>
+    <comment>Default:</comment>
+  </data>
+  <data name="AutoCompleteCustomSearch_Text4" xml:space="preserve">
+    <value>カスタム：</value>
+    <comment>Custom:</comment>
+  </data>
+  <data name="AutoCompleteCustomSearch_Title" xml:space="preserve">
+    <value>カスタム検索</value>
+    <comment>Custom Search</comment>
+  </data>
+  <data name="AutoCompleteSearching_Text1" xml:space="preserve">
+    <value>デフォルトでは、AutoComplete コントロールは、ドロップダウンリスト内の一致する範囲に &lt;b&gt;wj-autocomplete-match&lt;/b&gt; クラスを適用して、一致を強調表示します。ComponentOne MVC の CSS で、この要素を太字にするルールが定義されています。</value>
+    <comment>By default, the AutoComplete control highlights matches by
+    applying the &lt;b&gt;wj-autocomplete-match&lt;/b&gt; class to matching
+    spans in the drop-down list. C1 MVC's css defines a rule
+    that makes those elements bold.</comment>
+  </data>
+  <data name="AutoCompleteSearching_Text2" xml:space="preserve">
+    <value>別のスタイルを使用して一致を強調表示したい場合は、CSS を使用して &lt;b&gt;wj-autocomplete-match&lt;/b&gt; クラスに適用されるルールをカスタマイズします。</value>
+    <comment>If you want to use a different style to highlight matches,
+    use CSS to customize the rules applied to the
+    &lt;b&gt;wj-autocomplete-match&lt;/b&gt; class:</comment>
+  </data>
+  <data name="AutoCompleteSearching_Text3" xml:space="preserve">
+    <value>AutoComplete：</value>
+    <comment>AutoComplete:</comment>
+  </data>
+  <data name="AutoCompleteSearching_Title" xml:space="preserve">
+    <value>AutoComplete 一致スタイル</value>
+    <comment>AutoComplete Match Style</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text1" xml:space="preserve">
+    <value>デフォルトでは、AutoComplete コントロールは、ユーザーがコントロールに 2 文字以上入力してから 500 ミリ秒後に検索を開始し、一致が 6 件見つかると検索を中止します。</value>
+    <comment>By default, the AutoComplete control starts searching
+    for matches 500ms after the user types at least two
+    characters into the control, and stops searching after
+    finding six matches.</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text2" xml:space="preserve">
+    <value>このデフォルトの動作を変更するには、&lt;b&gt;delay&lt;/b&gt;、&lt;b&gt;minLength&lt;/b&gt;、&lt;b&gt;maxItems&lt;/b&gt; の各プロパティの値を変更します。</value>
+    <comment>You can change these defaults by changing the values
+    of the &lt;b&gt;delay&lt;/b&gt;, &lt;b&gt;minLength&lt;/b&gt;, and
+    &lt;b&gt;maxItems&lt;/b&gt; properties:</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text3" xml:space="preserve">
+    <value>delay：</value>
+    <comment>delay:</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text4" xml:space="preserve">
+    <value>minLength：</value>
+    <comment>minLength:</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text5" xml:space="preserve">
+    <value>maxItems：</value>
+    <comment>maxItems:</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Text6" xml:space="preserve">
+    <value>AutoComplete：</value>
+    <comment>AutoComplete:</comment>
+  </data>
+  <data name="AutoCompleteSearchParameters_Title" xml:space="preserve">
+    <value>AutoComplete delay、minLength、maxItems の設定</value>
+    <comment>AutoComplete delay, minLength, and maxItems</comment>
+  </data>
+  <data name="AutoCompleteSearchPath_Text1" xml:space="preserve">
+    <value>デフォルトでは、AutoComplete コントロールは、&lt;b&gt;displayMemberPath&lt;/b&gt; プロパティで指定されるプロパティに対する一致を検索します。検索対象とするプロパティのカンマ区切りリストを &lt;b&gt;searchMemberPath&lt;/b&gt; プロパティに設定すると、検索対象を他のプロパティに広げることができます。</value>
+    <comment>By default, the AutoComplete control searches for matches against the
+    property specified by the &lt;b&gt;displayMemberPath&lt;/b&gt; property.
+    You can extend the search to other properties by setting the
+    &lt;b&gt;searchMemberPath&lt;/b&gt; property to a comma-delimited list
+    of properties to search on.</comment>
+  </data>
+  <data name="AutoCompleteSearchPath_Text2" xml:space="preserve">
+    <value>たとえば、次の AutoComplete は、国名と大陸名を検索するように設定されています。例として、"asia"、"america"、"euro or" などと入力してみてください。</value>
+    <comment>For example, the AutoComplete below is configured to search for
+    country and continent names. Try typing "asia", "america", or
+    "euro or" for example:</comment>
+  </data>
+  <data name="AutoCompleteSearchPath_Text3" xml:space="preserve">
+    <value>AutoComplete：</value>
+    <comment>AutoComplete:</comment>
+  </data>
+  <data name="AutoCompleteSearchPath_Title" xml:space="preserve">
+    <value>AutoComplete 検索</value>
+    <comment>AutoComplete Searching</comment>
+  </data>
+  <data name="AutoComplete_Text1" xml:space="preserve">
+    <value>AutoComplete コントロールは ComboBox を拡張して、次の 2 つの追加機能を提供します。</value>
+    <comment>The AutoComplete control extends the ComboBox to provide
+    two additional features:</comment>
+  </data>
+  <data name="AutoComplete_Text2" xml:space="preserve">
+    <value>ドロップダウンリストの項目を自動的にフィルタ処理して、現在のユーザー入力と一致する項目のみが含まれるようにします。</value>
+    <comment>It automatically filters the items in the drop-down list
+        to include only those that match the current user input, and</comment>
+  </data>
+  <data name="AutoComplete_Text3" xml:space="preserve">
+    <value>現在のユーザー入力に基づいてドロップダウン項目を非同期に挿入したり、検索ロジックを変更する機能をサポートします（デフォルトでは、ComboBox はユーザー入力で&lt;b&gt;始まる&lt;/b&gt;項目を検索しますが、AutoComplete はユーザー入力を&lt;b&gt;含む&lt;/b&gt;項目を検索します）。</value>
+    <comment>It supports populating the drop-down asynchromously based
+        on the current user input and changing the search logic
+        (by default, the ComboBox looks for items that &lt;b&gt;start&lt;/b&gt;
+        with the user input, while AutoComplete looks for items that
+        &lt;b&gt;contain&lt;/b&gt; the user input).</comment>
+  </data>
+  <data name="AutoComplete_Text4" xml:space="preserve">
+    <value>次の AutoComplete コントロールと ComboBox コントロールは同じ &lt;b&gt;itemsSource&lt;/b&gt; に連結されています。どちらかのコントロールに「un」と入力し、違いを確認してください。</value>
+    <comment>The AutoComplete and ComboBox controls below are bound to the
+    same &lt;b&gt;itemsSource&lt;/b&gt;. Try typing "un" into either control
+    to see the difference:</comment>
+  </data>
+  <data name="AutoComplete_Text5" xml:space="preserve">
+    <value>AutoComplete：</value>
+    <comment>AutoComplete:</comment>
+  </data>
+  <data name="AutoComplete_Text6" xml:space="preserve">
+    <value>ComboBox：</value>
+    <comment>ComboBox:</comment>
+  </data>
+  <data name="AutoComplete_Title" xml:space="preserve">
+    <value>AutoComplete</value>
+    <comment>AutoComplete</comment>
+  </data>
+  <data name="CalendarCustomization_Text1" xml:space="preserve">
+    <value>カレンダー全体の外観は CSS を使用して、特定の日付の外観はカレンダーの &lt;b&gt;formatItem&lt;/b&gt; イベントを使用してカスタマイズできます。</value>
+    <comment>You can customize the appearance of the whole calendar using
+    CSS, and you can use the calendar's &lt;b&gt;formatItem&lt;/b&gt; event
+    to customize the appearance of specific dates.</comment>
+  </data>
+  <data name="CalendarCustomization_Text2" xml:space="preserve">
+    <value>たとえば、次のカレンダーは、カスタムスタイルを使用して週末と休日を表示します。</value>
+    <comment>For example, the calendar below uses a custom style to show
+    weekends and holidays:</comment>
+  </data>
+  <data name="CalendarCustomization_Text3" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="CalendarCustomization_Title" xml:space="preserve">
+    <value>Calendarのカスタマイズ</value>
+    <comment>Calendar Customization</comment>
+  </data>
+  <data name="CalendarRanges_Text1" xml:space="preserve">
+    <value>Calendar の &lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用して、入力できる日付の範囲を制限することができます。</value>
+    <comment>Use the Calendar's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of dates that can be entered.</comment>
+  </data>
+  <data name="CalendarRanges_Text2" xml:space="preserve">
+    <value>たとえば、次のカレンダーは、現在の週の日付のみを受け入れます。</value>
+    <comment>For example, the calendar below only accepts dates
+    within the current week:</comment>
+  </data>
+  <data name="CalendarRanges_Title" xml:space="preserve">
+    <value>Calendarの範囲</value>
+    <comment>Calendar Ranges</comment>
+  </data>
+  <data name="CalendarValidation_Text1" xml:space="preserve">
+    <value>Calendar コントロールは、&lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティで決定される範囲外の値をユーザーが選択できないようにします。</value>
+    <comment>The Calendar control prevents users from selecting values
+    outside the range determined by the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt;
+    properties.</comment>
+  </data>
+  <data name="CalendarValidation_Text2" xml:space="preserve">
+    <value>ただし、範囲内のすべての日付が有効ではないこともよくあります。このような状況を処理するために、Calendar コントロールには &lt;b&gt;itemValidator&lt;/b&gt; プロパティが用意されています。このプロパティは、パラメータとして日付を受け取り、その日付が選択対象として有効な場合は true、そうでない場合は false を返す関数を表します。</value>
+    <comment>In many cases, however, not all dates in the range are valid.
+    To handle these situations, the Calendar control has an
+    &lt;b&gt;itemValidator&lt;/b&gt; property. This property represents a
+    function that takes a date as a parameter and returns true
+    if the date is valid for selection, or false otherwise.</comment>
+  </data>
+  <data name="CalendarValidation_Text3" xml:space="preserve">
+    <value>次のカレンダーに、この例を示します。このカレンダーでは、ユーザーが週末や休日の日付を選択できないようにしています。</value>
+    <comment>The calendar below demonstrates this. It prevents users
+    from selecting dates on weekends and holidays:</comment>
+  </data>
+  <data name="CalendarValidation_Text4" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="CalendarValidation_Title" xml:space="preserve">
+    <value>Calendarの検証</value>
+    <comment>Calendar Validation</comment>
+  </data>
+  <data name="Calendar_Text1" xml:space="preserve">
+    <value>Calendar コントロールには月間カレンダーが表示され、ユーザーはここから日付を選択することができます。</value>
+    <comment>The Calendar control displays a one-month calendar and allows users
+    to select a date.</comment>
+  </data>
+  <data name="Calendar_Text2" xml:space="preserve">
+    <value>&lt;b&gt;value&lt;/b&gt; プロパティを使用すると、現在選択されている日付を取得または設定できます。&lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用すると、ユーザーが選択できる日付の範囲を制限できます。&lt;b&gt;selectionMode&lt;/b&gt; プロパティを使用すると、ユーザーが日または月を選択できるか、何も値を選択できないかを指定できます。</value>
+    <comment>Use the &lt;b&gt;value&lt;/b&gt; property to get or set the currently selected date.
+    Use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to restrict the range of
+    dates that the user can select.
+    Use the &lt;b&gt;selectionMode&lt;/b&gt; property to determine whether users should
+    be allowed to select days, months, or no values at all.</comment>
+  </data>
+  <data name="Calendar_Text3" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theCalendarOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="Calendar_Title" xml:space="preserve">
+    <value>カレンダー</value>
+    <comment>Calendar</comment>
+  </data>
+  <data name="ClearButtons_Text1" xml:space="preserve">
+    <value>次のサンプルは、ComponentOne MVC 入力コントロールの入力要素に「クリア」ボタンを追加する方法を示します。</value>
+    <comment>This sample shows how you can add a "Clear" button to the
+    input elements in C1 MVC input controls.</comment>
+  </data>
+  <data name="ClearButtons_Text2" xml:space="preserve">
+    <value>「クリア」ボタンを使用すると、マウスを使用してコントロールをクリアできます。これは、［Ctrl］+［A］キーや［Del］キーを押すよりずっと便利です。</value>
+    <comment>The "Clear" button allows users to clear the control using
+    the mouse, which may be more convenient than pressing the
+    Ctrl+A/Delete keys.</comment>
+  </data>
+  <data name="ClearButtons_Title" xml:space="preserve">
+    <value>クリアボタン</value>
+    <comment>Clear Buttons</comment>
+  </data>
+  <data name="ColorPicker_Text1" xml:space="preserve">
+    <value>ここの背景色を選択</value>
+    <comment>Select a background for me!</comment>
+  </data>
+  <data name="ColorPicker_Text2" xml:space="preserve">
+    <value>ColorPicker コントロールは、色を選択するためのパネルです。InputColor コントロールでドロップダウンとして使用されます。</value>
+    <comment>The ColorPicker control is a panel that allows users to pick
+    colors. It is uses as a drop-down by the InputColor control:</comment>
+  </data>
+  <data name="ColorPicker_Text3" xml:space="preserve">
+    <value>ColorPicker をカスタマイズするには、&lt;b&gt;showAlphaChannel&lt;/b&gt;、&lt;b&gt;showColorString&lt;/b&gt;、&lt;b&gt;palette&lt;/b&gt; の各プロパティの値を変更します。</value>
+    <comment>You can customize the ColorPicker by changing the value of the
+    &lt;b&gt;showAlphaChannel&lt;/b&gt;, &lt;b&gt;showColorString&lt;/b&gt;, and &lt;b&gt;palette&lt;/b&gt;
+    properties:</comment>
+  </data>
+  <data name="ColorPicker_Text4" xml:space="preserve">
+    <value>showAlphaChannel：</value>
+    <comment>showAlphaChannel:</comment>
+  </data>
+  <data name="ColorPicker_Text5" xml:space="preserve">
+    <value>showColorString：</value>
+    <comment>showColorString:</comment>
+  </data>
+  <data name="ColorPicker_Text6" xml:space="preserve">
+    <value>palette：</value>
+    <comment>palette:</comment>
+  </data>
+  <data name="ColorPicker_Title" xml:space="preserve">
+    <value>ColorPicker</value>
+    <comment>ColorPicker</comment>
+  </data>
+  <data name="Colors_Text1" xml:space="preserve">
+    <value>ここの背景色を選択</value>
+    <comment>Select a background for me!</comment>
+  </data>
+  <data name="Colors_Text2" xml:space="preserve">
+    <value>あまりスペースがない場合に色の値を編集するには、InputColor コントロールを使用します。</value>
+    <comment>Use the InputColor control to edit color values
+    when you have only a little room:</comment>
+  </data>
+  <data name="Colors_Text4" xml:space="preserve">
+    <value>十分なスペースがある場合に色の値を編集するには、ColorPicker コントロールを使用します。</value>
+    <comment>Use the ColorPicker control to edit color values
+    when you have enough room:</comment>
+  </data>
+  <data name="Colors_Title" xml:space="preserve">
+    <value>色の入力
+</value>
+    <comment>Color Input</comment>
+  </data>
+  <data name="ComboBoxChainingCombos_Text1" xml:space="preserve">
+    <value>ComboBox コントロールは、&lt;b&gt;itemsSource&lt;/b&gt; に基づいて CollectionView オブジェクトを自動的に作成し、このビューを &lt;b&gt;collectionView&lt;/b&gt; プロパティとして公開します。</value>
+    <comment>ComboBox controls automatically create CollectionView
+    objects based on their &lt;b&gt;itemsSource&lt;/b&gt;, and expose
+    this view through the &lt;b&gt;collectionView&lt;/b&gt; property.</comment>
+  </data>
+  <data name="ComboBoxChainingCombos_Text2" xml:space="preserve">
+    <value>この機能を使用して、コンボボックス項目にフィルタを適用することができます。たとえば、次の最初のコンボボックスで国を選択すると、2 番目のコンボボックスがフィルタ処理され、その国の都市のみが表示されるようになります。</value>
+    <comment>You can use this feature to apply filters to the combo
+    items. For example, when you select a country from the
+    first combo below, the second will be filtered to show
+    only cities in that country:</comment>
+  </data>
+  <data name="ComboBoxChainingCombos_Title" xml:space="preserve">
+    <value>コンボボックスの連結</value>
+    <comment>Chaining Combos</comment>
+  </data>
+  <data name="ComboBoxColors_Text1" xml:space="preserve">
+    <value>少数の一般的な色のリストから色を選択できるようにしたい場合は、InputColor コントロールより ComboBox コントロールを選択する方がよいでしょう。</value>
+    <comment>If you want users to select from a short set of well-known
+    colors, the ComboBox may be a better choice than an
+    InputColor control.</comment>
+  </data>
+  <data name="ComboBoxColors_Text2" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; プロパティを色の配列に設定し、&lt;b&gt;formatItem&lt;/b&gt; を使用してドロップダウンリストに色のプレビューを表示します。</value>
+    <comment>You can set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array
+    containing the colors, and use the &lt;b&gt;formatItem&lt;/b&gt;
+    to show a preview of the colors on the drop-down list:</comment>
+  </data>
+  <data name="ComboBoxColors_Title" xml:space="preserve">
+    <value>ComboBox による色入力</value>
+    <comment>ComboBox as Color Input</comment>
+  </data>
+  <data name="ComboBoxHtmlContent_Text1" xml:space="preserve">
+    <value>多くの ComboBox コントロールは、ドロップダウンリストの項目をプレーンテキストとして表示します。この動作は、&lt;b&gt;isContentHTML&lt;/b&gt; プロパティを使用するか、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用して項目に HTML を直接割り当てることでオーバーライドできます。</value>
+    <comment>Most ComboBox controls display items in the drop-down list
+    as plain text. You can override this using the
+    &lt;b&gt;isContentHTML&lt;/b&gt; property or by assigning HTML directly
+    to the items using the &lt;b&gt;formatItem&lt;/b&gt; event.</comment>
+  </data>
+  <data name="ComboBoxHtmlContent_Text2" xml:space="preserve">
+    <value>&lt;b&gt;formatItem&lt;/b&gt; イベントを使用した方が、Javascript オブジェクト自体に任意のテンプレートを適用できるため、柔軟性が高くなります。その場合は、コンボボックスの &lt;b&gt;headerPath&lt;/b&gt; プロパティを、コンボボックスの入力要素（プレーンテキストのみ表示可能）に表示するプロパティの名前に設定することを忘れないでください。</value>
+    <comment>The &lt;b&gt;formatItem&lt;/b&gt; event provides more flexibility because
+    it can be used to apply arbitrary templates to raw Javascript
+    objects. If you do this, remember to set the combo's
+    &lt;b&gt;headerPath&lt;/b&gt; property to the name of a property to display
+    in the combo's input element (which can only show plain text):</comment>
+  </data>
+  <data name="ComboBoxHtmlContent_Title" xml:space="preserve">
+    <value>HTML コンテンツを含む ComboBox</value>
+    <comment>ComboBox with HTML Content</comment>
+  </data>
+  <data name="ComboBoxMasterDetail_Text1" xml:space="preserve">
+    <value>ComboBox を項目セレクタとして使用して、他のコントロールをコンボボックスの &lt;b&gt;selectedItem&lt;/b&gt; プロパティに連結できます。</value>
+    <comment>You can use the ComboBox as an item selector, and bind
+    other controls to the combo's &lt;b&gt;selectedItem&lt;/b&gt;
+    property:</comment>
+  </data>
+  <data name="ComboBoxMasterDetail_Text2" xml:space="preserve">
+    <value>項目を選択：</value>
+    <comment>Select an item:</comment>
+  </data>
+  <data name="ComboBoxMasterDetail_Title" xml:space="preserve">
+    <value>ComboBox マスター/詳細</value>
+    <comment>ComboBox Master/Detail</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text1" xml:space="preserve">
+    <value>デフォルトでは、ComboBox は、ドロップダウンリストに 1 行につき 1 つの項目を表示します。</value>
+    <comment>By default, the ComboBox displays one item per line in
+    its drop-down list:</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text2" xml:space="preserve">
+    <value>デフォルト：</value>
+    <comment>Default:</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text3" xml:space="preserve">
+    <value>短い項目が多数ある場合は、ドロップダウンで複数の列を使用することもできます。これは、簡単な CSS と &lt;b&gt;dropDownCssClass&lt;/b&gt; プロパティで実現できます。</value>
+    <comment>If you have many short items, it may be interesting to
+    use multiple columns in the drop-down.
+    You can accomplish this with a little CSS and the
+    &lt;b&gt;dropDownCssClass&lt;/b&gt; property:</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text4" xml:space="preserve">
+    <value>3 列：</value>
+    <comment>Three Columns:</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text5" xml:space="preserve">
+    <value>項目が複雑なオブジェクトの場合は、テーブルやグリッドのように、1 行に 1 つの項目を追加情報付きで表示することができます。これは、&lt;b&gt;formatItem&lt;/b&gt; イベントと &lt;b&gt;headerPath&lt;/b&gt; プロパティを使用して実現できます。</value>
+    <comment>If the items are complex objects, you may want to render
+    a single item per line, but with additional detail,
+    as in a table or grid.
+    You can accomplish this with the &lt;b&gt;formatItem&lt;/b&gt;
+    event and &lt;b&gt;headerPath&lt;/b&gt; property::</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Text6" xml:space="preserve">
+    <value>テーブル形式：</value>
+    <comment>Table-Style:</comment>
+  </data>
+  <data name="ComboBoxMultiColumn_Title" xml:space="preserve">
+    <value>複数列のコンボボックス</value>
+    <comment>Multi-Column Combos</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text1" xml:space="preserve">
+    <value>ComboBox を使用して、数値リストから値を選択できます。</value>
+    <comment>You can use ComboBoxes to select from lists of numbers:</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text2" xml:space="preserve">
+    <value>数値を選択：</value>
+    <comment>Select a number:</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text3" xml:space="preserve">
+    <value>選択された値：&lt;b id="theComboNumberValue"&gt;&lt;/b&gt;</value>
+    <comment>You have selected this value: &lt;b id="theComboNumberValue"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text4" xml:space="preserve">
+    <value>ComboBox を使用して、日付リストから値を選択できます。この場合は、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、ComponentOne MVC の &lt;b&gt;Globalize&lt;/b&gt; クラスを使用して日付オブジェクトを書式設定します。</value>
+    <comment>You can use ComboBoxes to select from lists of dates.
+    In this case, we use the &lt;b&gt;formatItem&lt;/b&gt; event to
+    format the date objects using C1 MVC's &lt;b&gt;Globalize&lt;/b&gt;
+    class:</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text5" xml:space="preserve">
+    <value>日付を選択：</value>
+    <comment>Select a date:</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Text6" xml:space="preserve">
+    <value>選択された日付：&lt;b id="theComboDateValue"&gt;&lt;/b&gt;</value>
+    <comment>You have selected this date: &lt;b id="theComboDateValue"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxNumbersDates_Title" xml:space="preserve">
+    <value>数値/日付を含む ComboBox</value>
+    <comment>ComboBox with Numbers and Dates</comment>
+  </data>
+  <data name="ComboBoxObjects_Text1" xml:space="preserve">
+    <value>ComboBox を使用して、配列に含まれる任意の Javascript オブジェクトを選択できます。</value>
+    <comment>You can use ComboBoxes to select arbitrary Javascript
+    objects from arrays:</comment>
+  </data>
+  <data name="ComboBoxObjects_Text2" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; プロパティをオブジェクト配列に設定します。</value>
+    <comment>Set the &lt;b&gt;itemsSource&lt;/b&gt; property to the object array,</comment>
+  </data>
+  <data name="ComboBoxObjects_Text3" xml:space="preserve">
+    <value>&lt;b&gt;displayMemberPath&lt;/b&gt; プロパティを、コンボボックスに表示するプロパティの名前に設定します。</value>
+    <comment>Set the &lt;b&gt;displayMemberPath&lt;/b&gt; property to the name of
+        the property that should be displayed in the Combo,</comment>
+  </data>
+  <data name="ComboBoxObjects_Text4" xml:space="preserve">
+    <value>オプションで、&lt;b&gt;selectedValuePath&lt;/b&gt; プロパティを、コンボボックスの &lt;b&gt;selectedValue&lt;/b&gt; プロパティの計算に使用するプロパティの名前に設定します。</value>
+    <comment>Optionally set the &lt;b&gt;selectedValuePath&lt;/b&gt; property to the
+        name of the property that should be used to calculate the
+        combo's &lt;b&gt;selectedValue&lt;/b&gt; property,</comment>
+  </data>
+  <data name="ComboBoxObjects_Text5" xml:space="preserve">
+    <value>コンボボックスの &lt;b&gt;selectedIndex&lt;/b&gt;、&lt;b&gt;selectedValue&lt;/b&gt;、または &lt;b&gt;text&lt;/b&gt; を使用して、現在の選択を取得します。</value>
+    <comment>Use the combo's &lt;b&gt;selectedIndex&lt;/b&gt;, &lt;b&gt;selectedValue&lt;/b&gt;,
+        or &lt;b&gt;text&lt;/b&gt; to retrieve the current selection.</comment>
+  </data>
+  <data name="ComboBoxObjects_Text6" xml:space="preserve">
+    <value>項目を選択：</value>
+    <comment>Select an item:</comment>
+  </data>
+  <data name="ComboBoxObjects_Text7" xml:space="preserve">
+    <value>現在のテキスト：&lt;b id="theComboText"&gt;&lt;/b&gt;</value>
+    <comment>The current text is: &lt;b id="theComboText"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxObjects_Text8" xml:space="preserve">
+    <value>selectedIndex：&lt;b id="theComboIndex"&gt;&lt;/b&gt;</value>
+    <comment>The selectedIndex is: &lt;b id="theComboIndex"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxObjects_Text9" xml:space="preserve">
+    <value>selectedValue：&lt;b id="theComboValue"&gt;&lt;/b&gt;</value>
+    <comment>The selectedValue is: &lt;b id="theComboValue"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxObjects_Title" xml:space="preserve">
+    <value>オブジェクトを含む ComboBox</value>
+    <comment>ComboBox with Objects</comment>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text1" xml:space="preserve">
+    <value>&lt;b&gt;itemsSource&lt;/b&gt; プロパティをオブジェクトの配列に設定すると、ComboBox は自動的に &lt;b&gt;CollectionView&lt;/b&gt; を作成し、それを &lt;b&gt;collectionView&lt;/b&gt; プロパティとして公開します。</value>
+    <comment>When you set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array
+    of objects, the ComboBox automatically creates a
+    &lt;b&gt;CollectionView&lt;/b&gt; and exposes that through its
+    &lt;b&gt;collectionView&lt;/b&gt; property.</comment>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text2" xml:space="preserve">
+    <value>このコレクションビューを使用して、データのフィルタ処理やソートを行うことができます。また、コンボボックスの &lt;b&gt;selectedItem&lt;/b&gt; の代わりにビューの &lt;b&gt;currentItem&lt;/b&gt; を使用できます。</value>
+    <comment>You can use the collection view to filter and sort
+    the data, and you can use the view's &lt;b&gt;currentItem&lt;/b&gt;
+    instead of the combo's &lt;b&gt;selectedItem&lt;/b&gt;:</comment>
+  </data>
+  <data name="ComboBoxSortingFiltering_Text3" xml:space="preserve">
+    <value>項目を選択：</value>
+    <comment>Select an item:</comment>
+  </data>
+  <data name="ComboBoxSortingFiltering_Title" xml:space="preserve">
+    <value>項目のソートとフィルタ処理</value>
+    <comment>Sorting and Filtering Items</comment>
+  </data>
+  <data name="ComboBoxStrings_Text1" xml:space="preserve">
+    <value>デフォルトでは、ComboBox は標準の HTML 入力要素として機能しますが、追加のスタイル設定と、すべての Wijmo コントロールに関連付けられたオブジェクトモデルを持ちます。&lt;b&gt;text&lt;/b&gt; プロパティがユーザーの入力を取得または設定します。</value>
+    <comment>By default, the ComboBox acts as a regular HTML input element,
+    with the additional styling and object model associated with
+    all Wijmo controls. The &lt;b&gt;text&lt;/b&gt; property gets or sets the
+    user's input:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text10" xml:space="preserve">
+    <value>isEditable</value>
+    <comment>isEditable</comment>
+  </data>
+  <data name="ComboBoxStrings_Text11" xml:space="preserve">
+    <value>国を選択：</value>
+    <comment>Select a Country:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text13" xml:space="preserve">
+    <value>選択された国：</value>
+    <comment>You have selected this country:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text2" xml:space="preserve">
+    <value>任意の文字列：</value>
+    <comment>Any string:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text3" xml:space="preserve">
+    <value>入力された文字列：&lt;b id="theComboText"&gt;&lt;/b&gt;</value>
+    <comment>You have typed this: &lt;b id="theComboText"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxStrings_Text4" xml:space="preserve">
+    <value>ユーザーが選択できる文字列のリストを提供する場合は、&lt;b&gt;itemsSource&lt;/b&gt; プロパティを、それらの項目を含む配列に設定します。ユーザーは、それらのいずれかを選択できます。</value>
+    <comment>If you want to provide a list of strings for users to choose
+    from, set the &lt;b&gt;itemsSource&lt;/b&gt; property to an array containing
+    those items and users will be able to select one of them:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text5" xml:space="preserve">
+    <value>国を選択：</value>
+    <comment>Select a Country:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text6" xml:space="preserve">
+    <value>選択された国：&lt;b id="theComboValue"&gt;&lt;/b&gt;</value>
+    <comment>You have selected this country: &lt;b id="theComboValue"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBoxStrings_Text7" xml:space="preserve">
+    <value>デフォルトでは、ComboBox は、ユーザーがリストで項目の 1 つを選択するように強制します。ユーザーは、コンボボックスを空のままにすることも、リストにない値を入力することもできません。</value>
+    <comment>By default, the ComboBox will force users to select one of the
+    items on the list. Users will not be able to leave the combo
+    empty or to enter values that are not on the list.</comment>
+  </data>
+  <data name="ComboBoxStrings_Text8" xml:space="preserve">
+    <value>これらの動作は、&lt;b&gt;isRequired&lt;/b&gt; プロパティと &lt;b&gt;isEditable&lt;/b&gt; プロパティを設定することで変更できます。</value>
+    <comment>You can change these behaviors by setting the &lt;b&gt;isRequired&lt;/b&gt;
+    and &lt;b&gt;isEditable&lt;/b&gt; properties:</comment>
+  </data>
+  <data name="ComboBoxStrings_Text9" xml:space="preserve">
+    <value>isRequired</value>
+    <comment>isRequired</comment>
+  </data>
+  <data name="ComboBoxStrings_Title" xml:space="preserve">
+    <value>文字列を含む ComboBox</value>
+    <comment>ComboBox with Strings</comment>
+  </data>
+  <data name="ComboBoxStrings_Title1" xml:space="preserve">
+    <value>リストからの選択</value>
+    <comment>Choosing from Lists</comment>
+  </data>
+  <data name="ComboBoxStrings_Title2" xml:space="preserve">
+    <value>簡単なカスタマイズ</value>
+    <comment>Simple Customizations</comment>
+  </data>
+  <data name="ComboBox_Text1" xml:space="preserve">
+    <value>ComboBox は、入力要素とドロップダウンリストを組み合わせたコントロールです。これを使用して、リストから文字列やオブジェクトを選択したり編集することができます。</value>
+    <comment>The ComboBox combines an input element with a drop-down
+    list. You can use it to select and/or edit strings or
+    objects from lists.</comment>
+  </data>
+  <data name="ComboBox_Text2" xml:space="preserve">
+    <value>ComboBox は、ユーザー入力中のオートコンプリートを提供するため、長いリストから項目を簡単に見つけることができます。</value>
+    <comment>The ComboBox provides as-you-type auto-completion,
+    making it easy to find items in long lists.</comment>
+  </data>
+  <data name="ComboBox_Text3" xml:space="preserve">
+    <value>たとえば、以下のコンボボックスでは、文字列やオブジェクトをリストから選択できます。</value>
+    <comment>For example, the combo boxes below allow you to
+    select from lists of strings and objects:</comment>
+  </data>
+  <data name="ComboBox_Text4" xml:space="preserve">
+    <value>文字列：</value>
+    <comment>Strings:</comment>
+  </data>
+  <data name="ComboBox_Text5" xml:space="preserve">
+    <value>現在の値：&lt;b id="theComboStringCurrent"&gt;&lt;/b&gt;</value>
+    <comment>The current value is: &lt;b id="theComboStringCurrent"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBox_Text6" xml:space="preserve">
+    <value>オブジェクト：</value>
+    <comment>Objects:</comment>
+  </data>
+  <data name="ComboBox_Text7" xml:space="preserve">
+    <value>現在の値：&lt;b id="theComboObjectCurrent"&gt;&lt;/b&gt;</value>
+    <comment>The current value is: &lt;b id="theComboObjectCurrent"&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="ComboBox_Title" xml:space="preserve">
+    <value>ComboBox</value>
+    <comment>ComboBox</comment>
+  </data>
+  <data name="DatesTimes_Text1" xml:space="preserve">
+    <value>Javascript Date オブジェクトには日付と時刻の情報が含まれています。</value>
+    <comment>Javascript Date objects contain date and time information.</comment>
+  </data>
+  <data name="DatesTimes_Text2" xml:space="preserve">
+    <value>多くの場合は、日付または時刻の一方のみがアプリケーションに関係するため、Wijmo では、日付、時刻、およびその両方を編集するためのコントロールを個別に提供しています。</value>
+    <comment>Because in many cases only the date or time are relevant to
+    the application, Wijmo offers separate controls for editing
+    dates, times, or both.</comment>
+  </data>
+  <data name="DatesTimes_Text3" xml:space="preserve">
+    <value>&lt;b&gt;InputDate&lt;/b&gt; コントロールと &lt;b&gt;InputTime&lt;/b&gt; コントロールを個別にまたは一緒に使用して、Javascript &lt;b&gt;Date&lt;/b&gt; オブジェクトの日付と時刻の情報を編集できます。</value>
+    <comment>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in a Javascript &lt;b&gt;Date&lt;/b&gt; object.</comment>
+  </data>
+  <data name="DatesTimes_Text4" xml:space="preserve">
+    <value>InputDate：</value>
+    <comment>InputDate:</comment>
+  </data>
+  <data name="DatesTimes_Text5" xml:space="preserve">
+    <value>InputTime：</value>
+    <comment>InputTime:</comment>
+  </data>
+  <data name="DatesTimes_Text6" xml:space="preserve">
+    <value>1 つのコントロールで &lt;b&gt;Date&lt;/b&gt; オブジェクトの日付部分と時刻部分を編集したい場合は、&lt;b&gt;InputDateTime&lt;/b&gt; を使用します。</value>
+    <comment>If you prefer to edit the date and time parts of a &lt;b&gt;Date&lt;/b&gt;
+    object using a single control, use the &lt;b&gt;InputDateTime&lt;/b&gt;:</comment>
+  </data>
+  <data name="DatesTimes_Text7" xml:space="preserve">
+    <value>InputDateTime：</value>
+    <comment>InputDateTime:</comment>
+  </data>
+  <data name="DatesTimes_Text8" xml:space="preserve">
+    <value>現在の日付/時刻：&lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="DatesTimes_Title" xml:space="preserve">
+    <value>日付と時刻の入力</value>
+    <comment>Input Dates and Times</comment>
+  </data>
+  <data name="Dialogs_Text1" xml:space="preserve">
+    <value>ダイアログは、オーナー要素を持たない Popup コントロールです。ダイアログを使用すると、新しいページやビューに切り替えることなく、情報の入力や編集を行うことができます。ダイアログはモーダルにもモードレスにもでき、通常、画面の中央に表示されます。</value>
+    <comment>Dialogs are Popup controls without owner elements. They allow
+    users to enter or edit information without switching to a new
+    page or view. They can be modal or modeless, and are usually
+    centered on the screen.</comment>
+  </data>
+  <data name="Dialogs_Text10" xml:space="preserve">
+    <value>このアカウントを記憶する</value>
+    <comment>Remember Me</comment>
+  </data>
+  <data name="Dialogs_Text11" xml:space="preserve">
+    <value>アカウントをお持ちでない方はこちら</value>
+    <comment>Don't have an account yet?</comment>
+  </data>
+  <data name="Dialogs_Text12" xml:space="preserve">
+    <value>名前：</value>
+    <comment>Name:</comment>
+  </data>
+  <data name="Dialogs_Text13" xml:space="preserve">
+    <value>パスワードの確認：</value>
+    <comment>Confirm Password:</comment>
+  </data>
+  <data name="Dialogs_Text14" xml:space="preserve">
+    <value>現在のパスワード：</value>
+    <comment>Current Password:</comment>
+  </data>
+  <data name="Dialogs_Text15" xml:space="preserve">
+    <value>新しい名前：</value>
+    <comment>New Name:</comment>
+  </data>
+  <data name="Dialogs_Text16" xml:space="preserve">
+    <value>新しいパスワード：</value>
+    <comment>New Password:</comment>
+  </data>
+  <data name="Dialogs_Text17" xml:space="preserve">
+    <value>新しいパスワードの確認：</value>
+    <comment>Confirm New Password:</comment>
+  </data>
+  <data name="Dialogs_Text18" xml:space="preserve">
+    <value>アカウントの更新</value>
+    <comment>Update Account</comment>
+  </data>
+  <data name="Dialogs_Text19" xml:space="preserve">
+    <value>{0} 文字以上を入力してください。</value>
+    <comment>Please enter {0} characters or more.</comment>
+  </data>
+  <data name="Dialogs_Text2" xml:space="preserve">
+    <value>ダイアログは &lt;b&gt;show&lt;/b&gt; メソッドを使用して表示されます。このメソッドには、ダイアログをモーダルまたはモードレスのどちらにするかと、ダイアログが閉じられたときに呼び出されるコールバック関数を定義するオプションの引数があります。</value>
+    <comment>Dialogs are displayed using the &lt;b&gt;show&lt;/b&gt; method, which has
+    optional arguments to define whether the dialog should be
+    modal or modeless, and a callback function invoked when the
+    dialog is closed.</comment>
+  </data>
+  <data name="Dialogs_Text3" xml:space="preserve">
+    <value>ダイアログは、ユーザーが［Esc］キーを押すか、ダイアログがフォーカスを失うと閉じられます。また、"wj-hide" で始まるクラス（"wj-hide"、"wj-hide-ok"、"wj-hide-cancel" など）を持つ要素をユーザーがクリックした場合も、閉じられます。後者の場合は、そのクラス名がダイアログの &lt;b&gt;dialogResult&lt;/b&gt; プロパティに割り当てられ、ダイアログのコンテンツの処理方法を決定するためにコールバック関数や &lt;b&gt;hidden&lt;/b&gt; イベントハンドラで使用できます。</value>
+    <comment>Dialogs are dismissed when the user presses the Escape key
+    oe when the dialog loses focus. They are also dismissed when
+    the user clicks an element with a class that starts with
+    "wj-hide" (e.g. "wj-hide", "wj-hide-ok", or "wj-hide-cancel").
+    In the latter case, the class name is assigned to the dialog's
+    &lt;b&gt;dialogResult&lt;/b&gt; property, and can be used by the callback
+    function or by the &lt;b&gt;hidden&lt;/b&gt; event handler to decide how
+    to process the dialog's content.</comment>
+  </data>
+  <data name="Dialogs_Text4" xml:space="preserve">
+    <value>このデモでは、具体例として、ユーザー認証の UI に似せた 3 つのダイアログを定義しています。これらダイアログで、HTML5 スタイルの検証機能や、ダイアログから別のダイアログを呼び出す機能（ログインダイアログからアカウント作成ダイアログを呼び出すことができます）がどのように提供されているかを確認してください。</value>
+    <comment>This demo demonstrates this by defining three dialogs that
+    simulate a user authorization UI. Notice how the dialogs provide
+    HTML5-style validation and the ability to invoke a dialog from
+    another (you can invoke the create account dialog from within
+    the log-in dialog):</comment>
+  </data>
+  <data name="Dialogs_Text5" xml:space="preserve">
+    <value>ログイン</value>
+    <comment>Log In</comment>
+  </data>
+  <data name="Dialogs_Text6" xml:space="preserve">
+    <value>アカウントの作成</value>
+    <comment>Create Account</comment>
+  </data>
+  <data name="Dialogs_Text7" xml:space="preserve">
+    <value>アカウントの編集</value>
+    <comment>Edit Account</comment>
+  </data>
+  <data name="Dialogs_Text8" xml:space="preserve">
+    <value>電子メール：</value>
+    <comment>Email:</comment>
+  </data>
+  <data name="Dialogs_Text9" xml:space="preserve">
+    <value>パスワード：</value>
+    <comment>Password:</comment>
+  </data>
+  <data name="Dialogs_Title" xml:space="preserve">
+    <value>ダイアログ</value>
+    <comment>Dialogs</comment>
+  </data>
+  <data name="DropDown_Text1" xml:space="preserve">
+    <value>DropDown コントロールは、いくつかのコントロールの基礎として使用される抽象クラスです。このコントロールは次の要素で構成されます。</value>
+    <comment>The DropDown control is an abstract class, used as a base
+    for several controls. It is composed of the following elements:</comment>
+  </data>
+  <data name="DropDown_Text10" xml:space="preserve">
+    <value>&lt;b&gt;isAnimated&lt;/b&gt;：コントロールがドロップダウンを表示するときにアニメーションを使用するかどうかを決定するプロパティ。</value>
+    <comment>&lt;b&gt;isAnimated&lt;/b&gt;
+        Property that determines whether the control should use
+        animations when showing the drop-down.</comment>
+  </data>
+  <data name="DropDown_Text11" xml:space="preserve">
+    <value>&lt;b&gt;dropDownCssClass&lt;/b&gt;：ドロップダウンの CSS スタイル設定を可能にするためにドロップダウン要素に追加されるクラス。&lt;br /&gt;
+        ドロップダウンは通常、表示されるときにドキュメント本文の直接の子になるように親が再設定され、コントロールのホスト要素のスタイルが継承されないため、このプロパティは便利です。</value>
+    <comment>&lt;b&gt;dropDownCssClass&lt;/b&gt;
+        Class added to the drop-down element in order to allow CSS
+        styling of the drop-down.&lt;br /&gt;
+        This property is useful because when the drop-down is displayed,
+        it is usually re-parented to become a direct child of the
+        document's body, which prevents it from inheriting the styles
+        of the control's host element.</comment>
+  </data>
+  <data name="DropDown_Text12" xml:space="preserve">
+    <value>次に、これらのプロパティの一部を簡単な例で示します。</value>
+    <comment>Here is a simple example that demonstrates some of these
+    properties:</comment>
+  </data>
+  <data name="DropDown_Text13" xml:space="preserve">
+    <value>isAnimated：</value>
+    <comment>isAnimated:</comment>
+  </data>
+  <data name="DropDown_Text14" xml:space="preserve">
+    <value>isDroppedDown：</value>
+    <comment>isDroppedDown:</comment>
+  </data>
+  <data name="DropDown_Text15" xml:space="preserve">
+    <value>dropDownCssClass：</value>
+    <comment>dropDownCssClass:</comment>
+  </data>
+  <data name="DropDown_Text2" xml:space="preserve">
+    <value>&lt;b&gt;入力要素&lt;/b&gt;（&lt;b&gt;inputElement&lt;/b&gt; プロパティで公開）：&lt;br /&gt;
+        現在の値を表示および編集するために使用される HTML 入力要素。この要素は、編集できない要素（Menu コントロール、MultiSelect コントロールなど）に置き換えられる場合もあります。</value>
+    <comment>&lt;b&gt;input element&lt;/b&gt; (exposed by the &lt;b&gt;inputElement&lt;/b&gt; property):&lt;br /&gt;
+        An HTML input element used to display and edit the current value.
+        In a few cases, this element may be replaced with a non-editable
+        element (e.g. Menu and MultiSelect controls).</comment>
+  </data>
+  <data name="DropDown_Text3" xml:space="preserve">
+    <value>&lt;b&gt;ドロップダウンボタン&lt;/b&gt;：ドロップダウン要素を表示または非表示にするために使用されるボタン。</value>
+    <comment>&lt;b&gt;drop-down button&lt;/b&gt;
+        A button used to show or hide the drop-down element.</comment>
+  </data>
+  <data name="DropDown_Text4" xml:space="preserve">
+    <value>&lt;b&gt;ドロップダウン要素（&lt;b&gt;dropDown&lt;/b&gt; プロパティで公開）&lt;/b&gt;：ユーザーがドロップダウンボタンまたは［F4］キーを押したときに表示される HTML 要素。ユーザーはドロップダウン要素を操作して、入力要素やコントロールの値を更新します。</value>
+    <comment>&lt;b&gt;drop-down element (exposed by the &lt;b&gt;dropDown&lt;/b&gt; property)&lt;/b&gt;:
+        An HTML element shown when the user presses the drop-down
+        button or the F4 key. The user interacts with the drop-down
+        element to update the value of the input element and of the
+        control.</comment>
+  </data>
+  <data name="DropDown_Text5" xml:space="preserve">
+    <value>すべての DropDown コントロールには、次のプロパティとイベントがあります。</value>
+    <comment>All DropDown controls have the following properties and events:</comment>
+  </data>
+  <data name="DropDown_Text6" xml:space="preserve">
+    <value>&lt;b&gt;text&lt;/b&gt;：&lt;b&gt;inputElement&lt;/b&gt; の現在の値を取得または設定します。</value>
+    <comment>&lt;b&gt;text&lt;/b&gt;
+        Gets or sets the current value of the &lt;b&gt;inputElement&lt;/b&gt;.</comment>
+  </data>
+  <data name="DropDown_Text7" xml:space="preserve">
+    <value>&lt;b&gt;textChanged&lt;/b&gt;：&lt;b&gt;text&lt;/b&gt; プロパティの値が変更されたときに発生するイベント。</value>
+    <comment>&lt;b&gt;textChanged&lt;/b&gt;
+        Event that fires when the value of the &lt;b&gt;text&lt;/b&gt; property changes..</comment>
+  </data>
+  <data name="DropDown_Text8" xml:space="preserve">
+    <value>&lt;b&gt;isDroppedDown&lt;/b&gt;：ドロップダウンが現在表示されているかどうかを示す値を取得または設定します。</value>
+    <comment>&lt;b&gt;isDroppedDown&lt;/b&gt;
+        Gets or sets a value that determines whether the drop-down is
+        currently visible.</comment>
+  </data>
+  <data name="DropDown_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isDroppedDownChanging、isDroppedDownChanged&lt;/b&gt;：&lt;b&gt;isDroppedDown&lt;/b&gt; プロパティの値が変更されたときに発生するイベント。</value>
+    <comment>&lt;b&gt;isDroppedDownChanging, isDroppedDownChanged&lt;/b&gt;
+        Events that fire when the value of the &lt;b&gt;isDroppedDown&lt;/b&gt;
+        property changes.</comment>
+  </data>
+  <data name="DropDown_Title" xml:space="preserve">
+    <value>DropDown</value>
+    <comment>DropDown</comment>
+  </data>
+  <data name="FocusedState_Text1" xml:space="preserve">
+    <value>このサンプルでは、&lt;b&gt;wj-focused-state&lt;/b&gt; 疑似クラスを使用して、Gauge コントロールのポインタにフォーカスがあるときに、ポインタを変更します。</value>
+    <comment>This sample uses the &lt;b&gt;wj-focused-state&lt;/b&gt; pseudo-class
+    to change the pointer of some Gauge controls when they
+    have the focus:</comment>
+  </data>
+  <data name="FocusedState_Title" xml:space="preserve">
+    <value>フォーカス状態</value>
+    <comment>Focused State</comment>
+  </data>
+  <data name="Gauges_Text1" xml:space="preserve">
+    <value>InputNumber コントロールのほかに、ゲージを使用して数値を表示および編集することもできます。</value>
+    <comment>In addition to the InputNumber control, you can use
+    gauges to display and edit numbers.</comment>
+  </data>
+  <data name="Gauges_Text2" xml:space="preserve">
+    <value>ゲージは、通常、ダッシュボード形式のアプリケーションで数値データを表示するために使用されますが、ComponentOne MVC ゲージの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティを使用すると、ゲージを HTML 入力範囲要素によく似た入力コントロールとして使用することもできます。</value>
+    <comment>Although they are normally used in dashboard-style
+    applications to display numeric data, C1 MVC gauges have
+    an &lt;b&gt;isReadOnly&lt;/b&gt; property that allows you to use
+    them as input controls, much like the HTML input range
+    element.</comment>
+  </data>
+  <data name="Gauges_Text3" xml:space="preserve">
+    <value>Gauge コントロールは、HTML 入力範囲要素に似ていますが、いくつかの利点があります。</value>
+    <comment>Gauge controls are similar to HTML input range elements,
+    but with some advantages:</comment>
+  </data>
+  <data name="Gauges_Text4" xml:space="preserve">
+    <value>Gauge は、どのブラウザでも一貫した外観になります。入力範囲要素は、ブラウザによって外観が異なります。</value>
+    <comment>Gauges have a consistent look among browsers.
+        Input range elements look different depending on the browser.</comment>
+  </data>
+  <data name="Gauges_Text5" xml:space="preserve">
+    <value>Gauge は CSS を使用してスタイル設定でき、豊富なプロパティを使用してカスタマイズできます。</value>
+    <comment>Gauges can be styled using CSS, and customized with a rich
+        set of properties.</comment>
+  </data>
+  <data name="Gauges_Title" xml:space="preserve">
+    <value>ゲージ（スライダ）</value>
+    <comment>Gauges (Sliders)</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>ComponentOne MVC の入力モジュールには、マウス操作やタッチ操作を使用してデータを簡単かつ効率的に入力できるように設計された入力コントロールが含まれています。</value>
+    <comment>C1 MVC's input module contains input controls designed to make
+    data entry easy and efficient, using mouse or touch.</comment>
+  </data>
+  <data name="Index_Text10" xml:space="preserve">
+    <value>InputTime &lt;span class="detail"&gt;時刻&lt;/span&gt;</value>
+    <comment>InputTime &lt;span class="detail"&gt;times&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text11" xml:space="preserve">
+    <value>Menu &lt;span class="detail"&gt;コマンド&lt;/span&gt;</value>
+    <comment>Menu &lt;span class="detail"&gt;commands&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text12" xml:space="preserve">
+    <value>MultiSelect &lt;span class="detail"&gt;複数の項目/文字列&lt;/span&gt;</value>
+    <comment>MultiSelect &lt;span class="detail"&gt;multiple items/strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text13" xml:space="preserve">
+    <value>InputColor &lt;span class="detail"&gt;色&lt;/span&gt;</value>
+    <comment>InputColor &lt;span class="detail"&gt;colors&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text14" xml:space="preserve">
+    <value>InputDate &lt;span class="detail"&gt;日付&lt;/span&gt;</value>
+    <comment>InputDate &lt;span class="detail"&gt;dates&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text15" xml:space="preserve">
+    <value>InputDateTime &lt;span class="detail"&gt;日付と時刻&lt;/span&gt;</value>
+    <comment>InputDateTime &lt;span class="detail"&gt;dates and times&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text16" xml:space="preserve">
+    <value>InputMask &lt;span class="detail"&gt;文字列&lt;/span&gt;</value>
+    <comment>InputMask &lt;span class="detail"&gt;strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text17" xml:space="preserve">
+    <value>InputNumber &lt;span class="detail"&gt;数値&lt;/span&gt;</value>
+    <comment>InputNumber &lt;span class="detail"&gt;numbers&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text18" xml:space="preserve">
+    <value>ListBox &lt;span class="detail"&gt;項目/文字列&lt;/span&gt;</value>
+    <comment>ListBox &lt;span class="detail"&gt;items/strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text19" xml:space="preserve">
+    <value>Popup &lt;span class="detail"&gt;コンテナ&lt;/span&gt;</value>
+    <comment>Popup &lt;span class="detail"&gt;container&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>ComponentOne MVC の入力コントロールは、データ型ごとに特化および最適化されています。入力モジュールには、現在、次のクラス階層を持つ 16 のコントロールが含まれています。</value>
+    <comment>C1 MVC's input controls are specialized and optimized for each
+    data type. The input module currently contains 16 controls
+    with the following class hierarchy:</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>Control &lt;span class="detail"&gt;抽象クラス&lt;/span&gt;</value>
+    <comment>Control &lt;span class="detail"&gt;abstract&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>Calendar &lt;span class="detail"&gt;日付&lt;/span&gt;</value>
+    <comment>Calendar &lt;span class="detail"&gt;dates&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>ColorPicker &lt;span class="detail"&gt;色&lt;/span&gt;</value>
+    <comment>ColorPicker &lt;span class="detail"&gt;colors&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>DropDown &lt;span class="detail"&gt;抽象クラス&lt;/span&gt;</value>
+    <comment>DropDown &lt;span class="detail"&gt;abstract&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>ComboBox &lt;span class="detail"&gt;項目/文字列&lt;/span&gt;</value>
+    <comment>ComboBox &lt;span class="detail"&gt;items/strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>AutoComplete &lt;span class="detail"&gt;項目/文字列&lt;/span&gt;</value>
+    <comment>AutoComplete &lt;span class="detail"&gt;items/strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>MultiAutoComplete &lt;span class="detail"&gt;複数の項目/文字列&lt;/span&gt;</value>
+    <comment>MultiAutoComplete &lt;span class="detail"&gt;multiple items/strings&lt;/span&gt;</comment>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>Input</value>
+    <comment>Input</comment>
+  </data>
+  <data name="InputColor_Text1" xml:space="preserve">
+    <value>InputColor コントロールは、HTML 色指定を使用して色の値を入力するか、ColorPicker ドロップダウンから色を選択することができるドロップダウンです。</value>
+    <comment>The InputColor control is a drop-down that allows you
+    to type a color using the HTML color specification or
+    select one from a ColorPicker dropdown:</comment>
+  </data>
+  <data name="InputColor_Text2" xml:space="preserve">
+    <value>デフォルト：</value>
+    <comment>Default:</comment>
+  </data>
+  <data name="InputColor_Text3" xml:space="preserve">
+    <value>InputColor は、カラーピッカードロップダウンを公開する &lt;b&gt;colorPicker&lt;/b&gt; プロパティを使用してカスタマイズできます。</value>
+    <comment>You can customize the InputColor using the
+    &lt;b&gt;colorPicker&lt;/b&gt; property, which exposes
+    the color picker drop-down:</comment>
+  </data>
+  <data name="InputColor_Text4" xml:space="preserve">
+    <value>showAlphaChannel：</value>
+    <comment>showAlphaChannel:</comment>
+  </data>
+  <data name="InputColor_Text5" xml:space="preserve">
+    <value>palette：</value>
+    <comment>palette:</comment>
+  </data>
+  <data name="InputColor_Text6" xml:space="preserve">
+    <value>カスタム：</value>
+    <comment>Custom:</comment>
+  </data>
+  <data name="InputColor_Title" xml:space="preserve">
+    <value>InputColor</value>
+    <comment>InputColor</comment>
+  </data>
+  <data name="InputColor_OutputText" xml:space="preserve">
+    <value>私のために背景を選択してください！</value>
+    <comment>TODO:Select a background for me!</comment>
+  </data>
+  <data name="InputDateCustomization_Text1" xml:space="preserve">
+    <value>InputDate とそのドロップダウンカレンダーの外観は、CSS を使用してカスタマイズできます。また、カレンダーの &lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、ドロップダウンカレンダー内の特定の日付の外観をカスタマイズすることもできます。</value>
+    <comment>You can customize the appearance of the InputDate and
+    its drop-down calendar using CSS. You can also use the
+    calendar's &lt;b&gt;formatItem&lt;/b&gt; event to customize the
+    appearance of specific dates in the drop-down
+    calendar.</comment>
+  </data>
+  <data name="InputDateCustomization_Text2" xml:space="preserve">
+    <value>たとえば、次の InputDate では、週末と休日にカスタムスタイルが適用されています。</value>
+    <comment>For example, the InputDate below applies custom styles to
+    weekends and holidays:</comment>
+  </data>
+  <data name="InputDateCustomization_Text3" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputDateCustomization_Title" xml:space="preserve">
+    <value>InputDate のカスタマイズ</value>
+    <comment>InputDate Customization</comment>
+  </data>
+  <data name="InputDateFormatting_Text1" xml:space="preserve">
+    <value>InputDate の &lt;b&gt;format&lt;/b&gt; プロパティを使用すると、アプリケーションに合わせて、日付の値を書式設定および解析することができます。</value>
+    <comment>Use the InputDate's &lt;b&gt;format&lt;/b&gt; property to format
+    and parse date values to suit your app.</comment>
+  </data>
+  <data name="InputDateFormatting_Text2" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt; パラメータの構文は、.NET で使用されている構文に似ています（&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;説明はこちらを参照&lt;/a&gt;）。</value>
+    <comment>The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
+    the one used in .NET and is
+    &lt;a href=http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate" target="_blank"&gt;documented here&lt;/a&gt;."</comment>
+  </data>
+  <data name="InputDateFormatting_Title" xml:space="preserve">
+    <value>InputDate の書式設定</value>
+    <comment>InputDate Formatting</comment>
+  </data>
+  <data name="InputDateMoreCustomization_Text1" xml:space="preserve">
+    <value>ドロップダウンボタンに表示されるアイコンをカスタマイズするには、InputDate の controlTemplate プロパティを変更するか、コードを使用してコントロールのコンテンツを変更します。最初の方法は、アプリケーション内のすべての InputDate コントロールに影響し、2 番目の方法は 1 つのコントロールにのみ影響します。</value>
+    <comment>You can customize the icon shown in the drop-down button
+    by changing the InputDate's controlTemplate property,
+    or by using code to change the control content. The
+    first option would affect all InputDate controls in the
+    application; the second would affect only a single
+    control.</comment>
+  </data>
+  <data name="InputDateMoreCustomization_Text2" xml:space="preserve">
+    <value>また、ドロップダウンカレンダーに現在の月/年を表示するために使用される書式をカスタマイズするには、Globalization の標準の「y」書式を変更するか、コードを使用してコントロールのコンテンツを変更します。この場合も、最初の方法は、アプリケーション内のすべての InputDate および Calendar コントロールに影響し、2 番目の方法は 1 つのコントロールにのみ影響します。</value>
+    <comment>You can also customize the format used to display the
+    current month/year in the drop-down Calendar by changing
+    the Globalization's standard 'y' format, or by using
+    code to change the control content. Again, the first
+    option would affect all InputDate and Calendar controls
+    in the application; the second would affect only a single
+    control.</comment>
+  </data>
+  <data name="InputDateMoreCustomization_Title" xml:space="preserve">
+    <value>InputDate のさらなるカスタマイズ</value>
+    <comment>More InputDate Customization</comment>
+  </data>
+  <data name="InputDateRanges_Text1" xml:space="preserve">
+    <value>InputDate の &lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用して、入力できる日付の範囲を制限することができます。</value>
+    <comment>Use the InputDate's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of dates that can be entered.</comment>
+  </data>
+  <data name="InputDateRanges_Text2" xml:space="preserve">
+    <value>たとえば、次の InputDate は、現在の週の日付のみを受け入れます。</value>
+    <comment>For example, the InputDate below only accepts dates
+    within the current week:</comment>
+  </data>
+  <data name="InputDateRanges_Text3" xml:space="preserve">
+    <value>日付</value>
+    <comment>The Date</comment>
+  </data>
+  <data name="InputDateRanges_Title" xml:space="preserve">
+    <value>InputDate の範囲</value>
+    <comment>InputDate Ranges</comment>
+  </data>
+  <data name="InputDateTime_Text1" xml:space="preserve">
+    <value>InputDateTime コントロールは、InputDate と InputTime を 1 つのコントロールに統合しています。Date オブジェクトの日付部分と時刻部分を編集する必要がある場合に、画面のスペースを節約できます。</value>
+    <comment>The InputDateTime control unifies InputDate and InputTime
+    into a single control, saving some screen real-estate in
+    scenarios where you do want to edit the date and time
+    parts of a Date object.</comment>
+  </data>
+  <data name="InputDateTime_Text10" xml:space="preserve">
+    <value>現在の日付/時刻：&lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputDateTime_Text2" xml:space="preserve">
+    <value>InputDateTime コントロールの &lt;b&gt;format&lt;/b&gt; プロパティは、日付と時刻の両方を表示する書式（「g」など）に設定する必要があります。InputDateTime には、カレンダーを表示するためのボタンと、時刻のリストを表示するためのボタンの 2 つのドロップダウンボタンがあります。</value>
+    <comment>The InputDateTime control &lt;b&gt;format&lt;/b&gt; property should be
+    set to a format such as "g", which displays both date and time.
+    It has two drop-down buttons, one for showing a calendar and
+    one for a list of times.</comment>
+  </data>
+  <data name="InputDateTime_Text3" xml:space="preserve">
+    <value>InputDateTime コントロールは InputDate の拡張なので、すべてのプロパティとイベントを同様に使用できます。コントロールの時間固有のパラメータを制御する次のプロパティが追加されています。</value>
+    <comment>The InputDateTime control extends the InputDate, so all
+    properties and events are available as usual. It adds a
+    group of properties to control the time-specific parameters
+    of the control:</comment>
+  </data>
+  <data name="InputDateTime_Text4" xml:space="preserve">
+    <value>&lt;b&gt;inputTime&lt;/b&gt;：内部の InputTime コントロールへの参照を取得します。</value>
+    <comment>&lt;b&gt;inputTime&lt;/b&gt;: Gets a reference to the inner
+        InputTime control.</comment>
+  </data>
+  <data name="InputDateTime_Text5" xml:space="preserve">
+    <value>&lt;b&gt;timeMin&lt;/b&gt;、&lt;b&gt;timeMax&lt;/b&gt;、&lt;b&gt;timeStep&lt;/b&gt;：時刻のドロップダウンに表示される時刻リストを生成するために使用されるパラメータを取得または設定します。</value>
+    <comment>&lt;b&gt;timeMin&lt;/b&gt;, &lt;b&gt;timeMax&lt;/b&gt;, &lt;b&gt;timeStep&lt;/b&gt;:
+        Get or set the parameters used to populate the list
+        of times shown in the time drop-down.</comment>
+  </data>
+  <data name="InputDateTime_Text6" xml:space="preserve">
+    <value>&lt;b&gt;timeFormat&lt;/b&gt;：InputTime ドロップダウンに時刻の値を表示するために使用される書式を取得または設定します。</value>
+    <comment>&lt;b&gt;timeFormat&lt;/b&gt;: Gets or sets the format used to
+        show time values in the InputTime drop-down.</comment>
+  </data>
+  <data name="InputDateTime_Text7" xml:space="preserve">
+    <value>&lt;b&gt;InputDate&lt;/b&gt; コントロールと &lt;b&gt;InputTime&lt;/b&gt; コントロールを個別にまたは一緒に使用して、Javascript &lt;b&gt;Date&lt;/b&gt; オブジェクトの日付と時刻の情報を編集できます。</value>
+    <comment>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in a Javascript &lt;b&gt;Date&lt;/b&gt; object.</comment>
+  </data>
+  <data name="InputDateTime_Text8" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="InputDateTime_Text9" xml:space="preserve">
+    <value>InputDateTime：</value>
+    <comment>InputDateTime:</comment>
+  </data>
+  <data name="InputDateTime_Title" xml:space="preserve">
+    <value>InputDateTime</value>
+    <comment>InputDateTime</comment>
+  </data>
+  <data name="InputDateValidation_Text1" xml:space="preserve">
+    <value>InputDate コントロールは、&lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティで決定される範囲外の値をユーザーが選択できないようにします。</value>
+    <comment>The InputDate control prevents users from selecting values
+    outside the range determined by the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt;
+    properties.</comment>
+  </data>
+  <data name="InputDateValidation_Text2" xml:space="preserve">
+    <value>ただし、範囲内のすべての日付が有効ではないこともよくあります。このような状況を処理するために、コントロールには &lt;b&gt;itemValidator&lt;/b&gt; プロパティが用意されています。このプロパティは、パラメータとして日付を受け取り、その日付が選択対象として有効な場合は true、そうでない場合は false を返す関数を表します。</value>
+    <comment>In many cases, however, not all dates in the range are valid.
+    To handle these situations, the control has an &lt;b&gt;itemValidator&lt;/b&gt;
+    property. This property represents a function that takes a date
+    as a parameter and returns true if the date is valid for selection,
+    or false otherwise.</comment>
+  </data>
+  <data name="InputDateValidation_Text3" xml:space="preserve">
+    <value>次の InputDate に、この例を示します。このカレンダーでは、ユーザーが週末や休日の日付を選択できないようにしています。</value>
+    <comment>The InputDate below demonstrates this. It prevents users from
+    selecting dates on weekends and holidays:</comment>
+  </data>
+  <data name="InputDateValidation_Text4" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theInputDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputDateValidation_Title" xml:space="preserve">
+    <value>InputDate の検証</value>
+    <comment>InputDate Validation</comment>
+  </data>
+  <data name="InputDate_Text1" xml:space="preserve">
+    <value>InputDate コントロールを使用して、ユーザーは日付を入力および編集できます。通常の入力要素と比べて、次の利点があります。</value>
+    <comment>The InputDate control allows users to enter and edit dates.
+    It has the following advantages over regular input elements:</comment>
+  </data>
+  <data name="InputDate_Text10" xml:space="preserve">
+    <value>必須でない場合</value>
+    <comment>Not Required</comment>
+  </data>
+  <data name="InputDate_Text2" xml:space="preserve">
+    <value>数値以外の値を入力できません。</value>
+    <comment>Users cannot enter non-numeric values at all.</comment>
+  </data>
+  <data name="InputDate_Text3" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt; プロパティを使用して、編集時に数値を書式設定して読みやすくすることができます。</value>
+    <comment>You can use the &lt;b&gt;format&lt;/b&gt; property to format the number
+        as it is edited, making it easy to read.</comment>
+  </data>
+  <data name="InputDate_Text4" xml:space="preserve">
+    <value>&lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用して、有効な値の範囲を指定できます（この範囲外の値は入力できません）。</value>
+    <comment>You can use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to
+        specify the valid range of values (users will not be
+        able to enter values outside this range).</comment>
+  </data>
+  <data name="InputDate_Text5" xml:space="preserve">
+    <value>&lt;b&gt;step&lt;/b&gt; プロパティを使用して、ユーザーがコントロールのインクリメント/デクリメントボタンをクリックしたときに値に加減される増分値を指定できます。</value>
+    <comment>You can use the &lt;b&gt;step&lt;/b&gt; property to specify an
+        increment that is added to the value when the user
+        clicks the increment/decrement buttons on the control.</comment>
+  </data>
+  <data name="InputDate_Text6" xml:space="preserve">
+    <value>たとえば、次にデフォルト設定の InputDate を示します。</value>
+    <comment>For example, here is an InputDate with default
+    settings:</comment>
+  </data>
+  <data name="InputDate_Text7" xml:space="preserve">
+    <value>InputDate</value>
+    <comment>InputDate</comment>
+  </data>
+  <data name="InputDate_Text8" xml:space="preserve">
+    <value>現在の日付：&lt;b&gt;&lt;span id="theDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date is &lt;b&gt;&lt;span id="theDateOutput"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputDate_Text9" xml:space="preserve">
+    <value>デフォルトでは、InputDate の値は必須なので、コントロールのコンテンツ全体を削除することはできません。日付の入力をオプションにする場合は、&lt;b&gt;isRequired&lt;/b&gt; プロパティを false に設定します。</value>
+    <comment>By default, InputDate values are required, so you can't
+    delete the entire content of the control. If you want to
+    enter dates that are optional, set the &lt;b&gt;isRequired&lt;/b&gt;
+    property to false:</comment>
+  </data>
+  <data name="InputDate_Title" xml:space="preserve">
+    <value>InputDate</value>
+    <comment>InputDate</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text1" xml:space="preserve">
+    <value>InputMask コントロールは、マスクに値が完全に入力されているかどうかを示す &lt;b&gt;maskFull&lt;/b&gt; プロパティを公開します。</value>
+    <comment>The InputMask control exposes a &lt;b&gt;maskFull&lt;/b&gt; property that
+    indicates whether the mask has been completely filled.</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text2" xml:space="preserve">
+    <value>たとえば、以下のコントロールでは、マスクが完全に入力されるまで、コンテンツが赤で表示されます。また、オプションで、マスクが完全に入力されないままコントロールがフォーカスを失った場合は、コンテンツがクリアされます。</value>
+    <comment>For example, these controls will show their content in
+    red until the masks are completely filled out, and
+    optionally clears their content when the control loses
+    focus and the mask is not full:</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text3" xml:space="preserve">
+    <value>不完全な入力をクリア：</value>
+    <comment>Clear Incomplete:</comment>
+  </data>
+  <data name="InputMaskMaskFull_Title" xml:space="preserve">
+    <value>InputMask maskFull</value>
+    <comment>InputMask maskFull</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text1" xml:space="preserve">
+    <value>デフォルトでは、InputMask コントロールは、アンダースコア文字を使用して入力を求める位置を示します。</value>
+    <comment>By default, the InputMask control uses an underscore character
+    to indicate positions where input is expected.</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text2" xml:space="preserve">
+    <value>これは、&lt;b&gt;promptChar&lt;/b&gt; プロパティに新しい文字列を割り当てて変更できます。</value>
+    <comment>You can change this by assigning a new string to the &lt;b&gt;promptChar&lt;/b&gt;
+    property:</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text3" xml:space="preserve">
+    <value>社会保障番号</value>
+    <comment>Social Security Number</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text4" xml:space="preserve">
+    <value>郵便番号</value>
+    <comment>Zip Code</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text5" xml:space="preserve">
+    <value>郵便番号 + 4 桁</value>
+    <comment>Zip+4 Code</comment>
+  </data>
+  <data name="InputMaskPromptChar_Text6" xml:space="preserve">
+    <value>電話番号</value>
+    <comment>Phone Number</comment>
+  </data>
+  <data name="InputMaskPromptChar_Title" xml:space="preserve">
+    <value>InputMask promptChar</value>
+    <comment>InputMask promptChar</comment>
+  </data>
+  <data name="InputMaskRawValue_Text1" xml:space="preserve">
+    <value>InputMask の &lt;b&gt;value&lt;/b&gt; プロパティは、ユーザーの入力とテンプレート文字を含む、コントロールのすべてのテキストコンテンツを返します。</value>
+    <comment>The InputMask's &lt;b&gt;value&lt;/b&gt; property returns the full text
+    content of the control, including the user's input and
+    any template characters.</comment>
+  </data>
+  <data name="InputMaskRawValue_Text2" xml:space="preserve">
+    <value>&lt;b&gt;rawValue&lt;/b&gt; プロパティを使用すると、テンプレート文字を除いた入力文字のみを含むコントロール値を取得または設定することができます。</value>
+    <comment>You can use the &lt;b&gt;rawValue&lt;/b&gt; property to get or set the
+    control value including only the input characters and excluding
+    any template characters:</comment>
+  </data>
+  <data name="InputMaskRawValue_Text3" xml:space="preserve">
+    <value>社会保障番号</value>
+    <comment>Social Security Number</comment>
+  </data>
+  <data name="InputMaskRawValue_Text4" xml:space="preserve">
+    <value>郵便番号</value>
+    <comment>Zip Code</comment>
+  </data>
+  <data name="InputMaskRawValue_Text5" xml:space="preserve">
+    <value>郵便番号 + 4 桁</value>
+    <comment>Zip Code + 4</comment>
+  </data>
+  <data name="InputMaskRawValue_Text6" xml:space="preserve">
+    <value>電話番号</value>
+    <comment>Phone Number</comment>
+  </data>
+  <data name="InputMaskRawValue_Title" xml:space="preserve">
+    <value>InputMask rawValue</value>
+    <comment>InputMask rawValue</comment>
+  </data>
+  <data name="InputMask_Text1" xml:space="preserve">
+    <value>InputMask コントロールを使用すると、キー入力と同時にユーザー入力を検証および書式設定でき、不正なデータを防止できます。</value>
+    <comment>The InputMask control allows you to validate and format user input
+    as it is entered, preventing invalid data.</comment>
+  </data>
+  <data name="InputMask_Text2" xml:space="preserve">
+    <value>InputMask コントロールを使用するには、&lt;b&gt;mask&lt;/b&gt; プロパティを、各入力位置の有効な文字クラスを指定する文字列に設定します。&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.input.InputMask.Class.html" target="_blank"&gt;InputMask の説明&lt;/a&gt;を参照してください。</value>
+    <comment>To use the InputMask control, set the &lt;b&gt;mask&lt;/b&gt; property to a
+    string that specifies the valid character classes for each input\
+    position, as described in the
+    &lt;a href=http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.input.InputMask.Class.html" target="_blank"&gt;InputMask documentation&lt;/a&gt;."</comment>
+  </data>
+  <data name="InputMask_Text3" xml:space="preserve">
+    <value>次に、例を示します。</value>
+    <comment>Here are a few examples to demonstrate:</comment>
+  </data>
+  <data name="InputMask_Text4" xml:space="preserve">
+    <value>社会保障番号</value>
+    <comment>Social Security Number</comment>
+  </data>
+  <data name="InputMask_Text5" xml:space="preserve">
+    <value>郵便番号</value>
+    <comment>Zip Code</comment>
+  </data>
+  <data name="InputMask_Text6" xml:space="preserve">
+    <value>郵便番号 + 4 桁</value>
+    <comment>Zip+4 Code</comment>
+  </data>
+  <data name="InputMask_Text7" xml:space="preserve">
+    <value>電話番号</value>
+    <comment>Phone Number</comment>
+  </data>
+  <data name="InputMask_Title" xml:space="preserve">
+    <value>InputMask</value>
+    <comment>InputMask</comment>
+  </data>
+  <data name="InputNumberFormatting_Text1" xml:space="preserve">
+    <value>InputNumber の &lt;b&gt;format&lt;/b&gt; プロパティを使用して、編集時に数値を書式設定して読みやすくすることができます。</value>
+    <comment>Use the InputNumber's &lt;b&gt;format&lt;/b&gt; property to format numbers
+    as they are edited, making them easy to read.</comment>
+  </data>
+  <data name="InputNumberFormatting_Text2" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt; パラメータの構文は、.NET で使用されている構文に似ています（&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;説明はこちらを参照&lt;/a&gt;）。</value>
+    <comment>The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
+    the one used in .NET and is
+    &lt;a href=http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber" target="_blank"&gt;documented here&lt;/a&gt;."</comment>
+  </data>
+  <data name="InputNumberFormatting_Title" xml:space="preserve">
+    <value>InputNumber の書式設定</value>
+    <comment>InputNumber Formatting</comment>
+  </data>
+  <data name="InputNumberRanges_Text1" xml:space="preserve">
+    <value>InputNumber の &lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用して、入力できる値の範囲を制限することができます。</value>
+    <comment>Use the InputNumber's &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties
+    to restrict the range of values that can be entered.</comment>
+  </data>
+  <data name="InputNumberRanges_Text2" xml:space="preserve">
+    <value>たとえば、次の InputNumber は、1 ～ 5 の範囲の値しか受け入れません。</value>
+    <comment>For example, the InputNumber below only accepts values
+    between one and five:</comment>
+  </data>
+  <data name="InputNumberRanges_Text3" xml:space="preserve">
+    <value>ゲスト</value>
+    <comment>Guests</comment>
+  </data>
+  <data name="InputNumberRanges_Text4" xml:space="preserve">
+    <value>コントロールは、値が編集されている間は範囲を検証しませんが、コントロールがフォーカスを失うと、値を有効な範囲に制限します。</value>
+    <comment>Note that the control will not validate the range
+    as the value is being edited, but will clamp the
+    value to the valid range when the control loses focus.</comment>
+  </data>
+  <data name="InputNumberRanges_Text5" xml:space="preserve">
+    <value>たとえば、上のコントロールの場合、「123」と入力することはできますが、フォーカスが別の要素に移動すると直ちに範囲の制約が適用されて、値が 5（&lt;b&gt;max&lt;/b&gt; プロパティの値）に変更されます。</value>
+    <comment>For example, you can type "123" in the control above,
+    but as soon as you move the focus to another element
+    the control will apply the constraints and change the
+    value to five, the value of the &lt;b&gt;max&lt;/b&gt; property:</comment>
+  </data>
+  <data name="InputNumberRanges_Title" xml:space="preserve">
+    <value>InputNumber の範囲</value>
+    <comment>InputNumber Ranges</comment>
+  </data>
+  <data name="InputNumberStep_Text1" xml:space="preserve">
+    <value>InputNumber の &lt;b&gt;step&lt;/b&gt; プロパティを使用すると、現在の値のインクリメント/デクリメントに使用できるスピナーボタンが有効になります。</value>
+    <comment>Use the InputNumber's &lt;b&gt;step&lt;/b&gt; property to enable
+    spinner buttons, used to increment or decrement the
+    current value.</comment>
+  </data>
+  <data name="InputNumberStep_Text2" xml:space="preserve">
+    <value>step が {0}：</value>
+    <comment>Step {0}:</comment>
+  </data>
+  <data name="InputNumberStep_Title" xml:space="preserve">
+    <value>InputNumber の増減値</value>
+    <comment>InputNumber Step</comment>
+  </data>
+  <data name="InputNumber_Text1" xml:space="preserve">
+    <value>InputNumber コントロールを使用して、ユーザーは数値を入力および編集できます。通常の入力要素と比べて、次の利点があります。</value>
+    <comment>The InputNumber control allows users to enter and edit numbers.
+    It has the following advantages over regular input elements:</comment>
+  </data>
+  <data name="InputNumber_Text10" xml:space="preserve">
+    <value>必須でない場合</value>
+    <comment>Not Required</comment>
+  </data>
+  <data name="InputNumber_Text2" xml:space="preserve">
+    <value>数値以外の値を入力できません。</value>
+    <comment>Users cannot enter non-numeric values at all.</comment>
+  </data>
+  <data name="InputNumber_Text3" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt; プロパティを使用して、編集時に数値を書式設定して読みやすくすることができます。</value>
+    <comment>You can use the &lt;b&gt;format&lt;/b&gt; property to format the number
+        as it is edited, making it easy to read.</comment>
+  </data>
+  <data name="InputNumber_Text4" xml:space="preserve">
+    <value>&lt;b&gt;min&lt;/b&gt; プロパティと &lt;b&gt;max&lt;/b&gt; プロパティを使用して、有効な値の範囲を指定できます（この範囲外の値は入力できません）。</value>
+    <comment>You can use the &lt;b&gt;min&lt;/b&gt; and &lt;b&gt;max&lt;/b&gt; properties to
+        specify the valid range of values (users will not be
+        able to enter values outside this range).</comment>
+  </data>
+  <data name="InputNumber_Text5" xml:space="preserve">
+    <value>&lt;b&gt;step&lt;/b&gt; プロパティを使用して、ユーザーがコントロールのインクリメント/デクリメントボタンをクリックしたときに値に加減される増分値を指定できます。</value>
+    <comment>You can use the &lt;b&gt;step&lt;/b&gt; property to specify an
+        increment that is added to the value when the user
+        clicks the increment/decrement buttons on the control.</comment>
+  </data>
+  <data name="InputNumber_Text6" xml:space="preserve">
+    <value>たとえば、次にデフォルト設定の InputNumber を示します。</value>
+    <comment>For example, here is an InputNumber with default
+    settings:</comment>
+  </data>
+  <data name="InputNumber_Text7" xml:space="preserve">
+    <value>InputNumber</value>
+    <comment>InputNumber</comment>
+  </data>
+  <data name="InputNumber_Text8" xml:space="preserve">
+    <value>現在の値：&lt;b&gt;&lt;span id="theNumberOutput"&gt;0&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current value is &lt;b&gt;&lt;span id="theNumberOutput"&gt;0&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputNumber_Text9" xml:space="preserve">
+    <value>デフォルトでは、InputNumber の値は必須なので、コントロールのコンテンツ全体を削除することはできません。数値の入力をオプションにする場合は、&lt;b&gt;isRequired&lt;/b&gt; プロパティを false に設定します。</value>
+    <comment>By default, InputNumber values are required, so you can't
+    delete the entire content of the control. If you want to
+    enter a number that is optional, set the &lt;b&gt;isRequired&lt;/b&gt;
+    property to false:</comment>
+  </data>
+  <data name="InputNumber_Title" xml:space="preserve">
+    <value>InputNumber</value>
+    <comment>InputNumber</comment>
+  </data>
+  <data name="InputTime_Text1" xml:space="preserve">
+    <value>InputTime コントロールは、ComboBox クラスを拡張して、時刻の値を簡単に入力および編集できるようにします。</value>
+    <comment>The InputTime control extends the ComboBox class to allow
+    easy entry and editing of time values.</comment>
+  </data>
+  <data name="InputTime_Text2" xml:space="preserve">
+    <value>&lt;b&gt;value&lt;/b&gt;：現在選択されている時刻を取得または設定します。</value>
+    <comment>&lt;b&gt;value&lt;/b&gt;: Gets or sets the currently selected time.</comment>
+  </data>
+  <data name="InputTime_Text3" xml:space="preserve">
+    <value>&lt;b&gt;min、max、step&lt;/b&gt;：コントロールのドロップダウンリストに表示される時刻を決定します。</value>
+    <comment>&lt;b&gt;min, max, step&lt;/b&gt;: Determine the times shown in the
+            control's drop-down list.</comment>
+  </data>
+  <data name="InputTime_Text4" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt;：時刻値の表示と解析に使用される書式文字列を取得または設定します。</value>
+    <comment>&lt;b&gt;format&lt;/b&gt;: Gets or sets the format string used to
+            display and parse time values.</comment>
+  </data>
+  <data name="InputTime_Text5" xml:space="preserve">
+    <value>&lt;b&gt;isEditable&lt;/b&gt;：ドロップダウンリストに表示されていない時刻値の入力をユーザーに許可するかどうかを決定します。</value>
+    <comment>&lt;b&gt;isEditable&lt;/b&gt;: Determines whether users should be
+            allowed to enter time values not shown on the drop-down list.</comment>
+  </data>
+  <data name="InputTime_Text6" xml:space="preserve">
+    <value>&lt;b&gt;InputDate&lt;/b&gt; コントロールと &lt;b&gt;InputTime&lt;/b&gt; コントロールを個別にまたは一緒に使用して、Javascript &lt;b&gt;Date&lt;/b&gt; オブジェクトの日付と時刻の情報を編集できます。</value>
+    <comment>The &lt;b&gt;InputDate&lt;/b&gt; and &lt;b&gt;InputTime&lt;/b&gt; controls can be
+    used separately or together, to edit the date and time
+    information in Javascript &lt;b&gt;Date&lt;/b&gt; objects.</comment>
+  </data>
+  <data name="InputTime_Text7" xml:space="preserve">
+    <value>InputDate：</value>
+    <comment>InputDate:</comment>
+  </data>
+  <data name="InputTime_Text8" xml:space="preserve">
+    <value>InputTime：</value>
+    <comment>InputTime:</comment>
+  </data>
+  <data name="InputTime_Text9" xml:space="preserve">
+    <value>現在の日付/時刻：&lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;</value>
+    <comment>The current date/time is: &lt;b&gt;&lt;span id="dateTime"&gt;&lt;/span&gt;&lt;/b&gt;.</comment>
+  </data>
+  <data name="InputTime_Title" xml:space="preserve">
+    <value>InputTime</value>
+    <comment>InputTime</comment>
+  </data>
+  <data name="LinearGauge_Text1" xml:space="preserve">
+    <value>InputNumber コントロールのほかに、LinearGauge を使用して数値を入力することもできます。LinearGauge は HTML 入力範囲コントロールに似ていますが、いくつかの改善点があります。</value>
+    <comment>In addition to the InputNumber control, you can use the
+    LinearGauge to input numbers. The LinearGauge is similar
+    to an HTML input range control, but with some improvements:</comment>
+  </data>
+  <data name="LinearGauge_Text2" xml:space="preserve">
+    <value>LinearGauge は、どのブラウザでも一貫した外観になります。入力範囲要素は、ブラウザによって外観が異なります。</value>
+    <comment>The LinearGauge has a consistent look among browsers.
+        Input range elements look different depending on the browser.</comment>
+  </data>
+  <data name="LinearGauge_Text3" xml:space="preserve">
+    <value>LinearGauge は CSS を使用してスタイル設定でき、豊富なプロパティを使用してカスタマイズできます。</value>
+    <comment>The LinearGauge can be styled using CSS, and customized
+        with a rich set of properties.</comment>
+  </data>
+  <data name="LinearGauge_Text4" xml:space="preserve">
+    <value>たとえば、次に示す入力範囲要素を使用すると、0 ～ 255 の値を入力することができます。</value>
+    <comment>For example, here is an input range element that can be used
+    to enter values between zero and 255:</comment>
+  </data>
+  <data name="LinearGauge_Text5" xml:space="preserve">
+    <value>次は、同じ範囲に設定した LinearGauge コントロールです。&lt;b&gt;isReadOnly&lt;/b&gt; プロパティが false に設定されているため、マウスまたはキーボードを使用してゲージの値を変更できます。</value>
+    <comment>Here is a LinearGauge control set for the same range.
+    The &lt;b&gt;isReadOnly&lt;/b&gt; property is set to false, so you
+    can change the gauge value using the mouse or keyboard:</comment>
+  </data>
+  <data name="LinearGauge_Text6" xml:space="preserve">
+    <value>また、次の LinearGauge コントロールは、スタイル設定が適用されています。</value>
+    <comment>And here is another LinearGauge control with some styling
+    applied:</comment>
+  </data>
+  <data name="LinearGauge_Text7" xml:space="preserve">
+    <value>次のように、複数の垂直ゲージをイコライザー風に使用して、複数の数値を編集することもできます。</value>
+    <comment>And here is an equalizer-style group of vertical gauges used
+    to edit several numbers:</comment>
+  </data>
+  <data name="LinearGauge_Title" xml:space="preserve">
+    <value>LinearGauge による数値入力</value>
+    <comment>LinearGauge as NumberInput</comment>
+  </data>
+  <data name="ListBoxCheckBoxes_Text1" xml:space="preserve">
+    <value>ListBox コントロールには、リストの項目にチェックボックスを追加するための &lt;b&gt;checkedMemberPath&lt;/b&gt; プロパティがあります。また、チェックされた項目のリストを取得または設定するための &lt;b&gt;checkedItems&lt;/b&gt; プロパティがあります。</value>
+    <comment>The ListBox control has a &lt;b&gt;checkedMemberPath&lt;/b&gt; property
+    that allows you to add checkboxes to items on the list.
+    It has a &lt;b&gt;checkedItems&lt;/b&gt; property that gets or sets
+    the list of checked items.</comment>
+  </data>
+  <data name="ListBoxCheckBoxes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;チェックされた項目：&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Checked Items:&lt;/b&gt;</comment>
+  </data>
+  <data name="ListBoxCheckBoxes_Title" xml:space="preserve">
+    <value>チェックボックス付きの ListBox</value>
+    <comment>ListBox and checkboxes</comment>
+  </data>
+  <data name="ListBoxFormatItem_Text1" xml:space="preserve">
+    <value>ListBox の &lt;b&gt;formatItem&lt;/b&gt; イベントを使用すると、リスト内の項目の表示をカスタマイズできます。</value>
+    <comment>The ListBox has a &lt;b&gt;formatItem&lt;/b&gt; event you can use to
+    customize the display of the items in the list:</comment>
+  </data>
+  <data name="ListBoxFormatItem_Title" xml:space="preserve">
+    <value>ListBox formatItem</value>
+    <comment>ListBox formatItem</comment>
+  </data>
+  <data name="ListBox_Text1" xml:space="preserve">
+    <value>ComboBox のドロップダウンとして、ListBox コントロールが使用されます。ListBox はリストを表示し、ユーザーがマウスまたはキーボードで項目を選択できるようにします（入力中検索という便利な機能を備えています）。</value>
+    <comment>The ListBox control is used as a drop-down for the ComboBox.
+    It shows a list and allows users to select items with
+    the mouse or keyboard (it has a nice search as-you-type
+    feature):</comment>
+  </data>
+  <data name="ListBox_Title" xml:space="preserve">
+    <value>ListBox</value>
+    <comment>ListBox</comment>
+  </data>
+  <data name="MaterialDesign_Text1" xml:space="preserve">
+    <value>このサンプルでは、ComponentOne MVC の疑似クラスを使用して、Google の Material Design 仕様と同様の動的なラベル、検証、フォーカスインジケータを持つフォームを実装しています。</value>
+    <comment>This sample uses C1 MVC's pseudo-classes to implement
+    a form with dynamic labels, validation, and focus
+    indicators similar to those in Google's Material Design
+    spec.</comment>
+  </data>
+  <data name="MaterialDesign_Text10" xml:space="preserve">
+    <value>日付（&lt;span class="accesskey"&gt;D&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;D&lt;/span&gt;ate</comment>
+  </data>
+  <data name="MaterialDesign_Text11" xml:space="preserve">
+    <value>時刻（&lt;span class="accesskey"&gt;T&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;T&lt;/span&gt;ime</comment>
+  </data>
+  <data name="MaterialDesign_Text12" xml:space="preserve">
+    <value>数量（&lt;span class="accesskey"&gt;Q&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;Q&lt;/span&gt;uantity</comment>
+  </data>
+  <data name="MaterialDesign_Text13" xml:space="preserve">
+    <value>割引率（&lt;span class="accesskey"&gt;I&lt;/span&gt;）</value>
+    <comment>D&lt;span class="accesskey"&gt;i&lt;/span&gt;scount</comment>
+  </data>
+  <data name="MaterialDesign_Text14" xml:space="preserve">
+    <value>好きな色（&lt;span class="accesskey"&gt;F&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;F&lt;/span&gt;avorite Colors</comment>
+  </data>
+  <data name="MaterialDesign_Text15" xml:space="preserve">
+    <value>好きな色 {count:n0}</value>
+    <comment>{count:n0} favorite colors</comment>
+  </data>
+  <data name="MaterialDesign_Text2" xml:space="preserve">
+    <value>項目の編集</value>
+    <comment>Edit Item</comment>
+  </data>
+  <data name="MaterialDesign_Text3" xml:space="preserve">
+    <value>名前（&lt;span class="accesskey"&gt;N&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;N&lt;/span&gt;ame</comment>
+  </data>
+  <data name="MaterialDesign_Text4" xml:space="preserve">
+    <value>名前を入力してください...</value>
+    <comment>We do need your name...</comment>
+  </data>
+  <data name="MaterialDesign_Text5" xml:space="preserve">
+    <value>&lt;span class="accesskey"&gt;E&lt;/span&gt;-mail</value>
+    <comment>&lt;span class="accesskey"&gt;E&lt;/span&gt;-mail</comment>
+  </data>
+  <data name="MaterialDesign_Text6" xml:space="preserve">
+    <value>有効なメールアドレスを入力してください...</value>
+    <comment>We need a valid e-mail...</comment>
+  </data>
+  <data name="MaterialDesign_Text7" xml:space="preserve">
+    <value>国（&lt;span class="accesskey"&gt;C&lt;/span&gt;）</value>
+    <comment>&lt;span class="accesskey"&gt;C&lt;/span&gt;ountry</comment>
+  </data>
+  <data name="MaterialDesign_Text8" xml:space="preserve">
+    <value>クレジットカード番号（&lt;span class="accesskey"&gt;R&lt;/span&gt;）</value>
+    <comment> </comment>
+  </data>
+  <data name="MaterialDesign_Text9" xml:space="preserve">
+    <value>4 桁の数字 4 個...</value>
+    <comment>Four groups of four digits...</comment>
+  </data>
+  <data name="MaterialDesign_Title" xml:space="preserve">
+    <value>マテリアルデザイン</value>
+    <comment>Material Design</comment>
+  </data>
+  <data name="MenusCommands_Text1" xml:space="preserve">
+    <value>Menu コントロールは、イベントハンドラをまったく必要としない MVVM 形式のコマンドもサポートしています。</value>
+    <comment>The Menu control also supports MVVM-style commanding, which
+    requires no event handlers at all.</comment>
+  </data>
+  <data name="MenusCommands_Text2" xml:space="preserve">
+    <value>コマンドを持つ Menu コントロールを使用するには、Menu の &lt;b&gt;command&lt;/b&gt; プロパティを次の 2 つのメソッドを持つオブジェクトに設定します。</value>
+    <comment>To use the Menu control with commands, set the Menu's
+    &lt;b&gt;command&lt;/b&gt; property to an object with two methods:</comment>
+  </data>
+  <data name="MenusCommands_Text3" xml:space="preserve">
+    <value>&lt;b&gt;canExecuteCommand&lt;/b&gt;：このメソッドは、パラメータを表す引数を受け取り、現在のアプリケーションの状態でコマンドを実行できるかどうかを示すブール値を返します。</value>
+    <comment>&lt;b&gt;canExecuteCommand&lt;/b&gt;: This method takes an argument that
+        represents a parameter and returns a Boolean value indicating
+        whether the command can be executed in the current application
+        state.</comment>
+  </data>
+  <data name="MenusCommands_Text4" xml:space="preserve">
+    <value>&lt;b&gt;executeCommand&lt;/b&gt;：このメソッドは、パラメータを表す引数を受け取り、コマンドを実行します。</value>
+    <comment>&lt;b&gt;executeCommand&lt;/b&gt;: This method takes an argument that
+        represents a parameter and executes the command.</comment>
+  </data>
+  <data name="MenusCommands_Text5" xml:space="preserve">
+    <value>たとえば、次の InputNumber に表示される税率値は、直接編集することも、メニューコマンドを使用して編集することもできます。現在の税率値に応じて、いくつかのコマンドが自動的に無効になることに注目してください。</value>
+    <comment>For example, the InputNumber below shows a tax value that
+    can be edited directly or by using menu commands. Notice
+    how some commands are automatically disabled depending
+    on the current tax value:</comment>
+  </data>
+  <data name="MenusCommands_Text6" xml:space="preserve">
+    <value>現在の税率</value>
+    <comment>Current Tax</comment>
+  </data>
+  <data name="MenusCommands_Text7" xml:space="preserve">
+    <value>税率の変更</value>
+    <comment>Change Tax</comment>
+  </data>
+  <data name="MenusCommands_Title" xml:space="preserve">
+    <value>メニューコマンド</value>
+    <comment>Menu Commands</comment>
+  </data>
+  <data name="MenusContextMenus_Text1" xml:space="preserve">
+    <value>Menu コントロールを使用してコンテキストメニューを作成できます。</value>
+    <comment>You can use the Menu control to create context menus.</comment>
+  </data>
+  <data name="MenusContextMenus_Text2" xml:space="preserve">
+    <value>たとえば、次のサンプルでは、1 つのコンテキストメニューを作成し、複数の要素の「contextmenu」イベントを処理して、ユーザーの求めに応じてメニューを表示します。</value>
+    <comment>For example, this fiddle creates a single context menu and
+    handles the 'contextmenu' event on several elements to show
+    the menu when the user requests it:</comment>
+  </data>
+  <data name="MenusContextMenus_Text3" xml:space="preserve">
+    <value>ここにコンテキストメニューがあります。</value>
+    <comment>I have a Context Menu.</comment>
+  </data>
+  <data name="MenusContextMenus_Text4" xml:space="preserve">
+    <value>ここにも同じコンテキストメニューがあります。</value>
+    <comment>I have the same Context Menu.</comment>
+  </data>
+  <data name="MenusContextMenus_Text5" xml:space="preserve">
+    <value>ご想像どおり、ここにもあります。</value>
+    <comment>You guessed it, me too.</comment>
+  </data>
+  <data name="MenusContextMenus_Text6" xml:space="preserve">
+    <value>この方法は、すべての Wijmo コントロールで機能します。</value>
+    <comment>The same approach works with all Wijmo controls:</comment>
+  </data>
+  <data name="MenusContextMenus_Title" xml:space="preserve">
+    <value>コンテキストメニュー</value>
+    <comment>Context Menus</comment>
+  </data>
+  <data name="MenusContextMenus_Title1" xml:space="preserve">
+    <value>コンテキストメニューを持つ FlexChart</value>
+    <comment>FlexChart with ContextMenu</comment>
+  </data>
+  <data name="MenusContextMenus_Title2" xml:space="preserve">
+    <value>コンテキストメニューを持つ FlexGrid</value>
+    <comment>FlexGrid with ContextMenu</comment>
+  </data>
+  <data name="MenusSplitButtons_Text1" xml:space="preserve">
+    <value>分割ボタンを使用すると、プライマリボタンをクリックして値を選択することも、ドロップダウンリストに表示された互いに排他的な値を選択することもできます。</value>
+    <comment>Split Buttons allow users to select a value by clicking a
+    primary button, or select from a list of mutually exclusive
+    values displayed in a drop-down list.</comment>
+  </data>
+  <data name="MenusSplitButtons_Text2" xml:space="preserve">
+    <value>ComponentOne MVC の Menu コントロールを分割ボタンとして使用するには、&lt;b&gt;isButton&lt;/b&gt; プロパティを true に設定するだけです。これで、メニューヘッダーをクリックすると、ドロップダウンリストが表示される代わりに &lt;b&gt;itemClicked&lt;/b&gt; イベントが発生します。</value>
+    <comment>To use C1 MVC Menu controls as split buttons, all you have to
+    do is set the &lt;b&gt;isButton&lt;/b&gt; property to true. Once you do
+    that, clicking the menu header will raise the &lt;b&gt;itemClicked&lt;/b&gt;
+    event instead of showing the drop-down list.</comment>
+  </data>
+  <data name="MenusSplitButtons_Title" xml:space="preserve">
+    <value>分割ボタン</value>
+    <comment>Split Buttons</comment>
+  </data>
+  <data name="MenusValuePickers_Text1" xml:space="preserve">
+    <value>Menu コントロールは、簡単な値ピッカーとして使用することができます。Menu コントロールは ComboBox コントロールの拡張なので、ComboBox と同様に、コントロールの &lt;b&gt;selectedValue&lt;/b&gt; プロパティに変数を連結できます。</value>
+    <comment>The Menu control can be used as a simple value picker.
+    It extends the ComboBox control, which allows you to bind
+    variables to the control's &lt;b&gt;selectedValue&lt;/b&gt; property
+    as you would with a ComboBox.</comment>
+  </data>
+  <data name="MenusValuePickers_Text2" xml:space="preserve">
+    <value>次の例では、&lt;b&gt;selectedIndexChanged&lt;/b&gt; イベントを使用してメニューの &lt;b&gt;header&lt;/b&gt; を更新し、現在の値を表示しています。</value>
+    <comment>This example ises the &lt;b&gt;selectedIndexChanged&lt;/b&gt; event
+    to update the Menu's &lt;b&gt;header&lt;/b&gt; and show the current
+    value:</comment>
+  </data>
+  <data name="MenusValuePickers_Title" xml:space="preserve">
+    <value>値ピッカー</value>
+    <comment>Value Pickers</comment>
+  </data>
+  <data name="Menus_Text1" xml:space="preserve">
+    <value>Menu コントロールは ComboBox を拡張して、編集できないヘッダー、&lt;b&gt;itemClicked&lt;/b&gt; イベント、コマンドなどの機能を追加します。</value>
+    <comment>The Menu control extends the ComboBox to add features
+    like a non-editable header, an &lt;b&gt;itemClicked&lt;/b&gt; event,
+    and commands.</comment>
+  </data>
+  <data name="Menus_Text10" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-copy"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;コピー&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;現在の選択をクリップボードにコピー&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-copy"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Copy&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;copy the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text11" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-paste"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;貼り付け&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;クリップボードの内容をカーソル位置に挿入&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-paste"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Paste&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;insert clipboard content at the cursor position&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text2" xml:space="preserve">
+    <value>Menu コントロールを使用する最も簡単な方法は、&lt;b&gt;itemsSource&lt;/b&gt; プロパティを使用してメニューに項目を挿入し、&lt;b&gt;itemClicked&lt;/b&gt; イベントを処理することです。イベントハンドラでは、メニューの &lt;b&gt;selectedItem&lt;/b&gt; プロパティを調べて、クリックされた項目を特定し、適切なアクションを実行できます。</value>
+    <comment>The simplest way to use the Menu control is by populating
+    the Menu via its &lt;b&gt;itemsSource&lt;/b&gt; property and handling
+    the &lt;b&gt;itemClicked&lt;/b&gt; event. The event handler can inspect
+    the menu's &lt;b&gt;selectedItem&lt;/b&gt; property to determine which
+    item was clicked and take the appropriate action.</comment>
+  </data>
+  <data name="Menus_Text3" xml:space="preserve">
+    <value>ファイル</value>
+    <comment>File</comment>
+  </data>
+  <data name="Menus_Text4" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-asterisk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;新規&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;新しいファイルを作成&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-asterisk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;New&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;create a new file&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text5" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-folder-open"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;開く&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;既存のファイルまたはフォルダを開く&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-folder-open"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Open&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;open an existing file or folder&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text6" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-floppy-disk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;保存&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;現在のファイルを保存&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-floppy-disk"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Save&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;save the current file&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text7" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;終了&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;アプリケーションを終了&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-remove"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Exit&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;exit the application&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Text8" xml:space="preserve">
+    <value>編集</value>
+    <comment>Edit</comment>
+  </data>
+  <data name="Menus_Text9" xml:space="preserve">
+    <value>&lt;span class="glyphicon glyphicon-scissors"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp; &lt;b&gt;切り取り&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;現在の選択をクリップボードに移動&lt;/i&gt;&lt;/small&gt;</value>
+    <comment>&lt;span class="glyphicon glyphicon-scissors"&gt;&lt;/span&gt;&amp;nbsp;&amp;nbsp;
+        &lt;b&gt;Cut&lt;/b&gt;
+        &lt;br&gt;
+        &lt;small&gt;&lt;i&gt;move the current selection to the clipboard&lt;/i&gt;&lt;/small&gt;</comment>
+  </data>
+  <data name="Menus_Title" xml:space="preserve">
+    <value>メニュー</value>
+    <comment>Menu</comment>
+  </data>
+  <data name="MultiAutoComplete_Text1" xml:space="preserve">
+    <value>MultiAutoComplete コントロールは MultiSelect に似ています。どちらのコントロールでも、ユーザーはリストから複数の項目を選択できます。両者の主な違いは次のとおりです。</value>
+    <comment>The MultiAutoComplete control is similar to the MultiSelect.
+        Both controls allow users to select multiple items from lists.
+        The main differences between the two are:</comment>
+  </data>
+  <data name="MultiAutoComplete_Text2" xml:space="preserve">
+    <value>MultiAutoComplete は、現在の入力と一致する項目のみを含むドロップダウンを表示します（AutoComplete と同様）。</value>
+    <comment>The MultiAutoComplete shows a drop-down that includes only
+            items that match the current input (like the AutoComplete).</comment>
+  </data>
+  <data name="MultiAutoComplete_Text3" xml:space="preserve">
+    <value>MultiAutoComplete は、現在選択されている項目をすべて表示し、ユーザーは、リストにある項目をクリックして削除できます。</value>
+    <comment>The MultiAutoComplete shows all the items that are currently
+            selected, and allows users to remove items by clicking them on
+            the list.</comment>
+  </data>
+  <data name="MultiAutoComplete_Text4" xml:space="preserve">
+    <value>MultiAutoComplete は、選択項目のリストを &lt;b&gt;selectedItems&lt;/b&gt; プロパティとして公開します（MultiSelect は &lt;b&gt;checkedItems&lt;/b&gt; を使用します）。</value>
+    <comment>The MultiAutoComplete exposes the list of selected items through
+            the &lt;b&gt;selectedItems&lt;/b&gt; property (the MultiSelect uses
+            &lt;b&gt;checkedItems&lt;/b&gt; instead).</comment>
+  </data>
+  <data name="MultiAutoComplete_Text5" xml:space="preserve">
+    <value>たとえば、「land」、「uni」と入力してみてください。</value>
+    <comment>For example, try typing "land" or "uni":</comment>
+  </data>
+  <data name="MultiAutoComplete_Text7" xml:space="preserve">
+    <value>&lt;b&gt;選択項目：&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Selected Items:&lt;/b&gt;</comment>
+  </data>
+  <data name="MultiAutoComplete_Title" xml:space="preserve">
+    <value>MultiAutoComplete</value>
+    <comment>MultiAutoComplete</comment>
+  </data>
+  <data name="MultiItem_Text1" xml:space="preserve">
+    <value>ComponentOne MVC には、リストから複数の項目を選択するために使用できるコントロールがいくつかあります。</value>
+    <comment>C1 MVC has several controls you can use to select multiple
+    items from a list:</comment>
+  </data>
+  <data name="MultiItem_Text2" xml:space="preserve">
+    <value>&lt;b&gt;MultiSelect&lt;/b&gt;：このドロップダウンコントロールは、ComboBox を拡張し、ドロップダウンリストの各項目の横にチェックボックスを追加します。現在のチェック項目は、&lt;b&gt;checkedItems&lt;/b&gt; プロパティとして公開されます。</value>
+    <comment>&lt;b&gt;MultiSelect&lt;/b&gt;:
+        This is a drop-down control that extends ComboBox and adds
+        checkboxes next to each item in the drop-down list.
+        Currently checked items are exposed through the
+        &lt;b&gt;checkedItems&lt;/b&gt; property.</comment>
+  </data>
+  <data name="MultiItem_Text3" xml:space="preserve">
+    <value>&lt;b&gt;MultiAutoComplete&lt;/b&gt;：このドロップダウンコントロールは、AutoComplete を拡張します。選択項目は、コントロールヘッダーの隣にそれぞれ「トークン」として表示され、マウスやキーボードを使用して削除できます。現在の選択項目は、&lt;b&gt;selectedItems&lt;/b&gt; プロパティとして公開されます。</value>
+    <comment>&lt;b&gt;MultiAutoComplete&lt;/b&gt;:
+        This is a drop-down control that extends AutoComplete so
+        selected items are shown as 'tokens' next to the control
+        header, where they can be removed with the mouse or keyboard.
+        Currently selected items are exposed through the
+        &lt;b&gt;selectedItems&lt;/b&gt; property.</comment>
+  </data>
+  <data name="MultiItem_Text4" xml:space="preserve">
+    <value>&lt;b&gt;ListBox&lt;/b&gt;：ListBox コントロールには、リストの項目にチェックボックスを追加するための &lt;b&gt;checkedMemberPath&lt;/b&gt; プロパティがあります。また、チェックされた項目のリストを取得または設定するための &lt;b&gt;checkedItems&lt;/b&gt; プロパティがあります。</value>
+    <comment>&lt;b&gt;ListBox&lt;/b&gt;:
+        The ListBox control has a &lt;b&gt;checkedMemberPath&lt;/b&gt; property
+        that allows you to add checkboxes to items on the list.
+        It has a &lt;b&gt;checkedItems&lt;/b&gt; property that gets or sets
+        the list of checked items.</comment>
+  </data>
+  <data name="MultiItem_Title" xml:space="preserve">
+    <value>複数項目の入力</value>
+    <comment>Multi-Item Input</comment>
+  </data>
+  <data name="MultiSelect_Text1" xml:space="preserve">
+    <value>MultiSelect コントロールは ComboBox を拡張し、ドロップダウンリストの各項目にチェックボックスを追加します。</value>
+    <comment>The MultiSelect control extends the ComboBox and adds
+    checkboxes to each item in the drop-down list.</comment>
+  </data>
+  <data name="MultiSelect_Text2" xml:space="preserve">
+    <value>このコントロールは、チェックされた項目のリストを &lt;b&gt;checkedItems&lt;/b&gt; プロパティとして公開します。</value>
+    <comment>The control exposes the list of checked items through
+    the &lt;b&gt;checkedItems&lt;/b&gt; property:</comment>
+  </data>
+  <data name="MultiSelect_Text4" xml:space="preserve">
+    <value>&lt;b&gt;チェックされた項目：&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Checked Items:&lt;/b&gt;</comment>
+  </data>
+  <data name="MultiSelect_Title" xml:space="preserve">
+    <value>MultiSelect</value>
+    <comment>MultiSelect</comment>
+  </data>
+  <data name="PopupDialogs_Text1" xml:space="preserve">
+    <value>FlexGrid では、グリッドの &lt;b&gt;hostElement&lt;/b&gt; に HTML イベントリスナーを追加することで、キーボードイベントを処理できます。</value>
+    <comment>You can handle keyboard events in the FlexGrid by adding
+    HTML event listeners to &lt;b&gt;hostElement&lt;/b&gt; of the grid.</comment>
+  </data>
+  <data name="PopupDialogs_Text2" xml:space="preserve">
+    <value>たとえば、次のグリッドは、「keydown」イベントを監視します。［Ctrl］+［Del］キーを押すと、プロンプトが表示され、現在の行が削除されます。次の点に注意してください。</value>
+    <comment>For example, the grid below listens to the 'keydown' event.
+    If you press Ctrl+Delete, it shows a prompt and deletes the
+    current row. Note that:</comment>
+  </data>
+  <data name="PopupDialogs_Text3" xml:space="preserve">
+    <value>&lt;b&gt;capture&lt;/b&gt; パラメータを true に設定してイベントリスナーを追加します。これで、グリッドがイベントを取得する前にイベントリスナーが呼び出されます。</value>
+    <comment>The event listener is added with the &lt;b&gt;capture&lt;/b&gt;
+        parameter set to true, so that it is called before the
+        grid gets it.</comment>
+  </data>
+  <data name="PopupDialogs_Text4" xml:space="preserve">
+    <value>イベントハンドラでは、イベントの &lt;b&gt;preventDefault&lt;/b&gt; メソッドを呼び出して、グリッドが通常の方法で［Del］キーを処理しないようにします。</value>
+    <comment>The event handler calls the event's &lt;b&gt;preventDefault&lt;/b&gt;
+        method, so that the grid does not handle the Delete key as
+        it normally would.</comment>
+  </data>
+  <data name="PopupDialogs_Text5" xml:space="preserve">
+    <value>［Ctrl］+［Del］キーを押すと現在の行を削除できます。</value>
+    <comment>Press Ctrl+Delete to remove the current row:</comment>
+  </data>
+  <data name="PopupDialogs_Text6" xml:space="preserve">
+    <value>行の削除</value>
+    <comment>Deleting Row</comment>
+  </data>
+  <data name="PopupDialogs_Text7" xml:space="preserve">
+    <value>この行を削除してもよろしいですか。</value>
+    <comment>Do you really want to delete this row?</comment>
+  </data>
+  <data name="PopupDialogs_Title" xml:space="preserve">
+    <value>［Ctrl］+［Del］による行の削除</value>
+    <comment>Delete Rows with Ctrl+Delete</comment>
+  </data>
+  <data name="PopupEditors_Text1" xml:space="preserve">
+    <value>FlexGrid では、デフォルトで、効率的な Excel 形式の編集を行うことができますが、編集動作をカスタマイズしたい場合もあります。</value>
+    <comment>Although FlexGrid provides efficient, Excel-style
+    editing by default, you may want to customize the
+    editing behavior.</comment>
+  </data>
+  <data name="PopupEditors_Text2" xml:space="preserve">
+    <value>次の例は、グリッドを使用してデータを表示し、カスタムフォームを使用して項目を編集する方法を示します。このカスタムフォームは、ComponentOne MVC &lt;b&gt;Popup&lt;/b&gt; コントロールでホストされ、Wijmo 入力コントロールが含まれています。</value>
+    <comment>This example shows how you can use the grid to display
+    the data and a custom form to edit the items.
+    The custom form is hosted in a C1 MVC &lt;b&gt;Popup&lt;/b&gt;
+    control and contains Wijmo input controls.</comment>
+  </data>
+  <data name="PopupEditors_Text3" xml:space="preserve">
+    <value>行ヘッダーの鉛筆アイコンをクリックすると、項目を編集できます。</value>
+    <comment>Click the pencil glyphs in the row headers to edit
+    the item.</comment>
+  </data>
+  <data name="PopupEditors_Text4" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="PopupEditors_Text5" xml:space="preserve">
+    <value>売上</value>
+    <comment>Sales</comment>
+  </data>
+  <data name="PopupEditors_Text6" xml:space="preserve">
+    <value>経費</value>
+    <comment>Expenses</comment>
+  </data>
+  <data name="PopupEditors_Title" xml:space="preserve">
+    <value>ポップアップエディタ</value>
+    <comment>Popup Editors</comment>
+  </data>
+  <data name="PopupEditors_Title1" xml:space="preserve">
+    <value>項目の編集</value>
+    <comment>Edit Item</comment>
+  </data>
+  <data name="PopupsDialogs_Text1" xml:space="preserve">
+    <value>Popup コントロールは、「オーナー」要素の横または画面の中央に任意の HTML コンテンツを表示します。ドロップダウンやダイアログを実装するために使用できます。</value>
+    <comment>The Popup control shows arbitrary HTML content next to an
+    "owner" element or centered on the screen. It can be used
+    to implement drop-downs and dialogs.</comment>
+  </data>
+  <data name="PopupsDialogs_Text2" xml:space="preserve">
+    <value>たとえば、以下のボタンをクリックすると、ドロップダウンまたはダイアログが表示されます。</value>
+    <comment>For example, click the buttons below to see a drop-down
+    or a dialog:</comment>
+  </data>
+  <data name="PopupsDialogs_Text3" xml:space="preserve">
+    <value>これはドロップダウンです。</value>
+    <comment>This is a drop-down.</comment>
+  </data>
+  <data name="PopupsDialogs_Text4" xml:space="preserve">
+    <value>ここに他のコントロールを置くことができます。</value>
+    <comment>It may contain other controls.</comment>
+  </data>
+  <data name="PopupsDialogs_Text5" xml:space="preserve">
+    <value>ダイアログヘッダー</value>
+    <comment>Dialog Header</comment>
+  </data>
+  <data name="PopupsDialogs_Text6" xml:space="preserve">
+    <value>これはモーダルダイアログです。</value>
+    <comment>This is a modal dialog.</comment>
+  </data>
+  <data name="PopupsDialogs_Text7" xml:space="preserve">
+    <value>ダイアログ本文には HTML コンテンツを置くことができます。</value>
+    <comment>The dialog body may contain any HTML content.</comment>
+  </data>
+  <data name="PopupsDialogs_Text8" xml:space="preserve">
+    <value>［OK］または［キャンセル］ボタンをクリックするか、ダイアログの外のグレーの背景をクリックするか、［Esc］キーを押すと、ダイアログは閉じます。
+            &lt;br /&gt; 
+            &lt;br /&gt; </value>
+    <comment>The dialog will close when you click the OK or Cancel buttons,
+            &lt;br /&gt; or the grey background outside the dialog,
+            &lt;br /&gt; or when you press the Escape key.</comment>
+  </data>
+  <data name="PopupsDialogs_Title" xml:space="preserve">
+    <value>ポップアップ</value>
+    <comment>Popups</comment>
+  </data>
+  <data name="PopupsOwners_Text1" xml:space="preserve">
+    <value>Popup は、ポップアップの位置と表示/非表示を制御するオーナー要素を持つことができます。</value>
+    <comment>Popups may have owner elements that control their position
+    and visibility.</comment>
+  </data>
+  <data name="PopupsOwners_Text10" xml:space="preserve">
+    <value>Hello ポップアップ&lt;br /&gt;
+                これは複数行メッセージです！</value>
+    <comment>Hello Popup&lt;br /&gt;
+                This is a multi-line message!</comment>
+  </data>
+  <data name="PopupsOwners_Text11" xml:space="preserve">
+    <value>電子メールを入力</value>
+    <comment>Enter email</comment>
+  </data>
+  <data name="PopupsOwners_Text12" xml:space="preserve">
+    <value>ポップオーバーを表示</value>
+    <comment>Show the Popover</comment>
+  </data>
+  <data name="PopupsOwners_Text2" xml:space="preserve">
+    <value>Popup の &lt;b&gt;showTrigger&lt;/b&gt; プロパティと &lt;b&gt;hideTrigger&lt;/b&gt; プロパティは、オーナー要素がクリックされたときやポップアップがフォーカスを失ったときに、&lt;b&gt;ポップアップ&lt;/b&gt;を表示または非表示にするかどうかを決定します。</value>
+    <comment>The Popup's &lt;b&gt;showTrigger&lt;/b&gt; and &lt;b&gt;hideTrigger&lt;/b&gt; properties
+    determine whether the Popups should be shown or hidden when the
+    owner element is clicked or when the popup loses the focus.</comment>
+  </data>
+  <data name="PopupsOwners_Text3" xml:space="preserve">
+    <value>Bootstrap CSS では、オーナー要素を持つポップアップは「ポップオーバー」と呼ばれます。</value>
+    <comment>In Bootstrap CSS, Popups with owner elements are called "Popovers".</comment>
+  </data>
+  <data name="PopupsOwners_Text4" xml:space="preserve">
+    <value>最もよく使用されるタイプは、&lt;b&gt;showTrigger&lt;/b&gt; が「Click」に、&lt;b&gt;hideTrigger&lt;/b&gt; が「Blur」に設定されたポップオーバーです。</value>
+    <comment>The most common type of Popover is the one with &lt;b&gt;showTrigger&lt;/b&gt;
+    set to 'Click' and &lt;b&gt;hideTrigger&lt;/b&gt; set to 'Blur'.</comment>
+  </data>
+  <data name="PopupsOwners_Text5" xml:space="preserve">
+    <value>次の例で、オーナー要素はボタンです。ボタンをクリックすると、ポップオーバーが表示されます。ポップオーバーの外側の任意の場所をクリックすると、フォーカスが外れ、ポップオーバーは非表示になります。</value>
+    <comment>In this example, the owner element is a button. Click the button
+    to show the Popover. Click anywhere outside the Popover to take
+    the focus away and hide it:</comment>
+  </data>
+  <data name="PopupsOwners_Text6" xml:space="preserve">
+    <value>Hello ポップアップ&lt;br /&gt;
+        これは複数行メッセージです！ このマイポップオーバーの長い行では、Bootstrap の 'popover-content' スタイルを使用しています。</value>
+    <comment>Hello Popup&lt;br /&gt;
+        This is a multi-line message!
+        This is a long line in my popover, which uses Bootstrap's
+        'popover-content' style.</comment>
+  </data>
+  <data name="PopupsOwners_Text7" xml:space="preserve">
+    <value>&lt;b&gt;showTrigger&lt;/b&gt; と &lt;b&gt;hideTrigger&lt;/b&gt; を「Click」に設定すると、ポップオーバーは、オーナー要素がクリックされると表示され、オーナー要素が再びクリックされるまで表示されたままになります。</value>
+    <comment>If you set the &lt;b&gt;showTrigger&lt;/b&gt; and &lt;b&gt;hideTrigger&lt;/b&gt;
+    to 'Click', the Popover will appear when you click the owner
+    element and will remain visible until you click the owner
+    element again:</comment>
+  </data>
+  <data name="PopupsOwners_Text8" xml:space="preserve">
+    <value>Hello ポップアップ&lt;br /&gt;
+        これは複数行メッセージです！ これは、Boostrap の「popover-content」スタイルを使用するマイポップオーバーの長い行です。</value>
+    <comment>Hello Popup&lt;br /&gt;
+        This is a multi-line message!
+        This is a long line in my popover, which uses Boostrap's 'popover-content' style.</comment>
+  </data>
+  <data name="PopupsOwners_Text9" xml:space="preserve">
+    <value>I&lt;b&gt;showTrigger&lt;/b&gt; を「Click」に、&lt;b&gt;hideTrigger&lt;/b&gt; を「None」に設定すると、ポップオーバーは、オーナー要素がクリックされると表示され、コードで &lt;b&gt;hide&lt;/b&gt; メソッドを呼び出すか、ユーザーが［Esc］キーまたは「wj-hide」クラスを持つ要素をクリックするまで表示されたままになります。</value>
+    <comment>If you set the &lt;b&gt;showTrigger&lt;/b&gt; to 'Click' and
+    &lt;b&gt;hideTrigger&lt;/b&gt; to 'None', the Popover will appear
+    when you click the owner element and will remain visible
+    until you call the &lt;b&gt;hide&lt;/b&gt; method in code or until the
+    user presses the Escape key or clicks an element with the
+    'wj-hide' class:</comment>
+  </data>
+  <data name="PopupsOwners_Title" xml:space="preserve">
+    <value>オーナー要素を持つポップアップ</value>
+    <comment>Popups with Owner Elements</comment>
+  </data>
+  <data name="PopupsOwners_Title1" xml:space="preserve">
+    <value>クリックで表示、フォーカス喪失で非表示</value>
+    <comment>Show on Click, Hide on Blur</comment>
+  </data>
+  <data name="PopupsOwners_Title2" xml:space="preserve">
+    <value>タイトル</value>
+    <comment>Title</comment>
+  </data>
+  <data name="PopupsOwners_Title3" xml:space="preserve">
+    <value>クリックで表示、クリックで非表示</value>
+    <comment>Show on Click, Hide on Click</comment>
+  </data>
+  <data name="PopupsOwners_Title5" xml:space="preserve">
+    <value>クリックで表示、コードで非表示</value>
+    <comment>Show on Click, Hide with Code</comment>
+  </data>
+  <data name="PseudoClasses_Text1" xml:space="preserve">
+    <value>CSS 疑似クラスは、選択される要素の特別な状態を指定するためにセレクタに追加されるキーワードです。たとえば、&lt;code&gt;:hover&lt;/code&gt; は、セレクタによって指定された要素の上にユーザーがマウスポインタを置いたときにスタイルを適用します。</value>
+    <comment>CSS pseudo-classes are keywords added to selectors that specify
+    a special state of the element to be selected. For example,
+    &lt;code&gt;:hover&lt;/code&gt; will apply a style when the user hovers
+    over the element specified by the selector.</comment>
+  </data>
+  <data name="PseudoClasses_Text2" xml:space="preserve">
+    <value>疑似クラスを使用すると、ドキュメントツリーのコンテンツだけでなく、要素にフォーカスがあるかどうか（&lt;code&gt;:focus&lt;/code&gt;）、要素が無効状態かどうか（&lt;code&gt;:invalid&lt;/code&gt;）などの外部要因に関しても要素にスタイルを適用できるので、疑似クラスはフォーム内で重要です。</value>
+    <comment>Pseudo-classes are important in forms because they let you apply
+  styles to elements not only in relation to the content of the
+  document tree, but also in relation to external factors like whether
+  the element has the focus (&lt;code&gt;:focus&lt;/code&gt;) or is in an invalid
+  state (&lt;code&gt;:invalid&lt;/code&gt;).</comment>
+  </data>
+  <data name="PseudoClasses_Text3" xml:space="preserve">
+    <value>標準的な疑似クラスの一部は特定の要素にしか適用されず、また要素の祖先に適用されないため、実用性に制限があります。たとえば、入力要素を含む ComponentOne MVC 入力コントロールは多数ありますが、それらの入力要素がフォーカスを得ると、内部の入力要素は &lt;code&gt;:focus&lt;/code&gt; 疑似クラスを取得しますが、そのコントロールを保持するホスト要素は取得しません。</value>
+    <comment>Some of the standard pseudo-classes are limited in their usefulness
+    because they apply only to specific elements, and not to the elements
+    ancestors. For example, many C1 MVC input controls contain input elements;
+    when the input elements have the focus, the inner input element gets
+    the &lt;code&gt;:focus&lt;/code&gt; pseudo-class, but the host element that contains
+    the control does not.</comment>
+  </data>
+  <data name="PseudoClasses_Text4" xml:space="preserve">
+    <value>そこで、ComponentOne MVC では、いくつかの独自疑似クラスを追加して、効果的なフォームを容易に構築できるようにしています。</value>
+    <comment>For this reason, C1 MVC adds some pseudo-classes of its own to make
+    building effective forms easier:</comment>
+  </data>
+  <data name="PseudoClasses_Text5" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-focused&lt;/b&gt;：コントロールにアクティブな要素が&lt;b&gt;含まれる&lt;/b&gt;場合にコントロールホスト要素に追加されます（ホスト要素がアクティブな要素&lt;b&gt;である&lt;/b&gt;場合では必ずしもありません）。</value>
+    <comment>&lt;b&gt;wj-state-focused&lt;/b&gt;: Added to control host elements when
+        the control &lt;b&gt;contains&lt;/b&gt; the active element (not necessarily
+        when the host element &lt;b&gt;is&lt;/b&gt; the active element).</comment>
+  </data>
+  <data name="PseudoClasses_Text6" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-invalid&lt;/b&gt;：コントロールに無効状態の入力要素が含まれる場合にコントロールホスト要素に追加されます。</value>
+    <comment>&lt;b&gt;wj-state-invalid&lt;/b&gt;: Added to control host elements when
+        the control contains input elements in an invalid state.</comment>
+  </data>
+  <data name="PseudoClasses_Text7" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-empty&lt;/b&gt;：コントロールにコンテンツがない入力要素が含まれる場合にコントロールホスト要素に追加されます。これは、子を持たない要素に適用される &lt;code&gt;:empty&lt;/code&gt; 疑似クラスとは異なります。</value>
+    <comment>&lt;b&gt;wj-state-empty&lt;/b&gt;: Added to control host elements when the
+        control contains an input element with no content (this is different
+        from the &lt;code&gt;:empty&lt;/code&gt; pseudo-class which is applied to
+        elements that have no children.</comment>
+  </data>
+  <data name="PseudoClasses_Text8" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-readonly&lt;/b&gt;：コントロールの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティが true に設定されている場合にコントロールホスト要素に追加されます。</value>
+    <comment>&lt;b&gt;wj-state-readonly&lt;/b&gt;: Added to control host elements when
+        the control's &lt;b&gt;isReadOnly&lt;/b&gt; property is set to true.</comment>
+  </data>
+  <data name="PseudoClasses_Text9" xml:space="preserve">
+    <value>&lt;b&gt;wj-state-disabled&lt;/b&gt;：コントロールの &lt;b&gt;isDisabled&lt;/b&gt; プロパティが true に設定されている場合にコントロールホスト要素に追加されます。これは、コントロールのホスト要素に "disabled" 属性を追加することに相当します。</value>
+    <comment>&lt;b&gt;wj-state-disabled&lt;/b&gt;: Added to control host elements when the
+        control's &lt;b&gt;isDisabled&lt;/b&gt; property is set to true (which
+        corresponds to adding a "disabled" attribute to the control's
+        host element).</comment>
+  </data>
+  <data name="PseudoClasses_Title" xml:space="preserve">
+    <value>疑似クラス</value>
+    <comment>Pseudo Classes</comment>
+  </data>
+  <data name="RadialGauge_Text1" xml:space="preserve">
+    <value>InputNumber コントロールのほかに、RadialGauge を使用して数値を入力することもできます。RadialGauge コントロールの機能と動作は LinearGauge と同じですが、円形レイアウトで表示されます。</value>
+    <comment>In addition to the InputNumber control, you can use the
+    RadialGauge to input numbers. The RadialGauge control
+    is similar in features and behavior to the LinearGauge,
+    but with a circular layout.</comment>
+  </data>
+  <data name="RadialGauge_Text2" xml:space="preserve">
+    <value>次に示す入力範囲要素を使用すると、0 ～ 255 の値を入力することができます。</value>
+    <comment>Here is an input range element that can be used
+    to enter values between zero and 255:</comment>
+  </data>
+  <data name="RadialGauge_Text3" xml:space="preserve">
+    <value>次は、同じ範囲に設定した RadialGauge コントロールです。&lt;b&gt;isReadOnly&lt;/b&gt; プロパティが false に設定されているため、マウスまたはキーボードを使用してゲージの値を変更できます。</value>
+    <comment>Here is a RadialGauge control set for the same range.
+    The &lt;b&gt;isReadOnly&lt;/b&gt; property is set to false, so you
+    can change the gauge value using the mouse or keyboard:</comment>
+  </data>
+  <data name="RadialGauge_Text4" xml:space="preserve">
+    <value>また、次の RadialGauge コントロールは、スタイル設定が適用されています。</value>
+    <comment>And here is another RadialGauge control with some styling
+    applied:</comment>
+  </data>
+  <data name="RadialGauge_Title" xml:space="preserve">
+    <value>RadialGauge による数値入力</value>
+    <comment>RadialGauge as NumberInput</comment>
+  </data>
+  <data name="StringObjects_Text1" xml:space="preserve">
+    <value>ComponentOne MVC の入力モジュールには、文字列を入力および編集するためのコントロールがいくつか含まれています。</value>
+    <comment>C1 MVC's input module includes several controls for entering
+    and editing strings:</comment>
+  </data>
+  <data name="StringObjects_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ComboBox&lt;/b&gt;：入力要素とドロップダウンリストの組み合わせです。入力中検索機能が提供されるため、長いリストから項目をすばやく簡単に見つけることができます。文字列の入力や、リストからオブジェクトを選択するために使用できます。</value>
+    <comment>&lt;b&gt;ComboBox&lt;/b&gt;: Combines an input element with a drop-down
+            list and provides as-you-type search, making it quick and
+            easy to find items in long lists. Use it to enter strings
+            or to select objects from lists.</comment>
+  </data>
+  <data name="StringObjects_Text3" xml:space="preserve">
+    <value>例：国を選択してください。</value>
+    <comment>For example, select a country:</comment>
+  </data>
+  <data name="StringObjects_Text4" xml:space="preserve">
+    <value>&lt;b&gt;AutoComplete&lt;/b&gt;：ComboBox を拡張して、項目の入力中の非同期ロードと、カスタマイズ可能な検索アルゴリズムを提供します。サーバー上の大規模なデータセットから項目を選択するために使用できます。</value>
+    <comment>&lt;b&gt;AutoComplete&lt;/b&gt;: Extends the ComboBox to provide
+            as-you-type async loading of items and a customizable
+            search algorithm. Use it to select items from large
+            datasets on the server.</comment>
+  </data>
+  <data name="StringObjects_Text5" xml:space="preserve">
+    <value>例：「land」または「uni」と入力してください。</value>
+    <comment>For example, type 'land' or 'uni':</comment>
+  </data>
+  <data name="StringObjects_Text7" xml:space="preserve">
+    <value>&lt;b&gt;InputMask&lt;/b&gt;：ユーザーが入力する文字を制限するためのテンプレートとなるマスクを指定することで、文字レベルの検証を提供します。</value>
+    <comment>&lt;b&gt;InputMask&lt;/b&gt;: Provides character-level validation
+            by allowing you to specify a mask composed of templates
+            that constrain each character typed by the user.</comment>
+  </data>
+  <data name="StringObjects_Text8" xml:space="preserve">
+    <value>例：電話番号を入力してください。</value>
+    <comment>For example, type a phone number:</comment>
+  </data>
+  <data name="StringObjects_Title" xml:space="preserve">
+    <value>文字列とオブジェクト</value>
+    <comment>String and Objects</comment>
+  </data>
+  <data name="Transitions_Text1" xml:space="preserve">
+    <value>Popup コントロールの &lt;b&gt;fadeIn&lt;/b&gt; プロパティと &lt;b&gt;fadeOut&lt;/b&gt; プロパティは、&lt;b&gt;Popup&lt;/b&gt; が表示/非表示になるときに簡単なアニメーションを追加します。</value>
+    <comment>The Popup control's &lt;b&gt;fadeIn&lt;/b&gt; and &lt;b&gt;fadeOut&lt;/b&gt; properties
+    add simple animations when the &lt;b&gt;Popup&lt;/b&gt; is shown or hidden.</comment>
+  </data>
+  <data name="Transitions_Text2" xml:space="preserve">
+    <value>独自のカスタム CSS ベースのアニメーションを作成することもできます。それには、&lt;b&gt;shown&lt;/b&gt; および &lt;b&gt;hiding&lt;/b&gt; イベントに応じて Popup のホスト要素にクラスを追加および削除し、これらのクラスに基づいてアニメーションを適用するための CSS ルールを定義します。</value>
+    <comment>You can create your own custom CSS-based animations by adding and
+    removing classes to the Popup's host element in response to the
+    &lt;b&gt;shown&lt;/b&gt; and &lt;b&gt;hiding&lt;/b&gt; events, and defining CSS rules
+    that apply animations based on those classes.</comment>
+  </data>
+  <data name="Transitions_Title" xml:space="preserve">
+    <value>CSS 遷移</value>
+    <comment>CSS Transitions</comment>
+  </data>
+  <data name="AutoCompleteAsyncLoading_Text4" xml:space="preserve">
+    <value>製品名</value>
+    <comment>Product Name</comment>
+  </data>
+  <data name="Colors_Text3" xml:space="preserve">
+    <value>色を選択</value>
+    <comment>Select the color</comment>
+  </data>
+  <data name="ComboBoxStrings_Text12" xml:space="preserve">
+    <value>国が選択されていません。</value>
+    <comment>No Country Selected</comment>
+  </data>
+  <data name="InputDate_Text11" xml:space="preserve">
+    <value>誕生日（任意）</value>
+    <comment>Your birth date (optional)</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text4" xml:space="preserve">
+    <value>SSN</value>
+    <comment>SSN</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text5" xml:space="preserve">
+    <value>郵便番号</value>
+    <comment>Zip Code</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text6" xml:space="preserve">
+    <value>郵便番号 + 4 桁</value>
+    <comment>Zip Code + 4</comment>
+  </data>
+  <data name="InputMaskMaskFull_Text7" xml:space="preserve">
+    <value>電話番号</value>
+    <comment>Phone Number</comment>
+  </data>
+  <data name="InputNumberFormatting_Text3" xml:space="preserve">
+    <value>フォーマット {0}： </value>
+    <comment>Format {0}: </comment>
+  </data>
+  <data name="InputNumber_Text11" xml:space="preserve">
+    <value>年齢（任意）</value>
+    <comment>Your age (optional)</comment>
+  </data>
+  <data name="MultiAutoComplete_Text6" xml:space="preserve">
+    <value>国を選択してください。</value>
+    <comment>Select some countries</comment>
+  </data>
+  <data name="MultiSelect_Text3" xml:space="preserve">
+    <value>か国</value>
+    <comment>countries</comment>
+  </data>
+  <data name="StringObjects_Text6" xml:space="preserve">
+    <value>国</value>
+    <comment>Country</comment>
+  </data>
+  <data name="MenusCommands_Text10" xml:space="preserve">
+    <value>25% 上げる</value>
+    <comment>Increment by 25%</comment>
+  </data>
+  <data name="MenusCommands_Text11" xml:space="preserve">
+    <value>5% 上げる</value>
+    <comment>Increment by 5%</comment>
+  </data>
+  <data name="MenusCommands_Text12" xml:space="preserve">
+    <value>5% 下げる</value>
+    <comment>Decrement by 5%</comment>
+  </data>
+  <data name="MenusCommands_Text13" xml:space="preserve">
+    <value>25% 下げる</value>
+    <comment>Decrement by 25%</comment>
+  </data>
+  <data name="MenusCommands_Text14" xml:space="preserve">
+    <value>50% 下げる</value>
+    <comment>Decrement by 50%</comment>
+  </data>
+  <data name="MenusCommands_Text8" xml:space="preserve">
+    <value>税率変更コマンド</value>
+    <comment>Tax Commands</comment>
+  </data>
+  <data name="MenusCommands_Text9" xml:space="preserve">
+    <value>50% 上げる</value>
+    <comment>Increment by 50%</comment>
+  </data>
+  <data name="MenusContextMenus_Text10" xml:space="preserve">
+    <value>終了</value>
+    <comment>Exit</comment>
+  </data>
+  <data name="MenusContextMenus_Text7" xml:space="preserve">
+    <value>新規</value>
+    <comment>New</comment>
+  </data>
+  <data name="MenusContextMenus_Text8" xml:space="preserve">
+    <value>開く</value>
+    <comment>Open</comment>
+  </data>
+  <data name="MenusContextMenus_Text9" xml:space="preserve">
+    <value>保存</value>
+    <comment>Save</comment>
+  </data>
+</root>

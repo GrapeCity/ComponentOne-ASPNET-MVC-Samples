@@ -1,0 +1,32 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text2)
+</p>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text3)
+</p>
+<pre>wijmo.format('Welcome {name}! You have {miles:n0} miles in your account.', {
+  name: 'Joe',
+  miles: 2332123
+})</pre>
+<button id="btnFormat1" class="btn btn-default">
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text4)
+</button>
+
+<br><br>
+<p>
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text5)
+</p>
+<pre>wijmo.format('{name}, thanks for being a customer since {date:D}.', {
+  name: 'Joe',
+  date: new Date()
+})</pre>
+<button id="btnFormat2" class="btn btn-default">
+    @Html.Raw(Resources.C1Mvc.WijmoFormat_Text4)
+</button>

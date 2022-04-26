@@ -1,0 +1,12 @@
+<script id="navTemplate" type="text/template">
+    <a href="{{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+
+<h4 class="semi-bold wide-screen">@Html.Raw(Resources.MultiRowExplorer._ControlsNav_Text0)</h4>
+@(Html.C1().ListBox().Id("controlNav").CssClass("page-nav wide-screen")
+    .Bind((IEnumerable<ControlPage>)ViewBag.Pages)
+    .ItemTemplateId("navTemplate")
+)

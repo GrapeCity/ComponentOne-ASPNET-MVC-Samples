@@ -1,0 +1,62 @@
+<h1>
+    @Html.Raw(Resources.C1Input.LinearGauge_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.LinearGauge_Text1)
+</p>
+<ol>
+    <li>
+        @Html.Raw(Resources.C1Input.LinearGauge_Text2)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Input.LinearGauge_Text3)
+    </li>
+</ol>
+
+<p>
+    @Html.Raw(Resources.C1Input.LinearGauge_Text4)
+</p>
+<input id="theInputRange"
+       class="center"
+       type="range"
+       min="0"
+       max="255"
+       step="10">
+<h3 id="theValue" class="center"></h3>
+
+<p>
+    @Html.Raw(Resources.C1Input.LinearGauge_Text5)
+</p>
+@Html.C1().LinearGauge().Id("theLinearGauge").CssClass("center").Min(0).Max(255).Step(10)
+
+<p>
+    @Html.Raw(Resources.C1Input.LinearGauge_Text6)
+</p>
+@(Html.C1().LinearGauge().Id("theLinearGaugeCSS").CssClass("center custom-gauge")
+    .Min(0).Max(255).Step(10)
+    .IsReadOnly(false).ThumbSize(12).HasShadow(false)
+    .Face(f => f.Thickness(0.25))
+    .Pointer(p => p.Thickness(0.25).Color(System.Drawing.Color.Red)))
+
+<p>
+    @Html.Raw(Resources.C1Input.LinearGauge_Text7)
+</p>
+<div id="gauges" class="center">
+    @{
+        var rand = new Random(0);
+    }
+    @for (var i = 0; i < 8; i++)
+    {
+        @(Html.C1().LinearGauge()
+            .CssClass("vertical-gauge custom-gauge")
+            .Min(0).Max(10).Value(rand.NextDouble() * 10)
+            .IsReadOnly(false).HasShadow(false)
+            .ThumbSize(20).ShowTicks(true)
+            .Direction(GaugeDirection.Up)
+            .ShowText(ShowText.Value)
+            .Face(f => f.Thickness(0.1))
+            .Pointer(p => p.Thickness(0.25))
+        )
+    }
+</div>

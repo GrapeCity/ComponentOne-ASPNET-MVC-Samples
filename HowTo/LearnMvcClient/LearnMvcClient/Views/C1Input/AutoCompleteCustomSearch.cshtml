@@ -1,0 +1,19 @@
+@model IEnumerable<Gdp>
+
+<h1>
+    @Html.Raw(Resources.C1Input.AutoCompleteCustomSearch_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteCustomSearch_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Input.AutoCompleteCustomSearch_Text2)
+</p>
+
+<label for="theAutoComplete">@Html.Raw(Resources.C1Input.AutoCompleteCustomSearch_Text3)</label>
+@(Html.C1().AutoComplete<Gdp>().Id("theAutoComplete").Bind(Model).DisplayMemberPath("Country"))
+<br>
+<label for="theAutoCompleteCustom">@Html.Raw(Resources.C1Input.AutoCompleteCustomSearch_Text4)</label>
+@(Html.C1().AutoComplete().Id("theAutoCompleteCustom").DisplayMemberPath("Country"))
+@(Html.C1().CollectionViewService<Gdp>().Id("theCollectionView").Bind(Model))

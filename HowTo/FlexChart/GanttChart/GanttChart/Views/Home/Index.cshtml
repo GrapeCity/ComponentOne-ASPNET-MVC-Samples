@@ -1,0 +1,56 @@
+﻿@using GanttChart.Models
+@model IEnumerable<Task>
+@{
+    ViewBag.Title = Resources.GanttChart.PageTitle;
+    var toolTip1 = Resources.GanttChart.Tooltip1;
+    var toolTip2 = Resources.GanttChart.Tooltip2;
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/app.js")"></script>
+<div class="container">
+    <!-- Getting Started -->
+    <div>
+        <h2>@Html.Raw(Resources.GanttChart.GettingStarted)</h2>
+        <div class="row">
+            <h4>
+                @Html.Raw(Resources.GanttChart.SimpleGanttChartTitle)
+            </h4>
+        </div>
+        <ol>
+            <li>@Html.Raw(Resources.GanttChart.SimpleChart_Step1)</li>
+            <li>@Html.Raw(Resources.GanttChart.SimpleChart_Step2)</li>
+            <li>@Html.Raw(Resources.GanttChart.SimpleChart_Step3)</li>
+        </ol>
+        <div class="row">
+            @(Html.C1().FlexChart<Task>().Id("simpleGantt")
+                .Bind(Model)
+                .Header(Resources.GanttChart.SimpleGanttChartHeader)
+                .BindingX("Name")
+                .AxisY(y => y.MajorGrid(false).MinorGrid(true).Reversed(true))
+                .ChartType(C1.Web.Mvc.Chart.ChartType.Bar)
+                .Series(sb => sb.Add().Binding("Start,End"))
+                .Tooltip(t => t.Content(toolTip1))
+            )
+        </div>
+
+        <div class="row">
+            <h4>
+                @Html.Raw(Resources.GanttChart.EnhancedGanttChartTitle)
+            </h4>
+        </div>
+        <p>@Html.Raw(Resources.GanttChart.EnhancedChart_Description)</p>
+        <div class="row">
+            @(Html.C1().FlexChart<Task>().Id("advancedGantt")
+                .Bind(Model)
+                .Header(Resources.GanttChart.EnhancedGanttChartHeader)
+                .BindingX("Name")
+                .AxisY(y => y.MajorGrid(false).MinorGrid(true).Reversed(true))
+                .ChartType(C1.Web.Mvc.Chart.ChartType.Bar)
+                .Series(sb => sb.Add().Binding("Start,End"))
+                .Tooltip(t => t.Content(toolTip2))
+                .ItemFormatter("ganttItemFormatter")
+                .OnClientRendering("ganttChartRendered")
+            )
+        </div>
+    </div>
+</div>

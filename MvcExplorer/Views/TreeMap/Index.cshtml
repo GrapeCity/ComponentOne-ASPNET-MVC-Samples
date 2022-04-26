@@ -1,0 +1,19 @@
+﻿@model IEnumerable<FoodSale>
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().TreeMap().Id(demoSettingsModel.ControlId)
+    .Binding("Sales")
+    .BindingName("Category", "SubCategory")
+    .Bind(Model)
+    .Tooltip(t=>t.Content("<b>{name}</b><br />{value:c}"))
+    .DataLabel(dlb => dlb.Position(C1.Web.Mvc.Chart.LabelPosition.Center).Content("{name}")))
+
+@section Description{
+    <p>@Html.Raw(Resources.TreeMap.Index_Text0)</p>
+    <p>@Html.Raw(Resources.TreeMap.Index_Text1)</p>
+    <p>@Html.Raw(Resources.TreeMap.Index_Text2)</p>
+}

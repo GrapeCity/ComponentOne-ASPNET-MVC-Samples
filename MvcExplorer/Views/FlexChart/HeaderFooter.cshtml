@@ -1,0 +1,18 @@
+﻿@model IEnumerable<FruitSale>
+
+@(Html.C1().FlexChart().Bind("Date", Model)
+.ChartType(C1.Web.Mvc.Chart.ChartType.LineSymbols)
+.Series(sers =>
+{
+    sers.Add("Sales").Binding("SalesInChina");
+})
+.Header(Resources.FlexChart.HeaderFooter_Header).Footer(Resources.FlexChart.HeaderFooter_Footer).FooterStyle(hs => hs.Halign("right")))
+
+@section Description{
+    <h3>
+        @Html.Raw(Resources.FlexChart.HeaderFooter_ChartHeaderAndFooter)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.HeaderFooter_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.HeaderFooter_Text1)</p>
+}
+

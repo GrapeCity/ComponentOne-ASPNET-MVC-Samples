@@ -1,0 +1,17 @@
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.UnboundTreeGrids_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.UnboundTreeGrids_Text1)
+</p>
+@(Html.C1().FlexGrid().Id("workersGrid")
+    .HeadersVisibility(C1.Web.Mvc.Grid.HeadersVisibility.Column)
+    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row)
+    .AutoGenerateColumns(false)
+    .Columns(cs =>
+    {
+        cs.Add().Binding("name");
+        cs.Add().Binding("hours").DataType(C1.Web.Mvc.Grid.DataType.Number).Format("n2");
+        cs.Add().Binding("rate").DataType(C1.Web.Mvc.Grid.DataType.Number).Format("n2");
+    })
+)

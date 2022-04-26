@@ -1,0 +1,36 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Text3)
+</p>
+@(Html.C1().FlexGrid().Id("theGrid").Bind(Model)
+    .AutoGenerateColumns(false)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID");
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+)
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Text4)
+    </div>
+</div>
+
+<div class="panel panel-warning">
+    <div class="panel-heading">
+        @Html.Raw(Resources.C1FlexGrid.ColumnsSizing_Text5)
+    </div>
+</div>

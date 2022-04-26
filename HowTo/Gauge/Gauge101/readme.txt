@@ -1,3 +1,3 @@
-﻿ASP.NET Core MVC Gauge 101
+﻿ASP.NET MVC Gauge 101
 ---------------------------------------------
-This sample shows how to get started with ASP.NET Core MVC's C1 Gauge controls.
+This sample demonstrates how to get started with ASP.NET MVC's Gauge controls.

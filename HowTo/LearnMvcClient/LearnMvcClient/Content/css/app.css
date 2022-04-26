@@ -1,0 +1,136 @@
+﻿.main-content {
+    margin-top: 1px;
+}
+
+.lesson{
+    background-color:#ffffff;
+}
+
+body{
+    background-color: #edeceb;
+}
+
+.options > label {
+    display: inline-block;
+    width: 8em;
+    text-align: right;
+    margin-right: 6px;
+}
+
+.wj-treeview {
+    margin-bottom: 10px;
+    border-radius: 0;
+    max-height: 800px;
+}
+
+    .wj-treeview .wj-node:not(.wj-state-empty) {
+        font-weight: bold;
+    }
+
+    .wj-treeview .wj-nodelist {
+        font-size: 110%;
+    }
+
+        .wj-treeview .wj-nodelist .wj-nodelist {
+            font-size: 100%;
+        }
+
+/* custom tree styles */
+.wj-treeview {
+    color: #143442;
+}
+
+    /* default nodes */
+    .wj-treeview .wj-node {
+    }
+
+    /* level 0 and deeper nodes */
+    .wj-treeview .wj-nodelist > .wj-node {
+        padding-top: 10px;
+        padding-bottom: 10px;
+        font-weight: bold;
+    }
+
+    /* level 1 and deeper nodes (vertical line along the left) */
+    .wj-treeview .wj-nodelist > .wj-nodelist > .wj-node,
+    .wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist {
+        padding-top: 4px;
+        padding-bottom: 6px;
+        margin-top: 0;
+        font-weight: normal;
+        border-left: 3px solid rgba(0, 0, 0, 0.05);
+    }
+
+    .task-bar-nav.wj-treeview .wj-nodelist > .wj-nodelist > .wj-node,
+    .task-bar-nav.wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist {
+        border-left: 3px solid rgba(256, 256, 256, 0.3);
+    }
+
+        /* level 2 and deeper nodes (thinner border) */
+        .wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist > .wj-node,
+        .wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist > .wj-nodelist {
+            padding-top: 4px;
+            padding-bottom: 6px;
+            margin-top: 0;
+            opacity: 0.8;
+            border-left: 2px solid rgba(0, 0, 0, 0.05);
+        }
+
+        /* level 2 and deeper nodes (thinner border) */
+        .task-bar-nav.wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist > .wj-node,
+        .task-bar-nav.wj-treeview .wj-nodelist > .wj-nodelist > .wj-nodelist > .wj-nodelist {
+            border-left: 2px solid rgba(256, 256, 256, 0.3);
+        }
+
+    /* expanded node glyph */
+    .wj-treeview .wj-nodelist .wj-node:before {
+        content: "\e252";
+        font-family: 'Glyphicons Halflings';
+        top: 2px;
+        margin-right: 6px;
+        border: none;
+        opacity: .25;
+        transition: all .3s cubic-bezier(.4,0,.2,1);
+    }
+    .task-bar-nav.wj-treeview .wj-nodelist .wj-node:before {
+        opacity: 1;
+        color: #ffffff;
+    }
+
+    /* collapsed node glyph */
+    .wj-treeview .wj-nodelist .wj-node.wj-state-collapsed:before,
+    .wj-treeview .wj-nodelist .wj-node.wj-state-collapsing:before {
+        transform: rotate(-90deg);
+        transition: all .3s cubic-bezier(.4,0,.2,1);
+    }
+
+    /* selected node */
+    .wj-treeview .wj-node.wj-state-selected {
+        /* color: white; */
+        background: rgba(0, 0, 0, 0.05);
+    }
+    .task-bar-nav.wj-treeview .wj-node.wj-state-selected {
+        /* color: white; */
+        background: rgba(0, 0, 0, 0.25);
+    }
+
+    /* add space below open nodelist */
+    .wj-treeview > .wj-nodelist > .wj-node:not(.wj-state-collapsed) + .wj-nodelist {
+        margin-bottom: 20px;
+    }
+
+    .wj-treeview .wj-node a{
+        color:#000000;
+    }
+    .task-bar-nav.wj-treeview .wj-node a {
+        color: #ffffff;
+    }
+
+.wj-tabpane {
+  padding: 12px;
+}
+
+.wj-tabpanel .wj-gauge {
+    width: 300px;
+    margin: auto auto;
+}

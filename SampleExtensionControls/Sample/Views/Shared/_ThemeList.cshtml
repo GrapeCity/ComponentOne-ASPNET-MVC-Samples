@@ -1,5 +1,5 @@
 ﻿<ul>
-  @foreach(var theme in Theme.GetAll())
+  @foreach(var theme in Sample.Models.Theme.GetAll())
   {
   <li>
     <a href="@theme.Path" class="theme-selector-link">@theme.DisplayText</a>

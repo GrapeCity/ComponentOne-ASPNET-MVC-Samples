@@ -1,6 +1,8 @@
+﻿@using FinancialChartExplorer.Models
 @{
-    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
-    var actionName = ViewContext.RouteData.Values["action"].ToString();
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+
     var pageGroups = ControlPages.GetPageGroups();
 }
 
@@ -10,8 +12,7 @@
         <span class="right-icon"></span>
     </a>
 </script>
-
-<h4 class="semi-bold wide-screen">@Resource.ControlsNav_Features</h4>
+<h4 class="semi-bold wide-screen">@Html.Raw(Resources.Resource.ControlsNav_Features)</h4>
 @foreach (var pageGroup in pageGroups)
 {
     IEnumerable<ControlPage> pages = pageGroup.Pages;
@@ -28,10 +29,11 @@
         <span class="pagegroup semi-bold wide-screen">@pageGroup.Text</span>
         }
         <div>
-            <c1-list-box id="@id" class="page-nav wide-screen" loaded-items="pageNav_LoadingItems">
-                <c1-input-item-template id="navTemplate"></c1-input-item-template>
-                <c1-items-source source-collection="@pages"></c1-items-source>
-            </c1-list-box>
+            @(Html.C1().ListBox().Id(@id).CssClass("page-nav wide-screen")
+                .Bind(pages)
+                .ItemTemplateId("navTemplate")
+                .OnClientLoadingItems("pageNav_LoadingItems")
+            )
         </div>
     </div>
     <script type="text/javascript">
@@ -42,3 +44,4 @@
         });
     </script>
 }
+

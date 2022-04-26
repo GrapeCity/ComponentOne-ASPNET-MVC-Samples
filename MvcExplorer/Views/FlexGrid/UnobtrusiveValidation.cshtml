@@ -1,0 +1,45 @@
+﻿@model List<UserInfo>
+
+@section Scripts{
+    @Scripts.Render("~/jquery")
+    @Scripts.Render("~/jqueryval")
+}
+
+@(Html.C1().FlexGrid<UserInfo>()
+    .Id("flexGrid")
+    .AutoGenerateColumns(false)
+    .Columns(columns => columns
+        .Add(c => c.Binding("Id").IsReadOnly(true))
+        .Add(c => c.Binding("Name"))
+        .Add(c => c.Binding("Email"))
+        .Add(c => c.Binding("Phone"))
+        .Add(c => c.Binding("Country"))
+        .Add(c => c.Binding("Industry"))
+        .Add(c => c.Binding("Birthdate").Format("M/d/yyyy"))
+    )
+    .Bind(ib => ib.Bind(Model)
+        .Update(Url.Action("GridUpdateUserInfo"))
+        .Create(Url.Action("GridCreateUserInfo"))
+        .Delete(Url.Action("GridDeleteUserInfo"))
+    )
+    .AllowAddNew(true)
+    .AllowDelete(true)
+    .CssStyle("height", "400px")
+)
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Text2)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Text0)</p>
+    <p>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Text1)</p>
+    <ul>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li1)</li>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li2)</li>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li3)</li>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li4)</li>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li5)</li>
+        <li>@Html.Raw(Resources.FlexGrid.UnobtrusiveValidation_Li6)</li>
+    </ul>
+}

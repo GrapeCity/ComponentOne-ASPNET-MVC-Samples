@@ -1,0 +1,15 @@
+<h1>
+    @Html.Raw(Resources.C1Input.ListBoxFormatItem_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Input.ListBoxFormatItem_Text1)
+</p>
+<div class="row demo-settings">
+    <div class="col-xs-4">
+        @(Html.C1().ListBox().Id("theListBox"))
+    </div>
+    <div class="col-xs-8">
+        <h1 id="selectedItem"></h1>
+    </div>
+</div>

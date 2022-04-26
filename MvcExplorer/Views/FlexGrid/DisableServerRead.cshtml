@@ -1,0 +1,40 @@
+﻿@model IEnumerable<Sale>
+
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<h4>@Html.Raw(Resources.FlexGrid.DisableServerRead_Text1)</h4>
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(true)
+    .Id("dsrFlexGrid")
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Filterable()
+    .Bind(b => b.DisableServerRead(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue)).InitialItemsCount(10).Bind(Model))
+)
+<br/>
+<br/>
+<h4>@Html.Raw(Resources.FlexGrid.DisableServerRead_Text2)</h4>
+
+@(Html.C1().FlexGrid<Sale>()
+    .AutoGenerateColumns(true)
+    .CssStyle("height", "auto")
+    .Id("dsrPagingGrid")
+    .CssClass("grid")
+    .IsReadOnly(true)
+    .Filterable()
+    .Height(300)
+    .Bind(b => b.DisableServerRead(Convert.ToBoolean(optionsModel.Options["Disable Server Read"].CurrentValue)).PageSize(10).Bind(Model))
+)
+
+@(Html.C1().Pager().Owner("dsrPagingGrid"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.DisableServerRead_Text0)
+}

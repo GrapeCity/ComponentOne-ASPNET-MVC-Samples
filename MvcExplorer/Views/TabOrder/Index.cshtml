@@ -1,0 +1,207 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    string tabOrder = optionsModel.Options["Tab Order"].CurrentValue;
+}
+<div class="container-fluid">
+        <div class="row">
+            <div class="col-md-7 col-md-offset-2" style="text-align:center">
+                @if (tabOrder == "Customized")
+                {
+                    <table class="input-form">
+                        <tr>
+                            <th></th>
+                            <th>Customer Order</th>
+                            <th>Customer Sale</th>
+                        </tr>
+                        <tr>
+                            <th>Country*</th>
+                            <td>@Html.C1().ComboBox().Id("orderCountry").Bind(Countries.GetCountries()).TabOrder(1).IsRequired(true)</td>
+                            <td>@Html.C1().ComboBox().Id("saleCountry").Bind(Countries.GetCountries()).TabOrder(5).IsRequired(true)</td>
+                        </tr>
+                        <tr>
+                            <th>Product*</th>
+                            <td>@Html.C1().ComboBox().Id("orderProduct").Bind(Products.GetProducts()).TabOrder(2).IsRequired(true)</td>
+                            <td>@Html.C1().ComboBox().Id("saleProduct").Bind(Products.GetProducts()).TabOrder(6).IsRequired(true)</td>
+                        </tr>
+                        <tr>
+                            <th>Price*</th>
+                            <td>@Html.C1().InputNumber().Id("orderPrice").Min(0).Step(1).Value(0).Format("c0").IsRequired(true).TabOrder(3)</td>
+                            <td>@Html.C1().InputNumber().Id("salePrice").Min(0).Step(1).Value(0).Format("c0").IsRequired(true).TabOrder(7)</td>
+                        </tr>
+                        <tr>
+                            <th>Date</th>
+                            <td>@Html.C1().InputDate().Id("orderDate").Value(DateTime.Today).IsRequired(false).TabOrder(4)</td>
+                            <td>@Html.C1().InputDate().Id("saleDate").Value(DateTime.Today).IsRequired(false).TabOrder(8)</td>
+                        </tr>
+                    </table>
+                }
+                else
+                {
+                    <table class="input-form">
+                        <thead>
+                            <tr>
+                                <th></th>
+                                <th>Customer Order</th>
+                                <th>Customer Sale</th>
+                            </tr>                            
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th>Country*</th>
+                                <td>@Html.C1().ComboBox().Id("orderCountry").Bind(Countries.GetCountries()).IsRequired(true)</td>
+                                <td>@Html.C1().ComboBox().Id("saleCountry").Bind(Countries.GetCountries()).IsRequired(true)</td>
+                            </tr>
+                            <tr>
+                                <th>Product*</th>
+                                <td>@Html.C1().ComboBox().Id("orderProduct").Bind(Products.GetProducts()).IsRequired(true)</td>
+                                <td>@Html.C1().ComboBox().Id("saleProduct").Bind(Products.GetProducts()).IsRequired(true)</td>
+                            </tr>
+                            <tr>
+                                <th>Price*</th>
+                                <td>@Html.C1().InputNumber().Id("orderPrice").Min(0).Step(1).Value(0).Format("c0").IsRequired(true)</td>
+                                <td>@Html.C1().InputNumber().Id("salePrice").Min(0).Step(1).Value(0).Format("c0").IsRequired(true)</td>
+                            </tr>
+                            <tr>
+                                <th>Date</th>
+                                <td>@Html.C1().InputDate().Id("orderDate").Value(DateTime.Today).IsRequired(false)</td>
+                                <td>@Html.C1().InputDate().Id("saleDate").Value(DateTime.Today).IsRequired(false)</td>
+                            </tr>
+                        </tbody>
+                        
+                    </table>
+                } <br />
+                <button id="add-row" class="btn btn-primary col-sm-offset-2" >
+                    <b><i class="glyphicon-plus"></i> Add Data</b>
+                </button>
+                <br />
+            </div>  
+            <br />
+            <br />
+            <div class="col-md-12">                
+                <div class="col-md-6">
+                    <label>Customer order</label>
+                    @(Html.C1().FlexGrid<CustomerOrder>()
+                    .AutoGenerateColumns(false)
+                    .Id("order").Height("200px")
+                    .CssClass("grid").IsReadOnly(true)
+                    .AllowAddNew(true)
+                    .Bind(b => b.Bind(CustomerOrder.GetCountryGroupOrderData()).DisableServerRead(true))
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Width("40"));
+                        bl.Add(cb => cb.Binding("OrderTime").Width("100"));
+                        bl.Add(cb => cb.Binding("Country").Width("100")
+                            .DataMap(dm => dm.DisplayMemberPath("Name")
+                                .SelectedValuePath("Name")
+                                .SortByDisplayValues(true)));
+                        bl.Add(cb => cb.Binding("Product").Width("100")
+                            .DataMap(dm => dm.DisplayMemberPath("Name")
+                                .SelectedValuePath("Name")
+                                .SortByDisplayValues(true)));
+                        bl.Add(cb => cb.Binding("Price").Format("c").Width("100"));
+                    })
+                    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row).TabOrder(0)
+                )
+                </div>
+                
+                <div class="col-md-6">
+                    <label>Customer Sale</label>
+                    @(Html.C1().FlexGrid<Sale>()
+                    .AutoGenerateColumns(false)
+                    .Id("sale").Height("200px")
+                    .CssClass("grid").IsReadOnly(true)
+                    .AllowAddNew(true)
+                    .Bind(b => b.Bind(CustomerSale.GetData(10)).DisableServerRead(true))
+                    .Columns(bl =>
+                    {
+                        bl.Add(cb => cb.Binding("ID").Width("40"));
+                        bl.Add(cb => cb.Binding("Start").Width("100"));
+                        bl.Add(cb => cb.Binding("Country").Width("100")
+                            .DataMap(dm => dm.DisplayMemberPath("Name")
+                                .SelectedValuePath("Name")
+                                .SortByDisplayValues(true)
+                                .Bind(FullCountry.GetCountries())));
+                        bl.Add(cb => cb.Binding("Product").Width("100")
+                            .DataMap(dm => dm.DisplayMemberPath("Name")
+                                .SelectedValuePath("Id")
+                                .SortByDisplayValues(true)
+                                .Bind(CustomerSale.PRODUCTS)));
+                        bl.Add(cb => cb.Binding("Amount").Format("c").Width("100"));
+                    })
+                    .SelectionMode(C1.Web.Mvc.Grid.SelectionMode.Row).TabOrder(0)
+                )
+                </div>
+            </div>
+        </div>
+</div>
+@section Styles{
+    <style>
+        .input-form td, th {
+            padding: 0.5rem;
+        }
+        .input-form td:nth-child(even) {
+            padding-right: 3rem;
+            padding-left: 3rem;
+        }
+        .input-form td:nth-child(odd) {
+            padding-left: 3rem;
+        }
+    </style>
+}
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            let cOrderGrid = wijmo.Control.getControl("#order")
+            let orderCountry = wijmo.Control.getControl("#orderCountry");
+            let orderProduct = wijmo.Control.getControl("#orderProduct");
+            let orderPrice = wijmo.Control.getControl("#orderPrice");
+            let orderDate = wijmo.Control.getControl("#orderDate");
+
+            let cSaleGrid = wijmo.Control.getControl("#sale");
+            let saleCountry = wijmo.Control.getControl("#saleCountry");
+            let saleProduct = wijmo.Control.getControl("#saleProduct");
+            let salePrice = wijmo.Control.getControl("#salePrice");
+            let saleDate = wijmo.Control.getControl("#saleDate");
+
+            document.getElementById('add-row').addEventListener('click', function (e) {
+                //add new row to Order grid
+                cOrderGrid.focus();
+                let oview = cOrderGrid.editableCollectionView;
+                let onewItem = oview.addNew();
+                onewItem.ID = oview.items.length;
+                onewItem.OrderTime = orderDate.value;
+                onewItem.Country = orderCountry.selectedValue;
+                onewItem.Product = orderProduct.selectedValue;
+                onewItem.Price = orderPrice.value;
+                oview.commitNew();
+
+                //add new row to Sale grid
+                cSaleGrid.focus();
+                let sview = cSaleGrid.editableCollectionView;
+                let snewItem = sview.addNew();
+                snewItem.ID = sview.items.length;
+                snewItem.Start = saleDate.value;
+                snewItem.Country = saleCountry.selectedValue;
+                snewItem.Product = saleProduct.selectedValue;
+                snewItem.Amount = salePrice.value;
+                sview.commitNew();
+
+                e.preventDefault(); // don't submit the form
+            });
+        })
+    </script>
+}
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Summary{
+    <p>@Html.Raw(Resources.TabOrder.TabOrder_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.TabOrder.TabOrder_Description_Text0)</p>
+    <p>@Html.Raw(Resources.TabOrder.TabOrder_Description_Text1)</p>
+    <p>@Html.Raw(Resources.TabOrder.TabOrder_Description_Text2)</p>
+}

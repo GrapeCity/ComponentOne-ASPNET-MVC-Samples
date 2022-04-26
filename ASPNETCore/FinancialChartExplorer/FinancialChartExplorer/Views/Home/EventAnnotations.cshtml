@@ -1,0 +1,71 @@
+@model List<FinanceData>
+@{
+    ViewBag.DemoSettings = false;
+    var chartType = ViewBag.ChartType;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    List<String> tooltips = ViewBag.Tooltips;
+    SVGStyle style = new SVGStyle { StrokeWidth = 1, Fill = "rgba(136,189,230,0.7)", Stroke = "#000" };
+}
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        c1.getExtender(wijmo.Control.getControl("#rs"), "RangeSelector").min = 47.5;
+    });
+</script>
+
+<c1-financial-chart id="@demoSettingsModel.ControlId" binding-x="X" symbol-size="6"
+                    chart-type="@chartType">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-financial-chart-series binding="High,Low,Open,Close,Volume" name="BOX"></c1-financial-chart-series>
+    <c1-flex-chart-tooltip content="financialTooltip"></c1-flex-chart-tooltip>
+    <c1-annotation-layer>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="64" tooltip="@tooltips[0]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="65" tooltip="@tooltips[1]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="72" tooltip="@tooltips[2]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="74" tooltip="@tooltips[3]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="76" tooltip="@tooltips[4]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="77" tooltip="@tooltips[5]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="80" tooltip="@tooltips[6]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="81" tooltip="@tooltips[7]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="82" tooltip="@tooltips[8]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="83" tooltip="@tooltips[9]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="84" tooltip="@tooltips[10]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="85" tooltip="@tooltips[11]">
+        </c1-annotation-rectangle>
+        <c1-annotation-rectangle attachment="DataIndex" style="style" content="E"
+                                 width="20" height="20" point-index="86" tooltip="@tooltips[12]">
+        </c1-annotation-rectangle>
+    </c1-annotation-layer>
+</c1-financial-chart>
+
+@await Html.PartialAsync("_RangeSelector")
+
+@section Description{
+    <p>@Html.Raw(Home.EventAnnotations_Text0)</p>
+}
+@section Summary{
+    <p>@Html.Raw(Home.EventAnnotations_Text1)</p>
+}

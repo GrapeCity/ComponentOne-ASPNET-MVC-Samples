@@ -1,0 +1,108 @@
+@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    List<CustomerSale.NamedProduct> products = ViewBag.Products;
+    List<NamedColor> colors = ViewBag.Colors;
+    ViewBag.DemoDescription = false;
+}
+<h3>
+    Data Map
+</h3>
+<p>@Html.Raw(Resources.MultiRowExplorer.DataMap_Text0)</p>
+
+@(Html.C1().MultiRow<Sale>()
+        .Id("dmMultiRow")
+        .Bind(bl => bl.Bind(Url.Action("RemoteBindCustomerSale_Read")).Update(Url.Action("ProductsUpdate")))
+        .CssClass("multirow")
+        .IsReadOnly(false)
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Colspan(1).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("ID").IsReadOnly(true));
+                bl.Add(cb => cb.Binding("Active"));
+
+            });
+            ld.Add().Colspan(1).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+                bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+            });
+            ld.Add().Colspan(2).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Country").Colspan(2));
+                bl.Add(cb => cb.Binding("Product")
+                    .DataMap(dm => dm.DisplayMemberPath("Name")
+                        .SelectedValuePath("Id")
+                        .SortByDisplayValues(true)
+                        .Bind(products)));
+                bl.Add(cb => cb.Binding("Color")
+                    .DataMap(dm => dm.DisplayMemberPath("Name")
+                        .SelectedValuePath("Value")
+                        .SortByDisplayValues(true)
+                        .Bind(colors)));
+            });
+            ld.Add().Colspan(2).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Amount").Format("c"));
+                bl.Add(cb => cb.Binding("Amount2").Format("c"));
+                bl.Add(cb => cb.Binding("Discount").Format("p0").Colspan(2));
+
+            });
+        })
+)
+
+<h4>
+    @Html.Raw(Resources.MultiRowExplorer.DataMap_Text1)
+</h4>
+<p>@Html.Raw(Resources.MultiRowExplorer.DataMap_Text2)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.DataMap_Text3)</p>
+
+@(Html.C1().MultiRow<Sale>()
+        .Id("dmMultiColumns")
+        .Bind(bl => bl.InitialItemsCount(100).Bind(Model).Update(Url.Action("ProductsUpdate")))
+        .CssClass("multirow")
+        .IsReadOnly(false)
+        .LayoutDefinition(ld =>
+        {
+            ld.Add().Colspan(1).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("ID").IsReadOnly(true));
+                bl.Add(cb => cb.Binding("Active"));
+
+            });
+            ld.Add().Colspan(1).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Start").Format("MMM d yy"));
+                bl.Add(cb => cb.Binding("End").Format("HH:mm"));
+            });
+            ld.Add().Colspan(2).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Country").Colspan(2));
+                bl.Add(cb => cb.Binding("Product")
+                    .DataMap(dm => dm.DisplayMemberPath("Name")
+                        .SelectedValuePath("Id")
+                        .SortByDisplayValues(true)
+                        .Bind(products)));
+                bl.Add(cb => cb.Binding("Color")
+                    .DropDownCssClass("multi-column")
+                    .DataMap(dm => dm.DisplayMemberPath("Name")
+                        .SelectedValuePath("Value")
+                        .SortByDisplayValues(true)
+                        .Bind(colors)));
+            });
+            ld.Add().Colspan(2).Cells(bl =>
+            {
+                bl.Add(cb => cb.Binding("Amount").Format("c"));
+                bl.Add(cb => cb.Binding("Amount2").Format("c"));
+                bl.Add(cb => cb.Binding("Discount").Format("p0").Colspan(2));
+
+            });
+        })
+)
+
+@section Summary{
+    @Html.Raw(Resources.MultiRowExplorer.DataMap_Text4)
+}

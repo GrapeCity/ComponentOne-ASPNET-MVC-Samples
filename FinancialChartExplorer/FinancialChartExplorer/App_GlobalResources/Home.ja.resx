@@ -1,0 +1,504 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+		Microsoft ResX Schema
+
+		Version 1.3
+
+		The primary goals of this format is to allow a simple XML format 
+		that is mostly human readable. The generation and parsing of the 
+		various data types are done through the TypeConverter classes 
+		associated with the data types.
+
+		Example:
+
+		... ado.net/XML headers & schema ...
+		<resheader name="resmimetype">text/microsoft-resx</resheader>
+		<resheader name="version">1.3</resheader>
+		<resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+		<resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+		<data name="Name1">this is my long string</data>
+		<data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+		<data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+			[base64 mime encoded serialized .NET Framework object]
+		</data>
+		<data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+			[base64 mime encoded string representing a byte array form of the .NET Framework object]
+		</data>
+
+		There are any number of "resheader" rows that contain simple 
+		name/value pairs.
+
+		Each data row contains a name, and value. The row also contains a 
+		type or mimetype. Type corresponds to a .NET class that support 
+		text/value conversion through the TypeConverter architecture. 
+		Classes that don't support this are serialized and stored with the 
+		mimetype set.
+
+		The mimetype is used for serialized objects, and tells the 
+		ResXResourceReader how to depersist the object. This is currently not 
+		extensible. For a given mimetype the value must be set accordingly:
+
+		Note - application/x-microsoft.net.object.binary.base64 is the format 
+		that the ResXResourceWriter will generate, however the reader can 
+		read any of the formats listed below.
+
+		mimetype: application/x-microsoft.net.object.binary.base64
+		value   : The object must be serialized with 
+			: System.Serialization.Formatters.Binary.BinaryFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.soap.base64
+		value   : The object must be serialized with 
+			: System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+			: and then encoded with base64 encoding.
+
+		mimetype: application/x-microsoft.net.object.bytearray.base64
+		value   : The object must be serialized into a byte array 
+			: using a System.ComponentModel.TypeConverter
+			: and then encoded with base64 encoding.
+	-->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>1.3</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=2.0.3500.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ArmsCandleVolume_Text0" xml:space="preserve">
+    <value>Richard Arms によって作成されたアームズローソクボリュームチャートは、エクイボリュームチャートとローソクボリュームチャートを組み合わせたチャートです。</value>
+    <comment>Created by Richard Arms, Arms CandleVolume charts are a combination of EquiVolume and CandleVolume charts.</comment>
+  </data>
+  <data name="ArmsCandleVolume_Text1" xml:space="preserve">
+    <value>Richard Arms によって作成されたアームズローソクボリュームチャートは、エクイボリュームチャートとローソクボリュームチャートを組み合わせたチャートです。</value>
+    <comment>Created by Richard Arms, Arms CandleVolume charts are a combination of EquiVolume and CandleVolume charts.</comment>
+  </data>
+  <data name="CandleVolume_Text0" xml:space="preserve">
+    <value>ローソクボリュームチャートは、各棒の幅が 5 番目の値「出来高」によって決定されること以外は、標準的なローソク足チャートと同じです。</value>
+    <comment>CandleVolume charts are identical to standard Candlestick charts, except that the width of each bar is determined by a fifth value, volume.</comment>
+  </data>
+  <data name="CandleVolume_Text1" xml:space="preserve">
+    <value>ローソクボリュームチャートは、各棒の幅が 5 番目の値「出来高」によって決定されること以外は、標準的なローソク足チャートと同じです。</value>
+    <comment>CandleVolume charts are identical to standard Candlestick charts, except that the width of each bar is determined by a fifth value, volume.</comment>
+  </data>
+  <data name="ColumnVolume_Text0" xml:space="preserve">
+    <value>カラムボリュームチャートは、縦棒グラフに似ていますが、2 番目の値「出来高」を受け取る点が異なり、この出来高によって各棒の幅が決まります。</value>
+    <comment>ColumnVolume charts are similar to Column charts, except that they accept a second value, volume, which dictates the width of each bar.</comment>
+  </data>
+  <data name="ColumnVolume_Text1" xml:space="preserve">
+    <value>カラムボリュームチャートは、縦棒グラフに似ていますが、2 番目の値「出来高」を受け取る点が異なり、この出来高によって各棒の幅が決まります。</value>
+    <comment>ColumnVolume charts are similar to Column charts, except that they accept a second value, volume, which dictates the width of each bar.</comment>
+  </data>
+  <data name="EquiVolume_Text0" xml:space="preserve">
+    <value>エクイボリュームチャートは、ローソク足チャートに似ていますが、エクイボリュームでは高値と安値のみが示されます。</value>
+    <comment>EquiVolume charts are similar to Candlestick charts, but they only show the high and low values.</comment>
+  </data>
+  <data name="EquiVolume_Text1" xml:space="preserve">
+    <value>また、各棒の幅は、5 番目の値「出来高」によって決まります。</value>
+    <comment>In addition, the width of each bar is determined by a fifth value, volume.</comment>
+  </data>
+  <data name="EquiVolume_Text2" xml:space="preserve">
+    <value>エクイボリュームチャートは、ローソク足チャートに似ていますが、エクイボリュームでは高値と安値のみが示されます。</value>
+    <comment>EquiVolume charts are similar to Candlestick charts, but they only show the high and low values.</comment>
+  </data>
+  <data name="EventAnnotations_Text0" xml:space="preserve">
+    <value>イベント注釈は、重要なイベントをマークするために、FinancialChart 上の特定のデータポイントにアタッチして使用されます。イベント注釈上にマウスポインタを置くとイベントの詳細が表示されます。</value>
+    <comment>Event annotations are used to mark important events that can be attached to a specific data point on the FinancialChart. Hovering over the event annotation will reveal the full details of the event.</comment>
+  </data>
+  <data name="EventAnnotations_Text1" xml:space="preserve">
+    <value>イベント注釈は、重要なイベントをマークするために、FinancialChart 上の特定のデータポイントにアタッチして使用されます。イベント注釈上にマウスポインタを置くとイベントの詳細が表示されます。</value>
+    <comment>Event annotations are used to mark important events that can be attached to a specific data point on the FinancialChart. Hovering over the event annotation will reveal the full details of the event.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip1" xml:space="preserve">
+    <value>&lt;b&gt;なぜ人気のある IPO 市場が冷え込んでいるのか。&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Why the hot IPO market is cooling off?&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip10" xml:space="preserve">
+    <value>&lt;b&gt;BD の取締役会が配当金を発表&lt;/b&gt;</value>
+    <comment>&lt;b&gt;BD Board Declares Dividend&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip11" xml:space="preserve">
+    <value>&lt;br&gt;BD（ベクトン・ディッキンソン・アンド・カンパニー）（NYSE：BDX）の取締役会が 6 月に 1 株当たり 60.0 セントの四半期配当金を支払うことを発表しました ...</value>
+    <comment>&lt;br&gt;The Board of Directors of BD (Becton, Dickinson and Company) (NYSE: BDX) has declared a quarterly dividend of 60.0 cents per common share payable on June ...</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip12" xml:space="preserve">
+    <value>&lt;b&gt;Box が 2016 年度第 1 四半期の決算発表日を決定&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Box Sets Date to Announce First Quarter Fiscal 2016 Financial Results&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip13" xml:space="preserve">
+    <value>&lt;br&gt;本日、Box は 2015 年 6 月 10 日水曜日の取引終了後に、2015 年 4 月 30 日までの第 1 四半期の決算を報告すると発表しました。</value>
+    <comment>&lt;br&gt;Box today announced that it will report financial results for its first quarter which ended April 30, 2015, following the close of the market on Wednesday, June 10, 2015.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip14" xml:space="preserve">
+    <value>&lt;b&gt;チャールズ・ペインとお金を稼ごう：05/21/15&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Making Money With Charles Payne: 05/21/15&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip15" xml:space="preserve">
+    <value>&lt;b&gt;ベストバイが横ばい：アナリスト&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Best Buy to move sideways: Analyst&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip16" xml:space="preserve">
+    <value>&lt;b&gt;マッコーリーがハーキュリーズ・テクノロジーを格上げし、配当金を求める&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Macquarie Upgrades Hercules Technology, Likes Dividend&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip17" xml:space="preserve">
+    <value>&lt;br&gt;火曜日に公表されたレポートで、マッコーリーのアナリストは、14 ドルを株価目標としてハーキュリーズ・テクノロジー・グロース・キャピタル（NYSE：HTGX）を格上げしました。アナリストはこの企業の配当金 ...</value>
+    <comment>&lt;br&gt;In a report published Tuesday, Macquarie analysts upgraded their rating on Hercules Technology Growth Capital, Inc. (NYSE: HTGX), with a price target of $14. The analysts believe that the company's dividend ...</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip18" xml:space="preserve">
+    <value>&lt;b&gt;米国司法省がエンタープライズファイル共有に Box を選択&lt;/b&gt;</value>
+    <comment>&lt;b&gt;The U.S. Department of Justice Selects Box to Enable Enterprise File Sharing&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip19" xml:space="preserve">
+    <value>&lt;br&gt;本日、Box は米国司法省の全職員を対象としたファイル共有と情報管理の提供について同省と交渉中であると発表しました。厳しい審査を経て、今週 Box は同省から業務認可を受け、司法省全体で Box のプラットフォームを活用できるようになる予定です。</value>
+    <comment>&lt;br&gt;Box today announced that it is working with the U.S. Department of Justice to deliver file sharing and information management to the agency’s workforce. After rigorous assessment, Box will receive an agency Authorization to Operate this week, allowing the DOJ to leverage the platform across all its component agencies.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip2" xml:space="preserve">
+    <value>&lt;b&gt;テクノロジー IPO 市場は健全か。&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Tech IPO market healthy?&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip20" xml:space="preserve">
+    <value>&lt;b&gt;Box が ASPCA のコラボレーションとコンテンツ共有を改善&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Box Enables Improved Collaboration and Content Sharing at the ASPCA&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip21" xml:space="preserve">
+    <value>&lt;br&gt;本日、Box は ASPCA®（北米で初めて設立された動物愛護協会）が Box のクラウドによるコンテンツ共有/コラボレーションプラットフォームの導入を進めつつあると発表しました。</value>
+    <comment>&lt;br&gt;Box today announced that the ASPCA® , the first humane society established in North America, is bringing Box’s cloud content sharing and collaboration platform to its employees.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip3" xml:space="preserve">
+    <value>&lt;b&gt;Center for Sustainable Energy が Box を活用してカリフォルニア州エコカー補助金プロジェクトを推進&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Center for Sustainable Energy Leverages Box to Power California Clean Vehicle Rebate Project&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip4" xml:space="preserve">
+    <value>&lt;br&gt;本日、Box は Center for Sustainable Energy（クリーンエネルギーを中心とした持続可能な社会への移行に積極的に取り組む非営利団体）が Box のプラットフォームを活用し、エコカー補助金プロジェクトの一環としてクラウドベースの文書提出/審査プロセスを推進していると発表しました。</value>
+    <comment>&lt;br&gt;Box today announced that the Center for Sustainable Energy, a nonprofit organization committed to accelerating the transition to a sustainable world powered by clean energy, is leveraging the Box platform to power a cloud-based document submission and review process as part of the Clean Vehicle Rebate Project.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip5" xml:space="preserve">
+    <value>&lt;b&gt;Box が J.P. Morgan Technology, Media and Telecom Conference に参加&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Box to Present at the J.P. Morgan Technology, Media and Telecom Conference&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip6" xml:space="preserve">
+    <value>&lt;br&gt;本日、Box は共同創立者で CEO のアーロンレビーが 2015 年 5 月 18 日月曜日にボストンで開催される J.P. Morgan Technology, Media and Telecom Conference に参加すると発表しました。</value>
+    <comment>&lt;br&gt;Box today announced that Aaron Levie, co-founder and CEO, will participate in the J.P. Morgan Technology, Media and Telecom Conference in Boston on Monday, May 18, 2015.</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip7" xml:space="preserve">
+    <value>&lt;b&gt;BD が、インスリンポンプの使用法を向上させる BD FlowSmart™ テクノロジーを使用した新型の輸液セットで FDA の認可を取得&lt;/b&gt;</value>
+    <comment>&lt;b&gt;BD Receives FDA Clearance for a Novel Infusion Set with BD FlowSmart™ Technology to Enhance the Use of Insulin Pumps&lt;/b&gt;</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip8" xml:space="preserve">
+    <value>&lt;br&gt;安定したインスリン供給と「静かな閉塞」などの流れの途絶回数の削減を目的としたユニークなサイドポートカテーテル。JDRF と Helmsley Charitable が共同開発した輸液セットは...</value>
+    <comment>&lt;br&gt;Unique Side-Ported Catheter Designed to Offer Consistent Insulin Delivery and Fewer Flow Interruptions including Silent Occlusions Infusion Set Developed in Collaboration with JDRF and Helmsley Charitable ...</comment>
+  </data>
+  <data name="EventAnnotations_Tooltip9" xml:space="preserve">
+    <value>&lt;b&gt;ウォールストリートのニューテクノロジーヒーロー Box が懐疑主義者を一蹴&lt;/b&gt;</value>
+    <comment>&lt;b&gt;Wall Street tech debutant Box dismisses doubters&lt;/b&gt;</comment>
+  </data>
+  <data name="FibonacciTool_Text0" xml:space="preserve">
+    <value>フィボナッチツールは、株価チャートのトレンド分析に使用されます。範囲セレクタを使用すると、計算対象のデータ範囲を選択できます。</value>
+    <comment>Fibonacci tool is used for trend analysis in financial charts. With the help of range selector, you can choose data range for calculation.</comment>
+  </data>
+  <data name="FibonacciTool_Text1" xml:space="preserve">
+    <value>フィボナッチツールは、株価チャートのトレンド分析に使用されます。</value>
+    <comment>Fibonacci tool is used for trend analysis in financial charts.</comment>
+  </data>
+  <data name="HeikinAshi_Text0" xml:space="preserve">
+    <value>平均足チャートは日本のローソク足チャートのバリエーションで、ローソク足チャートからノイズを取り除き、移動平均によく似た動作をするように設計されています。</value>
+    <comment>Heikin-Ashi charts are a variation of Japanese candlestick charts that were designed to remove noise from candlesticks and behave much like a moving average.</comment>
+  </data>
+  <data name="HeikinAshi_Text1" xml:space="preserve">
+    <value>このチャートを使用すると、トレンド、潜在的反転ポイントなどのテクニカル分析パターンを見極めることができます。</value>
+    <comment>These charts can be used to identify trends, potential reversal points, and other technical analysis patterns.</comment>
+  </data>
+  <data name="HeikinAshi_Text2" xml:space="preserve">
+    <value>平均足チャートは日本のローソク足チャートのバリエーションで、ローソク足チャートからノイズを取り除き、移動平均によく似た動作をするように設計されています。</value>
+    <comment>Heikin-Ashi charts are a variation of Japanese candlestick charts that were designed to remove noise from candlesticks and behave much like a moving average.</comment>
+  </data>
+  <data name="Indicators_Text0" xml:space="preserve">
+    <value>テクニカルインジケータは、元のデータセットに 1 つ以上の数式を適用して計算することにより派生したデータのセットです。テクニカルインジケータは、一般に資産の市場の方向を予測するために使用され、通常は元のデータと Y 軸のスケールが異なるため、別にプロットされます。</value>
+    <comment>A technical indicator is a set of derived data that is calculated by applying one or more formulas to the original set of data. Technical indicators are generally used to forecast the asset's market direction and generally plotted separately from the original data since the Y-axis scales differ.</comment>
+  </data>
+  <data name="Indicators_Text1" xml:space="preserve">
+    <value>テクニカルインジケータは、元のデータセットに 1 つ以上の数式を適用して計算することにより派生したデータのセットです。</value>
+    <comment>A technical indicator is a set of derived data that is calculated by applying one or more formulas to the original set of data.</comment>
+  </data>
+  <data name="Kagi_Text0" xml:space="preserve">
+    <value>カギ足チャートは、一連の垂直線を連結して、需要と供給のトレンドを示します。</value>
+    <comment>A Kagi chart displays supply and demand trends using a sequence of linked vertical lines.</comment>
+  </data>
+  <data name="Kagi_Text1" xml:space="preserve">
+    <value>線の太さと方向は、株価の動きによって決まります。
+        終値が直前の終値と同じ方向に進む場合は、そのカギ足ラインが延長されます。
+        しかし、終値があらかじめ設定した反転幅以上に反転した場合は、次の列に、新しいカギ足ラインが反対方向に引かれます。細い線は、価格が直前の底値を下回ったこと（売り）を、太い線は、価格が直前の高値を上回ったこと（買い）を示します。</value>
+    <comment>The thickness and direction of the lines vary depending on the price movement.
+        If closing prices go in the direction of the previous Kagi line, then that Kagi line is extended.
+        However, if the closing price reverses by the preset reversal amount, a new Kagi line is charted in the next column in the opposite direction. Thin lines indicate that the price breaks the previous low (supply) while thick lines indicate that the price breaks the previous high (demand).</comment>
+  </data>
+  <data name="Kagi_Text2" xml:space="preserve">
+    <value>カギ足チャートは、一連の垂直線を連結して、需要と供給のトレンドを示します。</value>
+    <comment>A Kagi chart displays supply and demand trends using a sequence of linked vertical lines.</comment>
+  </data>
+  <data name="LineBreak_Text0" xml:space="preserve">
+    <value>新値足チャートまたは新値三本足チャートは、垂直のボックスまたはラインを使用して、資産や市場の価格変動を示します。</value>
+    <comment>A Line Break or Three Line Break chart uses vertical boxes or lines to illustrate the price changes of an asset or market.</comment>
+  </data>
+  <data name="LineBreak_Text1" xml:space="preserve">
+    <value>値動きは、ボックスの色とスタイルで表されます。
+        直前のボックスのトレンドが続く値動きは同じ色で表され、反対方向のトレンドを示す値動きは異なる色/スタイルで示されます。
+        反対方向のトレンドは、値が直前 n 個のボックスまたはラインの最大/最小値を超えた場合にのみ描画されます。この個数は、newLineBreaks オプションで決定されます。</value>
+    <comment>Movements are depicted with box colors and styles;
+        movements that continue the trend of the previous box are colored similarly while movements that trend oppositely are indicated with a different color and/or style.
+        The opposite trend is only drawn if its value exceeds the extreme value of the previous n number of boxes or lines, which is determined by the newLineBreaks option.</comment>
+  </data>
+  <data name="LineBreak_Text2" xml:space="preserve">
+    <value>新値足チャートまたは新値三本足チャートは、垂直のボックスまたはラインを使用して、資産や市場の価格変動を示します。</value>
+    <comment>A Line Break or Three Line Break chart uses vertical boxes or lines to illustrate the price changes of an asset or market.</comment>
+  </data>
+  <data name="Markers_Text0" xml:space="preserve">
+    <value>マーカーは、チャート上のマウスポインタの位置に基づいてデータ値を表示するテキスト領域を FinancialChart 上に表示します。</value>
+    <comment>Markers display a text area on the FinancialChart that displays the data values based on the mouse cursor's position on the chart.</comment>
+  </data>
+  <data name="Markers_Text1" xml:space="preserve">
+    <value>垂直線と水平線のオプションがあり、十字線を表示することもできます。</value>
+    <comment>Markers also support optional vertical and horizontal lines to enable a cross-hair effect.</comment>
+  </data>
+  <data name="Markers_Text2" xml:space="preserve">
+    <value>マーカーは、チャート上のマウスポインタの位置に基づいてデータ値を表示するテキスト領域を FinancialChart 上に表示します。</value>
+    <comment>Markers display a text area on the FinancialChart that displays the data values based on the mouse cursor's position on the chart.</comment>
+  </data>
+  <data name="MovingAverages_Text0" xml:space="preserve">
+    <value>移動平均傾向線は、元のデータセットから一連の平均値を求めることでデータを分析するために使用されます。</value>
+    <comment>Moving average trend lines are used to analyze data by creating a series of averages of the original data set.</comment>
+  </data>
+  <data name="MovingAverages_Text1" xml:space="preserve">
+    <value>移動平均傾向線は、元のデータセットから一連の平均値を求めることでデータを分析するために使用されます。</value>
+    <comment>Moving average trend lines are used to analyze data by creating a series of averages of the original data set.</comment>
+  </data>
+  <data name="Overlays_Text0" xml:space="preserve">
+    <value>テクニカルインジケータと同様にオーバーレイも、元のデータセットに 1 つ以上の数式を適用して計算することにより派生したデータのセットです。オーバーレイは、一般に資産の市場の方向を予測するために使用され、通常は元のデータセットと Y 軸のスケールが同じであるため、一緒にプロットされます。</value>
+    <comment>Overlays, like technical indicators, are a set of derived data that is calculated by applying one or more formulas to the original set of data. Overlays are generally used to forecast an asset's market direction and generally plotted with the original data set since the the Y-axis scales are the same.</comment>
+  </data>
+  <data name="Overlays_Text1" xml:space="preserve">
+    <value>テクニカルインジケータと同様にオーバーレイも、元のデータセットに 1 つ以上の数式を適用して計算することにより派生したデータのセットです。</value>
+    <comment>Overlays, like technical indicators, are a set of derived data that is calculated by applying one or more formulas to the original set of data.</comment>
+  </data>
+  <data name="PointAndFigure_Text0" xml:space="preserve">
+    <value>ポイントアンドフィギュアチャートは、フィルタ処理された株価の動きを表す X と O の列で構成されます。
+            X の列が株価の上昇を表し、O の列が株価の下落を表します。</value>
+    <comment>Point and Figure chart consists of columns of X's and O's that represent filtered price movements.
+            X-Columns represent rising prices and O-Columns represent falling prices.</comment>
+  </data>
+  <data name="PointAndFigure_Text1" xml:space="preserve">
+    <value>ポイントアンドフィギュアチャートは、フィルタ処理された株価の動きを表す X と O の列で構成されます。</value>
+    <comment>Point and Figure chart consists of columns of X's and O's that represent filtered price movements.</comment>
+  </data>
+  <data name="RangeSelector_Text0" xml:space="preserve">
+    <value>範囲セレクタを使用すると、エンドユーザーが実行時に FinancialChart のデータの表示範囲を調整できます。</value>
+    <comment>The RangeSelector allows end users to adjust the FinancialChart's visible range of data at runtime.</comment>
+  </data>
+  <data name="RangeSelector_Text1" xml:space="preserve">
+    <value>範囲セレクタを使用すると、エンドユーザーが実行時に FinancialChart のデータの表示範囲を調整できます。</value>
+    <comment>The RangeSelector allows end users to adjust the FinancialChart's visible range of data at runtime.</comment>
+  </data>
+  <data name="Renko_Text0" xml:space="preserve">
+    <value>新値足チャートまたは新値三本足チャートは、垂直のボックスまたはラインを使用して、資産や市場の価格変動を示します。</value>
+    <comment>A Line Break or Three Line Break chart uses vertical boxes or lines to illustrate the price changes of an asset or market.</comment>
+  </data>
+  <data name="Renko_Text1" xml:space="preserve">
+    <value>練行足チャートは、一様なサイズのブロックを使用して株価の動きをグラフ化します。
+        価格が、新しいブロックの描画に必要なあらかじめ設定された boxSize オプションより大きい値または小さい値に変化すると、次の列に新しいブロックが描画されます。ボックスの色と方向の変化は、トレンドの反転を示します。</value>
+    <comment>The Renko chart uses bricks of uniform size to chart the price movement.
+        When a price moves to a greater or lesser value than the preset boxSize option required to draw a new brick, a new brick is drawn in the succeeding column. The change in box color and direction signifies a trend reversal.</comment>
+  </data>
+  <data name="Renko_Text2" xml:space="preserve">
+    <value>新値足チャートまたは新値三本足チャートは、垂直のボックスまたはラインを使用して、資産や市場の価格変動を示します。</value>
+    <comment>A Line Break or Three Line Break chart uses vertical boxes or lines to illustrate the price changes of an asset or market.</comment>
+  </data>
+  <data name="TrendLine_Text0" xml:space="preserve">
+    <value>傾向線は、データの傾向を視覚化し、予測の問題点を分析するために使用されます。</value>
+    <comment>Trend lines are used to visualize trends in data and to help analyze the problems of prediction.</comment>
+  </data>
+  <data name="TrendLine_Text1" xml:space="preserve">
+    <value>傾向線は、データの傾向を視覚化し、予測の問題点を分析するために使用されます。</value>
+    <comment>Trend lines are used to visualize trends in data and to help analyze the problems of prediction.</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeAtr" xml:space="preserve">
+    <value>Average True Range</value>
+    <comment>Average True Range</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeRsi" xml:space="preserve">
+    <value>RSI（相対力指数）</value>
+    <comment>Relative Strength Index</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeCci" xml:space="preserve">
+    <value>CCI（商品チャンネル指数）</value>
+    <comment>Commodity Channel Index</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeWilliamsR" xml:space="preserve">
+    <value>ウィリアムズ %R</value>
+    <comment>Williams %R</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeMacd" xml:space="preserve">
+    <value>MACD</value>
+    <comment>MACD</comment>
+  </data>
+  <data name="Indicators_AnalysisTypeStoch" xml:space="preserve">
+    <value>ストキャスティクス</value>
+    <comment>Stochastic</comment>
+  </data>
+  <data name="Indicators_IndicatorType" xml:space="preserve">
+    <value>インジケータタイプ</value>
+    <comment>Indicator Type</comment>
+  </data>
+  <data name="Indicators_Period" xml:space="preserve">
+    <value>期間</value>
+    <comment>Period</comment>
+  </data>
+  <data name="Indicators_FastPeriod" xml:space="preserve">
+    <value>高速期間</value>
+    <comment>Fast Period</comment>
+  </data>
+  <data name="Indicators_SlowPeriod" xml:space="preserve">
+    <value>低速期間</value>
+    <comment>Slow Period</comment>
+  </data>
+  <data name="Indicators_SignalSmoothingPeriod" xml:space="preserve">
+    <value>シグナル平滑期間</value>
+    <comment>Signal Smoothing Period</comment>
+  </data>
+  <data name="Indicators_KPeriod" xml:space="preserve">
+    <value>K 期間</value>
+    <comment>K Period</comment>
+  </data>
+  <data name="Indicators_DPeriod" xml:space="preserve">
+    <value>D 期間</value>
+    <comment>D Period</comment>
+  </data>
+  <data name="Indicators_SmoothingPeriod" xml:space="preserve">
+    <value>平滑期間</value>
+    <comment>Smoothing Period</comment>
+  </data>
+  <data name="MovingAverages_5DayMASettings" xml:space="preserve">
+    <value>5 日 MA 設定</value>
+    <comment>5 Day MA Settings</comment>
+  </data>
+  <data name="MovingAverages_Period" xml:space="preserve">
+    <value>期間</value>
+    <comment>Period</comment>
+  </data>
+  <data name="MovingAverages_20DayMASettings" xml:space="preserve">
+    <value>20 日 MA 設定</value>
+    <comment>20 Day MA Settings</comment>
+  </data>
+  <data name="MovingAverages_Header1" xml:space="preserve">
+    <value>移動平均 タイプ：&lt;b&gt;単純&lt;/b&gt;</value>
+    <comment>Moving Avg. Type: &lt;b&gt;Simple&lt;/b&gt;</comment>
+  </data>
+  <data name="MovingAverages_Header2" xml:space="preserve">
+    <value>移動平均 タイプ：&lt;b&gt;単純&lt;/b&gt;</value>
+    <comment>Moving Avg. Type: &lt;b&gt;Simple&lt;/b&gt;</comment>
+  </data>
+  <data name="MovingAverages_TypeSimple" xml:space="preserve">
+    <value>単純</value>
+    <comment>Simple</comment>
+  </data>
+  <data name="MovingAverages_TypeWeighted" xml:space="preserve">
+    <value>加重</value>
+    <comment>Weighted</comment>
+  </data>
+  <data name="MovingAverages_TypeExponential" xml:space="preserve">
+    <value>指数</value>
+    <comment>Exponential</comment>
+  </data>
+  <data name="MovingAverages_TypeTriangular" xml:space="preserve">
+    <value>三角</value>
+    <comment>Triangular</comment>
+  </data>
+  <data name="MovingAverages_MovingAvgType" xml:space="preserve">
+    <value>移動平均 タイプ</value>
+    <comment>Moving Avg. Type</comment>
+  </data>
+  <data name="Overlays_Overlay" xml:space="preserve">
+    <value>オーバーレイ</value>
+    <comment>Overlay</comment>
+  </data>
+  <data name="Overlays_Period" xml:space="preserve">
+    <value>期間</value>
+    <comment>Period</comment>
+  </data>
+  <data name="Overlays_Multiplier" xml:space="preserve">
+    <value>乗数</value>
+    <comment>Multiplier</comment>
+  </data>
+  <data name="Overlays_Size" xml:space="preserve">
+    <value>サイズ</value>
+    <comment>Size</comment>
+  </data>
+  <data name="Overlays_TypeSimple" xml:space="preserve">
+    <value>単純</value>
+    <comment>Simple</comment>
+  </data>
+  <data name="Overlays_TypeExponential" xml:space="preserve">
+    <value>指数</value>
+    <comment>Exponential</comment>
+  </data>
+  <data name="Overlays_TypeBSimpleHeader" xml:space="preserve">
+    <value>タイプ：&lt;b&gt;単純&lt;/b&gt;</value>
+    <comment>Type: &lt;b&gt;Simple&lt;/b&gt;</comment>
+  </data>
+  <data name="Overlays_TypeLabel" xml:space="preserve">
+    <value>タイプ：</value>
+    <comment>Type:</comment>
+  </data>
+  <data name="PointAndFigure_FacebookIncFB" xml:space="preserve">
+    <value>Facebook Inc.（FB）</value>
+    <comment>Facebook Inc. (FB)</comment>
+  </data>
+  <data name="PointAndFigure_FBRelativeToNASDAQNDX" xml:space="preserve">
+    <value>NASDAQ-100（NDX）を基準とした FB</value>
+    <comment>FB relative to NASDAQ-100 (NDX)</comment>
+  </data>
+  <data name="PointAndFigure_StockData" xml:space="preserve">
+    <value>株価データ：</value>
+    <comment>Stock Data:</comment>
+  </data>
+  <data name="MovingAverages_Day" xml:space="preserve">
+    <value>日</value>
+    <comment>Day</comment>
+  </data>
+  <data name="MovingAverages_Settings" xml:space="preserve">
+    <value>設定</value>
+    <comment>Settings</comment>
+  </data>
+</root>

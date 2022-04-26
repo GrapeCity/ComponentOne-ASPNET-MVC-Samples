@@ -1,0 +1,41 @@
+<h1>
+    @Html.Raw(Resources.C1Nav.TabPanelDetachedPanels_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelDetachedPanels_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Nav.TabPanelDetachedPanels_Text2)
+</p>
+
+<div id="tabDetached">
+    <!-- tab without any content -->
+    <div>
+        <a>Africa</a>
+        <div></div>
+    </div>
+    <div>
+        <a>America</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Asia</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Europe</a>
+        <div></div>
+    </div>
+    <div>
+        <a>Oceania</a>
+        <div></div>
+    </div>
+</div>
+@Html.C1().TabPanel("#tabDetached").OnClientSelectedIndexChanged("tabDetached_selectedIndexChanged")
+<p></p>
+<div class="panel panel-success">
+    <!-- separate div to show the content -->
+    <div class="panel-heading">
+        <h3 id="detachedContent" class="panel-title"></h3>
+    </div>
+</div>

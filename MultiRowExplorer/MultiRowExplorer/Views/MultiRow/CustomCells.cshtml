@@ -1,0 +1,100 @@
+@model IEnumerable<Sale>
+
+@section Scripts{
+    <script type="text/javascript">
+        function rankFormatter(panel, r, c, cell) {
+            // gets the binding column
+            var bcol = panel.grid.getBindingColumn(panel, r, c);
+            if (bcol.binding === "Rank") {
+                cell.style.textAlign = "";
+                if (panel.cellType === wijmo.grid.CellType.Cell) {
+                    cell.innerHTML = buildRank(panel.getCellData(r, c));
+                }
+            }
+        }
+
+        function buildRank(rank) {
+            var markup = "", j, starType;
+            for (j = 0; j < 5; j++) {
+                starType = j < rank ? "star star-highlighted" : "star star-dimmed";
+                markup += "<span class='" + starType + "'>\u2605</span>";
+            }
+            return markup;
+        }
+    </script>
+}
+
+@section Styles{
+    <style>
+        .star-highlighted {
+            color: orange;
+        }
+
+        .star-dimmed {
+            color: lightgray;
+        }
+
+        .trends {
+            padding: 0px;
+            vertical-align: middle;
+            margin-top: 2px;
+        }
+    </style>
+}
+
+<script id="templateTrends" type="text/template">
+    @(Html.C1().FlexChart()
+        .Width(100).Height(40).CssClass("trends")
+        .TemplateBind("ItemsSource", "Trends")
+        .BindingX("Month")
+        .Series(s => s.Add().Binding("Data"))
+        .AxisX(C1.Web.Mvc.Chart.Position.None)
+        .AxisY(C1.Web.Mvc.Chart.Position.None)
+        .ToTemplate()
+    )
+</script>
+
+@(Html.C1().MultiRow<Sale>()
+    .Id("customCellMultiRow")
+    .IsReadOnly(true)
+    .Bind(Model)
+    .CssClass("multirow")
+    .LayoutDefinition(ld =>
+    {
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("ID").Header("ID").Width("100"));
+            cells.Add(cell => cell.Binding("Active").Header("Active"));
+        });
+        ld.Add().Colspan(2).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Country").Header("Country").Colspan(2));
+            cells.Add(cell => cell.Binding("Product").Header("Product").Width("100"));
+            cells.Add(cell => cell.Binding("Color").Header("Color").Width("100"));
+        });
+        ld.Add().Colspan(2).Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Amount").Header("Amount").Width("100"));
+            cells.Add(cell => cell.Binding("Amount2").Header("Amount2").Width("100"));
+            cells.Add(cell => cell.Binding("Discount").Header("Discount").Colspan(2));
+        });
+        ld.Add().Header("Rank").Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Trends").Header("Trends").AllowSorting(false).CellTemplate(t => t.TemplateId("templateTrends")));
+        });
+        ld.Add().Cells(cells =>
+        {
+            cells.Add(cell => cell.Binding("Rank").Header("Rank"));
+        });
+    })
+    .ItemFormatter("rankFormatter")
+)
+
+@section Description{
+<p>@Html.Raw(Resources.MultiRowExplorer.CustomCells_Text0)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.CustomCells_Text1)</p>
+
+<p>@Html.Raw(Resources.MultiRowExplorer.CustomCells_Text2)</p>
+
+}

@@ -1,0 +1,24 @@
+﻿.wj-gauge {
+  width: 300px;
+  margin: 20px auto;
+}
+
+.wj-gauge .wj-face path {
+    fill: #d0d0d0;
+    stroke: none;
+}
+.wj-gauge .wj-pointer path {
+    fill: #404040;
+    stroke: none;
+}
+.wj-gauge circle.wj-pointer {
+    fill: #404040;
+    stroke: none;
+    transition: fill stroke .5s;
+}
+.wj-gauge.wj-state-focused circle.wj-pointer {
+    fill: red;
+    stroke: red;
+    stroke-width: 10px;
+    transition: fill stroke .5s;
+}

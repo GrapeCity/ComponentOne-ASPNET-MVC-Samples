@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+    <!-- styles -->
+    @Styles.Render("~/Content/css/explorer")
+    @Styles.Render("~/Content/appcss")
+
+    <!-- Material Lite -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+    <link rel="stylesheet" href="https://code.getmdl.io/1.1.1/material.indigo-red.min.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:regular,bold,italic,thin,light,bolditalic,black,medium&amp;lang=en" />
+    <script defer src="https://code.getmdl.io/1.1.1/material.min.js"></script>
+
+    @Html.C1().Styles().Theme("material")
+
+    <!-- update CSS when the theme changes -->
+    <link id="linkMaterial" href="https://code.getmdl.io/1.1.1/material.indigo-pink.min.css" rel="stylesheet" />
+    <link id="linkWijmo" href="https://cdn.grapecity.com/wijmo/5.latest/styles/themes/material/wijmo.theme.material.indigo-pink.min.css" rel="stylesheet" />
+
+    <!-- jQuery and Bootstrap scripts -->
+    @Html.C1().Scripts().Basic()
+    @Scripts.Render("~/Content/js")
+
+    <script src="~/scripts/vendor/wijmo.material.js"></script>
+    <script src="~/scripts/vendor/ColorWheel.js"></script>
+</head>
+<body>
+    <div class="hide">
+        @Html.Partial("_SiteNav", true)
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="@Resources.Resource.ComponentOneLink" target="_blank">
+            <i class="gcicon-product-c1"></i>@Resources.Resource.SiteTitle
+        </a>
+
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Resources.Resource.PageTitle</span>
+            <span class="semi-bold wide-screen">@Resources.Resource.PageDescription</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+    <div class="container">
+        @RenderBody()
+    </div>
+    <footer>
+        <a href="http://www.grapecity.com/">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+            © @DateTime.Now.Year @Resources.Resource.SiteFooter1<br />
+            @Resources.Resource.SiteFooter2
+        </p>
+        @{
+            var url = Request.Url;
+            var urlStr = url.OriginalString.Substring(0, url.OriginalString.Length - (url.Query == null ? 0 : url.Query.Length));
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="@Url.Content("~/Content/css/images/icons/32/picons36.png")" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
+            <img src="@Url.Content("~/Content/css/images/icons/32/picons33.png")" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

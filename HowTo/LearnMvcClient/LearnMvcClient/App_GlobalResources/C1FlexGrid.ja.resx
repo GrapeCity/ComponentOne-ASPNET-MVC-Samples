@@ -1,0 +1,3019 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="AggregatesAboveData_Text1" xml:space="preserve">
+    <value>データの上に集計を表示するには、次の手順に従います。</value>
+    <comment>To show aggregates above the data, follow these steps:</comment>
+  </data>
+  <data name="AggregatesAboveData_Text2" xml:space="preserve">
+    <value>集計する列に &lt;b&gt;aggregate&lt;/b&gt; プロパティを設定します。</value>
+    <comment>Set the &lt;b&gt;aggregate&lt;/b&gt; property on the columns that you want to aggregate.</comment>
+  </data>
+  <data name="AggregatesAboveData_Text3" xml:space="preserve">
+    <value>ダミープロパティに基づいて、単一の &lt;b&gt;GroupDescription&lt;/b&gt; を作成します。</value>
+    <comment>Create a single &lt;b&gt;GroupDescription&lt;/b&gt; based on a dummy property.</comment>
+  </data>
+  <data name="AggregatesAboveData_Text4" xml:space="preserve">
+    <value>オプションで上端の行を固定して、集計が表示されたままにします。</value>
+    <comment>Optionally, freeze the top row to keep the aggregates in view.</comment>
+  </data>
+  <data name="AggregatesAboveData_Title" xml:space="preserve">
+    <value>データの上に集計</value>
+    <comment>Aggregates Above the Data</comment>
+  </data>
+  <data name="AggregatesBelowData_Text1" xml:space="preserve">
+    <value>データの下に集計を表示するには、集計する列に &lt;b&gt;aggregate&lt;/b&gt; プロパティを設定し、グリッドの &lt;b&gt;columnFooter&lt;/b&gt; パネルに &lt;b&gt;GroupRow&lt;/b&gt; を追加します。</value>
+    <comment>To show aggregates below the data, set the &lt;b&gt;aggregate&lt;/b&gt;
+    property on the columns that you want to aggregate, and
+    add a &lt;b&gt;GroupRow&lt;/b&gt; to the grid's &lt;b&gt;columnFooter&lt;/b&gt;
+    panel.</comment>
+  </data>
+  <data name="AggregatesBelowData_Title" xml:space="preserve">
+    <value>データの下に集計</value>
+    <comment>Aggregates Below the Data</comment>
+  </data>
+  <data name="AggregatesCustom_Text1" xml:space="preserve">
+    <value>FlexGrid 列には &lt;b&gt;aggregate&lt;/b&gt; プロパティがあり、これを使用してグリッド全体または各グループのデータサマリーを表示できます。</value>
+    <comment>FlexGrid columns have an &lt;b&gt;aggregate&lt;/b&gt; property that
+    allows you to show data summaries for the whole grid or
+    for each group.</comment>
+  </data>
+  <data name="AggregatesCustom_Text2" xml:space="preserve">
+    <value>ただし、場合によっては、&lt;b&gt;aggregate&lt;/b&gt; プロパティには十分な柔軟性がありません。そのような場合は、カスタムコードを使用して集計を計算する必要があります。</value>
+    <comment>However, in some cases, the &lt;b&gt;aggregate&lt;/b&gt; property is
+    not flexible enough. So, you may need to calculate
+    aggregates using custom code.</comment>
+  </data>
+  <data name="AggregatesCustom_Text3" xml:space="preserve">
+    <value>下のグリッドには、「Sales」と「Expenses」の差を示す「Profit」列が含まれています。</value>
+    <comment>The grid below includes a 'Profit' column that shows
+    the difference between 'Sales' and 'Expenses'.</comment>
+  </data>
+  <data name="AggregatesCustom_Text4" xml:space="preserve">
+    <value>「Profit」列は、&lt;b&gt;formatItem&lt;/b&gt; イベントで計算されます。通常のデータ項目に対する利益は、実際のデータ項目に基づいて計算されます。グループに対する利益は、グループの &lt;b&gt;getAggregate&lt;/b&gt; メソッドを使用して計算されます。</value>
+    <comment>The 'Profit' column is calculated in the &lt;b&gt;formatItem&lt;/b&gt;
+    event. The profit for regular data items is based on
+    the actual data items. The profit for groups is calculated
+    using the group's &lt;b&gt;getAggregate&lt;/b&gt; method.</comment>
+  </data>
+  <data name="AggregatesCustom_Title" xml:space="preserve">
+    <value>カスタム集計</value>
+    <comment>Custom Aggregates</comment>
+  </data>
+  <data name="AlwaysEditing_Text1" xml:space="preserve">
+    <value>FlexGrid では、デフォルトで、効率的な Excel 形式の編集を行うことができますが、編集動作をカスタマイズしたい場合もあります。</value>
+    <comment>Although FlexGrid provides efficient, Excel-style
+    editing by default, you may want to customize the
+    editing behavior in some cases.</comment>
+  </data>
+  <data name="AlwaysEditing_Text2" xml:space="preserve">
+    <value>最も単純なカスタマイズは、グリッドを常に編集モードにしておくことです。いずれにせよ、FlexGrid ではいつでもキー入力でセルを編集できるため、これによってユーザーの手間が減るわけではありません。ただし、これでユーザーはグリッドが編集可能であることがわかるようになります。</value>
+    <comment>The simplest customization is to keep the grid
+    always in edit mode. This does not save any 
+    effort of the user, because anyways, FlexGrid allows
+    editing cells by typing at any time. But, it does 
+    show users that the grid is editable.</comment>
+  </data>
+  <data name="AlwaysEditing_Text3" xml:space="preserve">
+    <value>グリッドをいつでも編集モードにしておく最も簡単な方法は、グリッドがフォーカスを取得したとき、および選択範囲が変更されたときに &lt;b&gt;startEditing&lt;/b&gt; メソッドを呼び出すことです。</value>
+     <comment>The easiest way to keep the grid in edit mode at
+     all times is to call the &lt;b&gt;startEditing&lt;/b&gt;
+     method when the grid gets the focus and when the
+     selection changes.</comment>
+  </data>
+  <data name="AlwaysEditing_Title" xml:space="preserve">
+    <value>カスタム編集</value>
+    <comment>Custom Editing</comment>
+  </data>
+  <data name="Architecture_Text1" xml:space="preserve">
+    <value>FlexGrid はデータを表形式で表示します。ユーザーは、そのデータを編集したり、ソート、フィルタ処理、グループ化によってデータビューを変更することができます。</value>
+    <comment>FlexGrid displays data in a tabular form and allows
+    users to edit it or modify the views by sorting,
+    filtering, and grouping it.</comment>
+  </data>
+  <data name="Architecture_Text2" xml:space="preserve">
+    <value>他のすべての CMVC コントロールと同様に、グリッドは、すべてのデータ関連タスクを &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt; クラスで実行します。</value>
+    <comment>Like all other CMVC controls, the grid delegates all
+    data-related tasks to the
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html" target="_blank"&gt;CollectionView&lt;/a&gt;
+    class.</comment>
+  </data>
+  <data name="Architecture_Text3" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;itemsSource&lt;/b&gt; プロパティに配列または &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.collections.ObservableArray.Class.html" target="_blank"&gt;ObservableArray&lt;/a&gt; を設定すると、グリッドは、元の配列をラップする CollectionView インスタンスを自動的に作成します。この CollectionView には、&lt;b&gt;collectionView&lt;/b&gt; プロパティからアクセスできます。</value>
+    <comment>When you set the &lt;b&gt;itemsSource&lt;/b&gt; property of grid to an array,
+    or
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.ObservableArray.Class.html" target="_blank"&gt;ObservableArray&lt;/a&gt;,
+    the grid automatically creates a CollectionView instance
+    to wrap the original array. This CollectionView can be 
+    accessed through the &lt;b&gt;collectionView&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Architecture_Text4" xml:space="preserve">
+    <value>たとえば、次の 2 つのグリッドは、同じデータ配列に連結されています。各々は独自の CollectionView を持っているため、独立してソート、フィルタ処理、およびグループ化を行うことができます。（グリッドの選択範囲に対応する）現在の項目も独立しています。</value>
+    <comment>For example, the grids below are bound to the same data array.
+    Each one has its own internal CollectionView, so they can be sorted,
+    filtered, and grouped independently. The current item
+    (associated with the grid selection) is also independent:</comment>
+  </data>
+  <data name="Architecture_Text5" xml:space="preserve">
+    <value>それとは対照的に、次の 2 つのグリッドは同じ CollectionView に関連付けられています。そのため、同じビューが表示されます。一方のグリッドでソート、フィルタ処理、または選択を行うと、もう一方にも影響します。</value>
+    <comment>By contrast, the two grids below are bound to the same CollectionView.
+    Because of this, they show the same view. Sorting, filtering, or
+    selecting on one grid affects the other.</comment>
+  </data>
+  <data name="Architecture_Text6" xml:space="preserve">
+    <value>共通ビューに適用されるソート、フィルタ処理、および選択が、&lt;b&gt;ListBox&lt;/b&gt; などの他のコントロールにも反映されることを確認してください。</value>
+    <comment>Observe how sorting, filtering, and selection applied
+    to the common view is also reflected on other
+    controls such as &lt;b&gt;ListBox&lt;/b&gt;:</comment>
+  </data>
+  <data name="Architecture_Title" xml:space="preserve">
+    <value>FlexGrid のアーキテクチャ</value>
+    <comment>FlexGrid Architecture</comment>
+  </data>
+  <data name="AutoColumnWidths_Text1" xml:space="preserve">
+    <value>このグリッドは、そのコンテンツに合わせて自動的に列のサイズを変更します。そのために、コンテンツサイズに影響するイベントに応答して &lt;b&gt;autoSizeColumns&lt;/b&gt; メソッドを呼び出します。</value>
+    <comment>This grid automatically resizes columns to fit their content.
+    It does this by calling the &lt;b&gt;autoSizeColumns&lt;/b&gt; method
+    in response to events that affect the content size.</comment>
+  </data>
+  <data name="AutoColumnWidths_Title" xml:space="preserve">
+    <value>列の自動サイズ変更</value>
+    <comment>Auto-Size Columns</comment>
+  </data>
+  <data name="AutoRowHeights_Text1" xml:space="preserve">
+    <value>このグリッドは、そのコンテンツに合わせて自動的に行のサイズを変更します。そのために、コンテンツサイズに影響するイベントに応答して &lt;b&gt;autoSizeRows&lt;/b&gt; メソッドを呼び出します。</value>
+    <comment>This grid automatically resizes rows to fit their content.
+    It does this by calling the &lt;b&gt;autoSizeRows&lt;/b&gt; method
+    in response to events that affect the content size.</comment>
+  </data>
+  <data name="AutoRowHeights_Title" xml:space="preserve">
+    <value>行の自動サイズ変更</value>
+    <comment>Auto-Size Rows</comment>
+  </data>
+  <data name="Binding_Text1" xml:space="preserve">
+    <value>多くの場合、FlexGrid には、サーバーからロードされたデータ、またはコードで生成されたデータが表示されます。このデータはオブジェクトの配列で表現され、グリッドは、その &lt;b&gt;itemsSource&lt;/b&gt; プロパティを通してこの配列に連結されます。</value>
+    <comment>In most scenarios, the FlexGrid shows data that is loaded from a
+    server or generated in code. This data is represented as an
+    array of objects, and the grid is bound to this array via
+    its &lt;b&gt;itemsSource&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Binding_Text2" xml:space="preserve">
+    <value>デフォルトでは、&lt;b&gt;itemsSource&lt;/b&gt; プロパティを設定すると、グリッドがデータオブジェクトをスキャンして、データ項目内の各プロパティに対して自動的に列を生成します。次に例を示します。</value>
+    <comment>By default, when you set the &lt;b&gt;itemsSource&lt;/b&gt; property
+    the grid will scan the data objects and automatically
+    generate columns for each property in the data items.
+    For example:</comment>
+  </data>
+  <data name="Binding_Text3" xml:space="preserve">
+    <value>データソースが単純な場合、またはアプリケーションのテスト/開発段階では、列の自動生成が十分に機能します。ただし、自動的な列生成をオフにして、コードで列を指定しなければならない場合も多くあります。この方法では、どの列がどの順序で表示されるかや、列の幅、形式、ヘッダーなどを完全に制御できます。</value>
+    <comment>Auto-generating columns works well for simple data sources
+    or while testing/developing applications. But in most scenarios,
+    you will want to turn off the automatic column generation and
+    specify the columns in code. This way you get complete control
+    over which columns are displayed, in what order, their widths,
+    format, headers, etc.</comment>
+  </data>
+  <data name="Binding_Text4" xml:space="preserve">
+    <value>各列には、セルに表示されるデータ項目のプロパティを決定する &lt;b&gt;binding&lt;/b&gt; プロパティがあります。次に例を示します。</value>
+    <comment>Each column has a &lt;b&gt;binding&lt;/b&gt; property that determines which
+    property of the data item that should be displayed in the cell.
+    For example:</comment>
+  </data>
+  <data name="Binding_Title" xml:space="preserve">
+    <value>連結</value>
+    <comment>Binding</comment>
+  </data>
+  <data name="CellMerging_Text1" xml:space="preserve">
+    <value>FlexGrid では、コンテンツ依存のセル結合がサポートされています。</value>
+    <comment>FlexGrid supports content-driven cell merging.</comment>
+  </data>
+  <data name="CellMerging_Text2" xml:space="preserve">
+    <value>セル結合を有効にするには、結合するグリッドの部分を示す &lt;b&gt;allowMerging&lt;/b&gt; プロパティを設定し、特定の行および列の &lt;b&gt;allowMerging&lt;/b&gt; プロパティを true に設定します。これで、グリッド内の同じコンテンツを持つセルが結合されて、データが視覚的にグループ化されます。</value>
+    <comment>To enable cell merging, set the &lt;b&gt;allowMerging&lt;/b&gt; property to
+    indicate what part or parts of the grid you want to merge, and
+    set the &lt;b&gt;allowMerging&lt;/b&gt; property on specific rows and
+    columns to true. Once you do that, the grid will merges cells
+    that have the same content, grouping the data visually.</comment>
+  </data>
+  <data name="CellMerging_Text3" xml:space="preserve">
+    <value>次の例では、"Country" 列と "Active" 列に対して &lt;b&gt;allowMerging&lt;/b&gt; プロパティが true 設定されます。</value>
+    <comment>In the example below, the &lt;b&gt;allowMerging&lt;/b&gt; property is set to
+    true on the Country" and "Active" columns."</comment>
+  </data>
+  <data name="CellMerging_Text4" xml:space="preserve">
+    <value>グリッドをソートして、セルがどのように結合されるかを確認してみてください。</value>
+    <comment>Try sorting the grid to see how that affects merging.</comment>
+  </data>
+  <data name="CellMerging_Text5" xml:space="preserve">
+    <value>他のセルのコンテンツに関係なく、同じコンテンツを持つセルが下方向に結合されることがわかります。この動作は、&lt;b&gt;mergeManager&lt;/b&gt; プロパティを使用してカスタマイズできます。</value>
+    <comment>Notice how cells with the same content are merged down
+    the columns, regardless of the content of other cells.
+    You can customize this behavior using the &lt;b&gt;mergeManager&lt;/b&gt;
+    property.</comment>
+  </data>
+  <data name="CellMerging_Title" xml:space="preserve">
+    <value>セル結合</value>
+    <comment>Cell Merging</comment>
+  </data>
+  <data name="Cells_Text1" xml:space="preserve">
+    <value>FlexGrid モジュールには、&lt;b&gt;Row&lt;/b&gt; クラスと &lt;b&gt;Column&lt;/b&gt; クラスは定義されていますが、&lt;b&gt;Cell&lt;/b&gt; クラスは定義されていません。セルは、&lt;b&gt;Row&lt;/b&gt; と &lt;b&gt;Column&lt;/b&gt; の交点を表す単なる DOM 要素として作成されるためです。</value>
+    <comment>The FlexGrid module defines &lt;b&gt;Row&lt;/b&gt; and &lt;b&gt;Column&lt;/b&gt;
+    classes, but no &lt;b&gt;Cell&lt;/b&gt; class. That is because cells
+    are just DOM elements created to represent the intersection
+    of a &lt;b&gt;Row&lt;/b&gt; and a &lt;b&gt;Column&lt;/b&gt;.</comment>
+  </data>
+  <data name="Cells_Text2" xml:space="preserve">
+    <value>レンダリング時に、FlexGrid は、&lt;b&gt;viewRange&lt;/b&gt; 内の行と列をスキャンして、行と列の組み合わせに対応するセル要素をそれぞれ生成します。セル要素は、（他のいくつかのプロパティと共に）行によって提供される &lt;b&gt;dataItem&lt;/b&gt; と列によって提供される &lt;b&gt;binding&lt;/b&gt; に基づいて作成されます。</value>
+    <comment>When rendering, FlexGrid scans the rows and columns in
+    the &lt;b&gt;viewRange&lt;/b&gt; and generates a cell element for
+    each combination. Cell elements are created based on a
+    &lt;b&gt;dataItem&lt;/b&gt; provided by the row and a &lt;b&gt;binding&lt;/b&gt;
+    provided by the column (along with some other properties).</comment>
+  </data>
+  <data name="Cells_Text3" xml:space="preserve">
+    <value>状況によっては、データに基づいてセル要素をカスタマイズしたり（動的な書式設定）、カスタムセル要素を作成したり（テンプレート化）、連結をまったく使用しない（計算列、非連結グリッド）こともできます。</value>
+    <comment>In some situations, you may want to customize the cell
+    element based on the data (dynamic formatting), to create
+    custom cell elements (templating), or not to use bindings
+    at all (calculated columns, unbound grids).</comment>
+  </data>
+  <data name="Cells_Text4" xml:space="preserve">
+    <value>そのような場合には、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用してセル要素を作成または修正します。たとえば、次のグリッドでは、1,000 未満の売上が赤色で表示され、5,000 を超える売上が緑色で表示されています。</value>
+    <comment>In these cases, use the &lt;b&gt;formatItem&lt;/b&gt; event to create or
+    modify the cell elements. For example, the
+    grid below shows sales below 1,000 in red and sales
+    over 5,000 in green:</comment>
+  </data>
+  <data name="Cells_Text5" xml:space="preserve">
+    <value>多くの場合は、連結ソースオブジェクトで直接データを変更し、その結果をグリッドに表示します。しかし、まれに、グリッドを通してデータを取得または設定したい場合があります。</value>
+    <comment>In most of the cases, you modify the data directly in the
+    binding source object, and let the grid show the results.
+    But in a few cases, you may want to get or set the
+    data through the grid instead.</comment>
+  </data>
+  <data name="Cells_Text6" xml:space="preserve">
+    <value>それには、&lt;b&gt;GridPanel&lt;/b&gt; クラスの &lt;b&gt;getCellData&lt;/b&gt; メソッドと &lt;b&gt;setCellData&lt;/b&gt; メソッドを使用します。これらのメソッドを使用して、生データまたは書式設定されたデータを取得したり、データの設定時にデータ型を適用したり、非連結グリッドのデータを取得または設定することができます。</value>
+    <comment>You can do this using the &lt;b&gt;getCellData&lt;/b&gt; and
+    &lt;b&gt;setCellData&lt;/b&gt; methods in the &lt;b&gt;GridPanel&lt;/b&gt;
+    class. These methods offer options for getting raw
+    or formatted data, coercing data types when setting
+    data, and getting or setting data on unbound grids.</comment>
+  </data>
+  <data name="Cells_Text7" xml:space="preserve">
+    <value>現在選択されているセルのデータを取得</value>
+    <comment>Get the data for the currently selected cell</comment>
+  </data>
+  <data name="Cells_Title" xml:space="preserve">
+    <value>セル</value>
+    <comment>Cells</comment>
+  </data>
+  <data name="Cells_Title1" xml:space="preserve">
+    <value>formatItem イベント</value>
+    <comment>The formatItem event</comment>
+  </data>
+  <data name="Cells_Title2" xml:space="preserve">
+    <value>セルデータの取得と設定</value>
+    <comment>Getting and setting cell data</comment>
+  </data>
+  <data name="Clipboard_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールでは、クリップボードが組み込みでサポートされています。</value>
+    <comment>The FlexGrid control has built-in clipboard support.</comment>
+  </data>
+  <data name="Clipboard_Text2" xml:space="preserve">
+    <value>デフォルトでは、［Ctrl］+［C］キーまたは［Ctrl］+［Ins］キーを押すと、現在の選択範囲がクリップボードにコピーされます。［Ctrl］+［V］または［Shift］+［Ins］を押すと、クリップボードの内容がグリッドに貼り付けられます。</value>
+    <comment>By default, pressing the Ctrl+C or Ctrl+Insert keys
+    copies the current selection to the clipboard.
+    Pressing Ctrl+V or Shift+Insert pastes the clipboard
+    content into the grid.</comment>
+  </data>
+  <data name="Clipboard_Text3" xml:space="preserve">
+    <value>&lt;b&gt;autoClipboard&lt;/b&gt; プロパティに false を設定することで、自動的なクリップボード機能を無効にできます。</value>
+    <comment>You can disable the automatic clipboard feature by setting
+    the &lt;b&gt;autoClipboard&lt;/b&gt; property to false.</comment>
+  </data>
+  <data name="Clipboard_Text4" xml:space="preserve">
+    <value>&lt;b&gt;copying&lt;/b&gt;、&lt;b&gt;copied&lt;/b&gt;、&lt;b&gt;pasting&lt;/b&gt;、&lt;b&gt;pasted&lt;/b&gt;、&lt;b&gt;pastingCell&lt;/b&gt;、&lt;b&gt;pastedCell&lt;/b&gt; の各イベントを使用して、クリップボードアクションをカスタマイズできます。</value>
+    <comment>You can customize the clipboard actions using the
+    &lt;b&gt;copying&lt;/b&gt;, &lt;b&gt;copied&lt;/b&gt;, &lt;b&gt;pasting&lt;/b&gt;, &lt;b&gt;pasted&lt;/b&gt;,
+    &lt;b&gt;pastingCell&lt;/b&gt;, and &lt;b&gt;pastedCell&lt;/b&gt; events.</comment>
+  </data>
+  <data name="Clipboard_Text5" xml:space="preserve">
+    <value>たとえば、次のグリッドからある範囲をコピーすると、クリップボードの内容に列ヘッダーが追加されます。</value>
+    <comment>For example, when you copy a range from the grid below, it will
+    add the column headers to the clipboard content.</comment>
+  </data>
+  <data name="Clipboard_Text6" xml:space="preserve">
+    <value>FlexGrid は、クリップボードのデータを複製して貼り付ける、Excel と同様の「スマート貼り付け」機能を実装しています。たとえば、1 つセルを選択し、［Ctrl］+［C］を押してクリップボードにコピーします。次に、選択範囲を拡大し、［Ctrl］+［V］を押して貼り付けると、選択範囲全体にそのセルが貼り付けられます。</value>
+    <comment>Note that the FlexGrid implements an Excel-style 'smart pasting'
+    feature that replicates the clipboard data when pasting.
+    For example, if you select a single cell and press Ctrl+C to
+    copy it to the clipboard, then extend the selection and press
+    Ctrl+V to paste, the cell will be pasted over the entire
+    selection.</comment>
+  </data>
+  <data name="Clipboard_Title" xml:space="preserve">
+    <value>クリップボードサポート</value>
+    <comment>Clipboard Support</comment>
+  </data>
+  <data name="Clipboard_Title1" xml:space="preserve">
+    <value>カスタム動作</value>
+    <comment>Custom Behaviors</comment>
+  </data>
+  <data name="Clipboard_Title2" xml:space="preserve">
+    <value>スマート貼り付け</value>
+    <comment>Smart Pasting</comment>
+  </data>
+  <data name="CollectionViewValidation_Text1" xml:space="preserve">
+    <value>FlexGrid は、&lt;b&gt;CollectionView&lt;/b&gt; クラスを使用して、項目レベルおよびコレクションレベルの検証を行います。</value>
+    <comment>FlexGrid works with the &lt;b&gt;CollectionView&lt;/b&gt; class to
+    provide item and collection-level validation.</comment>
+  </data>
+  <data name="CollectionViewValidation_Text2" xml:space="preserve">
+    <value>この機能を使用するには、&lt;b&gt;getError&lt;/b&gt; に、検証されるデータ項目および検証するプロパティを含む 2 つのパラメータを受け取り、エラー状態を記述する文字列（またはエラーがない場合は null）を返す関数を設定します。</value>
+    <comment>To use this feature, set &lt;b&gt;getError&lt;/b&gt; to a function that
+    takes two parameters containing the data item being validated
+    and the property to validate, and returns a string describing
+    the error condition (or null if there are no errors).</comment>
+  </data>
+  <data name="CollectionViewValidation_Text3" xml:space="preserve">
+    <value>次のグリッドのデータソースが実装する &lt;b&gt;getError&lt;/b&gt; 関数は、項目の「Sales」プロパティと「Expenses」プロパティに正の値が含まれることを保証します。検証の動作を確認するために、いずれかの列に負の値を入力してみてください。</value>
+    <comment>The grid below has a data source that implements a &lt;b&gt;getError&lt;/b&gt;
+    function that ensures the 'Sales' and 'Expenses' properties of the
+    items contain positive values. To see how validation works,
+    try entering negative values in either column:</comment>
+  </data>
+  <data name="CollectionViewValidation_Text4" xml:space="preserve">
+    <value>グリッドには、検証動作をカスタマイズするための 2 つのプロパティがあります。</value>
+    <comment>The grid has two properties that allow you to customize its
+    validation behavior:</comment>
+  </data>
+  <data name="CollectionViewValidation_Text5" xml:space="preserve">
+    <value>&lt;b&gt;showErrors：&lt;/b&gt;検証エラーがあるセルに「wj-state-invalid」クラスおよびエラーの説明を含むツールチップを追加するかどうか。</value>
+    <comment>&lt;b&gt;showErrors:&lt;/b&gt;
+        Whether the grid should add the 'wj-state-invalid' class
+        to cells that contain validation errors, and tooltips
+        with error descriptions.</comment>
+  </data>
+  <data name="CollectionViewValidation_Text6" xml:space="preserve">
+    <value>&lt;b&gt;validateEdits：&lt;/b&gt;検証に失敗した編集をユーザーがコミットしようとしたときに、グリッドを編集モードのままにするかどうか。</value>
+    <comment>&lt;b&gt;validateEdits:&lt;/b&gt;
+        Whether the grid should remain in edit mode when the user
+        tries to commit edits that fail validation</comment>
+  </data>
+  <data name="CollectionViewValidation_Title" xml:space="preserve">
+    <value>CollectionView 検証</value>
+    <comment>CollectionView Validation</comment>
+  </data>
+  <data name="CollectionView_Text1" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;itemsSource&lt;/b&gt; プロパティに標準 JavaScript 配列を設定すると、&lt;b&gt;CollectionView&lt;/b&gt; をユーザー自身が作成しなくても、自動的に内部 &lt;b&gt;CollectionView&lt;/b&gt; が作成されてデータソースとして使用され、ソート機能や編集機能が提供されます。</value>
+    <comment>When you set the grid's &lt;b&gt;itemsSource&lt;/b&gt; property to a
+    regular JavaScript array, it automatically creates an
+    internal &lt;b&gt;CollectionView&lt;/b&gt; and uses that as a
+    data source so that it can provide sorting and editing features
+    without forcing you to create a &lt;b&gt;CollectionView&lt;/b&gt; yourself.</comment>
+  </data>
+  <data name="CollectionView_Text2" xml:space="preserve">
+    <value>この内部ビューは、グリッドの &lt;b&gt;collectionView&lt;/b&gt; プロパティとして公開され、ユーザー自身が追加機能を必要とする場合に使用できます。</value>
+    <comment>This internal view is exposed by the grid's
+    &lt;b&gt;collectionView&lt;/b&gt; property, and you can use it
+    in case you need the extra functionality yourself.</comment>
+  </data>
+  <data name="CollectionView_Text3" xml:space="preserve">
+    <value>たとえば、次のグリッドは標準の配列に連結されており、グリッドの &lt;b&gt;collectionView&lt;/b&gt; プロパティを使用して、現在の選択項目が表示されます。</value>
+    <comment>For example, the grid below is bound to a regular array,
+    and the grid's &lt;b&gt;collectionView&lt;/b&gt; property is used
+    to show the currently selected item:</comment>
+  </data>
+  <data name="CollectionView_Title" xml:space="preserve">
+    <value>配列と CollectionView</value>
+    <comment>Arrays and CollectionViews</comment>
+  </data>
+  <data name="ColumnsAggregates_Text1" xml:space="preserve">
+    <value>FlexGrid 列には &lt;b&gt;aggregate&lt;/b&gt; プロパティがあり、これを使用してグリッド全体または各グループのデータサマリーを表示できます。</value>
+    <comment>FlexGrid columns have an &lt;b&gt;aggregate&lt;/b&gt; property that
+    allows you to show data summaries for the whole grid or
+    for each group.</comment>
+  </data>
+  <data name="ColumnsAggregates_Text2" xml:space="preserve">
+    <value>グループ集計を表示するには、集計する列に &lt;b&gt;aggregate&lt;/b&gt; プロパティを設定し、グリッドの上部のグループパネルに列ヘッダーをドラッグすることによってグループを作成します。</value>
+    <comment>To show group aggregates, set the &lt;b&gt;aggregate&lt;/b&gt; property
+    on the columns that you want to aggregate, and create groups
+    by dragging the column headers into the group panel above
+    the grid.</comment>
+  </data>
+  <data name="ColumnsAggregates_Text3" xml:space="preserve">
+    <value>グループ行に各グループの「Sales」列と「Expenses」列の合計が含まれていることがわかります。データを編集すると、集計が自動的に更新されます。</value>
+    <comment>Notice how the group rows contain the sum of the 'Sales' and
+    'Expenses' columns for each group. The aggregates are
+    updated automatically when you edit the data.</comment>
+  </data>
+  <data name="ColumnsAggregates_Title" xml:space="preserve">
+    <value>集計</value>
+    <comment>Aggregates</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Text1" xml:space="preserve">
+    <value>FlexGrid には、行と列のサイズをコンテンツに合わせて自動的に変更するために、&lt;b&gt;autoSizeColumns&lt;/b&gt; メソッドと &lt;b&gt;autoSizeRows&lt;/b&gt; メソッドが用意されています。</value>
+    <comment>FlexGrid has &lt;b&gt;autoSizeColumns&lt;/b&gt; and &lt;b&gt;autoSizeRows&lt;/b&gt;
+    methods to automatically size rows and columns to fit their content.</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Text2" xml:space="preserve">
+    <value>これらの自動サイズ変更メソッドは、セルに適用されている特殊なスタイルや形式を考慮します。</value>
+    <comment>The auto-size methods take special styles and formats
+    applied to the cells into account.</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Text3" xml:space="preserve">
+    <value>たとえば、次のボタンをクリックすると、グリッドの列のサイズがコンテンツに合わせて変更されます。</value>
+    <comment>For example, click this button to size the columns of the
+    grid below to fit their content.</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Text4" xml:space="preserve">
+    <value>autoSizeColumns</value>
+    <comment>autoSizeColumns</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Text5" xml:space="preserve">
+    <value>行と列のサイズを自動的に再設定する操作は、最も時間がかかるグリッド演算の 1 つです。グリッドに 100 行以上ある場合は、自動的なサイズ変更は避け、代わりに列サイズを数値で明示的に設定することを検討してください。</value>
+    <comment>Automatically resizing rows and columns is one of the
+        most time-consuming grid operations. If your grid has
+        more than a few hundred rows, avoid auto-sizing and
+        consider setting the column sizes to explicit numeric
+        values instead.</comment>
+  </data>
+  <data name="ColumnsAutoSizing_Title" xml:space="preserve">
+    <value>自動的なサイズ変更</value>
+    <comment>Auto-Sizing</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Text1" xml:space="preserve">
+    <value>デフォルトでは、ユーザーが FlexGrid の列のサイズ変更と並べ替えを行うことができます。</value>
+    <comment>By default, FlexGrid allows users to resize and reorder
+    columns.</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Text2" xml:space="preserve">
+    <value>これを拡張して、ユーザーが列の選択も行えるようにすることは簡単です。たとえば、次の &lt;b&gt;MultiSelect&lt;/b&gt; コントロールを使用して、グリッドに表示する列を選択できます。</value>
+    <comment>It is easy to extend this and allow users to select columns as well.
+    For example, you can use the &lt;b&gt;MultiSelect&lt;/b&gt; control below
+    to select the columns to be displayed on the grid:</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Text3" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;columnLayout&lt;/b&gt; プロパティを使用して、ユーザーが列のレイアウトを保存および復元できるようにすることができます。以下のボタンをクリックすると動作を確認できます。</value>
+    <comment>You can use the grid's &lt;b&gt;columnLayout&lt;/b&gt; property to allow users
+    to save and restore column layouts. Click the buttons below
+    to see how this works.</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Text4" xml:space="preserve">
+    <value>レイアウトの保存</value>
+    <comment>Save Layout</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Text5" xml:space="preserve">
+    <value>レイアウトの復元</value>
+    <comment>Restore Layout</comment>
+  </data>
+  <data name="ColumnsColumnLayout_Title" xml:space="preserve">
+    <value>レイアウトの永続化</value>
+    <comment>Persisting Layout</comment>
+  </data>
+  <data name="ColumnsCustomCells_Text1" xml:space="preserve">
+    <value>FlexGrid は、セルをデータに連結したり、CSS を使用してセルを書式設定する強力なインフラストラクチャを提供します。</value>
+    <comment>FlexGrid provides a powerful infrastructure for binding cells
+    to data and formatting the cells using CSS.</comment>
+  </data>
+  <data name="ColumnsCustomCells_Text2" xml:space="preserve">
+    <value>しかし、それだけでは十分でない場合もあります。そのような場合は、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、各セルのスタイルまたはコンテンツをカスタマイズします。</value>
+    <comment>But in some cases that may not be enough. In those situations,
+    use the &lt;b&gt;formatItem&lt;/b&gt; event to customize the style or
+    the content present in each cell.</comment>
+  </data>
+  <data name="ColumnsCustomCells_Text3" xml:space="preserve">
+    <value>次のグリッドは、&lt;b&gt;formatItem&lt;/b&gt; を使用して、スターレーティングやスパークラインを含むセルを書式設定しています。</value>
+    <comment>The grid below uses &lt;b&gt;formatItem&lt;/b&gt; to format cells
+    with star ratings and sparklines.</comment>
+  </data>
+  <data name="ColumnsCustomCells_Title" xml:space="preserve">
+    <value>カスタムセルコンテンツ</value>
+    <comment>Custom Cell Content</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text1" xml:space="preserve">
+    <value>実際にグリッドに格納されているデータとは違う値がセルに表示されるように、列の値をマッピングしたいことはよくあります。</value>
+    <comment>In many situations, you may want columns to map values so
+    that cells display a value that is different from what is
+    actually stored in the grid.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text2" xml:space="preserve">
+    <value>たとえば、1 から 3 までの値が入る列「rating」に対して、代わりに文字列「Low」、「Medium」、「High」を表示したい場合です。</value>
+    <comment>For example, you may have a 'rating' column with values
+    ranging from one to three, and you would like to display
+    the strings 'Low', 'Medium', or 'High' instead.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text3" xml:space="preserve">
+    <value>また、顧客 ID が入った「customer」列に対して、代わりに顧客名を表示したい場合もあります。</value>
+    <comment>Or maybe you have a 'customer' column that contains the
+    customer ID, and you would like to display the customer
+    name instead.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text4" xml:space="preserve">
+    <value>&lt;b&gt;formatItem&lt;/b&gt; イベントを使用してこのようなタスクを実行することもできますが、&lt;b&gt;FlexGrid&lt;/b&gt; では、さらに優れた機能として &lt;b&gt;DataMap&lt;/b&gt; が提供されています。列の &lt;b&gt;dataMap&lt;/b&gt; プロパティに &lt;b&gt;DataMap&lt;/b&gt; のインスタンスを設定すると、グリッドは、それを使用して以下のように動作します。</value>
+    <comment>You could accomplish such tasks using the &lt;b&gt;formatItem&lt;/b&gt;
+    event, but &lt;b&gt;FlexGrid&lt;/b&gt; provides a better alternative:
+    &lt;b&gt;DataMaps&lt;/b&gt;. If you set a column's &lt;b&gt;dataMap&lt;/b&gt; property
+    to an instance of a &lt;b&gt;DataMap&lt;/b&gt;, the grid will use it to:</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text5" xml:space="preserve">
+    <value>各データ項目に対応する表示値を検索します。</value>
+    <comment>Look up display values for each data item, and</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text6" xml:space="preserve">
+    <value>セルを編集するときに、有効な項目をドロップダウンリストで提供します。</value>
+    <comment>Provide a drop-down list with valid items when editing
+        the cells.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text7" xml:space="preserve">
+    <value>たとえば、次のグリッドの「Customer」列には、顧客名と ID を関連付ける &lt;b&gt;DataMap&lt;/b&gt; が設定されています。データソースには顧客 ID が含まれていますが、グリッドには代わりに顧客の名前が表示されます。また、各項目に対して顧客を選択するためのドロップダウンリストが提供されます。</value>
+    <comment>For example, the grid below has a 'Customer' column with a
+    &lt;b&gt;DataMap&lt;/b&gt; that associates customer names and IDs.
+    The data source contains customer IDs, but the grid shows
+    their names instead, and provides a drop-down list for
+    selecting the customer for each item.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text8" xml:space="preserve">
+    <value>また、このグリッドは、「Country」列にも &lt;b&gt;dataMap&lt;/b&gt; を割り当てています。この場合のマップは、国名が入った単なる文字列配列です。実際のマッピングは存在しませんが、やはり選択に使用できるドロップダウンリストが表示されます。リストにない国は入力できません。</value>
+    <comment>The grid also assigns a &lt;b&gt;dataMap&lt;/b&gt; to the 'Country'
+    column. In this case, the map is just a string array
+    with the country names. There is no real mapping, but
+    you still get the drop-down list to pick from. Users
+    will not be able to enter any countries that are not
+    on the list.</comment>
+  </data>
+  <data name="ColumnsDataMaps_Text9" xml:space="preserve">
+    <value>次のグリッドは、すべての顧客を表示するグリッドです。ここで名前を編集すると、上のグリッドに変更が表示されます。</value>
+    <comment>And here is another grid showing all the customers.
+    If you edit their names, you will see the change in the
+    top grid:</comment>
+  </data>
+  <data name="ColumnsDataMaps_Title" xml:space="preserve">
+    <value>DataMap</value>
+    <comment>DataMaps</comment>
+  </data>
+  <data name="ColumnsDropTargetControl_Text1" xml:space="preserve">
+    <value>列の &lt;b&gt;allowDragging&lt;/b&gt; プロパティは、ドラッグ元（どの列が新しい位置にドラッグされるか）を制御します。</value>
+    <comment>Column's &lt;b&gt;allowDragging&lt;/b&gt; property provides
+    control over the drag source (which columns may be
+    dragged into new positions).</comment>
+  </data>
+  <data name="ColumnsDropTargetControl_Text2" xml:space="preserve">
+    <value>&lt;b&gt;dragingColumnOver&lt;/b&gt; イベントを処理し、現在のドラッグ元/ドラッグ先の組み合わせが無効な場合はイベントの &lt;b&gt;cancel&lt;/b&gt; パラメータを true に設定することで、ドロップ先（列の新しい位置）を制御できます。</value>
+    <comment>You can get control over the drop target (column's
+    new position) by handling the &lt;b&gt;dragingColumnOver&lt;/b&gt;
+    event and setting the event's &lt;b&gt;cancel&lt;/b&gt; parameter
+    to true if the current source/target combination is
+    invalid.</comment>
+  </data>
+  <data name="ColumnsDropTargetControl_Text3" xml:space="preserve">
+    <value>たとえば、次のグリッドでは、「country」列を末尾位置または先頭位置にドラッグすることはできません。</value>
+    <comment>For example, the grid below does not allow dragging
+    the 'country' column to the last or the first positions:</comment>
+  </data>
+  <data name="ColumnsDropTargetControl_Title" xml:space="preserve">
+    <value>ドロップ先コントロール</value>
+    <comment>Drop Target Control</comment>
+  </data>
+  <data name="ColumnsFreezing_Text1" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;frozenRows&lt;/b&gt; プロパティと &lt;b&gt;frozenColumns&lt;/b&gt; プロパティを設定することで、行と列を固定できます。</value>
+    <comment>You can freeze rows and columns by setting the grid's
+    &lt;b&gt;frozenRows&lt;/b&gt; and &lt;b&gt;frozenColumns&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="ColumnsFreezing_Text2" xml:space="preserve">
+    <value>固定されたセルはスクロールしませんが、通常のセルと同様に選択や編集が可能です。</value>
+    <comment>Frozen cells do not scroll but are selectable/editable
+    like regular cells:</comment>
+  </data>
+  <data name="ColumnsFreezing_Text3" xml:space="preserve">
+    <value>固定行の切り替え</value>
+    <comment>Toggle Frozen Rows</comment>
+  </data>
+  <data name="ColumnsFreezing_Text4" xml:space="preserve">
+    <value>固定列の切り替え</value>
+    <comment>Toggle Frozen Columns</comment>
+  </data>
+  <data name="ColumnsFreezing_Title" xml:space="preserve">
+    <value>固定行と固定列</value>
+    <comment>Frozen Rows and Columns</comment>
+  </data>
+  <data name="ColumnsMultiPaneGrids_Text1" xml:space="preserve">
+    <value>FlexGrid では、グリッドの右端に列を固定したり、下端に行を固定することはできません。しかし、次の例は、同じデータソースに連結された 2 つのグリッドを使用して、同様の機能を実装できることを示しています。</value>
+    <comment>Although FlexGrid does not allow you to freeze columns on the right
+    of the grid, or rows along the bottom. But this example shows
+    how you can implement something similar using two grids
+    bound to the same data source.</comment>
+  </data>
+  <data name="ColumnsMultiPaneGrids_Title" xml:space="preserve">
+    <value>マルチペイングリッド</value>
+    <comment>Multi-Pane Grid</comment>
+  </data>
+  <data name="ColumnsProperties_Text1" xml:space="preserve">
+    <value>&lt;b&gt;wijmo.grid.Column&lt;/b&gt; クラスには、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.grid.Column.Class.html" target="_blank"&gt;およそ 40 のプロパティ&lt;/a&gt;があり、それを使用して各列の外観と動作を設定できます。</value>
+    <comment>The &lt;b&gt;wijmo.grid.Column&lt;/b&gt; class has
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.Column.Class.html" target="_blank"&gt;
+        almost 40 properties
+    &lt;/a&gt; which you can use to configure each column's appearance and behavior.</comment>
+  </data>
+  <data name="ColumnsProperties_Text10" xml:space="preserve">
+    <value>たとえば、次のグリッドの列は、主要なプロパティがコードで設定されてカスタマイズされています。</value>
+    <comment>For example, the grid below has a custom set of columns with the main
+    properties set in code:</comment>
+  </data>
+  <data name="ColumnsProperties_Text2" xml:space="preserve">
+    <value>自動生成列に対しては、自動的にこれらのプロパティが設定されます。一方、コードで列を作成する場合は、通常、これらのいくつかを設定します。</value>
+    <comment>These properties are set automatically for auto-generated
+    columns, but when creating columns in code you will normally
+    set a few of these:</comment>
+  </data>
+  <data name="ColumnsProperties_Text3" xml:space="preserve">
+    <value>&lt;b&gt;binding&lt;/b&gt;：列に表示されるデータ項目のプロパティを定義します。</value>
+    <comment>&lt;b&gt;binding&lt;/b&gt;:
+        Defines property of the data item to be shown in
+        the column.</comment>
+  </data>
+  <data name="ColumnsProperties_Text4" xml:space="preserve">
+    <value>&lt;b&gt;header&lt;/b&gt;：列のヘッダーセルのコンテンツを定義します。</value>
+    <comment>&lt;b&gt;header&lt;/b&gt;:
+        Defines the content of column's header cell.</comment>
+  </data>
+  <data name="ColumnsProperties_Text5" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt;：数値や日付を列の表示文字列に変換する書式文字列を指定します。</value>
+    <comment>&lt;b&gt;format&lt;/b&gt;:
+        Specifies format string used to convert numbers and dates into display
+        strings for the column.</comment>
+  </data>
+  <data name="ColumnsProperties_Text6" xml:space="preserve">
+    <value>&lt;b&gt;width&lt;/b&gt;：列の幅をピクセル単位で指定します。また、「スター」サイズを使用して、相対単位で列幅を指定できます（たとえば、'2*' は '*' の幅の 2 倍）。</value>
+    <comment>&lt;b&gt;width&lt;/b&gt;:
+        Specifies width of the column in pixels. You may also use 'star' sizing
+        to specify the column width in relative units (e.g. '2*' is
+        twice as wide as '*').</comment>
+  </data>
+  <data name="ColumnsProperties_Text7" xml:space="preserve">
+    <value>&lt;b&gt;align&lt;/b&gt;：列内の項目の水平方向の配置を定義します。デフォルトでは null に設定されており、データは列のデータ型に基づいて配置されます。このプロパティに「left」、「right」、または「center」を設定することで、デフォルトをオーバーライドすることができます。</value>
+    <comment>&lt;b&gt;align&lt;/b&gt;:
+        Defines the horizontal alignment of items in the column.
+        This is set to null by default, which aligns data based
+        on the column's data type. You can override the default
+        by setting this property to 'left', 'right', or 'center'.</comment>
+  </data>
+  <data name="ColumnsProperties_Text8" xml:space="preserve">
+    <value>&lt;b&gt;isReadOnly&lt;/b&gt;：ユーザーが列を編集できるかどうかを決定します。編集を完全に無効にするには、グリッドの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティを false に設定します。</value>
+    <comment>&lt;b&gt;isReadOnly&lt;/b&gt;:
+        Determines whether the column can be edited by the user.
+        You can disable editing altogether by setting the grid's
+        &lt;b&gt;isReadOnly&lt;/b&gt; property to false.</comment>
+  </data>
+  <data name="ColumnsProperties_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isRequired&lt;/b&gt;：列内の値に空の文字列または null 値を設定できるかどうかを決定します。</value>
+    <comment>&lt;b&gt;isRequired&lt;/b&gt;:
+        Determines whether users should be able to set values
+        in the column to empty strings or null values.</comment>
+  </data>
+  <data name="ColumnsProperties_Title" xml:space="preserve">
+    <value>列のプロパティ</value>
+    <comment>Column Properties</comment>
+  </data>
+  <data name="ColumnsReordering_Text1" xml:space="preserve">
+    <value>デフォルトでは、列のヘッダーを新しい位置にドラッグすることで、FlexGrid の列を並べ替えることができます。</value>
+    <comment>By default, FlexGrid allows reordering columns by dragging their
+    headers into new positions.</comment>
+  </data>
+  <data name="ColumnsReordering_Text2" xml:space="preserve">
+    <value>ユーザーが列を並べ替えできないようにするには、グリッドの &lt;b&gt;allowDragging&lt;/b&gt; プロパティに「None」を設定します。また、特定の列をドラッグできないようにするには、列の &lt;b&gt;allowDragging&lt;/b&gt; プロパティに「false」を設定します。</value>
+    <comment>You may prevent users from reordering columns by setting
+    the grid's &lt;b&gt;allowDragging&lt;/b&gt; property to 'None'.
+    You may also prevent dragging specific columns by
+    setting the columns &lt;b&gt;allowDragging&lt;/b&gt; property
+    to 'false'.</comment>
+  </data>
+  <data name="ColumnsReordering_Text3" xml:space="preserve">
+    <value>たとえば、次のグリッドでは、「ID」以外の列を並べ替えることができます。</value>
+    <comment>For example, the grid below allows reordering
+    all columns except 'ID'.</comment>
+  </data>
+  <data name="ColumnsReordering_Text4" xml:space="preserve">
+    <value>ComponentOne MVC は、HTML5 ドラッグ/ドロップ API を列の並べ替えに使用します。ただし、大部分のモバイルデバイスは、この API をサポートしていません。モバイルデバイスで列の並べ替えをサポートする場合は、&lt;a href="https://github.com/Bernardo-Castilho/dragdroptouch" target="_blank"&gt; DragDropTouch ポリフィル&lt;/a&gt;を使用することをお勧めします。</value>
+    <comment>C1 MVC uses the HTML5 drag/drop API for column reordering.
+        Unfortunately, most of the mobile devices do not support this API.
+        If you want to support column reordering on mobile devices,
+        we suggest to use the
+        &lt;a href="https://github.com/Bernardo-Castilho/dragdroptouch" target="_blank"&gt;
+            DragDropTouch polyfill
+        &lt;/a&gt;.</comment>
+  </data>
+  <data name="ColumnsReordering_Title" xml:space="preserve">
+    <value>並べ替え</value>
+    <comment>Reordering</comment>
+  </data>
+  <data name="ColumnsResponsiveLayouts_Text1" xml:space="preserve">
+    <value>次の FlexGrid は、大画面デバイスではすべての列を表示し、画面の狭いデバイスで 1 つのサマリー列のみを表示します。</value>
+    <comment>The FlexGrid below shows all columns on large devices,
+    and only one summary column on devices with
+    narrow screens.</comment>
+  </data>
+  <data name="ColumnsResponsiveLayouts_Title" xml:space="preserve">
+    <value>レスポンシブレイアウト</value>
+    <comment>Responsive Layouts</comment>
+  </data>
+  <data name="ColumnsSizing_Text1" xml:space="preserve">
+    <value>列の作成時に列幅を指定できます。その後、マウスを使用して FlexGrid 列のサイズを変更できます。Excel と同様に、列ヘッダーの右端をドラッグして幅を調整したり、端をダブルクリックしてコンテンツに合わせて列のサイズを自動的に設定することができます。</value>
+    <comment>You can specify the column widths when creating them.
+    Ater that, users may resize the FlexGrid columns using
+    mouse. As in the case of Excel, users may either drag
+    the column header's right edge to adjust the width, or 
+    they may double-click the edge to auto-size the column
+    to fits its content.</comment>
+  </data>
+  <data name="ColumnsSizing_Text2" xml:space="preserve">
+    <value>ユーザーが列をサイズ変更できないようにするには、グリッドの &lt;b&gt;allowResizing&lt;/b&gt; プロパティに「None」を設定します。または、列の &lt;b&gt;allowResizing&lt;/b&gt; プロパティに「false」を設定すると、特定の列のサイズ変更を防止できます。</value>
+    <comment>If you want to prevent users from resizing the columns,
+    you can either set the grid's &lt;b&gt;allowResizing&lt;/b&gt; property
+    to 'None', or prevent them from resizing specific columns
+    by setting the column's &lt;b&gt;allowResizing&lt;/b&gt; property to
+    'false'.</comment>
+  </data>
+  <data name="ColumnsSizing_Text3" xml:space="preserve">
+    <value>たとえば、次のグリッドでは、「ID」列をサイズ変更することはできません。他の列に対しては、サイズ変更や自動設定を行うことができます。</value>
+    <comment>For example, the grid below does not allow resizing the 'ID'
+    column. Other columns may be resized and auto-sized:</comment>
+  </data>
+  <data name="ColumnsSizing_Text4" xml:space="preserve">
+    <value>グリッドの複数の列を一度にサイズ変更することもできます。列の範囲を選択し、［Ctrl］キーを押しながらマウスでサイズ変更すると、選択した列のサイズが一度に変更されます。</value>
+    <comment>The grid also allows you to resize multiple columns
+        at once. Select a range of columns and press the 'control'
+        key while resizing them with the mouse, and all selected
+        columns will be resized at once.</comment>
+  </data>
+  <data name="ColumnsSizing_Text5" xml:space="preserve">
+    <value>ComponentOne MVC は、HTML5 ドラッグ/ドロップ API を列のサイズ変更に使用します。ただし、大部分のモバイルデバイスは、この API をサポートしていません。モバイルデバイスで列のサイズ変更をサポートする場合は、&lt;a href="https://github.com/Bernardo-Castilho/dragdroptouch" target="_blank"&gt; DragDropTouch ポリフィル&lt;/a&gt;を使用することをお勧めします。</value>
+    <comment>C1 MVC uses the HTML5 drag/drop API for column resizing.
+        Unfortunately, most of the mobile devices do not support this API.
+        If you want to support column resizing on mobile devices,
+        we suggest to use the
+        &lt;a href="https://github.com/Bernardo-Castilho/dragdroptouch" target="_blank"&gt;
+            DragDropTouch polyfill
+        &lt;/a&gt;.</comment>
+  </data>
+  <data name="ColumnsSizing_Title" xml:space="preserve">
+    <value>列のサイズ変更</value>
+    <comment>Column Sizing</comment>
+  </data>
+  <data name="ColumnsStickyHeaders_Text1" xml:space="preserve">
+    <value>&lt;b&gt;stickyHeaders&lt;/b&gt; プロパティを使用すると、ページをスクロールしたときに列ヘッダーが表示されたままにして、グリッドを読みやすくすることができます。</value>
+    <comment>You can use the &lt;b&gt;stickyHeaders&lt;/b&gt; property to ensure
+    column headers remain visible when you scroll
+    the page, so the grid is easier to read.</comment>
+  </data>
+  <data name="ColumnsStickyHeaders_Text2" xml:space="preserve">
+    <value>固定状態のヘッダーは、通常のヘッダーと同様に動作します。ヘッダーをクリックしてソートしたり、ドラッグして並べ替えたり、列をサイズ変更することができます。</value>
+    <comment>Headers in sticky state behave like regular headers.
+    You can click them to sort, drag to reorder or resize
+    columns, etc.</comment>
+  </data>
+  <data name="ColumnsStickyHeaders_Text3" xml:space="preserve">
+    <value>固定ヘッダーの動作を確認するには、グリッドの先頭がウィンドウから外に出るまで、このページを下にスクロールしてください。</value>
+    <comment>To observe how sticky headers work, scroll this page
+    down until the top of the grid scrolls off the window.</comment>
+  </data>
+  <data name="ColumnsStickyHeaders_Title" xml:space="preserve">
+    <value>固定ヘッダー</value>
+    <comment>Sticky Headers</comment>
+  </data>
+  <data name="ColumnsStyling_Text1" xml:space="preserve">
+    <value>FlexGrid の列には、スタイルに影響するプロパティがいくつかあります。</value>
+    <comment>FlexGrid columns have a few properties that affect styling:</comment>
+  </data>
+  <data name="ColumnsStyling_Text2" xml:space="preserve">
+    <value>&lt;b&gt;cssClass&lt;/b&gt;：列内のセルに追加するクラス名を指定します。このクラス名を CSS ルール内で使用して、列内のセルのスタイルを変更できます。</value>
+    <comment>&lt;b&gt;cssClass&lt;/b&gt;: Specifies a class name to be added to cells
+        in the column. The class name can be used in CSS rules to
+        modify the style of cells in the column.</comment>
+  </data>
+  <data name="ColumnsStyling_Text3" xml:space="preserve">
+    <value>&lt;b&gt;align&lt;/b&gt;：セル内のテキストの水平方向の配置を指定します。このプロパティは、デフォルトでは null に設定されており、グリッドの配置は列の &lt;b&gt;dataType&lt;/b&gt; に基づいて選択されます（数値は右揃え、Boolean 値は中央揃え、その他の型は左揃え）。デフォルトの配置をオーバーライドする場合は、このプロパティに「left」、「right」、または「center」を設定します。</value>
+    <comment>&lt;b&gt;align&lt;/b&gt;: Specifies the horizontal alignment of text
+        in the cells. This property is set to null by default, which
+        causes the grid to select the alignment based on the column's
+        &lt;b&gt;dataType&lt;/b&gt; (numbers are right-aligned, Boolean values
+        are centered, and other types are left-aligned).
+        If you want to override the default alignment, set this property
+        to 'left' 'right', or 'center'.</comment>
+  </data>
+  <data name="ColumnsStyling_Text4" xml:space="preserve">
+    <value>&lt;b&gt;wordWrap&lt;/b&gt;：セル内のテキストをセル内で折り返すかどうかを指定します。&lt;b&gt;autoSizeRows&lt;/b&gt; メソッドを呼び出さないと、グリッドの行の高さはセルコンテンツに合わせて調整されないことに注意してください。</value>
+    <comment>&lt;b&gt;wordWrap&lt;/b&gt;: Specifies whether text in the cells should be
+        allowed to wrap within the cell. Note that the grid will not
+        adjust the row heights to fit the cell content unless you call
+        the &lt;b&gt;autoSizeRows&lt;/b&gt; method.</comment>
+  </data>
+  <data name="ColumnsStyling_Text5" xml:space="preserve">
+    <value>この 3 つのプロパティの中で &lt;b&gt;cssClass&lt;/b&gt; が最も強力かつ柔軟であり、&lt;b&gt;align&lt;/b&gt; と &lt;b&gt;wordWrap&lt;/b&gt; は単純で便利です。また、&lt;b&gt;align&lt;/b&gt; と &lt;b&gt;wordWrap&lt;/b&gt; は、ヘッダーを含めてすべてのセルに適用されますが、&lt;b&gt;cssClass&lt;/b&gt; はスクロール可能なセルにのみ適用されます。</value>
+    <comment>The &lt;b&gt;cssClass&lt;/b&gt; is the most powerful and flexible of the
+    three properties, but &lt;b&gt;align&lt;/b&gt; and &lt;b&gt;wordWrap&lt;/b&gt; are
+    simple and convenient. Also, &lt;b&gt;align&lt;/b&gt; and &lt;b&gt;wordWrap&lt;/b&gt;
+    apply to all cells, including headers, while &lt;b&gt;cssClass&lt;/b&gt;
+    applies only to the scrollable cells.</comment>
+  </data>
+  <data name="ColumnsStyling_Text6" xml:space="preserve">
+    <value>次のグリッドは、これらのプロパティの効果を示しています。</value>
+    <comment>The grid below shows the effect of these properties.</comment>
+  </data>
+  <data name="ColumnsStyling_Text7" xml:space="preserve">
+    <value>&lt;b&gt;cssClass&lt;/b&gt; プロパティは、列全体を書式設定する場合に便利です。コンテンツなどの条件に基づいて特定のセルを書式設定する必要がある場合は、代わりに &lt;b&gt;formatItem&lt;/b&gt; イベントを使用します。</value>
+    <comment>The &lt;b&gt;cssClass&lt;/b&gt; property is useful for formatting
+    entire columns. If you have to format specific cells,
+    perhaps based on their content or some other criteria,
+    use the &lt;b&gt;formatItem&lt;/b&gt; event instead.</comment>
+  </data>
+  <data name="ColumnsStyling_Text8" xml:space="preserve">
+    <value>次のグリッドでは、&lt;b&gt;formatItem&lt;/b&gt; を使用して数値セルにクラス名を追加し、セルのスタイルが値に依存するようにしています。</value>
+    <comment>The grid below uses &lt;b&gt;formatItem&lt;/b&gt; to add class
+    names to numeric cells so that their style depends on
+    their values.</comment>
+  </data>
+  <data name="ColumnsStyling_Title" xml:space="preserve">
+    <value>列のスタイル設定</value>
+    <comment>Column Styling</comment>
+  </data>
+  <data name="ColumnsStyling_Title1" xml:space="preserve">
+    <value>セルの書式設定</value>
+    <comment>Formatting cells</comment>
+  </data>
+  <data name="Columns_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールは、次の 2 セットの列を持っています。</value>
+    <comment>The FlexGrid control has two sets of columns:</comment>
+  </data>
+  <data name="Columns_Text2" xml:space="preserve">
+    <value>&lt;b&gt;固定列&lt;/b&gt;：このコレクションには、グリッドの左側にある列が含まれます。&lt;b&gt;topLeftCells&lt;/b&gt; パネルと &lt;b&gt;rowHeaders&lt;/b&gt; パネルで使用されます。デフォルトでは、このコレクションには 1 つの列のみが含まれます。</value>
+    <comment>&lt;b&gt;Fixed Columns&lt;/b&gt;
+        This collection contains the columns on the left
+        of the grid. It is used by the &lt;b&gt;topLeftCells&lt;/b&gt;
+        and &lt;b&gt;rowHeaders&lt;/b&gt; panels.
+        By default, this collection contains only one column.</comment>
+  </data>
+  <data name="Columns_Text3" xml:space="preserve">
+    <value>&lt;b&gt;スクロール可能列&lt;/b&gt;：このコレクションには、主要な列セットが含まれます。&lt;b&gt;cells&lt;/b&gt; パネル、&lt;b&gt;columnHeaders&lt;/b&gt; パネル、および &lt;b&gt;columnFooters&lt;/b&gt; パネルで使用されます。</value>
+    <comment>&lt;b&gt;Scrollable Columns&lt;/b&gt;
+        This collection contains the main set of columns.
+        It is used by the &lt;b&gt;cells&lt;/b&gt;, &lt;b&gt;columnHeaders&lt;/b&gt;,
+        and &lt;b&gt;columnFooters&lt;/b&gt; panels.</comment>
+  </data>
+  <data name="Columns_Text4" xml:space="preserve">
+    <value>どちらのコレクションも、通常の配列を拡張した &lt;b&gt;ColumnCollection&lt;/b&gt; クラスのオブジェクトです。これらの配列に &lt;b&gt;Column&lt;/b&gt; オブジェクトを追加または削除することで、列を追加または削除することができます。</value>
+    <comment>Both of these collections are objects of &lt;b&gt;ColumnCollection&lt;/b&gt;
+    class, which extend regular arrays.
+    You may add or remove columns by adding or removing
+    &lt;b&gt;Column&lt;/b&gt; objects from these arrays.</comment>
+  </data>
+  <data name="Columns_Text5" xml:space="preserve">
+    <value>たとえば、次のグリッドには、固定列が 1 つ追加されています。また、スクロール可能な列が自動的に生成されています。</value>
+    <comment>For example, the grid below has an extra fixed column and
+    automatically-generated scrollable columns:</comment>
+  </data>
+  <data name="Columns_Text6" xml:space="preserve">
+    <value>次のグリッドには固定列はなく、スクロール可能な列のカスタムセットがあります。</value>
+    <comment>And this grid has no fixed columns and a custom set of
+    scrollable columns:</comment>
+  </data>
+  <data name="Columns_Title" xml:space="preserve">
+    <value>列のコレクション</value>
+    <comment>Column Collections</comment>
+  </data>
+  <data name="CustomCells_Text1" xml:space="preserve">
+    <value>FlexGrid は、セルをデータに連結したり、CSS を使用してセルを書式設定する強力なインフラストラクチャを提供します。</value>
+    <comment>FlexGrid provides a powerful infrastructure for binding cells
+    to data and formatting the cells using CSS.</comment>
+  </data>
+  <data name="CustomCells_Text2" xml:space="preserve">
+    <value>しかし、それだけでは十分でない場合もあります。そのような場合は、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、各セルのスタイルまたはコンテンツをカスタマイズします。</value>
+    <comment>But in some cases that may not be enough. In those situations,
+    use the &lt;b&gt;formatItem&lt;/b&gt; event to customize the style or
+    content present in each cell.</comment>
+  </data>
+  <data name="CustomCells_Text3" xml:space="preserve">
+    <value>次のグリッドでは、&lt;b&gt;formatItem&lt;/b&gt; を使用して、現在の項目と以前の項目の値の差を計算して表示し、そのセルを書式設定しています。</value>
+    <comment>The grid below uses &lt;b&gt;formatItem&lt;/b&gt; to calculate and format
+    cells that show difference between values in the current
+    and previous items.</comment>
+  </data>
+  <data name="CustomCells_Title" xml:space="preserve">
+    <value>カスタムセル</value>
+    <comment>Custom Cells</comment>
+  </data>
+  <data name="CustomEditing_Text1" xml:space="preserve">
+    <value>FlexGrid には、編集に関連するいくつかのイベントがあります。</value>
+    <comment>FlexGrid has several events related to editing.</comment>
+  </data>
+  <data name="CustomEditing_Text2" xml:space="preserve">
+    <value>この例では、そのうちの 2 つをどのように使用できるかを示します。</value>
+    <comment>This example shows how you can use two of them:</comment>
+  </data>
+  <data name="CustomEditing_Text3" xml:space="preserve">
+    <value>&lt;b&gt;beginningEdit&lt;/b&gt;：&lt;b&gt;cancel&lt;/b&gt; パラメータに true を設定することで、締め切りの項目が編集されないようにします。</value>
+    <comment>&lt;b&gt;beginningEdit&lt;/b&gt;:
+        Prevent editing overdue items by setting the &lt;b&gt;cancel&lt;/b&gt;
+        parameter to true.</comment>
+  </data>
+  <data name="CustomEditing_Text4" xml:space="preserve">
+    <value>&lt;b&gt;cellEditEnding&lt;/b&gt;：売上列と経費列に負の値が入力されないようにします。</value>
+    <comment>&lt;b&gt;cellEditEnding&lt;/b&gt;:
+        Prevent entering negative amounts for the 'sales' and
+        'expenses' columns.</comment>
+  </data>
+  <data name="CustomEditing_Text5" xml:space="preserve">
+    <value>&amp;nbsp;</value>
+    <comment>&amp;nbsp;</comment>
+  </data>
+  <data name="CustomEditing_Title" xml:space="preserve">
+    <value>編集イベント</value>
+    <comment>Editing Events</comment>
+  </data>
+  <data name="CustomEditors_Text1" xml:space="preserve">
+    <value>FlexGrid では、デフォルトで、効率的な Excel 形式の編集を行うことができますが、編集動作をカスタマイズしたい場合もあります。</value>
+    <comment>Although FlexGrid provides efficient, Excel-style
+    editing by default, you may want to customize the
+    editing behavior.</comment>
+  </data>
+  <data name="CustomEditors_Text2" xml:space="preserve">
+    <value>この例では、任意の Wijmo コントロールをグリッドエディタとして使用できるようにする &lt;b&gt;CustomGridEditor&lt;/b&gt; クラスを定義しています。</value>
+    <comment>This example defines a &lt;b&gt;CustomGridEditor&lt;/b&gt; class
+    that allows any Wijmo control to be used as a grid
+    editor:</comment>
+  </data>
+  <data name="CustomEditors_Title" xml:space="preserve">
+    <value>カスタムエディタ</value>
+    <comment>Custom Editors</comment>
+  </data>
+  <data name="CustomFilterIcons_Text1" xml:space="preserve">
+    <value>CSS を使用して、FlexGridFilter によって表示されるアイコンをカスタマイズできます。</value>
+    <comment>You can customize the icons shown by the FlexGridFilter using
+    CSS.</comment>
+  </data>
+  <data name="CustomFilterIcons_Title" xml:space="preserve">
+    <value>カスタムフィルタアイコン</value>
+    <comment>Custom Filter Icons</comment>
+  </data>
+  <data name="CustomFilterIcons_Title1" xml:space="preserve">
+    <value>カスタムアイコン</value>
+    <comment>Custom Icons</comment>
+  </data>
+  <data name="CustomFilterIcons_Title2" xml:space="preserve">
+    <value>カスタム色</value>
+    <comment>Custom Colors</comment>
+  </data>
+  <data name="CustomFilterOperators_Text1" xml:space="preserve">
+    <value>&lt;b&gt;FlexGridFilter&lt;/b&gt; クラスはローカライズ可能です。UI に表示される文字列をカスタマイズできるだけでなく、各データ型に対してどのフィルタ条件を表示するかをカスタマイズできます。</value>
+    <comment>The &lt;b&gt;FlexGridFilter&lt;/b&gt; class is localizable, and you can take
+    advantage of that not only to customize the strings displayed in
+    the UI, but also which filter conditions to show for each data
+    type.</comment>
+  </data>
+  <data name="CustomFilterOperators_Text2" xml:space="preserve">
+    <value>この例では、フィルタの &lt;b&gt;stringOperators&lt;/b&gt;、&lt;b&gt;numberOperators&lt;/b&gt;、&lt;b&gt;dateOperators&lt;/b&gt;、および &lt;b&gt;booleanOperators&lt;/b&gt; にカスタム配列を割り当てることで、演算子のリストをカスタマイズしました。フィルタのドロップダウンを開いて、その効果を確認してください。</value>
+    <comment>In this sample, we customized the list of operators by assigning
+    custom arrays to the filter's &lt;b&gt;stringOperators&lt;/b&gt;, &lt;b&gt;numberOperators&lt;/b&gt;,
+    &lt;b&gt;dateOperators&lt;/b&gt;, and &lt;b&gt;booleanOperators&lt;/b&gt;. Open the filter
+    drop-downs to see the effect.</comment>
+  </data>
+  <data name="CustomFilterOperators_Text3" xml:space="preserve">
+    <value>この方法では、各データ型に対して演算子を並べ替え、使用/不使用にすることができます。新しいカスタム演算子を作成することはできません。それには、ソースコードのコピーを生成し、それをカスタマイズする必要があります。</value>
+    <comment>This technique allows you to re-order, remove, and include operators
+    for each data type. It does not allow you to create new, custom
+    operators. For that, you would have to fork the source code and
+    customize it.</comment>
+  </data>
+  <data name="CustomFilterOperators_Title" xml:space="preserve">
+    <value>カスタムフィルタ演算子</value>
+    <comment>Custom Filter Operators</comment>
+  </data>
+  <data name="CustomFilterTypes_Text1" xml:space="preserve">
+    <value>FlexGridFilter の &lt;b&gt;defaultFilterType&lt;/b&gt; プロパティを使用して、フィルタが条件、値、またはその両方のどれに基づくかを決定します。</value>
+    <comment>Use the &lt;b&gt;defaultFilterType&lt;/b&gt; property of FlexGridFilter to
+    determine whether the filter should be based on conditions,
+    values, or both.</comment>
+  </data>
+  <data name="CustomFilterTypes_Text2" xml:space="preserve">
+    <value>&lt;b&gt;showSortButtons&lt;/b&gt; プロパティを使用して、フィルタエディタに列をソートするためのボタンを表示するかどうかを設定します。</value>
+    <comment>Use the &lt;b&gt;showSortButtons&lt;/b&gt; property to set whether
+    the filter editor should include buttons for sorting the
+    columns.</comment>
+  </data>
+  <data name="CustomFilterTypes_Title" xml:space="preserve">
+    <value>カスタムフィルタタイプ</value>
+    <comment>Custom Filter Types</comment>
+  </data>
+  <data name="CustomMerging_Text1" xml:space="preserve">
+    <value>デフォルトでは、FlexGrid は、セルコンテンツに基づいてセルに結合を適用します。ただし、別の方法を使用して結合を行いたい場合もあります。</value>
+    <comment>By default, FlexGrid applies merging to cells based on
+    their content. In some cases, you may want to use different
+    strategies for merging.</comment>
+  </data>
+  <data name="CustomMerging_Text2" xml:space="preserve">
+    <value>それには、&lt;b&gt;wijmo.grid.MergeManager&lt;/b&gt; クラスを拡張するクラスを定義し、そのタイプのオブジェクトをグリッドの &lt;b&gt;mergeManager&lt;/b&gt; プロパティに割り当てます。</value>
+    <comment>You can achieve this by defining a class that extends the
+    &lt;b&gt;wijmo.grid.MergeManager&lt;/b&gt; class and assigning an object
+    of that type to the grid's &lt;b&gt;mergeManager&lt;/b&gt; property.</comment>
+  </data>
+  <data name="CustomMerging_Text3" xml:space="preserve">
+    <value>次の例では、この方法で TV 番組表のようなグリッドを作成しています。</value>
+    <comment>Below example illustrates this by creating a grid that looks like
+    a TV guide:</comment>
+  </data>
+  <data name="CustomMerging_Text4" xml:space="preserve">
+    <value>カスタム結合マネージャーによって複数の行と複数の列の両方にまたがる結合範囲が作成されていることがわかります。デフォルトの結合マネージャーでは、このようなことは行われません。</value>
+    <comment>Notice how the custom merge manager creates merged ranges
+    that span both rows and columns. This is something the
+    default merge manager does not do.</comment>
+  </data>
+  <data name="CustomMerging_Title" xml:space="preserve">
+    <value>カスタム結合</value>
+    <comment>Custom Merging</comment>
+  </data>
+  <data name="DataBinding_Text1" xml:space="preserve">
+    <value>データ連結は、データソースを使用して項目のコレクションを表示および編集できるように、FlexGrid をデータソースに接続するプロセスです。</value>
+    <comment>Data binding is the process of connecting the FlexGrid to
+    a data source so you can use it to see and edit collection
+    of items.</comment>
+  </data>
+  <data name="DataBinding_Text2" xml:space="preserve">
+    <value>通常、グリッドは連結モードで使用されますが、FlexGrid は非連結コントロールとして使用することもできます。行と列をグリッドに追加し、&lt;b&gt;setCellData&lt;/b&gt; メソッドと &lt;b&gt;getCellData&lt;/b&gt; メソッドを使用して各セルのデータを取得および設定できます。</value>
+    <comment>Although generally grids are used in bound mode, FlexGrid
+    can also be used as an unbound control. You can add rows
+    and columns to a grid and use the &lt;b&gt;setCellData&lt;/b&gt; and
+    &lt;b&gt;getCellData&lt;/b&gt; methods to get or set the data in each
+    cell:</comment>
+  </data>
+  <data name="DataBinding_Text3" xml:space="preserve">
+    <value>FlexGrid を連結モードで使用するには、データを含む配列または &lt;b&gt;CollectionView&lt;/b&gt; をグリッドの &lt;b&gt;itemsSource&lt;/b&gt; プロパティに設定します。グリッドは、データ項目内の各プロパティに対して自動的に列を作成します。</value>
+    <comment>To use FlexGrid in bound mode, set its &lt;b&gt;itemsSource&lt;/b&gt;
+    property to an array or &lt;b&gt;CollectionView&lt;/b&gt; containing the
+    data. The grid will automatically create columns for each
+    property in the data items:</comment>
+  </data>
+  <data name="DataBinding_Text4" xml:space="preserve">
+    <value>自動的に列を生成すると便利なシナリオもありますが、最もよくあるケースとしては、どの列を表示し、それらの列をどのように書式設定するかを明示的にグリッドに伝える必要があります。それには、&lt;b&gt;autoGenerateColumns&lt;/b&gt; プロパティに false を設定し、グリッドの &lt;b&gt;columns&lt;/b&gt; コレクションにデータを挿入します。</value>
+    <comment>Automatically generating columns is convenient in some
+    scenarios, but in most common cases it is required to
+    explicitly tell the grid which columns to show and how
+    to format them. You can do this by setting the
+    &lt;b&gt;autoGenerateColumns&lt;/b&gt; property to false and
+    populating the grid's &lt;b&gt;columns&lt;/b&gt; collection:</comment>
+  </data>
+  <data name="DataBinding_Title" xml:space="preserve">
+    <value>データ連結</value>
+    <comment>Data Binding</comment>
+  </data>
+  <data name="DataBinding_Title1" xml:space="preserve">
+    <value>非連結グリッド</value>
+    <comment>Unbound Grids</comment>
+  </data>
+  <data name="DataBinding_Title2" xml:space="preserve">
+    <value>列の自動生成</value>
+    <comment>Auto-Generating Columns</comment>
+  </data>
+  <data name="DataBinding_Title3" xml:space="preserve">
+    <value>コードでの列の定義</value>
+    <comment>Defining Columns in Code</comment>
+  </data>
+  <data name="DeepBinding_Text1" xml:space="preserve">
+    <value>各グリッド列には、セルに表示されるデータ項目のプロパティを決定する &lt;b&gt;binding&lt;/b&gt; プロパティがあります。多くの場合、このプロパティは「name」や「value」などの通常の識別子です。</value>
+    <comment>Each grid column has a &lt;b&gt;binding&lt;/b&gt; property that determines
+    which property of the data item should be displayed in the cell. 
+    In most of the cases, this property is a regular identifier
+    such as 'name' or 'value'.</comment>
+  </data>
+  <data name="DeepBinding_Text2" xml:space="preserve">
+    <value>ただし、「深い連結」もサポートされています。深い連結の連結文字列には、ピリオド区切りの複数の識別子で構成される連結パスが含まれます。この構文は、通常の JavaScript 式で使用される構文と同様です。</value>
+    <comment>But the grid also supports 'deep-binding', where the binding
+    string contains a binding path composed of identifiers separated
+    by periods. The syntax is similar to what you would use in
+    regular JavaScript expressions.</comment>
+  </data>
+  <data name="DeepBinding_Text3" xml:space="preserve">
+    <value>たとえば、&lt;b&gt;itemsSource&lt;/b&gt; 配列内のデータオブジェクトに「customer」プロパティがあり、「customer」プロパティに「Customer」オブジェクトへの参照が含まれる場合は、「customer.name」連結を使用して、グリッドに顧客の名前を表示できます。</value>
+    <comment>For example, if the data objects in the &lt;b&gt;itemsSource&lt;/b&gt; array
+    have a 'customer' property that contains a reference to a
+    'Customer' object, you could use a 'customer.name' binding
+    to show the customer's name on the grid:</comment>
+  </data>
+  <data name="DeepBinding_Text4" xml:space="preserve">
+    <value>深い連結はさまざまなシナリオでたいへん便利な可能性がありますが、連結がどのように動作するのかを認識しておく必要があります。この例では、顧客の姓や名を編集すると、同じ顧客に連結されたすべての行に影響します。</value>
+    <comment>Deep binding can be very useful in a number of scenarios, but
+    you have to be aware of how binding works. In this example,
+    editing the customer's first or last name will affect all
+    rows that are bound to the same customer.</comment>
+  </data>
+  <data name="DeepBinding_Text5" xml:space="preserve">
+    <value>また、通常の連結とは異なり、デフォルトでは、深い連結は「元に戻す」ことができません。深い連結を元に戻すことができるようにするには、グリッドの &lt;b&gt;rowEditStarted&lt;/b&gt; イベントを使用して元のディープ連結値を記録しておき、編集がキャンセルされた場合に &lt;b&gt;rowEditEnding&lt;/b&gt; イベントを使用して値を復元する必要があります。</value>
+    <comment>Also, unlike regular bindings, deep bindings are not 'un-doable'
+    by default. To enable undo for deep bindings, you should use
+    the grid's &lt;b&gt;rowEditStarted&lt;/b&gt; event to record the original
+    deep-bound values, and the &lt;b&gt;rowEditEnding&lt;/b&gt; event to
+    restore those values if the edits are being canceled.</comment>
+  </data>
+  <data name="DeepBinding_Text6" xml:space="preserve">
+    <value>深い連結の「元に戻す」を有効にする</value>
+    <comment>Enable deep binding undos</comment>
+  </data>
+  <data name="DeepBinding_Title" xml:space="preserve">
+    <value>深い連結</value>
+    <comment>Deep Binding</comment>
+  </data>
+  <data name="DefferedResizing_Text1" xml:space="preserve">
+    <value>デフォルトでは、FlexGrid は、マウスドラッグに応じて行や列をサイズ変更します。</value>
+    <comment>By default, FlexGrid resizes rows and columns along with the 
+    mouse drag.</comment>
+  </data>
+  <data name="DefferedResizing_Text2" xml:space="preserve">
+    <value>ただし、&lt;b&gt;deferResizing&lt;/b&gt; プロパティに true を設定すると、グリッドには代わりにマーカーが表示され、マウスボタンを放した後に初めて行や列がサイズ変更されます。これにより、多数の列が含まれるグリッドでパフォーマンスが向上します。</value>
+    <comment>However, setting the &lt;b&gt;deferResizing&lt;/b&gt; property to true 
+    causes the grid to show a marker instead, and resize the row
+    or column only after the mouse button is released. This may 
+    improve performance of the grids having large number of columns.</comment>
+  </data>
+  <data name="DefferedResizing_Text3" xml:space="preserve">
+    <value>サイズ変更を保留する</value>
+    <comment>Defer Resizing</comment>
+  </data>
+  <data name="DefferedResizing_Title" xml:space="preserve">
+    <value>サイズ変更の保留</value>
+    <comment>Deferred Resizing</comment>
+  </data>
+  <data name="DynamicDataMapsCustomize_Text1" xml:space="preserve">
+    <value>ある列で使用されるデータマップを、別の列の値に依存して変更したい場合があります。たとえば、「City」列のドロップダウンに、現在の行で選択されている国の都市のみを表示したい場合です。</value>
+    <comment>In some situations, you may want to change the data map used
+    with a column depending on the value of another column.
+    For example, you may want the drop-down in the 'City' column
+    to show only cities in the country that is selected for the
+    current row.</comment>
+  </data>
+  <data name="DynamicDataMapsCustomize_Text2" xml:space="preserve">
+    <value>そのために、次のグリッドでは、"cities" 列に対して使用される DataMap をカスタマイズしています。そのコードは、都市マップの &lt;b&gt;getDisplayValues&lt;/b&gt; メソッドをオーバーライドして、現在の国に属する都市のみを返します。</value>
+    <comment>The grid below does this by customizing the DataMap used for
+    the "cities" column. The code overrides the city map's
+    &lt;b&gt;getDisplayValues&lt;/b&gt; method to return only cities that
+    belong to the current country:</comment>
+  </data>
+  <data name="DynamicDataMapsCustomize_Title" xml:space="preserve">
+    <value>動的な DataMap（カスタマイズ）</value>
+    <comment>Dynamic DataMaps (customize)</comment>
+  </data>
+  <data name="DynamicDataMapsSwitch_Text1" xml:space="preserve">
+    <value>ある列で使用されるデータマップを、別の列の値に依存して変更したい場合があります。たとえば、「City」列のドロップダウンに、現在の行で選択されている国の都市のみを表示したい場合です。</value>
+    <comment>In some situations, you may want to change the data map used
+    with a column depending on the value of another column.
+    For example, you may want the drop-down in the 'City' column
+    to show only cities in the country that is selected for the
+    current row.</comment>
+  </data>
+  <data name="DynamicDataMapsSwitch_Text2" xml:space="preserve">
+    <value>データマップに配列文字列のみが含まれる場合、それは実際のマップとしては使用されません。実際、それらのセルにはグリッドに格納されている文字列が含まれます。この場合は、セルを編集する前にデータマップを切り替えても問題ありません。</value>
+    <comment>If your data maps contain only array strings, then it is not
+    used as a real map. The cells actually contain the strings
+    stored in the grid, and in this case it is safe to switch
+    data maps before editing cells.</comment>
+  </data>
+  <data name="DynamicDataMapsSwitch_Text3" xml:space="preserve">
+    <value>次のグリッドでは、都市の選択に使用されるデータマップは文字列配列ですが、セルを編集する前に、現在の国に属する都市のみが含まれるように更新されます。</value>
+    <comment>In the grid below, the data map used for selecting cities is
+    a string array that is updated before editing the cells to
+    include only cities that belong to the current country:</comment>
+  </data>
+  <data name="DynamicDataMapsSwitch_Title" xml:space="preserve">
+    <value>動的な DataMap（切り替え）</value>
+    <comment>Dynamic DataMaps (switch)</comment>
+  </data>
+  <data name="DynamicDataMaps_Text1" xml:space="preserve">
+    <value>ある列で使用されるデータマップを、別の列の値に依存して変更したい場合があります。たとえば、「City」列のドロップダウンに、現在の行で選択されている国の都市のみを表示したい場合です。</value>
+    <comment>In some situations, you may want to change the data map used
+    with a column depending on the value of another column.
+    For example, you may want the drop-down in the 'City' column
+    to show only cities in the country that is selected in the
+    current row.</comment>
+  </data>
+  <data name="DynamicDataMaps_Text2" xml:space="preserve">
+    <value>マップは、現在編集中のセルだけでなく、すべてのセルで使用されるため、これは見た目ほど簡単ではありません。つまり、マップ値を変更すると、グリッド全体が変化してしまいます。</value>
+    <comment>This is not as simple as it may seem, because the maps are
+    used by all cells, not just by the ones being edited. So
+    changing the map values will change the whole grid.</comment>
+  </data>
+  <data name="DynamicDataMaps_Text3" xml:space="preserve">
+    <value>これに対処するには、以下の 2 つの方法があります。</value>
+    <comment>There are two ways to handle this:</comment>
+  </data>
+  <data name="DynamicDataMaps_Text4" xml:space="preserve">
+    <value>&lt;b&gt;DataMap のカスタマイズ&lt;/b&gt;：DataMap の &lt;b&gt;getDisplayValues&lt;/b&gt; メソッドをオーバーライドして、現在のコンテキストに該当する値のみを取得します。</value>
+    <comment>&lt;b&gt;Customized DataMaps&lt;/b&gt;: You can override the DataMap's
+            &lt;b&gt;getDisplayValues&lt;/b&gt; method to get only values that
+            apply to the current context.</comment>
+  </data>
+  <data name="DynamicDataMaps_Text5" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="DynamicDataMaps_Text6" xml:space="preserve">
+    <value>&lt;b&gt;文字列のみの DataMap&lt;/b&gt;：データマップに配列文字列のみが含まれる場合、それは実際のマップとしては使用されません。実際、それらのセルにはグリッドに格納されている文字列が含まれます。この場合は、セルを編集する前にデータマップを切り替えても問題ありません。</value>
+    <comment>&lt;b&gt;String-Only DataMaps&lt;/b&gt;: If your data maps contain only
+            array strings, then it is not used as a real map. The cells
+            actually contain the strings stored in the grid, and in
+            this case it is safe to switch data maps before editing
+            cells.</comment>
+  </data>
+  <data name="DynamicDataMaps_Title" xml:space="preserve">
+    <value>動的な DataMap</value>
+    <comment>Dynamic DataMaps</comment>
+  </data>
+  <data name="DynamicUpdates_Text1" xml:space="preserve">
+    <value>FlexGrid は、データソースが変更されると、すべてのセルを自動的に更新します。</value>
+    <comment>FlexGrid updates all cells automatically when there
+    are changes in its data source.</comment>
+  </data>
+  <data name="DynamicUpdates_Text2" xml:space="preserve">
+    <value>データソースの少数の項目のみが頻繁に変化する場合は、実際に変化した項目に連結されたセルのみを更新する方が効率的です。</value>
+    <comment>If you have a data source where only a few items change
+    frequently, it is more efficient to update only
+    the cells bound to items that have actually changed.</comment>
+  </data>
+  <data name="DynamicUpdates_Text3" xml:space="preserve">
+    <value>次のグリッドは、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用して、各データ項目に対するセル要素を追跡します。データが変化すると、グリッド全体ではなく、影響を受けるセルのみを更新します。</value>
+    <comment>The grid below uses the &lt;b&gt;formatItem&lt;/b&gt; event to keep
+    track of the cell elements for each data item. When the
+    data changes, it updates only the affected cells rather
+    than the whole grid.</comment>
+  </data>
+  <data name="DynamicUpdates_Text4" xml:space="preserve">
+    <value>カスタムセル</value>
+    <comment>Custom Cells</comment>
+  </data>
+  <data name="DynamicUpdates_Text5" xml:space="preserve">
+    <value>自動更新</value>
+    <comment>Auto Update</comment>
+  </data>
+  <data name="DynamicUpdates_Text6" xml:space="preserve">
+    <value>更新間隔（ms）</value>
+    <comment>Update Interval (ms)</comment>
+  </data>
+  <data name="DynamicUpdates_Text7" xml:space="preserve">
+    <value>バッチサイズ（項目数）</value>
+    <comment>Batch Size (# items)</comment>
+  </data>
+  <data name="DynamicUpdates_Title" xml:space="preserve">
+    <value>動的更新</value>
+    <comment>Dynamic Updates</comment>
+  </data>
+  <data name="EditableTreeGrids_Text1" xml:space="preserve">
+    <value>FlexGrid の &lt;b&gt;childItemsPath&lt;/b&gt; プロパティを使用してデータをツリーとして表示する場合、結果として、グリッドはデフォルトで読み取り専用になります。これは、ツリー内の各行が 1 つの &lt;b&gt;GroupRow&lt;/b&gt; になり、グループ行はデフォルトで読み取り専用になるためです。</value>
+    <comment>If you use FlexGrid's &lt;b&gt;childItemsPath&lt;/b&gt; property to
+    show the data as a tree, the resulting grid will
+    be read-only by default. This happens because every
+    row in a tree is a &lt;b&gt;GroupRow&lt;/b&gt;, and group rows
+    are read-only by default.</comment>
+  </data>
+  <data name="EditableTreeGrids_Text2" xml:space="preserve">
+    <value>ツリーを編集可能にする場合には、&lt;b&gt;loadedRows&lt;/b&gt; イベントを処理して、各行の &lt;b&gt;isReadOnly&lt;/b&gt; プロパティに false を設定してください。</value>
+    <comment>If you want your tree to be editable, handle the
+    &lt;b&gt;loadedRows&lt;/b&gt; event to set the &lt;b&gt;isReadOnly&lt;/b&gt;
+    property of every row to false.</comment>
+  </data>
+  <data name="EditableTreeGrids_Text3" xml:space="preserve">
+    <value>さらに、列の &lt;b&gt;isReadOnly&lt;/b&gt; プロパティまたは &lt;b&gt;beginningEdit&lt;/b&gt; イベントを使用して、どの列が編集可能であるかを制御できます。</value>
+    <comment>You can still control which columns are editable
+    using the column's &lt;b&gt;isReadOnly&lt;/b&gt; property or
+    the &lt;b&gt;beginningEdit&lt;/b&gt; event.</comment>
+  </data>
+  <data name="EditableTreeGrids_Text4" xml:space="preserve">
+    <value>たとえば、次のグリッドでは、「hours」列と「rate」列のセルを編集できます。</value>
+    <comment>For example, the grid below allows users to edit
+    cells in the 'hours' and 'rate' columns:</comment>
+  </data>
+  <data name="EditableTreeGrids_Title" xml:space="preserve">
+    <value>編集可能なツリーグリッド</value>
+    <comment>Editable Tree Grids</comment>
+  </data>
+  <data name="Editing_Text1" xml:space="preserve">
+    <value>FlexGrid では、Excel 形式の効率的なセル内編集が組み込みでサポートされています。余分な列を追加して、そこに表示モードと編集モードを切り替えるための［編集］ボタンを置く必要はありません。</value>
+    <comment>The FlexGrid has built-in support for Excel-like, efficient,
+    in-cell editing. There is no need to add extra columns with
+    'Edit' buttons that switch between display and edit modes.</comment>
+  </data>
+  <data name="Editing_Text2" xml:space="preserve">
+    <value>ユーザーは、任意のセルでキー入力するだけで編集を開始できます。これは、「クイック編集」モードと呼ばれます。このモードでは、矢印キーを押すと編集が終了し、グリッドの選択範囲が移動します。［F2］キーを押すか、セルをダブルクリックして、編集を開始することもできます。これは、「完全編集」モードと呼ばれます。このモードでは、矢印キーによってエディタ内でカレットが移動し、編集を終了するには［Enter］キー、［Tab］キー、または［Esc］キーを押す必要があります。</value>
+    <comment>Users can start editing simply by typing into any cell.
+    This is called 'quick-edit' mode. In this mode, the cursor keys
+    finish the editing and the grid moves the selection. Users may
+    also start editing by pressing F2 or by clicking a cell twice.
+    This is called 'full-edit' mode. In this mode, the cursor
+    keys move the caret within the editor and the user must press
+    the Enter, Tab, or Escape keys to finish editing.</comment>
+  </data>
+  <data name="Editing_Text3" xml:space="preserve">
+    <value>グリッドは、入力を自動的に解析して、列に対して正しいデータ型を適用します。適用できない場合は、元の値が復元されます。</value>
+    <comment>The grid automatically parses the input and coerces it into
+    the proper data type for the column. If the coercion fails,
+    the original value is restored.</comment>
+  </data>
+  <data name="Editing_Title" xml:space="preserve">
+    <value>編集</value>
+    <comment>Editing</comment>
+  </data>
+  <data name="EventsDragDrop_Text1" xml:space="preserve">
+    <value>HTML5 ドラッグ/ドロップ API を使用して、FlexGrid コントロールから、コントロールへ、またはコントロール間の行のドラッグを実装できます。</value>
+    <comment>You can use the HTML5 drag/drop API to implement row dragging
+    from, into, or between the FlexGrid controls.</comment>
+  </data>
+  <data name="EventsDragDrop_Text2" xml:space="preserve">
+    <value>次の単純な例は、グリッドから任意の要素に行をドラッグする方法を示しています。この例を簡単に拡張して、行の移動操作（操作の完了時にソースグリッドから行を削除する）やグリッドへのドロップ（ドロップ位置を検出してターゲットグリッドに新しい行を挿入する）をサポートできます。</value>
+    <comment>This simple example shows how you can drag rows from the
+    grid into arbitrary elements. You can easily extend this
+    to support move operations (by removing the row from the
+    source grid when the operation is completed) or dropping
+    into grids (by detecting the drop position and inserting
+    new rows into the target grid).</comment>
+  </data>
+  <data name="EventsDragDrop_Text3" xml:space="preserve">
+    <value>行ヘッダーをクリックしてグリッドから行をドラッグ：</value>
+    <comment>Drag rows from the grid by the row header:</comment>
+  </data>
+  <data name="EventsDragDrop_Text4" xml:space="preserve">
+    <value>そして、下にドロップ：</value>
+    <comment>And drop them here:</comment>
+  </data>
+  <data name="EventsDragDrop_Text5" xml:space="preserve">
+    <value>行をここにドロップ...</value>
+    <comment>Drop rows here...</comment>
+  </data>
+  <data name="EventsDragDrop_Title" xml:space="preserve">
+    <value>FlexGrid からの行のドラッグ</value>
+    <comment>Dragging Rows from the FlexGrid</comment>
+  </data>
+  <data name="EventsMouse_Text1" xml:space="preserve">
+    <value>マウスイベントを処理するには、グリッドの &lt;b&gt;hostElement&lt;/b&gt; にリスナーを追加し、&lt;b&gt;hitTest&lt;/b&gt; メソッドを使用して、どのグリッドパネルやセルがクリックされたかを判断します。</value>
+    <comment>To handle mouse events, add a listener to &lt;b&gt;hostElement&lt;/b&gt; 
+    of the grid and use the &lt;b&gt;hitTest&lt;/b&gt; method
+    to determine which grid panel and cell were clicked.</comment>
+  </data>
+  <data name="EventsMouse_Text2" xml:space="preserve">
+    <value>次のグリッドは、「mousemove」イベントにアタッチされたハンドラを備えており、マウスが置かれた要素に関する情報が表示されます。</value>
+    <comment>The grid below has a handler attached to the 'mousemove'
+    event, and shows information about the element that is 
+    hovered by the mouse.</comment>
+  </data>
+  <data name="EventsMouse_Text3" xml:space="preserve">
+    <value>グリッド上にマウスを置いてください</value>
+    <comment>please move the mouse over the grid</comment>
+  </data>
+  <data name="EventsMouse_Title" xml:space="preserve">
+    <value>マウスイベント</value>
+    <comment>Mouse Events</comment>
+  </data>
+  <data name="EventsResizing_Text1" xml:space="preserve">
+    <value>FlexGrid は、列がサイズ変更されると &lt;b&gt;resizingColumn&lt;/b&gt; イベントおよび &lt;b&gt;resizedColumn&lt;/b&gt; イベントを発生させます。</value>
+    <comment>FlexGrid raises &lt;b&gt;resizingColumn&lt;/b&gt; and
+    &lt;b&gt;resizedColumn&lt;/b&gt; events as the user resizes
+    the columns.</comment>
+  </data>
+  <data name="EventsResizing_Text2" xml:space="preserve">
+    <value>次の例は、&lt;b&gt;resizingColumn&lt;/b&gt; イベントを処理し、ツールチップに列の新しい幅を表示します。</value>
+    <comment>The example below handles the &lt;b&gt;resizingColumn&lt;/b&gt;
+    event to show a tooltip with the column's new width:</comment>
+  </data>
+  <data name="EventsResizing_Title" xml:space="preserve">
+    <value>列のサイズ変更イベント</value>
+    <comment>Column Sizing Events</comment>
+  </data>
+  <data name="EventsSelection_Text1" xml:space="preserve">
+    <value>FlexGrid の &lt;b&gt;selection&lt;/b&gt; プロパティは、選択されたセルの範囲を含む &lt;b&gt;CellRange&lt;/b&gt; オブジェクトを返します。</value>
+    <comment>FlexGrid's &lt;b&gt;selection&lt;/b&gt; property returns a
+    &lt;b&gt;CellRange&lt;/b&gt; object that contains the range of
+    selected cells.</comment>
+  </data>
+  <data name="EventsSelection_Text2" xml:space="preserve">
+    <value>選択範囲が変更されると、グリッドは &lt;b&gt;selectionChanging&lt;/b&gt; イベントまたは &lt;b&gt;selectionChanged&lt;/b&gt; イベントを発生させます。</value>
+    <comment>When the selection changes, the grid raises the
+    &lt;b&gt;selectionChanging&lt;/b&gt; and &lt;b&gt;selectionChanged&lt;/b&gt;
+    events.</comment>
+  </data>
+  <data name="EventsSelection_Text3" xml:space="preserve">
+    <value>次のグリッドは、&lt;b&gt;selectionChanged&lt;/b&gt; イベントを使用して、選択されたデータのサマリーを表示します。</value>
+    <comment>The grid below uses the &lt;b&gt;selectionChanged&lt;/b&gt;
+    event to show a summary of the data selected.</comment>
+  </data>
+  <data name="EventsSelection_Text4" xml:space="preserve">
+    <value>グリッドの範囲を選択してください</value>
+    <comment>please select a range on the grid</comment>
+  </data>
+  <data name="EventsSelection_Title" xml:space="preserve">
+    <value>選択イベント</value>
+    <comment>Selection Events</comment>
+  </data>
+  <data name="Events_Text1" xml:space="preserve">
+    <value>FlexGrid は、コントロールの動作のほぼすべての側面をカスタマイズできるイベントを数多く提供しています。すべてのイベントのリストは、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.grid.FlexGrid.Class.html" target="_blank"&gt;オンラインドキュメント&lt;/a&gt;で参照できます。</value>
+    <comment>FlexGrid provides many events which you can use to
+    customize almost every aspect of the control's
+    behavior. You can see a complete list in the
+    &lt;a href=http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.FlexGrid.Class.html" target="_blank"&gt;Online Documentation&lt;/a&gt;."</comment>
+  </data>
+  <data name="Events_Text2" xml:space="preserve">
+    <value>これらのイベントは、次のカテゴリにグループ化することができます。</value>
+    <comment>These events can be grouped into categories that include:</comment>
+  </data>
+  <data name="Events_Text3" xml:space="preserve">
+    <value>&lt;b&gt;マウス&lt;/b&gt;：FlexGrid は、HTML イベントに依存してマウス処理を行います。また、イベントが参照するグリッド部分を特定するための &lt;b&gt;hitTest&lt;/b&gt; メソッドを含みます。</value>
+    <comment>&lt;b&gt;Mouse&lt;/b&gt;:
+        FlexGrid relies on HTML events for mouse handling,
+        and includes a &lt;b&gt;hitTest&lt;/b&gt; method that can be used
+        to determine which part of the grid the event refers to.</comment>
+  </data>
+  <data name="Events_Text4" xml:space="preserve">
+    <value>&lt;b&gt;選択&lt;/b&gt;：&lt;b&gt;selectionChanging&lt;/b&gt; イベントと &lt;b&gt;selectionChanged&lt;/b&gt; イベントを使用して、ユーザーがグリッドの一部を選択できないようにしたり、現在の &lt;b&gt;selection&lt;/b&gt; に関連する情報を表示することができます。</value>
+    <comment>&lt;b&gt;Selection&lt;/b&gt;:
+        The &lt;b&gt;selectionChanging&lt;/b&gt; and &lt;b&gt;selectionChanged&lt;/b&gt;
+        events can be used to prevent users from selecting parts
+        of the grid or to display information relative to the
+        current &lt;b&gt;selection&lt;/b&gt;.</comment>
+  </data>
+  <data name="Events_Text5" xml:space="preserve">
+    <value>&lt;b&gt;編集&lt;/b&gt;：FlexGrid は、特定のセルの編集を防止するためのイベント（&lt;b&gt;beginningEdit&lt;/b&gt;）、エディタ要素をカスタマイズするためのイベント（&lt;b&gt;prepareCellForEdit&lt;/b&gt;）、検証のためのイベント（&lt;b&gt;cellEditEnding&lt;/b&gt;）などを提供します。</value>
+    <comment>&lt;b&gt;Editing&lt;/b&gt;:
+        FlexGrid provides events that can be used for
+        preventing certain cells from being edited
+        (&lt;b&gt;beginningEdit&lt;/b&gt;), for customizing the editor
+        element (&lt;b&gt;prepareCellForEdit&lt;/b&gt;), for
+        validation (&lt;b&gt;cellEditEnding&lt;/b&gt;), and more.</comment>
+  </data>
+  <data name="Events_Text6" xml:space="preserve">
+    <value>&lt;b&gt;行と列のサイズ変更&lt;/b&gt;：FlexGrid は、行と列がサイズ変更されたときにイベントを発生させて、グリッドレイアウトを検証したり保存できるようにします。</value>
+    <comment>&lt;b&gt;Resizing Rows and Columns:&lt;/b&gt;
+        FlexGrid raises events when rows and columns
+        are being resized so that you can validate or
+        persist the grid layout.</comment>
+  </data>
+  <data name="Events_Text7" xml:space="preserve">
+    <value>&lt;b&gt;列の並べ替え&lt;/b&gt;：FlexGrid は、行と列が新しい位置にドラッグされたときにイベントを発生させて、グリッドレイアウトを検証したり保存できるようにします。</value>
+    <comment>&lt;b&gt;Reordering Columns:&lt;/b&gt;
+        FlexGrid raises events when rows and columns
+        are being dragged into new positions so that you can
+        validate or persist the grid layout.</comment>
+  </data>
+  <data name="Events_Text8" xml:space="preserve">
+    <value>&lt;b&gt;ドラッグアンドドロップ&lt;/b&gt;：FlexGrid は、行と列の並べ替えに HTML ドラッグ/ドロップイベントを使用します。そのサポートを拡張して、セルのドラッグアンドドロップ機能を提供することもできます。</value>
+    <comment>&lt;b&gt;Drag and Drop:&lt;/b&gt;
+        FlexGrid uses HTML drag/drop events for reordering
+        rows and columns, and you can extend that support to
+        provide cell drag and drop functionality as well.</comment>
+  </data>
+  <data name="Events_Title" xml:space="preserve">
+    <value>グリッドのイベント</value>
+    <comment>Grid Events</comment>
+  </data>
+  <data name="Excel_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールを XLSX 形式にエクスポートするには、ユーザーアプリケーションに次の追加モジュールをインクルードする必要があります。</value>
+    <comment>To export FlexGrid controls to the XLSX format, you
+    should include following extra modules in your application:</comment>
+  </data>
+  <data name="Excel_Text2" xml:space="preserve">
+    <value>&lt;b&gt;&lt;a href="https://stuk.github.io/jszip/" target="_blank"&gt;jszip.js&lt;/a&gt;&lt;/b&gt;：ZIP ファイルを作成、読み取り、および編集するための Javascript ライブラリ。</value>
+    <comment>&lt;b&gt;&lt;a href="https://stuk.github.io/jszip/" target="_blank"&gt;jszip.js&lt;/a&gt;&lt;/b&gt;:
+        Javascript library for creating, reading and editing ZIP files.</comment>
+  </data>
+  <data name="Excel_Text3" xml:space="preserve">
+    <value>FlexGrid を XLSX にエクスポートするには、&lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; メソッドを呼び出して「ブック」オブジェクトを取得します。保存する前にブックオブジェクトを変更することもできます。たとえば、シートを追加したり名前変更することができます。ブックの準備が整ったら、その &lt;b&gt;save&lt;/b&gt; メソッドを呼び出して XLSX ファイルを作成します。</value>
+    <comment>To export FlexGrid to XLSX, call the
+    &lt;b&gt;FlexGridXlsxConverter.save&lt;/b&gt; method to obtain a 'book'
+    object. You may modify the book object before saving it. For example,
+    you may add or rename sheets. Once the 'book' is ready, 
+    call its &lt;b&gt;save&lt;/b&gt; method to create the XLSX file.</comment>
+  </data>
+  <data name="Excel_Text4" xml:space="preserve">
+    <value>XLSX へのエクスポート</value>
+    <comment>Export to XLSX</comment>
+  </data>
+  <data name="Excel_Title" xml:space="preserve">
+    <value>XLSX へのエクスポート</value>
+    <comment>Export to XLSX</comment>
+  </data>
+  <data name="FastScroller_Text1" xml:space="preserve">
+    <value>iPad の連絡先リストでは、イニシャルをクリックして人を簡単に検索できるクイックスクロール機能が使用されています。</value>
+    <comment>The iPad contact list uses a fast scroller to make it easier
+    to look up people by clicking their initials.</comment>
+  </data>
+  <data name="FastScroller_Text2" xml:space="preserve">
+    <value>次のサンプルは、グリッドの右端近くに縦のイニシャルリストを追加して、同様のクイックスクロール機能を実装しています。イニシャルをクリックするか入力すると、グリッドがスクロールして、求めに合う最初の連絡先が表示されます。</value>
+    <comment>This sample implements something similar by adding a vertical
+    list of initials near the right edge of the grid. When user
+    clicks or types an initial, the grid scrolls to show the first
+    contact that matches the request.</comment>
+  </data>
+  <data name="FastScroller_Title" xml:space="preserve">
+    <value>クイックスクロール機能（iOS 形式）</value>
+    <comment>Fast Scroller (iOS-style)</comment>
+  </data>
+  <data name="Filtering_Text1" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;collectionView.filter&lt;/b&gt; プロパティを直接使用できます。このプロパティは使いやすく、柔軟性も極めて高いですが、フィルタ UI を自分で実装する必要があります。</value>
+    <comment>You can use the grid's &lt;b&gt;collectionView.filter&lt;/b&gt;
+    property directly. This is easy to use and very flexible, 
+    but you have to implement the filter UI yourself.</comment>
+  </data>
+  <data name="Filtering_Text2" xml:space="preserve">
+    <value>たとえば、次のグリッドは、国名でデータをフィルタ処理します。</value>
+    <comment>For example, this grid filters the data by country:</comment>
+  </data>
+  <data name="Filtering_Title" xml:space="preserve">
+    <value>フィルタ処理</value>
+    <comment>Filtering</comment>
+  </data>
+  <data name="FilterOptimizations_Text1" xml:space="preserve">
+    <value>&lt;b&gt;wijmo.grid.filter&lt;/b&gt; モジュールに用意された &lt;b&gt;FlexGridFilter&lt;/b&gt; クラスを使用して、列ごとに Excel 形式のフィルタ処理 UI を追加できます。&lt;b&gt;FlexGridFilter&lt;/b&gt; では、&lt;b&gt;値&lt;/b&gt;フィルタと&lt;b&gt;条件&lt;/b&gt;フィルタの 2 種類のフィルタを使用できます。</value>
+    <comment>The &lt;b&gt;wijmo.grid.filter&lt;/b&gt; module provides a &lt;b&gt;FlexGridFilter&lt;/b&gt;
+    class that adds an Excel-style filtering UI to each column.
+    The &lt;b&gt;FlexGridFilter&lt;/b&gt; provides two types of filters:
+    &lt;b&gt;value&lt;/b&gt; filter and &lt;b&gt;condition&lt;/b&gt; filter.</comment>
+  </data>
+  <data name="FilterOptimizations_Text2" xml:space="preserve">
+    <value>&lt;b&gt;値&lt;/b&gt;フィルタエディタには、ユーザーが選択できる一意の値のリストが含まれます。グリッドに大量のデータが含まれる場合は、この一意の値リストの生成に時間がかかる場合があります。さらに、リストに含まれる値が多過ぎると、あまり役に立ちません。そのような場合は、条件フィルタの方が適切です。</value>
+    <comment>The &lt;b&gt;value&lt;/b&gt; filter editor contains a list of unique values
+    for the user to choose from. If the grid contains a lot of data,
+    this list of unique values may take a while to generate.
+    Furthermore, if the list contains too many values, it is not
+    very useful. A condition filter may be more appropriate
+    in such cases.</comment>
+  </data>
+  <data name="FilterOptimizations_Text3" xml:space="preserve">
+    <value>このサンプルは、次の 3 つの方法で&lt;b&gt;値&lt;/b&gt;フィルタを最適化する方法を示します。</value>
+    <comment>This sample shows how you can optimize the &lt;b&gt;value&lt;/b&gt; filters
+    in three ways:</comment>
+  </data>
+  <data name="FilterOptimizations_Text4" xml:space="preserve">
+    <value>&lt;b&gt;uniqueValues&lt;/b&gt;：「Rating」列フィルタでは、この列が取り得る一意の値のリストを指定しています。したがって、フィルタがリストを構築するためにデータをスキャンする必要はありません。</value>
+    <comment>&lt;b&gt;uniqueValues&lt;/b&gt;: The 'Rating' column filter specifies
+        the list of possible unique values in the column, so the
+        filter does not have to scan the data to build the list.</comment>
+  </data>
+  <data name="FilterOptimizations_Text5" xml:space="preserve">
+    <value>&lt;b&gt;maxValues&lt;/b&gt;：「Sales」列フィルタでは、最大 20 個の値のみをリストに表示するように指定しています。ユーザーはエディタのフィルタフィールドを使用して、目的の値を選択できます。</value>
+    <comment>&lt;b&gt;maxValues&lt;/b&gt;: The 'Sales' column filter specifies
+        that the list should show up to 20 values only. You may
+        use the filter field in the editor to select which
+        values you are interested in.</comment>
+  </data>
+  <data name="FilterOptimizations_Text6" xml:space="preserve">
+    <value>&lt;b&gt;filterType&lt;/b&gt;：「Expenses」列フィルタでは、&lt;b&gt;条件&lt;/b&gt;フィルタタイプのみを使用するように指定しています。この列には値フィルタが表示されません。</value>
+    <comment>&lt;b&gt;filterType&lt;/b&gt;: The 'Expenses' column filter specifies
+        that the only filter type to be used is &lt;b&gt;condition&lt;/b&gt;.
+        A value filter is not even displayed for this column.</comment>
+  </data>
+  <data name="FilterOptimizations_Title" xml:space="preserve">
+    <value>FlexGridFilter の最適化</value>
+    <comment>FlexGridFilter Optimizations</comment>
+  </data>
+  <data name="FlexGridFilter_Text1" xml:space="preserve">
+    <value>&lt;b&gt;wijmo.grid.filter&lt;/b&gt; モジュールに用意された &lt;b&gt;FlexGridFilter&lt;/b&gt; クラスを使用して、列ごとに Excel 形式のフィルタ処理 UI を追加できます。</value>
+    <comment>The &lt;b&gt;wijmo.grid.filter&lt;/b&gt; module provides a &lt;b&gt;FlexGridFilter&lt;/b&gt;
+    class that adds an Excel-style filtering UI to each column.</comment>
+  </data>
+  <data name="FlexGridFilter_Text2" xml:space="preserve">
+    <value>&lt;b&gt;FlexGridFilter&lt;/b&gt; は、列ヘッダーにフィルタアイコンを追加します。ユーザーはこのアイコンをクリックして、値または条件に基づくフィルタを適用するためのドロップダウンを表示することができます。</value>
+    <comment>The &lt;b&gt;FlexGridFilter&lt;/b&gt; adds filter icons to the column headers.
+    Users may click the icons to see a drop-down where they can apply
+    filters by value or by condition:</comment>
+  </data>
+  <data name="FlexGridFilter_Title" xml:space="preserve">
+    <value>FlexGridFilter</value>
+    <comment>FlexGridFilter</comment>
+  </data>
+  <data name="GridPanels_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールは、6 つの &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.grid.GridPanel.Class.html" target="_blank"&gt;GridPanel&lt;/a&gt; 要素で構成されます。</value>
+    <comment>The FlexGrid control is made up of six
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.GridPanel.Class.html" target="_blank"&gt;GridPanel&lt;/a&gt;
+    elements:</comment>
+  </data>
+  <data name="GridPanels_Text10" xml:space="preserve">
+    <value>グリッドの下部には &lt;b&gt;columnFooters&lt;/b&gt; パネルがあります。デフォルトではこのパネルは空ですが、ここでは &lt;b&gt;GroupRow&lt;/b&gt; を追加しました。&lt;b&gt;GroupRow&lt;/b&gt; は、列の &lt;b&gt;aggregate&lt;/b&gt; プロパティの値に基づいて計算された各セルの集計値を自動的に表示します。この例では、このプロパティは「Sum」に設定されています。</value>
+    <comment>Notice the &lt;b&gt;columnFooters&lt;/b&gt; panel at the bottom of the grid.
+    This panel is empty by default, but we have added a &lt;b&gt;GroupRow&lt;/b&gt;
+    to the same. The &lt;b&gt;GroupRow&lt;/b&gt; automatically shows aggregate 
+    values for each cell calculated based on the value of the column's 
+    &lt;b&gt;aggregate&lt;/b&gt; property, which in this example is set to 'Sum'.</comment>
+  </data>
+  <data name="GridPanels_Text11" xml:space="preserve">
+    <value>&lt;b&gt;headersVisibility&lt;/b&gt; プロパティを使用して、表示するヘッダーパネルを選択することができます。</value>
+    <comment>You can use the &lt;b&gt;headersVisibility&lt;/b&gt; property to select
+    which header panels should be visible:</comment>
+  </data>
+  <data name="GridPanels_Text2" xml:space="preserve">
+    <value>&lt;b&gt;topLeftCells&lt;/b&gt;：列ヘッダーの左に表示されるパネル。通常は 1 つの空のセルが含まれます。このセルをクリックすると、グリッドのコンテンツ全体を選択できます。このパネルはスクロールしません。</value>
+    <comment>&lt;b&gt;topLeftCells&lt;/b&gt;:
+        Panel on the left of the column headers, typically containing
+        a single empty cell that can be clicked to select the whole grid
+        content. This panel does not scroll.</comment>
+  </data>
+  <data name="GridPanels_Text3" xml:space="preserve">
+    <value>&lt;b&gt;columnHeaders&lt;/b&gt;：データセルの上に表示されるパネル。通常は、複数のセルを含む 1 つの行が含まれます。これらのセルをクリックしてグリッドをソートしたり、ドラッグして列のサイズ変更や並べ替えを行うことができます。このパネルは、水平方向にスクロールします。</value>
+    <comment>&lt;b&gt;columnHeaders&lt;/b&gt;:
+        Panel above the data cells, typically containing a single row
+        with cells that can be clicked to sort the grid or dragged
+        to resize or re-arrange the columns. This panel scrolls
+        horizontally.</comment>
+  </data>
+  <data name="GridPanels_Text4" xml:space="preserve">
+    <value>&lt;b&gt;rowHeaders&lt;/b&gt;：データセルの左に表示されるパネル。通常は、1 つの列が含まれます。この列をクリックして行を選択することができます。また、編集中の行や追加された行を表すアイコンがこの列に表示されます。このパネルは、垂直方向にスクロールします。</value>
+    <comment>&lt;b&gt;rowHeaders&lt;/b&gt;:
+        Panel on the left of the data cells, typically containing a
+        single column that can be clicked to select rows and that
+        displays icons for rows being edited or added. This panel
+        scrolls vertically.</comment>
+  </data>
+  <data name="GridPanels_Text5" xml:space="preserve">
+    <value>&lt;b&gt;cells&lt;/b&gt;：データセルが含まれるパネル。ユーザーは、クリックアンドドラッグやキーボードを使用して、このパネル内のセルを選択することができます。このパネルは、水平方向と垂直方向にスクロールします。</value>
+    <comment>&lt;b&gt;cells&lt;/b&gt;:
+        Panel that contains the data cells. Users can select cells
+        by clicking and dragging on this panel or by using the
+        keyboard. This panel scrolls horizontally and vertically.</comment>
+  </data>
+  <data name="GridPanels_Text6" xml:space="preserve">
+    <value>&lt;b&gt;bottomLeftCells&lt;/b&gt;：列フッターの左に表示されるパネル。デフォルトでは、このパネルには行がなく、したがって表示されません。</value>
+    <comment>&lt;b&gt;bottomLeftCells:&lt;/b&gt;
+        Panel to the left of the column footers. By default, this
+        panel contains no rows and therefore is not visible.</comment>
+  </data>
+  <data name="GridPanels_Text7" xml:space="preserve">
+    <value>&lt;b&gt;columnFooters&lt;/b&gt;：データセルの下に表示されるパネル。通常は、列のサマリー情報を表示するために使用されます。デフォルトでは、このパネルには行がなく、したがって表示されません。</value>
+    <comment>&lt;b&gt;columnFooters&lt;/b&gt;:
+        Panel below the data cells, typically used to show column
+        summary information. By default, this panel contains no
+        rows and therefore is not visible.</comment>
+  </data>
+  <data name="GridPanels_Text8" xml:space="preserve">
+    <value>これらのパネルは同期して動作し、グリッドをスクロールしても、相互の位置関係は維持されます。ただし、各パネルは独自のプロパティセットを備えており、グリッドの特定の領域をカスタマイズするために使用できます。</value>
+    <comment>Although these panels are synchronized so that they remain aligned with
+    each other when the grid scrolls, each one has its own set of 
+    properties that can be used to customize the specific areas of the grid.</comment>
+  </data>
+  <data name="GridPanels_Text9" xml:space="preserve">
+    <value>次のグリッド上でマウスを移動すると、マウスが置かれているパネルやセルのヒットテスト情報が表示されます。</value>
+    <comment>Move the mouse over the grid below to see each panel and
+    hit-test information of the cell being hovered:</comment>
+  </data>
+  <data name="GridPanels_Title" xml:space="preserve">
+    <value>グリッドパネル</value>
+    <comment>Grid Panels</comment>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>FlexGrid は、ソース &lt;b&gt;CollectionView&lt;/b&gt; を介してグループ化をサポートします。</value>
+    <comment>FlexGrid supports grouping via source &lt;b&gt;CollectionView&lt;/b&gt;.</comment>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;collectionView.groupDescriptions&lt;/b&gt; にいくつかの &lt;b&gt;GroupDescription&lt;/b&gt; オブジェクトを追加することで、1 つ以上のプロパティに基づいてデータをグループ化します。</value>
+    <comment>Group the data by one or more properties by adding &lt;b&gt;GroupDescription&lt;/b&gt;
+    objects to the grid's &lt;b&gt;collectionView.groupDescriptions&lt;/b&gt;.</comment>
+  </data>
+  <data name="Grouping_Text3" xml:space="preserve">
+    <value>次のグリッドは、国と製品によってデータをグループ化しています。</value>
+    <comment>The grid below groups the data by country and by product:</comment>
+  </data>
+  <data name="Grouping_Text4" xml:space="preserve">
+    <value>また、冗長なデータが表示されないように、グループ化された列を非表示にすることもできます。</value>
+    <comment>You may also want to hide the columns that are being grouped
+    on in order to avoid showing redundant data.</comment>
+  </data>
+  <data name="Grouping_Text5" xml:space="preserve">
+    <value>次のグリッドは、国と製品によってデータをグループ化し、それらの列を非表示にして簡潔なグリッドを実現しています。</value>
+    <comment>The grid below groups the data by country and product, and
+    hides those columns to achieve a compact grid.</comment>
+  </data>
+  <data name="Grouping_Title" xml:space="preserve">
+    <value>グループ化</value>
+    <comment>Grouping</comment>
+  </data>
+  <data name="GroupPanel_Text1" xml:space="preserve">
+    <value>&lt;b&gt;wijmo.grid.grouppanel&lt;/b&gt; モジュールには、Outlook 形式のグループ化 UI をグリッドに追加する &lt;b&gt;GroupPanel&lt;/b&gt; コントロールが用意されています。</value>
+    <comment>The &lt;b&gt;wijmo.grid.grouppanel&lt;/b&gt; module provides a &lt;b&gt;GroupPanel&lt;/b&gt;
+    control that adds an Outlook-style grouping UI to the grid.</comment>
+  </data>
+  <data name="GroupPanel_Text2" xml:space="preserve">
+    <value>&lt;b&gt;GroupPanel&lt;/b&gt; コントロールを使用するには、列ヘッダーをパネルにドラッグしてグループを作成します。グループを別の位置にドラッグして、グループを削除したり順序を変更することもできます。</value>
+    <comment>To use the &lt;b&gt;GroupPanel&lt;/b&gt; control, drag column headers into
+    the panel to create the groups. You may also remove or change 
+    the order of groups by dragging them to a new position.</comment>
+  </data>
+  <data name="GroupPanel_Title" xml:space="preserve">
+    <value>GroupPanel コントロール</value>
+    <comment>GroupPanel control</comment>
+  </data>
+  <data name="HeaderMerging_Text1" xml:space="preserve">
+    <value>FlexGrid は、列ヘッダーセル内でコンテンツ依存のセル結合をサポートします。</value>
+    <comment>FlexGrid supports content-driven cell merging
+    in column header cells.</comment>
+  </data>
+  <data name="HeaderMerging_Title" xml:space="preserve">
+    <value>ヘッダー結合</value>
+    <comment>Header Merging</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Text1" xml:space="preserve">
+    <value>CollectionView クラスは、コレクションの直接の子に当たる項目のフィルタ処理のみをサポートします。通常、これは階層化データに対してうまく動作しません。</value>
+    <comment>The CollectionView class supports filtering only for items
+    that are direct children of the collection. In most of the cases,
+    it does not work well for hierarchical data.</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Text2" xml:space="preserve">
+    <value>子要素が表示される場合は、その祖先ノードもすべて表示する必要があるため、階層化データのフィルタ処理は容易な作業ではありません。</value>
+    <comment>Filtering hierarchical data is not a trivial exercise because
+    when a child element is visible, all its ancestors should
+    also be visible.</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Text3" xml:space="preserve">
+    <value>次のグリッドは、単純な階層化結合を実装する方法を示します。この階層化結合は、フィルタに一致する都市や州、およびフィルタに一致する都市を含む州を表示します。たとえば、次のフィルタボックスに「San」と入力してみてください。</value>
+    <comment>The grid below shows how you can implement a simple hierarchical
+    binding method that will show cities that match the filter and
+    states that match the filter or contain cities that do.
+    For example, try typing 'San' in the filter box below:</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Text5" xml:space="preserve">
+    <value>階層化フィルタ処理の詳細については、ブログ記事「&lt;a href="http://wijmo.com/blog/filter-hierarchical-data-flexgrid/" target="_blank"&gt;FlexGrid と Angular で階層化データをフィルタ処理する方法&lt;/a&gt;」を参照してください。</value>
+    <comment>For more details on hierarchical filtering, please see our
+    &lt;a href="http://wijmo.com/blog/filter-hierarchical-data-flexgrid/" target="_blank"&gt;How to Filter Hierarchical Data in FlexGrid and Angular&lt;/a&gt;
+    blog.</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Title" xml:space="preserve">
+    <value>階層化データのフィルタ処理</value>
+    <comment>Filtering Hierarchical Data</comment>
+  </data>
+  <data name="HierarchicalData_Text1" xml:space="preserve">
+    <value>標準グリッドと &lt;b&gt;CollectionView&lt;/b&gt; オブジェクトは、フラットデータの処理に最適ですが、階層構造を持つデータには適していません。ただし、FlexGrid には、このようなデータ構造の処理にも役立ついくつかのプロパティと拡張機能が用意されています。</value>
+    <comment>Regular grids and &lt;b&gt;CollectionView&lt;/b&gt; objects are
+    great for dealing with flat data but not with data
+    structures having hierarchical structure. However,
+    FlexGrid provides a few properties and extensions
+    to help you deal with such data structures as well.</comment>
+  </data>
+  <data name="HierarchicalData_Text2" xml:space="preserve">
+    <value>以下のトピック（マスター/詳細、ツリーグリッド、行詳細）では、FlexGrid を使用して階層化データを処理するさまざまな方法を示します。</value>
+    <comment>The next topics show different ways to handle hierarchical
+    data with FlexGrid, including Master-Detail, Tree Grids,
+    and Row Details.</comment>
+  </data>
+  <data name="HierarchicalData_Title" xml:space="preserve">
+    <value>階層化データ</value>
+    <comment>Hierarchical Data</comment>
+  </data>
+  <data name="Ime_Text1" xml:space="preserve">
+    <value>IME は、&lt;a href="https://en.wikipedia.org/wiki/Input_method" target="_blank"&gt;Input Method Editor&lt;/a&gt; の略称です。</value>
+    <comment>IME is an abbreviation of
+    &lt;a href="https://en.wikipedia.org/wiki/Input_method" target="_blank"&gt;
+        Input Method Editor
+    &lt;/a&gt;.</comment>
+  </data>
+  <data name="Ime_Text2" xml:space="preserve">
+    <value>IME は、キーボードストロークやマウス操作などの任意のデータを入力として受け取ることができます。このようにして、ユーザーは入力デバイスにない文字やシンボルを入力できます。IME は、日本語、中国語、韓国語、台湾語などの言語にとって必須です。</value>
+    <comment>IME allows any data, such as keyboard strokes or mouse movements,
+    to be received as input. In this way, users can enter characters and
+    symbols that are not found on their input devices. IME is obligatory for
+    languages such as Japanese, Chinese, Korean, and Taiwanese.</comment>
+  </data>
+  <data name="Ime_Text3" xml:space="preserve">
+    <value>FlexGrid は、&lt;b&gt;imeEnabled&lt;/b&gt; プロパティを通して IME をサポートします。たとえば、次のグリッドでは &lt;b&gt;imeEnabled&lt;/b&gt; が true に設定されています。</value>
+    <comment>FlexGrid supports IME through its &lt;b&gt;imeEnabled&lt;/b&gt;
+    property. For example, the grid below has &lt;b&gt;imeEnabled&lt;/b&gt;
+    set to true.</comment>
+  </data>
+  <data name="Ime_Text4" xml:space="preserve">
+    <value>キーボード言語を日本語または中国語に設定し、IME を有効にすると、グリッドでその設定が使用されます。したがって、セルに直接入力することで、選択した IME モードを使用してセルを編集できます。</value>
+    <comment>If you set the keyboard language to Japanese or Chinese and
+    enable IME, the grid honors that setting and allows
+    you to edit cells using the selected IME mode by typing
+    directly into the cells:</comment>
+  </data>
+  <data name="Ime_Title" xml:space="preserve">
+    <value>IME（Input Method Editor）</value>
+    <comment>Input Method Editor (IME)</comment>
+  </data>
+  <data name="ImportExport_Text1" xml:space="preserve">
+    <value>エクスポートオプションとしてプリンタもあります。特に、最新のブラウザの多くは、PDF ファイル、クラウドストレージなどに出力をリダイレクトできます。</value>
+    <comment>Printer can also be seen as an export option, especially
+    since most modern browsers allow users to redirect the output
+    to PDF files, cloud storage, etc.</comment>
+  </data>
+  <data name="ImportExport_Text2" xml:space="preserve">
+    <value>&lt;b&gt;PrintDocument&lt;/b&gt; クラスを使用すると、印刷用のドキュメントを簡単に作成できます。このサンプルは、&lt;b&gt;PrintDocument&lt;/b&gt; クラスを使用して、FlexGrid を印刷に適した &lt;b&gt;table&lt;/b&gt; 要素に変換する方法を示します。</value>
+    <comment>The &lt;b&gt;PrintDocument&lt;/b&gt; class makes it easy to create
+    documents for printing. This sample shows how you can
+    convert a FlexGrid into a &lt;b&gt;table&lt;/b&gt; element suitable
+    for printing with the &lt;b&gt;PrintDocument&lt;/b&gt; class.</comment>
+  </data>
+  <data name="ImportExport_Text3" xml:space="preserve">
+    <value>PrintDocument で印刷</value>
+    <comment>Print with PrintDocument</comment>
+  </data>
+  <data name="ImportExport_Title" xml:space="preserve">
+    <value>プリンタ</value>
+    <comment>Printer</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>FlexGrid は、表形式のデータを視覚化して編集できるようにします。選択、ソート、フィルタ処理、グループ化、ページング、編集、書式設定など、データの表示方法や操作方法に関するさまざまなオプションが提供されています。</value>
+    <comment>FlexGrid allows you to visualize and edit tabular data.
+    It provides a variety of options about how to present and
+    perform operations over the data, including selection,
+    sorting, filtering, grouping, paging, editing, formatting,
+    etc.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>FlexGrid にデータを設定するには、FlexGrid の &lt;b&gt;itemsSource&lt;/b&gt; プロパティに通常の JavaScript オブジェクトを含む配列を設定します。グリッドによってデータ項目を表示するための列が自動的に生成され、ユーザーはデータを選択、ソート、および編集できるようになります。</value>
+    <comment>Populate the FlexGrid by setting its &lt;b&gt;itemsSource&lt;/b&gt;
+    property to an array containing regular JavaScript objects.
+    The grid will automatically generate columns to display
+    the data items, and will allow users to select, sort, and
+    edit the data.</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>&lt;b&gt;autoGenerateColumns&lt;/b&gt; プロパティを false に設定し、columns プロパティをコードで設定することで、グリッドの列をカスタマイズできます。</value>
+    <comment>You can customize the grid columns by setting the
+    &lt;b&gt;autoGenerateColumns&lt;/b&gt; property to false and populating
+    the columns property in code.</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>&lt;b&gt;selectionMode&lt;/b&gt;、&lt;b&gt;allowSorting&lt;/b&gt;、&lt;b&gt;allowDragging&lt;/b&gt;、&lt;b&gt;isReadOnly&lt;/b&gt;、&lt;b&gt;headersVisibility&lt;/b&gt; などのプロパティを設定して、グリッドのデフォルトの機能をカスタマイズできます。</value>
+    <comment>You can customize the default features of grid by setting
+    the properties such as &lt;b&gt;selectionMode&lt;/b&gt;, &lt;b&gt;allowSorting&lt;/b&gt;, 
+    &lt;b&gt;allowDragging&lt;/b&gt;, &lt;b&gt;isReadOnly&lt;/b&gt; and &lt;b&gt;headersVisibility&lt;/b&gt;.</comment>
+  </data>
+  <data name="Index_Text5" xml:space="preserve">
+    <value>selectionMode：</value>
+    <comment>selectionMode:</comment>
+  </data>
+  <data name="Index_Text6" xml:space="preserve">
+    <value>allowSorting：</value>
+    <comment>allowSorting:</comment>
+  </data>
+  <data name="Index_Text7" xml:space="preserve">
+    <value>allowDragging：</value>
+    <comment>allowDragging:</comment>
+  </data>
+  <data name="Index_Text8" xml:space="preserve">
+    <value>isReadOnly：</value>
+    <comment>isReadOnly:</comment>
+  </data>
+  <data name="Index_Text9" xml:space="preserve">
+    <value>headersVisibility：</value>
+    <comment>headersVisibility:</comment>
+  </data>
+  <data name="Index_Title" xml:space="preserve">
+    <value>FlexGrid</value>
+    <comment>FlexGrid</comment>
+  </data>
+  <data name="InlineEditing_Text1" xml:space="preserve">
+    <value>FlexGrid では、デフォルトで、効率的な Excel 形式の編集を行うことができますが、編集動作をカスタマイズしたい場合もあります。</value>
+    <comment>Although FlexGrid provides efficient, Excel-style
+    editing by default, you may want to customize the
+    editing behavior.</comment>
+  </data>
+  <data name="InlineEditing_Text2" xml:space="preserve">
+    <value>何らかの理由で、Excel 形式の編集ではなく（編集可能な HTML テーブルのように）各行に編集ボタンを追加したい場合は、&lt;b&gt;formatItem&lt;/b&gt; イベントとわずかなコードを使用してこれを実現できます。</value>
+    <comment>If for some reason you don't like the Excel-style
+    editing and prefer to add editing buttons to every
+    row (typical of editable HTML tables), you can
+    accomplish that using the &lt;b&gt;formatItem&lt;/b&gt; event
+    and a little code.</comment>
+  </data>
+  <data name="InlineEditing_Text3" xml:space="preserve">
+    <value>次のグリッドは、この方法を示します。</value>
+    <comment>The grid below demonstrates this approach:</comment>
+  </data>
+  <data name="InlineEditing_Title" xml:space="preserve">
+    <value>インライン編集</value>
+    <comment>Inline Editing</comment>
+  </data>
+  <data name="MasterDetail_Text1" xml:space="preserve">
+    <value>最も単純な階層化データの扱い方は、マスター/詳細モデルです。メイン項目を選択するためのコントロールと、メイン項目の詳細を表示するためのいくつかの追加コントロールを使用します。</value>
+    <comment>The simplest way to deal with hierarchical data is
+    the master-detail model. Use a control to select the
+    main item and one or more additional controls to show
+    the main item's details.</comment>
+  </data>
+  <data name="MasterDetail_Text2" xml:space="preserve">
+    <value>たとえば、次の ComboBox はマスターコントロールとして使用されています。コンボボックスから国を選択すると、下のグリッドにその国の項目が表示されます。</value>
+    <comment>For example, the ComboBox below is used as a master
+    control. Select a country from the combo and the
+    grid below will show the items in that country:</comment>
+  </data>
+  <data name="MasterDetail_Text3" xml:space="preserve">
+    <value>国を選択：</value>
+    <comment>Select a country:</comment>
+  </data>
+  <data name="MasterDetail_Text4" xml:space="preserve">
+    <value>次の例では、マスターコントロールとして FlexGrid が使用されています。グリッドで項目を選択すると、下のコントロールに詳細が表示されます。</value>
+    <comment>In the next example, FlexGrid is used as the master
+    control. Select an item on the grid and see the details
+    in the controls below:</comment>
+  </data>
+  <data name="MasterDetail_Text5" xml:space="preserve">
+    <value>国：</value>
+    <comment>Country:</comment>
+  </data>
+  <data name="MasterDetail_Text6" xml:space="preserve">
+    <value>製品：</value>
+    <comment>Product:</comment>
+  </data>
+  <data name="MasterDetail_Text7" xml:space="preserve">
+    <value>日付：</value>
+    <comment>Date:</comment>
+  </data>
+  <data name="MasterDetail_Text8" xml:space="preserve">
+    <value>売上：</value>
+    <comment>Sales:</comment>
+  </data>
+  <data name="MasterDetail_Text9" xml:space="preserve">
+    <value>経費：</value>
+    <comment>Expenses:</comment>
+  </data>
+  <data name="MasterDetail_Title" xml:space="preserve">
+    <value>マスター/詳細</value>
+    <comment>Master Detail</comment>
+  </data>
+  <data name="MasterDetail_Title1" xml:space="preserve">
+    <value>マスター</value>
+    <comment>Master</comment>
+  </data>
+  <data name="MasterDetail_Title2" xml:space="preserve">
+    <value>詳細</value>
+    <comment>Detail</comment>
+  </data>
+  <data name="MultiRangeSelection_Text1" xml:space="preserve">
+    <value>FlexGrid には、連続しない行範囲を選択できる &lt;b&gt;ListBox&lt;/b&gt; 選択モードがあります。ただし、連続しない複数のセル範囲を選択できるような選択モードは組み込まれていません。</value>
+    <comment>FlexGrid has a &lt;b&gt;ListBox&lt;/b&gt; selection mode that
+    allows users to select non-contiguous ranges of rows.
+    But, it does not have a built-in selection mode that
+    allows user to select multiple, non-contiguous ranges
+    of cells.</comment>
+  </data>
+  <data name="MultiRangeSelection_Text2" xml:space="preserve">
+    <value>複数範囲選択のサポートは、いくつかのイベントを処理することで追加できます。たとえば、次のグリッドでは、［Ctrl］キーを押しながらマウスでいくつかの範囲を選択できます（選択範囲が変更されると、選択された範囲のリストがコンソールに表示されます）。</value>
+    <comment>You can add multi-range selection support by handling
+    a few events. For example, press the Control key while
+    selecting ranges with the mouse on the grid below
+    (the console shows the list of selected ranges
+    as the selection changes):</comment>
+  </data>
+  <data name="MultiRangeSelection_Title" xml:space="preserve">
+    <value>複数範囲選択</value>
+    <comment>Multi-Range Selection</comment>
+  </data>
+  <data name="NoScrollbars_Text1" xml:space="preserve">
+    <value>グリッドのコンテンツの幅または高さがグリッドのサイズを超えると、FlexGrid に自動的にスクロールバーが表示されます。</value>
+    <comment>FlexGrid shows scrollbars automatically, when the
+    width or height of the grid content exceeds the 
+    dimensions of the grid.</comment>
+  </data>
+  <data name="NoScrollbars_Text2" xml:space="preserve">
+    <value>スクロールバーを表示しないでグリッドをスクロール可能にする場合は、CSS を使用して、グリッドのルート要素の &lt;b&gt;overflow&lt;/b&gt; プロパティを「hidden」に設定します。</value>
+    <comment>If you want to keep the grid scrollable without 
+    displaying the scroll bars, you can use CSS to 
+    set the &lt;b&gt;overflow&lt;/b&gt; property of the grid's
+    root element to 'hidden'.</comment>
+  </data>
+  <data name="NoScrollbars_Text3" xml:space="preserve">
+    <value>スクロールバーがなくてもマウスホイールを使用したスクロールをサポートする場合は、"wheel" イベントにハンドラを追加し、ルート要素の &lt;b&gt;scrollTop&lt;/b&gt; 値を更新します。</value>
+    <comment>If you want to support scrolling with the mouse wheel
+    even without scrollbars, add a handler to the "wheel"
+    event and update the &lt;b&gt;scrollTop&lt;/b&gt; value of root element:</comment>
+  </data>
+  <data name="NoScrollbars_Title" xml:space="preserve">
+    <value>スクロールバーを使用しない</value>
+    <comment>No Scrollbars</comment>
+  </data>
+  <data name="Pdf_Text1" xml:space="preserve">
+    <value>FlexGrid を PDF にエクスポートするには、&lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; メソッドを呼び出し、エクスポートするグリッドへの参照とファイル名に加えて、ページ書式、ヘッダー、フッター、スタイルなどを定義するオプションを提供します。</value>
+    <comment>To export FlexGrid to PDF, call the
+    &lt;b&gt;FlexGridPdfConverter.export&lt;/b&gt; method and
+    provide a reference to the grid that will be exported,
+    the file name, and extra options to define the
+    page format, headers and footers, and styles.</comment>
+  </data>
+  <data name="Pdf_Text2" xml:space="preserve">
+    <value>PDF にエクスポート</value>
+    <comment>Export to PDF</comment>
+  </data>
+  <data name="Pdf_Text3" xml:space="preserve">
+    <value>PDF ドキュメントの作成</value>
+    <comment>Create PDF Document</comment>
+  </data>
+  <data name="Pdf_Title" xml:space="preserve">
+    <value>PDF へのエクスポート</value>
+    <comment>Export to PDF</comment>
+  </data>
+  <data name="PersistingState_Text1" xml:space="preserve">
+    <value>この例では、列レイアウト、ソート記述、フィルタ定義などのグリッドの状態を保存および復元する方法を示します。</value>
+    <comment>This example shows how you can save and restore the grid
+    state, including column layout, sort descriptions, and
+    filter definitions.</comment>
+  </data>
+  <data name="PersistingState_Text2" xml:space="preserve">
+    <value>次のグリッドで、列の並べ替え、サイズ変更、ソート、フィルタ処理を試してください。次に、［状態の保存］ボタンを押して、ローカルストレージに状態を保存します。サンプルをもう一度実行し、［状態の復元］ボタンを押して、保存したレイアウトを復元します。</value>
+    <comment>Try reordering, resizing, sorting, and filtering the columns
+    on the grid below. Then press the "Save State" button to save the
+    state to local storage. Run the sample again and press the
+    "Restore State" button to restore the layout that you saved.</comment>
+  </data>
+  <data name="PersistingState_Text3" xml:space="preserve">
+    <value>状態の保存</value>
+    <comment>Save State</comment>
+  </data>
+  <data name="PersistingState_Text4" xml:space="preserve">
+    <value>状態の復元</value>
+    <comment>Restore State</comment>
+  </data>
+  <data name="PersistingState_Title" xml:space="preserve">
+    <value>グリッド状態の保存</value>
+    <comment>Persisting the Grid State</comment>
+  </data>
+  <data name="QuickEditing_Text1" xml:space="preserve">
+    <value>デフォルトでは、&lt;b&gt;FlexGrid&lt;/b&gt; はクイック編集をサポートします。セルを選択して入力を開始すると、グリッドが自動的に編集モードに切り替わり、Excel で編集を行うのと同様にセルを編集することができます。</value>
+    <comment>&lt;b&gt;FlexGrid&lt;/b&gt; supports quick editing by default.
+    If you select a cell and start typing, the grid will
+    automatically switch to the edit mode so that you can
+    edit cells as you would do in Excel.</comment>
+  </data>
+  <data name="QuickEditing_Text2" xml:space="preserve">
+    <value>また、「クイック編集」モードでは、矢印キーを使用して編集を終了し、次のセルに移動することもできます。完全編集モードの場合、矢印キーはエディタ内でカーソルを移動します。クイック編集モードと完全編集モードを切り替えるには、［F2］キーを使用します。</value>
+    <comment>The 'quick-edit' mode also allows users to finish
+    editing using the arrow keys to move on to the next
+    cell. Please note that in the full-edit mode, the
+    arrow keys move the cursor within the editor. The 
+    F2 key toggles the edit mode between quick and full modes.</comment>
+  </data>
+  <data name="QuickEditing_Text3" xml:space="preserve">
+    <value>クイック編集を無効にする最も簡単な方法は、&lt;b&gt;beginninEdit&lt;/b&gt; イベントを処理し、ソースイベントが「keypress」の場合に cancel パラメータを true に設定することです。次のグリッドは、この動作を示します。</value>
+    <comment>If you want to disable quick editing, the easiest way
+    is to handle the &lt;b&gt;beginninEdit&lt;/b&gt; event and set the
+    cancel parameter to true if the source event was a
+    'keypress'. The grid below demonstrates this behavior.</comment>
+  </data>
+  <data name="QuickEditing_Text4" xml:space="preserve">
+    <value>クイック編集を許可</value>
+    <comment>Allow Quick-Editing</comment>
+  </data>
+  <data name="QuickEditing_Title" xml:space="preserve">
+    <value>Excel 形式のクイック編集</value>
+    <comment>Excel-Style Quick-Editing</comment>
+  </data>
+  <data name="ReadOnlyRequiredColumns_Text1" xml:space="preserve">
+    <value>グリッド、列、行の各オブジェクトの &lt;b&gt;isReadOnly&lt;/b&gt; プロパティを使用すると、それぞれグリッド、列、行の各レベルの編集を無効にすることができます。また、&lt;b&gt;cellEditStarting&lt;/b&gt; イベントを使用すると、特定のセルの編集を無効にすることもできます。</value>
+    <comment>You can disable editing at the grid, column, or row levels
+    using the &lt;b&gt;isReadOnly&lt;/b&gt; property of the grid, column,
+    or row objects respectively. You can also disable editing 
+    for specific cells using the &lt;b&gt;cellEditStarting&lt;/b&gt; event.</comment>
+  </data>
+  <data name="ReadOnlyRequiredColumns_Text2" xml:space="preserve">
+    <value>列の &lt;b&gt;isRequired&lt;/b&gt; プロパティを使用すると、その列に空/null の値を許可するかどうかを指定することができます。</value>
+    <comment>You can use the column's &lt;b&gt;isRequired&lt;/b&gt; property to
+    determine whether empty/null values should be allowed
+    for that column.</comment>
+  </data>
+  <data name="ReadOnlyRequiredColumns_Text3" xml:space="preserve">
+    <value>次のグリッドでは、「Country」列に空の値は入力できませんが、数値列のコンテンツは削除することができます。</value>
+    <comment>The grid below prevents users from entering empty
+    values for the 'Country' column, and allows them to delete
+    the content of the numeric columns.</comment>
+  </data>
+  <data name="ReadOnlyRequiredColumns_Text4" xml:space="preserve">
+    <value>また、&lt;b&gt;beginningEdit&lt;/b&gt; イベントを使用して、締め切りの項目を編集できないようにしています。</value>
+    <comment>The grid also uses the &lt;b&gt;beginningEdit&lt;/b&gt; event to
+    prevent users from editing items that are overdue:</comment>
+  </data>
+  <data name="ReadOnlyRequiredColumns_Title" xml:space="preserve">
+    <value>読み取り専用の列と必須の列</value>
+    <comment>Read-Only, Required Columns</comment>
+  </data>
+  <data name="RestrictedMerging_Text1" xml:space="preserve">
+    <value>デフォルトの FlexGrid は、隣接するセルのコンテンツには関係なく、同じコンテンツを持つセルどうしを結合します。</value>
+    <comment>By default, FlexGrid merges cells that have the
+    same content, regardless of the content of neighboring
+    cells.</comment>
+  </data>
+  <data name="RestrictedMerging_Text2" xml:space="preserve">
+    <value>この例では、カスタム結合マネージャーを使用して、直前の列のセルが同じ値を持つ場合にのみ、垂直方向にセルを結合します。</value>
+    <comment>In this example, we use a custom merge manager that
+    merges cells vertically only if the cells in the
+    previous column contain the same value.</comment>
+  </data>
+  <data name="RestrictedMerging_Title" xml:space="preserve">
+    <value>制限付き結合</value>
+    <comment>Restricted Merging</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text1" xml:space="preserve">
+    <value>多くの場合、グリッドに行を追加または削除するためのコードを作成する必要はありません。デフォルトでは、グリッドの &lt;b&gt;itemsSource&lt;/b&gt; プロパティを設定したときに、1 行の列ヘッダーと、連結項目ごとにそれぞれ 1 行が自動的にグリッドに追加されます。</value>
+    <comment>In most of the cases, you do not need to write code to add or
+    remove rows from the grid. By default, it has
+    one row of column headers and one row per bound item
+    which is added automatically when you set the grid's
+    &lt;b&gt;itemsSource&lt;/b&gt; property.</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text2" xml:space="preserve">
+    <value>実行時にユーザーが行を追加または削除できるようにする場合は、次のプロパティを使用します。</value>
+    <comment>If you want to allow users to add or remove rows at
+    runtime, use the following properties:</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text3" xml:space="preserve">
+    <value>&lt;b&gt;allowAddNew&lt;/b&gt;：このプロパティを true に設定すると、グリッドの下部に新しい行テンプレートが表示されます。ユーザーは、新しい行テンプレートのセルに入力して、&lt;b&gt;itemsSource&lt;/b&gt; 配列に新しい行を追加することができます。</value>
+    <comment>&lt;b&gt;allowAddNew&lt;/b&gt;:
+        Setting this property to true causes the grid to show
+        a new row 'template' at the bottom of the grid. Users
+        may add new rows to the &lt;b&gt;itemsSource&lt;/b&gt; array by
+        filling out the cells in the new row template.</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text4" xml:space="preserve">
+    <value>&lt;b&gt;allowRemove&lt;/b&gt;：このプロパティを true に設定すると、［Del］キーを使用して、選択した行を削除することができます。ユーザーは、行ヘッダーをクリックして行を選択してから、［Del］キーを押して &lt;b&gt;itemsSource&lt;/b&gt; 配列から連結項目を削除できます。</value>
+    <comment>&lt;b&gt;allowRemove&lt;/b&gt;:
+        Setting this property to true causes the grid to handle
+        the 'Delete' key and remove selected rows. Users may
+        click row headers to select the row, then press 'Delete'
+        to remove the bound items from the &lt;b&gt;itemsSource&lt;/b&gt;
+        array.</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text5" xml:space="preserve">
+    <value>&lt;b&gt;newRowAtTop&lt;/b&gt;：このプロパティを true に設定すると、グリッドの下部ではなく上部に新しい行テンプレートが表示されます。</value>
+    <comment>&lt;b&gt;newRowAtTop&lt;/b&gt;:
+        Setting this property to true causes the grid to show the
+        new row template at the top of the grid rather than at
+        the bottom.</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text6" xml:space="preserve">
+    <value>次のグリッドはこれらの機能を示します。</value>
+    <comment>The grid below shows how this works:</comment>
+  </data>
+  <data name="RowsAddingRemoving_Text7" xml:space="preserve">
+    <value>newRowAtTop</value>
+    <comment>newRowAtTop</comment>
+  </data>
+  <data name="RowsAddingRemoving_Title" xml:space="preserve">
+    <value>行の追加と削除</value>
+    <comment>Adding and Removing Rows</comment>
+  </data>
+  <data name="RowsColumns_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールは、6 つの &lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.grid.GridPanel.Class.html" target="_blank"&gt;GridPanel&lt;/a&gt; 要素で構成されます。</value>
+    <comment>The FlexGrid control is made up of six
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.GridPanel.Class.html" target="_blank"&gt;GridPanel&lt;/a&gt;
+    elements.</comment>
+  </data>
+  <data name="RowsColumns_Text10" xml:space="preserve">
+    <value>&lt;b&gt;スクロール可能な行&lt;/b&gt;：グリッドの中央部にある 2 つのパネルは、スクロール可能な行のコレクションを共有します。</value>
+    <comment>&lt;b&gt;Scrollable Rows:&lt;/b&gt;
+    The two panels along the middle of the grid share a collection
+    of 'scrollable' rows:</comment>
+  </data>
+  <data name="RowsColumns_Text11" xml:space="preserve">
+    <value>&lt;b&gt;フッター行&lt;/b&gt;：グリッドの下部にある 2 つのパネルは、フッター行のコレクションを共有します。</value>
+    <comment>&lt;b&gt;Footer Rows:&lt;/b&gt;
+    The two panels along the bottom of the grid share a collection
+    of 'footer' rows:</comment>
+  </data>
+  <data name="RowsColumns_Text2" xml:space="preserve">
+    <value>各パネルは、&lt;b&gt;行&lt;/b&gt;と&lt;b&gt;列&lt;/b&gt;のコレクションを持ちます。行や列は、各パネルの各セルに表示される内容を定義するプロパティを持ちます。</value>
+    <comment>Each panel has a collection of &lt;b&gt;rows&lt;/b&gt; and &lt;b&gt;columns&lt;/b&gt;.
+    Rows and columns have properties that define what should be
+    displayed in each cell of each panel.</comment>
+  </data>
+  <data name="RowsColumns_Text3" xml:space="preserve">
+    <value>特に、&lt;b&gt;Row&lt;/b&gt; オブジェクトには、その行の連結先のオブジェクトを指定する &lt;b&gt;dataItem&lt;/b&gt; プロパティがあり、&lt;b&gt;Column&lt;/b&gt; オブジェクトには、セルに表示されるデータ項目のプロパティを指定する &lt;b&gt;binding&lt;/b&gt; プロパティがあります。</value>
+    <comment>Specifically, &lt;b&gt;Row&lt;/b&gt; objects have a &lt;b&gt;dataItem&lt;/b&gt; property
+    that determines the object the row is bound to, and &lt;b&gt;Column&lt;/b&gt;
+    objects have a &lt;b&gt;binding&lt;/b&gt; property that determines which property
+    of the data item should be displayed in the cell.</comment>
+  </data>
+  <data name="RowsColumns_Text4" xml:space="preserve">
+    <value>多くの場合は、グリッドの &lt;b&gt;rows&lt;/b&gt; プロパティと &lt;b&gt;columns&lt;/b&gt; プロパティを単純に使用することができます。これらのプロパティは、&lt;b&gt;cells&lt;/b&gt; パネルの行コレクションと列コレクションを参照します。</value>
+    <comment>In most of the situations, you can simply use &lt;b&gt;rows&lt;/b&gt; and 
+    &lt;b&gt;columns&lt;/b&gt; properties of the grid, which refer to the row and
+    column collections of the &lt;b&gt;cells&lt;/b&gt; panel.</comment>
+  </data>
+  <data name="RowsColumns_Text5" xml:space="preserve">
+    <value>しかし、特定のパネルのプロパティを必要とする場合もあります。たとえば、複数行の列ヘッダーや複数列の行ヘッダーを作成する場合や、グループフッターパネルに行を追加する場合です。</value>
+    <comment>But there are situations where you will need the properties
+    of specific panels. For example, to create a multi-row column
+    header, multi-column row header, or to add rows to the
+    group footer panel.</comment>
+  </data>
+  <data name="RowsColumns_Text6" xml:space="preserve">
+    <value>行と列のコレクションは、パネルによって次のように共有されます。</value>
+    <comment>The collections of rows and columns are shared by the panels as
+    follows:</comment>
+  </data>
+  <data name="RowsColumns_Text7" xml:space="preserve">
+    <value>&lt;b&gt;ヘッダー列&lt;/b&gt;：グリッドの左側にある 3 つのパネルは、ヘッダー列のコレクションを共有します。</value>
+    <comment>&lt;b&gt;Header Columns:&lt;/b&gt;
+    The three panels on the left of the grid share a collection
+    of 'header' columns:</comment>
+  </data>
+  <data name="RowsColumns_Text8" xml:space="preserve">
+    <value>&lt;b&gt;スクロール可能な列&lt;/b&gt;：グリッドの右側にある 3 つのパネルは、スクロール可能な列のコレクションを共有します。</value>
+    <comment>&lt;b&gt;Scrollable Columns:&lt;/b&gt;
+    The three panels on the right of the grid share a collection
+    of 'scrollable' columns:</comment>
+  </data>
+  <data name="RowsColumns_Text9" xml:space="preserve">
+    <value>&lt;b&gt;ヘッダー行&lt;/b&gt;：グリッドの上部にある 2 つのパネルは、ヘッダー行のコレクションを共有します。</value>
+    <comment>&lt;b&gt;Header Rows:&lt;/b&gt;
+    The two panels along the top of the grid share a collection
+    of 'header' rows:</comment>
+  </data>
+  <data name="RowsColumns_Title" xml:space="preserve">
+    <value>行と列</value>
+    <comment>Rows and Columns</comment>
+  </data>
+  <data name="RowsDetails_Text1" xml:space="preserve">
+    <value>標準グリッドには簡単に収まらないほど多くの情報を含むデータオブジェクトに行が連結されることがあります。</value>
+    <comment>Sometimes rows are bound to data objects that contain
+    more information than what would fit easily on a regular grid.</comment>
+  </data>
+  <data name="RowsDetails_Text2" xml:space="preserve">
+    <value>このような場合は、&lt;b&gt;wijmo.grid.detail&lt;/b&gt; モジュールに含まれている &lt;b&gt;FlexGridDetailProvider&lt;/b&gt; クラスを使用することができます。</value>
+    <comment>In these scenarios, you may want to use the
+    &lt;b&gt;FlexGridDetailProvider&lt;/b&gt; class that is included with
+    the &lt;b&gt;wijmo.grid.detail&lt;/b&gt; module.</comment>
+  </data>
+  <data name="RowsDetails_Text3" xml:space="preserve">
+    <value>&lt;b&gt;FlexGridDetailProvider&lt;/b&gt; は &lt;b&gt;FlexGrid&lt;/b&gt; クラスの拡張です。行ヘッダーに折りたたみ/展開ボタンを追加し、項目に関する詳細を追加提供するための &lt;b&gt;createDetailCell&lt;/b&gt; メソッドを持ちます。詳細情報は「詳細行」に表示されます。詳細行は、詳細を展開したときにグリッドに追加され、折りたたんだときに削除されます。</value>
+    <comment>&lt;b&gt;FlexGridDetailProvider&lt;/b&gt; extends the &lt;b&gt;FlexGrid&lt;/b&gt;
+    class by adding collapse/expand buttons to row headers, and a
+    &lt;b&gt;createDetailCell&lt;/b&gt; method that can be used to provide
+    additional details about an item. The detail information
+    is shown in a 'detail row' added to the grid when the
+    details are expanded, and removed when they are collapsed.</comment>
+  </data>
+  <data name="RowsDetails_Text4" xml:space="preserve">
+    <value>次のグリッドには、各行に製品カテゴリが表示されています。行を展開すると、そのカテゴリの製品に関する情報が HTML 要素として表示されます。</value>
+    <comment>This grid shows product categories on each row. Expanding
+    the rows shows an HTML element with information about
+    the products in that category.</comment>
+  </data>
+  <data name="RowsDetails_Text5" xml:space="preserve">
+    <value>詳細行には、別のグリッドなどの任意の要素を追加できます。次の例には同じカテゴリが表示されていますが、詳細行には別のグリッドを使用して製品が表示されます。</value>
+    <comment>You can add anything you want to the detail rows,
+    including other grids. This example shows the same
+    categories, but the detail row uses another grid
+    to show the products.</comment>
+  </data>
+  <data name="RowsDetails_Title" xml:space="preserve">
+    <value>行詳細</value>
+    <comment>Row Details</comment>
+  </data>
+  <data name="RowsDetails_Title1" xml:space="preserve">
+    <value>HTML による行詳細</value>
+    <comment>HTML in Row Details</comment>
+  </data>
+  <data name="RowsDetails_Title2" xml:space="preserve">
+    <value>グリッドによる行詳細</value>
+    <comment>Grids in Row Details</comment>
+  </data>
+  <data name="RowsProperties_Text1" xml:space="preserve">
+    <value>&lt;b&gt;wijmo.grid.Row&lt;/b&gt; クラスには、&lt;a href="http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/index.html#wijmo.grid.Row.Class.html" target="_blank"&gt;およそ 20 のプロパティ&lt;/a&gt;があり、それを使用して行の外観と動作を設定できます。</value>
+    <comment>The &lt;b&gt;wijmo.grid.Row&lt;/b&gt; class has
+    &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.Row.Class.html" target="_blank"&gt;
+        almost 20 properties
+    &lt;/a&gt; which you can use to configure rows's appearance and behavior.</comment>
+  </data>
+  <data name="RowsProperties_Text10" xml:space="preserve">
+    <value>たとえば、次のボタンをクリックすると、グリッドの行が 1 行おきに表示または非表示にされます。</value>
+    <comment>For example, click the button below to hide or show every alternate
+    row on the grid.</comment>
+  </data>
+  <data name="RowsProperties_Text11" xml:space="preserve">
+    <value>行の表示/非表示</value>
+    <comment>Toggle Row Visibility</comment>
+  </data>
+  <data name="RowsProperties_Text2" xml:space="preserve">
+    <value>グリッドを更新すると、スクロール可能な行が再作成されます（したがって、グリッドを新しいデータに連結できます）。このため、通常は、行が作成された後に発生する &lt;b&gt;loadedRows&lt;/b&gt; イベントに応答して行のプロパティを適用する必要があります。</value>
+    <comment>Note that when grids refresh, the scrollable rows are re-created
+    (so they can be bound to the new data). Because of this, you
+    should normally apply row properties in response to the
+    &lt;b&gt;loadedRows&lt;/b&gt; event, which fires after the rows have been
+    created.</comment>
+  </data>
+  <data name="RowsProperties_Text3" xml:space="preserve">
+    <value>多くの行は &lt;b&gt;Row&lt;/b&gt; クラスのインスタンスです。グループ化されたグリッドには &lt;b&gt;GroupRow&lt;/b&gt; オブジェクトが含まれることもありますが、これは通常の &lt;b&gt;Row&lt;/b&gt; クラスの拡張です。</value>
+    <comment>Most rows are instances of the &lt;b&gt;Row&lt;/b&gt; class, but grouped grids
+    may also contain &lt;b&gt;GroupRow&lt;/b&gt; objects, which extend the regular
+    &lt;b&gt;Row&lt;/b&gt; class.</comment>
+  </data>
+  <data name="RowsProperties_Text4" xml:space="preserve">
+    <value>&lt;b&gt;Row&lt;/b&gt; クラスの最も重要なプロパティは、次のとおりです。</value>
+    <comment>The most important properties in the &lt;b&gt;Row&lt;/b&gt; class are:</comment>
+  </data>
+  <data name="RowsProperties_Text5" xml:space="preserve">
+    <value>&lt;b&gt;dataItem&lt;/b&gt;：行に連結されたデータ項目への参照が含まれます。このプロパティは、グリッドによって連結行が作成されたときに設定され、&lt;b&gt;formatItem&lt;/b&gt; イベントハンドラでよく使用されます。&lt;b&gt;GroupRow&lt;/b&gt; オブジェクトの &lt;b&gt;dataItem&lt;/b&gt; プロパティには、通常のデータ項目ではなく行の &lt;b&gt;Group&lt;/b&gt; への参照が含まれます。</value>
+    <comment>&lt;b&gt;dataItem&lt;/b&gt;:
+        Contains a reference to the data item that is bound to the row.
+        This property is set by the grid when it creates bound rows, and
+        is often used in &lt;b&gt;formatItem&lt;/b&gt; event handlers.
+        In &lt;b&gt;GroupRow&lt;/b&gt; objects, the &lt;b&gt;dataItem&lt;/b&gt; property
+        contains a reference to the row's &lt;b&gt;Group&lt;/b&gt; rather than
+        to a regular data item.</comment>
+  </data>
+  <data name="RowsProperties_Text6" xml:space="preserve">
+    <value>&lt;b&gt;isReadOnly&lt;/b&gt;：行が編集可能かどうかを取得または設定します。デフォルトでは、&lt;b&gt;Row&lt;/b&gt; のインスタンスは編集可能で、&lt;b&gt;GroupRow&lt;/b&gt; のインスタンスは編集可能ではありません。</value>
+    <comment>&lt;b&gt;isReadOnly&lt;/b&gt;:
+        Gets or sets whether the row is editable. By default, &lt;b&gt;Row&lt;/b&gt;
+        instances are editable and &lt;b&gt;GroupRow&lt;/b&gt; instances are not.</comment>
+  </data>
+  <data name="RowsProperties_Text7" xml:space="preserve">
+    <value>&lt;b&gt;isSelected&lt;/b&gt;：このプロパティは、グリッドの &lt;b&gt;selectionMode&lt;/b&gt; プロパティが &lt;b&gt;ListBox&lt;/b&gt; に設定されている場合に重要です。この場合、ユーザーは非連続の行セットを選択でき、&lt;b&gt;isSelected&lt;/b&gt; プロパティで個々の行の選択状態を取得または設定できます。</value>
+    <comment>&lt;b&gt;isSelected&lt;/b&gt;:
+        This property is important when the grid's &lt;b&gt;selectionMode&lt;/b&gt;
+        property is set to &lt;b&gt;ListBox&lt;/b&gt;. In this case, users may select
+        non-contiguous sets of rows, and the &lt;b&gt;isSelected&lt;/b&gt; property
+        allows you to get or set the selected state of individual rows.</comment>
+  </data>
+  <data name="RowsProperties_Text8" xml:space="preserve">
+    <value>&lt;b&gt;visible&lt;/b&gt;：行が可視かどうかを取得または設定します。このプロパティを使用して、条件に応じて行を非表示にすることができます。</value>
+    <comment>&lt;b&gt;visible&lt;/b&gt;:
+        Gets or sets whether the row is visible. You can use this property
+        to conditionally hide rows.</comment>
+  </data>
+  <data name="RowsProperties_Text9" xml:space="preserve">
+    <value>&lt;b&gt;isVisible&lt;/b&gt;：行が現在表示されているかどうかを示す値を取得します。&lt;b&gt;visible&lt;/b&gt; プロパティが true に設定されている場合でも、折りたたまれたグループに含まれる行は非表示になります。</value>
+    <comment>&lt;b&gt;isVisible&lt;/b&gt;:
+        Gets a value that indicates whether the row is currently visible.
+        Even if the &lt;b&gt;visible&lt;/b&gt; property is set to true, rows may
+        be hidden because they are part of collapsed groups.</comment>
+  </data>
+  <data name="RowsProperties_Title" xml:space="preserve">
+    <value>Row のプロパティ</value>
+    <comment>Row Properties</comment>
+  </data>
+  <data name="RowsStylingHover_Text1" xml:space="preserve">
+    <value>デフォルトでは、グリッドのセルの背景は単色です。これは、:hover などの疑似セレクタを使用して行のスタイル設定を行うときには妨げになります。</value>
+    <comment>By default, grid cells have solid backgrounds. This can get
+    in the way of styling rows using pseudo selectors such as :hover.</comment>
+  </data>
+  <data name="RowsStylingHover_Text2" xml:space="preserve">
+    <value>セルには簡単にホバースタイルを設定できます。「.wj-cell」クラスと「:hover」疑似セレクタに基づいて、いくらかの CSS を追加するだけです。</value>
+    <comment>You can simply give a hover style to cells. 
+    Just add some CSS based on the '.wj-cell' class and ':hover'
+    pseudo-selector:</comment>
+  </data>
+  <data name="RowsStylingHover_Text3" xml:space="preserve">
+    <value>行全体にホバースタイルを設定する場合は、代わりに「.wj-row」要素にホバー疑似スタイルを適用し、それを行の選択されていない子のセルに拡張します。</value>
+    <comment>If you want to give a hover style to entire row, apply the hover
+    pseudo-style to the '.wj-row' element instead, and extend it to
+    the row's non-selected child cells:</comment>
+  </data>
+  <data name="RowsStylingHover_Title" xml:space="preserve">
+    <value>ホバースタイル</value>
+    <comment>Hover Styles</comment>
+  </data>
+  <data name="RowsStylingHover_Title1" xml:space="preserve">
+    <value>セルのホバー</value>
+    <comment>Hover on Cells</comment>
+  </data>
+  <data name="RowsStylingHover_Title2" xml:space="preserve">
+    <value>行のホバー</value>
+    <comment>Hover on Rows</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Text1" xml:space="preserve">
+    <value>デフォルトでは、グリッドはフォントサイズとデフォルトのセルパディングに基づいて行の高さを計算します。デフォルトのセルパディングは、「wijmo.css」ファイルで 3 ピクセルに設定されています。</value>
+    <comment>By default, the grid computes row heights based on the
+    font size and a default cell padding which is set to
+    three pixels in the 'wijmo.css' file.</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Text2" xml:space="preserve">
+    <value>このデフォルト値は、CSS を使用して別のセルパディングを設定することで簡単に変更できます。これは、すべてのグリッドパネルのセルに適用され、コードも不要なので、よい方法です。</value>
+    <comment>You can change this default value easily by specifying a
+    different padding for the cells using CSS. This
+    is a good approach because it applies to cells in
+    all grid panels and does not require any code.</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Text3" xml:space="preserve">
+    <value>たとえば、次の最初のグリッドはデフォルトのスタイルを使用しています。2 番目のグリッドでは、セルパディングを 8 ピクセルに増やして、画面の小さなデバイスでの使い勝手をよくしています。</value>
+    <comment>For example, the first grid below uses the default
+    styles. The second increases cell padding to eight
+    pixels, which makes it easier to use on devices
+    with small screens:</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Title" xml:space="preserve">
+    <value>行の高さ</value>
+    <comment>Row Height</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Title1" xml:space="preserve">
+    <value>デフォルトのセルパディング：3px</value>
+    <comment>Default Cell Padding: 3px</comment>
+  </data>
+  <data name="RowsStylingRowHeight_Title2" xml:space="preserve">
+    <value>カスタムセルパディング：8px</value>
+    <comment>Custom Cell Padding: 8px</comment>
+  </data>
+  <data name="RowsStylingVerticalAlignment_Text1" xml:space="preserve">
+    <value>多くの場合、FlexGrid のセルにはそれぞれ 1 行のコンテンツが含まれるだけなので、セル内の垂直方向の配置は問題になりません。ただし、一部または全部のセルに対して垂直方向の配置を制御したい場合もあります。たとえば、テキストを折り返して表示したり、セルを垂直方向に結合する場合です。</value>
+    <comment>In most of the cases, the vertical alignment of content within
+    FlexGrid cells doesn't matter, since cells contain only
+    a single row of content. However, in some situations
+    you may want to control the vertical alignment of some
+    or all cells. For example, when showing wrapping text
+    or merging cells vertically.</comment>
+  </data>
+  <data name="RowsStylingVerticalAlignment_Text2" xml:space="preserve">
+    <value>FlexGrid のセルの垂直方向の配置を制御するには、&lt;b&gt;formatItem&lt;/b&gt; イベントを使用し、目的の結果が得られるようにセルの HTML を変更する必要があります。</value>
+    <comment>To control the vertical alignment of FlexGrid cells,
+    you should use the &lt;b&gt;formatItem&lt;/b&gt; event and modify
+    the cell's HTML to achieve the result you want.</comment>
+  </data>
+  <data name="RowsStylingVerticalAlignment_Text3" xml:space="preserve">
+    <value>たとえば、次のグリッドには、CSS transform を使用して垂直方向に配置されたセルが含まれています。</value>
+    <comment>For example, the grid below has cells that are
+    vertically aligned using a CSS transform:</comment>
+  </data>
+  <data name="RowsStylingVerticalAlignment_Title" xml:space="preserve">
+    <value>垂直方向の配置</value>
+    <comment>Vertical Alignment</comment>
+  </data>
+  <data name="RowsStyling_Text1" xml:space="preserve">
+    <value>デフォルトでは、グリッドは 1 行おきに「wj-alt」クラスを追加し、「wijmo.css」ファイルでこのクラスを使用して交互表示行をスタイル設定しています。何らかのカスタム CSS を使用してこの設定を無効にすることもできますが、交互表示行スタイルをまったく適用しないのであれば、グリッドの &lt;b&gt;showAlternatingRows&lt;/b&gt; プロパティを false に設定するだけの方が通常は簡単です。</value>
+    <comment>By default, the grid adds a 'wj-alt' class to every other
+    row, and the 'wijmo.css' file uses this class to style
+    alternating rows. You can disable this using some custom
+    CSS, but it is often easier just to set the grid's
+    &lt;b&gt;showAlternatingRows&lt;/b&gt; property to false if you don't
+    want alternating row styles applied at all.</comment>
+  </data>
+  <data name="RowsStyling_Text2" xml:space="preserve">
+    <value>FlexGrid では、データソースが更新されるたびに行が再生成されます。これは、データがソート、フィルタ処理、グループ化、または編集されたときに起こります。このため、多くの場合、行のプロパティが値を維持することを期待してはなりません。</value>
+    <comment>FlexGrid re-generates rows whenever the data source
+    refreshes, which happens when the data is sorted, filtered,
+    grouped, or edited. Because of this, you should not expect
+    row properties to retain their values in most cases.</comment>
+  </data>
+  <data name="RowsStyling_Text3" xml:space="preserve">
+    <value>行にカスタムスタイルを適用する場合は、行が再生成されるたびに発生する &lt;b&gt;loadedRows&lt;/b&gt; イベントを処理して行う必要があります。</value>
+    <comment>If you do want to apply custom styles to rows, you should
+    do this when handling the &lt;b&gt;loadedRows&lt;/b&gt; event, which
+    fires whenever the grid re-generates the rows.</comment>
+  </data>
+  <data name="RowsStyling_Text4" xml:space="preserve">
+    <value>スタイル設定に影響する行のプロパティは、次のとおりです。</value>
+    <comment>The row properties that affect styling are:</comment>
+  </data>
+  <data name="RowsStyling_Text5" xml:space="preserve">
+    <value>&lt;b&gt;cssClass&lt;/b&gt;：この行内のセルに追加するクラス名を指定します。このクラス名を CSS ルール内で使用して、この行内のセルのスタイルを変更できます。</value>
+    <comment>&lt;b&gt;cssClass&lt;/b&gt;: Specifies a class name to be added to cells
+        in this row. The class name can be used in CSS rules to
+        modify the style of cells in this row.</comment>
+  </data>
+  <data name="RowsStyling_Text6" xml:space="preserve">
+    <value>&lt;b&gt;height&lt;/b&gt;：行の高さをピクセル単位で指定します。</value>
+    <comment>&lt;b&gt;height&lt;/b&gt;: Specifies height of the row in pixels.</comment>
+  </data>
+  <data name="RowsStyling_Text7" xml:space="preserve">
+    <value>次のグリッドは、グリッドの &lt;b&gt;showAlternatingRows&lt;/b&gt; プロパティと行の &lt;b&gt;cssClass&lt;/b&gt; プロパティの効果を示します。</value>
+    <comment>The grid below shows the effect of the grid's &lt;b&gt;showAlternatingRows&lt;/b&gt;
+    and the row's &lt;b&gt;cssClass&lt;/b&gt; properties.</comment>
+  </data>
+  <data name="RowsStyling_Text8" xml:space="preserve">
+    <value>showAlternatingRows</value>
+    <comment>showAlternatingRows</comment>
+  </data>
+  <data name="RowsStyling_Title" xml:space="preserve">
+    <value>行のスタイル設定</value>
+    <comment>Row Styling</comment>
+  </data>
+  <data name="Rows_Text1" xml:space="preserve">
+    <value>FlexGrid コントロールは、次の 3 セットの行を持っています。</value>
+    <comment>The FlexGrid control has three sets of rows:</comment>
+  </data>
+  <data name="Rows_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ヘッダー行&lt;/b&gt;：このコレクションには、上部の行セットが含まれます。これは、&lt;b&gt;topLeftCells&lt;/b&gt; パネルと &lt;b&gt;columnHeaders&lt;/b&gt; パネルで使用されます。デフォルトでは、このコレクションには 1 行だけ含まれます。</value>
+    <comment>&lt;b&gt;Header Rows&lt;/b&gt;
+        This collection contains the top set of rows;
+        it is used by the &lt;b&gt;topLeftCells&lt;/b&gt; and
+        &lt;b&gt;columnHeaders&lt;/b&gt; panels.
+        By default, this collection contains one row.</comment>
+  </data>
+  <data name="Rows_Text3" xml:space="preserve">
+    <value>&lt;b&gt;スクロール可能な行&lt;/b&gt;：このコレクションには、メインの行セットが含まれます。これは、&lt;b&gt;cells&lt;/b&gt; パネルと &lt;b&gt;rowHeaders&lt;/b&gt; パネルで使用されます。デフォルトでは、このコレクションには行が含まれません。グリッドの &lt;b&gt;itemsSource&lt;/b&gt; プロパティを設定すると、行が設定されます。</value>
+    <comment>&lt;b&gt;Scrollable Rows&lt;/b&gt;
+        This collection contains the main set of rows;
+        it is used by the &lt;b&gt;cells&lt;/b&gt; and &lt;b&gt;rowHeaders&lt;/b&gt;
+        panels.
+        By default, this collection does not contain any row.
+        It is populated when you set the grid's
+        &lt;b&gt;itemsSource&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Rows_Text4" xml:space="preserve">
+    <value>&lt;b&gt;フッター行&lt;/b&gt;：このコレクションには、下部の行セットが含まれます。これは、&lt;b&gt;bottomLeftCells&lt;/b&gt; パネルと &lt;b&gt;columnFooters&lt;/b&gt; パネルで使用されます。デフォルトでは、このコレクションは空です。</value>
+    <comment>&lt;b&gt;Footer Rows&lt;/b&gt;
+        This collection contains the bottom set of rows;
+        it is used by the &lt;b&gt;bottomLeftCells&lt;/b&gt;
+        and &lt;b&gt;columnFooters&lt;/b&gt; panels.
+        By default, this collection is empty.</comment>
+  </data>
+  <data name="Rows_Text5" xml:space="preserve">
+    <value>この 3 つの行コレクションは、標準の配列を拡張した &lt;b&gt;RowCollection&lt;/b&gt; オブジェクトです。これらの配列に &lt;b&gt;Row&lt;/b&gt; オブジェクトを追加または削除することで、行を追加または削除することができます。 ただし、多くの場合、スクロール可能な行の追加と削除は行いません。&lt;b&gt;itemsSource&lt;/b&gt; プロパティを設定すると、自動的に追加と削除が行われるからです。</value>
+    <comment>The three row collections are &lt;b&gt;RowCollection&lt;/b&gt;
+    objects, which extend regular arrays.
+    You may add or remove rows by adding or removing &lt;b&gt;Row&lt;/b&gt;
+    objects from these arrays.
+    In most cases, however, you won't add or remove scrollable
+    rows, since the grid does that automatically when you set
+    the &lt;b&gt;itemsSource&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Rows_Text6" xml:space="preserve">
+    <value>たとえば、次のグリッドには、固定行が 1 つ追加され、スクロール可能な行が自動的に生成されています。</value>
+    <comment>For example, the grid below has an extra fixed row and
+    automatically-generated scrollable rows:</comment>
+  </data>
+  <data name="Rows_Title" xml:space="preserve">
+    <value>行のコレクション</value>
+    <comment>Row Collections</comment>
+  </data>
+  <data name="ScrollingViewRange_Text1" xml:space="preserve">
+    <value>ユーザーがマウスまたはキーボードを使用してセルを選択すると、FlexGrid が &lt;b&gt;scrollIntoView&lt;/b&gt; メソッドを呼び出してそのセルを自動的に表示します。</value>
+    <comment>When user selects a cell using mouse or keyboard,
+    FlexGrid automatically ensures that it is visible by
+    calling the &lt;b&gt;scrollIntoView&lt;/b&gt; method.</comment>
+  </data>
+  <data name="ScrollingViewRange_Text2" xml:space="preserve">
+    <value>&lt;b&gt;scrollIntoView&lt;/b&gt; メソッドは、要求されたセルが現在の &lt;b&gt;viewRange&lt;/b&gt; 内に入るようにグリッドをスクロールします。グリッドはセルの表示に必要な最小限の量だけスクロールするため、セルは表示範囲の上端、中央部、または下端に表示されます。</value>
+    <comment>The &lt;b&gt;scrollIntoView&lt;/b&gt; method causes the grid to
+    scroll so that the requested cell is within the
+    current &lt;b&gt;viewRange&lt;/b&gt;. The grid will scroll the
+    minimum amount needed to show the cell, so it may
+    become visible at the top, middle, or bottom of the
+    view range.</comment>
+  </data>
+  <data name="ScrollingViewRange_Text3" xml:space="preserve">
+    <value>特定の行を表示範囲の上端に表示するには、少し違う方法が必要です。上端に表示するセルの境界四角形を取得し、その座標を使用してグリッドの &lt;b&gt;scrollPosition&lt;/b&gt; プロパティを設定します。</value>
+    <comment>If you want to show a specific row at the top of the view
+    range, you need a slightly different approach. Get the
+    bounding rectangle of the cell you want to show to the
+    top and use the coordinates to set the grid's
+    &lt;b&gt;scrollPosition&lt;/b&gt; property.</comment>
+  </data>
+  <data name="ScrollingViewRange_Text4" xml:space="preserve">
+    <value>次に例を示します。</value>
+    <comment>For example:</comment>
+  </data>
+  <data name="ScrollingViewRange_Text5" xml:space="preserve">
+    <value>スクロールして 100 行目を表示</value>
+    <comment>Scroll Row 100 Into View</comment>
+  </data>
+  <data name="ScrollingViewRange_Text6" xml:space="preserve">
+    <value>上端のセルを 100 行目に設定</value>
+    <comment>Set Top Cell to Row 100</comment>
+  </data>
+  <data name="ScrollingViewRange_Title" xml:space="preserve">
+    <value>スクロールと表示範囲</value>
+    <comment>Scrolling and ViewRange</comment>
+  </data>
+  <data name="SelectionFocus_Text1" xml:space="preserve">
+    <value>「wj-state-focused」疑似クラスを使用すると、FlexGrid コントロールのアクセシビリティを向上させることができます。</value>
+    <comment>You can use the 'wj-state-focused' pseudo-class to improve
+    accessibility of your FlexGrid controls.</comment>
+  </data>
+  <data name="SelectionFocus_Text2" xml:space="preserve">
+    <value>たとえば、次のグリッドは、フォーカスがない場合は選択項目を灰色で表示し、フォーカスがある場合は選択されたセルにオレンジ色の枠を追加します。</value>
+    <comment>For example, the grid below shows the selection in grey when
+    it does not contain the focus, and adds an orange outline
+    to the selected cell when the grid does have the focus.</comment>
+  </data>
+  <data name="SelectionFocus_Title" xml:space="preserve">
+    <value>選択とフォーカス</value>
+    <comment>Selection and Focus</comment>
+  </data>
+  <data name="Selection_Text1" xml:space="preserve">
+    <value>Excel と同様に、&lt;b&gt;FlexGrid&lt;/b&gt; では、デフォルトでマウスまたはキーボードを使用してセルの範囲を選択できます。</value>
+    <comment>By default, the &lt;b&gt;FlexGrid&lt;/b&gt; allows you to select a
+    range of cells with the mouse or keyboard, just like Excel.</comment>
+  </data>
+  <data name="Selection_Text2" xml:space="preserve">
+    <value>&lt;b&gt;selectionMode&lt;/b&gt; プロパティを使用すると、この動作を変更して、ユーザーが行、行範囲、非連続の行（リストボックスと同じ）、または個々のセルを選択するか、何も選択できないように制限することができます。</value>
+    <comment>The &lt;b&gt;selectionMode&lt;/b&gt; property allows you to change this behavior
+    so that users can be restricted from selecting rows, row ranges,
+    non-contiguous rows (like in a list-box), single cells,
+    or nothing at all.</comment>
+  </data>
+  <data name="Selection_Text3" xml:space="preserve">
+    <value>selectionMode</value>
+    <comment>selectionMode</comment>
+  </data>
+  <data name="Selection_Text4" xml:space="preserve">
+    <value>現在の &lt;b&gt;selectionMode&lt;/b&gt; に関係なく、選択範囲が変更されると、&lt;b&gt;selectionChanging&lt;/b&gt; イベントと &lt;b&gt;selectionChanged&lt;/b&gt; イベントが発生します。また、&lt;b&gt;selection&lt;/b&gt; プロパティを使用して、現在の選択を &lt;b&gt;CellRange&lt;/b&gt; 値として取得または設定することができます。</value>
+    <comment>Regardless of the current &lt;b&gt;selectionMode&lt;/b&gt;, the grid raises
+    &lt;b&gt;selectionChanging&lt;/b&gt; and &lt;b&gt;selectionChanged&lt;/b&gt; events
+    when the selection changes. And you can use the &lt;b&gt;selection&lt;/b&gt;
+    property to get or set the current selection as a
+    &lt;b&gt;CellRange&lt;/b&gt; value.</comment>
+  </data>
+  <data name="Selection_Text5" xml:space="preserve">
+    <value>最初の 4 個のセルを選択</value>
+    <comment>Select the first four cells</comment>
+  </data>
+  <data name="Selection_Text6" xml:space="preserve">
+    <value>現在の選択: &lt;span id="currSel"&gt;&lt;/span&gt;</value>
+    <comment>Current selection: &lt;span id="currSel"&gt;&lt;/span&gt;.</comment>
+  </data>
+  <data name="Selection_Text7" xml:space="preserve">
+    <value>&lt;b&gt;ListBox&lt;/b&gt; モードでは、［Ctrl］キーを押しながらクリックして個々の行を選択できます。また、行の &lt;b&gt;isSelected&lt;/b&gt; プロパティを使用して、その行が選択されているかどうかをチェックできます。</value>
+    <comment>In &lt;b&gt;ListBox&lt;/b&gt; mode, users can select individual rows using
+    ctrl+click, and you can check whether rows are selected
+    using the row's &lt;b&gt;isSelected&lt;/b&gt; property.</comment>
+  </data>
+  <data name="Selection_Text8" xml:space="preserve">
+    <value>0、2、4 行目を選択</value>
+    <comment>Select rows 0, 2, and 4</comment>
+  </data>
+  <data name="Selection_Text9" xml:space="preserve">
+    <value>&lt;b&gt;FlexGrid&lt;/b&gt; では、クリップボードが組み込みでサポートされています。［Ctrl］+［C］キーを押すと、現在の選択がクリップボードにコピーされます。</value>
+    <comment>The &lt;b&gt;FlexGrid&lt;/b&gt; has built-in clipboard support.
+    Press ctrl+c to copy the current selection to the
+    clipboard.</comment>
+  </data>
+  <data name="Selection_Title" xml:space="preserve">
+    <value>選択</value>
+    <comment>Selection</comment>
+  </data>
+  <data name="SizingMouse_Text1" xml:space="preserve">
+    <value>デフォルトでは、FlexGrid には列ヘッダーセルによるサイズ変更機能と自動サイズ変更機能が用意されています。そのため、列ヘッダーセルの右端をドラッグして列のサイズを変更したり、セルの右端をダブルクリックして列の自動サイズ変更を実行することができます。次のグリッドでは、このデフォルトの動作を確認することができます。</value>
+    <comment>By default, FlexGrid provides the resize and auto-size
+    feature through column header cells. So, users can drag
+    the right edge of the column header cells to resize 
+    columns, or double-click the right edge of the cell to 
+    auto-size the columns. This default behavior can be 
+    observed in the grid below.</comment>
+  </data>
+  <data name="SizingMouse_Text2" xml:space="preserve">
+    <value>&lt;b&gt;allowResizing&lt;/b&gt; プロパティを使用すると、この動作をカスタマイズできます。サイズ変更をまったく禁止することも、「任意の」セルの右端をドラッグして列をサイズ変更できるようにすることもできます。この最後のオプションは、列ヘッダーがないグリッドで特に便利です。次に例を示します。</value>
+    <comment>You can use the &lt;b&gt;allowResizing&lt;/b&gt; property to customize
+    this behavior. Either prevent resizing altogether,
+    or allow users to resize columns by dragging the right edge
+    of ANY cell. This last option is especially useful in grids
+    without column headers. For example:</comment>
+  </data>
+  <data name="SizingMouse_Title" xml:space="preserve">
+    <value>マウスによるサイズ変更</value>
+    <comment>Sizing with the Mouse</comment>
+  </data>
+  <data name="SizingScrolling_Text1" xml:space="preserve">
+    <value>デフォルトでは、FlexGrid は、コンテンツに合わせて自動的に高さを設定します。</value>
+    <comment>By default, the FlexGrid sets its height automatically
+    to fit its content.</comment>
+  </data>
+  <data name="SizingScrolling_Text2" xml:space="preserve">
+    <value>ただし、一般にはアプリケーション設計に応じて CSS を使用し、グリッドの高さを調整する必要があります。その場合、グリッドは必要に応じてスクロールバーを自動的に表示し、コンテンツを仮想化してパフォーマンスを向上させます。</value>
+    <comment>However, generally, grid height needs to be adjusted 
+    using CSS as per the application design. In that case, 
+    the grid automatically shows scrollbars as needed and 
+    virtualizes the content to improve performance.</comment>
+  </data>
+  <data name="SizingScrolling_Text3" xml:space="preserve">
+    <value>次のグリッドは、最大高さが 150 ピクセルに設定されています。</value>
+    <comment>Below grid has its maximum height set to 150 pixels:</comment>
+  </data>
+  <data name="SizingScrolling_Text4" xml:space="preserve">
+    <value>また、次のグリッドは、グリッドのデフォルトの動作を示します。すなわち、垂直スクロールバーを使用するのではなく、自動的にすべてのコンテンツを表示するために必要な高さになります。</value>
+    <comment>And this one demonstrates the default behavior of the grid where 
+    it automatically takes the height required to show all its
+    content without vertical scrollbars:</comment>
+  </data>
+  <data name="SizingScrolling_Title" xml:space="preserve">
+    <value>サイズ変更と自動サイズ変更</value>
+    <comment>Sizing and Auto Sizing</comment>
+  </data>
+  <data name="Sorting_Text1" xml:space="preserve">
+    <value>FlexGrid は、ソース &lt;b&gt;CollectionView&lt;/b&gt; を介してソートをサポートします。</value>
+    <comment>FkexGrid supports sorting via source &lt;b&gt;CollectionView&lt;/b&gt;.</comment>
+  </data>
+  <data name="Sorting_Text2" xml:space="preserve">
+    <value>デフォルトでは、任意の列ヘッダーをクリックすると、クリックされた列に基づいてデータがソートされます。同じ列ヘッダーをもう一度クリックすると、ソートが順逆になります。［Ctrl］キーを押しながら列ヘッダーをクリックすると、ソートが取り消されます。</value>
+    <comment>By default, clicking on any column header sorts the data
+    based on the column that is clicked. Clicking the same column
+    header again reverts the sort order. Control-clicking
+    the column header removes the sort.</comment>
+  </data>
+  <data name="Sorting_Text3" xml:space="preserve">
+    <value>グリッドの &lt;b&gt;showSort&lt;/b&gt; プロパティと &lt;b&gt;allowSorting&lt;/b&gt; プロパティを使用して、ソート動作をカスタマイズすることができます。列の &lt;b&gt;allowSorting&lt;/b&gt; プロパティを false に設定すると、特定の列のソートを無効にすることができます。</value>
+    <comment>You may customize the sorting behavior using the grid's
+    &lt;b&gt;showSort&lt;/b&gt; and &lt;b&gt;allowSorting&lt;/b&gt; properties. You
+    can disable sorting on specific columns by setting the
+    column's &lt;b&gt;allowSorting&lt;/b&gt; property to false.</comment>
+  </data>
+  <data name="Sorting_Text4" xml:space="preserve">
+    <value>次のグリッドは、「ID」ではソートできません。その他の列はソートをサポートします。</value>
+    <comment>The grid below does not allow sorting by 'ID'.
+    All other columns support sorting.</comment>
+  </data>
+  <data name="Sorting_Text5" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView&lt;/b&gt; クラスは、複数のプロパティに基づくソートをサポートしますが、グリッドにはそのための UI が用意されていません。そのような機能が必要な場合は、Excel 形式のソートダイアログを独自に作成してください。</value>
+    <comment>Although the &lt;b&gt;CollectionView&lt;/b&gt; class supports sorting
+        on multiple properties, the grid does not provide a UI
+        for that. You can build your own Excel-style sort dialogs
+        if you need that functionality.</comment>
+  </data>
+  <data name="Sorting_Title" xml:space="preserve">
+    <value>ソート</value>
+    <comment>Sorting</comment>
+  </data>
+  <data name="StickyHeaders_Text1" xml:space="preserve">
+    <value>FlexGrid の &lt;b&gt;stickyHeaders&lt;/b&gt; プロパティを true に設定すると、グリッドの先頭をページの外までスクロールしても、列ヘッダーが表示されたままになります。</value>
+    <comment>Set the &lt;b&gt;stickyHeaders&lt;/b&gt; property of FlexGrid to true to 
+    keep the column headers visible when users scroll the top
+    of the grid off the page.</comment>
+  </data>
+  <data name="StickyHeaders_Text2" xml:space="preserve">
+    <value>固定ヘッダーを使用すると、データの意味がいつでもわかり、列のソートやサイズ変更も通常どおりに行うことができます。</value>
+    <comment>Sticky headers enable users to see context all the time, and can
+    be used to sort and resize columns as usual.</comment>
+  </data>
+  <data name="StickyHeaders_Text3" xml:space="preserve">
+    <value>固定ヘッダーの動作を確認するには、グリッドの先頭がページの上部から外に出るまで、このページをスクロールしてください。</value>
+    <comment>To see how sticky headers work, scroll the page until the
+    top of the grid scrolls off the top of the page.</comment>
+  </data>
+  <data name="StickyHeaders_Text4" xml:space="preserve">
+    <value>こちらは、固定ヘッダーを使用しないグリッドです。</value>
+    <comment>And here' a grid without sticky headers:</comment>
+  </data>
+  <data name="StickyHeaders_Title" xml:space="preserve">
+    <value>固定ヘッダー</value>
+    <comment>Sticky Headers</comment>
+  </data>
+  <data name="Templates_Text1" xml:space="preserve">
+    <value>&lt;b&gt;format&lt;/b&gt; 関数を使用すると、基本的なテンプレート処理メカニズムを実装することができます。</value>
+    <comment>You can use &lt;b&gt;format&lt;/b&gt; function to implement a
+    basic template handling mechanism.</comment>
+  </data>
+  <data name="Templates_Text2" xml:space="preserve">
+    <value>次のグリッドは、&lt;b&gt;formatItem&lt;/b&gt; イベントを処理し、マークアップで定義されたテンプレート要素を使用して、［テンプレート］列のセルのコンテンツを生成します。</value>
+    <comment>The grid below handles the &lt;b&gt;formatItem&lt;/b&gt; event to
+    generate the content for cells in the "Template" column
+    using a template element defined in the markup:</comment>
+  </data>
+  <data name="Templates_Title" xml:space="preserve">
+    <value>セルテンプレート</value>
+    <comment>Cell Templates</comment>
+  </data>
+  <data name="TreeGrids_Text1" xml:space="preserve">
+    <value>データ項目に子項目のコレクションが含まれる場合は、FlexGrid の &lt;b&gt;childItemsPath&lt;/b&gt; プロパティを使用して、データをツリーで表示することができます。</value>
+    <comment>If your data items contain collections of child items,
+    you may use FlexGrid's &lt;b&gt;childItemsPath&lt;/b&gt; property to
+    show the data as a tree.</comment>
+  </data>
+  <data name="TreeGrids_Text2" xml:space="preserve">
+    <value>たとえば、「children」プロパティを持つ「person」オブジェクトのリストがあるとします。「children」プロパティにも、さらに「person」オブジェクトの配列が含まれます。これは、&lt;i&gt;同種&lt;/i&gt;階層と呼ばれることもあります。</value>
+    <comment>For example, consider a list of 'person' objects
+    which have a 'children' property. The 'children'
+    property contains an array of more person objects.
+    This is sometimes called a &lt;i&gt;homogeneous&lt;/i&gt;
+    hierarchy.</comment>
+  </data>
+  <data name="TreeGrids_Text3" xml:space="preserve">
+    <value>次のグリッドは、グリッドを最上位の person リストに結合し、&lt;b&gt;childItemsPath&lt;/b&gt; プロパティを「children」に設定して作成されました。</value>
+    <comment>The grid below was built by binding the grid to
+    the top-level persons list and setting the
+    &lt;b&gt;childItemsPath&lt;/b&gt; property to 'children':</comment>
+  </data>
+  <data name="TreeGrids_Text4" xml:space="preserve">
+    <value>ツリーとして表示：</value>
+    <comment>Show as Tree:</comment>
+  </data>
+  <data name="TreeGrids_Text5" xml:space="preserve">
+    <value>異なるレベルの項目がそれぞれ異なるタイプと異なる子項目プロパティを持つ「異種」階層もあります。</value>
+    <comment>There are also 'heterogeneous' hierarchies, where
+    items at different levels have different types and
+    different child item properties.</comment>
+  </data>
+  <data name="TreeGrids_Text6" xml:space="preserve">
+    <value>たとえば、次のグリッドは、「earnings」（給与）がリストされた「checks」（小切手）を受け取る「worker」（従業員）オブジェクトのコレクションに連結されています。</value>
+    <comment>For example, the grid below is bound to a collection
+    of 'worker' objects which receive 'checks' which list
+    'earnings':</comment>
+  </data>
+  <data name="TreeGrids_Title" xml:space="preserve">
+    <value>ツリーグリッド</value>
+    <comment>Tree Grids</comment>
+  </data>
+  <data name="UnboundTreeGrids_Text1" xml:space="preserve">
+    <value>非連結モードを使用する場合は、行と列をコードで追加してツリーを作成することもできます。</value>
+    <comment>If you prefer to work in unbound mode, you can still
+    build trees by adding rows and columns in code.</comment>
+  </data>
+  <data name="UnboundTreeGrids_Title" xml:space="preserve">
+    <value>非連結ツリーグリッド</value>
+    <comment>Unbound Tree Grids</comment>
+  </data>
+  <data name="Validation_Text1" xml:space="preserve">
+    <value>FlexGrid では、いくつかの方法で検証を行うことができます。</value>
+    <comment>FlexGrid helps with validation in several ways:</comment>
+  </data>
+  <data name="Validation_Text2" xml:space="preserve">
+    <value>&lt;b&gt;自動型強制&lt;/b&gt;：セルの編集がコミットされると、グリッドは自動的に値を列のデータ型に一致させます。また、列の &lt;b&gt;isRequired&lt;/b&gt; プロパティに基づいて、null 値や空の値があるかどうかをチェックします。データが無効な場合は、元のセル値が復元されます。</value>
+    <comment>&lt;b&gt;Automatic Type Coercion:&lt;/b&gt;
+        When cell edits are committed, the grid automatically coerces
+        values to match the column's data type. It also checks for nulls
+        and empty values based on the column's &lt;b&gt;isRequired&lt;/b&gt; property.
+        If the data is invalid, the original cell value is restored.</comment>
+  </data>
+  <data name="Validation_Text3" xml:space="preserve">
+    <value>&lt;b&gt;データマップ&lt;/b&gt;：特定の入力値のみを許可する列がグリッドにある場合は、列に &lt;b&gt;DataMap&lt;/b&gt; を追加して、セルに無効なコンテンツを入力できないようにします。</value>
+    <comment>&lt;b&gt;Data Maps:&lt;/b&gt;
+        If your grids contain columns that should only allow certain input
+        values, add a &lt;b&gt;DataMap&lt;/b&gt; to the column to ensure users will not
+        be able to type invalid content into the cells.</comment>
+  </data>
+  <data name="Validation_Text4" xml:space="preserve">
+    <value>&lt;b&gt;イベントベースの検証&lt;/b&gt;：グリッドは &lt;b&gt;cellEditEnding&lt;/b&gt; イベントを生成します。このイベントを使用して、エディタの現在の値をチェックし、新しい値が無効な場合は編集をキャンセルできます。</value>
+    <comment>&lt;b&gt;Event-Based Validation:&lt;/b&gt;
+        The grid raises a &lt;b&gt;cellEditEnding&lt;/b&gt; event that allows you
+        to check the editor's current value and cancels the edit if the
+        new value is invalid.</comment>
+  </data>
+  <data name="Validation_Text5" xml:space="preserve">
+    <value>&lt;b&gt;CollectionView ベースの検証&lt;/b&gt;：コレクションビューの &lt;b&gt;getError&lt;/b&gt; メソッドを使用して、無効なセルを強調表示したり、ユーザーが無効な情報を入力できないようにします。</value>
+    <comment>&lt;b&gt;CollectionView-Based Validation:&lt;/b&gt;
+        The grid honors the collection view's &lt;b&gt;getError&lt;/b&gt; method
+        to highlight invalid cells and to prevent users from entering
+        invalid information.</comment>
+  </data>
+  <data name="Validation_Text6" xml:space="preserve">
+    <value>次のグリッドは、最初の 3 つの検証方法を実演します。［国］列では、データマップを使用して、ユーザーが無効な国を入力できないようにしています。「Sales」列と「Expenses」列では、&lt;b&gt;cellEditEnding&lt;/b&gt; イベントを使用して、正の値が含まれるようにしています。</value>
+    <comment>The grid below demonstrates the first three ways of validation.
+    It has a Country column with a data map that prevents users
+    from entering invalid countries.
+    The &lt;b&gt;cellEditEnding&lt;/b&gt; event is used to ensure that the
+    'Sales' and 'Expenses' columns contain positive values:</comment>
+  </data>
+  <data name="Validation_Title" xml:space="preserve">
+    <value>検証</value>
+    <comment>Validation</comment>
+  </data>
+  <data name="Virtualization_Text1" xml:space="preserve">
+    <value>FlexGrid の主な仕事は、JavaScript データオブジェクトを、ユーザーが操作可能な DOM 要素に変換することです。通常、データは、数千の項目を含む大きな配列で構成されます。これらの項目ごとに DOM 要素を作成すると、ページが大きくなり、表示速度が遅くなります。</value>
+    <comment>The main job of FlexGrid is to convert JavaScript
+    data objects into DOM elements that user can interact
+    with. In many cases, the data consists of large arrays with many
+    thousands of items. Creating DOM elements for each of these
+    items would make for large and slow pages.</comment>
+  </data>
+  <data name="Virtualization_Text2" xml:space="preserve">
+    <value>仮想化は、データの可視部を追跡し、その部分のみをレンダリングするプロセスです。これにより、ドキュメントツリー内の DOM 要素の数が削減され、パフォーマンスが大幅に向上します。</value>
+    <comment>Virtualization is the process of keeping track of visible 
+    portions of the data and rendering only those
+    parts. This reduces the number of DOM elements in the
+    document tree and improves performance dramatically.</comment>
+  </data>
+  <data name="Virtualization_Text3" xml:space="preserve">
+    <value>FlexGrid は、データの可視部を &lt;b&gt;viewRange&lt;/b&gt; プロパティとして公開します。ユーザーが画面のサイズを変更したり、グリッドをスクロールするたびに、&lt;b&gt;viewRange&lt;/b&gt; が更新され、それによってグリッドの子 DOM 要素が更新されます。</value>
+    <comment>FlexGrid exposes visible part of the data through
+    the &lt;b&gt;viewRange&lt;/b&gt; property. Whenever user resizes
+    the screen or scrolls the grid, &lt;b&gt;viewRange&lt;/b&gt; is
+    updated which updates the child DOM elements of the grid.</comment>
+  </data>
+  <data name="Virtualization_Text4" xml:space="preserve">
+    <value>次のサンプルは、&lt;b&gt;viewRange&lt;/b&gt; プロパティを使用して、簡単な「無限スクロール」を実装します。ユーザーがグリッドの下部までスクロールすると、コードがグリッドの &lt;b&gt;itemsSource&lt;/b&gt; に項目を追加します。</value>
+    <comment>The sample below uses the &lt;b&gt;viewRange&lt;/b&gt; property to
+    implement a simple type of 'infinite scrolling'. When the
+    user scrolls to the bottom of the grid, the code adds
+    items to the grid's &lt;b&gt;itemsSource&lt;/b&gt;.</comment>
+  </data>
+  <data name="Virtualization_Text5" xml:space="preserve">
+    <value>DOM を調査すると、&lt;b&gt;itemsSource&lt;/b&gt; がどれほど大きくなっても、DOM 要素の数は一定のままであることがわかります。これが「仮想化」されたデータです。</value>
+    <comment>If you inspect the DOM, you will notice that no matter how
+    large the &lt;b&gt;itemsSource&lt;/b&gt; gets, the number of DOM elements
+    remains constant. The data is 'virtualized'.</comment>
+  </data>
+  <data name="Virtualization_Text6" xml:space="preserve">
+    <value>現在、グリッドの行数は &lt;span id='rowCount'&gt;&lt;/span&gt;、セル要素数は &lt;span id='cellCount'&gt;&lt;/span&gt; です。</value>
+    <comment>The grid now has &lt;span id='rowCount'&gt;&lt;/span&gt; rows and
+    &lt;span id='cellCount'&gt;&lt;/span&gt; cell elements.</comment>
+  </data>
+  <data name="Virtualization_Title" xml:space="preserve">
+    <value>仮想化</value>
+    <comment>Virtualization</comment>
+  </data>
+  <data name="ColumnsAggregates_Text4" xml:space="preserve">
+    <value>ここで列をドラッグするとグループが作成されます。</value>
+    <comment>Drag columns here to create groups</comment>
+  </data>
+  <data name="Filtering_Text3" xml:space="preserve">
+    <value>国フィルタ</value>
+    <comment>Country Filter</comment>
+  </data>
+  <data name="HierarchicalDataFiltering_Text4" xml:space="preserve">
+    <value>フィルタ</value>
+    <comment>Filter</comment>
+  </data>
+</root>

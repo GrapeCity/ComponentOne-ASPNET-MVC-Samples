@@ -1,0 +1,62 @@
+﻿@model EditableAnnotationLayer.Models.FlexChartModel
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="header">
+    <div class="container">
+        <a class="logo-container" href="https://www.grapecity.com/en/aspnet-mvc" target="_blank">
+            <i class="gcicon-product-c1"></i>
+        </a>
+        <h1>
+            FlexChart Editable Annotations
+        </h1>
+        <p>
+            Display and edit annotations on FlexChart.
+        </p>
+    </div>
+</div>
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <p>
+                The EditableAnnotations samples includes:
+            </p>
+            <ul>
+                <li>
+                    Click the button on top left of the chart to choose one of the pre-defined types and styles of annotation.
+                    Then click on chart's plot area to add and resize the annotations.
+                </li>
+                <li>Click Data Coordinate Button(the left-most) to choose the attachment of added annotation between Absolute and DataCoordinate.</li>
+                <li>Add a new button to create new annotation type and style by code. The yellow triangle button is a custom button and has been added manually.</li>
+                <li>Drag the annotations on the chart.</li>
+                <li>Double-click an annotation to edit its text.</li>
+                <li>Delete an annotation using "x" button.</li>
+            </ul>
+        </div>
+    </div>
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <label id="labelIsEditable" for="checkboxIsEditable">Is Editable:</label>
+            <input type="checkbox" id="checkboxIsEditable" onchange="checkboxIsEditable_OnChanged()" checked="checked" />
+        </div>
+
+    </div>
+    @(Html.C1().FlexChart().Id("anChart").Bind(Model.CountrySalesData).Tooltip(t => t.Content("x={x}<br/>y={y}"))
+        .Tooltip(t => t.Content("")).ChartType(C1.Web.Mvc.Chart.ChartType.Scatter)
+        .BindingX("x").Legend(C1.Web.Mvc.Chart.Position.None)
+        .Series(sers =>
+        {
+            sers.Add().Binding("y");
+        })
+    )
+</div>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["initialControls"]) {
+            window["initialControls"]();
+        }
+    });
+</script>
+

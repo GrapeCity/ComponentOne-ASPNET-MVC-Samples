@@ -1,0 +1,127 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+@section Scripts{
+<style>
+    .invalid-tooltip {
+        background-color: red;
+        color: yellow;
+        opacity: 0.9;
+        border-color: lightcoral;
+    }
+</style>
+
+<script>
+    var _invalidTooltip;
+    c1.documentReady(function () {
+        _invalidTooltip = new wijmo.Tooltip();
+        _invalidTooltip.cssClass = 'invalid-tooltip';
+        _invalidTooltip.position = 11;
+        window.addEventListener('resize', function () {
+            if (_invalidTooltip.isVisible) {
+                _invalidTooltip.hide();
+                onInvalidInput();
+            }
+        });
+    })
+    
+    function onInvalidInput(input, e) {
+        e && (e.cancel = true);
+        _invalidTooltip.show("#invalidInput", "@Html.Raw(Resources.InputMask.Index_Text13)");
+    }
+
+    function onValueChanged(input, e) {
+        _invalidTooltip && _invalidTooltip.hide();
+    }
+
+    function valueChanged(sender) {
+        var customMaskTrial = wijmo.Control.getControl("#imCustomTrial");
+        customMaskTrial.mask = sender.value;
+        customMaskTrial.hostElement.title = 'Mask: ' + (sender.value || 'N/A');
+    }
+</script>
+}
+
+<div>
+    <label>
+        @Html.Raw(Resources.InputMask.Index_Text0)
+        @Html.Raw(Resources.InputMask.Index_Text12)
+    </label>
+    @(Html.C1().InputMask()
+        .Id("invalidInput")
+        .Mask("000-00-0000")
+        .HtmlAttributes(new { title = "Mask: 000-00-0000" })
+        .Value("012342678")
+        .OverwriteMode(Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue))
+        .OnClientInvalidInput("onInvalidInput")
+        .OnClientValueChanged("onValueChanged")
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputMask.Index_Text1)</label>
+    @(Html.C1().InputMask().Mask("(999) 000-0000").HtmlAttributes(new { title = "Mask: (999) 000-0000" })
+        .OverwriteMode(Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputMask.Index_Text2)</label>
+    @(Html.C1().InputMask().Id("imCustomInput")
+        .Placeholder(Resources.InputMask.Index_Placeholder1)
+        .OnClientValueChanged("valueChanged")
+    )
+    @(Html.C1().InputMask().Id("imCustomTrial")
+        .Placeholder(Resources.InputMask.Index_Placeholder2)
+        .OverwriteMode(Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputMask.Index_Text3)</label>
+    @(Html.C1().InputDate().Value(DateTime.Now)
+        .Format("d").Mask(Resources.InputMask.Mask_Input_Date)
+        .HtmlAttributes(new { title = "Mask: "+ Resources.InputMask.Mask_Input_Date })
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputMask.Index_Text4)</label>
+    @(Html.C1().InputTime().Value(DateTime.Now)
+        .Format("t").Mask("00:00 >LL")
+        .IsEditable(true)
+        .HtmlAttributes(new { title = "Mask: 00:00 >LL" })
+    )
+</div>
+
+<div>
+    <label>@Html.Raw(Resources.InputMask.Index_Text6)</label>  
+    
+    <p>
+        @Html.Raw(Resources.InputMask.Index_Text7)
+        @(Html.C1().InputMask()
+            .InputType("password")
+            .Placeholder(Resources.InputMask.Index_Placeholder3)
+            .HtmlAttributes(new { title = "InputType: password" })
+            .OverwriteMode(Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue))
+        )
+    </p>
+    <p>
+        @Html.Raw(Resources.InputMask.Index_Text10)
+        @(Html.C1().InputMask()
+            .Mask("(999) 000-0000")
+            .InputType("tel")
+            .HtmlAttributes(new { title = "InputType: tel, Mask: (999) 000-0000" })
+            .OverwriteMode(Convert.ToBoolean(optionsModel.Options["Overwrite Mode"].CurrentValue))
+        )
+    </p>
+</div>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.InputMask.Index_Text5)</p>
+    <ul>
+        <li>@Html.Raw(Resources.InputMask.Index_Text11)</li>
+        <li>@Html.Raw(Resources.InputMask.Index_Text14)</li>
+    </ul>
+}

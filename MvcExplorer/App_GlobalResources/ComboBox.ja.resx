@@ -1,0 +1,188 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ItemTemplate_Text0" xml:space="preserve">
+    <value>このサンプルは、ItemTemplateId を使用して ComboBox 内のカスタムコンテンツを指定する方法を示します。</value>
+    <comment>This sample shows how to use ItemTemplateId to specify custom content in ComboBox.</comment>
+  </data>
+  <data name="ComplexType_Text0" xml:space="preserve">
+    <value>複合型リストへの連結</value>
+    <comment>Bind to a list of complex type</comment>
+  </data>
+  <data name="ComplexType_Text1" xml:space="preserve">
+    <value>このサンプルは、「DisplayMemberPath」と「SelectedValuePath」を使用して複合型のリストに連結する方法を示します。</value>
+    <comment>This sample shows how to bind to a list of complex type using "DisplayMemberPath" and "SelectedValuePath".</comment>
+  </data>
+  <data name="Index_NonEditable" xml:space="preserve">
+    <value>編集不可</value>
+    <comment>Non-Editable</comment>
+  </data>
+  <data name="Index_Editable" xml:space="preserve">
+    <value>編集可</value>
+    <comment>Editable</comment>
+  </data>
+  <data name="Index_Text0" xml:space="preserve">
+    <value>このサンプルは、ComboBox コントロールの基本的な使用方法を示します。</value>
+    <comment>This sample shows the basic usage of the ComboBox control.</comment>
+  </data>
+  <data name="ItemTemplate_Colors" xml:space="preserve">
+    <value>色</value>
+    <comment>Colors</comment>
+  </data>
+  <data name="MultiColumnDropDown_Text0" xml:space="preserve">
+    <value>このサンプルでは、「multi-column」クラスをコントロールではなくドロップダウンに適用しています。そのために「DropDownCssClass」を使用しました。</value>
+    <comment>In this sample, the "multi-column" class was applied to the drop-down rather than to the control. It was done by using "DropDownCssClass".</comment>
+  </data>
+  <data name="Grouping_Text0" xml:space="preserve">
+    <value>ComboBox Grouping</value>
+    <comment>jp:ComboBox Grouping</comment>
+  </data>
+  <data name="Grouping_Text1" xml:space="preserve">
+    <value>&lt;b&gt; showGroups &lt;/b&gt;プロパティを使用して、&lt;b&gt; ComboBox &lt;/b&gt;コントロールにグループヘッダーを追加します。</value>
+    <comment>jp:Use the &lt;b&gt;showGroups&lt;/b&gt; property to add group headers
+        to &lt;b&gt;ComboBox&lt;/b&gt; controls.</comment>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>&lt;b&gt; showGroups &lt;/b&gt;プロパティがtrueに設定されていて、&lt;b&gt; itemsSource &lt;/b&gt;コレクションでグループ化が有効になっている場合、グループヘッダー項目が追加されます。</value>
+    <comment>jp:Group header items are added if the &lt;b&gt;showGroups&lt;/b&gt;
+        property is set to true and the &lt;b&gt;itemsSource&lt;/b&gt; collection
+        has grouping enabled.</comment>
+  </data>
+  <data name="Grouping_Text3" xml:space="preserve">
+    <value>ヘッダー項目は表示のみです。 マウスやキーボードで選択することはできず、どのデータ項目にもバインドされていません。</value>
+    <comment>jp:Header items are presentational only. They cannot be selected
+        with the mouse or keyboard and are not bound to any data items.</comment>
+  </data>
+  <data name="Grouping_Text4" xml:space="preserve">
+    <value>このサンプルは、ComboBoxコントロールのグループ項目を表示する方法を示します。</value>
+    <comment>jp:This sample shows how to show group items of the ComboBox control.</comment>
+  </data>
+  <data name="CaseSensitiveSearchDescription_Text0" xml:space="preserve">
+    <value>CaseSensitiveSearch プロパティを&lt;b&gt;true&lt;/b&gt;に設定した場合、検索では大文字と小文字が区別されます。</value>
+    <comment>When Case Sensitive Search is &lt;b&gt;true&lt;/b&gt;, the user types are searched as case-sensitive</comment>
+  </data>
+  <data name="HandleWheelDescription_Text0" xml:space="preserve">
+    <value>HandleWheelプロパティが&lt;b&gt;true&lt;/b&gt;に設定され​ている場合、ユーザーがマウスホイールで現在選択されている項目を変更できます。</value>
+    <comment>When HandleWheel is &lt;b&gt;true&lt;/b&gt;, the user can use the mouse wheel to change the currently selected item.</comment>
+  </data>
+  <data name="Index_Text1" xml:space="preserve">
+    <value>&lt;b&gt;VirtualizationThreshold&lt;/b&gt;プロパティを使用すると、仮想化を有効または無効にできます。このプロパティのデフォルト値は非常に大きい数値であり、仮想化が無効になっていることを意味します。仮想化を有効にするには、値を0または正の数に設定します。ComboBoxに多数のアイテム（たとえば1,000程度）が含まれている場合に、視覚化はパフォーマンスに大きな影響を与えます。</value>
+    <comment>The VirtualizationThreshold property allow to enable/disable the virtualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the virtualization makes a huge difference in performance when the ComboBox contains a large number of items (say 1,000 or so).</comment>
+  </data>
+</root>

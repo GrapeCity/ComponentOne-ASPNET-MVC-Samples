@@ -1,0 +1,49 @@
+﻿@model PeriodicTableModel
+@using PeriodicTable.Models
+
+@{
+    ViewBag.Title = "ASP.NET MVC Periodic Table";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <!-- Getting Started -->
+    <div>
+        <div class="row">
+            <div class="col-md-12">
+                <div style="min-width:900px; min-height:750px">
+                    @(Html.C1().Sunburst<PeriodicTable.Models.Group>().Id("sbPeriodicTbl").Width("100%").Height(900)
+                    .Bind("GroupName", Model.Binding, Model.Data)
+                    .Legend(Model.LegendPosition)
+                    .InnerRadius(Model.InnerRadius)
+                    .SelectionMode(Model.SelectionMode)
+                    .BindingName(Model.BindingName)
+                    .ChildItemsPath(Model.ChildItemsPath)
+                    .Tooltip(t=>t.Content(""))
+                    .DataLabel(d => d.Position(Model.DataLabelPosition)
+                    .Content(Model.DataLabelContent))
+                    )
+                </div>
+                <div id="divEleInfo">
+                    <div id="divGrp">
+                        <div id="divGrpName"></div>
+                        <div id="divHdrSubGrps">Sub Groups</div>
+                        <div id="divSubGrps"></div>
+                    </div>
+                    <div id="divSubGrp">
+                        <div id="divSubGrpName"></div>
+                        <div id="divNoOfEle"></div>
+                        <div id="divHdrCharacterstics">Characterstics</div>
+                        <div id="divCharacterstics"></div>
+                    </div>
+                    <div id="divEle">
+                        <div id="divEleSymbol"></div>
+                        <div id="divEleName"></div>
+                        <div id="divAtomicNo"></div>
+                        <div id="divAtomicWeight"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

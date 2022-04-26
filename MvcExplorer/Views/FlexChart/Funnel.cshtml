@@ -1,0 +1,63 @@
+﻿@model IEnumerable<SalesData>
+@using C1.Web.Mvc.Chart
+
+@{
+    ViewBag.DemoSettings = true;
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    var funnelType = demoSettingsModel.GetEnum("FunnelType", FunnelType.Default);
+}
+
+@(Html.C1().FlexChart().Id("chart")
+    .Bind("CountryName", "Sale", Model)
+    .ChartType(ChartType.Funnel)
+    .DataLabel(label => { label.Content("{y}"); })
+    .Series(ser => { ser.Add().Name("Sales"); })
+    .Options(ext =>
+    {
+        ext.Funnel(funnel => {
+            funnel.Type(funnelType);
+            funnel.NeckHeight(0.2f);
+        });
+    })
+    .Width("500px")
+    .Height("400px")
+)
+
+@section Scripts{
+    <script type="text/javascript">
+
+        function updateMenu(menu, headerNamePrefix) {
+            menu.header = headerNamePrefix + ': <b>' + menu.selectedItem.Header + '</b>';
+        }
+
+        function setFunnelOption(option, value) {
+            var chart = wijmo.Control.getControl('#chart');
+            if (chart) {
+                chart.options.funnel[option] = value;
+                chart.refresh(true);
+            }
+        }
+
+        function customChangeFunnelType(chart, name) {
+            setFunnelOption('type', name.toLowerCase());
+        }
+
+        function neckChanged(sender, args) {
+            setFunnelOption(sender.hostElement.id, wijmo.clamp(sender.value, sender.min, sender.max));
+        }
+
+    </script>
+}
+
+@section Settings{
+    <label style="display: inline-block; font-weight: normal">@Html.Raw(Resources.FlexChart.Funnel_NeckWidth)</label>
+    @(Html.C1().InputNumber().Min(0).Max(1).Step(0.1).Value(0.2).Format("n1")
+        .OnClientValueChanged("neckChanged").Width(150).Id("neckWidth"))
+    <label style="display: inline-block; font-weight: normal">@Html.Raw(Resources.FlexChart.Funnel_NeckHeight)</label>
+    @(Html.C1().InputNumber().Min(0).Max(1).Step(0.1).Value(0.2).Format("n1")
+        .OnClientValueChanged("neckChanged").Width(150).Id("neckHeight"))
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.Funnel_Text0)</p>
+}

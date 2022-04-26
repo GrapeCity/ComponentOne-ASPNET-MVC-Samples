@@ -1,0 +1,16 @@
+<h1>
+    @Html.Raw(Resources.C1Mvc.Pluralization_Title)
+</h1>
+
+<p>
+    @Html.Raw(Resources.C1Mvc.Pluralization_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Pluralization_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Pluralization_Text3)
+</p>
+
+@Html.C1().InputNumber().Id("theInputNumber").Step(1).Value(1)
+<p id="msg"></p>

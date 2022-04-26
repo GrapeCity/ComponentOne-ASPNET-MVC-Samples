@@ -1,0 +1,81 @@
+@using C1.Web.Mvc.Grid
+@{
+    ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
+}
+
+@(Html.C1().PivotEngine().Id("ssasEngine")
+		.ShowRowTotals(ShowTotals.Subtotals)
+		.ShowColumnTotals(ShowTotals.Subtotals)
+		.BindService("~/api/dataengine/cube")
+		.Fields(pfcb =>
+			pfcb.Items(c =>
+			{
+				c.AddCubeField(fb => fb.Header("Internet Orders")
+					.DimensionType(DimensionType.Measure)
+					.SubFields(sfsb =>
+					{
+						sfsb.Add(sfb => sfb.Header("Internet Order Count")
+							.Binding("[Measures].[Internet Order Count]")
+							.DataType(DataType.Number)
+							.DimensionType(DimensionType.Measure));
+					})
+				);
+				c.AddCubeField(fb => fb.Header("Product")
+					.DimensionType(DimensionType.Dimension)
+					.SubFields(sfsb =>
+					{
+						sfsb.Add(sfb => sfb.Header("Category")
+							.Binding("[Product].[Category]")
+							.DataType(DataType.String)
+							.DimensionType(DimensionType.Hierarchy)
+						);
+						sfsb.Add(sfb => sfb.Header("Stocking")
+							.DimensionType(DimensionType.Folder)
+							.SubFields(sfs =>
+							{
+								sfs.Add(f => f.Binding("[Product].[Color]")
+									.Header("Color")
+									.DataType(DataType.String)
+									.DimensionType(DimensionType.Hierarchy)
+								);
+								sfs.Add(f => f.Binding("[Product].[Class]")
+									.Header("Class")
+									.DataType(DataType.String)
+									.DimensionType(DimensionType.Hierarchy)
+								);
+							})
+						);
+						sfsb.Add(sfb => sfb.Header("Product")
+							.Binding("[Product].[Product]")
+							.DataType(DataType.String)
+							.DimensionType(DimensionType.Hierarchy)
+						);
+					}
+				));
+			}
+		))
+		.RowFields(rfb => rfb.Items("[Product].[Product]"))
+		.ValueFields(vfb => vfb.Items("[Measures].[Internet Order Count]"))
+)
+
+<div class="row">
+    <div class="col-sm-4 col-md-4">
+        @Html.C1().PivotPanel().Id(optionsModel.ControlId).ItemsSourceId("ssasEngine")
+    </div>
+    <div class="col-sm-8 col-md-8">
+        @Html.C1().PivotGrid().Id("indexGrid").ItemsSourceId("ssasEngine")
+    </div>
+</div>
+
+@section Description{
+<p>@Html.Raw(Resources.Olap.SSAS_Text0)</p>
+
+<p>@Html.Raw(Resources.Olap.SSAS_Text1)</p>
+
+<p>@Html.Raw(Resources.Olap.SSAS_Text2)</p>
+
+}
+@section Summary{
+<p>@Html.Raw(Resources.Olap.SSAS_Text3)</p>
+
+}

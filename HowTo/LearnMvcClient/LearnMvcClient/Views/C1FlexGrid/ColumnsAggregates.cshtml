@@ -1,0 +1,27 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsAggregates_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsAggregates_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsAggregates_Text2)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.ColumnsAggregates_Text3)
+</p>
+@(Html.C1().FlexGrid<FlexGridData.Sale>().Id("theGrid").Height(250)
+    .AutoGenerateColumns(false)
+    .Bind(Model)
+    .Columns(cs=>
+    {
+        cs.Add().Binding("Id").Header("ID").Width("60").IsReadOnly(true);
+        cs.Add().Binding("Country").Header("Country");
+        cs.Add().Binding("Product").Header("Product");
+        cs.Add().Binding("Sales").Header("Sales");
+        cs.Add().Binding("Expenses").Header("Expenses");
+    })
+    .ShowGroupPanel(p=>p.Placeholder(Resources.C1FlexGrid.ColumnsAggregates_Text4))
+)

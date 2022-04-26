@@ -1,0 +1,32 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1Mvc.Themes_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Mvc.Themes_Text1)
+    <pre>
+        @@Html.C1().Styles().Theme(<i>theme</i>)
+    </pre>
+</p>
+<p>
+    @Html.Raw(Resources.C1Mvc.Themes_Text2)
+</p>
+
+<label>
+    @Html.Raw(Resources.C1Mvc.Themes_Text3)
+    @Html.Partial("_ThemeSelector")
+</label>
+
+<p>@Html.Raw(Resources.C1Mvc.Themes_Text4)</p>
+@Html.C1().ComboBox().Id("theCombo").Bind(Model).DisplayMemberPath("Country")
+@Html.C1().InputDate().Id("theDate")
+@Html.C1().Calendar().Id("theCalendar")
+
+<p>@Html.Raw(Resources.C1Mvc.Themes_Text5)</p>
+@(Html.C1().FlexGrid().Id("theGrid")
+    .Bind(Model)
+    .ShowMarquee(true)
+    .ShowSelectedHeaders(C1.Web.Mvc.Grid.HeadersVisibility.All)
+    .ShowAlternatingRows(false)
+)

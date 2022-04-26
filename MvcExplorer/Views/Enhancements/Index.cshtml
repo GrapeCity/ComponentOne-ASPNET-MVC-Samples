@@ -1,0 +1,129 @@
+﻿@{
+    ViewBag.Title = "Home";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+    var groups = EnhancedControlPages.EnhancedControlGroups;
+    var groupCount = groups.Count();
+
+    var tutorialsGroup = ControlPages.ControlGroups.Skip(7).First();
+    var enhancementsGroup = ControlPages.ControlGroups.Skip(8).First();
+
+    var preferGroups = new List<ControlGroup>();
+    preferGroups.Add(tutorialsGroup);
+    preferGroups.Add(ControlPages.NewGroup);
+    preferGroups.Add(ControlPages.PopularGroup);
+    preferGroups.Add(enhancementsGroup);
+    
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var pageGroup = ControlPages.GetControlPageGroup(controllerName);
+    var pageName = pageGroup == null ? controllerName : pageGroup.Text;
+}
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            var narrowScreen = document.getElementById("narrowScreen");
+            var controlsNavs = narrowScreen.querySelectorAll('.controls-nav');
+            for (var i = 0; i < controlsNavs.length; i++) {
+                configContolsNav(controlsNavs[i]);
+            }
+            
+        });
+
+        function configContolsNav(controlsNav) {
+            for (var i = 0, l = controlsNav.children.length; i < l; i++) {
+                var li = controlsNav.children[i];
+                if (!li.tagName || li.tagName.toLowerCase() !== 'li') {
+                    continue;
+                }
+
+                var title = li.querySelector('h3'),
+                    content = li.querySelector('ul'),
+                    downIcon = document.createElement('span');
+                downIcon.className = 'wj-glyph-down';
+                title.style.cursor = 'pointer';
+                title.innerHTML += ' ';
+                title.appendChild(downIcon);
+                $(title).on('click', function () {
+                    var uls = controlsNav.querySelectorAll('ul');
+                    for (var ulIndex = 0; ulIndex < uls.length; ulIndex++) {
+                        uls[ulIndex].classList.add('hide');
+                    }
+                    this.parentElement.querySelector('ul').classList.remove('hide');
+                });
+
+                content.classList.add('hide');
+            }
+        }
+    </script>
+}
+
+<div id="narrowScreen" class="narrow-screen">
+    <section class="description">
+        <p>@Html.Raw(Resources.Home.Index_Text0)</p>
+    </section>
+    <ul class="controls-nav">
+        @foreach (var group in preferGroups)
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+    <section class="description">
+        <h4>@pageName</h4>
+    </section>
+    <ul class="controls-nav">
+        @foreach (var group in groups)
+        {
+            @Html.Partial("_EnhancedControlGroup", group)
+        }
+    </ul>
+</div>
+
+<div class="col-md-3 first wide-screen">
+    <section class="description">
+        <p>@Html.Raw(Resources.Home.Index_Text1)</p>
+    </section>
+    <ul class="controls-group">
+        @foreach (var group in preferGroups)
+        {
+            @Html.Partial("_ControlGroup", group)
+        }
+    </ul>
+</div>
+
+
+<div class="col-md-3 wide-screen">
+    <ul>
+        @if (groupCount > 0)
+        {
+            foreach (var group in groups.Take(Math.Min(groupCount, 3)))
+            {
+                @Html.Partial("_EnhancedControlGroup", group)
+            }
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @if (groupCount > 3)
+        {
+            foreach (var group in groups.Skip(3).Take(Math.Min(groupCount - 3, 3)))
+            {
+                @Html.Partial("_EnhancedControlGroup", group)
+            }
+        }
+    </ul>
+</div>
+<div class="col-md-3 wide-screen">
+    <ul>
+        @if (groupCount > 6)
+        {
+            foreach (var group in groups.Skip(6))
+            {
+                @Html.Partial("_EnhancedControlGroup", group)
+            }
+        }
+    </ul>
+</div>
+
+

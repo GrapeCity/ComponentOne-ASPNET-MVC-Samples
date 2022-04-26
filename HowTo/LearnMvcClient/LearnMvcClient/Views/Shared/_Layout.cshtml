@@ -1,0 +1,159 @@
+﻿@functions{
+    void UpdateLessonHref(Lesson lesson)
+    {
+        lesson.Href = lesson.Id == 0
+            ? Url.Action(lesson.ActionName, lesson.ControllerName, new { id = UrlParameter.Optional })
+            : Url.Action(lesson.ActionName, lesson.ControllerName, new { id = lesson.Id });
+
+        if (lesson.SubLessons != null)
+        {
+            foreach (var subLesson in lesson.SubLessons)
+            {
+                UpdateLessonHref(subLesson);
+            }
+        }
+    }
+}
+@{
+    var controllerName = ViewContext.Controller.ValueProvider.GetValue("controller").RawValue.ToString();
+    var actionName = ViewContext.Controller.ValueProvider.GetValue("action").RawValue.ToString();
+    var idProvider = ViewContext.Controller.ValueProvider.GetValue("id");
+    var lessonId = idProvider == null ? 0 : int.Parse(idProvider.RawValue.ToString());
+    var pageSources = LessonHelper.GetPageSources(controllerName, actionName);
+    var documentUrl = LessonHelper.GetLessonDocumentationUrl(controllerName, actionName) ?? "";
+    var lessons = LessonHelper.Lessons;
+    foreach (var lesson in lessons)
+    {
+        UpdateLessonHref(lesson);
+    }
+    ViewBag.Lessons = lessons;
+
+    var currentLesson = LessonHelper.FindLesson(controllerName, actionName, lessonId);
+    ViewBag.Title = currentLesson.Text;
+
+    var jsPath = LessonHelper.GetScriptRelativePath(controllerName, actionName);
+    var cssPath = LessonHelper.GetCssRelativePath(controllerName, actionName);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=0" />
+    <title>@ViewBag.Title - @Resources.Resource.ApplicationTitle</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+
+
+
+    @Styles.Render("~/BootStrapCss")
+    @{
+        Theme.CurrentTheme = Request.QueryString["theme"];
+    }
+    @Html.C1().Styles().Theme(Theme.CurrentTheme)
+    @Styles.Render("~/Content/css/explorer")
+    @Styles.Render("~/Content/appcss")
+    @Styles.Render("~/Content/SyntaxHighlighter/codeHighlight")
+    @RenderSection("Styles", false)
+
+    @{
+        LearnMvcClient.Models.Culture.CurrentCulture = Request.QueryString["culture"];
+    }
+    @Html.C1().Scripts().Basic().Culture(LearnMvcClient.Models.Culture.CurrentCulture)
+    @Scripts.Render("~/bundles/SyntaxHighlighter/codeHighlight")
+    @Scripts.Render("~/bundles/sample")
+    @RenderSection("Scripts", false)
+    <script type="text/javascript">
+        function formatItem(sender, e) {
+            var elem = e.element;
+            var content = elem.innerHTML;
+            if (e.dataItem.IsNew) {
+                content += '<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>';
+            }
+            elem.innerHTML = "<a href=\"" + e.dataItem.Href + "\">" + content + "</a>";
+        }
+
+        function itemsLoaded(sender, e) {
+            var controllerName = '@controllerName';
+            var actionName = '@actionName';
+            var id = @lessonId;
+            var lesson = findLesson(sender.itemsSource, controllerName, actionName, id);
+            sender.selectedItem = lesson;
+            sender.selectedNode.isCollapsed = false;
+        }
+    </script>
+</head>
+<body>
+
+
+    <div class="hide">
+        @Html.Partial("_SiteNav", true)
+        <div class="narrow-screen lesson-nav task-bar-nav">
+        </div>
+        @Html.Partial("_LessonNav", true)
+    </div>
+    <header>
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
+        <a class="logo-container" href="@Resources.Resource.LinkAbout" target="_blank">
+            <i class="gcicon-product-c1"></i>ComponentOne
+        </a>
+        <div class="task-bar">
+            <span class="semi-bold narrow-screen">@Resources.Resource.ApplicationNameShort<span class="wj-glyph-down"></span></span>
+            <span class="semi-bold wide-screen">@Resources.Resource.ApplicationNameFull</span>
+            @Html.Partial("_SiteNav", false)
+        </div>
+    </header>
+    <div class="main-content">
+        <div class="col-md-3 side">
+            <div class="wide-screen lesson-nav">
+            </div>
+            @Html.Partial("_LessonNav", false)
+        </div>
+        <div class="col-md-9 lesson">
+            <div class="padder">
+                <div>
+                    <ul id="navList" class="nav nav-tabs">
+                        <li><a class="semi-bold">@Resources.Resource.Result</a></li>
+                        <li><a class="semi-bold">@Resources.Resource.Source</a></li>
+                        <li><span onclick="gotoDoc('@documentUrl')" class="doc-tab semi-bold">@Resources.Resource.Document</span></li>
+                    </ul>
+                    <div id="panelList" class="tab-content">
+                        <div class="tab-pane pane-content active collapse-panel" id="result">
+                            <div class="demo-control">
+                                @Html.Partial("_DemoCss", cssPath)
+                                @Html.Partial("_DemoScript", jsPath)
+                                @RenderBody()
+                            </div>
+                        </div>
+                        <div class="tab-pane pane-content collapse-panel mob-hide-1" id="source">
+                            <div class="demo-source">
+                                @Html.Partial("_PageSources", pageSources)
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <a href="@Resources.Resource.LinkGrapeCity">
+            <i class="gcicon-logo-gc-horiz"></i>
+        </a>
+        <p>
+           © @DateTime.Now.Year @Html.Raw(Resources.Resource.CopyrightInfo)
+        </p>
+        @{
+            var url = Request.Url;
+            var urlStr = url.OriginalString.Substring(0, url.OriginalString.Length - (url.Query == null ? 0 : url.Query.Length));
+        }
+        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
+        </a>
+        <a href="http://twitter.com/share?text=@Resources.Resource.TwitterText&url=@urlStr" target="_blank">
+            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
+        </a>
+    </footer>
+</body>
+</html>

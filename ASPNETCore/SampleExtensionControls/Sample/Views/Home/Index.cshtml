@@ -1,0 +1,86 @@
+﻿@{
+    ViewBag.Title = "ASP.NET Core MVC C1 MultiColumnComboBox Introduction";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<input-script>
+</input-script>
+<mvc-input-script>
+</mvc-input-script>
+
+<h4>
+    @Html.Raw(MultiColumnComboBoxRes.Index_Text1)
+</h4>
+<h4>
+    @Html.Raw(MultiColumnComboBoxRes.Index_Text0)
+</h4>
+
+<c1-multi-column-combo-box is-editable="false" display-member-path="CountryName" page-size="10" got-focus="onFocus">
+    <c1-items-source read-action-url="@Url.Action("CountrySearch", "Home")"></c1-items-source>
+</c1-multi-column-combo-box>
+
+<script type="text/javascript">
+    c1.documentReady(function () {
+        if (window["InitialControls"]) {
+            window["InitialControls"]();
+        }
+    });
+</script>
+
+@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#customGridEditorsGrid');
+            grid.hostElement.addEventListener('keydown', function (e) {
+                if (e.keyCode == 32) {
+                    e.preventDefault();
+                }
+            });
+        });
+        
+    //TFS 433440 Case 1: Update data in dropdown when focusing on MultiColumnComboBox input
+    function onFocus(e) {
+        e.onTextChanged();
+    }
+    </script>
+}
+
+    <h4>
+        @Html.Raw(MultiColumnComboBoxRes.Index_Text2)
+    </h4>
+<!-- FlexGrid hosting the custom editors -->
+<c1-flex-grid id="customGridEditorsGrid" allow-add-new="true" allow-delete="true" key-action-tab="Cycle"
+              auto-generate-columns="false" style="height:500px">
+    <c1-flex-grid-column binding="ID" width="0.4*" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Start" header="Date" width="*" format="d">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="End" header="Time" width="*" format="t">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" width="1.5*">
+        <c1-flex-grid-cell-template is-editing="true">
+            <c1-multi-column-combo-box id="countryEditor" style="width:100%" is-editable="false" display-member-path="CountryName" page-size="10" template-bindings="@(new { Text = "Country"})" got-focus="onFocus">
+                <c1-items-source read-action-url="@Url.Action("CountrySearch", "Home")" disable-server-read="false"></c1-items-source>
+            </c1-multi-column-combo-box>
+        </c1-flex-grid-cell-template>
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="1.5*">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" width="1.5*" format="n2">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Color" width="1.5*" format="n2">
+    </c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" width="1.5*" format="n2"></c1-flex-grid-column>
+    <c1-items-source read-action-url="@Url.Action("CustomEditorsBind")"
+                     update-action-url="@Url.Action("GridEditorsUpdate")"
+                     create-action-url="@Url.Action("GridEditorsCreate")"
+                     delete-action-url="@Url.Action("GridEditorsDelete")">
+    </c1-items-source>
+</c1-flex-grid>
+

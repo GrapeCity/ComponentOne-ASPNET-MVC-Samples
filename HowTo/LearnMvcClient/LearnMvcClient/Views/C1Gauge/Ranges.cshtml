@@ -1,0 +1,54 @@
+<h1>
+    @Html.Raw(Resources.C1Gauge.Ranges_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1Gauge.Ranges_Text1)
+</p>
+<p>
+  @Html.Raw(Resources.C1Gauge.Ranges_Text2)
+</p>
+<ul>
+    <li>
+        @Html.Raw(Resources.C1Gauge.Ranges_Text3)
+    </li>
+    <li>
+        @Html.Raw(Resources.C1Gauge.Ranges_Text4)
+    </li>
+</ul>
+<p>
+    @Html.Raw(Resources.C1Gauge.Ranges_Text5)
+</p>
+<p>
+    @Html.Raw(Resources.C1Gauge.Ranges_Text6)
+</p>
+<div class="demo-settings">
+    <label>@Html.Raw(Resources.C1Gauge.Ranges_Text7)</label>
+    <input id="showRanges" type="checkbox" checked="checked">
+</div>
+
+@(Html.C1().RadialGauge().Id("theRadialGauge")
+    .Min(0).Max(100).Value(75).Step(10)
+    .IsReadOnly(false)
+    .ShowRanges(true)
+    .Ranges(r=>
+    {
+        r.Add().Name("low").Min(0).Max(25).Color(System.Drawing.Color.FromArgb(102, 255, 0, 0));
+        r.Add().Name("med").Min(25).Max(50).Color(System.Drawing.Color.FromArgb(102, 255, 255, 0));
+        r.Add().Name("high").Min(50).Max(75).Color(System.Drawing.Color.FromArgb(102, 255, 125, 0));
+        r.Add().Name("top").Min(75).Max(100).Color(System.Drawing.Color.FromArgb(102, 0, 255, 0));
+    })
+    .Pointer(p=>p.Thickness(0.2).Color(System.Drawing.Color.Black))
+)
+@(Html.C1().LinearGauge().Id("theLinearGauge")
+    .Min(0).Max(100).Value(75).Step(10)
+    .IsReadOnly(false)
+    .ShowRanges(true)
+    .Ranges(r =>
+    {
+        r.Add().Name("low").Min(0).Max(25).Color(System.Drawing.Color.FromArgb(102, 255, 0, 0));
+        r.Add().Name("med").Min(25).Max(50).Color(System.Drawing.Color.FromArgb(102, 255, 255, 0));
+        r.Add().Name("high").Min(50).Max(75).Color(System.Drawing.Color.FromArgb(102, 255, 125, 0));
+        r.Add().Name("top").Min(75).Max(100).Color(System.Drawing.Color.FromArgb(102, 0, 255, 0));
+    })
+    .Pointer(p=>p.Thickness(0.4).Color(System.Drawing.Color.Black))
+)

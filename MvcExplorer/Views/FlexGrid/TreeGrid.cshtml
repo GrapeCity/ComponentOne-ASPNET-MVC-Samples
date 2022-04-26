@@ -1,0 +1,58 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<ITreeItem>
+
+@section Styles{
+<style>
+    .custom-flex-grid {
+        height: 400px;
+        background-color: white;
+        box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+        margin-bottom: 12px;
+    }
+
+    .custom-flex-grid .wj-cell {
+        background-color: #fff;
+        border: none;
+        font-size: 10pt;
+    }
+
+    .custom-flex-grid .wj-state-selected {
+        background: #000;
+        color: #fff;
+    }
+
+    .custom-flex-grid .wj-state-multi-selected {
+        background: #222;
+        color: #fff;
+    }
+</style>
+}
+
+<label>@Html.Raw(Resources.FlexGrid.TreeGrid_Text0)</label>
+
+@(Html.C1().FlexGrid().Id("grid").CssClass("custom-flex-grid").Width(500)
+    .Bind(Model)
+    .ChildItemsPath("Children")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("Header").Width("*");
+        columns.Add().Binding("Size").Width("80").Align("center");
+    })
+    .AllowResizing(AllowResizing.None)
+    .HeadersVisibility(HeadersVisibility.None)
+    .SelectionMode(SelectionMode.ListBox)
+)
+
+@section Scripts{
+<script>
+    c1.documentReady(function () {
+        wijmo.Control.getControl("#grid").rows.defaultSize = 25;
+    });
+</script>
+}
+
+@section Description {
+    @Html.Raw(Resources.FlexGrid.TreeGrid_Text1)
+}

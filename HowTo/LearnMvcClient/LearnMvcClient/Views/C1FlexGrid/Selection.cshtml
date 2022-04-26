@@ -1,0 +1,44 @@
+@model IEnumerable<FlexGridData.Sale>
+
+<h1>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Title)
+</h1>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text1)
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text2)
+</p>
+@Html.C1().FlexGrid().Id("theGrid").Bind(Model).ShowAlternatingRows(false)
+<label>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text3)
+    @Html.C1().ComboBox().Id("selectionMode").Bind(new[] {"None", "Cell", "CellRange", "Row", "RowRange", "ListBox" }).Text("CellRange")
+</label>
+
+<p></p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text4)
+</p>
+<p>
+    <button id="btnSelect" class="btn btn-default">
+        @Html.Raw(Resources.C1FlexGrid.Selection_Text5)
+    </button>
+</p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text6)
+</p>
+
+<p></p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text7)
+</p>
+<p>
+    <button id="btnListSelect" class="btn btn-default">
+        @Html.Raw(Resources.C1FlexGrid.Selection_Text8)
+    </button>
+</p>
+
+<p></p>
+<p>
+    @Html.Raw(Resources.C1FlexGrid.Selection_Text9)
+</p>

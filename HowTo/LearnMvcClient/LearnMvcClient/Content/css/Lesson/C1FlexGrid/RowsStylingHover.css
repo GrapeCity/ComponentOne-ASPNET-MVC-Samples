@@ -1,0 +1,15 @@
+﻿.wj-flexgrid {
+  height: 150px; 
+}
+
+/* css for hovering on non-header cells */
+#hoverCell .wj-cells .wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected):hover {
+  background-color:rgb(200,255,200);
+  transition: all 0.5s;
+}
+
+/* css for hovering on non-header rows */
+#hoverRow .wj-cells .wj-row:hover .wj-cell:not(.wj-state-selected):not(.wj-state-multi-selected) {
+  transition: all 0.5s;
+  background: rgb(200,255,200);
+}

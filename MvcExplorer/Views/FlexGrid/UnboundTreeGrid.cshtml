@@ -1,0 +1,85 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<ITreeItem>
+
+@section Styles{
+    <style>
+        .custom-flex-grid {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+
+            .custom-flex-grid .wj-cell {
+                background-color: #fff;
+                border: none;
+                font-size: 10pt;
+            }
+
+            .custom-flex-grid .wj-state-selected {
+                background: #000;
+                color: #fff;
+            }
+
+            .custom-flex-grid .wj-state-multi-selected {
+                background: #222;
+                color: #fff;
+            }
+    </style>
+}
+
+<label>@Html.Raw(Resources.FlexGrid.TreeGrid_Text0)</label>
+
+@(Html.C1().FlexGrid().Id("ubgrid").CssClass("custom-flex-grid").Width(500)
+    .AutoGenerateColumns(false)
+    .HeadersVisibility(HeadersVisibility.Column)
+    .SelectionMode(SelectionMode.Row)
+)
+
+@section Scripts{
+    <script>
+        c1.documentReady(function () {
+            let grid = wijmo.Control.getControl("#ubgrid");
+            grid.rows.defaultSize = 25;
+            // add columns
+            grid.columns.push(new wijmo.grid.Column({ header: 'Header', width: '2*' }));
+            grid.columns.push(new wijmo.grid.Column({ header: 'Size' }));
+
+            let data = @(Html.Raw(Json.Encode(Model)));
+            // add rows
+            for (let r = 0; r < data.length; r++) {
+                // add header
+                var header = data[r];
+                var row = new wijmo.grid.GroupRow();
+                row.dataItem = header;
+                row.isReadOnly = false;
+                row.level = 0;
+                grid.rows.push(row);
+                grid.setCellData(row.index, 0, header.Header);
+                if (header.Children) {
+                    addChild(grid, header, 1);
+                }
+            }
+        });
+        function addChild(grid, parent, level) {
+            for (var c = 0; c < parent.Children.length; c++) {
+                // add children
+                var child = parent.Children[c];
+                row = new wijmo.grid.GroupRow();
+                row.dataItem = child;
+                row.isReadOnly = false;
+                row.level = level;
+                grid.rows.push(row);
+                grid.setCellData(row.index, 0, child.Header);
+                grid.setCellData(row.index, 1, child.Size);
+                if (child.Children) {
+                    addChild(grid, child, level + 1);
+                }
+            }
+        }
+    </script>
+}
+
+@section Description {
+    @Html.Raw(Resources.FlexGrid.TreeGrid_Unbound_Description)
+}   

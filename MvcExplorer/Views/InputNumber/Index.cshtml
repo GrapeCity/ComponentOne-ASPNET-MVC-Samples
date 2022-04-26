@@ -1,0 +1,96 @@
+﻿@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@section Scripts{
+<style>
+    .invalid-tooltip {
+        background-color: red;
+        color: yellow;
+        opacity: 0.9;
+        border-color: lightcoral;
+    }
+</style>
+
+<script>
+    var _invalidTooltip;
+    c1.documentReady(function () {
+        _invalidTooltip = new wijmo.Tooltip();
+        _invalidTooltip.cssClass = 'invalid-tooltip';
+        _invalidTooltip.position = 11;
+        window.addEventListener('resize', function () {
+            if (_invalidTooltip.isVisible) {
+                _invalidTooltip.hide();
+                onInvalidInput();
+            }
+        });
+    })
+
+    function onInvalidInput(input, e) {
+        e && (e.cancel = true);
+        _invalidTooltip.show("#invalidInput", "@Html.Raw(Resources.InputNumber.Index_Text8)");
+    }
+
+    function onValueChanged(input, e) {
+        _invalidTooltip.hide();
+    }
+</script>
+}
+
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text0)</label>
+    @Html.C1().InputNumber().Value(0).Format("n0").HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text1)</label>
+    @Html.C1().InputNumber().Value(Math.PI).Format("n").HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text2)</label>
+    @(Html.C1().InputNumber()
+        .Value(3.5).Format("c2")
+        .Step(0.5).Min(0).Max(10)
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text3)</label>
+    @(Html.C1().InputNumber()
+        .Placeholder(Resources.InputNumber.Index_Placeholder1)
+        .IsRequired(false).Value(null)
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text7)</label>
+    @(Html.C1().InputNumber().Id("invalidInput")
+        .Placeholder(Resources.InputNumber.Index_Placeholder1)
+        .IsRequired(false).Value(null)
+        .Min(100).Max(1000)
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+        .OnClientInvalidInput("onInvalidInput")
+        .OnClientValueChanged("onValueChanged")
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text5)</label>
+    @(Html.C1().InputNumber()
+        .Placeholder(Resources.InputNumber.Index_Placeholder1)
+        .IsRequired(false).Value(null)
+        .Format("g5")
+        .InputType("number")
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+        .HtmlAttributes(new { title = "InputType: number" })
+    )
+</div>
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.InputNumber.Index_Text4)</p>
+    <p>@Html.Raw(Resources.InputNumber.Index_Text6)</p>
+    <p>@Html.Raw(Resources.InputNumber.HandleWheelDescription_Text0)</p>
+}

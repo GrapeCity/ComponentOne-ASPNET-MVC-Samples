@@ -1,0 +1,15 @@
+﻿@model IEnumerable<MvcExplorer.Models.NamedColor>
+
+<div>
+    <label>@Html.Raw(Resources.ListBox.ComplexType_SelectAnItem)</label>
+    @(Html.C1().ListBox()
+        .Bind(Model)
+        .DisplayMemberPath("Name")
+        .SelectedValuePath("Value")
+        .Width(250).Height(200)
+    )
+</div>
+
+@section Description{
+    @Html.Raw(Resources.ListBox.ComplexType_Text0)
+}
