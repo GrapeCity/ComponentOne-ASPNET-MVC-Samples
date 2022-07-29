@@ -1406,6 +1406,61 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to RightToLeft.
+        /// </summary>
+        public static string ExcelImportExport_RTL
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelImportExport_RTL", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The sample demonstrates how to change the direction(RTL) of exporting or importing FlexGrid content to/from an Excel xlsx file..
+        /// </summary>
+        public static string ExcelImportExport_RTL_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelImportExport_RTL_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to HTML accommodates RTL with the &apos;dir&apos; attribute. Setting &apos;dir&apos; to &apos;rtl&apos; or &apos;ltr&apos; on any element causes the element&apos;s content to flow from right to left or vice versa. The exported file content will change its direction based on  Flexgrid control dir attribute. .
+        /// </summary>
+        public static string ExcelImportExport_RTL_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelImportExport_RTL_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Is Flexgrid RTL.
+        /// </summary>
+        public static string ExcelImportExport_RTL_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelImportExport_RTL_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Excel RightToLeft:.
+        /// </summary>
+        public static string ExcelImportExport_RTL_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelImportExport_RTL_Text3", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///    Looks up a localized string similar to The sample demonstrates how to export or import FlexGrid content to/from an Excel xlsx file..
         /// </summary>
         public static string ExcelImportExport_Text0

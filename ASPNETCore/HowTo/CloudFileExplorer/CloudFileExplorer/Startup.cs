@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Globalization;
 using System.IO;
+using System.Net;
 using System.Threading;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Drive.v3;
@@ -33,7 +34,8 @@ namespace CloudFileExplorer
                 .AddJsonFile($"appsettings.{env.EnvironmentName}.json", optional: true)
                 .AddEnvironmentVariables();
 
-            Configuration = builder.Build();            
+            Configuration = builder.Build();
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
         }
 
         public IConfiguration Configuration { get; }

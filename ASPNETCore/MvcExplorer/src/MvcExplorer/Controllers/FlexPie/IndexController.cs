@@ -32,7 +32,7 @@ namespace MvcExplorer.Controllers
                 {"Offset", new object[]{0, 0.1, 0.2, 0.3, 0.4, 0.5}},
                 {"StartAngle", new object[]{0, 90, 180, -90}},
                 {"Reversed", new object[]{false, true}},
-                {"DataLabel.Position", new object[]{PieLabelPosition.None, PieLabelPosition.Inside, PieLabelPosition.Center, PieLabelPosition.Outside}},
+                {"DataLabel.Position", new object[]{PieLabelPosition.None, PieLabelPosition.Inside, PieLabelPosition.Center, PieLabelPosition.Outside, PieLabelPosition.Radial, PieLabelPosition.Circular}},
                 {"DataLabel.Border", new object[]{false, true}},
             };
 

@@ -45,31 +45,31 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.C1Excel.4.5.2">
-      <HintPath>..\packages\C1.C1Excel.4.5.20221.548\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+      <HintPath>..\packages\C1.C1Excel.4.5.20222.566\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.C1Zip.4.5.2">
-        <HintPath>..\packages\C1.C1Zip.4.5.20221.548\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
+        <HintPath>..\packages\C1.C1Zip.4.5.20222.566\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20221.333\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.FlexSheet">
-      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.5.20221.333\lib\net45\C1.Web.Mvc.FlexSheet.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.5.20222.340\lib\net45\C1.Web.Mvc.FlexSheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20221.548\lib\net452\C1.Win.4.5.2.dll</HintPath>
+      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Win.Bitmap.4.5.2">
-      <HintPath>..\packages\C1.Win.Bitmap.4.5.20221.548\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+      <HintPath>..\packages\C1.Win.Bitmap.4.5.20222.566\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Win.C1DX.4.5.2">
-      <HintPath>..\packages\C1.Win.C1DX.4.5.20221.548\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+      <HintPath>..\packages\C1.Win.C1DX.4.5.20222.566\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
@@ -213,10 +213,12 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\FlexSheet\CalculationPrecisionController.cs" />
     <Compile Include="Controllers\FlexSheet\CellMergingController.cs" />
     <Compile Include="Controllers\FlexSheet\CustomFunctionController.cs" />
     <Compile Include="Controllers\FlexSheet\DataBindingController.cs" />
     <Compile Include="Controllers\FlexSheet\DragDropController.cs" />
+    <Compile Include="Controllers\FlexSheet\ExcelHtmlEntitiesController.cs" />
     <Compile Include="Controllers\FlexSheet\ExcelIOController.cs" />
     <Compile Include="Controllers\FlexSheet\ExcelServiceController.cs" />
     <Compile Include="Controllers\FlexSheet\FilteringController.cs" />
@@ -264,8 +266,10 @@
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Scripts\ControlLayout.js" />
     <Content Include="Scripts\FlexSheet\autoFilling.js" />
+    <Content Include="Scripts\FlexSheet\calculationPrecision.js" />
     <Content Include="Scripts\FlexSheet\customFunction.js" />
     <Content Include="Scripts\FlexSheet\dataBinding.js" />
+    <Content Include="Scripts\FlexSheet\excelHtmlEntities.js" />
     <Content Include="Scripts\FlexSheet\table.js" />
     <Content Include="Scripts\FlexSheet\excelIO.js" />
     <Content Include="Global.asax" />
@@ -384,6 +388,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexSheet\AutoFilling.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexSheet\ExcelHtmlEntities.cshtml" />
+	<Content Include="Views\FlexSheet\CalculationPrecision.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

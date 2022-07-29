@@ -16,3 +16,5 @@ on selected columns.
 2) By providing an "alert" method that changes the content of an invisible
 element with role "alert". In this sample, the alert method is used to 
 announce grid actions such as sorting and filtering.
+
+For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

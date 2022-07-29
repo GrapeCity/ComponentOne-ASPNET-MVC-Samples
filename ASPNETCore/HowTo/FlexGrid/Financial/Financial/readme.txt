@@ -9,3 +9,5 @@ By default, the grid updates all cells when data changes. In this example,
 changes happen very frequently but only affect a few cells. So it is
 more efficient to keep track of the cell elements and update only those
 that have changed.
+
+For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

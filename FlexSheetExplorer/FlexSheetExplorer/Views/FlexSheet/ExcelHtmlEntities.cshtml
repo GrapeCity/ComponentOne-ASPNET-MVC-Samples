@@ -1,0 +1,36 @@
+﻿@model IEnumerable<Sale>
+
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/FlexSheet/excelHtmlEntities.js"></script>
+}
+@section Styles{
+    <style>
+        .btn {
+            margin-bottom: 0;
+        }
+    </style>
+}
+
+<div>
+    <div class="copy">
+        <h3>@Html.Raw(Resources.FlexSheet.ExcelIO_HtmlConversion_Text0)</h3>
+
+        <p>@Html.Raw(Resources.FlexSheet.ExcelIO_HtmlConversion_Text1)</p>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-24">
+            <div class="form-inline well well-lg">
+                @Html.Raw(Resources.FlexSheet.ExcelIO_Text5)
+                <input type="text" class="form-control" id="fileName2" />
+                @Html.Raw(Resources.FlexSheet.ExcelIO_HtmlConversion_Text2)
+                @(Html.C1().ComboBox().Id("HtmlEntityConversion").IsEditable(false))
+                <button class="btn btn-default" onclick="exportHtmlEntities()">@Html.Raw(Resources.FlexSheet.ExcelIO_Text4)</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("excelHtmlEntitiesSheet")
+        .AddUnboundSheet("Unbound", 10, 10))
+    </div>
+</div>

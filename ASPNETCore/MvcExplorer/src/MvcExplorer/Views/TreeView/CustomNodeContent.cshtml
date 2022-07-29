@@ -4,14 +4,14 @@
     <script type="text/javascript">
         function formatItem(treeview, args) {
             if (args.dataItem.NewItem) {
-                args.element.innerHTML +=
-                    '<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>';
+                var img = wijmo.createElement('<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>');
+                args.element.appendChild(img);
             }
         }
     </script>
 }
 
-<c1-tree-view display-member-path="Header" child-items-path="Items"
+<c1-tree-view display-member-path="Header" child-items-path="Items" show-checkboxes="true"  checked-member-path="Checked"
               source="Model" format-item="formatItem"></c1-tree-view>
 
 @section Summary{

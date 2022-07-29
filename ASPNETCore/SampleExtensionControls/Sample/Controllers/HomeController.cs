@@ -31,7 +31,7 @@ namespace Sample.Controllers
                 }
             }
             // Delay result
-            System.Threading.Thread.Sleep(50);
+            System.Threading.Thread.Sleep(200);
             var resultList = selectedcountryList.Select(item => new Country
             {
                 CountryName = item.CountryName,

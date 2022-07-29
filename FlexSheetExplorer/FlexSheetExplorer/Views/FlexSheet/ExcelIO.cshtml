@@ -1,14 +1,20 @@
 @model IEnumerable<Sale>
 
 @section Scripts{
-<script type="text/javascript" src="~/Scripts/FlexSheet/excelIO.js"></script>
+    <script type="text/javascript" src="~/Scripts/FlexSheet/excelIO.js"></script>
 }
-
+@section Styles{
+    <style>
+        .btn {
+            margin-bottom: 0;
+        }
+    </style>
+}
 <div>
     <div class="copy">
-<h3>@Html.Raw(Resources.FlexSheet.ExcelIO_Text2)</h3>
+        <h3>@Html.Raw(Resources.FlexSheet.ExcelIO_Text2)</h3>
 
-<p>@Html.Raw(Resources.FlexSheet.ExcelIO_Text0)</p>
+        <p>@Html.Raw(Resources.FlexSheet.ExcelIO_Text0)</p>
 
     </div>
     <div class="row">
@@ -31,10 +37,10 @@
         .SelectedSheetIndex(0).AddBoundSheet(sheet =>
                 sheet.Bind(cv =>
                     cv.Bind(Model).DisableServerRead(true)))
-        .AddUnboundSheet("Unbound", 20, 8))
+        .AddUnboundSheet("Unbound", 10, 10))
     </div>
 </div>
 @section Summary{
-<p>@Html.Raw(Resources.FlexSheet.ExcelIO_Text1)</p>
+    <p>@Html.Raw(Resources.FlexSheet.ExcelIO_Text1)</p>
 
 }

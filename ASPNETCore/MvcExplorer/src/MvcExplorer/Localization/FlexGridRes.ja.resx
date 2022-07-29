@@ -1424,8 +1424,8 @@ Note that you have to update the details view when the current item changes. To 
     <value>列レイアウトのロード</value>
     <comment>Restore Layout</comment>
   </data>
-  <data name="TreeGrid_ChidItems_Description" xml:space="preserve">
-    <value>データ項目に子項目のコレクションが含まれている場合、FlexGridのChildItemsPathを使用してデータをツリーとして表示できます。 たとえば、「children」プロパティを持つ「person」オブジェクトのリストがあるとします。 「children」プロパティには、より多くの人のオブジェクトの配列が含まれています。 これは、同種階層と呼ばれることもあります。 次のグリッドは、グリッドを最上位の人のリストに連結し、ChildItemsPathプロパティを「children」に設定することによって作成されます。</value>
+  <data name="TreeGrid_ChildItems_Description" xml:space="preserve">
+    <value>データ項目に子項目のコレクションが含まれている場合、FlexGridのChildItemsPathを使用してデータをツリーとして表示できます。 たとえば、「children」プロパティを持つ「person」オブジェクトのリストがあるとします。 「children」プロパティには、より多くの人のオブジェクトの配列が含まれています。 これは、同種階層と呼ばれることもあります。 次のグリッドは、グリッドを最上位の人のリストに連結し、ChildItems  Pathプロパティを「children」に設定することによって作成されます。       </value>
     <comment>If your data items contain collections of child items, you may use FlexGrid's childItemsPath to show the data as a tree. For example, consider a list of 'person' objects which have a 'children' property. The 'children' property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the childItemsPath property to 'children':</comment>
   </data>
   <data name="TreeGrid_LazyLoading_Description" xml:space="preserve">
@@ -1451,5 +1451,25 @@ Note that you have to update the details view when the current item changes. To 
   <data name="TreeGrid_LazyLoading_Text1" xml:space="preserve">
     <value>行があります。</value>
     <comment>rows.</comment>
+  </data>
+  <data name="ExcelImportExport_RTL" xml:space="preserve">
+    <value>RightToLeft</value>
+    <comment>RightToLeft</comment>
+  </data>
+  <data name="ExcelImportExport_RTL_Text0" xml:space="preserve">
+    <value>このサンプルは、Excel（.xlsx）ファイルとの間でFlexGridコンテンツをエクスポートまたはインポートする方向（右から左）を変更する方法を示します。</value>
+    <comment>The sample demonstrates how to change the direction(RTL) of exporting or importing FlexGrid content to/from an Excel xlsx file.</comment>
+  </data>
+  <data name="ExcelImportExport_RTL_Text1" xml:space="preserve">
+    <value>HTMLは、「dir」属性を使用して右から左に対応します。 任意の要素で「dir」を「rtl」または「ltr」に設定すると、要素のコンテンツが右から左に、またはその逆に描画されます。 エクスポートされたファイルのコンテンツは、FlexGridコントロールのdir属性に基づいて方向を変更します。</value>
+    <comment>HTML accommodates RTL with the 'dir' attribute. Setting 'dir' to 'rtl' or 'ltr' on any element causes the element's content to flow from right to left or vice versa. The exported file content will change its direction based on  Flexgrid control dir attribute.</comment>
+  </data>
+  <data name="ExcelImportExport_RTL_Text2" xml:space="preserve">
+    <value>Flexgridは右から左ですか？</value>
+    <comment>Is Flexgrid RTL</comment>
+  </data>
+  <data name="ExcelImportExport_RTL_Text3" xml:space="preserve">
+    <value>Excelの右から左に：</value>
+    <comment>Excel RightToLeft:</comment>
   </data>
 </root>

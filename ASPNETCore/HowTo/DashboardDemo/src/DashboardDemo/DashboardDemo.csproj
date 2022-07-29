@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net5.0-windows</TargetFramework>
+    <TargetFramework>net6.0-windows</TargetFramework>
     <AssemblyName>DashboardDemo</AssemblyName>
     <RootNamespace>DashboardDemo</RootNamespace>
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
@@ -14,11 +14,11 @@
  </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20221.333" />
-    <PackageReference Include="C1.AspNetCore.Mvc.FlexViewer" Version="3.0.20221.333" />
-    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="3.0.20221.333" />
-    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20221.313" />
-    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20221.313" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
+    <PackageReference Include="C1.AspNetCore.Mvc.FlexViewer" Version="3.0.20222.340" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="3.0.20222.340" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20222.320" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="project.json" />

@@ -1,0 +1,71 @@
+﻿@section Styles{
+    <style type="text/css">
+        /* Accordion:
+         customize the labeled inputs */
+        .wj-labeled-input {
+            width: 30%;
+        }
+
+            .wj-labeled-input > label > span {
+                display: block;
+                font-weight: normal;
+                font-size: 90%;
+                opacity: .90;
+                color: black;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        function SetCheckboxValue(e) {
+            let acc = wijmo.Control.getControl("#mvcAccordion");
+            let cb = document.getElementById("isCollapsed_"+e.selectedIndex);
+            cb.checked = acc.panes[e.selectedIndex].isCollapsed;
+            document.getElementById("headerCollapsedPane").innerText = "CollapsedPane - " + (e.selectedIndex == 0 ? cb.checked : !cb.checked);
+            document.getElementById("headerNonCollapsedPane").innerText = "CollapsedPane - " + (e.selectedIndex == 1 ? cb.checked : !cb.checked);
+        }
+    </script>
+}
+
+<div class="container-fluid">
+    <div>
+        <div>
+            <a id="headerCollapsedPane">CollapsedPane - true</a>
+            <div id="contentCollapsedPane">
+                <!-- content -->
+                <div class="wj-labeled-input switch">
+                    <input id="isCollapsed_0" type="checkbox" disabled />
+                    <label for="isCollapsed_0">
+                        IsCollapsed Pane <span>@Html.Raw(Resources.Accordion.AccordionPane_Text3)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+        <div>
+            <a id="headerNonCollapsedPane">CollapsedPane - false</a>
+            <div id="contentNonCollapsedPane">
+                <!-- content -->
+                <div class="wj-labeled-input switch">
+                    <input id="isCollapsed_1" type="checkbox"  disabled/>
+                    <label for="isCollapsed_1">
+                        IsCollapsed Pane <span>@Html.Raw(Resources.Accordion.AccordionPane_Text3)</span>
+                    </label>
+                </div>
+            </div>
+        </div>
+    </div>
+    @Html.C1().Accordion().Id("mvcAccordion").OnClientSelectedIndexChanged("SetCheckboxValue").Panes(ap =>
+    {
+        ap.Add().Header("#headerCollapsedPane").Content("#contentCollapsedPane").IsCollapsed(true);
+        ap.Add().Header("#headerNonCollapsedPane").Content("#contentNonCollapsedPane").IsCollapsed(false);
+    })
+</div>
+@section Summary{
+    <p>@Html.Raw(Resources.Accordion.AccordionPane_Text0)</p>
+}
+
+@section Description{
+    <p>@Html.Raw(Resources.Accordion.AccordionPane_Text1)</p>
+    <p>@Html.Raw(Resources.Accordion.AccordionPane_Text2)</p>
+}

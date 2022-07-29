@@ -7,26 +7,68 @@
 
 @section Styles{
     <style>
-        .custom-flex-grid {
+         .custom-flex-grid {
             height: 400px;
             background-color: white;
             box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
             margin-bottom: 12px;
         }
-        .custom-flex-grid .wj-cell {
+
+            .custom-flex-grid .wj-cell {
+                background-color: #fff;
+                border: none;
+                font-size: 10pt;
+            }
+
+            .custom-flex-grid .wj-state-selected {
+                background: #000;
+                color: #fff;
+            }
+
+            .custom-flex-grid .wj-state-multi-selected {
+                background: #222;
+                color: #fff;
+            }
+
+        .wj-flexgrid {
+            max-height: 220px;
+            margin: 6px 0;
+        }
+
+        .wj-cell.wj-group {
+            border: none;
+        }
+
+            .wj-cell.wj-group:not(.wj-state-selected):not(.wj-state-multi-selected) {
+                background-color: white;
+            }
+
+        custom-flex-grid-worker {
+            height: 400px;
+            background-color: white;
+            box-shadow: 4px 4px 10px 0px rgba(50, 50, 50, 0.75);
+            margin-bottom: 12px;
+        }
+
+        .custom-flex-grid-worker .wj-cell {
             background-color: #fff;
-            border-bottom: 1px solid #eee;
+            border-bottom: none;
             font-size: 10pt;
         }
 
-        .custom-flex-grid .wj-state-selected {
+        .custom-flex-grid-worker .wj-state-selected {
             background: #000;
             color: #fff;
         }
 
-        .custom-flex-grid .wj-state-multi-selected {
+        .custom-flex-grid-worker .wj-state-multi-selected {
             background: #222;
             color: #fff;
+        }
+
+        .custom-flex-grid-worker .wj-header {
+            background-color: #d0cccc;
+            font-size: 10pt;
         }
     </style>
 }
@@ -65,7 +107,7 @@
   @Html.Raw(FlexGridRes.TreeGrid_ChildItems_Text2)  
 </p>
 
-<c1-flex-grid id="heterogeneous" class="custom-flex-grid" width="500px"
+<c1-flex-grid id="heterogeneous" class="custom-flex-grid-worker" width="500px"
               auto-generate-columns="false"
               headers-visibility="Column" selection-mode="Row">
     <c1-items-source source-collection="Workers"></c1-items-source>

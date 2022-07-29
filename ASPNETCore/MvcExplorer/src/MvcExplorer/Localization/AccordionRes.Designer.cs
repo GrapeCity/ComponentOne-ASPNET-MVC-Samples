@@ -59,7 +59,51 @@ namespace MvcExplorer.Localization {
                 resourceCulture = value;
             }
         }
-        
+
+        /// <summary>
+        ///    Looks up a localized string similar to The AccordionPane.IsCollapsed property allows you to set a pane as collapsed or not..
+        /// </summary>
+        public static string AccordionPane_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("AccordionPane_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to This sample demonstrates the usage of IsCollapsed property of Pane for the Accordion control..
+        /// </summary>
+        public static string AccordionPane_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("AccordionPane_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to The first Pane is configured to have the IsCollapsed property as true meanwhile the second is set to false so it is an expanded pane..
+        /// </summary>
+        public static string AccordionPane_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("AccordionPane_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Can collapse pane.
+        /// </summary>
+        public static string AccordionPane_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("AccordionPane_Text3", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Change the properties of this Accordion..
         /// </summary>

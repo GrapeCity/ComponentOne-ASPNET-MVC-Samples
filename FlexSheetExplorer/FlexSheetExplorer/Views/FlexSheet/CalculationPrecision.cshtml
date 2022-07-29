@@ -1,0 +1,41 @@
+﻿@model Nullable<int>
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/FlexSheet/calculationPrecision.js"></script>
+}
+@section Styles{
+    <style>
+        .btn {
+            margin-bottom: 0;
+        }
+    </style>
+}
+@{ 
+    int calPrecision = Model != null ? Model.Value : 14;
+}
+<div>
+    <div class="copy">
+        <h3>@Html.Raw(Resources.FlexSheet.CalculationPrecision_Text0)</h3>
+
+        <p>@Html.Raw(Resources.FlexSheet.CalculationPrecision_Text1)</p>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-24">
+            <div class="form-inline well well-lg">
+                <p><b>@Html.Raw(Resources.FlexSheet.CalculationPrecision_Text4)</b><span id="cellContent"></span></p>
+                @Html.Raw(Resources.FlexSheet.CalculationPrecision_Text3)
+                <input type="text" class="form-control " value="@Model" id="precisionVal" />
+                <button type="button" class="btn btn-default" onclick="setCalculationPrecision()">@Html.Raw(Resources.FlexSheet.CalculationPrecision_Text5)</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("formulaSheet").OnClientSelectionChanged("SetCellContent")
+        .AddUnboundSheet("Formulas", 20, 8).CalculationPrecision(calPrecision)
+        )
+    </div>
+</div>
+@section Summary{
+    <p>@Html.Raw(Resources.FlexSheet.CalculationPrecision_Text2)</p>
+
+}

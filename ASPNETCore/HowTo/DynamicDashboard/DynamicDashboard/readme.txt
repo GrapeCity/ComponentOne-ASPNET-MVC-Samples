@@ -8,3 +8,5 @@ This sample shows how to create a customized dashboard with the use of C1 ASP.NE
 4. Export a FlexChart to PNG image on clicking export button of widget.
 5. Filter dashboard data when you select different countries by selecting different rows in FlexGrid.
 6. Zoom in\out FlexChart.
+
+For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

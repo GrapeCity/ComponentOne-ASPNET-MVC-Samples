@@ -138,6 +138,24 @@
   <data name="AutoFilling_Text6" xml:space="preserve">
     <value>Sum after filling:</value>
   </data>
+  <data name="CalculationPrecision_Text0" xml:space="preserve">
+    <value>CalculationPrecision</value>
+  </data>
+  <data name="CalculationPrecision_Text1" xml:space="preserve">
+    <value>The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas.</value>
+  </data>
+  <data name="CalculationPrecision_Text2" xml:space="preserve">
+    <value>Negative value means that no rounding is performed. The default value for this property is 14.</value>
+  </data>
+  <data name="CalculationPrecision_Text3" xml:space="preserve">
+    <value>Calculation precision value:</value>
+  </data>
+  <data name="CalculationPrecision_Text4" xml:space="preserve">
+    <value>Cell Content: </value>
+  </data>
+  <data name="CalculationPrecision_Text5" xml:space="preserve">
+    <value>OK</value>
+  </data>
   <data name="CellMerging_Text0" xml:space="preserve">
     <value>FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging.</value>
   </data>
@@ -188,6 +206,17 @@
   </data>
   <data name="Error_Text1" xml:space="preserve">
     <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text0" xml:space="preserve">
+    <value>Excel HtmlEntityConversion Export</value>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text1" xml:space="preserve">
+    <value>Flexsheet supports saving the xlsx file with HTML entities content, too.
+
+In the client, &lt;b&gt;convertHtmlEntities&lt;/b&gt; property of IFlexSheetXlsxOptions defines the conversion behavior for HTML entities such as """, "&lt;", "&gt;" and "&amp;" when exporting. The default value is HtmlEntityConversion.Auto.</value>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text2" xml:space="preserve">
+    <value>Convert HTML Entities</value>
   </data>
   <data name="ExcelIO_Text0" xml:space="preserve">
     <value>FlexSheet supports saving/loading xlsx files by the client &lt;b&gt;'save'&lt;/b&gt; and &lt;b&gt;'load'&lt;/b&gt; method.</value>

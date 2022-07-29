@@ -27,7 +27,7 @@ namespace MvcExplorer.Controllers
             var settings = new Dictionary<string, object[]>
             {
                 {"ChartType", new object[]{"Column", "Bar", "Scatter", "Line", "LineSymbols", "Area", "Spline", "SplineSymbols", "SplineArea"}},
-                {"DataLabel.Position", new object[]{LabelPosition.Top, LabelPosition.Right, LabelPosition.Bottom, LabelPosition.Left, LabelPosition.None}},
+                {"DataLabel.Position", new object[]{LabelPosition.Top, LabelPosition.Right, LabelPosition.Bottom, LabelPosition.Left, LabelPosition.Center, LabelPosition.None}},
                 {"DataLabel.Border", new object[]{false, true}},
             };
 

@@ -4,8 +4,9 @@
     <script type="text/javascript">
         function formatItem(treeview, args) {
             if (args.dataItem.NewItem) {
-                args.element.innerHTML +=
-                    '<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>';
+                var img = wijmo.createElement('<img style="margin-left:6px" src="@Href("~/Content/images/new.png")"/>');
+                args.element.appendChild(img);
+
             }
         }
     </script>
@@ -13,9 +14,12 @@
 
 @(Html.C1().TreeView()
     .Bind(Model)
+    .ShowCheckboxes(true)
     .DisplayMemberPath("Header")
     .ChildItemsPath("Items")
-    .OnClientFormatItem("formatItem"))
+    .CheckedMemberPath("Checked")
+    .OnClientFormatItem("formatItem")
+    )
 
 @section Summary{
     <p>@Html.Raw(Resources.TreeView.CustomNodeContent_Text0)</p>

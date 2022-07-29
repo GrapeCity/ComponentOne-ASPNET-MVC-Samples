@@ -55,3 +55,5 @@ Using this code:
 Notice how the w3Data object describes the columns as an array where 
 each element may correspond to an individual column or to a column
 group.
+
+For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

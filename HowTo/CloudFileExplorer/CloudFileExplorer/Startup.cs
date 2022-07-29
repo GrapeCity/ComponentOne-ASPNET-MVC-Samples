@@ -10,6 +10,7 @@ using System.Threading;
 using Google.Apis.Util.Store;
 using Google.Apis.Drive.v3;
 using System;
+using System.Net;
 
 [assembly: OwinStartupAttribute(typeof(CloudFileExplorer.Startup))]
 namespace CloudFileExplorer
@@ -19,6 +20,9 @@ namespace CloudFileExplorer
 		private readonly HttpConfiguration config = GlobalConfiguration.Configuration;
 		public void Configuration(IAppBuilder app)
         {
+            // C1WEB-29052: Adding more the old SSL protocols explicitly to avoid error of HTTP requests in some cases.
+            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls11 | SecurityProtocolType.Tls12;
+
 			app.UseCors(CorsOptions.AllowAll);
 			
 			#region Storage registration

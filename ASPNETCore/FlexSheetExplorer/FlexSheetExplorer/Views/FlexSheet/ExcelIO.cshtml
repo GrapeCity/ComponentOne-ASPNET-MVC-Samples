@@ -1,12 +1,14 @@
 @model IEnumerable<Sale>
 
-@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/excelIO.js"></script>}
+@section Scripts{
+<script type="text/javascript" src="~/Scripts/flexSheet/excelIO.js"></script>
+}
 
 <div>
     <div class="copy">
-<h3>@Html.Raw(FlexSheetRes.ExcelIO_Text2)</h3>
+        <h3>@Html.Raw(FlexSheetRes.ExcelIO_Text2)</h3>
 
-<p>@Html.Raw(FlexSheetRes.ExcelIO_Text0)</p>
+        <p>@Html.Raw(FlexSheetRes.ExcelIO_Text0)</p>
 
     </div>
     <div class="row">

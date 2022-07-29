@@ -1,15 +1,15 @@
 ﻿var ctx = {
     fileName: '',
     flexSheet: null,
-    fileNameInput:null,
-    fileInput:null
+    fileNameInput: null,
+    fileInput: null
 };
 
 c1.documentReady(function () {
     var flexSheet;
     ctx.flexSheet = wijmo.Control.getControl('#excelIOSheet');
     ctx.fileNameInput = wijmo.getElement('#fileName');
-    ctx.fileInput=wijmo.getElement('#importFile');
+    ctx.fileInput = wijmo.getElement('#importFile');
     flexSheet = ctx.flexSheet;
     if (flexSheet) {
         for (sheetIdx = 0; sheetIdx < flexSheet.sheets.length; sheetIdx++) {
@@ -50,8 +50,8 @@ save = function () {
     }
 }
 
-function fileNameChanged(){
-    ctx.fileName=ctx.fileNameInput.value;
+function fileNameChanged() {
+    ctx.fileName = ctx.fileNameInput.value;
 }
 
 function applyDataMap(flexSheet) {

@@ -122,7 +122,73 @@ namespace Resources {
                 return ResourceManager.GetString("AutoFilling_Text6", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///    Looks up a localized string similar to CalculationPrecision.
+        /// </summary>
+        internal static string CalculationPrecision_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas..
+        /// </summary>
+        internal static string CalculationPrecision_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Negative value means that no rounding is performed. The default value for this property is 14..
+        /// </summary>
+        internal static string CalculationPrecision_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Calculation precision value:.
+        /// </summary>
+        internal static string CalculationPrecision_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Cell Content:.
+        /// </summary>
+        internal static string CalculationPrecision_Text4
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to OK.
+        /// </summary>
+        internal static string CalculationPrecision_Text5
+        {
+            get
+            {
+                return ResourceManager.GetString("CalculationPrecision_Text5", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging..
         /// </summary>
@@ -275,7 +341,42 @@ namespace Resources {
                 return ResourceManager.GetString("Error_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///    Looks up a localized string similar to Excel HtmlEntityConversion Export.
+        /// </summary>
+        internal static string ExcelIO_HtmlConversion_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelIO_HtmlConversion_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Flexsheet supports saving the xlsx file with HTML entities content, too.
+        ///
+        ///In the client, &lt;b&gt;convertHtmlEntities&lt;/b&gt; property of IFlexSheetXlsxOptions defines the conversion behavior for HTML entities such as &quot;&quot;&quot;, &quot;&lt;&quot;, &quot;&gt;&quot; and &quot;&amp;&quot; when exporting. The default value is HtmlEntityConversion.Auto..
+        /// </summary>
+        internal static string ExcelIO_HtmlConversion_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelIO_HtmlConversion_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Convert HTML Entities.
+        /// </summary>
+        internal static string ExcelIO_HtmlConversion_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("ExcelIO_HtmlConversion_Text2", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports saving/loading xlsx files by the client &lt;b&gt;&apos;save&apos;&lt;/b&gt; and &lt;b&gt;&apos;load&apos;&lt;/b&gt; method..
         /// </summary>

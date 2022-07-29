@@ -7,6 +7,7 @@ namespace MvcExplorer.Models
         public string Header { get; set; }
         public string Image { get; set; }
         public bool NewItem { get; set; }
+        public bool Checked { get; set; }
         public Property[] Items { get; set; }
         public static Property[] GetData(IUrlHelper urlHelper)
         {
@@ -24,11 +25,11 @@ namespace MvcExplorer.Models
                             Image = urlHelper.Content("~/Content/images/phones.png"),
                             Items = new Property[] {
                                 new Property { Header="Apple" },
-                                new Property { Header="Motorola", NewItem=true },
+                                new Property { Header="Motorola", NewItem=true, Checked = true },
                                 new Property { Header="Nokia" },
                                 new Property { Header="Samsung" }}
                         },
-                        new Property { Header="Speakers", NewItem=true },
+                        new Property { Header="Speakers", NewItem=true, Checked = true },
                         new Property { Header="Monitors" }
                     }
                 },

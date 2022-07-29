@@ -145,6 +145,30 @@
     <value>入力後の合計：</value>
     <comment>Sum after filling:</comment>
   </data>
+  <data name="CalculationPrecision_Text0" xml:space="preserve">
+    <value>CalculationPrecision</value>
+    <comment>CalculationPrecision</comment>
+  </data>
+  <data name="CalculationPrecision_Text1" xml:space="preserve">
+    <value>CalculationPrecisionは、FlexSheet数式を計算するときに四捨五入する小数点以下の桁数を取得または設定します。</value>
+    <comment>The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas.</comment>
+  </data>
+  <data name="CalculationPrecision_Text2" xml:space="preserve">
+    <value>負の値は、数値の四捨五入が実行されないことを意味します。このプロパティのデフォルト値は14です。</value>
+    <comment>Negative value means that no rounding is performed. The default value for this property is 14.</comment>
+  </data>
+  <data name="CalculationPrecision_Text3" xml:space="preserve">
+    <value>計算精度の値:</value>
+    <comment>Calculation precision value:</comment>
+  </data>
+  <data name="CalculationPrecision_Text4" xml:space="preserve">
+    <value>セルの内容：</value>
+    <comment>Cell Content:</comment>
+  </data>
+  <data name="CalculationPrecision_Text5" xml:space="preserve">
+    <value>OK</value>
+    <comment>OK</comment>
+  </data>
   <data name="CellMerging_Text0" xml:space="preserve">
     <value>FlexSheetは、&lt;b&gt;mergeRange&lt;/b&gt;メソッドの呼び出しにより、選択された複数のセルを1つのセルに結合する操作をサポートします。&lt;/br&gt;選択されたセルに結合されたセルが含まれている場合、&lt;b&gt;mergeRange&lt;/b&gt;メソッドは、結合されたセルの結合を解除します。&lt;/br&gt;そうでない場合は、選択されたセルを1つのセルに結合します。&lt;br /&gt;&lt;/br&gt;これは、コンテンツ依存のセル結合しか行えないFlexGridとは異なります。</value>
     <comment>FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging.</comment>
@@ -212,6 +236,22 @@
   <data name="Error_Text1" xml:space="preserve">
     <value>要求の処理中にエラーが発生しました。</value>
     <comment>An error occurred while processing your request.</comment>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text0" xml:space="preserve">
+    <value> HtmlEntityConversion エクスポート</value>
+    <comment>Excel HtmlEntityConversion Export</comment>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text1" xml:space="preserve">
+    <value>Flexsheetでは、HTMLエンティティコンテンツを含むxlsxファイルを保存することもできます。
+
+クライアント側で、エクスポートするときにIFlexSheetXlsxOptionsの<b>convertHtmlEntities</b>プロパティが「""」、「&lt;」、「&gt;」および「&amp;」などのHTMLエンティティの変換動作を定義します。 デフォルト値はHtmlEntityConversion.Autoです。</value>
+    <comment>Flexsheet supports saving the xlsx file with HTML entities content, too.
+
+In the client,&lt;b&gt;convertHtmlEntities&lt;/b&gt; property of IFlexSheetXlsxOptions defines the conversion behavior for HTML entities such as """, "&lt;", "&gt;" and "&amp;" when exporting. The default value is HtmlEntityConversion.Auto.</comment>
+  </data>
+  <data name="ExcelIO_HtmlConversion_Text2" xml:space="preserve">
+    <value>HTMLエンティティを変換します</value>
+    <comment>Convert HTML Entities</comment>
   </data>
   <data name="ExcelIO_Text0" xml:space="preserve">
     <value>FlexSheetは、&lt;b&gt;save&lt;/b&gt;および&lt;b&gt;load&lt;/b&gt;クライアントメソッドにより、xlsxファイルの保存/ロードをサポートします。</value>
