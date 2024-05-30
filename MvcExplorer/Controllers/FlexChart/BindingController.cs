@@ -30,6 +30,8 @@ namespace MvcExplorer.Controllers
                 {"ChartType", new object[]{"Line", "LineSymbols", "Area"}},
                 {"InterpolateNulls", new object[]{true, false}},
                 {"LegendToggle", new object[]{true, false}},
+                {"AxisY.LabelMin", new object[]{false, true}},
+                {"AxisY.LabelMax", new object[]{false, true}},
             };
 
             return settings;

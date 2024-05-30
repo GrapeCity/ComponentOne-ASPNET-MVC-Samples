@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>GanttChart</RootNamespace>
     <AssemblyName>GanttChart</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -42,7 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -110,13 +110,18 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\GanttChart.zh-CN.designer.cs">
+      <DependentUpon>GanttChart.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\GanttChart.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -148,10 +153,14 @@
     <Content Include="Content\css\images\icons\30\google.png" />
     <Content Include="Content\css\images\icons\32\picons33.png" />
     <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\images\logotext_w.png" />
     <Content Include="Content\css\Site.css" />
-    <Content Include="Content\favicon\apple-touch-icon.png" />
-    <Content Include="Content\favicon\favicon-16x16.png" />
-    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\css\images\logotext.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\app.js" />
@@ -182,6 +191,10 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>GanttChart.Designer.cs</LastGenOutput>
     </Content>
+    <Content Include="App_GlobalResources\GanttChart.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>GanttChart.zh-CN.designer.cs</LastGenOutput>
+    </Content>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -205,7 +218,7 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <Content Include="Content\fonts\mescius-dev.ttf" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -1,0 +1,63 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AssemblyName>Sample</AssemblyName>
+    <RootNamespace>Sample</RootNamespace>
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Sample\**" />
+    <Content Remove="Sample\**" />
+    <EmbeddedResource Remove="Sample\**" />
+    <None Remove="Sample\**" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\C1.Web.Mvc.Extensions\C1.Web.Mvc.Extensions.Net60.csproj" />
+  </ItemGroup>
+  
+  <ItemGroup>
+    <None Include="wwwroot\Content\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
+    <None Include="wwwroot\Content\favicon\safari-pinned-tab.svg" />
+    <None Include="wwwroot\Content\fonts\fira\LICENSE" />
+    <None Include="wwwroot\Scripts\BootStrap\bootstrap.js" />
+    <None Include="wwwroot\Scripts\ControlLayout.js" />
+    <None Include="wwwroot\Scripts\jquery.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.js" />
+    <None Include="wwwroot\Scripts\jquery.validate.unobtrusive.js" />
+    <None Include="wwwroot\Scripts\Layout.js" />
+    <None Include="wwwroot\Scripts\MultiLevelMenu.js" />
+    <None Include="wwwroot\Scripts\SyntaxHighlighter\shBrushCSharp.js" />
+    <None Include="wwwroot\Scripts\SyntaxHighlighter\shBrushJScript.js" />
+    <None Include="wwwroot\Scripts\SyntaxHighlighter\shBrushXml.js" />
+    <None Include="wwwroot\Scripts\SyntaxHighlighter\shCore.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Content\css\New Folder\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Localization\MultiColumnComboBoxRes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>MultiColumnComboBoxRes.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\MultiColumnComboBoxRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>MultiColumnComboBoxRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+</Project>

@@ -32,17 +32,20 @@ var c1;
             });
             DropDownMenu.prototype._init = function () {
                 var _this = this;
-                this._menu.style.display = 'none';
+                if (this._menu && this._menu.style)
+                    this._menu.style.display = 'none';
                 document.addEventListener('click', this._documentClick.bind(this));
-                this._parent.style.cursor = "pointer";
-                this._parent.addEventListener('click', function () {
-                    if (_this.visible) {
-                        _this.hide();
-                    }
-                    else {
-                        _this.show();
-                    }
-                });
+                if (this._parent) {
+                    this._parent.style.cursor = "pointer";
+                    this._parent.addEventListener('click', function () {
+                        if (_this.visible) {
+                            _this.hide();
+                        }
+                        else {
+                            _this.show();
+                        }
+                    });
+                }
             };
             DropDownMenu.prototype._documentClick = function (event) {
                 if (eventFrom(event, this._menu) || eventFrom(event, this._parent)) {

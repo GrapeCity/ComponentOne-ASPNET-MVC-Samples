@@ -1,0 +1,30 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+		<AssemblyName>FlightStatistics</AssemblyName>
+		<RootNamespace>FlightStatistics</RootNamespace>
+  </PropertyGroup>
+  
+  <PropertyGroup Label="Globals">
+</PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="readme-guids.txt" />
+    <None Remove="readme.txt" />
+    <None Remove="screenshot.PNG" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
+  </ItemGroup>
+
+</Project>

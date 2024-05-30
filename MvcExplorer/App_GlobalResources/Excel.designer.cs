@@ -70,6 +70,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Output type:.
+        /// </summary>
+        internal static string Index_OutputType {
+            get {
+                return ResourceManager.GetString("Index_OutputType", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to With ComponentOne Excel for .NET you can create Microsoft Excel files directly from your application&apos;s code. 
         ///       The possibilities are endless with an easy-to-manipulate Excel object model exposed in your code. Create Excel files 
         ///       from data that does not directly support Excel exportation like any grid, schedule or chart. Excel for .NET supports formulas, 

@@ -15,7 +15,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FlexSheetExplorer</RootNamespace>
     <AssemblyName>FlexSheetExplorer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -44,32 +44,31 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.5.2">
-      <HintPath>..\packages\C1.C1Excel.4.5.20222.566\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Excel.4.8">
+      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.C1Zip.4.5.2">
-        <HintPath>..\packages\C1.C1Zip.4.5.20222.566\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Zip">
+      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.FlexSheet">
-      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.5.20222.340\lib\net45\C1.Web.Mvc.FlexSheet.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexSheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.5.2">
-      <HintPath>..\packages\C1.Win.Bitmap.4.5.20222.566\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.Bitmap.4.8">
+      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.5.2">
-      <HintPath>..\packages\C1.Win.C1DX.4.5.20222.566\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1DX.4.8">
+      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
@@ -189,7 +188,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -199,6 +198,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\FlexSheet.zh-CN.designer.cs">
+      <DependentUpon>FlexSheet.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\FlexSheet.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -256,13 +260,15 @@
     <Content Include="Content\css\images\icons\30\google.png" />
     <Content Include="Content\css\images\icons\32\picons33.png" />
     <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\images\logotext.png" />
+    <Content Include="Content\css\images\logotext_w.png" />
     <Content Include="Content\css\SyntaxHighlighter\shCore.css" />
     <Content Include="Content\css\SyntaxHighlighter\shCoreEclipse.css" />
-    <Content Include="Content\favicon\android-chrome-192x192.png" />
-    <Content Include="Content\favicon\android-chrome-256x256.png" />
-    <Content Include="Content\favicon\apple-touch-icon.png" />
-    <Content Include="Content\favicon\favicon-16x16.png" />
-    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Scripts\ControlLayout.js" />
     <Content Include="Scripts\FlexSheet\autoFilling.js" />
@@ -365,6 +371,11 @@
       <LastGenOutput>FlexSheet.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_GlobalResources\FlexSheet.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>FlexSheet.zh-CN.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -384,14 +395,14 @@
     </EmbeddedResource>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <Content Include="Content\fonts\mescius-dev.ttf" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexSheet\AutoFilling.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexSheet\ExcelHtmlEntities.cshtml" />
-	<Content Include="Views\FlexSheet\CalculationPrecision.cshtml" />
+    <Content Include="Views\FlexSheet\CalculationPrecision.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

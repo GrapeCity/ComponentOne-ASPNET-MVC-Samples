@@ -197,7 +197,7 @@ namespace C1Finance.Models
                 CompanyCounter++;
                 PriceHistory = new List<SymbolPriceHistory>();
                 Price = 1497;
-                GetPrices("FB", Price, out LastPrice, out LastPrice2, out PriceHistory);
+                GetPrices("FBABX", Price, out LastPrice, out LastPrice2, out PriceHistory);
                 if (LastPrice2 > 0)
                     Change = (LastPrice - LastPrice2) / LastPrice2;
                 Shares = 41;
@@ -205,7 +205,7 @@ namespace C1Finance.Models
                 Value = LastPrice * Shares;
                 if (Price > 0)
                     Gain = (LastPrice - Price) / Price;
-                PortfolioListFGrid.Add(new PortfolioFGridClass(CompanyCounter, Company_Palette[CompanyCounter % Company_Palette.Length], PortfolioListAll.Where(x => x.symbol == "FB").Select(x => x.name).SingleOrDefault(), "FB", true, LastPrice, Change, Shares, Price, Cost, Value, Gain, PriceHistory));
+                PortfolioListFGrid.Add(new PortfolioFGridClass(CompanyCounter, Company_Palette[CompanyCounter % Company_Palette.Length], PortfolioListAll.Where(x => x.symbol == "FBABX").Select(x => x.name).SingleOrDefault(), "FBABX", true, LastPrice, Change, Shares, Price, Cost, Value, Gain, PriceHistory));
 
                 CompanyCounter++;
                 PriceHistory = new List<SymbolPriceHistory>();
@@ -252,7 +252,8 @@ namespace C1Finance.Models
             if (dataStream == null)
             {
                
-        var fmt = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={0}&apikey=EQ8R2LTG732VP7HE&datatype=csv&outputsize=full";
+        var fmt = "https://gc-demo-dataservice.azurewebsites.net/alphavantage/api/v1/timeSeries?function=Daily&symbol={0}";
+                
 
         var url = string.Format(fmt, symbol);
 

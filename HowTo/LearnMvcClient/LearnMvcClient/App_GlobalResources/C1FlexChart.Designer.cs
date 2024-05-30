@@ -1806,7 +1806,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to &lt;b&gt;position&lt;/b&gt;: A
-        ///        &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.chart.LabelPosition.Enum.html&quot; target=&quot;_blank&quot;&gt;LabelPosition&lt;/a&gt;
+        ///        &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;LabelPosition&lt;/a&gt;
         ///        value that determines where to place the labels relative
         ///        to the data points..
         /// </summary>

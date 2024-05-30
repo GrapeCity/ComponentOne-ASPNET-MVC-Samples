@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
 	<PropertyGroup>
-		<TargetFramework>net6.0</TargetFramework>
+		<TargetFramework>net8.0</TargetFramework>
 		<AssemblyName>FlexSheetExplorer</AssemblyName>
 		<RootNamespace>FlexSheetExplorer</RootNamespace>
 		<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
@@ -17,11 +17,16 @@
 		<Content Remove="project.lock.json" />
 	</ItemGroup>
 	<ItemGroup>
-		<PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
-		<PackageReference Include="C1.AspNetCore.Mvc.FlexSheet" Version="3.0.20222.340" />
+		<PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+		<PackageReference Include="C1.AspNetCore.Mvc.FlexSheet" Version="6.0.20241.360" />
 	</ItemGroup>
 	<ItemGroup>
 		<DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+	</ItemGroup>
+	<ItemGroup>
+	  <EmbeddedResource Update="Localization\FlexSheetRes.zh-CN.resx">
+	    <SubType>Designer</SubType>
+	  </EmbeddedResource>
 	</ItemGroup>
 
 </Project>

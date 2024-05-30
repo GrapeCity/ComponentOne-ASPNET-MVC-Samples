@@ -26,13 +26,13 @@
         {
             bl2.Add(cb2 => cb2.Header("Investment").Align("center").CollapseTo("Total").Width("100").IsCollapsed(true).Rows(bl3 =>
             {
-                bl3.Add(cb3 => cb3.Binding("Stock").Format("p2").Width("80").Template(tpl1));
-                bl3.Add(cb3 => cb3.Binding("Bond").Format("p2").Width("80").Template(tpl1));
-                bl3.Add(cb3 => cb3.Binding("Other").Format("p2").Width("80").Template(tpl1));
+                bl3.Add(cb3 => cb3.Binding("Stock").Format("p2").Width("80"));
+                bl3.Add(cb3 => cb3.Binding("Bond").Format("p2").Width("80"));
+                bl3.Add(cb3 => cb3.Binding("Other").Format("p2").Width("80"));
                 bl3.Add(cb3 => cb3.Binding("Total").Name("#Total").Header("Total").Width("80").Format("p2").Align("right").CssClass("main-row"));
             }));
-            bl2.Add(cb2 => cb2.Binding("Cash").Format("p2").Template(tpl1));
-            bl2.Add(cb2 => cb2.Binding("Amount").Format("c0").CssClass("main-row").Template(tpl2));
+            bl2.Add(cb2 => cb2.Binding("Cash").Format("p2"));
+            bl2.Add(cb2 => cb2.Binding("Amount").Format("c0").CssClass("main-row"));
         }));
     })
     .ShowMarquee(true)

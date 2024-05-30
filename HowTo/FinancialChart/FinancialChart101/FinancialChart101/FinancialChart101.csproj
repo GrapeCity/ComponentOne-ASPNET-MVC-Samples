@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>FinancialChart101</RootNamespace>
     <AssemblyName>FinancialChart101</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -41,11 +41,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.Finance">
-      <HintPath>..\packages\C1.Web.Mvc.Finance.4.5.20222.340\lib\net45\C1.Web.Mvc.Finance.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.Finance.4.8.20241.360\lib\net48\C1.Web.Mvc.Finance.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -113,7 +113,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.5.0.6\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
@@ -176,11 +176,11 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="favicon\android-chrome-192x192.png" />
-    <Content Include="favicon\android-chrome-256x256.png" />
-    <Content Include="favicon\apple-touch-icon.png" />
-    <Content Include="favicon\favicon-16x16.png" />
-    <Content Include="favicon\favicon-32x32.png" />
+    <Content Include="favicon\android-chrome-192.png" />
+    <Content Include="favicon\android-chrome-256.png" />
+    <Content Include="favicon\apple-touch-icon180.png" />
+    <Content Include="favicon\logo16.png" />
+    <Content Include="favicon\logo32.png" />
     <Content Include="favicon\safari-pinned-tab.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\app.css" />

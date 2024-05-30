@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>BookMyFlight</RootNamespace>
     <AssemblyName>BookMyFlight</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
     <IISExpressAnonymousAuthentication />
@@ -40,17 +40,17 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Pdf.4.5.2">
-      <HintPath>..\packages\C1.C1Pdf.4.5.20222.566\lib\net452\C1.C1Pdf.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Pdf.4.8">
+      <HintPath>..\packages\C1.C1Pdf.4.8.20241.657\lib\net48\C1.C1Pdf.4.8.dll</HintPath>
     </Reference>
-    <Reference Include="C1.C1Zip.4.5.2">
-      <HintPath>..\packages\C1.C1Zip.4.5.20222.566\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
+    <Reference Include="C1.Zip">
+      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data.Linq" />
@@ -98,11 +98,11 @@
   <ItemGroup>
     <Content Include="App_Data\BookMyFlight_Sql.mdf" />
     <Content Include="App_Data\BookMyFlight_Sql_log.LDF" />
-    <Content Include="favicon\android-chrome-192x192.png" />
-    <Content Include="favicon\android-chrome-256x256.png" />
-    <Content Include="favicon\apple-touch-icon.png" />
-    <Content Include="favicon\favicon-16x16.png" />
-    <Content Include="favicon\favicon-32x32.png" />
+    <Content Include="favicon\android-chrome-192.png" />
+    <Content Include="favicon\android-chrome-256.png" />
+    <Content Include="favicon\apple-touch-icon180.png" />
+    <Content Include="favicon\logo16.png" />
+    <Content Include="favicon\logo32.png" />
     <Content Include="favicon\safari-pinned-tab.svg" />
     <Content Include="favicon\manifest.json" />
     <Content Include="Global.asax" />

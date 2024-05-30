@@ -13,8 +13,8 @@ namespace LearnMvcClient.Models
     /// </summary>
     public static class LessonHelper
     {
-        private const string DefaultDocumentation = "https://www.grapecity.com/componentone/docs/mvc/online-mvc/overview.html";
-        private const string DefaultDocumentationJa = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
+        private const string DefaultDocumentation = "https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html";
+        private const string DefaultDocumentationJa = "https://docs.mescius.com/help/c1/aspnet-mvc/aspmvc_helpers/";
         private static List<Lesson> _lessons;
         private static readonly object _locker = new object();
         private const string LessonsInServer = "~/Content/Lessons.xml";

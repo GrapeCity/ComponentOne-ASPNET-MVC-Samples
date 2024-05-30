@@ -208,8 +208,8 @@ namespace FinancialChartExplorer.Models
 
     public class Control
     {
-        private const string DocumentationRoot = "https://www.grapecity.com/componentone/docs/mvc/online-mvc-core/overview.html";
-        private const string DocumentationRootJa = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
+        private const string DocumentationRoot = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html";
+        private const string DocumentationRootJa = "https://docs.mescius.jp/help/c1/aspnet-mvc/aspmvc_helpers/#overview.html";
         private string _documentation;
 
         public string Name { get; set; }

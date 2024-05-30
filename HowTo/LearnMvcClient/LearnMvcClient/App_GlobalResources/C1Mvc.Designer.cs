@@ -113,7 +113,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt;
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt;
         ///    class is the core data provider for our MVC controls.
         ///    It takes a &lt;b&gt;sourceCollection&lt;/b&gt; array and provides
         ///    data views with sorting, filtering, grouping, paging,
@@ -165,7 +165,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to C1 MVC includes classes that extend &lt;b&gt;CollectionView&lt;/b&gt; to
         ///    provide additional services. The best example is
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.odata.ODataCollectionView.Class.html&quot; target=&quot;_blank&quot;&gt;ODataCollectionView&lt;/a&gt;,
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;ODataCollectionView&lt;/a&gt;,
         ///    which provides access to
         ///    &lt;a href=&quot;http://www.odata.org/&quot; target=&quot;_blank&quot;&gt;OData&lt;/a&gt; sources..
         /// </summary>
@@ -273,7 +273,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to However, in case of MVC controls, layout of all the controls is
         ///    updated according to the size of their host elements. MVC controls
-        ///    provide &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Control.Class.html#invalidateAll&quot;&gt;
+        ///    provide &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot;&gt;
         ///        wijmo.Control.invalidateAll
         ///    &lt;/a&gt; method to notify the controls about change in their host element, 
         ///    so that the controls update their layout accordingly..
@@ -1283,7 +1283,7 @@ namespace Resources {
         ///   Looks up a localized string similar to The server side CollectionViewService control constructs
         ///    a client side CollectionView instance. You can get the
         ///    instance by
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/c1.Module.html#getService&quot; target=&quot;_blank&quot;&gt;c1.getService&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;c1.getService&lt;/a&gt;
         ///    method..
         /// </summary>
         internal static string CVLoadingData_Text4 {
@@ -1729,7 +1729,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to To use this feature, set the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.collections.CollectionView.Class.html#trackChanges&quot; target=&quot;_blank&quot;&gt;trackChanges&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;trackChanges&lt;/a&gt;
         ///    property to true. Once you do that, the &lt;b&gt;CollectionView&lt;/b&gt;
         ///    will add items to its &lt;b&gt;itemsAdded&lt;/b&gt;, &lt;b&gt;itemsRemoved&lt;/b&gt;,
         ///    and &lt;b&gt;itemsEdited&lt;/b&gt; collections. When you are ready, send
@@ -2318,7 +2318,7 @@ namespace Resources {
         ///   Looks up a localized string similar to Numbers are formatted using the &lt;b&gt;Globalize.formatNumber&lt;/b&gt;
         ///    function.
         ///    For details regarding format strings, please refer the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        online documentation&lt;/a&gt;..
         /// </summary>
         internal static string Formatting_Text16 {
@@ -2457,7 +2457,7 @@ namespace Resources {
         ///   Looks up a localized string similar to Dates are formatted using the
         ///    &lt;b&gt;Globalize.formatDate&lt;/b&gt; function.
         ///    For details regarding format strings, please refer the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        online documentation&lt;/a&gt;..
         /// </summary>
         internal static string Formatting_Text3 {
@@ -2787,9 +2787,9 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to In addition to implementing fundamental classes such as
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Control.Class.html&quot; target=&quot;_blank&quot;&gt;Control&lt;/a&gt;,
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Event.Class.html&quot; target=&quot;_blank&quot;&gt;Event&lt;/a&gt;, and
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt; class [rest of string was truncated]&quot;;.
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Control&lt;/a&gt;,
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Event&lt;/a&gt;, and
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt; class [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string OtherServices_Text1 {
             get {
@@ -2798,7 +2798,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Tooltip.Class.html&quot; target=&quot;_blank&quot;&gt;Tooltip&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Tooltip&lt;/a&gt;:
         ///        Class that provides pop-up windows that display additional information about elements on the page..
         /// </summary>
         internal static string OtherServices_Text2 {
@@ -2808,7 +2808,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.Clipboard.Class.html&quot; target=&quot;_blank&quot;&gt;Clipboard&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Clipboard&lt;/a&gt;:
         ///        Class that provides static &lt;b&gt;copy&lt;/b&gt; and &lt;b&gt;paste&lt;/b&gt; methods that can be used by applications
         ///        and controls to customize the clipboard content during clipboard operations..
         /// </summary>
@@ -2819,7 +2819,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.PrintDocument.Class.html&quot; target=&quot;_blank&quot;&gt;PrintDocument&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;PrintDocument&lt;/a&gt;:
         ///        Class that makes it easy to create documents for printing or exporting to PDF.
         ///        Most browsers allow you to select the paper size, orientation, margins,
         ///        and whether to include page headers and footers..
@@ -2831,7 +2831,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Color.Class.html&quot; target=&quot;_blank&quot;&gt;Color&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Color&lt;/a&gt;:
         ///        Class that parses colors specified as CSS strings and exposes their red, green, blue,
         ///        and alpha channels as read-write properties. Also provides methods for converting
         ///        color spaces and interpolating..
@@ -2863,7 +2863,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#httpRequest&quot; target=&quot;_blank&quot;&gt;httpRequest&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;httpRequest&lt;/a&gt;:
         ///        Static method used to submit http requests to the server..
         /// </summary>
         internal static string OtherServices_Text8 {
@@ -2873,7 +2873,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#animate&quot; target=&quot;_blank&quot;&gt;animate&lt;/a&gt;:
+        ///   Looks up a localized string similar to &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;animate&lt;/a&gt;:
         ///        Static method used to create animations by setting properties on a timer..
         /// </summary>
         internal static string OtherServices_Text9 {
@@ -2944,7 +2944,7 @@ namespace Resources {
         ///   Looks up a localized string similar to Dates are parsed using the
         ///    &lt;b&gt;Globalize.parseDate&lt;/b&gt; function.
         ///    The format strings are the same used to format dates. For details regarding format strings, please refer the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        online documentation&lt;/a&gt;..
         /// </summary>
         internal static string Parsing_Text3 {
@@ -2992,7 +2992,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Numbers are parsed using the &lt;b&gt;Globalize.parseFloat&lt;/b&gt; function.
         ///    The format strings are the same used to format numbers. For details regarding format strings, please refer the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        online documentation&lt;/a&gt;..
         /// </summary>
         internal static string Parsing_Text8 {
@@ -3151,7 +3151,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to For example, the FlexChart&apos;s &lt;b&gt;chartType&lt;/b&gt; property takes
         ///    values of type
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.chart.ChartType.Enum.html&quot; target=&quot;_blank&quot;&gt;wijmo.chart.ChartType&lt;/a&gt;..
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;wijmo.chart.ChartType&lt;/a&gt;..
         /// </summary>
         internal static string PropertiesEnums_Text2 {
             get {
@@ -3351,7 +3351,7 @@ namespace Resources {
         ///&lt;ol&gt;
         ///    &lt;li&gt;
         ///        &lt;b&gt;Install ASP.NET MVC Edition&lt;/b&gt;&lt;br /&gt;
-        ///        Download the installer(&lt;a href=&quot;https://www.grapecity.com/en/download&quot;&gt;C1StudioInstaller.exe&lt;/a&gt;) in your machine. 
+        ///        Download the installer(&lt;a href=&quot;https://developer.mescius.com/download&quot;&gt;C1StudioInstaller.exe&lt;/a&gt;) in your machine. 
         ///        Follow the steps through the installation wizard to install the
         ///        .NET DLLs and packages for ASP.NET MVC Edition. The installer 
         ///        also installs C1 ASP.NET MVC Web Application templates which 
@@ -3687,7 +3687,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Unfortunately, browser support is still limited for that solution. Hence,
         ///    we provide the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Module.html#format&quot; target=&quot;_blank&quot;&gt;format&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;format&lt;/a&gt;
         ///    function that works regardless of browser. The &lt;b&gt;format&lt;/b&gt; function takes a
         ///    format string with placeholders that contain variable names and format
         ///    specifiers, and a data object that supplies the variables..

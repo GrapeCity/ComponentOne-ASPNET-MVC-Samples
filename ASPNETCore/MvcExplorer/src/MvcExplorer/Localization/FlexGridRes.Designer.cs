@@ -384,6 +384,17 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to The Selector can be set AriaLabel to support screen reader..
+        /// </summary>
+        public static string CheckboxSelection_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("CheckboxSelection_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///    Looks up a localized string similar to Resize some columns and drag some to new positions..
         /// </summary>
         public static string ColumnLayout_Li1
@@ -1362,6 +1373,39 @@ namespace MvcExplorer.Localization
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to This page demos how to use CommitEmptyEdits property..
+        /// </summary>
+        public static string EmptyEdit_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to If you choose to ignore commit empty edits, the Grid will not commit empty edits to cell values if the original value is null..
+        /// </summary>
+        public static string EmptyEdit_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Items Changed:.
+        /// </summary>
+        public static string EmptyEdit_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///    Looks up a localized string similar to Export.
         /// </summary>
         public static string ExcelImportExport_Export
@@ -1863,7 +1907,18 @@ namespace MvcExplorer.Localization
                 return ResourceManager.GetString("MergeCells_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying..
+        /// </summary>
+        public static string MergeCells_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("MergeCells_Text2", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to This example shows how you can bind FlexGrid with an OData service..
         /// </summary>
@@ -2464,6 +2519,17 @@ namespace MvcExplorer.Localization
             get
             {
                 return ResourceManager.GetString("RemoteBind_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to This example also demos how you can set ariaLabel to the grid control..
+        /// </summary>
+        public static string RemoteBind_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("RemoteBind_Text1", resourceCulture);
             }
         }
 

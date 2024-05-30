@@ -161,7 +161,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;
         ///            All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         public static string _Layout_Text4 {
@@ -207,14 +207,25 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         public static string _Layout_Text9 {
             get {
                 return ResourceManager.GetString("_Layout_Text9", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com.
+        /// </summary>
+        public static string _Layout_Link
+        {
+            get
+            {
+                return ResourceManager.GetString("_Layout_Link", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
@@ -243,7 +254,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string _SiteNav_Text3 {
             get {
@@ -261,7 +272,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-core-ui-controls.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-core-ui-controls.
         /// </summary>
         public static string _SiteNav_Text5 {
             get {
@@ -270,7 +281,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         public static string _SiteNav_Text6 {
             get {
@@ -279,7 +290,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         public static string _SiteNav_Text7 {
             get {
@@ -288,7 +299,7 @@ namespace MultiRowExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         public static string _SiteNav_Text8 {
             get {
@@ -296,6 +307,60 @@ namespace MultiRowExplorer.Localization {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        public static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        public static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        public static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html.
+        /// </summary>
+        public static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        public static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        public static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
+            }
+        }
+                
         /// <summary>
         ///   Looks up a localized string similar to &lt;b&gt;Excel-Style editing:&lt;/b&gt;&lt;/br&gt;The &lt;b&gt;MultiRow&lt;/b&gt; has built-in support for Excel-like, fast, in-cell editing.&lt;/br&gt;There is no need to add extra columns with &apos;Edit&apos; buttons that switch between display and edit modes..
         /// </summary>

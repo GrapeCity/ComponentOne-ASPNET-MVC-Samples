@@ -36,7 +36,7 @@
         });
 
         function exportPdf() {
-            var fontFile = { source: 'https://demo.grapecity.com/wijmo/sample/fonts/ipaexg.ttf', name: 'ipaexg' },
+            var fontFile = { source: 'https://demo.mescius.jp/wijmo/sample/fonts/ipaexg.ttf', name: 'ipaexg' },
             font = new wijmo.pdf.PdfFont('ipaexg');
             var needEmbedFonts = embedFontsCheckBox.checked;
             wijmo.grid.pdf.FlexGridPdfConverter.export(multiRow, 'MultiRow.pdf', {

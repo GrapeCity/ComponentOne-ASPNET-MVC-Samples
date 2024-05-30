@@ -10,11 +10,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title@(Resource.Layout_TitleSuffix)</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo16.png")" sizes="16x16">
     <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
-    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#697683">
 
     @{
         Theme.SetCurrentTheme(Context, Context.Request.Query["theme"]);
@@ -49,37 +49,37 @@
         </ul>
     </div>
     <header>
-        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
-        <a class="logo-container" href="@(Resource.Layout_ProductUrl)" target="_blank">
-            <i class="gcicon-product-c1"></i>@Html.Raw(Resource.Layout_ComponentOne)
-        </a>
-        @await Html.PartialAsync("_ThemeSelector")
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">@Html.Raw(Resource.Layout_ShortTitle) <span class="wj-glyph-down"></span></span>
-            <span class="semi-bold wide-screen">@Html.Raw(Resource.Layout_LongTitle)</span>
-            @await Html.PartialAsync("_SiteNav", false)
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars-w"></span></div>
+        <div class="menu-container">
+            <div class="menu-left">
+                <a href="@(Resource.Layout_ProductUrl)" target="_blank">
+                    <img src="~/Content/css/images/logotext_w.png" class="gcicon-logo-gc-horiz" alt="mescius" />
+                </a>
+            </div>
+            <div class="menu-divide"></div>
+            <div class="menu-main">
+                <span class="semi-bold narrow-screen">@Html.Raw("ComponentOne " + Resource.Layout_ShortTitle) <span class="wj-glyph-down"></span></span>
+                <span class="semi-bold wide-screen">@Html.Raw("ComponentOne " + Resource.Layout_LongTitle)</span>
+            </div>
+            <div class="menu-right">
+                @await Html.PartialAsync("_ThemeSelector")
+                @await Html.PartialAsync("_SiteNav", false)
+            </div>
         </div>
-        @await Html.PartialAsync("_BreadcrumbNav")
+        <div class="sub-menu">
+            @await Html.PartialAsync("_BreadcrumbNav")
+        </div>
     </header><div class="main-content">
         @RenderBody()
     </div>
     <footer>
-        <a href="@(Resource.Layout_GrapeCityUrl)">
-            <i class="gcicon-logo-gc-horiz"></i>
+        <a href="@(Resource.Layout_Url)">
+            <img src="~/Content/css/images/logotext.png" class="gcicon-logo-gc-horiz" alt="mescius" />
         </a>
         <p>
             © @DateTime.Now.Year @Html.Raw(Resource.Layout_License1)<br />
             @Html.Raw(Resource.Layout_License2)
         </p>
-        @{
-            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
-        }
-        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
-        </a>
-        <a href="http://twitter.com/share?text=@Html.Raw(Resource.Layout_TwitterText)&url=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
-        </a>
     </footer>
 </body>
 </html>

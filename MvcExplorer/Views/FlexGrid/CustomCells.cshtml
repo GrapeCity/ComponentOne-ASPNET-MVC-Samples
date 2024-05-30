@@ -1,129 +1,133 @@
-﻿@model IEnumerable<Sale>
+﻿@model IEnumerable<SaleShowCase>
 @{
     ControlOptions optionsModel = ViewBag.DemoOptions;
     ViewBag.DemoSettings = true;
 }
 
 @section Scripts{
-<script type="text/javascript">
-    function rankFormatter(panel, r, c, cell) {
-        if (panel.columns[c].header === "Rank") {
-            cell.style.textAlign = "";
-            if (panel.cellType === wijmo.grid.CellType.Cell) {
-                cell.innerHTML = buildRank(panel.getCellData(r, c));
+    <script type="text/javascript">
+        function rankFormatter(panel, r, c, cell) {
+            if (panel.columns[c].header === "Rank") {
+                cell.style.textAlign = "";
+                if (panel.cellType === wijmo.grid.CellType.Cell) {
+                    cell.innerHTML = buildRank(panel.getCellData(r, c));
+                }
             }
         }
-    }
 
-    function buildRank(rank) {
-        var markup = "", j, starType;
-        for (j = 0; j < 5; j++) {
-            starType = j < rank ? "star star-highlighted" : "star star-dimmed";
-            markup += "<span class='" + starType + "'>\u2605</span>";
+        function buildRank(rank) {
+            var markup = "", j, starType;
+            for (j = 0; j < 5; j++) {
+                starType = j < rank ? "star star-highlighted" : "star star-dimmed";
+                markup += "<span class='" + starType + "'>\u2605</span>";
+            }
+            return markup;
         }
-        return markup;
-    }
 
-    function createButton(CellMaker) {
-        return CellMaker.makeButton({
-            text: '<b>${item.Country}</b> Button',
-            click: function (e, ctx) {
-                alert('Clicked Button ** ' + ctx.item.Country + ' **');
-            }
-        });
-    }
+        function createButton(CellMaker) {
+            return CellMaker.makeButton({
+                text: '<b>${item.Country}</b> Button',
+                click: function (e, ctx) {
+                    alert('Clicked Button ** ' + ctx.item.Country + ' **');
+                }
+            });
+        }
 
-    function createHyperlink(CellMaker) {
-        return CellMaker.makeLink({
-            text: 'Visit <b>${item.Country}</b>',
-            href: '${item.Url}',
-            attributes: {
-                target: '_blank',
-                rel: 'noopener noreferrer',
-                tabIndex: -1
-            }
-        });
-    }
+        function createHyperlink(CellMaker) {
+            return CellMaker.makeLink({
+                text: 'Visit <b>${item.Country}</b>',
+                href: '${item.Url}',
+                attributes: {
+                    target: '_blank',
+                    rel: 'noopener noreferrer',
+                    tabIndex: -1
+                }
+            });
+        }
 
-    function createImage(CellMaker) {
-        return CellMaker.makeImage({
-            label: 'image for ${item.Country}',
-            click: function (e, ctx) {
-                alert('Clicked image for ' + ctx.item.Country);
-            }
-        });
-    }
+        function createImage(CellMaker) {
+            return CellMaker.makeImage({
+                label: 'image for ${item.Country}',
+                click: function (e, ctx) {
+                    alert('Clicked image for ' + ctx.item.Country);
+                }
+            });
+        }
 
-    function createRating(CellMaker) {
-        return CellMaker.makeRating({
-            range: [0, 5],
-            label: 'Edit Product Rating'
-        });
-    }
+        function createRating(CellMaker) {
+            return CellMaker.makeRating({
+                range: [0, 5],
+                label: 'Edit Product Rating'
+            });
+        }
 
-    function createSparkline(CellMaker) {
-        return CellMaker.makeSparkline({
-            markers: wijmo.grid.cellmaker.SparklineMarkers.High | wijmo.grid.cellmaker.SparklineMarkers.Low,
-            label: '${item.Country} sales history line chart',
-        });
-    }
-</script>
+        function createSparkline(CellMaker) {
+            return CellMaker.makeSparkline({
+                markers: wijmo.grid.cellmaker.SparklineMarkers.High | wijmo.grid.cellmaker.SparklineMarkers.Low,
+                label: '${item.Country} sales history line chart',
+            });
+        }
+    </script>
 }
 
 @section Styles{
-<style>
-    .star-highlighted {
-        color: orange;
-    }
+    <style>
+        .star-highlighted {
+            color: orange;
+        }
 
-    .star-dimmed {
-        color: lightgray;
-    }
+        .star-dimmed {
+            color: lightgray;
+        }
 
-    .wj-cell.wj-cell-maker label{
-        padding: 0;
-    }
-    /* images (applying formats to the cell, not to the inner IMG element */
-    .wj-flexgrid .wj-cell.cell-img {
-        padding: 0;
-        text-align: center;
-    }
-    .wj-flexgrid .wj-cell.cell-img:hover {
-        z-index: 1;
-        overflow: visible;
-    }
-    .wj-flexgrid .wj-cell.cell-img:hover img {
-        transform: scale(3);
-        transition: all 600ms;
-    }
-    .wj-flexgrid .wj-cell img.wj-cell-maker{
-        width: auto;
-    }
+        .wj-cell.wj-cell-maker label{
+            padding: 0;
+        }
+        /* images (applying formats to the cell, not to the inner IMG element */
+        .wj-flexgrid .wj-cell.cell-img {
+            padding: 0;
+            text-align: center;
+        }
+            .wj-flexgrid .wj-cell.cell-img:hover {
+                z-index: 1;
+                overflow: visible;
+            }
+                .wj-flexgrid .wj-cell.cell-img:hover img {
+                    transform: scale(3);
+                    transition: all 600ms;
+                }
+        .wj-flexgrid .wj-cell img.wj-cell-maker{
+            width: auto;
+        }
 
-    /* customize the rating symbol/color/size */
-    .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label {
-        width: .25em;
-        color: green;
-    }
-    .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label:after {
-        transform: scale(12);
-        content: '\2b24';
-    }
-    .Red{
-        color:red!important;
-    }
-    .Blue{
-        color:blue!important;
-    }
-    .Yellow{
-        color:yellow!important;
-    }
-    .None{
-        color:none;
-    }
-</style>
+        /* customize the rating symbol/color/size */
+        .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label {
+            width: .25em;
+            color: green;
+        }
+            .wj-flexgrid .wj-cell.wj-cell-maker.wj-radio-map.custom-rating label:after {
+                transform: scale(12);
+                content: '\2b24';
+            }
+        .Red{
+            color:red!important;
+        }
+        .Blue{
+            color:blue!important;
+        }
+        .Yellow{
+            color:yellow!important;
+        }
+        .None{
+            color:none;
+        }
+    </style>
 }
 
+<script type="text/template" id="displayAmount">
+    <span class="{{AmountClass2}}">${{Amount}}
+    </span>
+</script>
 <script id="template1" type="text/template">
     @(Html.C1().FlexChart()
         .Width(100).Height(20).CssStyle("padding", "0")
@@ -135,7 +139,7 @@
         .ToTemplate()
     )
 </script>
-    
+
 
 @(Html.C1().FlexGrid<Sale>()
     .Id("customCellFlexGrid")
@@ -149,8 +153,7 @@
         columns.Add(column => column.Binding("Country").Width("80"));
         columns.Add(column => column.Binding("Product").Width("80").CssClassAll(optionsModel.Options["Css Class All"].CurrentValue));
         columns.Add(column => column.Binding("Amount").Width("100")
-        .Format(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "")
-        .Template("<span class=${item.Amount > 1000 ? 'bg-info' : 'bg-danger'}>${text}</span>"));
+        .Format(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "").CellTemplate(ctb => ctb.TemplateId("displayAmount")));
         columns.Add(column => column.Header("Trends").IsReadOnly(true).Align("center").CellTemplate(b => b.TemplateId("template1")));
         columns.Add(column => column.Binding("Rank").IsReadOnly(true).Width("90").Align("center"));
         columns.Add(column => column.Binding("Country").Header("CellMaker Button").Width("150").Align("center").TemplateFunction("createButton"));

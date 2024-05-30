@@ -20,7 +20,7 @@
         columns.Add().Binding("Freight").Header("Freight").Format("c2").Aggregate(Aggregate.Sum);
     })
     .Height(500)
-    .Selector(sb => sb.ShowCheckAll(true))       
+    .Selector(sb => sb.ShowCheckAll(true).AriaLabel("The checkbox for select a row."))
 )
 
 @section Settings{
@@ -31,7 +31,7 @@
                 selector.column = grid;
             } else {
                 selector.column = grid.getColumn(name);
-            }            
+            }
             grid.endUpdate();
         }
         function customChangeShowCheckAll(grid, value) {
@@ -48,4 +48,5 @@
 
 @section Description{
     <p>@Html.Raw(Resources.FlexGrid.CheckboxSelection_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.CheckboxSelection_Text2)</p>
 }

@@ -70,7 +70,7 @@ function createTabs(tabId, panelId) {
 }
 
 var c1WebApiServiceUrl = siteRootUrl + "api/report/";
-var arServiceUrl = 'https://ardemos.grapecity.com/AR12-ReportsGallery/ActiveReports.ReportService.asmx';
+var arServiceUrl = 'https://ardemos.mescius.com/AR12-ReportsGallery/ActiveReports.ReportService.asmx';
 
 function loadFlexReport(filePath, reportName) {
     loadReport(c1WebApiServiceUrl, filePath, reportName, true);

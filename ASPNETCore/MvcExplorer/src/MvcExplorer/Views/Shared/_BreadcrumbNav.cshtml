@@ -5,6 +5,7 @@
     var isHome = string.IsNullOrEmpty(controllerName) || string.Equals(controllerName, "home", StringComparison.OrdinalIgnoreCase);
     var controlPage = ControlPages.GetControlPage(controllerName, actionName);
     var controlPageGroup = ControlPages.GetControlPageGroup(controllerName);
+    var defaultAction = (controlPage != null && controlPage.ControlName == "FlexGrid") ? "ShowCase" : "Index";
     if (controlPageGroup != null)
     {
         var group = ControlPages.GetGroup(controlPageGroup.ControlGroupName);
@@ -15,7 +16,7 @@
     <li class="odd"><a class="glyphicon glyphicon-home" href="@Url.Action("Index", "Home")"></a></li>@if (!isHome)
     {
         <li class="separator1 right-icon"></li>
-        <li class="even">@Html.ActionLink(controlPage.ControlName, "Index", controlPage.ControlName)</li>
+        <li class="even">@Html.ActionLink(controlPage.ControlName, defaultAction, controlPage.ControlName)</li>
         <li class="separator2 right-icon"></li>
         <li class="odd"><span>@controlPage.Text</span></li>}
     <li class="separator right-icon"></li>

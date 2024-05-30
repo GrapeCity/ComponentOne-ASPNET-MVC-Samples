@@ -6,10 +6,11 @@
 
 <div id="flexChart"></div>
 @(Html.C1().FlexChart().Id(demoSettingsModel.ControlId).Bind("Date", Model).ChartType(C1.Web.Mvc.Chart.ChartType.Line).Series(sers =>
-{
-    sers.Add().Binding("SalesInUSA").Name("Sales in USA").Style(s => s.StrokeWidth(3));
-    sers.Add().Binding("SalesInJapan").Name("Sales in Japan").Style(s => s.StrokeWidth(3));
-}).InterpolateNulls(true).LegendToggle(true))
+    {
+        sers.Add().Binding("SalesInUSA").Name("Sales in USA").Style(s => s.StrokeWidth(3));
+        sers.Add().Binding("SalesInJapan").Name("Sales in Japan").Style(s => s.StrokeWidth(3));
+    }).InterpolateNulls(true).LegendToggle(true)
+)
 
 @section Description{
     <h3>
@@ -23,5 +24,6 @@
         <li>@Html.Raw(Resources.FlexChart.Binding_Li3)</li>
     </ol>
     <p>@Html.Raw(Resources.FlexChart.Binding_Text2)</p>
+    <p>@Html.Raw(Resources.FlexChart.Binding_Text3)</p>
 }
 

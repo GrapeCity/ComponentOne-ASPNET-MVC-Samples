@@ -2,11 +2,11 @@
 
   <PropertyGroup>
     <Description>ComponentOne Control for ASP.NET Core MVC Edition</Description>
-    <Copyright>(c) GrapeCity, Inc.. All rights reserved.</Copyright>
+    <Copyright>(c) MESCIUS inc. All rights reserved.</Copyright>
     <AssemblyTitle>ComponentOne Control for ASP.NET Core MVC Edition</AssemblyTitle>
     <NeutralLanguage>en-US</NeutralLanguage>
     <VersionPrefix>1.0.0.0</VersionPrefix>
-    <Authors>GrapeCity, Inc.</Authors>
+    <Authors>MESCIUS inc.</Authors>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <DefineConstants>$(DefineConstants);ASPNETCORE;</DefineConstants>
     <AssemblyName>C1.Web.Mvc.Extensions</AssemblyName>
@@ -15,7 +15,7 @@
     <PackageId>SampleExtensionControls</PackageId>
     <PackageTags>ASP.NET</PackageTags>
     <PackageIcon>c1-hex-logo.png</PackageIcon>
-    <PackageProjectUrl>https://www.grapecity.com/en/componentone</PackageProjectUrl>
+    <PackageProjectUrl>https://developer.mescius.com/componentone</PackageProjectUrl>
 	  <PackageTargetFallback Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">$(PackageTargetFallback);dnxcore50</PackageTargetFallback>
     <NetStandardImplicitPackageVersion Condition=" '$(TargetFramework)' == 'netcoreapp3.1' ">3.1.0</NetStandardImplicitPackageVersion>
     <GenerateAssemblyTitleAttribute>false</GenerateAssemblyTitleAttribute>
@@ -48,7 +48,7 @@
 	</ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20231.344" />
   </ItemGroup>
 
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">

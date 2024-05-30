@@ -76,7 +76,40 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to This sample demos the usage of the method changeCulture at client side..
+        /// </summary>
+        public static string Index_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Current culture.
+        /// </summary>
+        public static string Index_Text21
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text21", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Apply the culture.
+        /// </summary>
+        public static string Index_Text22
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text22", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Select a date and a time.
         /// </summary>

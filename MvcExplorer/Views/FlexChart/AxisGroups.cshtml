@@ -1,0 +1,41 @@
+﻿@model ClientSettingsModel
+@{
+    //ViewBag.DemoSettings = true;
+    // ViewBag.DemoSettingsModel = Model;
+
+    IEnumerable<CitySale> CitySaleDatas = ViewBag.CitiesSales;
+}
+
+@(Html.C1().CollectionViewService()
+    .Id("CVService")
+    .Bind(CitySaleDatas)
+    .GroupBy("CountryName")
+)
+@(Html.C1().FlexChart().Id(Model.ControlId).Header("Sales by Cities").Series(sers =>
+{
+    sers.Add("Sales").Binding("Sales");
+}).AxisX(axis =>
+{
+    axis.Binding("Expenses").GroupsOptions(b=>b.Display(C1.Web.Mvc.Chart.AxisGroupsDisplay.Show));
+})
+.ItemsSourceId("CVService")
+)
+
+@section Scripts{
+    <script type="text/javascript">
+        function customChangeAxisX_GroupsOptions_Display(control, value) {
+            control.axisX.groupsOptions.display = value;
+
+
+            control.refresh(true);
+        }
+
+    </script>
+}
+@section Description{
+
+    <h3>
+        @Html.Raw(Resources.FlexChart.AxisGroups_Text01)
+    </h3>
+    <p>@Html.Raw(Resources.FlexChart.AxisGroups_Text02)</p>
+}

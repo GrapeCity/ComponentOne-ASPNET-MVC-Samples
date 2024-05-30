@@ -4,6 +4,7 @@ using C1.Web.Mvc.Serialization;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Http;
+using System.Linq;
 
 namespace MvcExplorer.Controllers
 {
@@ -26,7 +27,7 @@ namespace MvcExplorer.Controllers
 
         public ActionResult CustomCells_Bind([C1JsonRequest] CollectionViewRequest<Sale> requestData)
         {
-            return this.C1Json(CollectionViewHelper.Read(requestData, Sale.GetData(500)));
+            return this.C1Json(CollectionViewHelper.Read(requestData, Sale.GetData(500).Select(x=>SaleShowCase.FromSale(x))));
         }
     }
 }

@@ -1,0 +1,230 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="ComponentOneLink" xml:space="preserve">
+    <value>https://www.grapecity.com.cn/developer/componentone-mvc</value>
+  </data>
+  <data name="EnhancedChart_Description" xml:space="preserve">
+    <value>Customize the chart by setting its &lt;b&gt;ItemFormatter&lt;/b&gt; property
+            to a function that adds elements to show task dependencies
+            and percent complete.</value>
+  </data>
+  <data name="EnhancedGanttChartHeader" xml:space="preserve">
+    <value>Enhanced Gantt Chart</value>
+  </data>
+  <data name="EnhancedGanttChartTitle" xml:space="preserve">
+    <value>Dependencies &amp; Percent Complete</value>
+  </data>
+  <data name="GcIconsCssPath" xml:space="preserve">
+    <value>~/Content/css/gcicons.css</value>
+  </data>
+  <data name="GettingStarted" xml:space="preserve">
+    <value>Getting Started</value>
+  </data>
+  <data name="PageDescription" xml:space="preserve">
+    <value>Create a GanttChart with FlexChart</value>
+  </data>
+  <data name="PageTitle" xml:space="preserve">
+    <value>FlexChart - GanttChart</value>
+  </data>
+  <data name="Result" xml:space="preserve">
+    <value>Result</value>
+  </data>
+  <data name="SimpleChart_Step1" xml:space="preserve">
+    <value>Initialize the chart (set the ChartType to 'C1.Web.Mvc.Chart.ChartType.Bar' and Bind to the data).</value>
+  </data>
+  <data name="SimpleChart_Step2" xml:space="preserve">
+    <value>Add a series to the chart and set its binding property to the fields Start and End dates.</value>
+  </data>
+  <data name="SimpleChart_Step3" xml:space="preserve">
+    <value>Customize AxisY to hide the major grid and show minor grid.</value>
+  </data>
+  <data name="SimpleGanttChartHeader" xml:space="preserve">
+    <value>Plain Gantt Chart</value>
+  </data>
+  <data name="SimpleGanttChartTitle" xml:space="preserve">
+    <value>Steps for getting started with the FlexChart to customize a GanttChart:</value>
+  </data>
+  <data name="SiteError" xml:space="preserve">
+    <value>Error</value>
+  </data>
+  <data name="SiteErrorDescription" xml:space="preserve">
+    <value>An error occurred while processing your request.</value>
+  </data>
+  <data name="SiteFooter1" xml:space="preserve">
+    <value>GrapeCity Software, Inc. All rights reserved.</value>
+  </data>
+  <data name="SiteFooter2" xml:space="preserve">
+    <value>All product and company names here in may be trademarks of their respective owners.</value>
+  </data>
+  <data name="SiteNavAbout" xml:space="preserve">
+    <value>About</value>
+  </data>
+  <data name="SiteNavAboutLink" xml:space="preserve">
+    <value>https://www.grapecity.com.cn/developer/componentone-mvc</value>
+  </data>
+  <data name="SiteNavFreeTrial" xml:space="preserve">
+    <value>FREE TRIAL</value>
+  </data>
+  <data name="SiteNavFreeTrialLink" xml:space="preserve">
+    <value>https://www.grapecity.com.cn/download/?pid=2</value>
+  </data>
+  <data name="SiteNavPricing" xml:space="preserve">
+    <value>Pricing</value>
+  </data>
+  <data name="SiteNavPricingLink" xml:space="preserve">
+    <value>https://www.grapecity.com.cn/developer/componentone-enterprise#price</value>
+  </data>
+  <data name="SiteNavSupport" xml:space="preserve">
+    <value>Support</value>
+  </data>
+  <data name="SiteNavSupportLink" xml:space="preserve">
+    <value>https://www.grapecity.com.cn/sign/in</value>
+  </data>
+  <data name="SiteNav_DemosUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/demos</value>
+  </data>
+  <data name="SiteNav_Demos" xml:space="preserve">
+    <value>Demos</value>
+  </data>
+  <data name="SiteNav_DocsUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html</value>
+  </data>
+  <data name="SiteNav_Docs" xml:space="preserve">
+    <value>Docs</value>
+  </data>
+  <data name="SiteNav_SamplesUrl" xml:space="preserve">
+    <value>https://developer.mescius.com/componentone/samples</value>
+  </data>
+  <data name="SiteNav_Samples" xml:space="preserve">
+    <value>Samples</value>
+  </data>
+  <data name="SiteTitle" xml:space="preserve">
+    <value>ComponentOne</value>
+  </data>
+  <data name="Source" xml:space="preserve">
+    <value>Source</value>
+  </data>
+  <data name="Tooltip1" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}</value>
+  </data>
+  <data name="Tooltip2" xml:space="preserve">
+    <value>&lt;b&gt;{Name}&lt;/b&gt;:&lt;br/&gt;{Start:d} - {End:d}&lt;br/&gt;&lt;i&gt;percent complete: {Percent}%&lt;/i&gt;</value>
+  </data>
+</root>

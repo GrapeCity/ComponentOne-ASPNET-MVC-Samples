@@ -3,7 +3,7 @@
 @{
     var controllerName = ViewContext.RouteData.Values["controller"].ToString();
     var actionName = ViewContext.RouteData.Values["action"].ToString();
-    ViewBag.DocLink = "https://help.grapecity.com/componentone/NetHelp/c1mvccore/webframe.html";
+    ViewBag.DocLink = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html";
 }
 <!DOCTYPE html>
 <html>
@@ -11,11 +11,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@Html.Raw(FlexViewerRes._Layout_Text9)</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo16.png")" sizes="16x16">
     <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
-    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#697683">
 
     @{
         Theme.SetCurrentTheme(Context);
@@ -51,13 +51,20 @@
         @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
-        <a class="logo-container" href="@Html.Raw(FlexViewerRes._SiteNav_Text5)" target="_blank">
-            <i class="gcicon-product-c1"></i>@Html.Raw(FlexViewerRes._Layout_Text6)
-        </a>
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">@Html.Raw(FlexViewerRes._Layout_Text7)</span>
-            <span class="semi-bold wide-screen">@Html.Raw(FlexViewerRes._Layout_Text8)</span>
-            @await Html.PartialAsync("_SiteNav", false)
+        <div class="menu-container">
+            <div class="menu-left">
+                <a href="@Html.Raw(FlexViewerRes._SiteNav_Text5)" target="_blank">
+                    <img src="~/Content/css/images/logotext_w.png" class="gcicon-logo-gc-horiz" alt="mescius" />
+                </a>
+            </div>
+            <div class="menu-divide"></div>
+            <div class="menu-main">
+                <span class="semi-bold narrow-screen">@Html.Raw("ComponentOne "+FlexViewerRes._Layout_Text7)</span>
+                <span class="semi-bold wide-screen">@Html.Raw("ComponentOne "+FlexViewerRes._Layout_Text8)</span>
+            </div>
+            <div class="menu-right">
+                @await Html.PartialAsync("_SiteNav", false)
+            </div>
         </div>
     </header>
 
@@ -121,21 +128,13 @@
     </c1-popup>
 
     <footer>
-        <a href="http://www.grapecity.com/">
-            <i class="gcicon-logo-gc-horiz"></i>
+        <a href="@Html.Raw(FlexViewerRes._Layout_Link)">
+            <img src="~/Content/css/images/logotext.png" class="gcicon-logo-gc-horiz" alt="mescius" />
         </a>
         <p>
             © @DateTime.Now.Year @Html.Raw(FlexViewerRes._Layout_Text0)
         </p>
-        @{
-            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
-        }
-        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
-        </a>
-        <a href="http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&url=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
-        </a>
+        
     </footer>
 </body>
 </html>

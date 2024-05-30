@@ -13,7 +13,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>TransposedMultiRowExplorer</RootNamespace>
     <AssemblyName>TransposedMultiRowExplorer</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -21,6 +21,7 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,15 +42,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>.\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.MultiRow">
-      <HintPath>.\packages\C1.Web.Mvc.MultiRow.4.5.20222.340\lib\net45\C1.Web.Mvc.MultiRow.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.MultiRow.4.8.20241.360\lib\net48\C1.Web.Mvc.MultiRow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.TransposedMultiRow">
-      <HintPath>.\packages\C1.Web.Mvc.TransposedMultiRow.4.5.20222.340\lib\net45\C1.Web.Mvc.TransposedMultiRow.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.TransposedMultiRow.4.8.20241.360\lib\net48\C1.Web.Mvc.TransposedMultiRow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -119,7 +120,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>.\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>.\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>.\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -129,6 +130,11 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="App_GlobalResources\TransposedMultiRowExplorer.zh-CN.designer.cs">
+      <DependentUpon>TransposedMultiRowExplorer.zh-CN.resx</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="App_GlobalResources\TransposedMultiRowExplorer.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -164,18 +170,20 @@
     <Content Include="Content\css\explorer.css" />
     <Content Include="Content\css\gcicons.css" />
     <Content Include="Content\css\gcicons.ja.css" />
+    <Content Include="Content\css\images\logotext.png" />
     <Content Include="Content\css\images\icons\30\facebook.png" />
     <Content Include="Content\css\images\icons\30\google.png" />
     <Content Include="Content\css\images\icons\32\picons33.png" />
     <Content Include="Content\css\images\icons\32\picons36.png" />
+    <Content Include="Content\css\images\logotext_w.png" />
     <Content Include="Content\css\Site.css" />
     <Content Include="Content\css\SyntaxHighlighter\shCore.css" />
     <Content Include="Content\css\SyntaxHighlighter\shCoreEclipse.css" />
-    <Content Include="Content\favicon\android-chrome-192x192.png" />
-    <Content Include="Content\favicon\android-chrome-256x256.png" />
-    <Content Include="Content\favicon\apple-touch-icon.png" />
-    <Content Include="Content\favicon\favicon-16x16.png" />
-    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Content\images\cellGroup.ja.png" />
     <Content Include="Content\images\cellGroup.png" />
@@ -228,6 +236,11 @@
       <LastGenOutput>TransposedMultiRowExplorer.ja.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="App_GlobalResources\TransposedMultiRowExplorer.zh-CN.resx">
+      <Generator>GlobalResourceProxyGenerator</Generator>
+      <LastGenOutput>TransposedMultiRowExplorer.zh-CN.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </Content>
     <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
@@ -250,7 +263,7 @@
     <Content Include="Content\fonts\fira\FiraSans-Regular.ttf" />
     <Content Include="Content\fonts\fira\LICENSE" />
     <Content Include="Content\fonts\gcicons.ttf" />
-    <Content Include="Content\fonts\grapecity-dev.ttf" />
+    <Content Include="Content\fonts\mescius-dev.ttf" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -33,12 +33,23 @@ namespace C1Finance.Models
         public static string CacheFolder = "";
         public static int CompanyCounter = 0;
         public static List<Portfolio> PortfolioList { get; set; } //= new List<PortfolioFGridClass>();
-        public static List<StockSymbol> SymbolList { get; set; }//= new List<PortfolioAllClass>();
+        private static List<StockSymbol> _symbolList = null;
+        public static List<StockSymbol> SymbolList 
+        { 
+            get { 
+                if (_symbolList == null)
+                {
+                    GetSymbolList();
+                }
+                return _symbolList; 
+            } 
+        }//= new List<PortfolioAllClass>();
         private static object _lockSymbolListObj = new object();
+
         private static object _lockPortfolioListObj = new object();
 
         //Class for Portfolio to View (Grid & Chart)
-        public partial class Portfolio
+        public partial class Portfolio		
         {
             public int Counter { get; set; }
             public string Color { get; set; }
@@ -121,13 +132,13 @@ namespace C1Finance.Models
         //Function to get list of all Portfolios
         public static List<StockSymbol> GetSymbolList()
         {
-            if (SymbolList == null || SymbolList.Count == 0)
+            if (_symbolList == null || _symbolList.Count == 0)
             {
                 lock (_lockSymbolListObj)
                 {
-                    if (SymbolList == null || SymbolList.Count == 0)
+                    if (_symbolList == null || _symbolList.Count == 0)
                     {
-                        SymbolList = new List<StockSymbol>();
+                        _symbolList = new List<StockSymbol>();
                         var path = (".\\wwwroot\\symbolNames.txt");
                         using (var sr = new StreamReader(System.IO.File.OpenRead(path)))
                         {
@@ -140,7 +151,7 @@ namespace C1Finance.Models
                                     var value = parts[1].Trim();
                                     if (key.Length > 0 && value.Length > 0)
                                     {
-                                        SymbolList.Add(new StockSymbol(key, value));
+                                        _symbolList.Add(new StockSymbol(key, value));
                                     }
                                 }
                             }
@@ -148,7 +159,7 @@ namespace C1Finance.Models
                     }
                 }
             }
-            return SymbolList;
+            return _symbolList;
         }
 
         //Function to get Portfolio list for view (Grid & Chart)
@@ -161,7 +172,7 @@ namespace C1Finance.Models
                     if (PortfolioList == null || PortfolioList.Count == 0)
                     {
                         PortfolioList = new List<Portfolio>();
-
+                        
                         int Shares = 0;
                         double LastPrice = 0, LastPrice2 = 0, Change = 0, Price = 0, Cost = 0, Value = 0;
                         double Gain = 0;
@@ -211,7 +222,7 @@ namespace C1Finance.Models
                         CompanyCounter++;
                         PriceHistory = new List<SymbolPriceHistory>();
                         Price = 1497;
-                        GetPrices("FB", Price, out LastPrice, out LastPrice2, out PriceHistory);
+                        GetPrices("FBABX", Price, out LastPrice, out LastPrice2, out PriceHistory);
                         if (LastPrice2 > 0)
                             Change = (LastPrice - LastPrice2) / LastPrice2;
                         Shares = 41;
@@ -219,8 +230,8 @@ namespace C1Finance.Models
                         Value = LastPrice * Shares;
                         if (Price > 0)
                             Gain = (LastPrice - Price) / Price;
-                        if (!PortfolioList.Exists(p => p.Symbol == "FB"))
-                            PortfolioList.Add(new Portfolio(CompanyCounter, Company_Palette[CompanyCounter % Company_Palette.Length], SymbolList.Where(x => x.symbol == "FB").Select(x => x.name).FirstOrDefault(), "FB", true, LastPrice, Change, Shares, Price, Cost, Value, Gain, PriceHistory));
+                        if (!PortfolioList.Exists(p => p.Symbol == "FBABX"))
+                            PortfolioList.Add(new Portfolio(CompanyCounter, Company_Palette[CompanyCounter % Company_Palette.Length], SymbolList.Where(x => x.symbol == "FBABX").Select(x => x.name).FirstOrDefault(), "FBABX", true, LastPrice, Change, Shares, Price, Cost, Value, Gain, PriceHistory));
 
                         CompanyCounter++;
                         PriceHistory = new List<SymbolPriceHistory>();
@@ -269,7 +280,7 @@ namespace C1Finance.Models
             // not in cache, get now
             if (dataStream == null)
             {                
-                var fmt = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={0}&apikey=EQ8R2LTG732VP7HE&datatype=csv&outputsize=full";
+                var fmt = "https://gc-demo-dataservice.azurewebsites.net/alphavantage/api/v1/timeSeries?function=Daily&symbol={0}";
                 var url = string.Format(fmt, symbol);
 
                 try

@@ -17,22 +17,9 @@ function setCalculationPrecision() {
         alert("Type a number for Calculation Precision");
         return false;
     }
-    $.ajax({
-        //async: false,
-        method: 'POST',
-        url: '/FlexSheet/SetCalculationPrecision',
-        data: JSON.stringify(precision),
-        dataType: 'html',
-        contentType: 'application/json; ',
-        success: function (result) {
-            $('#formulaSheet').parent().html(jQuery(result).find('#formulaSheet').parent().html());
-            var flexSheet = wijmo.Control.getControl('#formulaSheet');
-            generateFormulasSheet(flexSheet);
-        },
-        error: function (xhr) {
-            alert(xhr.responseText);
-        }
-    });
+
+    var flexSheet = wijmo.Control.getControl('#formulaSheet');
+    flexSheet.calculationPrecision = precision;
 };
 
 function generateFormulasSheet(flexSheet) {
@@ -40,7 +27,7 @@ function generateFormulasSheet(flexSheet) {
     flexSheet.setCellData(1, 1, "First number");
     flexSheet.setCellData(2, 1, "=6*0.23");
     flexSheet.setCellData(1, 2, "Second Number");
-    flexSheet.setCellData(2, 2, "1.38");
+    flexSheet.setCellData(2, 2, 1.38);
     flexSheet.setCellData(2, 3, "Result:");
     flexSheet.setCellData(2, 4, "=(B3<=C3)");
 

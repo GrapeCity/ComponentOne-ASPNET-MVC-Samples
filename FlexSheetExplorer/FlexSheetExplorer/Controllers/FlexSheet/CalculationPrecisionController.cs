@@ -15,10 +15,5 @@ namespace FlexSheetExplorer.Controllers
             return View(CalculationPrecision);
         }
 
-        [HttpPost]
-        public ActionResult SetCalculationPrecision(int numb)
-        {
-            return RedirectToAction("CalculationPrecision", "FlexSheet", new { val = numb});
-        }
     }
 }

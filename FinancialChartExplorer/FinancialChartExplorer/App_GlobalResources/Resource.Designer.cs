@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class Resource {
@@ -104,9 +104,9 @@ namespace Resources {
                 return ResourceManager.GetString("ControlLayout_Source", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to [JP]Features.
+        ///   Looks up a localized string similar to Features.
         /// </summary>
         internal static string ControlsNav_Features {
             get {
@@ -133,8 +133,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
-        ///            All product and company names here in may be trademarks of their respective owners..
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         internal static string Layout_CopyrightInfo {
             get {
@@ -143,16 +142,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.grapecity.com/.
+        ///   Looks up a localized string similar to http://developer.mescius.com/.
         /// </summary>
-        internal static string Layout_LinkGrapeCity {
+        internal static string Layout_LinkMescius {
             get {
-                return ResourceManager.GetString("Layout_LinkGrapeCity", resourceCulture);
+                return ResourceManager.GetString("Layout_LinkMescius", resourceCulture);
             }
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         internal static string Layout_LinkProduct {
             get {
@@ -197,7 +196,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string SiteNav_FreeTrial {
             get {
@@ -206,7 +205,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-mvc-ui-controls.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-mvc-ui-controls.
         /// </summary>
         internal static string SiteNav_LinkAbout {
             get {
@@ -215,7 +214,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         internal static string SiteNav_LinkFreeTrial {
             get {
@@ -224,7 +223,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         internal static string SiteNav_LinkPricing {
             get {
@@ -233,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         internal static string SiteNav_LinkSupport {
             get {
@@ -258,5 +257,60 @@ namespace Resources {
                 return ResourceManager.GetString("SiteNav_Support", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        internal static string SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        internal static string SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DemosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        internal static string SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
+        /// </summary>
+        internal static string SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Samples.
+        /// </summary>
+        internal static string SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("SiteNav_Samples", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        internal static string SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_SamplesUrl", resourceCulture);
+            }
+        }
+
     }
 }

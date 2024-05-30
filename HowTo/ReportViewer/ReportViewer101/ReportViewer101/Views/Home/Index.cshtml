@@ -26,10 +26,9 @@
                 (Optional) Add some CSS to customize the report viewer control's appearance.
             </li>
         </ol>
-
         <p>
-            The <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ReportServices.html">C1 Web API Report Services</a> uses <a target="_blank" href="https://www.grapecity.com/en/flexreport/">C1FlexReport</a> to render and export report.
-            Please refer to <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Working%20with%20Reports.html">How to Set Up C1 Web API Report Services</a> for details.
+            The <a target="_blank" href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html">C1 Web API Report Services</a> uses <a target="_blank" href="https://developer.mescius.com/flexreport/">C1FlexReport</a> to render and export report.
+            Please refer to <a target="_blank" href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html">How to Set Up C1 Web API Report Services</a> for details.
         </p>
         <p>
             To show the content of FlexReport from C1 Web API Report Services, set the following basic properties:
@@ -130,9 +129,9 @@ namespace ReportViewer101.Controllers
             The ReportViewer control can also show <a target="_blank" href="https://msdn.microsoft.com/en-us/library/ms159106.aspx">SSRS</a> report.
         </p>
         <p>
-            The <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#ReportServices.html">C1 Web API Report Services</a> uses <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/FlexReport/webframe.html#C1.Win.C1Document.4~C1.Win.C1Document.C1SSRSDocumentSource.html">C1SSRSDocumentSource</a> to connect with SSRS server and render the SSRS report.
+            The <a target="_blank" href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html">C1 Web API Report Services</a> uses <a target="_blank" href="https://developer.mescius.com/componentone/docs/win/online-flexreport/overview.html">C1SSRSDocumentSource</a> to connect with SSRS server and render the SSRS report.
             It first fetches data from SSRS server, and then converts to the expected formats (normally HTML5 SVG).
-            Please see <a target="_blank" href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#Working%20with%20Reports.html">How to Set Up C1 Web API Report Services</a> for details.
+            Please see <a target="_blank" href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html">How to Set Up C1 Web API Report Services</a> for details.
         </p>
         <p>
             To show the content of SSRS report from C1 Web API Report Services, set the following basic properties:
@@ -434,7 +433,7 @@ function mouseMode_SelectedIndexChanged(sender){
                             public ActionResult Index()
                             {
                             ReportViewer101Model model = new ReportViewer101Model();
-                            model.ServiceUrl = "https://www.grapecity.com/componentone/demos/aspnet/c1webapi/latest/api/report";
+                            model.ServiceUrl = "https://developer.mescius.com/componentone/demos/aspnet/c1webapi/latest/api/report";
                             model.ZoomFactor = 1;
                             model.ReportNames = GetReportNames();
                             model.Parameters = GetParameters();
@@ -647,7 +646,8 @@ namespace ReportViewer101.Controllers
                                 .DisplayMemberPath("Text")
                                 .Placeholder("Please select parameters")
                                 .OnClientCheckedItemsChanged("parameters_CheckedItemsChanged")
-                                .CheckedIndexes(0))
+                                .CheckedIndexes(0)
+                                )
                         </div>
                         <div class="col-md-3">
                             <input class="btn" type="button" value="Apply" onclick="applyParameters()" />

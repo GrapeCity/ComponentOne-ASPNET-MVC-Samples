@@ -1,0 +1,20 @@
+﻿@{
+    // ViewBag.DemoSettings = true;
+    // ViewBag.DemoSettingsModel = Model;
+    IEnumerable<CitySale> CitySaleDatas = ViewBag.CitiesSales;
+}
+<c1-items-source id="CVService" group-by="CountryName" source-collection="@CitySaleDatas" page-size="16"></c1-items-source>
+
+<c1-flex-chart id="@Model.ControlId" header="@FlexChartRes.Axes_Sales" items-source-id="CVService">
+    <c1-flex-chart-series name="Sales" binding-x="Name" binding="Sales">
+        <c1-items-source source-collection="@CitySaleDatas"></c1-items-source>
+    </c1-flex-chart-series>
+    <c1-flex-chart-axis c1-property="AxisX" binding="CountryName">
+        <c1-axis-groups-options c1-property="GroupsOptions" display="Show"></c1-axis-groups-options>
+    </c1-flex-chart-axis>
+</c1-flex-chart>
+
+@section Description{
+    <h3>@Html.Raw(FlexChartRes.AxisGroups_Text01)</h3>
+    <p>@Html.Raw(FlexChartRes.AxisGroups_Text02)</p>
+}

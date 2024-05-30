@@ -9,7 +9,7 @@ namespace ReportViewer101.Controllers
         public ActionResult Index()
         {
             ReportViewer101Model model = new ReportViewer101Model();
-            model.ServiceUrl = "https://www.grapecity.com/componentone/demos/aspnet/c1webapi/latest/api/report";
+            model.ServiceUrl = "https://developer.mescius.com/componentone/demos/aspnet/c1webapi/latest/api/report";
             model.ZoomFactor = 1;
             model.ReportNames = GetReportNames();
             model.Parameters = GetParameters();

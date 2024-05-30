@@ -1,4 +1,4 @@
-﻿@model IEnumerable<Sale>
+﻿@model IEnumerable<SaleShowCase>
 @{
     ControlOptions optionsModel = ViewBag.DemoOptions;
     ViewBag.DemoSettings = true;
@@ -131,8 +131,10 @@
     <c1-flex-grid-column binding="ID" is-read-only="true" width="50"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Country" width="80"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Product" width="80" css-class-all="@(optionsModel.Options["Css Class All"].CurrentValue)"></c1-flex-grid-column>
-    <c1-flex-grid-column binding="Amount" width="100" format="@(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "")"
-                         template="<span class=${item.Amount > 1000 ? 'bg-info' : 'bg-danger'}>${text}</span>">
+    <c1-flex-grid-column binding="Amount" width="100" format="@(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "")">
+            <c1-flex-grid-cell-template>
+                    <span class='{{AmountClass2}}'>{{Amount}}</span>
+            </c1-flex-grid-cell-template>
     </c1-flex-grid-column>
     <c1-flex-grid-column header="Trends" is-read-only="true" align="center">
         <c1-flex-grid-cell-template>

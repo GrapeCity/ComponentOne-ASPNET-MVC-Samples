@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("FlexViewerExplorer")]
-[assembly: AssemblyCopyright("Copyright © GrapeCity, Inc.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © MESCIUS inc.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

@@ -367,7 +367,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The FlexSheet control has a built-in calculation engine that supports over 80 functions just like Microsoft Excel. (&lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#In-builtFormulasSupportedinFlexSheet.html&quot; target=&quot;_blank&quot;&gt;See complete list.&lt;/a&gt;).
+        ///   Looks up a localized string similar to The FlexSheet control has a built-in calculation engine that supports over 80 functions just like Microsoft Excel. (&lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;See complete list.&lt;/a&gt;).
         /// </summary>
         internal static string Formulas_Description_Text0 {
             get {

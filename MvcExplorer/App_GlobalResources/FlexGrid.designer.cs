@@ -397,7 +397,18 @@ namespace Resources {
                 return ResourceManager.GetString("CheckboxSelection_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Selector can be set AriaLabel to support screen reader..
+        /// </summary>
+        internal static string CheckboxSelection_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("CheckboxSelection_Text2", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable..
         /// </summary>
@@ -1242,7 +1253,40 @@ namespace Resources {
                 return ResourceManager.GetString("Editing_Text9", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to This page demos how to use CommitEmptyEdits property..
+        /// </summary>
+        internal static string EmptyEdit_Text0
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to If you choose to ignore commit empty edits, the Grid will not commit empty edits to cell values if the original value is null..
+        /// </summary>
+        internal static string EmptyEdit_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Items Changed:.
+        /// </summary>
+        internal static string EmptyEdit_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("EmptyEdit_Text2", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Enter search text here.
         /// </summary>
@@ -1689,7 +1733,18 @@ namespace Resources {
                 return ResourceManager.GetString("MergeCells_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying..
+        /// </summary>
+        internal static string MergeCells_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("MergeCells_Text2", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to This example shows how you can bind FlexGrid with an OData service..
         /// </summary>
@@ -2213,7 +2268,18 @@ namespace Resources {
                 return ResourceManager.GetString("RemoteBind_Text0", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to This example also demos how you can set ariaLabel to the grid control..
+        /// </summary>
+        internal static string RemoteBind_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("RemoteBind_Text1", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Right To Left.
         /// </summary>

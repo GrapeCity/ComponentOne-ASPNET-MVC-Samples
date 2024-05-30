@@ -21,7 +21,8 @@
     <EmbeddedResource Include="fb.json;fb2.json;Models\UserInfo.cs;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20231.344" />
+    <PackageReference Include="C1.Excel" Version="5.0.20223.11" />    
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
@@ -35,5 +36,18 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Controllers\OData\" />
+  </ItemGroup>
+ <ItemGroup>
+    <Compile Update="Localization\ExcelRes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>ExcelRes.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\ExcelRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>ExcelRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 </Project>

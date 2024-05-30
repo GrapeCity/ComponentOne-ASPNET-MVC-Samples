@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class FlexSheet {
@@ -122,73 +122,61 @@ namespace Resources {
                 return ResourceManager.GetString("AutoFilling_Text6", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to CalculationPrecision.
+        ///   Looks up a localized string similar to CalculationPrecision.
         /// </summary>
-        internal static string CalculationPrecision_Text0
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text0 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas..
+        ///   Looks up a localized string similar to The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas..
         /// </summary>
-        internal static string CalculationPrecision_Text1
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text1 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Negative value means that no rounding is performed. The default value for this property is 14..
+        ///   Looks up a localized string similar to Negative value means that no rounding is performed. The default value for this property is 14..
         /// </summary>
-        internal static string CalculationPrecision_Text2
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text2 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text2", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Calculation precision value:.
+        ///   Looks up a localized string similar to Calculation precision value:.
         /// </summary>
-        internal static string CalculationPrecision_Text3
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text3 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text3", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Cell Content:.
+        ///   Looks up a localized string similar to Cell Content:.
         /// </summary>
-        internal static string CalculationPrecision_Text4
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text4 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text4", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
-        internal static string CalculationPrecision_Text5
-        {
-            get
-            {
+        internal static string CalculationPrecision_Text5 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text5", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging..
         /// </summary>
@@ -244,7 +232,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FlexSheet also allows user to process non-supported functions met in cell expressions by the client &lt;b&gt;OnClientUnknownFunction&lt;/b&gt; event.&lt;/br&gt;This event will pass the &apos;UnKnownFunctionEventArgs&apos; to customer.  This &apos;UnKnownFunctionEventArgs&apos; provides the function name and the evaluated values list of the parameters.&lt;/br&gt;Customer can set the &apos;value&apos; field of &apos;UnKnownFunctionEventArgs&apos; to customize the miss formula result.&lt;/br&gt;Otherwise the missed function will return the default error message: &lt;i&gt;&apos;The function [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  FlexSheet also allows user to process non-supported functions met in cell expressions by the client &lt;b&gt;OnClientUnknownFunction&lt;/b&gt; event.&lt;/br&gt;This event will pass the &apos;UnKnownFunctionEventArgs&apos; to customer.  This &apos;UnKnownFunctionEventArgs&apos; provides the function name and the evaluated values list of the parameters.&lt;/br&gt;Customer can set the &apos;value&apos; field of &apos;UnKnownFunctionEventArgs&apos; to customize the miss formula result.&lt;/br&gt;Otherwise the missed function will return the default error message: &lt;i&gt;&apos;The function [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CustomFunction_Text1 {
             get {
@@ -298,7 +286,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FlexSheet supports dragging and dropping columns or rows into other columns or rows. It does not only copy or move the data of the cells;&lt;/br&gt;it also copies or moves the style of the cells.&lt;br /&gt;&lt;/br&gt;When dragging and dropping without any key pressed, it moves the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b&gt;&apos;Ctrl&apos;&lt;/b&gt; key pressed, it copies the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  FlexSheet supports dragging and dropping columns or rows into other columns or rows. It does not only copy or move the data of the cells;&lt;/br&gt;it also copies or moves the style of the cells.&lt;br /&gt;&lt;/br&gt;When dragging and dropping without any key pressed, it moves the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b&gt;&apos;Ctrl&apos;&lt;/b&gt; key pressed, it copies the selected columns or rows into the dropping columns or rows.&lt;br /&gt;&lt;/br&gt;When dragging and dropping with &lt;b [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DragDrop_Text0 {
             get {
@@ -341,42 +329,36 @@ namespace Resources {
                 return ResourceManager.GetString("Error_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Excel HtmlEntityConversion Export.
+        ///   Looks up a localized string similar to Excel HtmlEntityConversion Export.
         /// </summary>
-        internal static string ExcelIO_HtmlConversion_Text0
-        {
-            get
-            {
+        internal static string ExcelIO_HtmlConversion_Text0 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Flexsheet supports saving the xlsx file with HTML entities content, too.
+        ///   Looks up a localized string similar to Flexsheet supports saving the xlsx file with HTML entities content, too.
         ///
         ///In the client, &lt;b&gt;convertHtmlEntities&lt;/b&gt; property of IFlexSheetXlsxOptions defines the conversion behavior for HTML entities such as &quot;&quot;&quot;, &quot;&lt;&quot;, &quot;&gt;&quot; and &quot;&amp;&quot; when exporting. The default value is HtmlEntityConversion.Auto..
         /// </summary>
-        internal static string ExcelIO_HtmlConversion_Text1
-        {
-            get
-            {
+        internal static string ExcelIO_HtmlConversion_Text1 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Convert HTML Entities.
+        ///   Looks up a localized string similar to Convert HTML Entities.
         /// </summary>
-        internal static string ExcelIO_HtmlConversion_Text2
-        {
-            get
-            {
+        internal static string ExcelIO_HtmlConversion_Text2 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text2", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports saving/loading xlsx files by the client &lt;b&gt;&apos;save&apos;&lt;/b&gt; and &lt;b&gt;&apos;load&apos;&lt;/b&gt; method..
         /// </summary>
@@ -1345,7 +1327,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners..
+        ///   Looks up a localized string similar to http://developer.mescius.com/.
+        /// </summary>
+        internal static string _Layout_Link {
+            get {
+                return ResourceManager.GetString("_Layout_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         internal static string _Layout_Text0 {
             get {
@@ -1381,7 +1372,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         internal static string _Layout_Text4 {
             get {
@@ -1426,7 +1417,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string _SiteNav_Text3 {
             get {
@@ -1444,7 +1435,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-mvc-ui-controls.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-mvc-ui-controls.
         /// </summary>
         internal static string _SiteNav_Text5 {
             get {
@@ -1453,7 +1444,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         internal static string _SiteNav_Text6 {
             get {
@@ -1462,7 +1453,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         internal static string _SiteNav_Text7 {
             get {
@@ -1471,11 +1462,65 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         internal static string _SiteNav_Text8 {
             get {
                 return ResourceManager.GetString("_SiteNav_Text8", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        internal static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        internal static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        internal static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
+        /// </summary>
+        internal static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        internal static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        internal static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
             }
         }
     }

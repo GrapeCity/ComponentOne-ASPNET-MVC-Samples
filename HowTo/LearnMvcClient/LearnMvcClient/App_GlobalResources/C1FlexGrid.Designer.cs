@@ -238,7 +238,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to Like all other CMVC controls, the grid delegates all
         ///    data-related tasks to the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.CollectionView.Class.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;CollectionView&lt;/a&gt;
         ///    class..
         /// </summary>
         internal static string Architecture_Text2 {
@@ -250,7 +250,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to When you set the &lt;b&gt;itemsSource&lt;/b&gt; property of grid to an array,
         ///    or
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.collections.ObservableArray.Class.html&quot; target=&quot;_blank&quot;&gt;ObservableArray&lt;/a&gt;,
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;ObservableArray&lt;/a&gt;,
         ///    the grid automatically creates a CollectionView instance
         ///    to wrap the original array. This CollectionView can be 
         ///    accessed through the &lt;b&gt;collectionView&lt;/b&gt; property..
@@ -1223,7 +1223,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;b&gt;wijmo.grid.Column&lt;/b&gt; class has
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.Column.Class.html&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        almost 40 properties
         ///    &lt;/a&gt; which you can use to configure each column&apos;s appearance and behavior..
         /// </summary>
@@ -2735,7 +2735,7 @@ namespace Resources {
         ///   Looks up a localized string similar to FlexGrid provides many events which you can use to
         ///    customize almost every aspect of the control&apos;s
         ///    behavior. You can see a complete list in the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.FlexGrid.Class.html&quot; target=&quot;_blank&quot;&gt;Online Documentation&lt;/a&gt;..
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;Online Documentation&lt;/a&gt;..
         /// </summary>
         internal static string Events_Text1 {
             get {
@@ -3067,7 +3067,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to The FlexGrid control is made up of six
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.GridPanel.Class.html&quot; target=&quot;_blank&quot;&gt;GridPanel&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;GridPanel&lt;/a&gt;
         ///    elements:.
         /// </summary>
         internal static string GridPanels_Text1 {
@@ -4158,7 +4158,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to The FlexGrid control is made up of six
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.GridPanel.Class.html&quot; target=&quot;_blank&quot;&gt;GridPanel&lt;/a&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;GridPanel&lt;/a&gt;
         ///    elements..
         /// </summary>
         internal static string RowsColumns_Text1 {
@@ -4374,7 +4374,7 @@ namespace Resources {
         
         /// <summary>
         ///   Looks up a localized string similar to The &lt;b&gt;wijmo.grid.Row&lt;/b&gt; class has
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.grid.Row.Class.html&quot; target=&quot;_blank&quot;&gt;
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;
         ///        almost 20 properties
         ///    &lt;/a&gt; which you can use to configure rows&apos;s appearance and behavior..
         /// </summary>

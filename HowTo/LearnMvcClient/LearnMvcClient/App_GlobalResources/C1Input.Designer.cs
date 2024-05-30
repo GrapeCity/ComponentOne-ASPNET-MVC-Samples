@@ -2695,7 +2695,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
         ///    the one used in .NET and is
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatDate&quot; target=&quot;_blank&quot;&gt;documented here&lt;/a&gt;..
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;documented here&lt;/a&gt;..
         /// </summary>
         internal static string InputDateFormatting_Text2 {
             get {
@@ -3294,7 +3294,7 @@ namespace Resources {
         ///   Looks up a localized string similar to To use the InputMask control, set the &lt;b&gt;mask&lt;/b&gt; property to a
         ///    string that specifies the valid character classes for each input\
         ///    position, as described in the
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/webframe.html#wijmo.input.InputMask.Class.html&quot; target=&quot;_blank&quot;&gt;InputMask documentation&lt;/a&gt;..
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;InputMask documentation&lt;/a&gt;..
         /// </summary>
         internal static string InputMask_Text2 {
             get {
@@ -3369,7 +3369,7 @@ namespace Resources {
         /// <summary>
         ///   Looks up a localized string similar to The syntax of the &lt;b&gt;format&lt;/b&gt; parameter is similar to
         ///    the one used in .NET and is
-        ///    &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1mvchelpers/wijmo.Globalize.Class.html#formatNumber&quot; target=&quot;_blank&quot;&gt;documented here&lt;/a&gt;..
+        ///    &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot; target=&quot;_blank&quot;&gt;documented here&lt;/a&gt;..
         /// </summary>
         internal static string InputNumberFormatting_Text2 {
             get {

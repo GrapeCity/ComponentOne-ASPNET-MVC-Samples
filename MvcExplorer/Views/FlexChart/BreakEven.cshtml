@@ -1,4 +1,5 @@
 ﻿@(Html.C1().FlexChart()
+    .Legend(l => { l.Scrollbar(true).MaxSize("150px").Orientation(C1.Web.Mvc.Chart.LegendOrientation.Vertical).Position(C1.Web.Mvc.Chart.Position.Top); })
     .Series(ser =>
     {
         ser.AddBreakEven().FixedCost(1000000).VariableCost(20).SalesPrice(120)
@@ -13,7 +14,7 @@
              .MarginalProfit(mp => mp.Stroke("green").StrokeWidth(3))
              .BreakEven(be => be.Stroke("rgba(69,171,235,1)").StrokeWidth(3))
              );
-    })
+    })    
 )
 
 @section Description{

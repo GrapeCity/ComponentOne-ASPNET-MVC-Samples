@@ -94,7 +94,10 @@
             <span class="color-tile" style="background: {{Color}}"></span> {{Color}}
         </c1-flex-grid-cell-template>
     </c1-flex-grid-column>
-    <c1-flex-grid-column binding="Amount" header="Change" is-read-only="true" format="c" template="<span class=${item && item.Amount > 0 ? 'change-up' : 'change-down'}>${text}</span>">
+    <c1-flex-grid-column binding="Amount" header="Change" is-read-only="true" format="c">
+        <c1-flex-grid-cell-template>
+            <span class='{{AmountClass}}'>{{Amount}}</span>
+        </c1-flex-grid-cell-template>
     </c1-flex-grid-column>
     <c1-flex-grid-column binding="Rank" width="150" align="center" css-class-all="custom-rating" template-function="createRating"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Active"></c1-flex-grid-column>

@@ -78,6 +78,40 @@ namespace MvcExplorer.Models
             return list;
         }
 
+        /// <summary>
+        /// Get the data that has null item.
+        /// </summary>
+        /// <param name="total"></param>
+        /// <returns></returns>
+        public static IEnumerable<Sale> GetDataContainNull(int total)
+        {
+            var rand = new Random(0);
+            var dt = DateTime.Now;
+            List<string> nullCountries = new List<string> { null, "US", "UK", "Canada", "Japan", "China", "France", "German", "Italy", "Korea", "Australia" };
+
+            var list = Enumerable.Range(0, total).Select(i =>
+            {
+                var country = nullCountries[rand.Next(0, nullCountries.Count - 1)];
+                var product = PRODUCTS[rand.Next(0, PRODUCTS.Count - 1)];
+                var startDate = new DateTime(dt.Year, i % 12 + 1, 25);
+                var endDate = new DateTime(dt.Year, i % 12 + 1, 25, i % 24, (i % 2) * 30, 0);
+
+                return new Sale
+                {
+                    ID = i + 1,
+                    Start = startDate,
+                    End = endDate,
+                    Country = country,
+                    Product = product,
+                    Amount = Math.Round(rand.NextDouble() * 10000 - 5000, 2),
+                    Discount = Math.Round(rand.NextDouble() / 4, 2),
+                    Active = (i % 4 == 0),
+                    History = GetHistory(3 + rand.Next(20), 100)
+                };
+            });
+            return list;
+        }
+
         public static List<string> GetCountries()
         {
             var countries = new List<string>();

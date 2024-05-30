@@ -1,8 +1,19 @@
-﻿
-@Html.ActionLink(Resources.Excel.Index_GenerateExcel, "GenerateExcel")
-<br />
+﻿@model ExcelViewModel
+
+@using (Html.BeginForm("GenerateExcel", "Excel"))
+{
+    @Html.Raw(@Resources.Excel.Index_OutputType)
+    <br />
+    <label class="xlsx-type">
+        @Html.RadioButtonFor(m => m.IsXls, true)Xls
+        &nbsp;&nbsp; @Html.RadioButtonFor(m => m.IsXls, false)Xlsx
+    </label>
+    <input type="submit" value="@Resources.Excel.Index_GenerateExcel" />
+    <p></p>
+}
+
 <img src="~/Content/images/excelWorkSheets.PNG" />
 
 @section Description{
-<p>@Html.Raw(Resources.Excel.Index_Text0)</p>
-    }
+    <p>@Html.Raw(Resources.Excel.Index_Text0)</p>
+}

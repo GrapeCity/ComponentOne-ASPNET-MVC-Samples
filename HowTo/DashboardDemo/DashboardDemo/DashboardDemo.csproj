@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>DashboardDemo</RootNamespace>
     <AssemblyName>DashboardDemo</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -42,24 +42,23 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.5.2">
-      <HintPath>..\packages\C1.C1Excel.4.5.20222.566\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Excel.4.8">
+      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.C1Pdf.4.5.2">
-      <HintPath>..\packages\C1.C1Pdf.4.5.20222.566\lib\net452\C1.C1Pdf.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Pdf.4.8">
+      <HintPath>..\packages\C1.C1Pdf.4.8.20241.657\lib\net48\C1.C1Pdf.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.C1Word.4.5.2">
-      <HintPath>..\packages\C1.C1Word.4.5.20222.566\lib\net452\C1.C1Word.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Word.4.8">
+      <HintPath>..\packages\C1.C1Word.4.8.20241.657\lib\net48\C1.C1Word.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.C1Zip.4.5.2">
-      <HintPath>..\packages\C1.C1Zip.4.5.20222.566\lib\net452\C1.C1Zip.4.5.2.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Zip">
+      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="C1.DataEngine">
-      <HintPath>..\packages\C1.DataEngine.5.0.20221.247\lib\net452\C1.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.DataEngine.5.0.20232.306\lib\net452\C1.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -71,80 +70,101 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api">
-      <HintPath>..\packages\C1.Web.Api.4.5.20222.320\lib\net45\C1.Web.Api.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.4.8.20241.340\lib\net48\C1.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.DataEngine">
-      <HintPath>..\packages\C1.Web.Api.DataEngine.4.5.20222.320\lib\net45\C1.Web.Api.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.DataEngine.4.8.20241.340\lib\net48\C1.Web.Api.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Document">
-      <HintPath>..\packages\C1.Web.Api.Document.4.5.20222.320\lib\net45\C1.Web.Api.Document.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Document.4.8.20241.340\lib\net48\C1.Web.Api.Document.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Report">
-      <HintPath>..\packages\C1.Web.Api.Report.4.5.20222.320\lib\net45\C1.Web.Api.Report.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Report.4.8.20241.340\lib\net48\C1.Web.Api.Report.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.FlexViewer">
-      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.5.20222.340\lib\net45\C1.Web.Mvc.FlexViewer.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexViewer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.Olap">
-      <HintPath>..\packages\C1.Web.Mvc.Olap.4.5.20222.340\lib\net45\C1.Web.Mvc.Olap.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.Olap.4.8.20241.360\lib\net48\C1.Web.Mvc.Olap.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.BarCode.4.5.2">
-      <HintPath>..\packages\C1.Win.BarCode.4.5.20222.566\lib\net452\C1.Win.BarCode.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.BarCode.4.8">
+      <HintPath>..\packages\C1.Win.BarCode.8.0.20241.657\lib\net48\C1.Win.BarCode.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.5.2">
-      <HintPath>..\packages\C1.Win.Bitmap.4.5.20222.566\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.Bitmap.4.8">
+      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1Chart.4.5.2">
-      <HintPath>..\packages\C1.Win.C1Chart.4.5.20222.566\lib\net452\C1.Win.C1Chart.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1Chart.4.8">
+      <HintPath>..\packages\C1.Win.C1Chart.4.8.20241.657\lib\net48\C1.Win.C1Chart.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1Chart3D.4.5.2">
-      <HintPath>..\packages\C1.Win.C1Chart.4.5.20222.566\lib\net452\C1.Win.C1Chart3D.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1Chart3D.4.8">
+      <HintPath>..\packages\C1.Win.C1Chart.4.8.20241.657\lib\net48\C1.Win.C1Chart3D.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1Document.4.5.2">
-      <HintPath>..\packages\C1.Win.C1Document.4.5.20222.566\lib\net452\C1.Win.C1Document.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1Document.4.8">
+      <HintPath>..\packages\C1.Win.C1Document.4.8.20241.657\lib\net48\C1.Win.C1Document.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.5.2">
-      <HintPath>..\packages\C1.Win.C1DX.4.5.20222.566\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1DX.4.8">
+      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.FlexChart.4.5.2">
-      <HintPath>..\packages\C1.Win.FlexChart.4.5.20222.566\lib\net452\C1.Win.FlexChart.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.FlexChart.4.8">
+      <HintPath>..\packages\C1.Win.FlexChart.8.0.20241.657\lib\net48\C1.Win.FlexChart.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.FlexChart.Extended.4.5.2">
-      <HintPath>..\packages\C1.Win.FlexChart.4.5.20222.566\lib\net452\C1.Win.FlexChart.Extended.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.FlexChart.Extended.4.8">
+      <HintPath>..\packages\C1.Win.FlexChart.Extended.8.0.20241.657\lib\net48\C1.Win.FlexChart.Extended.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.FlexReport.4.5.2">
-      <HintPath>..\packages\C1.Win.FlexReport.4.5.20222.566\lib\net452\C1.Win.FlexReport.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.FlexReport.4.8">
+      <HintPath>..\packages\C1.Win.FlexReport.8.0.20241.657\lib\net48\C1.Win.FlexReport.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.FlexReport.CustomFields.4.5.2">
-      <HintPath>..\packages\C1.Win.FlexReport.4.5.20222.566\lib\net452\C1.Win.FlexReport.CustomFields.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.FlexReport.CustomFields.4.8">
+      <HintPath>..\packages\C1.Win.FlexReport.CustomFields.8.0.20241.657\lib\net48\C1.Win.FlexReport.CustomFields.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.ImportServices.4.5.2">
-      <HintPath>..\packages\C1.Win.C1Document.4.5.20222.566\lib\net452\C1.Win.ImportServices.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.ImportServices.4.8">
+      <HintPath>..\packages\C1.Win.ImportServices.8.0.20241.657\lib\net48\C1.Win.ImportServices.4.8.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="DS.Documents.Barcode">
+        <HintPath>..\packages\DS.Documents.Barcode.7.1.1\lib\net461\DS.Documents.Barcode.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.DX.Windows">
+        <HintPath>..\packages\DS.Documents.DX.Windows.7.1.1\lib\net461\DS.Documents.DX.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Excel">
+        <HintPath>..\packages\DS.Documents.Excel.7.1.1\lib\net461\DS.Documents.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Imaging">
+        <HintPath>..\packages\DS.Documents.Imaging.7.1.1\lib\net461\DS.Documents.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Imaging.Windows">
+        <HintPath>..\packages\DS.Documents.Imaging.Windows.7.1.1\lib\net461\DS.Documents.Imaging.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Pdf">
+        <HintPath>..\packages\DS.Documents.Pdf.7.1.1\lib\net461\DS.Documents.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Word">
+        <HintPath>..\packages\DS.Documents.Word.7.1.1\lib\net461\DS.Documents.Word.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -233,7 +253,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
@@ -283,11 +303,11 @@
     <Content Include="Content\css\bootstrap\css\bootstrap.css" />
     <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Content\css\explorer.css" />
-    <Content Include="Content\favicon\android-chrome-192x192.png" />
-    <Content Include="Content\favicon\android-chrome-256x256.png" />
-    <Content Include="Content\favicon\apple-touch-icon.png" />
-    <Content Include="Content\favicon\favicon-16x16.png" />
-    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Content\images\AcmeLogo-vertical-100px.png" />
     <Content Include="Content\InitialData.xml" />

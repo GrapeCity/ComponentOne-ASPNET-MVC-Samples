@@ -11,8 +11,8 @@
 namespace MvcExplorer.Localization {
     using System;
     using System.Reflection;
-    
-    
+
+
     /// <summary>
     ///   A strongly-typed resource class, for looking up localized strings, etc.
     /// </summary>
@@ -343,6 +343,25 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This view shows the &lt;b&gt;FlexChart&lt;/b&gt; with Groups Options.
+        /// </summary>
+        public static string AxisGroups_Text01 {
+            get {
+                return ResourceManager.GetString("AxisGroups_Text01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlexChart&apos;s axis now supports groups defined in CollectionView which specified as chart&apos;s data source.
+        ///  To display group you need to create groups in collection view and set Display in AxisGroupsOptions.
+        /// </summary>
+        public static string AxisGroups_Text02 {
+            get {
+                return ResourceManager.GetString("AxisGroups_Text02", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Chart binding.
         /// </summary>
         public static string Binding_ChartBinding {
@@ -412,6 +431,15 @@ namespace MvcExplorer.Localization {
         public static string Binding_Text2 {
             get {
                 return ResourceManager.GetString("Binding_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample also shows the effect of the LabelMin and LabelMax properties of Axis. When you set them to True, the label will be displayed..
+        /// </summary>
+        public static string Binding_Text3 {
+            get {
+                return ResourceManager.GetString("Binding_Text3", resourceCulture);
             }
         }
         

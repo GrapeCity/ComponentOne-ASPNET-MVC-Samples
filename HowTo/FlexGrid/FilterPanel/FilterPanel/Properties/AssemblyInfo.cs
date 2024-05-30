@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FilterPanel")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GrapeCity, Inc.")]
+[assembly: AssemblyCompany("MESCIUS inc.")]
 [assembly: AssemblyProduct("FilterPanel")]
-[assembly: AssemblyCopyright("Copyright © GrapeCity, Inc.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © MESCIUS inc.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

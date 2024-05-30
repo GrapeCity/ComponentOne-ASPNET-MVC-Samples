@@ -1,12 +1,13 @@
 ﻿@using C1.Web.Mvc.Grid
 
-@(Html.C1().FlexGrid()
+@(Html.C1().FlexGrid().Id("remoteGrid")
     .AutoGenerateColumns(false)
     .SortingType(AllowSorting.SingleColumn)
     .IsReadOnly(true)
     .Bind(Url.Action("RemoteBind_Read"))
     .CssClass("grid")
     .SelectionMode(SelectionMode.Row)
+    .AriaLabel("This is a FlexGrid of Sale.")
     .Columns(columns =>
     {
         columns.Add(column => column.Binding("ID").Visible(false));
@@ -21,7 +22,26 @@
         columns.Add(column => column.Binding("Active"));
     })
 )
+<p></p>
+AriaLabel:<input type="text" style="width:500px" id="txtLabel" value="This is a FlexGrid of Sale." />
+          <input type="button" class="btn" onclick="applyAriaLabel()" value="Apply" />
 
+@section Scripts{
+    <script>
+        function applyAriaLabel() {
+            var ariaLabel = document.getElementById("txtLabel").value;
+            if (ariaLabel != "") {
+                var control = wijmo.Control.getControl("#remoteGrid");
+                if (control) {
+                    control.ariaLabel = ariaLabel;
+                    control.invalidate();
+                }
+            }
+        }
+    </script>
+}
 @section Description{
-    @Html.Raw(Resources.FlexGrid.RemoteBind_Text0)
+    <p>@Html.Raw(Resources.FlexGrid.RemoteBind_Text0)</p>
+
+    <p>@Html.Raw(Resources.FlexGrid.RemoteBind_Text1)</p>
 }

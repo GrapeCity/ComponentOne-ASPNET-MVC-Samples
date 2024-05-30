@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("FlexGridFullRowEdit")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GrapeCity, Inc.")]
+[assembly: AssemblyCompany("MESCIUS inc.")]
 [assembly: AssemblyProduct("FlexGridFullRowEdit")]
-[assembly: AssemblyCopyright("Copyright © GrapeCity, Inc.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © MESCIUS inc.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

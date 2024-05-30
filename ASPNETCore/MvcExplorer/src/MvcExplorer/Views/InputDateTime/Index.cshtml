@@ -2,13 +2,47 @@
 @{
     var today = DateTime.Now.Date;
 }
+@section Scripts{
+    <script>
+        function applyCulture() {
+            var selCulture = document.getElementById("selCulture");
+            wijmo.changeCulture(selCulture.value).then(() => {
+                if (selCulture.selectedOptions.length > 0)
+                    document.getElementById("curCulture").textContent = selCulture.selectedOptions[0].label;
+            });
+        }
+    </script>
+
+   @Html.C1().Scripts().Basic().Culture("ja")
+    @Html.C1().Scripts().Basic().Culture("de")
+    @Html.C1().Scripts().Basic().Culture("fr")
+    @Html.C1().Scripts().Basic().Culture("ko")
+    @Html.C1().Scripts().Basic().Culture("en")
+   
+}
 
 <div>
+
     <label>@Html.Raw(InputDateTimeRes.Index_Text0)</label>
+
     <c1-input-date-time value="@today">
+
     </c1-input-date-time>
+
+    <br />
+    @Html.Raw(InputDateTimeRes.Index_Text21):&nbsp;&nbsp;<label id="curCulture" style="font-size:14px;font-weight:bold;">English</label>
+    <select id="selCulture" size="5" style="width:200px;padding:5px;">
+        <option value="en" selected="selected">English</option>
+        <option value="ja">Japanese</option>
+        <option value="de">German</option>
+        <option value="fr">French</option>
+        <option value="ko">Korean</option>
+    </select>
+    <br />
+    <button id="btn" onclick="applyCulture()">@Html.Raw(InputDateTimeRes.Index_Text22)</button>
 </div>
 
 @section Description{
-    @Html.Raw(InputDateTimeRes.Index_Text1)
+    <p>@Html.Raw(InputDateTimeRes.Index_Text1)</p>
+    <p>@Html.Raw(InputDateTimeRes.Index_Text2)</p>
 }

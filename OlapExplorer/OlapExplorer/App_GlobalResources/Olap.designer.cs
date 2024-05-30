@@ -142,7 +142,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/data-engine.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         internal static string DataEngine_Text0 {
             get {
@@ -151,7 +151,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to the DataEngine data.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control display the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by doub [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to the DataEngine data.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control display the aggregated data.&lt;/br&gt;You can find the detailed raw data shown in a grid by doub [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string DataEngine_Text1 {
             get {
@@ -178,7 +178,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;where the data engine is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service, in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;where the data engine is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service, in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/data-engine.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         internal static string DataSource_Text0 {
             get {
@@ -277,7 +277,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to an IEnumerable object which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control binds the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detailed raw da [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to an IEnumerable object which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control, the &lt;b&gt;PivotGrid&lt;/b&gt; control binds the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detailed raw da [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string Index_Text4 {
             get {
@@ -331,7 +331,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to a remote action url which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detaile [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; binds to a remote action url which provides the data to be aggregated.&lt;/br&gt;All the data will be transferred to the client. The &lt;b&gt;PivotEngine&lt;/b&gt; will calculate the data at the client-side.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The &lt;b&gt;PivotGrid&lt;/b&gt; control reflects the changes in the aggregated data.&lt;/br&gt;You can find the detaile [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string RemoteBind_Text0 {
             get {
@@ -433,7 +433,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Here, only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported,&lt;/br&gt;which is responsible for data aggregation.&lt;/br&gt;The service url should be provided in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/data-engine.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         internal static string SSAS_Text0 {
             get {
@@ -442,7 +442,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to use the AddCubeField method to add a cube field.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the s [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to use the AddCubeField method to add a cube field.&lt;/br&gt;The &lt;b&gt;PivotPanel&lt;/b&gt; control and the &lt;b&gt;PivotGrid&lt;/b&gt; control are bound to the &lt;b&gt;PivotEngine&lt;/b&gt;.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string SSAS_Text1 {
             get {
@@ -532,7 +532,16 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;&lt;/br&gt;All product and company names here in may be trademarks of their respective owners..
+        ///   Looks up a localized string similar to https://developer.mescius.com.
+        /// </summary>
+        internal static string _Layout_Link {
+            get {
+                return ResourceManager.GetString("_Layout_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         internal static string _Layout_Text0 {
             get {
@@ -568,7 +577,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         internal static string _Layout_Text4 {
             get {
@@ -613,7 +622,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         internal static string _SiteNav_Text3 {
             get {
@@ -631,7 +640,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-mvc-ui-controls.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-mvc-ui-controls.
         /// </summary>
         internal static string _SiteNav_Text5 {
             get {
@@ -640,7 +649,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         internal static string _SiteNav_Text6 {
             get {
@@ -649,7 +658,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         internal static string _SiteNav_Text7 {
             get {
@@ -658,11 +667,65 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         internal static string _SiteNav_Text8 {
             get {
                 return ResourceManager.GetString("_SiteNav_Text8", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        internal static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        internal static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        internal static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
+        /// </summary>
+        internal static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        internal static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        internal static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
             }
         }
     }

@@ -231,7 +231,7 @@ namespace DashboardDemo
 
     public class ControlPageGroup
     {
-        private const string DocumentationRoot = "https://www.grapecity.com/componentone/docs/mvc/online-mvc/overview.html";
+        private const string DocumentationRoot = "https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html";
         private string _documentation;
 
         public string Documentation

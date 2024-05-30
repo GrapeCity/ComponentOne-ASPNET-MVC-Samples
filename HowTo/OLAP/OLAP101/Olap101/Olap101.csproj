@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Olap101</RootNamespace>
     <AssemblyName>Olap101</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -43,11 +43,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.DataEngine">
-      <HintPath>..\packages\C1.DataEngine.5.0.20221.247\lib\net452\C1.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.DataEngine.5.0.20232.306\lib\net452\C1.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
 	<Reference Include="C1.PivotEngine">
-      <HintPath>..\packages\C1.PivotEngine.5.0.20221.247\lib\net452\C1.PivotEngine.dll</HintPath>
+      <HintPath>..\packages\C1.PivotEngine.5.0.20232.306\lib\net452\C1.PivotEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>	
     <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
@@ -59,19 +59,19 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api">
-      <HintPath>..\packages\C1.Web.Api.4.5.20222.320\lib\net45\C1.Web.Api.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.4.8.20241.340\lib\net48\C1.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.DataEngine">
-      <HintPath>..\packages\C1.Web.Api.DataEngine.4.5.20222.320\lib\net45\C1.Web.Api.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.DataEngine.4.8.20241.340\lib\net48\C1.Web.Api.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.Olap">
-      <HintPath>..\packages\C1.Web.Mvc.Olap.4.5.20222.340\lib\net45\C1.Web.Mvc.Olap.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.Olap.4.8.20241.360\lib\net48\C1.Web.Mvc.Olap.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -164,7 +164,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
@@ -209,11 +209,13 @@
     <Content Include="Content\css\images\icons\30\google.png" />
     <Content Include="Content\css\images\icons\32\picons33.png" />
     <Content Include="Content\css\images\icons\32\picons36.png" />
-    <Content Include="Content\favicon\android-chrome-192x192.png" />
-    <Content Include="Content\favicon\android-chrome-256x256.png" />
-    <Content Include="Content\favicon\apple-touch-icon.png" />
-    <Content Include="Content\favicon\favicon-16x16.png" />
-    <Content Include="Content\favicon\favicon-32x32.png" />
+    <Content Include="Content\css\images\logotext.png" />
+    <Content Include="Content\css\images\logotext_w.png" />
+    <Content Include="Content\favicon\android-chrome-192.png" />
+    <Content Include="Content\favicon\android-chrome-256.png" />
+    <Content Include="Content\favicon\apple-touch-icon180.png" />
+    <Content Include="Content\favicon\logo16.png" />
+    <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\jszip.js" />

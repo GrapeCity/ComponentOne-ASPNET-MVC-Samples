@@ -3,13 +3,14 @@
     @{
         string webApiClient;
 #if NETCORE31
-        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclientCore22.min.js'></script>";
+        webApiClient = "Scripts/wijmo.io/webapiclientCore22.min.js";
 #else
-        webApiClient = "<script src='~/Scripts/wijmo.io/webapiclient.min.js'></script>";
+        webApiClient = "Scripts/wijmo.io/webapiclient.min.js";
 #endif
     }
-    @Html.Raw(webApiClient)
-    <script src="~/Scripts/flexSheet/excelService.js"></script>
+    
+    <script src="@Url.Content("~/")@webApiClient" ></script>
+    <script src="@Url.Content("~/")Scripts/flexSheet/excelService.js"></script>
     <script>
     ctx.serverUrl = '@AppSettings.GetWebApiServiceUrl()';
     </script>

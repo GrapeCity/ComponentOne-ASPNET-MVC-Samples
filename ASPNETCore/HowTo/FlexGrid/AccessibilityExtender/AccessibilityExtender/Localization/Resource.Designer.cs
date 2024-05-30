@@ -107,16 +107,16 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to http://www.grapecity.com/.
+        ///    Looks up a localized string similar to http://developer.mescius.com/.
         /// </summary>
-        public static string Layout_GrapeCityUrl {
+        public static string Layout_Url {
             get {
-                return ResourceManager.GetString("Layout_GrapeCityUrl", resourceCulture);
+                return ResourceManager.GetString("Layout_Url", resourceCulture);
             }
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved..
+        ///    Looks up a localized string similar to MESCIUS inc. All rights reserved.
         /// </summary>
         public static string Layout_License1 {
             get {
@@ -143,7 +143,7 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///    Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         public static string Layout_ProductUrl {
             get {
@@ -188,7 +188,7 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///    Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         public static string SiteNav_AboutUrl {
             get {
@@ -197,7 +197,7 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to FREE TRIAL.
+        ///    Looks up a localized string similar to Download.
         /// </summary>
         public static string SiteNav_FreeTrial {
             get {
@@ -206,7 +206,7 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to https://www.grapecity.com/en/download/componentone-studio.
+        ///    Looks up a localized string similar to https://developer.mescius.com/download/componentone-studio.
         /// </summary>
         public static string SiteNav_FreeTrialUrl {
             get {
@@ -233,7 +233,7 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to https://www.grapecity.com/en/pricing.
+        ///    Looks up a localized string similar to https://developer.mescius.com/pricing.
         /// </summary>
         public static string SiteNav_PricingUrl {
             get {
@@ -251,12 +251,67 @@ namespace AccessibilityExtender.Localization {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to http://supportone.componentone.com/login.
+        ///    Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         public static string SiteNav_SupportUrl {
             get {
                 return ResourceManager.GetString("SiteNav_SupportUrl", resourceCulture);
             }
         }
+
+
+        /// <summary>
+        ///    Looks up a localized string similar to Demos.
+        /// </summary>
+        public static string SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("SiteNav_Demos", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        public static string SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DemosUrl", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Docs.
+        /// </summary>
+        public static string SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("SiteNav_Docs", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html.
+        /// </summary>
+        public static string SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to Samples.
+        /// </summary>
+        public static string SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("SiteNav_Samples", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///    Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        public static string SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_SamplesUrl", resourceCulture);
+            }
+        }        
     }
 }

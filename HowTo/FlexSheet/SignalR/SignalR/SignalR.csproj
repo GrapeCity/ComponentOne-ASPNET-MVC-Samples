@@ -14,7 +14,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SignalR</RootNamespace>
     <AssemblyName>SignalR</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.8</TargetFrameworkVersion>
     <MvcBuildViews>false</MvcBuildViews>
     <UseIISExpress>true</UseIISExpress>
     <IISExpressSSLPort />
@@ -41,28 +41,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.5.2">
-      <HintPath>..\packages\C1.C1Excel.4.5.20222.566\lib\net452\C1.C1Excel.4.5.2.dll</HintPath>
+    <Reference Include="C1.C1Excel.4.8">
+      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.4.5.2">
-      <HintPath>..\packages\C1.Win.4.5.20222.566\lib\net452\C1.Win.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.4.8">
+      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.5.2">
-      <HintPath>..\packages\C1.Win.Bitmap.4.5.20222.566\lib\net452\C1.Win.Bitmap.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.Bitmap.4.8">
+      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.5.2">
-      <HintPath>..\packages\C1.Win.C1DX.4.5.20222.566\lib\net452\C1.Win.C1DX.4.5.2.dll</HintPath>
+    <Reference Include="C1.Win.C1DX.4.8">
+      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.5.20222.340\lib\net45\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.FlexSheet">
-      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.5.20222.340\lib\net45\C1.Web.Mvc.FlexSheet.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexSheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -74,8 +74,8 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
-    <Reference Include="Newtonsoft.Json, Version=6.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.6.0.4\lib\net45\Newtonsoft.Json.dll</HintPath>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -182,11 +182,11 @@
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\images\download.png" />
-    <Content Include="favicon\android-chrome-192x192.png" />
-    <Content Include="favicon\android-chrome-256x256.png" />
-    <Content Include="favicon\apple-touch-icon.png" />
-    <Content Include="favicon\favicon-16x16.png" />
-    <Content Include="favicon\favicon-32x32.png" />
+    <Content Include="favicon\android-chrome-192.png" />
+    <Content Include="favicon\android-chrome-256.png" />
+    <Content Include="favicon\apple-touch-icon180.png" />
+    <Content Include="favicon\logo16.png" />
+    <Content Include="favicon\logo32.png" />
     <Content Include="favicon\safari-pinned-tab.svg" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />

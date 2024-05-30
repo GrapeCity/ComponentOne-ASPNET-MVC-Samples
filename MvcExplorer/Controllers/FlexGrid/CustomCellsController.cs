@@ -1,6 +1,7 @@
 ﻿using System.Web.Mvc;
 using MvcExplorer.Models;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MvcExplorer.Controllers
 {
@@ -18,7 +19,7 @@ namespace MvcExplorer.Controllers
         {
             _customCellsDataModel.LoadPostData(collection);
             ViewBag.DemoOptions = _customCellsDataModel;
-            return View(Sale.GetData(500));
+            return View(Sale.GetData(500).Select(x => SaleShowCase.FromSale(x)));
         }
     }
 }

@@ -5,7 +5,7 @@
 }
 
 @section Scripts{
-<script>
+    <script>
     function updateHeaders() {
         var flex = wijmo.Control.getControl("#@settings.ControlId");
         if (flex) {
@@ -45,13 +45,14 @@
     c1.documentReady(function () {
         updateHeaders();
     });
-</script>
+    </script>
 }
 @(Html.C1().FlexGrid<Sale>().Id(settings.ControlId)
     .AutoGenerateColumns(false)
     .AllowMerging(AllowMerging.All)
     .ExpandSelectionOnCopyPaste(true)
     .IsReadOnly(false)
+    .SkipMerged(false)
     .Bind(Model)
     .CssClass("grid")
     .Columns(columns =>
@@ -70,4 +71,6 @@
     @Html.Raw(Resources.FlexGrid.MergeCells_Text0)
     <br />
     @Html.Raw(Resources.FlexGrid.MergeCells_Text1)
+    <br />
+    @Html.Raw(Resources.FlexGrid.MergeCells_Text2)
 }

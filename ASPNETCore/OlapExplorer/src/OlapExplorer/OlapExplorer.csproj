@@ -1,6 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0-windows</TargetFramework>
     <AssemblyName>OlapExplorer</AssemblyName>
     <RootNamespace>OlapExplorer</RootNamespace>
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
@@ -9,9 +9,9 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
-    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="3.0.20222.340" />
-	<PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="6.0.20241.360" />
+	<PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="6.0.20241.340" />
 	<PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
@@ -28,6 +28,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Localization\OlapRes.zh-CN.Designer.cs">
+      <DependentUpon>OlapRes.zh-CN.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Update="Localization\OlapRes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -35,6 +40,10 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Update="Localization\OlapRes.zh-CN.resx">
+      <LastGenOutput>OlapRes.zh-CN.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
     <EmbeddedResource Update="Localization\OlapRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>OlapRes.Designer.cs</LastGenOutput>

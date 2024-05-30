@@ -194,9 +194,8 @@ namespace StockChart.Models
             // not in cache, get now
             if (dataStream == null)
             {
-        var fmt = "https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol={0}&apikey=EQ8R2LTG732VP7HE&datatype=csv&outputsize=full";
-
-        var url = string.Format(fmt, symbol);
+                var fmt = "https://gc-demo-dataservice.azurewebsites.net/alphavantage/api/v1/timeSeries?function=DailyAdjusted&symbol={0}";
+                var url = string.Format(fmt, symbol);
 
                 try
                 {

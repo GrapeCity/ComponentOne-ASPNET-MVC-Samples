@@ -139,6 +139,7 @@ namespace MvcExplorer.Models
         public int Id { get; set; }
         public int Country { get; set; }
         public string Name { get; set; }
+        public string CountryName { get; set; }
         public double Sales { get; set; }
         public double Expenses { get; set; }
 
@@ -153,6 +154,7 @@ namespace MvcExplorer.Models
                     Id = CITIES[i].Id,
                     Name = CITIES[i].Name,
                     Country = CITIES[i].Country,
+                    CountryName = CustomerSale.COUNTRIES[CITIES[i].Country],
                     Sales = Math.Round(rand.NextDouble() * 10000, 2),
                     Expenses = Math.Round(rand.NextDouble() * 5000, 2)
                 };

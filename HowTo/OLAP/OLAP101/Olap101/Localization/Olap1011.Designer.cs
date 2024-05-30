@@ -106,7 +106,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You may host DataEngine WebAPI separately or within the same MVC application.&lt;br /&gt;To create and host DataEngine Web API separately, please refer the Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;.&lt;br /&gt;To use DataEngine in the same MVC project, ensure the following:&lt;br /&gt;.
+        ///   Looks up a localized string similar to You may host DataEngine WebAPI separately or within the same MVC application.&lt;br /&gt;To create and host DataEngine Web API separately, please refer the Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html&quot;&gt;documentation&lt;/a&gt;.&lt;br /&gt;To use DataEngine in the same MVC project, ensure the following:&lt;br /&gt;.
         /// </summary>
         public static string TXT_Analyze_Huge_Data_1 {
             get {
@@ -124,7 +124,7 @@ namespace Resource {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Add DataEngine WebAPI to the application from GrapeCity NuGet source..
+        ///   Looks up a localized string similar to Add DataEngine WebAPI to the application from MESCIUS NuGet source..
         /// </summary>
         public static string TXT_Analyze_Huge_Data_3 {
             get {

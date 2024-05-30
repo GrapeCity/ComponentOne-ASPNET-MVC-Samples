@@ -30,9 +30,19 @@ namespace BookMyFlight.Controllers
         public ActionResult RefineSearch(string TripType, string FromDest, string ToDest, string DepartDateStr, string ReturnDateStr, int Adult, int Child, int Infant, string Class, float FFDepF=0, float FFRetF=0)
         {
             DateTime DepartDate = DateTime.Parse(DepartDateStr);
+            if (DepartDate < DateTime.Today)
+            {
+                DepartDate = DateTime.Today;
+                DepartDateStr = DepartDate.ToShortDateString();
+            }
             DateTime ReturnDate = DateTime.Today;
             if (TripType == "ROUND" && ReturnDateStr != null)
                 ReturnDate = DateTime.Parse(ReturnDateStr);
+            if (ReturnDate < DepartDate)
+            {
+                ReturnDate = DepartDate;
+                ReturnDateStr = ReturnDate.ToShortDateString();
+            }
             MainModel MainModelObj = new MainModel();
             MainModelObj.TripType = TripType;
             MainModelObj.FromDest = FromDest;

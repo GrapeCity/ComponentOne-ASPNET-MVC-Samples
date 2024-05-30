@@ -50,4 +50,4 @@ step 2: browse this link for access token
 step 3: use Access Token  created at step 2 to put into OneDriveAccessToken
 key value in the Web.config.
 
-For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.
+For net5.0 and above, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

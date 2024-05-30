@@ -12,7 +12,7 @@
     <c1-flex-grid-column binding="ShippedDate" header="Shipped Date"></c1-flex-grid-column>
     <c1-flex-grid-column binding="ShipAddress" header="Ship Address" width="*"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Freight" header="Freight" format="c2" aggregate="Sum"></c1-flex-grid-column>
-    <c1-flex-grid-selector show-check-all="true"></c1-flex-grid-selector>
+    <c1-flex-grid-selector show-check-all="true" aria-label="Select the row here."></c1-flex-grid-selector>
 </c1-flex-grid>
 
 @section Scripts{
@@ -40,4 +40,6 @@
 
 @section Description{
     <p>@Html.Raw(FlexGridRes.CheckboxSelection_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.CheckboxSelection_Text2)</p>        
+    <br />
 }

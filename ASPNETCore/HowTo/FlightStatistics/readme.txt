@@ -25,4 +25,4 @@ The second FlexChart control shows the cummulative Average Delay of Regions over
 series in the chart, expands the particular region group in FlexGrid and the Treemap and the on-time performance
 FlexChart are drilled-down to the selected Region.
 
-For net5.0, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.
+For net5.0 and above, when do deploying, should change the Deployment mode from Framework dependent value to Self-Contained for success hosting.

@@ -1,5 +1,5 @@
 ﻿<c1-flex-grid auto-generate-columns="false" sorting-type="SingleColumn" is-read-only="true"
-              class="grid" selection-mode="Row">
+              class="grid" selection-mode="Row" id="remoteGrid" aria-label="This is a FlexGrid of Sale.">
     <c1-items-source read-action-url="@Url.Action("RemoteBind_Read")"></c1-items-source>
     <c1-flex-grid-column binding="ID" is-visible="false"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Start" format="MMM d yy"></c1-flex-grid-column>
@@ -12,7 +12,26 @@
     <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
 </c1-flex-grid>
+<p></p>
+AriaLabel:
+<input type="text" style="width:500px" id="txtLabel" value="This is a FlexGrid of Sale." />
+<input type="button" class="btn" onclick="applyAriaLabel()" value="Apply" />
 
+@section Scripts{
+    <script>
+        function applyAriaLabel() {
+            var ariaLabel = document.getElementById("txtLabel").value;
+            if (ariaLabel != "") {
+                var control = wijmo.Control.getControl("#remoteGrid");
+                if (control) {
+                    control.ariaLabel = ariaLabel;
+                    control.invalidate();
+                }
+            }
+        }
+    </script>
+}
 @section Description{
-    @Html.Raw(FlexGridRes.RemoteBind_Text0)
+    <p>@Html.Raw(FlexGridRes.RemoteBind_Text0)</p>
+    <p>@Html.Raw(FlexGridRes.RemoteBind_Text1)</p>
 }

@@ -1,0 +1,60 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+    ViewBag.DemoDescription = true;
+}
+
+@section Scripts{
+    <script>
+        var editGrid, editCV, cvDetail;
+
+        c1.documentReady(function () {
+            editGrid = wijmo.Control.getControl('#DemoControl');
+            editCV = editGrid.collectionView;
+            if (editCV){
+                editCV.trackChanges = true;
+                editCV.itemsEdited.collectionChanged.addHandler(updateResult);
+            }
+        });
+
+        function updateResult(s, e) {
+            var result = document.getElementById("result");
+            var line = "Country: " + getValue(e.item["Country"]) + ", Product: " + getValue(e.item["Product"]) + ", Amount: " + getValue(e.item["Amount"]);
+            result.innerHTML += "<br />" + line;
+        }
+        function getValue(val) {
+            if (val != null) return "<b>" + val + "</b>";
+            return "<b>Null</b>";
+        }
+
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(FlexGridRes.EmptyEdit_Text0)
+}
+<c1-items-source id="CVService" source-collection="@Model">
+</c1-items-source>
+
+<c1-flex-grid id="DemoControl" items-source-id="CVService" auto-generate-columns="false" allow-add-new="true" auto-row-heights="true"
+              allow-delete="true" refresh-on-edit="false" show-placeholders="true" style="height:400px">
+    <c1-flex-grid-column binding="ID" is-read-only="true" format="d"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country" is-required="false"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="*" ></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="d" ></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Active" ></c1-flex-grid-column>
+    <c1-flex-grid-column binding="History" ></c1-flex-grid-column>
+    <c1-items-source source-collection="@Model">
+    </c1-items-source>
+</c1-flex-grid>
+<h4>
+    @Html.Raw(FlexGridRes.EmptyEdit_Text2)
+</h4>
+<div id="result" style="line-height:22px;font-size:13px;overflow-y:scroll;height:115px;">
+</div>
+
+@section Description{
+    <h4>
+        @Html.Raw(FlexGridRes.EmptyEdit_Text1)
+    </h4>
+}

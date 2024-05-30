@@ -1,0 +1,21 @@
+﻿@using C1.Web.Mvc.Chart
+
+@model IEnumerable<DrillDataPoint>
+
+<c1-flex-chart id="ControlId">
+    <c1-flex-chart-series name="Temperature" chart-type="Line" binding="Temperature">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series name="Pressure" chart-type="Area" binding="Pressure">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series name="PressConductivityure" chart-type="Spline" binding="Conductivity">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series name="Ph" chart-type="Line" binding="Ph">
+    </c1-flex-chart-series>
+    <c1-flex-chart-axis c1-property="AxisX" major-unit="200">
+    </c1-flex-chart-axis>
+    <c1-items-source source-collection="Model"></c1-items-source>
+</c1-flex-chart>
+
+@section Description{
+<p>@Html.Raw(ExcelRes.LoadingWorkSheets_Text0)</p>
+    }

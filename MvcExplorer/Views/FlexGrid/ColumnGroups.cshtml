@@ -17,7 +17,7 @@
         bl.Add(cb => cb.Binding("Currency").Align("center").Width("73"));
         bl.Add(cb => cb.Header("Performance").Align("center").CollapseTo("YTD").Columns(bl1 =>
         {
-            bl1.Add(cb1 => cb1.Binding("YTD").Format("p2").CssClass("main-column"));
+            bl1.Add(cb1 => cb1.Binding("YTD").Format("p2").CssClass("main-column").Height(50));
             bl1.Add(cb1 => cb1.Binding("M1").Format("p2"));
             bl1.Add(cb1 => cb1.Binding("M6").Format("p2"));
             bl1.Add(cb1 => cb1.Binding("M12").Format("p2"));

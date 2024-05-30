@@ -133,13 +133,13 @@
     <value>In this example, the PivotEngine component binds to a DataEngine service. The DataEngine web api is responsible for data aggregation when the OLAP control binds to DataEngine service. DataEngine Web API uses a column-oriented data model which is widely used in many open source and commercial analytical databases and libraries. Data Engine can handle up to hundreds of millions records in a fraction of a second. The service url should be provided to the PivotEngine in this mode.</value>
   </data>
   <data name="TXT_Analyze_Huge_Data_1" xml:space="preserve">
-    <value>You may host DataEngine WebAPI separately or within the same MVC application.&lt;br /&gt;To create and host DataEngine Web API separately, please refer the Web API &lt;a href="http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html"&gt;documentation&lt;/a&gt;.&lt;br /&gt;To use DataEngine in the same MVC project, ensure the following:&lt;br /&gt;</value>
+    <value>You may host DataEngine WebAPI separately or within the same MVC application.&lt;br /&gt;To create and host DataEngine Web API separately, please refer the Web API &lt;a href="https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html"&gt;documentation&lt;/a&gt;.&lt;br /&gt;To use DataEngine in the same MVC project, ensure the following:&lt;br /&gt;</value>
   </data>
   <data name="TXT_Analyze_Huge_Data_2" xml:space="preserve">
     <value>MVC application should support Web API.</value>
   </data>
   <data name="TXT_Analyze_Huge_Data_3" xml:space="preserve">
-    <value>Add DataEngine WebAPI to the application from GrapeCity NuGet source.</value>
+    <value>Add DataEngine WebAPI to the application from MESCIUS NuGet source.</value>
   </data>
   <data name="TXT_Analyze_Huge_Data_4" xml:space="preserve">
     <value>Register the DataEngine in the Owin Startup.cs class to import the data. Please refer the Startup.cs code in the below example.</value>

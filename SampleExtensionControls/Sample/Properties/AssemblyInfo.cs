@@ -8,9 +8,9 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyTitle("MultiColumnComboBox")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("GrapeCity, Inc.")]
+[assembly: AssemblyCompany("MESCIUS inc.")]
 [assembly: AssemblyProduct("MultiColumnComboBox")]
-[assembly: AssemblyCopyright("Copyright © GrapeCity, Inc.  All rights reserved.")]
+[assembly: AssemblyCopyright("Copyright © MESCIUS inc.  All rights reserved.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

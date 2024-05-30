@@ -14,11 +14,11 @@ namespace GridInForm.Controllers
         {
             return View(new Company
             {
-                Name = "GrapeCity",
-                Description = @"GrapeCity, inc. is a privately held, multinational software corporation based in Sendai, Japan, 
+                Name = "Mescius",
+                Description = @"MESCIUS inc. is a privately held, multinational software corporation based in Sendai, Japan, 
 that develops its own software products and provides outsourced product development services, consulting
-services, software, and Customer relationship management services. GrapeCity also established WINEstudios, a media design and digital production facility in Japan.",
-                WebSite = "http://www.grapecity.com/",
+services, software, and Customer relationship management services. It also established WINEstudios, a media design and digital production facility in Japan.",
+                WebSite = "https://developer.mescius.com/",
                 Founded = new DateTime(1980, 1, 1),
                 Headquarters = "Sendai, Japan",
                 Type = "Private",

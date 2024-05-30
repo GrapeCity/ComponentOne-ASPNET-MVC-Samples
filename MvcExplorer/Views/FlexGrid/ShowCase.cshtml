@@ -49,6 +49,10 @@
     <span class="color-tile" style="background: {{Color}}"></span> {{Color}}
 </script>
 
+<script type="text/template" id="displayAmount">
+    <span class="{{AmountClass}}">${{Amount}}</span>
+</script>
+
 <script id="detailTemplate" type="text/template">
     <table class="detail-row">
         <tr>
@@ -148,7 +152,7 @@
             .SelectedValuePath("Name")
             .SortByDisplayValues(true)
             .Bind(colors)));
-        bl.Add(cb => cb.Binding("Amount").Header("Change").IsReadOnly(true).Format("c").Template("<span class=${item && item.Amount > 0 ? 'change-up' : 'change-down'}>${text}</span>"));
+        bl.Add(cb => cb.Binding("Amount").Header("Change").IsReadOnly(true).Format("c").CellTemplate(ctb => ctb.TemplateId("displayAmount")));
         bl.Add(cb => cb.Binding("Rank").Width("150").Align("center").CssClass("custom-rating").TemplateFunction("createRating"));
         bl.Add(cb => cb.Binding("Active"));
         bl.Add(cb => cb.Binding("Product").Width("145")

@@ -12,6 +12,9 @@ namespace MvcExplorer.Models
 
         public string CountryFlag { get { return FullCountry.GetCountry(Country).Flag; } }
 
+        public string AmountClass { get { return Amount > 0 ? "change-up": "change-down"; } }
+        public string AmountClass2 { get { return Amount > 1000 ? "bg-info" : "bg-danger"; } }
+
         public static SaleShowCase FromSale(Sale sale){
             return new SaleShowCase()
             {

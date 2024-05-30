@@ -90,9 +90,9 @@ function CallSearch() {
         return RetValue;
     }
     var DepartDate = new Date(IDDepartDate.value);
-    DepartDate = new Date(DepartDate.getFullYear(), DepartDate.getMonth(), 1);
+    //DepartDate = new Date(DepartDate.getFullYear(), DepartDate.getMonth(), 1);//29401
     var ReturnDate = new Date(IDReturnDate.value);
-    ReturnDate = new Date(ReturnDate.getFullYear(), ReturnDate.getMonth(), 1);
+    //ReturnDate = new Date(ReturnDate.getFullYear(), ReturnDate.getMonth(), 1);
     if(ReturnDate<DepartDate){//if (IDReturnDate.value<IDDepartDate.value) {
         $('#LblMsg').attr('style', 'color:red;font-weight:bold;');
         $('#LblMsg').html('Return date can\'t be smaller than Departure Date. Select a valid Return date.');

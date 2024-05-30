@@ -17,22 +17,8 @@ function setCalculationPrecision() {
         alert("Type a number for Calculation Precision");
         return false;
     }
-    $.ajax({
-        //async: false,
-        method: 'POST',
-        url: '/FlexSheet/SetCalculationPrecision',
-        data: '{numb:' + precision + '}',
-        dataType: 'html',
-        contentType: 'application/json; ',
-        success: function (result) {
-            $('#formulaSheet').parent().html(jQuery(result).find('#formulaSheet').parent().html());
-            var flexSheet = wijmo.Control.getControl('#formulaSheet');
-            generateFormulasSheet(flexSheet);
-        },
-        error: function (xhr) {
-            alert(xhr.responseText);
-        }
-    });
+    var flexSheet = wijmo.Control.getControl('#formulaSheet');
+    flexSheet.calculationPrecision = precision;
 };
 
 function generateFormulasSheet(flexSheet) {

@@ -260,8 +260,8 @@ namespace TransposedMultiRowExplorer.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRootEn = "https://www.grapecity.com/componentone/docs/mvc/online-mvc/overview.html";
-        private const string DocumentationRootJp = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
+        private const string DocumentationRootEn = "https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html";
+        private const string DocumentationRootJp = "http://docs.mescius.com/help/c1/aspnet-mvc/aspmvc_helpers/";
 
         internal string DocumentationEn { get; set; }
         internal string DocumentationJp { get; set; }

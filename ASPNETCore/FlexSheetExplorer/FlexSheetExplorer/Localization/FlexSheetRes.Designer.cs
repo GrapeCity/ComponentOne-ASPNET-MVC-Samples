@@ -10,7 +10,6 @@
 
 namespace FlexSheetExplorer.Localization {
     using System;
-    using System.Reflection;
     
     
     /// <summary>
@@ -20,7 +19,7 @@ namespace FlexSheetExplorer.Localization {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option, or rebuild your VS project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "16.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Resources.Tools.StronglyTypedResourceBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     public class FlexSheetRes {
@@ -40,7 +39,7 @@ namespace FlexSheetExplorer.Localization {
         public static global::System.Resources.ResourceManager ResourceManager {
             get {
                 if (object.ReferenceEquals(resourceMan, null)) {
-                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlexSheetExplorer.Localization.FlexSheetRes", typeof(FlexSheetRes).GetTypeInfo().Assembly);
+                    global::System.Resources.ResourceManager temp = new global::System.Resources.ResourceManager("FlexSheetExplorer.Localization.FlexSheetRes", typeof(FlexSheetRes).Assembly);
                     resourceMan = temp;
                 }
                 return resourceMan;
@@ -116,24 +115,6 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://www.facebook.com/sharer.php?u=.
-        /// </summary>
-        public static string _Layout_Text10 {
-            get {
-                return ResourceManager.GetString("_Layout_Text10", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to http://twitter.com/share?text=Have you seen this? C1Studio MVC Edition Controls&amp;url=.
-        /// </summary>
-        public static string _Layout_Text11 {
-            get {
-                return ResourceManager.GetString("_Layout_Text11", resourceCulture);
-            }
-        }
-        
-        /// <summary>
         ///   Looks up a localized string similar to C1 ASP.NET MVC.
         /// </summary>
         public static string _Layout_Text12 {
@@ -161,7 +142,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;
         ///            All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         public static string _Layout_Text4 {
@@ -207,14 +188,25 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         public static string _Layout_Text9 {
             get {
                 return ResourceManager.GetString("_Layout_Text9", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com.
+        /// </summary>
+        public static string _Layout_Link
+        {
+            get
+            {
+                return ResourceManager.GetString("_Layout_Link", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
@@ -243,7 +235,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string _SiteNav_Text3 {
             get {
@@ -261,7 +253,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-core-ui-controls.
         /// </summary>
         public static string _SiteNav_Text5 {
             get {
@@ -270,7 +262,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to http://supportone.componentone.com/login.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         public static string _SiteNav_Text6 {
             get {
@@ -279,7 +271,7 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         public static string _SiteNav_Text7 {
             get {
@@ -288,11 +280,65 @@ namespace FlexSheetExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/download/componentone-studio.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         public static string _SiteNav_Text8 {
             get {
                 return ResourceManager.GetString("_SiteNav_Text8", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        public static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        public static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        public static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html.
+        /// </summary>
+        public static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        public static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        public static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
             }
         }
         
@@ -358,73 +404,61 @@ namespace FlexSheetExplorer.Localization {
                 return ResourceManager.GetString("AutoFilling_Text6", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to CalculationPrecision.
+        ///   Looks up a localized string similar to CalculationPrecision.
         /// </summary>
-        public static string CalculationPrecision_Text0
-        {
-            get
-            {
+        public static string CalculationPrecision_Text0 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas..
+        ///   Looks up a localized string similar to The CalculationPrecision gets or sets the number of digits after the decimal point to round to when calculating FlexSheet formulas..
         /// </summary>
-        public static string CalculationPrecision_Text1
-        {
-            get
-            {
+        public static string CalculationPrecision_Text1 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Negative value means that no rounding is performed. The default value for this property is 14..
+        ///   Looks up a localized string similar to Negative value means that no rounding is performed. The default value for this property is 14..
         /// </summary>
-        public static string CalculationPrecision_Text2
-        {
-            get
-            {
+        public static string CalculationPrecision_Text2 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text2", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Calculation precision value:.
+        ///   Looks up a localized string similar to Calculation precision value:.
         /// </summary>
-        public static string CalculationPrecision_Text3
-        {
-            get
-            {
+        public static string CalculationPrecision_Text3 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text3", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Cell Content:.
+        ///   Looks up a localized string similar to Cell Content: .
         /// </summary>
-        public static string CalculationPrecision_Text4
-        {
-            get
-            {
+        public static string CalculationPrecision_Text4 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text4", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to OK.
+        ///   Looks up a localized string similar to OK.
         /// </summary>
-        public static string CalculationPrecision_Text5
-        {
-            get
-            {
+        public static string CalculationPrecision_Text5 {
+            get {
                 return ResourceManager.GetString("CalculationPrecision_Text5", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports merging the selected cells into one cell by invoking the &lt;b&gt;mergeRange&lt;/b&gt; method.&lt;/br&gt;If the selected cells contain a merged cell, the &lt;b&gt;mergeRange&lt;/b&gt; method will un-merge the merged cell.&lt;/br&gt;Otherwise, it merges the selected cells into one cell.&lt;br /&gt;&lt;/br&gt;This differs from FlexGrid, which allows only content-driven cell merging..
         /// </summary>
@@ -577,42 +611,36 @@ namespace FlexSheetExplorer.Localization {
                 return ResourceManager.GetString("Error_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Excel HtmlEntityConversion Export.
+        ///   Looks up a localized string similar to Excel HtmlEntityConversion Export.
         /// </summary>
-        public static string ExcelIO_HtmlConversion_Text0
-        {
-            get
-            {
+        public static string ExcelIO_HtmlConversion_Text0 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Flexsheet supports saving the xlsx file with HTML entities content, too.
+        ///   Looks up a localized string similar to Flexsheet supports saving the xlsx file with HTML entities content, too.
         ///
         ///In the client, &lt;b&gt;convertHtmlEntities&lt;/b&gt; property of IFlexSheetXlsxOptions defines the conversion behavior for HTML entities such as &quot;&quot;&quot;, &quot;&lt;&quot;, &quot;&gt;&quot; and &quot;&amp;&quot; when exporting. The default value is HtmlEntityConversion.Auto..
         /// </summary>
-        public static string ExcelIO_HtmlConversion_Text1
-        {
-            get
-            {
+        public static string ExcelIO_HtmlConversion_Text1 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///    Looks up a localized string similar to Convert HTML Entities.
+        ///   Looks up a localized string similar to Convert HTML Entities.
         /// </summary>
-        public static string ExcelIO_HtmlConversion_Text2
-        {
-            get
-            {
+        public static string ExcelIO_HtmlConversion_Text2 {
+            get {
                 return ResourceManager.GetString("ExcelIO_HtmlConversion_Text2", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet supports saving/loading xlsx files by the client &lt;b&gt;&apos;save&apos;&lt;/b&gt; and &lt;b&gt;&apos;load&apos;&lt;/b&gt; method..
         /// </summary>

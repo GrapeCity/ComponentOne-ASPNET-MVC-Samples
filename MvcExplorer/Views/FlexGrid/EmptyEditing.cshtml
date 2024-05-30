@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Sale>
+@{
+    ClientSettingsModel demoSettingsModel = ViewBag.DemoSettingsModel;
+
+    ViewBag.DemoDescription = true;
+}
+
+@section Scripts{
+    <script>
+        var editGrid, editCV, cvDetail;
+
+        c1.documentReady(function () {
+            editGrid = wijmo.Control.getControl('#DemoControl');
+            editCV = editGrid.collectionView;
+            editCV.trackChanges = true;
+            editCV.itemsEdited.collectionChanged.addHandler(updateResult);
+        });
+
+        function updateResult(s, e) {
+            var result = document.getElementById("result");
+            var line = "Country: " + getValue(e.item["Country"]) + ", Product: " + getValue(e.item["Product"]) + ", Amount: " + getValue(e.item["Amount"]);
+            result.innerHTML += "<br />" + line;
+        }
+        function getValue(val) {
+            if (val != null) return "<b>" + val + "</b>";
+            return "<b>Null</b>";
+        }
+
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.EmptyEdit_Text0)
+}
+
+
+@(Html.C1().CollectionViewService()
+    .Id("CVService")
+    .Bind(Model)
+    .DisableServerRead(true)
+)
+@(Html.C1().FlexGrid<Sale>()
+    .Id("DemoControl").AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add(c => c.Binding("ID").IsReadOnly(true).Format("d"));
+        columns.Add(c => c.Binding("Country").IsRequired(false));
+        columns.Add(c => c.Binding("Product").Width("*"));
+        columns.Add(c => c.Binding("Amount").Format("d"));
+        columns.Add(c => c.Binding("Active"));
+        columns.Add(c => c.Binding("History"));
+    })
+    .ItemsSourceId("CVService")
+    //.CommitEmptyEdits(false)
+    .AutoRowHeights(true)
+    .RefreshOnEdit(false)
+    .ShowPlaceholders(true)
+    .CssStyle("height", "300px")
+    )
+<h4>
+    @Html.Raw(Resources.FlexGrid.EmptyEdit_Text2)
+</h4>
+<div id="result" style="line-height:22px;font-size:13px;overflow-y:scroll;height:115px;">
+</div>
+@section Description{
+<h4>
+    @Html.Raw(Resources.FlexGrid.EmptyEdit_Text1)
+</h4>
+}

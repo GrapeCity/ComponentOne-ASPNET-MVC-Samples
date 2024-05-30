@@ -70,6 +70,15 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com.
+        /// </summary>
+        public static string _Layout_Link {
+            get {
+                return ResourceManager.GetString("_Layout_Link", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to ComponentOne.
         /// </summary>
         public static string _Layout_Text0 {
@@ -115,7 +124,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to GrapeCity, Inc. All Rights Reserved.&lt;br /&gt;
+        ///   Looks up a localized string similar to MESCIUS inc. All rights reserved.&lt;br /&gt;
         ///            All product and company names here in may be trademarks of their respective owners..
         /// </summary>
         public static string _Layout_Text4 {
@@ -161,14 +170,14 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/en/aspnet-mvc.
+        ///   Looks up a localized string similar to https://developer.mescius.com/aspnet-mvc.
         /// </summary>
         public static string _Layout_Text9 {
             get {
                 return ResourceManager.GetString("_Layout_Text9", resourceCulture);
             }
         }
-        
+
         /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
@@ -197,7 +206,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to FREE TRIAL.
+        ///   Looks up a localized string similar to Download.
         /// </summary>
         public static string _SiteNav_Text3 {
             get {
@@ -215,7 +224,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/aspnet-core-ui-controls.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/aspnet-core-ui-controls.
         /// </summary>
         public static string _SiteNav_Text5 {
             get {
@@ -224,7 +233,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/my-account/my-support.
+        ///   Looks up a localized string similar to https://developer.mescius.com/my-account/my-support.
         /// </summary>
         public static string _SiteNav_Text6 {
             get {
@@ -233,7 +242,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/pricing.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/pricing.
         /// </summary>
         public static string _SiteNav_Text7 {
             get {
@@ -242,7 +251,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to https://www.grapecity.com/componentone/download.
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/download.
         /// </summary>
         public static string _SiteNav_Text8 {
             get {
@@ -250,6 +259,60 @@ namespace OlapExplorer.Localization {
             }
         }
         
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        public static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        public static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        public static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html.
+        /// </summary>
+        public static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        public static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        public static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
+            }
+        }
+                
         /// <summary>
         ///   Looks up a localized string similar to The PivotEngine supports GetAggregateValue function in PivotField to calculate aggregate field for each summary row..
         /// </summary>
@@ -332,7 +395,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         public static string DataEngine_Text0 {
             get {
@@ -350,7 +413,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you set the service-url attribute in the &lt;c1-pivot-engine /&gt; tag.&lt;/br&gt;Otherwise, please set the source-collection attribute or the read-action-url attribute in the &lt;c1-items-source /&gt; tag used in the &lt;a href=&quot;/Olap/Index&quot;&gt;Index&lt;/a&gt; page and the &lt;a href=&quot;/Olap/RemoteBind&quot;&gt;RemoteBind&lt;/a&gt; page..
+        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you deploy a DataEngine Web API and use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url)..
         /// </summary>
         public static string DataEngine_Text2 {
             get {
@@ -368,7 +431,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         public static string DataSource_Text0 {
             get {
@@ -386,7 +449,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you set the service-url attribute in the &lt;c1-pivot-engine /&gt; tag.&lt;/br&gt;Otherwise, please set the source-collection attribute or the read-action-url attribute used in the &lt;c1-items-source /&gt; tag in the &lt;a href=&quot;/Olap/Index&quot;&gt;Index&lt;/a&gt; page and the &lt;a href=&quot;/Olap/RemoteBind&quot;&gt;RemoteBind&lt;/a&gt; page..
+        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you deploy a DataEngine Web API and use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url)..
         /// </summary>
         public static string DataSource_Text2 {
             get {
@@ -476,7 +539,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the data row count is lower than 10,000, you can set the source-collection attribute or the read-action-url attribute in the &lt;c1-items-source /&gt; tag.&lt;/br&gt;Otherwise, please set the service-url attribute in the &lt;c1-pivot-engine /&gt; tag used in the &lt;a href=&quot;/Olap/DataEngine&quot;&gt;DataEngine&lt;/a&gt; page..
+        ///   Looks up a localized string similar to When the data row count is lower than 10,000, you can use Bind(data) or Bind(url) mode.&lt;/br&gt;Otherwise, please use BindService(url) mode..
         /// </summary>
         public static string Index_Text5 {
             get {
@@ -530,7 +593,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the data row count is lower than 10,000, you can set the source-collection attribute or the read-action-url attribute in the &lt;c1-items-source /&gt; tag.&lt;/br&gt;Otherwise, please set the service-url attribute in the &lt;c1-pivot-engine /&gt; tag used in the &lt;a href=&quot;/Olap/DataEngine&quot;&gt;DataEngine&lt;/a&gt; page..
+        ///   Looks up a localized string similar to When the data row count is lower than 10,000, you can use Bind(data) or Bind(url) mode.&lt;/br&gt;Otherwise, please use BindService(url) mode..
         /// </summary>
         public static string RemoteBind_Text1 {
             get {
@@ -622,7 +685,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;http://help.grapecity.com/componentone/NetHelp/c1webapi/webframe.html#DataEngine.html&quot;&gt;documentation&lt;/a&gt;..
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component binds to a service. Now only the &lt;b&gt;DataEngine&lt;/b&gt; Web API is supported.&lt;/br&gt;The service-url attribute should be set in this mode.&lt;/br&gt;You can get the details about how to deploy the DataEngine service in the DataEngine Web API &lt;a href=&quot;https://developer.mescius.com/componentone/docs/webapi/online-webapicore/overview.html&quot;&gt;documentation&lt;/a&gt;..
         /// </summary>
         public static string SSAS_Text0 {
             get {
@@ -631,7 +694,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show the  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to In this sample, the &lt;b&gt;PivotEngine&lt;/b&gt; component connects to a cube DataEngine data.&lt;/br&gt;The cube DataEngine data is configurated in the Statup file of the application.&lt;/br&gt;If you want to customize the fields for a cube data, you need to add &lt;c1-cube-field /&gt; in the &lt;c1-pivot-field-collection /&gt; tag.&lt;/br&gt;You can change the view definition in the &lt;b&gt;PivotPanel&lt;/b&gt; control.&lt;/br&gt;The aggregated data will be obtained from the service.&lt;/br&gt;Then the &lt;b&gt;PivotGrid&lt;/b&gt; control and the &lt;b&gt;PivotChart&lt;/b&gt; control show t [rest of string was truncated]&quot;;.
         /// </summary>
         public static string SSAS_Text1 {
             get {
@@ -640,7 +703,7 @@ namespace OlapExplorer.Localization {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you set the service-url attribute in the &lt;c1-pivot-engine /&gt; tag.&lt;/br&gt;Otherwise, please set the source-collection attribute or the read-action-url attribute in the &lt;c1-items-source /&gt; tag used in the &lt;a href=&quot;/Olap/Index&quot;&gt;Index&lt;/a&gt; page and the &lt;a href=&quot;/Olap/RemoteBind&quot;&gt;RemoteBind&lt;/a&gt; page..
+        ///   Looks up a localized string similar to When the data row count is greater than 10,000, in order to get good performance, we recommend you deploy a DataEngine Web API and use BindService(url) mode.&lt;/br&gt;Otherwise, please use Bind(data) or Bind(url)..
         /// </summary>
         public static string SSAS_Text2 {
             get {

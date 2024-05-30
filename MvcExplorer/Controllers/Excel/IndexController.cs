@@ -18,7 +18,7 @@ namespace MvcExplorer.Controllers.Excel
 
         public ActionResult Index()
         {
-            return View();
+            return View(new ExcelViewModel());
         }
 
         private C1NWindEntities db = new C1NWindEntities();
@@ -31,7 +31,7 @@ namespace MvcExplorer.Controllers.Excel
 
         protected static string TEMP_DIR;
 
-        public ActionResult GenerateExcel()
+        public ActionResult GenerateExcel(bool isXls)
         {
             TEMP_DIR = Server.MapPath("~") + "\\Temp";
             if (Directory.Exists(TEMP_DIR))
@@ -44,14 +44,14 @@ namespace MvcExplorer.Controllers.Excel
 
             }
 
-            string file = CreateExcelFile();
+            string file = CreateExcelFile(isXls);
 
             try
             {
                 Response.Clear();
                 Response.Charset = "UTF-8";
                 Response.ContentEncoding = System.Text.Encoding.UTF8;
-                var filename = "Excel.xls";
+                var filename = isXls ? "Excel.xls": "Excel.xlsx";
                 Response.AddHeader("Content-Disposition", "attachment; filename=" + filename);
                 Response.ContentType = "application/ms-excel";
                 Response.TransmitFile(file);
@@ -64,10 +64,10 @@ namespace MvcExplorer.Controllers.Excel
                 Response.Write(ex.Message);
             }
             
-            return View();
+            return View(isXls);
         }
 
-        private string CreateExcelFile()
+        private string CreateExcelFile(bool isXls)
         {
             //clear Excel book, remove the single blank sheet
             _c1xl.Clear();
@@ -99,8 +99,8 @@ namespace MvcExplorer.Controllers.Excel
 
             //save xls file
             string uid = System.Guid.NewGuid().ToString();
-            string file = Server.MapPath("~") + "\\Temp\\testexcel" + uid + ".xls";
-            _c1xl.Save(file);
+            string file = Server.MapPath("~") + "\\Temp\\testexcel" + uid + (isXls ? ".xls" : ".xlsx");
+            _c1xl.Save(file, isXls? FileFormat.Biff8 : FileFormat.OpenXml);
 
             return file;
 

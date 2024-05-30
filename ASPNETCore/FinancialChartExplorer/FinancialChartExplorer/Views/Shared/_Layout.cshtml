@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - C1 ASP.NET MVC</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo16.png")" sizes="16x16">
     <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
-    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#697683">
 
     <c1-styles />
     <link href="~/Content/css/bootstrap/css/bootstrap.css" rel="stylesheet" />
@@ -35,35 +35,33 @@
         @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
-        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
-        <a class="logo-container" href="@Resource.Layout_LinkProduct" target="_blank">
-            <i class="gcicon-product-c1"></i>@Resource.Layout_ComponentOne
-        </a>
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen"> @Resource.Layout_TitleShort</span>
-            <span class="semi-bold wide-screen">@Resource.Layout_TitleLong</span>
-            @await Html.PartialAsync("_SiteNav", false)
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars-w"></span></div>
+        <div class="menu-container">
+            <div class="menu-left">
+                <a href="@Resource.Layout_LinkProduct" target="_blank">
+                    <img src="~/Content/css/images/logotext_w.png" class="gcicon-logo-gc-horiz" alt="mescius" />
+                </a>
+            </div>
+            <div class="menu-divide"></div>
+            <div class="menu-main">
+                <span class="semi-bold narrow-screen">ComponentOne @Resource.Layout_TitleShort</span>
+                <span class="semi-bold wide-screen">ComponentOne @Resource.Layout_TitleLong</span>
+            </div>
+            <div class="menu-right">
+                @await Html.PartialAsync("_SiteNav", false)
+            </div>
         </div>
     </header>
     <div class="main-content">
         @RenderBody()
     </div>
     <footer>
-        <a href="@Resource.Layout_LinkGrapeCity">
-            <i class="gcicon-logo-gc-horiz"></i>
+        <a href="@Resource.Layout_LinkCompany">
+            <img src="~/Content/css/images/logotext.png" class="gcicon-logo-gc-horiz" alt="mescius" />
         </a>
         <p>
             © @DateTime.Now.Year @Html.Raw(Resource.Layout_CopyrightInfo)
         </p>
-        @{
-            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
-        }
-        <a href="http://www.facebook.com/sharer.php?u=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
-        </a>
-        <a href="http://twitter.com/share?text=@Resource.Layout_TwitterTxt&url=@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
-        </a>
     </footer>
 </body>
 </html>

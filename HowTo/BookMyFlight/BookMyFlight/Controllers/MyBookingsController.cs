@@ -126,7 +126,7 @@ namespace BookMyFlight.Controllers
             C1PDF.DrawImage(LogoImg, LogoRect);
 
             //draw right panel            
-            string PnlRight1Str1 = "BookMyFlight\n201 South Highland Avenue, Third Floor\nPittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343\nFax 412.681.4384\nE-mail c1salesbox@grapecity.com\n";
+            string PnlRight1Str1 = "BookMyFlight\n211 North Whitfield, Seventh Floor\nPittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343\nFax 412.681.4384\nE-mail us.sales@mescius.com\n";
             RectangleF PnlRight1 = new RectangleF(Pagecenter.X, rcPage.Top + 40, rcPage.Width / 2 - 20, 100);
             sf.Alignment = StringAlignment.Far;
             sf.LineAlignment = StringAlignment.Near;
@@ -227,7 +227,7 @@ namespace BookMyFlight.Controllers
             C1PDF.DrawLine(pen, new PointF(rcPage.X, YValue), new PointF(rcPage.X + rcPage.Width, YValue));
             //Add Footer
             C1PDF.DrawLine(pen, new PointF(rcPage.X, rcPage.Y + rcPage.Height - 30), new PointF(rcPage.X + rcPage.Width, rcPage.Y + rcPage.Height - 30));
-            C1PDF.DrawString("Regd. Office: BookMyFlight, 201 South Highland Avenue, Third Floor, Pittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343, Fax 412.681.4384, E-mail c1salesbox@grapecity.com", bodyFont, Brushes.Blue, new PointF(rcPage.X + 50, rcPage.Y + rcPage.Height - 25));
+            C1PDF.DrawString("Regd. Office: BookMyFlight, BookMyFlight, 211 North Whitfield, Seventh Floor, Pittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343, Fax 412.681.4384, E-mail us.sales@mescius.com", bodyFont, Brushes.Blue, new PointF(rcPage.X + 50, rcPage.Y + rcPage.Height - 25));
             return C1PDF;
         }
 

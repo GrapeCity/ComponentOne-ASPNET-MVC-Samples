@@ -293,8 +293,8 @@ namespace TransposedGridExplorer.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRootEn = "https://www.grapecity.com/componentone/docs/mvc/online-mvc-core/overview.html";
-        private const string DocumentationRootJa = "http://docs.grapecity.com/help/c1/aspnet-mvc/aspmvc_helpers/";
+        private const string DocumentationRootEn = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html";
+        private const string DocumentationRootJa = "https://docs.mescius.jp/help/c1/aspnet-mvc/aspmvc_helpers/#overview.html";
 
         internal string DocumentationEn { get; set; }
         internal string DocumentationJp { get; set; }

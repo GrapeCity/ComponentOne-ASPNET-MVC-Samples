@@ -19,7 +19,7 @@ function InitialControls() {
     var ltFooter = document.getElementById('ltFooter');
 
     ltHeader.value = ltchart.header = 'Products By Country';
-    ltFooter.value = ltchart.footer = '2014, GrapeCity Inc.';
+    ltFooter.value = ltchart.footer = '2014, MESCIUS inc.';
 
     ltHeader.addEventListener('input', function () {
         ltchart.header = this.value;

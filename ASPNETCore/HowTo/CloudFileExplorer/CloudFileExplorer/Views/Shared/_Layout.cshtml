@@ -4,11 +4,11 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width" />
     <title>@ViewBag.Title - @Html.Raw(CloudFileRes._Layout_Text12)</title>
-    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon.png")">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-32x32.png")" sizes="32x32">
-    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/favicon-16x16.png")" sizes="16x16">
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo16.png")" sizes="16x16">
     <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
-    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#503b75">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#697683">
 
     @{
         Theme.SetCurrentTheme(Context, Context.Request.Query["theme"]);
@@ -35,36 +35,35 @@
         @await Html.PartialAsync("_SiteNav", true)
     </div>
     <header>
-        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars"></span></div>
-        <a class="logo-container" href="@Html.Raw(CloudFileRes._Layout_Text9)" target="_blank">
-            <i class="gcicon-product-c1"></i>@Html.Raw(CloudFileRes._Layout_Text0)
-        </a>
-        @await Html.PartialAsync("_ThemeSelector")
-        <div class="task-bar">
-            <span class="semi-bold narrow-screen">@Html.Raw(CloudFileRes._Layout_Text1)</span>
-            <span class="semi-bold wide-screen">@Html.Raw(CloudFileRes._Layout_Text2)</span>
-            @await Html.PartialAsync("_SiteNav", false)
+        <div class="hamburger-nav-btn narrow-screen"><span class="icon-bars-w"></span></div>
+        <div class="menu-container">
+                <div class="menu-left">
+                    <a href="@Html.Raw(CloudFileRes._Layout_Text9)" target="_blank">
+                        <img src="~/Content/css/images/logotext_w.png" class="gcicon-logo-gc-horiz" alt="mescius" />
+                    </a>
+                </div>
+                <div class="menu-divide"></div>
+                <div class="menu-main">
+                    <span class="semi-bold narrow-screen">@Html.Raw("ComponentOne "+CloudFileRes._Layout_Text1)</span>
+                    <span class="semi-bold wide-screen">@Html.Raw("ComponentOne "+CloudFileRes._Layout_Text2)</span>
+                </div>
+                <div class="menu-right">
+                    @await Html.PartialAsync("_ThemeSelector")
+                    @await Html.PartialAsync("_SiteNav", false)
+                </div>
         </div>
     </header>
     <div class="main-content">
         @RenderBody()
     </div>
     <footer>
-        <a href="http://www.grapecity.com/">
-            <i class="gcicon-logo-gc-horiz"></i>
+        <a href="@Html.Raw(CloudFileRes._Layout_Link)">
+            <img src="~/Content/css/images/logotext.png" class="gcicon-logo-gc-horiz" alt="mescius" />
         </a>
         <p>
             © @DateTime.Now.Year @Html.Raw(CloudFileRes._Layout_Text4)
         </p>
-        @{
-            var urlStr = string.Format("{0}://{1}{2}", Context.Request.Scheme, Context.Request.Host, Context.Request.Path);
-        }
-        <a href="@Html.Raw(CloudFileRes._Layout_Text10)@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons36.png" alt="facebook" />
-        </a>
-        <a href="@Html.Raw(CloudFileRes._Layout_Text11)@urlStr" target="_blank">
-            <img src="~/Content/css/images/icons/32/picons33.png" alt="Twitter" />
-        </a>
+
     </footer>
 </body>
 </html>

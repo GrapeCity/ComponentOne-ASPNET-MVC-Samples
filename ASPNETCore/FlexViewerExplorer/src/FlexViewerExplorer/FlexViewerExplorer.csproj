@@ -1,14 +1,14 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
 
     <PropertyGroup>
-        <TargetFramework>net6.0-windows</TargetFramework>
+        <TargetFramework>net8.0-windows</TargetFramework>
         <AssemblyName>FlexViewerExplorer</AssemblyName>
         <RootNamespace>FlexViewerExplorer</RootNamespace>
         <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
         <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
         <DefineConstants>$(DefineConstants);NET50</DefineConstants>
     </PropertyGroup>
-
+	
     <ItemGroup>
         <EmbeddedResource Include="Startup.cs;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
         <Content Update="wwwroot\App_Data\*.*">
@@ -23,20 +23,27 @@
     <FrameworkReference Include="Microsoft.WindowsDesktop.App" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="3.0.20222.340" />
-    <PackageReference Include="C1.AspNetCore.Mvc.FlexViewer" Version="3.0.20222.340" />
-    <PackageReference Include="C1.AspNetCore.Api" Version="3.0.20222.320" />
-    <PackageReference Include="C1.AspNetCore.Api.Document" Version="3.0.20222.320" />
-    <PackageReference Include="C1.AspNetCore.Api.Report" Version="3.0.20222.320" />
-    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="3.0.20222.320" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Mvc.FlexViewer" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="6.0.20241.340" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="6.0.20241.340" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="6.0.20241.340" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="6.0.20241.340" />
 	<PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
     <PackageReference Include="System.Data.OleDb" Version="6.0.0" />
     <PackageReference Include="System.Data.SQLite" Version="1.0.114.4" />
-    <PackageReference Include="System.Drawing.Common" Version="6.0.0" />
-    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
+    <PackageReference Include="System.Drawing.Common" Version="8.0.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.10.0" />
+    <PackageReference Include="DS.Documents.Barcode" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.DX.Windows" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.Excel" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.Imaging" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.Imaging.Windows" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.Pdf" Version="7.1.1" />
+    <PackageReference Include="DS.Documents.Word" Version="7.1.1" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
