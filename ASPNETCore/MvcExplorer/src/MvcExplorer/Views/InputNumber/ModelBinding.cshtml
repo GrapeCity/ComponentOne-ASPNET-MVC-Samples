@@ -1,12 +1,27 @@
 ﻿@model CustomerOrder
 
+<script>
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let elements = document.querySelectorAll('[aria-labelledby="customerOrder"]');
+        if (elements) {
+            for( let i = 0; i < elements.length; i++ ){
+             tt.setTooltip(elements[i], "Model binding with input controls");
+            }
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
+</script>
 <div>
-    <label>@Html.Raw(InputNumberRes.ModelBinding_Text3)</label>
-    <c1-input-number for="@Model.Count"></c1-input-number>
-    <c1-input-time for="@Model.OrderTime"></c1-input-time>
+    <label id="customerOrder">@Html.Raw(InputNumberRes.ModelBinding_Text3)</label>
+    <c1-input-number for="@Model.Count" aria-labelled-by="customerOrder"></c1-input-number>
+    <c1-input-time for="@Model.OrderTime" aria-labelled-by="customerOrder"></c1-input-time>
 </div>
 
 @section Description{
     <p>@Html.Raw(InputNumberRes.ModelBinding_Text0)</p>
     <p>@Html.Raw(InputNumberRes.ModelBinding_Text1)</p>
+    <p>@Html.Raw(InputNumberRes.ModelBinding_ToolTip)</p>
 }

@@ -1,0 +1,26 @@
+﻿@model IEnumerable<SalesAnalysis>
+@{
+    var downloadsStats = ViewBag.DownloadsStats as BoxPlotData[];
+    var salesStats = ViewBag.SalesStats as BoxPlotData[];
+}
+
+<c1-flex-chart id="boxPlotDataChart" binding="Downloads" binding-x="Country" height="400px">
+    <c1-items-source source-collection="Model"></c1-items-source>
+
+    @* statistics prepared on the server, used as-is *@
+    <c1-flex-chart-boxwhisker name="Downloads" show-outliers="true"
+                              box-plot-data="downloadsStats"></c1-flex-chart-boxwhisker>
+    <c1-flex-chart-boxwhisker binding="Sales" name="Sales" show-outliers="true"
+                              box-plot-data="salesStats"></c1-flex-chart-boxwhisker>
+
+    @* no statistics supplied: this series falls back to the raw arrays *@
+    <c1-flex-chart-boxwhisker binding="Queries" name="Queries" show-outliers="true"></c1-flex-chart-boxwhisker>
+</c1-flex-chart>
+
+@section Summary {
+    <p>@Html.Raw(FlexChartRes.BoxPlotData_Summary)</p>
+}
+@section Description {
+    <p>@Html.Raw(FlexChartRes.BoxPlotData_Text0)</p>
+    <p>@Html.Raw(FlexChartRes.BoxPlotData_Text1)</p>
+}

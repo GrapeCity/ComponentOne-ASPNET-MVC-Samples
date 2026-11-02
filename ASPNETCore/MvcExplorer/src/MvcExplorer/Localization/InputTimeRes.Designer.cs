@@ -112,5 +112,27 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_Text3", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to IsReadOnly.
+        /// </summary>
+        public static string Index_Text4
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text4", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to InputTime control supports changing individual time components (hour, minute, second, AM/PM designator) independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly..
+        /// </summary>
+        public static string Index_Text5
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text5", resourceCulture);
+            }
+        }
     }
 }

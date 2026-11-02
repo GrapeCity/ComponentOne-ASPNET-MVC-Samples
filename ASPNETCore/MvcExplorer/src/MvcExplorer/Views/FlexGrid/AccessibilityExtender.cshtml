@@ -1,0 +1,130 @@
+﻿@model IEnumerable<Sale>
+@{
+    ViewBag.Title = "FlexGrid AccessibilityExtender";
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+
+    var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+    ViewBag.ControllerName = controllerName;
+    ViewBag.ActionName = actionName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+    var pages = group.Pages;
+
+    void SetPagePath(ControlPage page, string controller)
+    {
+        page.Path = string.IsNullOrEmpty(page.Name) ? "#" : Url.Action(page.Name, controller).ToString();
+        if (page.SubPages != null)
+        {
+            foreach (var subPage in page.SubPages)
+            {
+                SetPagePath(subPage, controller);
+            }
+        }
+    }
+
+    foreach (var page in pages)
+    {
+        SetPagePath(page, controllerName);
+    }
+
+    ViewBag.Pages = pages;
+
+    var allGroups = new List<ControlGroup>();
+    allGroups.Add(ControlPages.NewGroup);
+    allGroups.Add(ControlPages.PopularGroup);
+    allGroups.AddRange(ControlPages.ControlGroups);
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="@Url.Content(Resource.GcIconsCssPath)" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/AccessibilityExtenderApp.css")" />
+
+    <c1-scripts>
+        <c1-basic-scripts bundles="Grid,Nav" />
+    </c1-scripts>
+
+    <script>
+        var actionName = '@ViewBag.ActionName';
+    </script>
+</head>
+<body>
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+                <p>@Html.Raw(AccessibilityExtenderRes.Index_View_P1)</p>
+                <p>@Html.Raw(AccessibilityExtenderRes.Index_View_P2)</p>
+                @Html.Raw(AccessibilityExtenderRes.Index_View_P3)
+
+                <div class="input-group">
+                    <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                    <input type="text" class="form-control" id="filter" placeholder="filter">
+                </div>
+
+                <c1-flex-grid id="theGrid" selection-mode="ListBox" alternating-row-step="0"
+                              sorted-column="sortedColumn" is-read-only="true">
+                    <c1-items-source source-collection="Model" disable-server-read="true"></c1-items-source>
+                </c1-flex-grid>
+            </div>
+        </div>
+    </div>
+
+    @section Summary{
+        <p>@Html.Raw(AccessibilityExtenderRes.Access_Text1)</p>
+    }
+    @section Description{
+        <p>@Html.Raw(AccessibilityExtenderRes.Access_Text1)</p>
+    }
+    <!-- Scripts -->
+    @section Scripts {
+        <script src="~/Scripts/jquery.js"></script>
+        <script src="~/Scripts/MultiLevelMenu.js"></script>
+        <script src="~/Scripts/AccessibilityExtender.js"></script>
+        <script src="~/Scripts/AccessibilityExtenderApp.js"></script>
+
+        <script>
+            var acx;
+            c1.documentReady(function () {
+                var theGrid = wijmo.Control.getControl('#theGrid');
+
+                acx = new wijmo.grid.accessibility.AccessibilityExtender(theGrid);
+
+                var toSearch = null;
+                document.getElementById('filter').addEventListener('input', function (e) {
+                    clearTimeout(toSearch);
+                    toSearch = setTimeout(function () {
+                        var search = e.target.value;
+                        var rx = new RegExp(search, 'i');
+
+                        theGrid.collectionView.filter = function(item) {
+                            return !search || JSON.stringify(item).match(rx);
+                        };
+
+                        setTimeout(function () {
+                            var msg = search ? 'Grid filtered on ' + search : 'Filter removed';
+                            msg += ': ' + theGrid.rows.length + ' items displayed';
+                            if (acx) acx.alert(msg);
+                        }, 200);
+                    }, 900);
+                });
+            });
+
+            // function for sorted column alerts
+            function sortedColumn(sender, e) {
+                var col = sender.columns[e.col];
+                if (acx) {
+                    acx.alert('Column ' + col.header +
+                        ' sorted in ' + (col.currentSort === '+' ? 'ascending' : 'descending') + ' order');
+                }
+            }
+        </script>
+    }
+</body>
+</html>

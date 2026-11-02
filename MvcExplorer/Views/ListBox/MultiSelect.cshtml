@@ -6,8 +6,32 @@
     .DisplayMemberPath("ProductName")
     .CheckedMemberPath("Discontinued")
     .Width(400).Height(200)
+    .OnClientCheckedItemsChanged("checkedItemsChanged")
 )
 
 @section Description{
     @Html.Raw(Resources.ListBox.MultiSelect_Text0)
+}
+
+@section Scripts {
+    <script>
+        // Store the previous state of checked items
+        let previousCheckedItems = [];
+        function checkedItemsChanged(sender) {
+            // Get the current checked items
+            let checkedItems = sender.checkedItems.map(item => item.ProductID);
+            // Determine if the change is multiple 
+            if (Math.abs(checkedItems.length - previousCheckedItems.length) > 1 || checkedItems.length === 0) {
+                // Multiple change or all deselect: Trigger UpdateCheckedItems
+                $.ajax({
+                    url: '@Url.Action("UpdateCheckedItems", "ListBox")',
+                    type: 'POST',
+                    contentType: 'application/json',
+                    data: JSON.stringify({ checkedItems: checkedItems })
+                });
+            }
+            // Update the previous state
+            previousCheckedItems = [...checkedItems];
+        }
+    </script>
 }

@@ -23,11 +23,13 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>SELECT ((Airfare+lodging+Ground_transportation+Conferences_seminars+Meals_Tips+Mileage_Reimbursement+Miscellaneous)*Curr_Exchange_rate) AS [Total], *
-FROM EmployeeTravelExp
-WHERE EmpName=[Select Employee] order by [Date_From];</RecordSource>
+                                FROM EmployeeTravelExp
+                      WHERE EmpName=[Select Employee] order by [Date_From];
+        </RecordSource>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
         <CalculatedFields>
           <CalculatedField>
             <Name>SubmitDate</Name>

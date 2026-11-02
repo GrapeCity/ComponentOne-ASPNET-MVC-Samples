@@ -62,7 +62,6 @@
         @await Html.PartialAsync("_ControlGroup", @ControlPages.ControlGroups.Skip(7).First())
         @await Html.PartialAsync("_ControlGroup", @ControlPages.NewGroup)
         @await Html.PartialAsync("_ControlGroup", @ControlPages.PopularGroup)
-        @await Html.PartialAsync("_ControlGroup", @ControlPages.ControlGroups.Skip(8).First())
     </ul>
 </div>
 <div class="col-md-3 wide-screen">
@@ -83,7 +82,7 @@
 </div>
 <div class="col-md-3 wide-screen">
     <ul>
-        @foreach (var group in groups.Skip(9))
+        @foreach (var group in groups.Skip(8))
         {
             @await Html.PartialAsync("_ControlGroup", group)
         }

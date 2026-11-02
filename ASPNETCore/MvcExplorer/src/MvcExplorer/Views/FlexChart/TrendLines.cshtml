@@ -1,0 +1,12 @@
+﻿@model IEnumerable<Sale>
+
+<c1-flex-chart binding-x="ID" chart-type="Line">
+    <c1-items-source source-collection="Model"></c1-items-source>
+    <c1-flex-chart-trendline binding="Amount2" name="Trendline"
+                             min-x="25" max-x="45">
+    </c1-flex-chart-trendline>
+</c1-flex-chart>
+
+@section Description{
+    @Html.Raw(FlexChartRes.TrendLines_Text1)
+}

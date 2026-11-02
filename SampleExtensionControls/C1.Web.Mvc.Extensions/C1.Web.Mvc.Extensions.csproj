@@ -60,7 +60,7 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -126,12 +126,13 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="app.config" />
+    <EmbeddedResource Include="C1.Web.Mvc.Extensions.sa3licx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup Condition=" '$(Configuration)' == 'Release' Or '$(Configuration)' == 'GrapeCity' ">
     <EmbeddedResource Include="ClientRelease\**\*.*" />
-  </ItemGroup>
-  <ItemGroup Condition=" '$(Configuration)' == 'Debug' ">
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -140,7 +141,6 @@
     <EmbeddedResource Include="Scripts\input.js" />
     <EmbeddedResource Include="Scripts\mvc.input.js" />
   </ItemGroup>
-  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
     <PostBuildEvent>

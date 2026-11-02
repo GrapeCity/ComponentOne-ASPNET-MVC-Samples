@@ -179,4 +179,30 @@
   <data name="HandleWheel_Text1" xml:space="preserve">
     <value>&lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can edit the current value using the mouse wheel.</value>
   </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>IsReadOnly</value>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>InputDate control supports changing individual date components (day, month, year) independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly.</value>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>Select value to set the PreserveCalendarNavigation property. The False value always show selected date when dropdown calendar is reopened after navigating to a different month.</value>
+  </data>
+  <data name="Index_ActionArrowDirections" xml:space="preserve">
+    <value>The &lt;b&gt;Key Action Down Arrow&lt;/b&gt; and &lt;b&gt;Key Action Up Arrow&lt;/b&gt; properties define the behavior when the user presses the respective key in the control.&lt;br/&gt;
+The options are:&lt;br/&gt;
+&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - changes the selection without opening the dropdown.&lt;br/&gt;
+&lt;b&gt;OpenDropdown&lt;/b&gt; - opens the dropdown without changing the selection.</value>
+    <comment>Describes how arrow key actions affect selection or dropdown behavior in the control.</comment>
+  </data>
+  <data name="Index_ActionTab" xml:space="preserve">
+    <value>The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the Tab key in the control.&lt;br/&gt;
+The options are:
+&lt;br/&gt;
+&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - closes the dropdown while keeping focus on the control.
+&lt;br/&gt;
+&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - closes the dropdown and moves focus to the next tabbable element.
+</value>
+    <comment>Explains how the control responds to the Tab key, either keeping focus or moving it to the next element.</comment>
+  </data>
 </root>

@@ -1,0 +1,1215 @@
+<?xml version="1.0"?>
+<Reports>
+  <FormatVersion>1.0 1.0.0.0</FormatVersion>
+  <Report ref="1">
+    <Name>RegionalSales Report</Name>
+    <DataSourceName>Main</DataSourceName>
+    <ReportInfo>
+      <Author>ChrisGu</Author>
+    </ReportInfo>
+    <Layout>
+      <Orientation>Portrait</Orientation>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+        <GdiCharSet>0</GdiCharSet>
+      </Font>
+    </Fonts>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>XmlFile</DataProvider>
+        <ConnectionString>InitialData.xml</ConnectionString>
+        <RecordSource>RegionWiseSale</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Detail</Type>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Background type="Solid">
+          <Color>FFD1EAF0</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>870</Height>
+          </SubSection>
+          <SubSection>
+            <Background type="Solid">
+              <Color>FFFFFFFF</Color>
+            </Background>
+            <Height>4115</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+        <OnPrint>cnt = 0</OnPrint>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>330</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>titleLbl</Name>
+        <Section>Header</Section>
+        <Left>50</Left>
+        <Top>200</Top>
+        <Width>9025.51181102362</Width>
+        <Height>600</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Size>20</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Regional Sales Report</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ftrLeft</Name>
+        <Section>PageFooter</Section>
+        <Left>50</Left>
+        <Top>30</Top>
+        <Width>4512.75590551181</Width>
+        <Height>300</Height>
+        <Align>LeftTop</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>8</Size>
+        </Font>
+        <Text>
+          <Expression>Now()</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ftrRight</Name>
+        <Section>PageFooter</Section>
+        <Left>4512.75590551181</Left>
+        <Top>30</Top>
+        <Width>4512.75590551181</Width>
+        <Height>300</Height>
+        <Align>RightTop</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>8</Size>
+        </Font>
+        <Text>
+          <Expression>"Page " &amp; [Page] &amp; " of " &amp; [Pages]</Expression>
+        </Text>
+      </TextField>
+      <ImageField>
+        <Name>Field1</Name>
+        <Section>Header</Section>
+        <Left>7010</Left>
+        <Top>200</Top>
+        <Width>2000</Width>
+        <Height>600</Height>
+        <Picture>
+          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOpSURBVGhD7VnBbdwwELwS3IAAl+ASUoKhrz4pwSW4A5eQElyCS0gJLuFKuGAIDjEaLiXyTgny0GNg3ZK7JHd2SEq+zNNyOxK32+1y4n5cPKEd+J6n5cvw+yTkGNxDyA8PMk/L+0nIMRgl5MsDzNPyNE/L9STkGIwSsqmOk5DHMULIrjpOQh7HCCG76jgJeRy9hHSp4yTkcfQS0qWOEULmaXnOMZ68rQXMI/sQ0bzQ583tjlxQiPFsNvhvoXu+96CHkG51DBKC9xn49CQPiQvHy/af0hfvRbCXREeQgno3u8d3VEVwJO6aQEsdgPeNkCuNPt/eLv1AfHnpFDg5H+LDtl8ez+KyX/HNbT6Wo8rHkdibwJA6AO8fQaqYKBVu/T6lD4h5tfZXt1vcUCUYr7XGlv1fwRfgqKphSx2A93fks8P9KpWYipD03b17npYXixuqRLbLFNvaaP/vCAknlKtLD1Yi+Xl/B5IkY3zI84p8U0dVGBGMRGJFpKmjmrPYw/X/bWwR0pUEIlqcw9QBYvR3a+uo1NNCQ71+aEdnkt60yrg5HoqGH1FXW6u0QZkgGkXkBZD6yG9s+RpzFbdFyHB10Nft1kcV8ZJtqphSBPfMxeIzLs67lCRTUKhOsUVwcnkW8jqO58+oT34GcTx/URhoS1/P2b81gSF15MGSr9ulXS8DWjGapLIYsY0QwgThr8ZNidxoL1dvsVEhCt9WSSpivYlvObuMEI7vSkvFCUSEdCfAgiZ/t0u7bif+PxUdP20favNYLch2lNYgsVEIeuDjdoYC4e9S+WLbzYOsSRXCC0NKusyB2/NKQY6IkEodmX1NYITk774SQ282W0jVZYf65sujbEnsT0XoAc7xy5kkbarYytZCgxBexfnM3FCRq23P4YRUk9h773C4f46hiYHM/XMEoGOgmnRLQVtVKDk2Fg3yVAFa8V4I0Vt9ufpKvyoXjgYheGbOAI7P9QwppFq0bTW7cP8cQ5PSelnTcdLbsx34ABIPtTIBZYsyAvWQ1mK42piVsqVvdIYASqieIYWQ3KYHOM8Q5sFfcMvXgs2KGFUHB7YYqGC2N6vD9nS9GeltqAUQp4QqIboGvyVVPkFsh25vuh2tCMntpUjyb80FfDFvkoRiu+oEHlYH0IjBc6YaY6Ovfg7BwjB5LQ48YxFMpPr6uwDaCslih3rKeJk8/m5Bv5v5e0h6DsbQLRF9MW8QUdZAcpQQHxgYUkdEyIkx9Eh0CD7AiTH8AYJt1818fdA4AAAAAElFTkSuQmCC</Image>
+        </Picture>
+      </ImageField>
+      <FlexChartField>
+        <Name>Field2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>4710</Left>
+        <Top>290</Top>
+        <Width>4650</Width>
+        <Height>3825</Height>
+        <Font>
+          <Name>Arial</Name>
+          <Size>9</Size>
+        </Font>
+        <Header>
+          <Content> Sales and Profits for Region</Content>
+        </Header>
+        <Legend>
+          <Position>None</Position>
+        </Legend>
+        <CategoryGroups>
+          <FlexChartDataGroup>
+            <GroupExpression>Region</GroupExpression>
+          </FlexChartDataGroup>
+        </CategoryGroups>
+        <Series>
+          <FlexChartSeries>
+            <YExpressions>
+              <Item sys="string">Avg(Sales)</Item>
+              <Item sys="string" />
+              <Item sys="string" />
+              <Item sys="string" />
+            </YExpressions>
+            <Label>
+              <Value>Sales</Value>
+            </Label>
+            <Hyperlink>
+              <LinkTarget type="ReportLinkTargetBookmark">
+                <Report sys="string">RegionalSales Report 2</Report>
+                <ParameterValues>
+                  <SubreportParameterValue>
+                    <Name>pregion</Name>
+                    <Value>
+                      <Expression>Region</Expression>
+                    </Value>
+                  </SubreportParameterValue>
+                </ParameterValues>
+              </LinkTarget>
+            </Hyperlink>
+          </FlexChartSeries>
+          <FlexChartSeries>
+            <YExpressions>
+              <Item sys="string">Avg(Profit)</Item>
+            </YExpressions>
+            <Label>
+              <Value>Profit</Value>
+            </Label>
+            <Hyperlink>
+              <LinkTarget type="ReportLinkTargetBookmark">
+                <Report sys="string">RegionalSales Report 2</Report>
+                <ParameterValues>
+                  <SubreportParameterValue>
+                    <Name>pregion</Name>
+                    <Value>
+                      <Expression>Region</Expression>
+                    </Value>
+                  </SubreportParameterValue>
+                </ParameterValues>
+              </LinkTarget>
+            </Hyperlink>
+          </FlexChartSeries>
+        </Series>
+      </FlexChartField>
+      <TextField>
+        <Name>RegionHeaderTitle</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>290</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Region</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesHeaderTitle</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>290</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Sales</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProfitHeaderTitle</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>290</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Profit</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>RegionRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>570</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">North</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>570</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='North'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>570</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='North'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>850</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">South</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>850</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='South'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>850</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='South'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>1130</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">East</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>1130</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='East'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>1130</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='East'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>1410</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">West</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>1410</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='West'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>1410</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='West'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>RegionalSales Report 2</Name>
+    <DataSourceName>Main</DataSourceName>
+    <ReportInfo>
+      <Author>ChrisGu</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>9076</Width>
+      <Orientation>Portrait</Orientation>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>XmlFile</DataProvider>
+        <ConnectionString>InitialData.xml</ConnectionString>
+        <RecordSource>RegionWiseSale</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
+        <Filter>Region = pregion</Filter>
+        <FilterSyntax>VBScript</FilterSyntax>
+      </DataSource>
+    </DataSources>
+    <ReportParameters>
+      <ReportParameter>
+        <Name>pregion</Name>
+        <Value sys="string" />
+        <AllowedValuesDefinition>
+          <Values />
+        </AllowedValuesDefinition>
+      </ReportParameter>
+    </ReportParameters>
+    <Groups>
+      <Group>
+        <Name>Year</Name>
+        <GroupBy>Year([Date])</GroupBy>
+        <Sort>Ascending</Sort>
+        <KeepTogether>KeepFirstDetail</KeepTogether>
+        <OutlineLabel>
+          <Expression>Year([Date])</Expression>
+        </OutlineLabel>
+      </Group>
+    </Groups>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>650</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>cnt = cnt + 1
+if cnt mod 2 = 0 then
+  detail.backcolor = rgb(245,245,245)
+else
+  detail.backcolor = rgb(255,255,255)
+endif</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <Background type="Solid">
+          <Color>FFD1EAF0</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>870</Height>
+          </SubSection>
+          <SubSection>
+            <Background type="Solid">
+              <Color>FFFFFFFF</Color>
+            </Background>
+            <Height>6010</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>500</Height>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+      <Section>
+        <Name>GroupHeader0</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Height>910</Height>
+          </SubSection>
+        </SubSections>
+        <Type>GroupHeader1</Type>
+        <Repeat>true</Repeat>
+        <OnPrint>cnt = 0</OnPrint>
+      </Section>
+      <Section>
+        <Name>GroupFooter0</Name>
+        <SubSections>
+          <SubSection>
+            <Height>280</Height>
+          </SubSection>
+        </SubSections>
+        <Type>GroupFooter1</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>titleLbl</Name>
+        <Section>Header</Section>
+        <Left>50</Left>
+        <Top>200</Top>
+        <Width>9025.51181102362</Width>
+        <Height>600</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>20</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Regional Sales Report</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ftrLeft</Name>
+        <Section>PageFooter</Section>
+        <Left>50</Left>
+        <Top>30</Top>
+        <Width>4512.75590551181</Width>
+        <Height>300</Height>
+        <Align>LeftTop</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>8</Size>
+        </Font>
+        <Text>
+          <Expression>Now()</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ftrRight</Name>
+        <Section>PageFooter</Section>
+        <Left>4512.75590551181</Left>
+        <Top>30</Top>
+        <Width>4512.75590551181</Width>
+        <Height>300</Height>
+        <Align>RightTop</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>8</Size>
+        </Font>
+        <Text>
+          <Expression>"Page " &amp; [Page] &amp; " of " &amp; [Pages]</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>YearLbl</Name>
+        <Section>GroupHeader1</Section>
+        <Left>0</Left>
+        <Top>50</Top>
+        <Width>3000</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Year</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>YearCtl</Name>
+        <Bookmark>
+          <Expression>Year([Date])</Expression>
+        </Bookmark>
+        <Section>GroupHeader1</Section>
+        <Left>3000</Left>
+        <Top>50</Top>
+        <Width>6025</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Year([Date])</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>CustomerLbl</Name>
+        <Section>GroupHeader1</Section>
+        <Left>550</Left>
+        <Top>550</Top>
+        <Width>1600</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Customer</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProductLbl</Name>
+        <Section>GroupHeader1</Section>
+        <Left>2710</Left>
+        <Top>560</Top>
+        <Width>1600</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Product</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProfitLbl</Name>
+        <Section>GroupHeader1</Section>
+        <Left>4915</Left>
+        <Top>550</Top>
+        <Width>1600</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Profit</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesLbl</Name>
+        <Section>GroupHeader1</Section>
+        <Left>7030</Left>
+        <Top>550</Top>
+        <Width>1600</Width>
+        <Height>350</Height>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Sales</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>CustomerCtl</Name>
+        <Section>Detail</Section>
+        <Left>550</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Customer</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProductCtl</Name>
+        <Section>Detail</Section>
+        <Left>2710</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>650</Height>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Product</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProfitCtl</Name>
+        <Section>Detail</Section>
+        <Left>4915</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Profit</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesCtl</Name>
+        <Section>Detail</Section>
+        <Left>7030</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Sales</Expression>
+        </Text>
+      </TextField>
+      <ImageField>
+        <Name>Field1</Name>
+        <Section>Header</Section>
+        <Left>7010</Left>
+        <Top>200</Top>
+        <Width>2000</Width>
+        <Height>600</Height>
+        <Picture>
+          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOpSURBVGhD7VnBbdwwELwS3IAAl+ASUoKhrz4pwSW4A5eQElyCS0gJLuFKuGAIDjEaLiXyTgny0GNg3ZK7JHd2SEq+zNNyOxK32+1y4n5cPKEd+J6n5cvw+yTkGNxDyA8PMk/L+0nIMRgl5MsDzNPyNE/L9STkGIwSsqmOk5DHMULIrjpOQh7HCCG76jgJeRy9hHSp4yTkcfQS0qWOEULmaXnOMZ68rQXMI/sQ0bzQ583tjlxQiPFsNvhvoXu+96CHkG51DBKC9xn49CQPiQvHy/af0hfvRbCXREeQgno3u8d3VEVwJO6aQEsdgPeNkCuNPt/eLv1AfHnpFDg5H+LDtl8ez+KyX/HNbT6Wo8rHkdibwJA6AO8fQaqYKBVu/T6lD4h5tfZXt1vcUCUYr7XGlv1fwRfgqKphSx2A93fks8P9KpWYipD03b17npYXixuqRLbLFNvaaP/vCAknlKtLD1Yi+Xl/B5IkY3zI84p8U0dVGBGMRGJFpKmjmrPYw/X/bWwR0pUEIlqcw9QBYvR3a+uo1NNCQ71+aEdnkt60yrg5HoqGH1FXW6u0QZkgGkXkBZD6yG9s+RpzFbdFyHB10Nft1kcV8ZJtqphSBPfMxeIzLs67lCRTUKhOsUVwcnkW8jqO58+oT34GcTx/URhoS1/P2b81gSF15MGSr9ulXS8DWjGapLIYsY0QwgThr8ZNidxoL1dvsVEhCt9WSSpivYlvObuMEI7vSkvFCUSEdCfAgiZ/t0u7bif+PxUdP20favNYLch2lNYgsVEIeuDjdoYC4e9S+WLbzYOsSRXCC0NKusyB2/NKQY6IkEodmX1NYITk774SQ282W0jVZYf65sujbEnsT0XoAc7xy5kkbarYytZCgxBexfnM3FCRq23P4YRUk9h773C4f46hiYHM/XMEoGOgmnRLQVtVKDk2Fg3yVAFa8V4I0Vt9ufpKvyoXjgYheGbOAI7P9QwppFq0bTW7cP8cQ5PSelnTcdLbsx34ABIPtTIBZYsyAvWQ1mK42piVsqVvdIYASqieIYWQ3KYHOM8Q5sFfcMvXgs2KGFUHB7YYqGC2N6vD9nS9GeltqAUQp4QqIboGvyVVPkFsh25vuh2tCMntpUjyb80FfDFvkoRiu+oEHlYH0IjBc6YaY6Ovfg7BwjB5LQ48YxFMpPr6uwDaCslih3rKeJk8/m5Bv5v5e0h6DsbQLRF9MW8QUdZAcpQQHxgYUkdEyIkx9Eh0CD7AiTH8AYJt1818fdA4AAAAAElFTkSuQmCC</Image>
+        </Picture>
+      </ImageField>
+      <FlexChartField>
+        <Name>Field2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>0</Left>
+        <Top>570</Top>
+        <Width>8976</Width>
+        <Height>5140</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Header>
+          <Content>Sales and Profit for</Content>
+        </Header>
+        <Legend>
+          <Position>None</Position>
+        </Legend>
+        <CategoryGroups>
+          <FlexChartDataGroup>
+            <GroupExpression>Year([Date])</GroupExpression>
+          </FlexChartDataGroup>
+        </CategoryGroups>
+        <SeriesGroups>
+          <FlexChartDataGroup>
+            <GroupExpression>Year([Date])</GroupExpression>
+          </FlexChartDataGroup>
+        </SeriesGroups>
+        <Series>
+          <FlexChartSeries>
+            <YExpressions>
+              <Item sys="string">Avg(Sales)</Item>
+              <Item sys="string">Customer</Item>
+              <Item sys="string">Product</Item>
+              <Item sys="string">Profit</Item>
+            </YExpressions>
+            <ChartType>Column</ChartType>
+            <Hyperlink>
+              <LinkTarget type="ReportLinkTargetBookmark">
+                <Bookmark>
+                  <Expression>Year([Date])</Expression>
+                </Bookmark>
+              </LinkTarget>
+            </Hyperlink>
+          </FlexChartSeries>
+          <FlexChartSeries>
+            <YExpressions>
+              <Item sys="string">Avg(Profit)</Item>
+            </YExpressions>
+            <Hyperlink>
+              <LinkTarget type="ReportLinkTargetBookmark">
+                <Bookmark>
+                  <Expression>Year([Date])</Expression>
+                </Bookmark>
+              </LinkTarget>
+            </Hyperlink>
+          </FlexChartSeries>
+        </Series>
+      </FlexChartField>
+      <TextField>
+        <Name>SalesCtl1</Name>
+        <Section>GroupFooter1</Section>
+        <Left>7076</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <ForeColor>FFFF0000</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales)</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProfitCtl1</Name>
+        <Section>GroupFooter1</Section>
+        <Left>5390</Left>
+        <Top>0</Top>
+        <Width>1600</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <ForeColor>FFFF0000</ForeColor>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit)</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>CustomerLbl1</Name>
+        <Section>GroupFooter1</Section>
+        <Left>50</Left>
+        <Top>0</Top>
+        <Width>3000</Width>
+        <Height>280</Height>
+        <Align>LeftTop</Align>
+        <ForeColor>FFFF0000</ForeColor>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Total</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>parpregion1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>5300</Left>
+        <Top>590</Top>
+        <Width>2200</Width>
+        <Height>330</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>pregion.DisplayText</Expression>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>RegionalSales Report 3</Name>
+    <DataSourceName>Main</DataSourceName>
+    <ReportInfo>
+      <Author>ChrisGu</Author>
+    </ReportInfo>
+    <Layout>
+      <Width>4140</Width>
+      <Orientation>Portrait</Orientation>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>XmlFile</DataProvider>
+        <ConnectionString>InitialData.xml</ConnectionString>
+        <RecordSource>RegionWiseSale</RecordSource>
+        <RecordSourceType>TableDirect</RecordSourceType>
+      </DataSource>
+    </DataSources>
+    <Groups>
+      <Group>
+        <Name>Region</Name>
+        <GroupBy>Region</GroupBy>
+        <Sort>Ascending</Sort>
+        <KeepTogether>KeepFirstDetail</KeepTogether>
+        <OutlineLabel>
+          <Expression>Region</Expression>
+        </OutlineLabel>
+      </Group>
+    </Groups>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Detail</Type>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection>
+            <Height>280</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+        <OnPrint>cnt = 0</OnPrint>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <Background type="Solid">
+          <Color>FFFFFFFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+      <Section>
+        <Name>Region_Header</Name>
+        <SubSections>
+          <SubSection />
+        </SubSections>
+        <Type>GroupHeader1</Type>
+      </Section>
+      <Section>
+        <Name>Region_Footer</Name>
+        <SubSections>
+          <SubSection>
+            <Height>560</Height>
+          </SubSection>
+        </SubSections>
+        <Type>GroupFooter1</Type>
+        <OnPrint>cnt = cnt + 1
+if cnt mod 2 = 0 then
+  Region_Footer.backcolor = rgb(245,245,245)
+else
+  Region_Footer.backcolor = rgb(255,255,255)
+endif</OnPrint>
+      </Section>
+    </Sections>
+    <Fields>
+      <TextField>
+        <Name>SalesCtl1</Name>
+        <Section>GroupFooter1</Section>
+        <Left>2850</Left>
+        <Top>140</Top>
+        <Width>1275</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales)</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitCtl2</Name>
+        <Section>GroupFooter1</Section>
+        <Left>1275</Left>
+        <Top>140</Top>
+        <Width>1395</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit)</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>CustomerLbl1</Name>
+        <Section>GroupFooter1</Section>
+        <Left>0</Left>
+        <Top>140</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Expression>Region</Expression>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field1</Name>
+        <Section>Header</Section>
+        <Left>2850</Left>
+        <Top>0</Top>
+        <Width>1275</Width>
+        <Height>280</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Sales</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>Header</Section>
+        <Left>1275</Left>
+        <Top>0</Top>
+        <Width>1395</Width>
+        <Height>280</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Profit</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>Field3</Name>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Font>
+          <Name>Segoe UI</Name>
+          <Bold>true</Bold>
+          <Size>9</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Region</Value>
+        </Text>
+      </TextField>
+    </Fields>
+  </Report>
+</Reports>

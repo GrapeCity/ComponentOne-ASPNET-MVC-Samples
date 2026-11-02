@@ -1,0 +1,11 @@
+﻿<script id="navTemplate" type="text/template">
+    <a href="@(Url.Content("~/")){{Path}}">
+        <span>{{Text}}</span>
+        <span class="right-icon"></span>
+    </a>
+</script>
+<h4 class="semi-bold wide-screen">Features</h4>
+<c1-list-box id="controlNav" class="page-nav wide-screen">
+    <c1-input-item-template id="navTemplate"></c1-input-item-template>
+    <c1-items-source source-collection='(IEnumerable<Page>)ViewData["Pages"]'></c1-items-source>
+</c1-list-box>

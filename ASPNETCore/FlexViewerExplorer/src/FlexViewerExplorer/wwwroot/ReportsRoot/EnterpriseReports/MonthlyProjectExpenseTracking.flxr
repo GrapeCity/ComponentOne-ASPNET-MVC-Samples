@@ -23,8 +23,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>Select * From MonthlyProjectCostTracking</RecordSource>
         <RecordSourceType>Text</RecordSourceType>
       </DataSource>
@@ -1356,8 +1356,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSourceType>Text</RecordSourceType>
         <RecordSource>SELECT MonthlyProjectCostTracking.ExpenseCategory, MonthlyProjectCostTracking.OperationName, Sum(MonthlyProjectCostTracking.HrsForWeek1) AS SumOfHrsForWeek1, Sum(MonthlyProjectCostTracking.HrsForWeek2) AS SumOfHrsForWeek2, Sum(MonthlyProjectCostTracking.HrsForWeek3) AS SumOfHrsForWeek3, Sum(MonthlyProjectCostTracking.HrsForWeek4) AS SumOfHrsForWeek4, Sum(MonthlyProjectCostTracking.HrsForWeek5) AS SumOfHrsForWeek5, 
 Sum(MonthlyProjectCostTracking.HrsForWeek6) AS SumOfHrsForWeek6

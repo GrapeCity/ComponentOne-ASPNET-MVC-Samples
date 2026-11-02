@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
@@ -6,25 +6,31 @@
     <AssemblyName>FlightStatistics</AssemblyName>
     <RootNamespace>FlightStatistics</RootNamespace>
   </PropertyGroup>
-	
   <PropertyGroup Label="Globals">
 </PropertyGroup>
-  
   <ItemGroup>
     <None Remove="readme-guids.txt" />
     <None Remove="readme.txt" />
     <None Remove="screenshot.PNG" />
   </ItemGroup>
-
   <ItemGroup>
     <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20231.344" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
     <PackageReference Include="Microsoft.EntityFrameworkCore" Version="3.1.18" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="3.1.18" />
   </ItemGroup>
-
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.2" />
   </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="FlightStatistics.Core31.sa3licx" />
+  </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="FlightStatistics.Core20.sa3licx" />
+    <None Remove="FlightStatistics.Net60.sa3licx" />
+    <None Remove="FlightStatistics.Net80.sa3licx" />
+    <None Remove="FlightStatistics.Net90.sa3licx" />
+    <None Remove="FlightStatistics.sa3licx" />
+  </ItemGroup>
 </Project>

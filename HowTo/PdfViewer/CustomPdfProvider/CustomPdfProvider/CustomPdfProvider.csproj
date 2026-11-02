@@ -23,6 +23,7 @@
     <IISExpressUseClassicPipelineMode />
     <ApplicationInsightsResourceId />
     <UseGlobalApplicationHostFile />
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -42,105 +43,148 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.8">
-      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="BouncyCastle.Cryptography, Version=2.0.0.0, Culture=neutral, PublicKeyToken=072edcf4a5328938, processorArchitecture=MSIL">
+      <HintPath>..\packages\BouncyCastle.Cryptography.2.3.1\lib\net461\BouncyCastle.Cryptography.dll</HintPath>
     </Reference>
-    <Reference Include="C1.C1Pdf.4.8">
-      <HintPath>..\packages\C1.C1Pdf.4.8.20241.657\lib\net48\C1.C1Pdf.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.CalcEngine">
+      <HintPath>..\packages\C1.CalcEngine.10.0.20262.49\lib\netstandard2.0\C1.CalcEngine.dll</HintPath>
     </Reference>
-    <Reference Include="C1.C1Word.4.8">
-      <HintPath>..\packages\C1.C1Word.4.8.20241.657\lib\net48\C1.C1Word.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.DataCollection">
+      <HintPath>..\packages\C1.DataCollection.10.0.20262.6\lib\netstandard2.0\C1.DataCollection.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.DataCollection.BindingList">
+      <HintPath>..\packages\C1.DataCollection.BindingList.10.0.20262.6\lib\netstandard2.0\C1.DataCollection.BindingList.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Document.4.6.2">
+      <HintPath>..\packages\C1.Document.10.0.20262.176\lib\net462\C1.Document.4.6.2.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Excel">
+      <HintPath>..\packages\C1.Excel.10.0.20262.328\lib\netstandard2.0\C1.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Pdf">
+      <HintPath>..\packages\C1.Pdf.10.0.20262.331\lib\netstandard2.0\C1.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="C1.Zip">
-      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
+      <HintPath>..\packages\C1.Zip.10.0.20262.20\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="C1.Web.Api">
-      <HintPath>..\packages\C1.Web.Api.4.8.20241.340\lib\net48\C1.Web.Api.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.4.8.20262.433\lib\net48\C1.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Document">
-      <HintPath>..\packages\C1.Web.Api.Document.4.8.20241.340\lib\net48\C1.Web.Api.Document.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Document.4.8.20262.433\lib\net48\C1.Web.Api.Document.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.Pdf">
-      <HintPath>..\packages\C1.Web.Api.Pdf.4.8.20241.340\lib\net48\C1.Web.Api.Pdf.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.Pdf.4.8.20262.433\lib\net48\C1.Web.Api.Pdf.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Web.Mvc.FlexViewer">
-      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexViewer.dll</HintPath>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.8.20262.477\lib\net48\C1.Web.Mvc.FlexViewer.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Win.4.8">
-      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DocumentFormat.OpenXml, Version=2.20.0.0, Culture=neutral, PublicKeyToken=8fb06cb64d019a17, processorArchitecture=MSIL">
+      <HintPath>..\packages\DocumentFormat.OpenXml.2.20.0\lib\net46\DocumentFormat.OpenXml.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.BarCode.4.8">
-      <HintPath>..\packages\C1.Win.BarCode.8.0.20241.657\lib\net48\C1.Win.BarCode.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DS.Documents.Barcode, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Barcode.7.2.6\lib\net461\DS.Documents.Barcode.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.8">
-      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DS.Documents.Imaging, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Imaging.7.2.6\lib\net461\DS.Documents.Imaging.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1Document.4.8">
-      <HintPath>..\packages\C1.Win.C1Document.4.8.20241.657\lib\net48\C1.Win.C1Document.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DS.Documents.Pdf, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Pdf.7.2.6\lib\net461\DS.Documents.Pdf.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.8">
-      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DS.Documents.Word, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Word.7.2.6\lib\net461\DS.Documents.Word.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.FlexChart.4.8">
-      <HintPath>..\packages\C1.Win.FlexChart.8.0.20241.657\lib\net48\C1.Win.FlexChart.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="GrapeCity.DataVisualization.Chart">
+      <HintPath>..\packages\DS.Documents.Excel.8.0.5\lib\net462\GrapeCity.DataVisualization.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.FlexChart.Extended.4.8">
-      <HintPath>..\packages\C1.Win.FlexChart.Extended.8.0.20241.657\lib\net48\C1.Win.FlexChart.Extended.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.9.0.4\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.ImportServices.4.8">
-      <HintPath>..\packages\C1.Win.ImportServices.8.0.20241.657\lib\net48\C1.Win.ImportServices.4.8.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="DS.Documents.Barcode">
-          <HintPath>..\packages\DS.Documents.Barcode.7.1.1\lib\net461\DS.Documents.Barcode.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.DX.Windows">
-        <HintPath>..\packages\DS.Documents.DX.Windows.7.1.1\lib\net461\DS.Documents.DX.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.Excel">
-        <HintPath>..\packages\DS.Documents.Excel.7.1.1\lib\net461\DS.Documents.Excel.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.Imaging">
-        <HintPath>..\packages\DS.Documents.Imaging.7.1.1\lib\net461\DS.Documents.Imaging.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.Imaging.Windows">
-        <HintPath>..\packages\DS.Documents.Imaging.Windows.7.1.1\lib\net461\DS.Documents.Imaging.Windows.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.Pdf">
-        <HintPath>..\packages\DS.Documents.Pdf.7.1.1\lib\net461\DS.Documents.Pdf.dll</HintPath>
-    </Reference>
-    <Reference Include="DS.Documents.Word">
-        <HintPath>..\packages\DS.Documents.Word.7.1.1\lib\net461\DS.Documents.Word.dll</HintPath>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Cryptography.9.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Owin, Version=3.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Owin.3.0.1\lib\net45\Microsoft.Owin.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="Newtonsoft.Json, Version=13.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.6.1\lib\net462\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Diagnostics.DiagnosticSource.9.0.4\lib\net462\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Drawing.Common, Version=6.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Drawing.Common.6.0.0\lib\net461\System.Drawing.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Formats.Asn1, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.9.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Packaging, Version=4.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Packaging.4.5.0\lib\net46\System.IO.Packaging.dll</HintPath>
+    </Reference>
+    <Reference Include="System.IO.Pipelines, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.IO.Pipelines.9.0.4\lib\net462\System.IO.Pipelines.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.5.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.6.3\lib\net462\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Client.5.2.3\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.6.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.6.1\lib\net462\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.3.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.1.2\lib\net462\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.AccessControl, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.AccessControl.6.0.0\lib\net461\System.Security.AccessControl.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.9.0.0\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Xml, Version=8.0.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Xml.8.0.1\lib\net462\System.Security.Cryptography.Xml.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security.Principal.Windows, Version=5.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Principal.Windows.5.0.0\lib\net461\System.Security.Principal.Windows.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encoding.CodePages, Version=9.0.0.9, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encoding.CodePages.9.0.9\lib\net462\System.Text.Encoding.CodePages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Encodings.Web, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Encodings.Web.9.0.4\lib\net462\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Text.Json, Version=9.0.0.4, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Text.Json.9.0.4\lib\net462\System.Text.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Threading.Tasks.Extensions, Version=4.2.0.1, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Threading.Tasks.Extensions.4.5.4\lib\net461\System.Threading.Tasks.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
@@ -212,11 +256,9 @@
       <Private>True</Private>
       <HintPath>..\packages\Antlr.3.4.1.9004\lib\Antlr3.Runtime.dll</HintPath>
     </Reference>
+    <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json">
-      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="EntityFramework">
       <HintPath>..\packages\EntityFramework.6.1.0\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
@@ -288,9 +330,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
@@ -340,4 +379,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="CustomPdfProvider.sa3licx" />
+  </ItemGroup>
 </Project>

@@ -35,9 +35,9 @@
             case "FlexReport":
                 loadFlexReport(gr.dataItem["FullPath"], gr.dataItem["Name"]);
                 break;
-            case "ArReport":
-                loadArReport(gr.dataItem["FullPath"]);
-                break;
+            // case "ArReport":
+            //     loadArReport(gr.dataItem["FullPath"]);
+            //     break;
             case "SsrsReport":
                 loadSsrsReport(gr.dataItem["FullPath"]);
                 break;
@@ -58,10 +58,10 @@
         gridFlexReports.updatedView.addHandler(flexGrid_UpdatedView, gridFlexReports);
         gridFlexReports.hostElement.addEventListener('mousedown', tvFlexReports_MouseDown)
 
-        var gridArReports = wijmo.Control.getControl('#tvArReports');
-        gridArReports.maxUpdateCount = 1;
-        gridArReports.updatedView.addHandler(flexGrid_UpdatedView, gridArReports);
-        gridArReports.hostElement.addEventListener('mousedown', tvArReports_MouseDown)
+        //var gridArReports = wijmo.Control.getControl('#tvArReports');
+        //gridArReports.maxUpdateCount = 1;
+        //gridArReports.updatedView.addHandler(flexGrid_UpdatedView, gridArReports);
+        //gridArReports.hostElement.addEventListener('mousedown', tvArReports_MouseDown)
 
         var gridSsrsReports = wijmo.Control.getControl('#tvSsrsReports');
         gridSsrsReports.maxUpdateCount = 1;
@@ -84,7 +84,7 @@
     <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
     <c1-items-source source-collection="ReportFiles.Reports"></c1-items-source>
 </c1-flex-grid>
-<div class="aside-title">
+@* <div class="aside-title">
     @Html.Raw(FlexViewerRes._ControlsNav_Text1)
 </div>
 <c1-flex-grid id="tvArReports" class="navgrid" auto-generate-columns="false" is-read-only="true"
@@ -93,7 +93,7 @@
               allow-resizing="None" format-item="flexGrid_ItemFormatter">
     <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
     <c1-items-source source-collection="Documents.ArReports.Items"></c1-items-source>
-</c1-flex-grid>
+</c1-flex-grid> *@
 <div class="aside-title">
     @Html.Raw(FlexViewerRes._ControlsNav_Text2)
 </div>

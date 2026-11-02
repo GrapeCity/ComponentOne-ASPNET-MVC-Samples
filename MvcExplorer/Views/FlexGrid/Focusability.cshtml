@@ -1,0 +1,28 @@
+﻿@using C1.Web.Mvc.Grid
+
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+@(Html.C1().FlexGrid<Sale>()
+            .Id("ovFlexGrid")
+            .AutoGenerateColumns(true)
+            .CssClass("grid")
+            .IsReadOnly(true)
+            .Bind(bl => bl.Bind(Model))
+            .HeadersFocusability((HeadersFocusability)Enum.Parse(typeof(HeadersFocusability), optionsModel.Options["Headers Focusability"].CurrentValue))
+            .Width("900px")
+)
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+ 
+@section Summary{
+    <p>@Html.Raw(Resources.FlexGrid.Focusability_Text01)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.FlexGrid.Focusability_Text01)
+}

@@ -83,12 +83,26 @@
         // show alert
         alert(msg);
     }
+
+            function addTooltips() {
+            let tt = new wijmo.Tooltip();
+            let elements = document.querySelectorAll('[aria-labelledby="PopUp"]');
+            if (elements) {
+                for (let i = 0; i < elements.length; i++) {
+                            tt.setTooltip(elements[i], "Currently you are in " + elements[i].getAttribute("id") + " dialog");
+                }
+            }
+        }
+        window.onload = () => {
+            addTooltips();
+        };
     </script>
 }
 
-<label>@Html.Raw(PopupRes.PopupDialog_Text0)</label><br />
+<label id="PopUp">@Html.Raw(PopupRes.PopupDialog_Text0)</label>
+<br />
 <!-- The login popup dialog -->
-<c1-popup class="modal-content col-md-6" style="display:none;" id="popupLogin" hide-trigger="None" shown="autoFocus">
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupLogin" hide-trigger="None" shown="autoFocus" aria-labelled-by="PopUp">
     <form>
         <h4 class="modal-header">
             @Html.Raw(PopupRes.PopupDialog_LogIn)
@@ -125,7 +139,7 @@
 </c1-popup>
 
 <!-- The content of popup dialog to create account. -->
-<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCreate" hide-trigger="None" shown="autoFocus">
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCreate" hide-trigger="None" shown="autoFocus" aria-labelled-by="PopUp">
     <form>
         <h4 class="modal-header">
             @Html.Raw(PopupRes.PopupDialog_CreateAccount)
@@ -160,7 +174,7 @@
     </form>
 </c1-popup>
 
-<c1-popup class="modal-content col-md-6" style="display:none;" id="popupEdit" hide-trigger="None" shown="autoFocus">
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupEdit" hide-trigger="None" shown="autoFocus" aria-labelled-by="PopUp">
     <form>
         <h4 class="modal-header">
             @Html.Raw(PopupRes.PopupDialog_EditAccount)
@@ -217,7 +231,7 @@
         </button>
     </div>
 </form>
-<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCustom" hide-trigger="None" shown="autoFocus" dialog-result-submit="OK"></c1-popup>
+<c1-popup class="modal-content col-md-6" style="display:none;" id="popupCustom" hide-trigger="None" shown="autoFocus" dialog-result-submit="OK" aria-labelled-by="PopUp"></c1-popup>
 
 <button class="btn btn-default" onclick="showPopup('login')">@Html.Raw(PopupRes.PopupDialog_LogIn)</button>
 <button class="btn btn-default" onclick="showPopup('create')">@Html.Raw(PopupRes.PopupDialog_CreateAccount)</button>
@@ -227,4 +241,5 @@
 
 @section Description{
     @Html.Raw(PopupRes.PopupDialog_Text6)
+    @Html.Raw(PopupRes.PopupDialog_Tooltip)
 }

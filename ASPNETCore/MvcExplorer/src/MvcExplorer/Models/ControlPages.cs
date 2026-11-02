@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MvcExplorer.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -71,7 +72,9 @@ namespace MvcExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            if (System.IO.File.Exists(controllerFilePath))
+                return System.IO.File.ReadAllText(controllerFilePath);
+            return Resource.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)
@@ -326,6 +329,96 @@ namespace MvcExplorer.Models
                 return _popularGroup;
             }
         }
+
+        //Razor Pages
+        private static string _prjName = System.Reflection.Assembly.GetEntryAssembly().GetName().Name;
+
+        public static List<Page> RazorPages = new List<Page>() {
+            new Page{ Name="Overview", Text="Overview" },
+            new Page{ Name="FlexGrid", Text="FlexGrid" },
+            new Page{ Name="BatchEditing", Text="Batch Editing" },
+            new Page{ Name="UnobtrusiveValidation", Text="Unobtrusive Validation" },
+            new Page{ Name="FlexChartRazor", Text="FlexChart" },
+            new Page{ Name="Input", Text="Input" }
+        };
+
+        public static int GetSelectedPageIndex(string pageName)
+        {
+            int sIndex = 0, index = 0;
+            foreach (var page in RazorPages)
+            {
+                if (page.Name.ToLower() == pageName.TrimStart('/').ToLower())
+                    return index;
+                index++;
+            }
+            return sIndex;
+        }
+
+        public static string GetPageText(string pageName)
+        {
+            foreach (var page in RazorPages)
+            {
+                if (page.Name.ToLower() == pageName.TrimStart('/').ToLower())
+                    return page.Text;
+            }
+            return string.Empty;
+        }
+
+        public static IDictionary<string, string> GetPageSources(string pageName)
+        {
+            var pageSources = new Dictionary<string, string>();
+            pageName = pageName.TrimStart('/');
+
+            var pageHtmlFileName = pageName + ".cshtml";
+            var pageHtmlFilePath = _prjName + ".Pages." + pageHtmlFileName;
+            var pageHtmlFileContent = GetResourceContentForRazorPages(pageHtmlFilePath);
+            pageSources.Add(pageHtmlFileName, pageHtmlFileContent);
+
+            var pageCsFileName = pageName + ".cshtml.cs";
+            var pageCsFilePath = _prjName + ".Pages." + pageCsFileName;
+            var pageCsFileContent = GetResourceContentForRazorPages(pageCsFilePath);
+            pageSources.Add(pageCsFileName, pageCsFileContent);
+
+            if (pageName == "UnobtrusiveValidation")
+            {
+                var modelFileName = "UserInfo.cs";
+                var modelFilePath = string.Format(_prjName + ".Models.{0}", modelFileName);
+                var modelFileHtml = GetResourceContentForRazorPages(modelFilePath);
+                pageSources.Add(modelFileName, modelFileHtml);
+
+                var viewFileName = "UnobtrusiveValidationPartial.cshtml";
+                var viewFilePath = string.Format(_prjName + ".Pages.{0}", viewFileName);
+                var viewFileHtml = GetResourceContentForRazorPages(viewFilePath);
+                pageSources.Add(viewFileName, viewFileHtml);
+            }
+
+            return pageSources;
+        }
+
+        private static Stream GetResourceStreamForRazorPages(string name)
+        {
+            var assembly = typeof(ControlPages).GetTypeInfo().Assembly;
+            var res = assembly.GetManifestResourceNames().Where(resName => resName == name).ToList();
+            if (res.Count == 0)
+            {
+                throw new ArgumentOutOfRangeException("name");
+            }
+            return assembly.GetManifestResourceStream(res[0]);
+        }
+
+        private static string GetResourceContentForRazorPages(string name)
+        {
+            using (var stream = GetResourceStreamForRazorPages(name))
+            {
+                stream.Position = 0;
+                using (var reader = new StreamReader(stream))
+                {
+                    return reader.ReadToEnd();
+                }
+            }
+        }
+
+
     }
 
     public class ControlGroup
@@ -364,7 +457,7 @@ namespace MvcExplorer.Models
 
     public class ControlPageGroup
     {
-        private const string DocumentationRootEn = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/overview.html";
+        private const string DocumentationRootEn = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/GettingStarted";
         private const string DocumentationRootJa = "https://docs.mescius.jp/help/c1/aspnet-mvc/aspmvc_helpers/#overview.html";
 
         internal string DocumentationEn { get; set; }
@@ -482,5 +575,29 @@ namespace MvcExplorer.Models
             }
         }
         public List<ControlPage> SubPages { get; set; }
+    }
+
+    public class Page
+    {
+        private const string DocumentationRoot = "https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/GettingStarted";
+        private string _documentation;
+
+        public string Name { get; set; }
+        public string Text { get; set; }
+        public string Path { get; set; }
+
+        public string Documentation
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_documentation))
+                {
+                    return DocumentationRoot;
+                }
+
+                return _documentation;
+            }
+            set { _documentation = value; }
+        }
     }
 }

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-using C1.Win.C1Document;
+using C1.Document;
 using System.Collections.Specialized;
-using C1.Win.FlexReport;
+using C1.Report;
 using C1.Web.Api.Report.Models;
 using C1.Web.Api.Report;
 
@@ -40,13 +40,13 @@ namespace CustomReportProvider.Models
             var reportName = path.Substring(index + 1);
             var fileName = System.IO.Path.Combine(AppDomain.CurrentDomain.SetupInformation.ApplicationBase, filePath);
 
-            var report = new C1FlexReport();
+            var report = new FlexReport();
             report.Load(fileName, reportName);
             UpdateDataSource(report, args);
             return report;
         }
 
-        private void UpdateDataSource(C1FlexReport report, NameValueCollection args)
+        private void UpdateDataSource(FlexReport report, NameValueCollection args)
         {
             if (report == null || args == null) return;
 

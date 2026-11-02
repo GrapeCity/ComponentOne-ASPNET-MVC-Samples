@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.TransposedGrid">
-      <HintPath>..\packages\C1.Web.Mvc.TransposedGrid.4.8.20241.360\lib\net48\C1.Web.Mvc.TransposedGrid.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.TransposedGrid.4.8.20262.477\lib\net48\C1.Web.Mvc.TransposedGrid.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DotNetOpenAuth.AspNet, Version=4.1.0.0, Culture=neutral, PublicKeyToken=2780ccd10d57b246, processorArchitecture=MSIL">
@@ -198,11 +198,13 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\TransposedGrid\CustomEditorsController.cs" />
     <Compile Include="Controllers\TransposedGrid\IndexController.cs" />
     <Compile Include="Controllers\TransposedGrid\RowGroupingController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\ReleasePlan.cs" />
     <Compile Include="Models\ControlPages.cs" />
     <Compile Include="Models\Portfolio.cs" />
     <Compile Include="Models\ProductSheet.cs" />
@@ -279,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\TransposedGrid\Index.cshtml" />
+    <Content Include="Views\TransposedGrid\CustomEditors.cshtml" />
     <Content Include="Views\Shared\_ControlLayout.cshtml" />
     <Content Include="Views\Shared\_ControlsNav.cshtml" />
     <Content Include="Views\Shared\_DemoSource.cshtml" />
@@ -299,7 +302,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>TransposedGrid.zh-CN.designer.cs</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\TransposedGrid\RowGrouping.cshtml" />
@@ -345,4 +347,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="TransposedGridExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

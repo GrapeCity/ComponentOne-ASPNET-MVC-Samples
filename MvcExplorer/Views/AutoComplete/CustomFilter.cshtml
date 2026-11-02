@@ -1,0 +1,134 @@
+﻿@{
+    List<string> kanaWords = ViewBag.KanaWords;
+}
+
+@section Styles{
+    <style>
+        .demo-row {
+            margin-bottom: 22px;
+            max-width: 420px;
+        }
+
+        .demo-row label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .kana-match {
+            background-color: #fff3b0;
+            color: #7a4b00;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script>// Half-width katakana to hiragana. Only the characters used by this
+        // sample's data are listed; a real application would cover the full range.
+        var HALF_WIDTH_TO_HIRAGANA = {
+            '\uFF71': 'あ', '\uFF72': 'い', '\uFF73': 'う', '\uFF74': 'え', '\uFF75': 'お',
+            '\uFF76': 'か', '\uFF77': 'き', '\uFF78': 'く', '\uFF79': 'け', '\uFF7A': 'こ',
+            '\uFF7B': 'さ', '\uFF7C': 'し', '\uFF7D': 'す', '\uFF7E': 'せ', '\uFF7F': 'そ'
+        };
+
+        // Folds katakana and half-width katakana down to hiragana so the three
+        // ways of writing the same word all compare equal.
+        function normalizeJapanese(text) {
+            return (text || '')
+                .toLowerCase()
+                .replace(/[\u30A1-\u30F6]/g, function (ch) {
+                    return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+                })
+                .replace(/[\uFF66-\uFF9D]/g, function (ch) {
+                    return HALF_WIDTH_TO_HIRAGANA[ch] || ch;
+                });
+        }
+
+        // CustomFilter: return true to keep the item in the drop-down list.
+        function kanaFilter(item, query, text) {
+            if (!query) {
+                return true;
+            }
+            return normalizeJapanese(text).indexOf(normalizeJapanese(query)) > -1;
+        }
+
+        // CustomHighlight: return the HTML shown for the item. The text is
+        // escaped with wijmo.escapeHtml, so only the markup added here is live.
+        function kanaHighlight(item, query, text) {
+            var safeText = wijmo.escapeHtml(text);
+            if (!query) {
+                return safeText;
+            }
+            var start = normalizeJapanese(text).indexOf(normalizeJapanese(query));
+            if (start < 0) {
+                return safeText;
+            }
+            var end = start + query.length;
+            return wijmo.escapeHtml(text.slice(0, start)) +
+                '<span class="kana-match">' +
+                wijmo.escapeHtml(text.slice(start, end)) +
+                '</span>' +
+                wijmo.escapeHtml(text.slice(end));
+        }</script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.AutoComplete.CustomFilter_Text0)
+}
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.CustomFilter_AutoComplete)</label>
+    @(Html.C1().AutoComplete()
+        .Bind(kanaWords)
+        .MinLength(1)
+        .MaxItems(12)
+        .Placeholder("Try あ / ア / ｱ")
+        .CustomFilter("kanaFilter")
+        .CustomHighlight("kanaHighlight")
+    )
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.CustomFilter_MultiAutoComplete)</label>
+    @(Html.C1().MultiAutoComplete()
+        .Bind(kanaWords)
+        .MinLength(1)
+        .MaxItems(12)
+        .MaxSelectedItems(5)
+        .Placeholder("Try あ / ア / ｱ and press Enter")
+        .CustomFilter("kanaFilter")
+        .CustomHighlight("kanaHighlight")
+    )
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.CustomFilter_MultiSelect)</label>
+    @(Html.C1().MultiSelect()
+        .Bind(kanaWords)
+        .Placeholder("Open the drop-down and type あ / ア / ｱ")
+        .ShowFilterInput(true)
+        .ShowSelectAllCheckbox(true)
+        .CheckOnFilter(false)
+        .CustomFilter("kanaFilter")
+    )
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.CustomFilter_MultiSelectListBox)</label>
+    @(Html.C1().MultiSelectListBox()
+        .Bind(kanaWords)
+        .ShowFilterInput(true)
+        .ShowSelectAllCheckbox(true)
+        .CheckOnFilter(false)
+        .CustomFilter("kanaFilter")
+    )
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.AutoComplete.CustomFilter_Text1)</p>
+    <p>@Html.Raw(Resources.AutoComplete.CustomFilter_Text2)</p>
+    <p>@Html.Raw(Resources.AutoComplete.CustomFilter_Text3)</p>
+}

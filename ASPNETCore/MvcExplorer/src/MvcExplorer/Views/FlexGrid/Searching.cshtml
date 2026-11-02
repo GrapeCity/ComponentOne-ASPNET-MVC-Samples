@@ -29,7 +29,10 @@
 
 <c1-flex-grid-search id="theSearch" grid="theFlexGrid" placeholder="@Html.Raw(FlexGridRes.EnterTextSearch_Text0)"
                      delay="@(Convert.ToInt32(optionsModel.Options["Delay"].CurrentValue))" css-match="@cssMatch"
-                     search-all-columns="@(Convert.ToBoolean(optionsModel.Options["Search All Columns"].CurrentValue))"></c1-flex-grid-search>
+                     search-all-columns="@(Convert.ToBoolean(optionsModel.Options["Search All Columns"].CurrentValue))"
+                     is-submit-on-change="@(Convert.ToBoolean(optionsModel.Options["Submit On Change"].CurrentValue))"
+                     exact-match="@(Convert.ToBoolean(optionsModel.Options["Exact Match"].CurrentValue))"
+></c1-flex-grid-search>
 
 <p>
     @Html.Raw(FlexGridRes.Searching_Text2) <b><span id="searchCount"></span></b>.
@@ -109,4 +112,6 @@
     <p>@Html.Raw(FlexGridRes.Searching_Text1)</p>
     <p>@Html.Raw(FlexGridRes.Searching_Text3)</p>
     <p>@Html.Raw(FlexGridRes.Searching_SearchAllColumns)</p>
+    <p>@Html.Raw(FlexGridRes.Searching_SubmitOnChange)</p>
+    <p>@Html.Raw(FlexGridRes.Searching_ExactMatch)</p>
 }

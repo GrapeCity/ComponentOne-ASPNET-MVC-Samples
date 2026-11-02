@@ -46,7 +46,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -1146,7 +1146,6 @@
       <LastGenOutput>Resource.zh-CN.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\C1FlexChart\Index.cshtml" />
@@ -2054,4 +2053,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="LearnMvcClient.sa3licx" />
+  </ItemGroup>
 </Project>

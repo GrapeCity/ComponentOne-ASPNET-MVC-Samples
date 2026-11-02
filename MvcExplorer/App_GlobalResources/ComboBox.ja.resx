@@ -185,4 +185,23 @@
     <value>&lt;b&gt;VirtualizationThreshold&lt;/b&gt;プロパティを使用すると、仮想化を有効または無効にできます。このプロパティのデフォルト値は非常に大きい数値であり、仮想化が無効になっていることを意味します。仮想化を有効にするには、値を0または正の数に設定します。ComboBoxに多数のアイテム（たとえば1,000程度）が含まれている場合に、視覚化はパフォーマンスに大きな影響を与えます。</value>
     <comment>The VirtualizationThreshold property allow to enable/disable the virtualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the virtualization makes a huge difference in performance when the ComboBox contains a large number of items (say 1,000 or so).</comment>
   </data>
+  <data name="Index_ActionsTab" xml:space="preserve">
+    <value>&lt;b&gt;Key Action Tab&lt;/b&gt; プロパティは、ユーザーがコントロール内で Tab キーを押したときの動作を定義します。&lt;br/&gt;
+オプションは次のとおりです。
+&lt;br/&gt;
+&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - コントロールにフォーカスを保持したままドロップダウンを閉じます。
+&lt;br/&gt;
+&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - ドロップダウンを閉じ、フォーカスを次のタブ可能な要素に移動します。</value>
+  </data>
+  <data name="Index_ActionsDirectionNPrint" xml:space="preserve">
+    <value>&lt;b&gt;Key Action Down Arrow&lt;/b&gt;
+オプションは次のとおりです。
+&lt;br/&gt;
+&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - ドロップダウンを開かずに選択内容を変更します。
+&lt;br/&gt;
+&lt;b&gt;OpenDropdown&lt;/b&gt; - 選択内容を変更せずにドロップダウンを開きます。</value>
+  </data>
+  <data name="Index_Tooltip" xml:space="preserve">
+    <value>さらに、コンボボックス内の各コントロールに割り当てられた &lt;b&gt; aria-labelledby&lt;/b&gt; 属性に基づいて、コンボボックスのツールチップが自動的に作成されます。</value>
+  </data>
 </root>

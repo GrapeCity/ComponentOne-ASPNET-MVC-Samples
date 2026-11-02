@@ -20,8 +20,9 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>
           SELECT Categories.*, Products.*
           FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID
@@ -30,10 +31,11 @@
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
-        <RecordSource>Categories</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <FactoryName>System.Data.SQLite</FactoryName>
+        <RecordSource>Select * From Categories</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
         <SortDefinitions>
           <SortDefinition>
             <Expression>

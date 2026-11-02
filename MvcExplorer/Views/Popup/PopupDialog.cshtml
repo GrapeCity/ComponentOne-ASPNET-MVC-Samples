@@ -83,6 +83,18 @@
         // show alert
         alert(msg);
     }
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let elements = document.querySelectorAll('[aria-labelledby="PopUp"]');
+        if (elements) {
+            for (let i = 0; i < elements.length; i++) {
+                tt.setTooltip(elements[i], "Currently you are in " + elements[i].getAttribute("id") + " dialog");
+            }
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
 </script>
 }
 
@@ -232,10 +244,10 @@
 </label>
 
 @* Create the login and register popup controls. *@
-@(Html.C1().Popup("#popupLogin").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus"))
-@(Html.C1().Popup("#popupCreate").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus"))
-@(Html.C1().Popup("#popupEdit").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus"))
-@(Html.C1().Popup("#popupCustom").Modal(true).DialogResultSubmit("OK"))
+@(Html.C1().Popup("#popupLogin").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus").AriaLabelledBy("PopUp"))
+@(Html.C1().Popup("#popupCreate").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus").AriaLabelledBy("PopUp"))
+@(Html.C1().Popup("#popupEdit").Modal(true).HideTrigger(PopupTrigger.None).OnClientShown("autoFocus").AriaLabelledBy("PopUp"))
+@(Html.C1().Popup("#popupCustom").Modal(true).DialogResultSubmit("OK").AriaLabelledBy("PopUp"))
 
 @section Description{
     @Html.Raw(Resources.Popup.PopupDialog_Text1)

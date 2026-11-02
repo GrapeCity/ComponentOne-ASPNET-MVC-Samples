@@ -1,4 +1,4 @@
-﻿using C1.C1Excel;
+﻿using C1.Excel;
 using C1.Web.Mvc.Sheet;
 using System;
 using System.Collections.Generic;
@@ -65,7 +65,7 @@ namespace FlexSheetExplorer.Models
                 ? "Sheet" + (workbook.Sheets.IndexOf(worksheet) + 1)
                 : worksheet.Name;
             c1Sheet.OutlinesBelow = worksheet.SummaryBelow;
-
+            System.Drawing.Font DefaultFont = new System.Drawing.Font("Arail", 10);
             // Columns
             int j = 0;
             foreach (var col in worksheet.Columns)
@@ -77,7 +77,7 @@ namespace FlexSheetExplorer.Models
                     c1Col.Style = col.Style.ToXLStyle(c1Book);
                     if (c1Col.Style != null)
                     {
-                        c1Col.Width = (int)ColumnWidthToTwips(col.Width, c1Col.Style.Font);
+                        c1Col.Width = (int)ColumnWidthToTwips(col.Width, DefaultFont);//NEED CHECK
                     }
                 }
                 j++;
@@ -312,8 +312,8 @@ namespace FlexSheetExplorer.Models
                 style.Border = new BorderCollection("#CCCCCC");
             }
             c1Style.SetXLBorder(style.Border);
-            c1Style.AlignHorz = style.HAlign.ConvertEnum<HAlignType, XLAlignHorzEnum>();
-            c1Style.AlignVert = style.VAlign.ConvertEnum<VAlignType, XLAlignVertEnum>();
+            c1Style.AlignHorz = style.HAlign.ConvertEnum<HAlignType, XLAlignHorz>();
+            c1Style.AlignVert = style.VAlign.ConvertEnum<VAlignType, XLAlignVert>();
             c1Style.Indent = style.Indent;
             c1Style.Rotation = style.TextRotation;
             c1Style.Direction = style.TextDirection.ConvertEnum<TextDirectionType, XLReadingDirection>();
@@ -347,7 +347,9 @@ namespace FlexSheetExplorer.Models
                 fontStyle |= System.Drawing.FontStyle.Strikeout;
             }
             // Superscript/subscript not supported
-            c1Style.Font = new System.Drawing.Font(font.Family.ToSafeFontName(), PixelsToPoints(font.Size), fontStyle);
+            //c1Style.Font = new XLFont(font.Name, PixelsToPoints(font.Size), fontStyle);
+            c1Style.Font = new XLFont(font.Family.ToSafeFontName(), PixelsToPoints(font.Size), font.Bold, font.Italic, font.Strikethrough, XLFontScript.None, font.Underline ? XLUnderlineStyle.Single : XLUnderlineStyle.None, font.Color.ToColor());
+
             if (!string.IsNullOrEmpty(font.Color))
             {
                 c1Style.ForeColor = font.Color.ToColor();
@@ -377,7 +379,7 @@ namespace FlexSheetExplorer.Models
             }
 
             // Set BackColor will lead to BackPattern=Solid when BackPattern is None, so make sure set BackPattern first.
-            c1Style.BackPattern = fill.Pattern.ConvertEnum<PatternStyle, XLPatternEnum>(1);
+            c1Style.BackPattern = fill.Pattern.ConvertEnum<PatternStyle, XLPattern>(1);
 
             if (!string.IsNullOrEmpty(fill.Color))
             {
@@ -399,7 +401,7 @@ namespace FlexSheetExplorer.Models
                     c1Style.BorderColorTop = border.Top.Color.ToColor();
                 }
 
-                c1Style.BorderTop = border.Top.Type.ConvertEnum<BorderLinetype, XLLineStyleEnum>();
+                c1Style.BorderTop = border.Top.Type.ConvertEnum<BorderLinetype, XLLineStyle>();
             }
 
             if (border.Bottom != null)
@@ -409,7 +411,7 @@ namespace FlexSheetExplorer.Models
                     c1Style.BorderColorBottom = border.Bottom.Color.ToColor();
                 }
 
-                c1Style.BorderBottom = border.Bottom.Type.ConvertEnum<BorderLinetype, XLLineStyleEnum>();
+                c1Style.BorderBottom = border.Bottom.Type.ConvertEnum<BorderLinetype, XLLineStyle>();
             }
 
             if (border.Left != null)
@@ -418,7 +420,7 @@ namespace FlexSheetExplorer.Models
                 {
                     c1Style.BorderColorLeft = border.Left.Color.ToColor();
                 }
-                c1Style.BorderLeft = border.Left.Type.ConvertEnum<BorderLinetype, XLLineStyleEnum>();
+                c1Style.BorderLeft = border.Left.Type.ConvertEnum<BorderLinetype, XLLineStyle>();
             }
 
             if (border.Right != null)
@@ -428,7 +430,7 @@ namespace FlexSheetExplorer.Models
                     c1Style.BorderColorRight = border.Right.Color.ToColor();
                 }
 
-                c1Style.BorderRight = border.Right.Type.ConvertEnum<BorderLinetype, XLLineStyleEnum>();
+                c1Style.BorderRight = border.Right.Type.ConvertEnum<BorderLinetype, XLLineStyle>();
             }
         }
 
@@ -454,8 +456,8 @@ namespace FlexSheetExplorer.Models
             style.Border = c1Style.ToBorder();
             style.Fill = c1Style.ToFill();
             style.Font = c1Style.ToFont();
-            style.HAlign = (c1Style.AlignHorz == XLAlignHorzEnum.Undefined ? XLAlignHorzEnum.General : c1Style.AlignHorz).ConvertEnum<XLAlignHorzEnum, HAlignType>();
-            style.VAlign = (c1Style.AlignVert == XLAlignVertEnum.Undefined ? XLAlignVertEnum.Bottom : c1Style.AlignVert).ConvertEnum<XLAlignVertEnum, VAlignType>();
+            style.HAlign = (c1Style.AlignHorz == XLAlignHorz.Undefined ? XLAlignHorz.General : c1Style.AlignHorz).ConvertEnum<XLAlignHorz, HAlignType>();
+            style.VAlign = (c1Style.AlignVert == XLAlignVert.Undefined ? XLAlignVert.Bottom : c1Style.AlignVert).ConvertEnum<XLAlignVert, VAlignType>();
             style.TextDirection = c1Style.Direction.ConvertEnum<XLReadingDirection, TextDirectionType>();
 
             return style;
@@ -463,10 +465,10 @@ namespace FlexSheetExplorer.Models
 
         private static BorderCollection ToBorder(this XLStyle c1Style)
         {
-            if (c1Style.BorderTop == XLLineStyleEnum.None
-                && c1Style.BorderBottom == XLLineStyleEnum.None
-                && c1Style.BorderLeft == XLLineStyleEnum.None
-                && c1Style.BorderRight == XLLineStyleEnum.None)
+            if (c1Style.BorderTop == XLLineStyle.None
+                && c1Style.BorderBottom == XLLineStyle.None
+                && c1Style.BorderLeft == XLLineStyle.None
+                && c1Style.BorderRight == XLLineStyle.None)
             {
                 return null;
             }
@@ -474,22 +476,22 @@ namespace FlexSheetExplorer.Models
             border.Top = new Border
             {
                 Color = c1Style.BorderColorTop.HandleAutomaticBorderColor().ToHex(),
-                Type = c1Style.BorderTop.ConvertEnum<XLLineStyleEnum, BorderLinetype>(1)
+                Type = c1Style.BorderTop.ConvertEnum<XLLineStyle, BorderLinetype>(1)
             };
             border.Bottom = new Border
             {
                 Color = c1Style.BorderColorBottom.HandleAutomaticBorderColor().ToHex(),
-                Type = c1Style.BorderBottom.ConvertEnum<XLLineStyleEnum, BorderLinetype>(1)
+                Type = c1Style.BorderBottom.ConvertEnum<XLLineStyle, BorderLinetype>(1)
             };
             border.Left = new Border
             {
                 Color = c1Style.BorderColorLeft.HandleAutomaticBorderColor().ToHex(),
-                Type = c1Style.BorderLeft.ConvertEnum<XLLineStyleEnum, BorderLinetype>(1)
+                Type = c1Style.BorderLeft.ConvertEnum<XLLineStyle, BorderLinetype>(1)
             };
             border.Right = new Border
             {
                 Color = c1Style.BorderColorRight.HandleAutomaticBorderColor().ToHex(),
-                Type = c1Style.BorderRight.ConvertEnum<XLLineStyleEnum, BorderLinetype>(1)
+                Type = c1Style.BorderRight.ConvertEnum<XLLineStyle, BorderLinetype>(1)
             };
             return border;
         }
@@ -534,9 +536,9 @@ namespace FlexSheetExplorer.Models
             var fill = new Fill();
             var color = c1Style.BackColor.ToHex();
             fill.Color = color;
-            if (c1Style.BackPattern != XLPatternEnum.Solid && c1Style.BackPattern != XLPatternEnum.None)
+            if (c1Style.BackPattern != XLPattern.Solid && c1Style.BackPattern != XLPattern.None)
             {
-                fill.Pattern = c1Style.BackPattern.ConvertEnum<XLPatternEnum, PatternStyle>(1);
+                fill.Pattern = c1Style.BackPattern.ConvertEnum<XLPattern, PatternStyle>(1);
             }
             return fill;
         }
@@ -546,11 +548,11 @@ namespace FlexSheetExplorer.Models
             var font = new Font();
             font.Bold = c1Style.Font.Bold;
             font.Color = c1Style.ForeColor.ToHex();
-            font.Family = c1Style.Font.Name;
+            font.Family = c1Style.Font.FontName;
             font.Italic = c1Style.Font.Italic;
-            font.Size = PointsToPixels(c1Style.Font.Size);
+            font.Size = PointsToPixels(c1Style.Font.FontSize);
             font.Strikethrough = c1Style.Font.Strikeout;
-            font.Underline = c1Style.Font.Underline; // underline style not supported.
+            font.Underline = c1Style.Font.Underline== XLUnderlineStyle.Single; // underline style not supported.
             // superscript/subscript not supported.
             return font;
         }

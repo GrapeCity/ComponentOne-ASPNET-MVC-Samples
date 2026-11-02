@@ -1,5 +1,5 @@
 ﻿using System.Globalization;
-using C1.C1Pdf;
+using C1.Pdf;
 using System;
 using System.Collections;
 using System.Drawing;
@@ -7,6 +7,7 @@ using System.Drawing.Drawing2D;
 using System.IO;
 using System.Text;
 using System.Web.Mvc;
+using System.Diagnostics;
 
 namespace MvcExplorer.Controllers.PDF
 {
@@ -55,15 +56,15 @@ namespace MvcExplorer.Controllers.PDF
 
             }
             // add title
-            Font titleFont = new Font("Tahoma", 24, FontStyle.Bold);
+            C1.Util.Font titleFont = new C1.Util.Font("Tahoma", 24, C1.Util.FontStyle.Bold);
             RectangleF rcPage = GetPageRect();
             RectangleF rc = RenderParagraph(_c1Pdf.DocumentInfo.Title, titleFont, rcPage, rcPage);
             rc.Y += 12;
 
             // create nonsense document
             ArrayList bkmk = new ArrayList();
-            Font headerFont = new Font("Tahoma", 16, FontStyle.Bold);
-            Font bodyFont = new Font("Tahoma", 10);
+            C1.Util.Font headerFont = new C1.Util.Font("Tahoma", 16, C1.Util.FontStyle.Bold);
+            C1.Util.Font bodyFont = new C1.Util.Font("Tahoma", 10);
             for (int i = 0; i < 30; i++)
             {
                 // create ith header (as a link target and outline entry)
@@ -102,8 +103,8 @@ namespace MvcExplorer.Controllers.PDF
             // render Table of Contents
             Pen dottedPen = new Pen(Brushes.Gray, 1.5f);
             dottedPen.DashStyle = DashStyle.Dot;
-            StringFormat sfRight = new StringFormat();
-            sfRight.Alignment = StringAlignment.Far;
+            C1.Util.StringFormat sfRight = new C1.Util.StringFormat();
+            sfRight.Alignment = C1.Util.HorizontalAlignment.Right;
             rc.Height = bodyFont.Height;
             foreach (string[] entry in bkmk)
             {
@@ -112,8 +113,8 @@ namespace MvcExplorer.Controllers.PDF
                 string header = entry[1];
 
                 // render header name and page number
-                _c1Pdf.DrawString(header, bodyFont, Brushes.Black, rc);
-                _c1Pdf.DrawString(page, bodyFont, Brushes.Black, rc, sfRight);
+                _c1Pdf.DrawString(header, bodyFont, Color.Black, rc);
+                _c1Pdf.DrawString(page, bodyFont, Color.Black, rc, sfRight);
 
                 // connect the two with some dots (looks better than a dotted line)
                 string dots = ". ";
@@ -122,7 +123,7 @@ namespace MvcExplorer.Controllers.PDF
                 float x2 = rc.Right - _c1Pdf.MeasureString(page, bodyFont).Width - 8;
                 float x = rc.X;
                 for (rc.X = x1; rc.X < x2; rc.X += wid)
-                    _c1Pdf.DrawString(dots, bodyFont, Brushes.Gray, rc);
+                    _c1Pdf.DrawString(dots, bodyFont, Color.Gray, rc);
                 rc.X = x;
 
                 // add local hyperlink to entry
@@ -179,7 +180,7 @@ namespace MvcExplorer.Controllers.PDF
             return rcPage;
         }
 
-        private RectangleF RenderParagraph(string text, Font font, RectangleF rcPage, RectangleF rc, bool outline = false, bool linkTarget = false)
+        private RectangleF RenderParagraph(string text, C1.Util.Font font, RectangleF rcPage, RectangleF rc, bool outline = false, bool linkTarget = false)
         {
             // if it won't fit this page, do a page break
             rc.Height = _c1Pdf.MeasureString(text, font, rc.Width).Height;
@@ -190,12 +191,12 @@ namespace MvcExplorer.Controllers.PDF
             }
 
             // draw the string
-            _c1Pdf.DrawString(text, font, Brushes.Black, rc);
+            _c1Pdf.DrawString(text, font, Color.Black, rc);
 
             // add headings to outline
             if (outline)
             {
-                _c1Pdf.DrawLine(Pens.Black, rc.X, rc.Y, rc.Right, rc.Y);
+                _c1Pdf.DrawLine(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc.X, rc.Y, rc.Right, rc.Y);
                 _c1Pdf.AddBookmark(text, 0, rc.Y);
             }
 
@@ -223,15 +224,15 @@ namespace MvcExplorer.Controllers.PDF
         // 
         private void AddFooters()
         {
-            Font fontHorz = new Font("Tahoma", 7, FontStyle.Bold);
-            Font fontVert = new Font("Viner Hand ITC", 14, FontStyle.Bold);
+            C1.Util.Font fontHorz = new C1.Util.Font("Tahoma", 7, C1.Util.FontStyle.Bold);
+            C1.Util.Font fontVert = new C1.Util.Font("Viner Hand ITC", 14, C1.Util.FontStyle.Bold);
 
-            StringFormat sfRight = new StringFormat();
-            sfRight.Alignment = StringAlignment.Far;
+            C1.Util.StringFormat sfRight = new C1.Util.StringFormat();
+            sfRight.Alignment = C1.Util.HorizontalAlignment.Right;
 
-            StringFormat sfVert = new StringFormat();
-            sfVert.FormatFlags |= StringFormatFlags.DirectionVertical;
-            sfVert.Alignment = StringAlignment.Center;
+            C1.Util.StringFormat sfVert = new C1.Util.StringFormat();
+            sfVert.Angle = 90;
+            sfVert.Alignment = C1.Util.HorizontalAlignment.Center;
 
             for (int page = 0; page < _c1Pdf.Pages.Count; page++)
             {
@@ -248,19 +249,20 @@ namespace MvcExplorer.Controllers.PDF
 
                 // add left-aligned footer
                 string text = _c1Pdf.DocumentInfo.Title;
-                _c1Pdf.DrawString(text, fontHorz, Brushes.Gray, rcFooter);
+                _c1Pdf.DrawString(text, fontHorz, Color.Gray, rcFooter);
 
                 // add right-aligned footer
                 text = string.Format("Page {0} of {1}", page + 1, _c1Pdf.Pages.Count);
-                _c1Pdf.DrawString(text, fontHorz, Brushes.Gray, rcFooter, sfRight);
+                _c1Pdf.DrawString(text, fontHorz,   Color.Gray, rcFooter, sfRight);
 
                 // add vertical text
                 text = _c1Pdf.DocumentInfo.Title + " (document created using the C1Pdf .NET component)";
-                _c1Pdf.DrawString(text, fontVert, Brushes.LightGray, rcVert, sfVert);
+                _c1Pdf.DrawString(text, fontVert, Color.LightGray, rcVert, sfVert);
 
                 // draw lines on bottom and right of the page
-                _c1Pdf.DrawLine(Pens.Gray, rcPage.Left, rcPage.Bottom, rcPage.Right, rcPage.Bottom);
-                _c1Pdf.DrawLine(Pens.Gray, rcPage.Right, rcPage.Top, rcPage.Right, rcPage.Bottom);
+                GrapeCity.Documents.Drawing.Pen grayPen = new GrapeCity.Documents.Drawing.Pen(Color.Gray, 1);
+                _c1Pdf.DrawLine(grayPen, rcPage.Left, rcPage.Bottom, rcPage.Right, rcPage.Bottom);
+                _c1Pdf.DrawLine(grayPen, rcPage.Right, rcPage.Top, rcPage.Right, rcPage.Bottom);
             }
         }
     }

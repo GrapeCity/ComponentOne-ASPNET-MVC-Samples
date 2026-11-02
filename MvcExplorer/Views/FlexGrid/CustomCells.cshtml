@@ -154,7 +154,7 @@
         columns.Add(column => column.Binding("Product").Width("80").CssClassAll(optionsModel.Options["Css Class All"].CurrentValue));
         columns.Add(column => column.Binding("Amount").Width("100")
         .Format(optionsModel.Options["Formatting"].CurrentValue == "On" ? "c" : "").CellTemplate(ctb => ctb.TemplateId("displayAmount")));
-        columns.Add(column => column.Header("Trends").IsReadOnly(true).Align("center").CellTemplate(b => b.TemplateId("template1")));
+        columns.Add(column => column.Header("Trends").IsReadOnly(true).IsRequired(false).Align("center").CellTemplate(b => b.TemplateId("template1")));
         columns.Add(column => column.Binding("Rank").IsReadOnly(true).Width("90").Align("center"));
         columns.Add(column => column.Binding("Country").Header("CellMaker Button").Width("150").Align("center").TemplateFunction("createButton"));
         columns.Add(column => column.Binding("Country").Header("CellMaker Hyperlink").Width("180").TemplateFunction("createHyperlink"));

@@ -13,6 +13,7 @@
         .Value(today).Min(minDate).Max(maxDate).MonthView(true)
         .Width(300).RepeatButtons(true).ShowYearPicker(true)
         .HandleWheel(true)
+        .AriaLabel("calendarLabel")
     )
 </div>
 <p>
@@ -79,9 +80,26 @@
                 calenderControl.invalidate();
             }
         }
+
+        function addTooltips() {
+            let tt = new wijmo.Tooltip();
+            let groupPanelEl = document.querySelector('[aria-label="calendarLabel"]');
+            if (groupPanelEl) {
+                tt.setTooltip(groupPanelEl, "Bound Calendar with Min & Max");
+            }
+        }
+        window.onload = () => {
+            addTooltips();
+        };
     </script>
 }
 
 @section Description{
     @Html.Raw(Resources.Calendar.Index_Text0)
+    <br />
+    @Html.Raw(Resources.Calendar.Index_KeyActionTab)
+    <br />
+    @Html.Raw(Resources.Calendar.Index_FocusMode)
+    <br />
+    @Html.Raw(Resources.Calendar.Index_Tooltip)
 }

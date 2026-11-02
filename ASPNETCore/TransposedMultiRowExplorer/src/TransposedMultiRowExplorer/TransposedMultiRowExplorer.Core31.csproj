@@ -1,16 +1,15 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>TransposedMultiRowExplorer</AssemblyName>
     <RootNamespace>TransposedMultiRowExplorer</RootNamespace>
     <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
-		<CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
     <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
   </PropertyGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="TransposedMultiRowExplorer.Core31.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="project.json" />
@@ -27,4 +26,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="TransposedMultiRowExplorer.Core20.sa3licx" />
+    <None Remove="TransposedMultiRowExplorer.Net60.sa3licx" />
+    <None Remove="TransposedMultiRowExplorer.Net80.sa3licx" />
+    <None Remove="TransposedMultiRowExplorer.Net90.sa3licx" />
+    <None Remove="TransposedMultiRowExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

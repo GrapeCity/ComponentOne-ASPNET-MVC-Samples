@@ -1,19 +1,26 @@
-@section Scripts{
-<script type="text/javascript" src="~/Scripts/FlexSheet/dragDrop.js"></script>
+@section Styles {
+    <style>
+        .drag-drop-frame {
+            width: 100%;
+            height: 620px;
+            border: 0;
+            display: block;
+        }
+    </style>
 }
 <div>
     <div class="copy">
-<h3>@Html.Raw(Resources.FlexSheet.DragDrop_Text2)</h3>
+        <h3>@Html.Raw(Resources.FlexSheet.DragDrop_Text2)</h3>
 
-<p>@Html.Raw(Resources.FlexSheet.DragDrop_Text0)</p>
+        <p>@Html.Raw(Resources.FlexSheet.DragDrop_Text0)</p>
 
     </div>
-    <div>
-        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("dragDropSheet")
-        .AddUnboundSheet("Sheet1", 20, 8))
-    </div>
+    <iframe class="drag-drop-frame"
+            src="@Url.Action("DragDropFrame", "FlexSheet")"
+            title="@Html.Raw(Resources.FlexSheet.DragDrop_Text2)">
+    </iframe>
 </div>
 @section Summary{
-<p>@Html.Raw(Resources.FlexSheet.DragDrop_Text1)</p>
+    <p>@Html.Raw(Resources.FlexSheet.DragDrop_Text1)</p>
 
 }

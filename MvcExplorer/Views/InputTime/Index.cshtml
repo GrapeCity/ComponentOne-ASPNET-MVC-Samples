@@ -1,19 +1,20 @@
 ﻿@{
     var minTime = DateTime.Parse("07:00");
     var maxTime = DateTime.Parse("19:00");
+    var readonlyOptions = new List<string> { "False", "True" };
 }
 
 @section Scripts{
-<style>
-    .invalid-tooltip {
-        background-color: red;
-        color: yellow;
-        opacity: 0.9;
-        border-color: lightcoral;
-    }
-</style>
+    <style>
+        .invalid-tooltip {
+            background-color: red;
+            color: yellow;
+            opacity: 0.9;
+            border-color: lightcoral;
+        }
+    </style>
 
-<script>
+    <script>
     var _invalidTooltip;
     c1.documentReady(function () {
         _invalidTooltip = new wijmo.Tooltip();
@@ -36,7 +37,15 @@
         _invalidTooltip.hide();
     }
 
-</script>
+    function handleReadonlyChanged(sender, args) {
+        var inputtime = wijmo.Control.getControl('#iditInputTime');
+        if (sender.selectedValue === "True") {
+            inputtime.isReadOnly = true;
+        } else {
+            inputtime.isReadOnly = false;
+        }
+    }
+    </script>
 }
 
 <div>
@@ -53,6 +62,15 @@
     )
 </div>
 
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputTime.Index_Text4)</label>
+@(Html.C1().ComboBox().Bind(readonlyOptions).OnClientSelectedIndexChanged("handleReadonlyChanged"))
+
 @section Description{
-    @Html.Raw(Resources.InputTime.Index_Text1)
+    <p>
+        @Html.Raw(Resources.InputTime.Index_Text1)
+    </p>
+    <p>
+        @Html.Raw(Resources.InputTime.Index_Text5)
+    </p>
+
 }

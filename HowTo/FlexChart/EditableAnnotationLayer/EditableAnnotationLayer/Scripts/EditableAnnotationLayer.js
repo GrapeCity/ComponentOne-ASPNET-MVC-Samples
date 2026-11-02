@@ -178,7 +178,6 @@
                         this._hostMouseUp = null;
                         this._hostMouseLeave = null;
                         this._hostClick = null;
-                        this._hostDBLClick = null;
                         this._isDragging = false;
 
                         //bind drag/drop event
@@ -520,7 +519,6 @@
                         self._hostMouseUp = self._onHostMouseUp.bind(self);
                         self._hostMouseLeave = self._onHostMouseLeave.bind(self);
                         self._hostClick = self._onHostClick.bind(self);
-                        self._hostDBLClick = self._onHostDBLClick.bind(self);
 
                         self.toggleDragEventBinding();
                     };
@@ -534,7 +532,6 @@
                         ele[eventListener]('mouseup', self._hostMouseUp);
                         ele[eventListener]('mouseleave', self._hostMouseLeave);
                         ele[eventListener]('click', self._hostClick);
-                        ele[eventListener]('dblclick', self._hostDBLClick);
 
                         //prevent default drag behavior of image.
                         ele[eventListener]('dragstart', function (e) {
@@ -559,21 +556,6 @@
                             return null;
                         } else {
                             return this._getIconElement(parentNode, pNode);
-                        }
-                    };
-
-                    EditableAnnotationLayer.prototype._onHostDBLClick = function (e) {
-                        var self = this, rootEle = self._chart.hostElement, anno, pNode;
-
-                        if (!self._isEditable) {
-                            return;
-                        }
-                        anno = self._getAnnotation(e.target, rootEle);
-                        if (anno != null) {
-                            pNode = anno._element.parentNode;
-                            if (pNode == self._layerEle) {
-                                self._dlbClick(e, anno);
-                            }
                         }
                     };
 
@@ -666,6 +648,15 @@
                                     if (del) {
                                         self.items.removeAt(self.items.indexOf(anno));
                                     }
+                                    return;
+                                }
+
+                                // Handle double-click here rather than in a 'dblclick' listener: the element is
+                                // re-appended below on every mousedown, so by the time 'dblclick' fires its
+                                // target is no longer inside the annotation.
+                                if (e.detail === 2) {
+                                    self._dlbClick(e, anno);
+                                    e.preventDefault();
                                     return;
                                 }
                                 self._toggleIsDragging(true, anno);

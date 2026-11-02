@@ -119,6 +119,37 @@ function fillSummary() {
     if (findEnd('。\n')) return;
 }
 
+/*Olap Explorer*/
+function customChangeRowTotals(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showRowTotals = value;
+    }
+}
+
+function customChangeColumnTotals(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showColumnTotals = value;
+    }
+}
+
+function customChangeShowZeros(olapControl, value) {
+    if (olapControl && olapControl.engine) {
+        olapControl.engine.showZeros = value;
+    }
+}
+
+function customChangeAllowMerging(olapControl, value) {
+    var pivotGrid = wijmo.Control.getControl('#indexGrid');
+    pivotGrid.allowMerging = value;
+    pivotGrid.invalidate();
+}
+
+function customChangeChartType(olapControl, value) {
+    if (olapControl) {
+        olapControl.chartType = value;
+    }
+}
+
 c1.documentReady(function () {
     fillSummary();
     initTabs();

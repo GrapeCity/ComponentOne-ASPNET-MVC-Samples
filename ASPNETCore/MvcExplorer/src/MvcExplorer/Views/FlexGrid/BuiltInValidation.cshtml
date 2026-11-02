@@ -35,6 +35,10 @@
     function customChangeTooltipPosition(control, value) {
         control.errorTip.position = value;
     }
+
+    function customChangeTooltipTrigger(control, value) {
+        control.errorTip.trigger = value;
+    }
 </script>
 
 <style>
@@ -86,4 +90,5 @@
 @section Description{    
     <p>@Html.Raw(FlexGridRes.BuiltInValidation_Text0)</p>
     <p>@Html.Raw(FlexGridRes.BuiltInValidation_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.BuiltInValidation_Text3)</p>
 }

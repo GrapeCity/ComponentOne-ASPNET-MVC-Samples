@@ -376,5 +376,38 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Customize_CloseOnLeave", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Menu control has &lt;b&gt;AutoSelectOnFocus&lt;/b&gt; property which determines whether the first enabled item is automatically focused/selected in the menu..
+        /// </summary>
+        public static string Index_Text1
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text1", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to The Menu can be set &lt;b&gt;AriaLabel&lt;/b&gt; to support screen reader..
+        /// </summary>
+        public static string Index_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Click to add aria-label.
+        /// </summary>
+        public static string Index_TextButton
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_TextButton", resourceCulture);
+            }
+        }
     }
 }

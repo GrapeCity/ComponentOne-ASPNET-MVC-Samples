@@ -72,7 +72,9 @@ namespace FlexSheetExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            if (System.IO.File.Exists(controllerFilePath))
+                return System.IO.File.ReadAllText(controllerFilePath);
+            return Resources.FlexSheet.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

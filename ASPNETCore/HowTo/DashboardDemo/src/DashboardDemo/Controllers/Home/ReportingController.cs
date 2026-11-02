@@ -1,4 +1,6 @@
 ﻿using System.IO;
+using C1.Report;
+
 #if ASPNETCORE
 using Microsoft.AspNetCore.Mvc;
 #else
@@ -29,7 +31,7 @@ namespace DashboardDemo.Controllers
 #else
             var reportFolder = GetDataFile(new string[] { (Path.Combine(Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory), "bin")) });
 #endif
-            C1.Win.FlexReport.C1FlexReport.DefaultBasePath = reportFolder;
+            FlexReport.DefaultBasePath = reportFolder;
             return View();
         }
     }

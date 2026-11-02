@@ -30,12 +30,13 @@
             });
         });
 
-        function formatItem(panel, r, c, cell) {
-            if (panel.cellType == wijmo.grid.CellType.ColumnHeader) {
-                hdrTips.setTooltip(cell, 'This is column<br/>' +
-                    '<span class="col-header">' + panel.columns[c].header + '</span>');
-            }
-        }
+       function formatItem(panel, r, c, cell) {
+           if (panel.cellType == wijmo.grid.CellType.ColumnHeader && hdrTips) {
+               hdrTips.setTooltip(cell, 'This is column<br/>' +
+                   '<span class="col-header">' + panel.columns[c].header + '</span>');
+           }
+       }
+       
         function loadingRows() {
             if (hdrTips) {
                 hdrTips.dispose();

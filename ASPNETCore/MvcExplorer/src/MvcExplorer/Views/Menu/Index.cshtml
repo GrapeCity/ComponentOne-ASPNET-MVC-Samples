@@ -34,12 +34,23 @@
 
         return false;
     }
+
+        function applyAriaLabel() {
+            var ariaLabel = document.getElementById("txtLabel").value;
+            if (ariaLabel != "") {
+                var control = wijmo.Control.getControl("#menuFile");
+                if (control) {
+                    control.ariaLabel = ariaLabel;
+                    control.invalidate();
+                }
+            }
+        }
 </script>
 }
 
 <div>
     <label>@Html.Raw(MenuRes.Index_ItemClickedEvent)</label>
-    <c1-menu header="@MenuRes.Index_File" item-clicked="itemClicked">
+    <c1-menu header="@MenuRes.Index_File" id="menuFile" auto-select-on-focus="true" item-clicked="itemClicked">
         <c1-menu-item header="@MenuRes.Index_FileNew"></c1-menu-item>
         <c1-menu-item header="@MenuRes.Index_FileOpen"></c1-menu-item>
         <c1-menu-item header="@MenuRes.Index_FileSave"></c1-menu-item>
@@ -56,6 +67,7 @@
     </c1-menu>
 </div>
 <div>
+  <p></p>
     <label>@Html.Raw(MenuRes.Index_Commands)</label>
     <c1-menu header="@MenuRes.Index_ChangeTax" execute-command="execute" can-execute-command="canExecute">
         <c1-menu-item header="+ 25%" command-parameter="0.25"></c1-menu-item>
@@ -69,9 +81,15 @@
         <c1-menu-item header="- 25%" command-parameter="-0.25"></c1-menu-item>
     </c1-menu>
     <c1-input-number id="mInputNumber" value="0.07" step="0.05" format="p0" min="0" max="1"></c1-input-number>
+    <p></p>
+    <label>AriaLabel</label>
+    <input type="text" style="width:500px" id="txtLabel" value="This is the File Menu." />
+    <input type="button" class="btn" onclick="applyAriaLabel()" value="@Html.Raw(MenuRes.Index_TextButton)" />
 </div>
 
 
 @section Description{
-    @Html.Raw(MenuRes.Index_Text0)
+    <p>@Html.Raw(MenuRes.Index_Text0)</p>
+    <p>@Html.Raw(MenuRes.Index_Text1)</p>
+    <p>@Html.Raw(MenuRes.Index_Text2)</p>
 }

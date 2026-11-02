@@ -1,0 +1,111 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    int pageSize = ViewBag.PageSize;
+    int newItemIndex = ViewBag.NewItemIndex;
+}
+
+@section Styles{
+    <style>
+        .ni-buttons {
+            margin-bottom: 10px;
+        }
+
+            .ni-buttons .btn {
+                margin-right: 6px;
+            }
+    </style>
+}
+
+@section Scripts{
+    <script>
+        function View() {
+            return wijmo.Control.getControl('#NewItemIndexGrid').collectionView;
+        }
+
+        // New items are plain objects, so every bound field has to be filled in.
+        function Fill(view, item, label) {
+            var id = view.sourceCollection.length;
+            item.ID = id;
+            item.Country = 'New';
+            item.Product = label;
+            item.Amount = 1000 + id * 37;
+            item.Amount2 = 500 + id * 13;
+        }
+
+        // AddNew() uses the NewItemIndex set on the CollectionViewService.
+        function AddNew() {
+            var view = View(),
+                item = view.addNew();
+            Fill(view, item, 'AddNew');
+            view.commitNew();
+        }
+
+        // insertAt() takes the position directly and returns an uncommitted item,
+        // or null when the index is outside the current page.
+        function InsertAt(index) {
+            var view = View(),
+                item = view.insertAt(index);
+            if (!item) {
+                return;
+            }
+            Fill(view, item, 'insertAt(' + index + ')');
+            view.commitNew();
+        }
+    </script>
+}
+
+@(Html.C1().CollectionViewService<Sale>()
+    .Id("NewItemIndexCV")
+    .Bind(Model)
+    .PageSize(pageSize)
+    .NewItemIndex(newItemIndex)
+)
+
+<div class="ni-buttons">
+    <button type="button" class="btn btn-default" onclick="AddNew()">@Resources.CollectionView.NewItemIndex_Text0</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(0)">@Resources.CollectionView.NewItemIndex_Text1</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(@(pageSize - 1))">@Resources.CollectionView.NewItemIndex_Text2</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(@(-1))">@Resources.CollectionView.NewItemIndex_Text3</button>
+</div>
+
+@(Html.C1().FlexGrid<Sale>()
+    .Id("NewItemIndexGrid")
+    .ItemsSourceId("NewItemIndexCV")
+    .AutoGenerateColumns(false)
+    .AllowAddNew(true)
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("ID"));
+        bl.Add(cb => cb.Binding("Country"));
+        bl.Add(cb => cb.Binding("Product").Width("160"));
+        bl.Add(cb => cb.Binding("Amount").Format("c"));
+        bl.Add(cb => cb.Binding("Amount2").Format("c"));
+    })
+    .CssClass("grid")
+    .Height(240)
+)
+@(Html.C1().CollectionViewNavigator()
+    .Id("NavigatorForGrid")
+    .ItemsSourceId("NewItemIndexGrid")
+    .ByPage(true)
+    .HeaderFormat("Page: {currentPage} / {pageCount}")
+)
+
+@section Summary{
+    <p>@Html.Raw(Resources.CollectionView.NewItemIndex_Text8)</p>
+
+}
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
+
+@section Description{
+    <p>@Html.Raw(Resources.CollectionView.NewItemIndex_Text4)</p>
+    <p>@Html.Raw(Resources.CollectionView.NewItemIndex_Text5)</p>
+    <p>@Html.Raw(Resources.CollectionView.NewItemIndex_Text6)</p>
+    <p>@Html.Raw(Resources.CollectionView.NewItemIndex_Text7)</p>
+}

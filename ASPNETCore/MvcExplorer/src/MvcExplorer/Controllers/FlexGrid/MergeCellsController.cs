@@ -1,26 +1,37 @@
-﻿using System.Collections.Generic;
+﻿using C1.Web.Mvc;
 using C1.Web.Mvc.Grid;
+using C1.Web.Mvc.Serialization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
-using C1.Web.Mvc;
-using C1.Web.Mvc.Serialization;
+using System;
+using System.Collections.Generic;
 
 namespace MvcExplorer.Controllers
 {
     public partial class FlexGridController : Controller
     {
-        public ActionResult MergeCells()
+        private readonly ControlOptions _mergeCellOptions = new ControlOptions
         {
-            ViewBag.DemoSettings = true;
-            ViewBag.DemoSettingsModel = new ClientSettingsModel
+            Options = new OptionDictionary
             {
-                Settings = new Dictionary<string, object[]>
-                {
-                    {"AllowMerging", new object[]{AllowMerging.All, AllowMerging.None, AllowMerging.Cells, AllowMerging.ColumnHeaders, AllowMerging.RowHeaders, AllowMerging.AllHeaders}},
-                    {"ExpandSelectionOnCopyPaste", new object[]{true, false}},
-                    {"SkipMerged", new object[]{false, true}}
-                }
-            };
+                {"AllowMerging", new OptionItem{Values = new List<string> {"All", "None", "Cells", "ColumnHeaders", "RowHeaders", "AllHeaders"}, CurrentValue = "All"}},
+                {"ExpandSelectionOnCopyPaste", new OptionItem{Values = new List<string>{"false", "true" }, CurrentValue="false" } },
+                {"SkipMerged", new OptionItem{Values = new List<string>{"false", "true" }, CurrentValue="false" } },
+                {"PasteEmptyCells", new OptionItem{Values = new List<string>{"true", "false" }, CurrentValue="false" } }
+            }
+        };
+        private AllowMerging GetAllowMerging(ControlOptions controlOptions)
+        {
+            var allowMerging = controlOptions.Options["AllowMerging"].CurrentValue;
+            return (AllowMerging)Enum.Parse(typeof(AllowMerging), allowMerging);
+        }
+
+        public ActionResult MergeCells(IFormCollection data)
+        {
+            _mergeCellOptions.LoadPostData(data);
+            ViewBag.DemoOptions = _mergeCellOptions;
+            ViewBag.AllowMerging = GetAllowMerging(_mergeCellOptions);
             return View();
         }
 

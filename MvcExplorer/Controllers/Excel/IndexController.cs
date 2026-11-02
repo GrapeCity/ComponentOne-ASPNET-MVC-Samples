@@ -1,4 +1,4 @@
-﻿using C1.C1Excel;
+﻿using C1.Excel;
 using MvcExplorer.Models;
 using System;
 using System.Collections;
@@ -27,7 +27,7 @@ namespace MvcExplorer.Controllers.Excel
         XLStyle _styHeader;
         XLStyle _styMoney;
         XLStyle _styOrder;
-        C1XLBook _c1xl = new C1.C1Excel.C1XLBook();
+        C1XLBook _c1xl = new C1XLBook();
 
         protected static string TEMP_DIR;
 
@@ -72,7 +72,7 @@ namespace MvcExplorer.Controllers.Excel
             //clear Excel book, remove the single blank sheet
             _c1xl.Clear();
             _c1xl.Sheets.Clear();
-            _c1xl.DefaultFont = new Font("Tahoma", 8);
+            _c1xl.DefaultFont = new C1.Util.Font("Tahoma", 8);
 
             //create Excel styles
             _styTitle = new XLStyle(_c1xl);
@@ -81,9 +81,9 @@ namespace MvcExplorer.Controllers.Excel
             _styOrder = new XLStyle(_c1xl);
 
             //set up styles
-            _styTitle.Font = new Font(_c1xl.DefaultFont.Name, 15, FontStyle.Bold);
+            _styTitle.Font = new C1.Util.Font(_c1xl.DefaultFont.FontName, 15, C1.Util.FontStyle.Bold);
             _styTitle.ForeColor = Color.Blue;
-            _styHeader.Font = new Font(_c1xl.DefaultFont, FontStyle.Bold);
+            _styHeader.Font = new C1.Util.Font(_c1xl.DefaultFont.FontName, 15, C1.Util.FontStyle.Bold);
             _styHeader.ForeColor = Color.White;
             _styHeader.BackColor = Color.DarkGray;
             _styMoney.Format = XLStyle.FormatDotNetToXL("c");

@@ -1,5 +1,4 @@
-﻿using C1.C1Excel;
-using MvcExplorer.Models;
+﻿using MvcExplorer.Models;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -8,6 +7,7 @@ using System.IO;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using C1.Excel;
 
 namespace MvcExplorer.Controllers.Excel
 {

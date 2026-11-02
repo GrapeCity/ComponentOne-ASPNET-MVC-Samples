@@ -1,0 +1,35 @@
+@model List<UserInfo>
+
+@section Scripts{
+   <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jquery.validate.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.js"></script>
+}
+
+<c1-multi-row id="uvMultiRow" class="multirow" allow-add-new="true" allow-delete="true">
+    <c1-items-source source-collection="Model"
+                     create-action-url="@Url.Action("MultiRowCreateUserInfo")"
+                     delete-action-url="@Url.Action("MultiRowDeleteUserInfo")"
+                     update-action-url="@Url.Action("MultiRowUpdateUserInfo")">
+    </c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Id" is-read-only="true"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Name"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Industry"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="3">
+        <c1-multi-row-cell binding="Country"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Phone" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Email" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Birthdate" format="M/d/yyyy"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Description{
+<p>@Html.Raw(MultiRowRes.UnobtrusiveValidation_Text0)</p>
+
+<p>@Html.Raw(MultiRowRes.UnobtrusiveValidation_Text1)</p>
+
+}

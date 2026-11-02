@@ -94,7 +94,40 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to IsReadOnly.
+        /// </summary>
+        public static string Index_Text2
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to InputDate control supports changing individual date components (day, month, year) independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly..
+        /// </summary>
+        public static string Index_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text3", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Select value to set the PreserveCalendarNavigation property. The False value always show selected date when dropdown calendar is reopened after navigating to a different month..
+        /// </summary>
+        public static string Index_Text4
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text4", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///    Looks up a localized string similar to Use this &lt;b&gt;InputDate&lt;/b&gt; control to select a date. 
         ///    Notice you won&apos;t be able to select or type weekends..
@@ -258,6 +291,30 @@ namespace MvcExplorer.Localization {
             get
             {
                 return ResourceManager.GetString("MonthCount_Text0", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Key Action Down Arrow</b> and <b>Key Action Up Arrow</b>: Defines what happens when the user presses the respective key. Options are <b>ChangeSelectionOnly</b> (changes selection without opening dropdown) and <b>OpenDropdown</b> (opens dropdown without changing selection).<br/>
+        ///   Looks up a localized string similar to <b>Key Action Tab</b>: Defines what happens when the user presses Tab. Options are <b>CloseAndKeepFocus</b> (closes dropdown, keeps focus) and <b>CloseAndMoveFocus</b> (closes dropdown, moves focus to next element).
+        /// </summary>
+        public static string Index_ActionArrowDirections
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_ActionArrowDirections", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Key Action Down Arrow</b>, <b>Key Action Up Arrow</b>, <b>Key Action Print Characters</b>: Defines what happens when the user presses the respective key or types characters. Options are <b>ChangeSelectionOnly</b> (changes selection without opening dropdown) and <b>OpenDropdown</b> (opens dropdown without changing selection).<br/>
+        ///   Looks up a localized string similar to <b>Key Action Tab</b>: Defines what happens when the user presses the Tab key. Options are <b>CloseAndKeepFocus</b> (closes dropdown while keeping focus) and <b>CloseAndMoveFocus</b> (closes dropdown and moves focus to the next tabbable element).
+        /// </summary>
+        public static string Index_ActionTab
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_ActionTab", resourceCulture);
             }
         }
     }

@@ -47,11 +47,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.FlexViewer">
-      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexViewer.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexViewer.4.8.20262.477\lib\net48\C1.Web.Mvc.FlexViewer.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
@@ -154,7 +154,6 @@
     <Content Include="Content\favicon\logo32.png" />
     <Content Include="Content\favicon\safari-pinned-tab.svg" />
     <Content Include="Global.asax" />
-    <EmbeddedResource Include="Properties\licenses.licx" />
     <Content Include="Scripts\app.js" />
     <Content Include="Views\Web.config" />
     <Content Include="Web.config" />
@@ -228,4 +227,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="ReportViewer101.sa3licx" />
+  </ItemGroup>
 </Project>

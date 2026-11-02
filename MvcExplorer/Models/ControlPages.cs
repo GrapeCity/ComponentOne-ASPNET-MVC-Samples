@@ -74,7 +74,12 @@ namespace MvcExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            if (System.IO.File.Exists(controllerFilePath))
+            {
+                return System.IO.File.ReadAllText(controllerFilePath);
+            }
+            
+            return Resources.Resource.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

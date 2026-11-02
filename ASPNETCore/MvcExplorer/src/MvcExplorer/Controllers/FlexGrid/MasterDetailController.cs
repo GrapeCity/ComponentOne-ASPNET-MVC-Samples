@@ -11,13 +11,13 @@ namespace MvcExplorer.Controllers
         // GET: /<controller>/
         public ActionResult MasterDetail()
         {
-            return View(_db.Customers.Take(10).ToList());
+            return View(_db.Customers.AsQueryable().Take(10).ToList());
         }
 
         public ActionResult DetailData([C1JsonRequest] CollectionViewRequest<Order> requestData)
         {
             string customerID = requestData.ExtraRequestData["CustomerID"].ToString();
-            return this.C1Json(CollectionViewHelper.Read(requestData, _db.Orders.Where(s => s.CustomerID == customerID).ToList()));
+            return this.C1Json(CollectionViewHelper.Read(requestData, _db.Orders.AsQueryable().Where(s => s.CustomerID == customerID).ToList()));
         }
     }
 }

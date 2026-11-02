@@ -18,10 +18,17 @@
         menu.showDropDownButton = checkbox.checked;
     }
 
-     function changeSubItems() {
+    function changeSubItems() {
         var menu = wijmo.Control.getControl("#hierMenu");
         var checkbox = document.getElementById("showSubItems");
-        menu.subItemsPath = checkbox.checked ? "Items" : null;
+        if (checkbox.checked) {
+            menu.subItemsPath = "Items";
+            menu.headerPath = "Header"; 
+        } else {
+            menu.subItemsPath = null;
+            menu.header = "Hierarchical Menu"; 
+            menu.headerPath = null; 
+        }
     }
 
     function itemClicked(sender) {
@@ -35,7 +42,7 @@
 
     @(Html.C1().CollectionViewService().Bind("GetMenuItems").Id("mn"))
     @(Html.C1().Menu().Id("hierMenu").ItemsSourceId("mn")
-        .Header("Hierachial Menu").HeaderPath("Header").ShowDropDownButton(false)
+        .Header("Hierarchical Menu").HeaderPath("Header").ShowDropDownButton(false)
         .OpenOnHover(true)
         .CloseOnLeave(true)
         .OnClientItemClicked("itemClicked")

@@ -21,7 +21,14 @@
     function changeSubItems() {
         var menu = wijmo.Control.getControl("#hierMenu");
         var checkbox = document.getElementById("showSubItems");
-        menu.subItemsPath = checkbox.checked ? "Items" : null;
+        if (checkbox.checked) {
+            menu.subItemsPath = "Items";
+            menu.headerPath = "Header";
+        } else {
+            menu.subItemsPath = null;
+            menu.header = "Hierarchical Menu";
+            menu.headerPath = null;
+        }
     }
 
     function itemClicked(sender) {
@@ -33,7 +40,7 @@
 
 
 <div>
-    <c1-menu header="Hierachial Menu" header-path="Header" item-clicked="itemClicked"
+    <c1-menu header="Hierarchical Menu" header-path="Header" item-clicked="itemClicked"
         open-on-hover="true" close-on-leave="true" show-drop-down-button="false" id="hierMenu" sub-items-path="Items">
         <c1-items-source source-collection="@Model"></c1-items-source>
     </c1-menu>

@@ -122,9 +122,9 @@ namespace FlexViewerExplorer
             var ssrsUserName = Configuration["AppSettings:SsrsUserName"];
             var ssrsPassword = Configuration["AppSettings:SsrsPassword"];
             app.UseReportProviders().AddSsrsReportHost("c1ssrs", ssrsUrl, new System.Net.NetworkCredential(ssrsUserName, ssrsPassword));
-            
+
 #if NETCORE31 || NET50
-            DbProviderFactories.RegisterFactory("System.Data.SQLite", System.Data.SQLite.SQLiteFactory.Instance);
+            DbProviderFactories.RegisterFactory("Microsoft.Data.Sqlite", Microsoft.Data.Sqlite.SqliteFactory.Instance);
             System.Text.Encoding.RegisterProvider(System.Text.CodePagesEncodingProvider.Instance);
 #endif
         }

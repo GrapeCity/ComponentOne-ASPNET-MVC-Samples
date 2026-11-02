@@ -1,5 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
-
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AssemblyName>FinancialChartExplorer</AssemblyName>
@@ -8,9 +7,9 @@
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
     <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
   </PropertyGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="box.json;fb.json;NDX.json;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="FinancialChartExplorer.Core31.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="project.json" />
@@ -26,4 +25,11 @@
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Remove="FinancialChartExplorer.Core20.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net60.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net80.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net90.sa3licx" />
+    <None Remove="FinancialChartExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

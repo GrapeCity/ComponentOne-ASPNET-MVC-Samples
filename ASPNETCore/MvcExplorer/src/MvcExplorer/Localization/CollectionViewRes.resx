@@ -138,7 +138,34 @@
   <data name="Index_Text1" xml:space="preserve">
     <value>The &lt;b&gt;RefreshOnEdit&lt;/b&gt; property determines whether the CollectionView should automatically refresh its results (by applying the sort, filter, and grouping operations) after items are edited. This property is set to &lt;b&gt;true&lt;/b&gt; by default, which ensures the collection is always sorted, filtered, and grouped correctly after any edit operations.</value>
   </data>
+  <data name="NewItemIndex_Text2" xml:space="preserve">
+    <value>insertAt(pageSize-1)</value>
+  </data>
+  <data name="NewItemIndex_Text0" xml:space="preserve">
+    <value>addNew()</value>
+  </data>
+  <data name="NewItemIndex_Text1" xml:space="preserve">
+    <value>insertAt(0)</value>
+  </data>
   <data name="Sorting_Text0" xml:space="preserve">
     <value>This view shows how sorting work on CollectionView.</value>
+  </data>
+  <data name="NewItemIndex_Text3" xml:space="preserve">
+    <value>insertAt(-1)</value>
+  </data>
+  <data name="NewItemIndex_Text4" xml:space="preserve">
+    <value>When paging is enabled, a row added using the &lt;b&gt;addNew&lt;/b&gt; method is appended to the end of the entire source collection, so it appears on the last page regardless of which page is currently displayed.</value>
+  </data>
+  <data name="NewItemIndex_Text5" xml:space="preserve">
+    <value>To add a new row at a specific position on the current page, set &lt;b&gt;NewItemIndex&lt;/b&gt; on the &lt;b&gt;CollectionViewService&lt;/b&gt;. The valid range is from 0 to &lt;b&gt;pageSize&lt;/b&gt; - 1. If &lt;b&gt;NewItemIndex&lt;/b&gt; is less than 0 or greater than or equal to the current &lt;b&gt;pageSize&lt;/b&gt;, the original &lt;b&gt;addNew&lt;/b&gt; behavior is preserved.</value>
+  </data>
+  <data name="NewItemIndex_Text6" xml:space="preserve">
+    <value>When paging is disabled, &lt;b&gt;NewItemIndex&lt;/b&gt; is treated as an index within the entire &lt;b&gt;SourceCollection&lt;/b&gt;.</value>
+  </data>
+  <data name="NewItemIndex_Text7" xml:space="preserve">
+    <value>The &lt;b&gt;insertAt&lt;/b&gt; method inserts an item directly at a page-relative position when paging is enabled. If the specified index is invalid, the insertion is not performed.</value>
+  </data>
+  <data name="NewItemIndex_Text8" xml:space="preserve">
+    <value>This sample shows how to use &lt;b&gt;NewItemIndex&lt;/b&gt; and &lt;b&gt;insertAt&lt;/b&gt; to control the position of newly inserted items.</value>
   </data>
 </root>

@@ -19,7 +19,7 @@
     <IISExpressAnonymousAuthentication />
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
-<UseGlobalApplicationHostFile />
+    <UseGlobalApplicationHostFile />
     <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -40,20 +40,55 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Pdf.4.8">
-      <HintPath>..\packages\C1.C1Pdf.4.8.20241.657\lib\net48\C1.C1Pdf.4.8.dll</HintPath>
+    <Reference Include="C1.Chart">
+      <HintPath>..\packages\C1.Chart.10.0.20262.116\lib\netstandard2.0\C1.Chart.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Chart.Diagram">
+      <HintPath>..\packages\C1.Chart.Diagram.10.0.20262.116\lib\netstandard2.0\C1.Chart.Diagram.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Excel">
+      <HintPath>..\packages\C1.Excel.10.0.20262.328\lib\netstandard2.0\C1.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Pdf">
+      <HintPath>..\packages\C1.Pdf.10.0.20262.331\lib\netstandard2.0\C1.Pdf.dll</HintPath>
     </Reference>
     <Reference Include="C1.Zip">
-      <HintPath>..\packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
+      <HintPath>..\packages\C1.Zip.10.0.20262.20\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.4.8">
-      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
+    <Reference Include="DS.Documents.Imaging, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Imaging.7.2.6\lib\net461\DS.Documents.Imaging.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Bcl.Cryptography.9.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data.Linq" />
+    <Reference Include="System.Formats.Asn1, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Formats.Asn1.9.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Security.Cryptography.Pkcs.9.0.0\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -222,6 +257,7 @@
       <DependentUpon>AirlinesDBML.dbml</DependentUpon>
     </None>
     <EmbeddedResource Include="Properties\License.licx" />
+    <EmbeddedResource Include="BookMyFlight.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />

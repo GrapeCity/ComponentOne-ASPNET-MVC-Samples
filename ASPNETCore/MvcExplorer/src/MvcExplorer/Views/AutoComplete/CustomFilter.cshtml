@@ -1,0 +1,122 @@
+﻿@{
+    List<string> kanaWords = ViewBag.KanaWords;
+}
+
+@section Styles {
+    <style>
+        .demo-row {
+            margin-bottom: 22px;
+            max-width: 420px;
+        }
+
+        .demo-row label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+
+        .kana-match {
+            background-color: #fff3b0;
+            color: #7a4b00;
+            font-weight: 600;
+            border-radius: 2px;
+            padding: 0 1px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        // Half-width katakana to hiragana. Only the characters used by this
+        // sample's data are listed; a real application would cover the full range.
+        var HALF_WIDTH_TO_HIRAGANA = {
+            '\uFF71': 'あ', '\uFF72': 'い', '\uFF73': 'う', '\uFF74': 'え', '\uFF75': 'お',
+            '\uFF76': 'か', '\uFF77': 'き', '\uFF78': 'く', '\uFF79': 'け', '\uFF7A': 'こ',
+            '\uFF7B': 'さ', '\uFF7C': 'し', '\uFF7D': 'す', '\uFF7E': 'せ', '\uFF7F': 'そ'
+        };
+
+        // Folds katakana and half-width katakana down to hiragana so the three
+        // ways of writing the same word all compare equal.
+        function normalizeJapanese(text) {
+            return (text || '')
+                .toLowerCase()
+                .replace(/[\u30A1-\u30F6]/g, function (ch) {
+                    return String.fromCharCode(ch.charCodeAt(0) - 0x60);
+                })
+                .replace(/[\uFF66-\uFF9D]/g, function (ch) {
+                    return HALF_WIDTH_TO_HIRAGANA[ch] || ch;
+                });
+        }
+
+        // CustomFilter: return true to keep the item in the drop-down list.
+        function kanaFilter(item, query, text) {
+            if (!query) {
+                return true;
+            }
+            return normalizeJapanese(text).indexOf(normalizeJapanese(query)) > -1;
+        }
+
+        // CustomHighlight: return the HTML shown for the item. The text is
+        // escaped with wijmo.escapeHtml, so only the markup added here is live.
+        function kanaHighlight(item, query, text) {
+            var safeText = wijmo.escapeHtml(text);
+            if (!query) {
+                return safeText;
+            }
+            var start = normalizeJapanese(text).indexOf(normalizeJapanese(query));
+            if (start < 0) {
+                return safeText;
+            }
+            var end = start + query.length;
+            return wijmo.escapeHtml(text.slice(0, start)) +
+                '<span class="kana-match">' +
+                wijmo.escapeHtml(text.slice(start, end)) +
+                '</span>' +
+                wijmo.escapeHtml(text.slice(end));
+        }
+    </script>
+}
+
+@section Summary {
+    @Html.Raw(AutoCompleteRes.CustomFilter_Text0)
+}
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.CustomFilter_AutoComplete)</label>
+    <c1-auto-complete min-length="1" max-items="12" placeholder="Try あ / ア / ｱ"
+                      custom-filter="kanaFilter" custom-highlight="kanaHighlight">
+        <c1-items-source source-collection="@kanaWords"></c1-items-source>
+    </c1-auto-complete>
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.CustomFilter_MultiAutoComplete)</label>
+    <c1-multi-auto-complete min-length="1" max-items="12" max-selected-items="5"
+                            placeholder="Try あ / ア / ｱ and press Enter"
+                            custom-filter="kanaFilter" custom-highlight="kanaHighlight">
+        <c1-items-source source-collection="@kanaWords"></c1-items-source>
+    </c1-multi-auto-complete>
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.CustomFilter_MultiSelect)</label>
+    <c1-multi-select placeholder="Open the drop-down and type あ / ア / ｱ"
+                     show-filter-input="true" show-select-all-checkbox="true"
+                     check-on-filter="false" custom-filter="kanaFilter">
+        <c1-items-source source-collection="@kanaWords"></c1-items-source>
+    </c1-multi-select>
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.CustomFilter_MultiSelectListBox)</label>
+    <c1-multi-select-list-box show-filter-input="true" show-select-all-checkbox="true"
+                              check-on-filter="false" custom-filter="kanaFilter">
+        <c1-items-source source-collection="@kanaWords"></c1-items-source>
+    </c1-multi-select-list-box>
+</div>
+
+@section Description {
+    <p>@Html.Raw(AutoCompleteRes.CustomFilter_Text1)</p>
+    <p>@Html.Raw(AutoCompleteRes.CustomFilter_Text2)</p>
+    <p>@Html.Raw(AutoCompleteRes.CustomFilter_Text3)</p>
+}

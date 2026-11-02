@@ -10,9 +10,13 @@
     <Layout>
       <Orientation>Portrait</Orientation>
     </Layout>
-    <Font>
-      <Name>Constantia</Name>
-    </Font>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+        <GdiCharSet>0</GdiCharSet>
+      </Font>
+    </Fonts>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
@@ -46,7 +50,7 @@
             <Background type="Solid">
               <Color>FFFFFFFF</Color>
             </Background>
-            <Height>4140</Height>
+            <Height>4115</Height>
           </SubSection>
         </SubSections>
         <Type>Header</Type>
@@ -93,7 +97,7 @@
         <Align>LeftMiddle</Align>
         <ForeColor>FF04617B</ForeColor>
         <Font>
-          <Name>Segoe UI</Name>
+          <Name>Arial</Name>
           <Size>20</Size>
         </Font>
         <Text>
@@ -142,19 +146,20 @@
         <Width>2000</Width>
         <Height>600</Height>
         <Picture>
-          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAP4SURBVGhD7ZjdTSQxEIQJgQROIgRCIAR0r/dCCIRABoRACIRACBcCIWwIXJXlsmpq7N3x3OqOh0H6tHZ3+2f6x57h5uePX1/XBH83B/vZE5BP8BH8BkWfCxzMsScgDzkJZC/Sp+5gjtmAfOQEkN2Ck2xSfzDHbEDOVgdJ/cEcMwG5WB0kbQ7mmAnIxeogaXMwx9aAbKoOknYHc2wNyKbqIGk3ArZ3gHPc9vQ9YPtQx4jevmjznPIENkwoznEXMo4/x+b97oGbWDk12FwdJG1HwJbfMxyzxXl0XHc9QPmT2fK7iPLm6B7Qc07avYTc5+6xSoJrsmsDkOlhVqRtD9gx0zTms2dDoGPg20enkcF5tTHSvflcDnSeUG1s1fm8Pf5rQKaqg6R9D9gpi0XL8LB7NxsG5jH0jylH2+ftVgnkT2azeMaR/F+RD5BMVQdJ+wQ2vDty3KpKIPMqotMvnt2wubcxpFslkOu4LHOHTvJvF5DuhiBndjEoSRmX9gls3mQLXq29CD76Xh2bjgna2RixCCT6Xh2F0Ev+7QIydVZqXMod6L06GBjvj46O4R2TwLYlhpGXdu9O8jctyVhFnI9Jo3+iLo5W07EyGWgmUSZAsbE+j3yfczGvb8CZzg6NTbkDvVfEfZV5xbQkMNnmvcDW59e8vO+Kk/DrFeS2vXV7ZHDpTMo5r5LhvWdT2wyc7l8mBnXlv+eyH21gqjqIxqZcQOcvA54x7qT2MCabCYgcxF+ftziyynv69uptMlWIs/AL+goq53qubdLuLrTLmt4GWWklOYlvQExXB9H4lAvolEGkZIUhOSnHh8t8nnPAVsdReQb+1j4TwS98vp0xQdRvmW+yi37guGrrFaIXhuJ0/GoPOp4XFZT4BsSqOiBj9N2BPcr4HCug00YvUbILv36pn/14hF5HkuxVEX6Ba/12J5nOK3YlGwGbXkD0Kq62fKOKXBx7iW+ArDYB2dnvjiTHE8jdMSxzbi7xNZhNlKlPXfcYhZwPzeB5BXjGZyK04wJtOau9+tY+2RsQtuUzovX1PFMV0qsOLbSJHE8gd6eMPtZ8nfL1jF+/8Akdz2qVA9oRVWWya8+BtifDSfKqW1W2+oB75hqJB9TvEOpKu+r8AoeoyOSH/MBt/y3wDfx1dZDOHMxg6YfZAZ2f6VxTx5C/DY1g4OQQ4gHxZ1gcF+xXeRtj/RF+vPlxtAhI1bckqX33Bcdy3woSk+3kG2gTCch8w5sYzMHFSxan3glb/3cIH4yb9+Rgmw8hR/rY/BagrgXZ5Kyeth711h/h/zdjslCm75DS7qzhRyJtuW8Goj0DKMGhgR7QFxXugE1o4YN9eECuQi5wMMPXzR+CbdfNzeippAAAAABJRU5ErkJggg==</Image>
+          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOpSURBVGhD7VnBbdwwELwS3IAAl+ASUoKhrz4pwSW4A5eQElyCS0gJLuFKuGAIDjEaLiXyTgny0GNg3ZK7JHd2SEq+zNNyOxK32+1y4n5cPKEd+J6n5cvw+yTkGNxDyA8PMk/L+0nIMRgl5MsDzNPyNE/L9STkGIwSsqmOk5DHMULIrjpOQh7HCCG76jgJeRy9hHSp4yTkcfQS0qWOEULmaXnOMZ68rQXMI/sQ0bzQ583tjlxQiPFsNvhvoXu+96CHkG51DBKC9xn49CQPiQvHy/af0hfvRbCXREeQgno3u8d3VEVwJO6aQEsdgPeNkCuNPt/eLv1AfHnpFDg5H+LDtl8ez+KyX/HNbT6Wo8rHkdibwJA6AO8fQaqYKBVu/T6lD4h5tfZXt1vcUCUYr7XGlv1fwRfgqKphSx2A93fks8P9KpWYipD03b17npYXixuqRLbLFNvaaP/vCAknlKtLD1Yi+Xl/B5IkY3zI84p8U0dVGBGMRGJFpKmjmrPYw/X/bWwR0pUEIlqcw9QBYvR3a+uo1NNCQ71+aEdnkt60yrg5HoqGH1FXW6u0QZkgGkXkBZD6yG9s+RpzFbdFyHB10Nft1kcV8ZJtqphSBPfMxeIzLs67lCRTUKhOsUVwcnkW8jqO58+oT34GcTx/URhoS1/P2b81gSF15MGSr9ulXS8DWjGapLIYsY0QwgThr8ZNidxoL1dvsVEhCt9WSSpivYlvObuMEI7vSkvFCUSEdCfAgiZ/t0u7bif+PxUdP20favNYLch2lNYgsVEIeuDjdoYC4e9S+WLbzYOsSRXCC0NKusyB2/NKQY6IkEodmX1NYITk774SQ282W0jVZYf65sujbEnsT0XoAc7xy5kkbarYytZCgxBexfnM3FCRq23P4YRUk9h773C4f46hiYHM/XMEoGOgmnRLQVtVKDk2Fg3yVAFa8V4I0Vt9ufpKvyoXjgYheGbOAI7P9QwppFq0bTW7cP8cQ5PSelnTcdLbsx34ABIPtTIBZYsyAvWQ1mK42piVsqVvdIYASqieIYWQ3KYHOM8Q5sFfcMvXgs2KGFUHB7YYqGC2N6vD9nS9GeltqAUQp4QqIboGvyVVPkFsh25vuh2tCMntpUjyb80FfDFvkoRiu+oEHlYH0IjBc6YaY6Ovfg7BwjB5LQ48YxFMpPr6uwDaCslih3rKeJk8/m5Bv5v5e0h6DsbQLRF9MW8QUdZAcpQQHxgYUkdEyIkx9Eh0CD7AiTH8AYJt1818fdA4AAAAAElFTkSuQmCC</Image>
         </Picture>
       </ImageField>
       <FlexChartField>
         <Name>Field2</Name>
         <Section>Header</Section>
         <SubSectionIndex>1</SubSectionIndex>
-        <Left>4513</Left>
+        <Left>4710</Left>
         <Top>290</Top>
-        <Width>4847</Width>
+        <Width>4650</Width>
         <Height>3825</Height>
         <Font>
-          <Name>Segoe UI</Name>
+          <Name>Arial</Name>
+          <Size>9</Size>
         </Font>
         <Header>
           <Content> Sales and Profits for Region</Content>
@@ -215,16 +220,275 @@
           </FlexChartSeries>
         </Series>
       </FlexChartField>
-      <SubreportField>
-        <Name>Field3</Name>
+      <TextField>
+        <Name>RegionHeaderTitle</Name>
         <Section>Header</Section>
         <SubSectionIndex>1</SubSectionIndex>
         <Left>180</Left>
         <Top>290</Top>
-        <Width>4153</Width>
-        <Height>1345</Height>
-        <Subreport sys="string">RegionalSales Report 3</Subreport>
-      </SubreportField>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Region</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesHeaderTitle</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>290</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Sales</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>ProfitHeaderTitle</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>290</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF04617B</ForeColor>
+        <Font>
+          <Name>Arial</Name>
+          <Bold>true</Bold>
+          <Size>12</Size>
+        </Font>
+        <Text>
+          <Value sys="string">Profit</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>RegionRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>570</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">North</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>570</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='North'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow1</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>570</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='North'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>850</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">South</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>850</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='South'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow2</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>850</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='South'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>1130</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">East</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>1130</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='East'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow3</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>1130</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='East'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>RegionRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>180</Left>
+        <Top>1410</Top>
+        <Width>1095</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Value sys="string">West</Value>
+        </Text>
+      </TextField>
+      <TextField>
+        <Name>SalesRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>1275</Left>
+        <Top>1410</Top>
+        <Width>1620</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Sales, "Region='West'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
+      <TextField>
+        <Name>ProfitRow4</Name>
+        <Section>Header</Section>
+        <SubSectionIndex>1</SubSectionIndex>
+        <Left>2895</Left>
+        <Top>1410</Top>
+        <Width>1618</Width>
+        <Height>280</Height>
+        <Align>LeftMiddle</Align>
+        <Font>
+          <Name>Arial</Name>
+          <Size>10</Size>
+        </Font>
+        <Text>
+          <Expression>Sum(Profit, "Region='West'")</Expression>
+        </Text>
+        <Format>Currency</Format>
+      </TextField>
     </Fields>
   </Report>
   <Report ref="1">
@@ -237,9 +501,12 @@
       <Width>9076</Width>
       <Orientation>Portrait</Orientation>
     </Layout>
-    <Font>
-      <Name>Constantia</Name>
-    </Font>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
@@ -426,6 +693,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Year</Value>
@@ -446,6 +714,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Year([Date])</Expression>
@@ -464,6 +733,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Customer</Value>
@@ -482,6 +752,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Product</Value>
@@ -500,6 +771,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Profit</Value>
@@ -518,6 +790,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Sales</Value>
@@ -533,6 +806,7 @@ endif</OnPrint>
         <Align>LeftTop</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Customer</Expression>
@@ -548,6 +822,7 @@ endif</OnPrint>
         <Align>LeftTop</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Product</Expression>
@@ -563,6 +838,7 @@ endif</OnPrint>
         <Align>LeftTop</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Profit</Expression>
@@ -578,6 +854,7 @@ endif</OnPrint>
         <Align>LeftTop</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Sales</Expression>
@@ -591,7 +868,7 @@ endif</OnPrint>
         <Width>2000</Width>
         <Height>600</Height>
         <Picture>
-          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAP4SURBVGhD7ZjdTSQxEIQJgQROIgRCIAR0r/dCCIRABoRACIRACBcCIWwIXJXlsmpq7N3x3OqOh0H6tHZ3+2f6x57h5uePX1/XBH83B/vZE5BP8BH8BkWfCxzMsScgDzkJZC/Sp+5gjtmAfOQEkN2Ck2xSfzDHbEDOVgdJ/cEcMwG5WB0kbQ7mmAnIxeogaXMwx9aAbKoOknYHc2wNyKbqIGk3ArZ3gHPc9vQ9YPtQx4jevmjznPIENkwoznEXMo4/x+b97oGbWDk12FwdJG1HwJbfMxyzxXl0XHc9QPmT2fK7iPLm6B7Qc07avYTc5+6xSoJrsmsDkOlhVqRtD9gx0zTms2dDoGPg20enkcF5tTHSvflcDnSeUG1s1fm8Pf5rQKaqg6R9D9gpi0XL8LB7NxsG5jH0jylH2+ftVgnkT2azeMaR/F+RD5BMVQdJ+wQ2vDty3KpKIPMqotMvnt2wubcxpFslkOu4LHOHTvJvF5DuhiBndjEoSRmX9gls3mQLXq29CD76Xh2bjgna2RixCCT6Xh2F0Ev+7QIydVZqXMod6L06GBjvj46O4R2TwLYlhpGXdu9O8jctyVhFnI9Jo3+iLo5W07EyGWgmUSZAsbE+j3yfczGvb8CZzg6NTbkDvVfEfZV5xbQkMNnmvcDW59e8vO+Kk/DrFeS2vXV7ZHDpTMo5r5LhvWdT2wyc7l8mBnXlv+eyH21gqjqIxqZcQOcvA54x7qT2MCabCYgcxF+ftziyynv69uptMlWIs/AL+goq53qubdLuLrTLmt4GWWklOYlvQExXB9H4lAvolEGkZIUhOSnHh8t8nnPAVsdReQb+1j4TwS98vp0xQdRvmW+yi37guGrrFaIXhuJ0/GoPOp4XFZT4BsSqOiBj9N2BPcr4HCug00YvUbILv36pn/14hF5HkuxVEX6Ba/12J5nOK3YlGwGbXkD0Kq62fKOKXBx7iW+ArDYB2dnvjiTHE8jdMSxzbi7xNZhNlKlPXfcYhZwPzeB5BXjGZyK04wJtOau9+tY+2RsQtuUzovX1PFMV0qsOLbSJHE8gd6eMPtZ8nfL1jF+/8Akdz2qVA9oRVWWya8+BtifDSfKqW1W2+oB75hqJB9TvEOpKu+r8AoeoyOSH/MBt/y3wDfx1dZDOHMxg6YfZAZ2f6VxTx5C/DY1g4OQQ4gHxZ1gcF+xXeRtj/RF+vPlxtAhI1bckqX33Bcdy3woSk+3kG2gTCch8w5sYzMHFSxan3glb/3cIH4yb9+Rgmw8hR/rY/BagrgXZ5Kyeth711h/h/zdjslCm75DS7qzhRyJtuW8Goj0DKMGhgR7QFxXugE1o4YN9eECuQi5wMMPXzR+CbdfNzeippAAAAABJRU5ErkJggg==</Image>
+          <Image>iVBORw0KGgoAAAANSUhEUgAAAGQAAAAZCAYAAADHXotLAAAABGdBTUEAALGPC/xhBQAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAOpSURBVGhD7VnBbdwwELwS3IAAl+ASUoKhrz4pwSW4A5eQElyCS0gJLuFKuGAIDjEaLiXyTgny0GNg3ZK7JHd2SEq+zNNyOxK32+1y4n5cPKEd+J6n5cvw+yTkGNxDyA8PMk/L+0nIMRgl5MsDzNPyNE/L9STkGIwSsqmOk5DHMULIrjpOQh7HCCG76jgJeRy9hHSp4yTkcfQS0qWOEULmaXnOMZ68rQXMI/sQ0bzQ583tjlxQiPFsNvhvoXu+96CHkG51DBKC9xn49CQPiQvHy/af0hfvRbCXREeQgno3u8d3VEVwJO6aQEsdgPeNkCuNPt/eLv1AfHnpFDg5H+LDtl8ez+KyX/HNbT6Wo8rHkdibwJA6AO8fQaqYKBVu/T6lD4h5tfZXt1vcUCUYr7XGlv1fwRfgqKphSx2A93fks8P9KpWYipD03b17npYXixuqRLbLFNvaaP/vCAknlKtLD1Yi+Xl/B5IkY3zI84p8U0dVGBGMRGJFpKmjmrPYw/X/bWwR0pUEIlqcw9QBYvR3a+uo1NNCQ71+aEdnkt60yrg5HoqGH1FXW6u0QZkgGkXkBZD6yG9s+RpzFbdFyHB10Nft1kcV8ZJtqphSBPfMxeIzLs67lCRTUKhOsUVwcnkW8jqO58+oT34GcTx/URhoS1/P2b81gSF15MGSr9ulXS8DWjGapLIYsY0QwgThr8ZNidxoL1dvsVEhCt9WSSpivYlvObuMEI7vSkvFCUSEdCfAgiZ/t0u7bif+PxUdP20favNYLch2lNYgsVEIeuDjdoYC4e9S+WLbzYOsSRXCC0NKusyB2/NKQY6IkEodmX1NYITk774SQ282W0jVZYf65sujbEnsT0XoAc7xy5kkbarYytZCgxBexfnM3FCRq23P4YRUk9h773C4f46hiYHM/XMEoGOgmnRLQVtVKDk2Fg3yVAFa8V4I0Vt9ufpKvyoXjgYheGbOAI7P9QwppFq0bTW7cP8cQ5PSelnTcdLbsx34ABIPtTIBZYsyAvWQ1mK42piVsqVvdIYASqieIYWQ3KYHOM8Q5sFfcMvXgs2KGFUHB7YYqGC2N6vD9nS9GeltqAUQp4QqIboGvyVVPkFsh25vuh2tCMntpUjyb80FfDFvkoRiu+oEHlYH0IjBc6YaY6Ovfg7BwjB5LQ48YxFMpPr6uwDaCslih3rKeJk8/m5Bv5v5e0h6DsbQLRF9MW8QUdZAcpQQHxgYUkdEyIkx9Eh0CD7AiTH8AYJt1818fdA4AAAAAElFTkSuQmCC</Image>
         </Picture>
       </ImageField>
       <FlexChartField>
@@ -604,6 +881,7 @@ endif</OnPrint>
         <Height>5140</Height>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Header>
           <Content>Sales and Profit for</Content>
@@ -664,6 +942,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Sum(Sales)</Expression>
@@ -681,6 +960,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Sum(Profit)</Expression>
@@ -699,6 +979,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Total</Value>
@@ -714,6 +995,7 @@ endif</OnPrint>
         <Height>330</Height>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>pregion.DisplayText</Expression>
@@ -731,9 +1013,12 @@ endif</OnPrint>
       <Width>4140</Width>
       <Orientation>Portrait</Orientation>
     </Layout>
-    <Font>
-      <Name>Constantia</Name>
-    </Font>
+    <Fonts>
+      <Font>
+        <Name>Constantia</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
     <DataSources>
       <DataSource>
         <Name>Main</Name>
@@ -836,6 +1121,7 @@ endif</OnPrint>
         <Align>LeftMiddle</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Sum(Sales)</Expression>
@@ -852,6 +1138,7 @@ endif</OnPrint>
         <Align>LeftMiddle</Align>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Sum(Profit)</Expression>
@@ -869,6 +1156,7 @@ endif</OnPrint>
         <WordWrap>false</WordWrap>
         <Font>
           <Name>Segoe UI</Name>
+          <Size>9</Size>
         </Font>
         <Text>
           <Expression>Region</Expression>
@@ -884,6 +1172,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Sales</Value>
@@ -899,6 +1188,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Profit</Value>
@@ -914,6 +1204,7 @@ endif</OnPrint>
         <Font>
           <Name>Segoe UI</Name>
           <Bold>true</Bold>
+          <Size>9</Size>
         </Font>
         <Text>
           <Value sys="string">Region</Value>

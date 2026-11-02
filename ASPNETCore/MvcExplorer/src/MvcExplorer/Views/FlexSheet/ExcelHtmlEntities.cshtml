@@ -1,0 +1,29 @@
+﻿@section Scripts{
+<script type="text/javascript" src="~/Scripts/flexSheet/excelHtmlEntities.js"></script>
+}
+
+<div>
+    <div class="copy">
+        <h3>@Html.Raw(FlexSheetRes.ExcelIO_HtmlConversion_Text0)</h3>
+
+        <p>@Html.Raw(FlexSheetRes.ExcelIO_HtmlConversion_Text1)</p>
+
+    </div>
+    <div class="row">
+        <div class="col-md-12 col-xs-24">
+            <div class="form-inline well well-lg">
+                @Html.Raw(FlexSheetRes.ExcelIO_Text3)
+                <input type="text" class="form-control" id="fileName2" />
+                @Html.Raw(FlexSheetRes.ExcelIO_HtmlConversion_Text2)
+                <c1-combo-box id="HtmlEntityConversion" is-editable="false" >
+                </c1-combo-box>
+                <button class="btn btn-default" onclick="exportHtmlEntities()">@Html.Raw(FlexSheetRes.ExcelIO_Text5)</button>
+            </div>
+        </div>
+    </div>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="excelHtmlEntitiesSheet" selected-sheet-index="0">
+            <c1-unbound-sheet column-count="10" row-count="10" name="Unbound"></c1-unbound-sheet>
+        </c1-flex-sheet>
+    </div>
+</div>

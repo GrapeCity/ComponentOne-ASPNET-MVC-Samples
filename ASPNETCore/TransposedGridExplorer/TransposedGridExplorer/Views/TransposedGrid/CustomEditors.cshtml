@@ -1,0 +1,75 @@
+﻿@model IEnumerable<ReleasePlan>
+@{
+    var categories = ViewBag.Categories as IList<string>;
+
+    const string colorTpl = "<span class='color-swatch' style='background:${value}'></span>${text}";
+}
+
+ @* The editor controls. Each row below references one of these by its id. *@
+<div class="editor-list">
+    <c1-input-date id="launchDateEditor" style="width:100%" is-required="false" format="d"></c1-input-date>
+    <c1-input-time id="launchTimeEditor" style="width:100%" is-required="false" format="t" step="30"></c1-input-time>
+    <c1-auto-complete id="categoryEditor" style="width:100%">
+        <c1-items-source source-collection="categories"></c1-items-source>
+    </c1-auto-complete>
+    <c1-input-mask id="phoneEditor" style="width:100%" mask="(000) 000-0000"></c1-input-mask>
+    <c1-input-color id="accentColorEditor" style="width:100%" is-required="false"></c1-input-color>
+    <c1-input-number id="priceEditor" style="width:100%" is-required="false" format="c2" min="0" step="10"></c1-input-number>
+</div>
+
+<c1-transposed-grid id="customEditorsGrid" auto-generate-rows="false" height="360"
+                    key-action-tab="CycleEditable" key-action-enter="MoveDown">
+    <c1-items-source source-collection="Model"></c1-items-source>
+
+    @* editor set directly on a row *@
+    <c1-transposed-grid-row binding="Product" header="Product" width="160" is-read-only="true"></c1-transposed-grid-row>
+    <c1-transposed-grid-row binding="Price" header="Price" format="c2" editor="priceEditor"></c1-transposed-grid-row>
+
+    @* editor set on the leaf rows of a row group *@
+    <c1-transposed-grid-row header="Schedule">
+        <c1-transposed-grid-row binding="LaunchDate" header="Launch Date" format="d" editor="launchDateEditor"></c1-transposed-grid-row>
+        <c1-transposed-grid-row binding="LaunchTime" header="Launch Time" format="t" editor="launchTimeEditor"></c1-transposed-grid-row>
+    </c1-transposed-grid-row>
+
+    <c1-transposed-grid-row header="Details">
+        <c1-transposed-grid-row binding="Category" header="Category" width="130" editor="categoryEditor"></c1-transposed-grid-row>
+        <c1-transposed-grid-row binding="SupportPhone" header="Support Phone" editor="phoneEditor"></c1-transposed-grid-row>
+        <c1-transposed-grid-row binding="AccentColor" header="Accent Color" editor="accentColorEditor" template="@colorTpl"></c1-transposed-grid-row>
+    </c1-transposed-grid-row>
+</c1-transposed-grid>
+
+<style type="text/css">
+    .editor-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+        max-width: 720px;
+    }
+
+    .editor-list > * {
+        width: 220px;
+    }
+
+    .color-swatch {
+        border: 1px solid #999;
+        border-radius: 2px;
+        display: inline-block;
+        height: 12px;
+        margin-right: 6px;
+        vertical-align: -1px;
+        width: 12px;
+    }
+
+    .wj-transposed-grid {
+        margin: 10px 0;
+    }
+</style>
+
+@section Summary {
+    <p>@Html.Raw(TransposedGridRes.CustomEditors_Summary)</p>
+}
+
+@section Description {
+    @Html.Raw(TransposedGridRes.CustomEditors_Descriptions)
+}

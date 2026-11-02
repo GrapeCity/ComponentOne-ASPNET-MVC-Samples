@@ -1,12 +1,12 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFrameworks>netcoreapp2.0;net461</TargetFrameworks>
     <AssemblyName>FlexChart101</AssemblyName>
     <RootNamespace>FlexChart101</RootNamespace>
   </PropertyGroup>
-  
   <ItemGroup>
     <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="FlexChart101.Core20.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.Session" Version="2.0.0" />
@@ -29,5 +29,13 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="FlexChart101.Core31.sa3licx" />
+    <None Remove="FlexChart101.Net60.sa3licx" />
+    <None Remove="FlexChart101.Net80.sa3licx" />
+    <None Remove="FlexChart101.Net90.sa3licx" />
+    <None Remove="FlexChart101.sa3licx" />
   </ItemGroup>
 </Project>

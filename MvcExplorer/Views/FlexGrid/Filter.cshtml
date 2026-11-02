@@ -7,6 +7,14 @@
 }
 
 <script type="text/javascript">
+    function customValueFilter(filterText, filterItem) {
+        var itemText = filterItem.text.toLowerCase();
+        var searchTerms = filterText.toLowerCase().split('&');
+        return searchTerms.every(function (term) {
+            return itemText.indexOf(term.trim()) > -1;
+        });
+    }
+
     function toggleExclusiveValueSearch(e) {
         var exclusiveValueSearch = e.target.checked;
         var filteringGrid = wijmo.Control.getControl('#filteringGrid');
@@ -16,9 +24,40 @@
             var colFilter = flexGridFilter.getColumnFilter(cols[i]);
             if (colFilter) {
                 colFilter.valueFilter.exclusiveValueSearch = exclusiveValueSearch;
-            } 
+            }
         }
     }
+
+    function toggleShowIncludeSelection(e) {
+        var showIncludeSelection = e.target.checked;
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        var flexGridFilter = c1.getExtenders(filteringGrid, wijmo.grid.filter.FlexGridFilter)[0];
+        var cols = filteringGrid.columns;
+        for (var i = 0; i < cols.length; i++) {
+            var colFilter = flexGridFilter.getColumnFilter(cols[i]);
+            if (colFilter) {
+                colFilter.valueFilter.showIncludeSelection = showIncludeSelection;
+            }
+        }
+    }
+
+    function addTooltips(ctl) {
+        let tt = new wijmo.Tooltip();
+        ctl.formatItem.addHandler((s, e) => {
+            if (e.panel === s.columnHeaders) {
+                let btn = e.cell.querySelector('.wj-elem-filter');
+                if (btn) {
+                    tt.setTooltip(btn, "Adjust the column filter as needed");
+                }
+            }
+        });
+    }
+
+    window.onload = () => {
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        addTooltips(filteringGrid);
+    };
+
 </script>
 
 @(Html.C1().FlexGrid<Sale>()
@@ -46,24 +85,36 @@
             .ColumnFilters(cfsb =>
             {
                 foreach (var item in filterTypes)
-                {                    
-                    cfsb.Add(cfb => cfb.Column(item.Key).FilterType(item.Value).ValueFilter(vfb => {                        
-                        vfb.ExclusiveValueSearch(true);                        
-                    }));
+                {
+                    cfsb.Add(cfb => cfb.Column(item.Key).FilterType(item.Value).ValueFilter(vfb => {
+                        vfb.ExclusiveValueSearch(true)
+                            .ShowIncludeSelection(true);
+                        if (item.Key == "Country")
+                        {
+                            vfb.SearchType(ValueFilterSearchKind.Custom)
+                                .CustomFilter("customValueFilter");
+                        }
+                    }).AriaLabel("filterLabel"));
                 }
-            })
+            }).DefaultFilterMode((FilterMode)Enum.Parse(typeof(FilterMode), optionsModel.Options["DefaultFilterMode"].CurrentValue))
      )
     .CssClass("grid")
+    .NoDataOverlayContent(Resources.FlexGrid.NoDataMessage)
 )
-
 @(Html.C1().Pager().Owner("filteringGrid"))
 
-@section Settings{    
-    <p>@Html.Partial("_OptionsMenu", optionsModel)</p>    
-    ExclusiveValueSearch:&nbsp;<input id="exclusiveValueSearch" type="checkbox" checked="checked" onchange="toggleExclusiveValueSearch(event)" />
+@section Settings{
+    <p>@Html.Partial("_OptionsMenu", optionsModel)</p>
+    ExclusiveValueSearch:&nbsp;
+    <input id="exclusiveValueSearch" type="checkbox" checked="checked" onchange="toggleExclusiveValueSearch(event)" />
+    ShowIncludeSelection:&nbsp;
+    <input id="showIncludeSelection" type="checkbox" checked="checked" onchange="toggleShowIncludeSelection(event)" />
 }
 
-@section Description{    
+@section Description{
     <p>@Html.Raw(Resources.FlexGrid.Filter_Text0)</p>
     <p>@Html.Raw(Resources.FlexGrid.Filter_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Filter_Text2)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Filter_Text3)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Filter_Text4)</p>
 }

@@ -210,8 +210,8 @@
     <comment>The second way is to declare a C1 Input control as usual and then assign it's id to the Editor property of a column.</comment>
   </data>
   <data name="CustomEditors_Text7" xml:space="preserve">
-    <value>グリッドで新しい行を追加できる場合は、エディタの IsRequired を false に設定します。 セル全体をエディタに表示する場合は、スタイルの幅を「100%」に設定する必要があります。</value>
-    <comment>If the grid allows adding a new row, you need set the editor's IsRequired property to false. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</comment>
+    <value>グリッドで新しい行を追加できる場合は、エディタの IsRequired を False に設定します。 セル全体をエディタに表示する場合は、スタイルの幅を「100%」に設定する必要があります。</value>
+    <comment>If the grid allows adding a new row, you need set the editor's IsRequired property to False. If you want to the editor to cover full width of the whole cell, you can set the style width to "100%".</comment>
   </data>
   <data name="CustomEditors_Text8" xml:space="preserve">
     <value>このサンプルでは、​​「Start」、「Country」、「Color」に Editor プロパティを使用し、「End」、「Amount」に EditTemplate プロパティを使用して、C1 Input コントロールをエディタとして設定します。</value>
@@ -243,8 +243,8 @@
     <comment>Data maps provide the grid with automatic look up capabilities. For example, you may want to display a customer name instead of his ID, or a color name instead of its RGB value.</comment>
   </data>
   <data name="DataMap_Text1" xml:space="preserve">
-    <value>関連付けられたデータマップを持つ列は、AutoComplete、DropDownList、または RadioButtons として表示できます。これらのタイプを選択するには、&lt;b&gt;DataMapEditor&lt;/b&gt;プロパティを設定します。</value>
-    <comment>Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</comment>
+    <value>関連付けられたデータマップを持つ列は、AutoComplete、DropDownList、RadioButtons、または Menu として表示できます。これらのタイプを選択するには、&lt;b&gt;DataMapEditor&lt;/b&gt;プロパティを設定します。</value>
+    <comment>Columns with an associated data map can be showed as AutoComplete, DropDownList, RadioButtons, or Menu. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</comment>
   </data>
   <data name="DataMap_Text2" xml:space="preserve">
     <value>&amp;nbsp;</value>
@@ -334,10 +334,10 @@
   </data>
   <data name="Editing_Text6" xml:space="preserve">
     <value>&lt;b&gt;複数行：&lt;/b&gt;
-        列の &lt;b&gt;multiline&lt;/b&gt; プロパティを true に設定すると、列内のセルのコンテンツは
+      列の &lt;b&gt;multiline&lt;/b&gt; プロパティを True に設定すると、列内のセルのコンテンツは
         改行文字（\n）で折り返されます。Excel と同様に、［Alt］+［Enter］を押して改行を入力できます。</value>
     <comment>&lt;b&gt;Multiline:&lt;/b&gt;
-        When setting the column's &lt;b&gt;multiline&lt;/b&gt; property to true, the content of cells in
+      When setting the column's &lt;b&gt;multiline&lt;/b&gt; property to True, the content of cells in
         column would wrap at new line characters (\n). Like Excel, users can press ALT+ENTER to enter a new line.</comment>
   </data>
   <data name="Editing_Text7" xml:space="preserve">
@@ -456,13 +456,13 @@
         ビューの GroupBy メソッドを使用してグループ記述を設定できます。
         JavaScript でグループ化を追加するには、1 つ以上の GroupDescription 
         オブジェクトを collectionView.groupDescriptions プロパティに追加します。次に、
-        グリッドの ShowGroups プロパティが true に設定されていることを確認します。</value>
+        グリッドの ShowGroups プロパティが True に設定されていることを確認します。</value>
     <comment>This sample shows grouping support in the FlexGrid. Most of the work is
         done by the CollectionView class used as a data source for the grid.
         You can config group description by GroupBy method in view.
         To add grouping by Javascript, add one or more GroupDescription
         objects to the collectionView.groupDescriptions property. And ensure
-        that the grid's ShowGroups property is set to true.</comment>
+          that the grid's ShowGroups property is set to True.</comment>
   </data>
   <data name="Grouping_Text1" xml:space="preserve">
     <value>グリッドの GroupHeaderFormat プロパティを使用して、
@@ -785,10 +785,10 @@
     <comment>Paging FlexGrid which PageSize is set to 10</comment>
   </data>
   <data name="DisableServerRead_Text2" xml:space="preserve">
-    <value>このサンプルでは、&lt;b&gt;DisableServerRead&lt;/b&gt; プロパティが何に対して作用するかを示します。
-    このプロパティを True に設定した場合は、すべての項目がクライアント側に転送されます。ソート、ページング、またはフィルタ処理はクライアント側で実行されます。
-    この場合、スクロールバーをスクロールしたときに、データをロードするために「ロード中...」のようなメッセージは表示されません。
-    そうでない場合、ソート、ページング、またはフィルタ処理はサーバー側で実行されます。この場合は、「ロード中...」というメッセージが表示されることもあります。</value>
+    <value>このサンプルでは、&lt;b&gt;DisableServerRead&lt;/b&gt; プロパティの働きを示します。
+    このプロパティを True に設定すると、すべての項目がクライアント側に転送され、ソート、ページング、フィルタリングはクライアント側で実行されます。
+    この場合、スクロールバーを動かしても、データを読み込むための「ロード中...」のようなメッセージは表示されません。
+    一方、True に設定しない場合は、ソート、ページング、フィルタリングはサーバー側で実行され、その際に「ロード中...」メッセージが表示されることがあります。</value>
     <comment>This sample shows what the &lt;b&gt;DisableServerRead&lt;/b&gt; property works for. 
     When it is set to True, all the items will be transferred to the client side. Sorting, paging or filtering will be done in the client side.
     And the text like "Loading..." is not shown for loading the data when the scrollbar scrolls.
@@ -871,7 +871,7 @@
     <comment>This view shows how to use filtering in FlexGrid.</comment>
   </data>
   <data name="FrozenCells_Text0" xml:space="preserve">
-    <value>このビューは、FlexGrid コントロールの固定セル機能を示します。</value>
+    <value>このビューには、FlexGrid コントロールの固定セル機能が表示されます。この機能は、FrozenCells によって強化され、右側と下部のセルを固定するオプションも含まれるようになりました。</value>
     <comment>This view shows the FlexGrid control's frozen cells features.</comment>
   </data>
   <data name="Globalization_Text5" xml:space="preserve">
@@ -925,7 +925,7 @@
     <comment>All orders of the selected Customer:</comment>
   </data>
   <data name="MasterDetail_Text2" xml:space="preserve">
-    <value>クライアント側 CollectionView は通貨を組み込みでサポートし、これによって FlexGrid でマスター/詳細シナリオを実装できます。&lt;strong&gt;currentItem&lt;/strong&gt; を参照して、ページ内の任意の要素の連結ソースとして使用できます。
+    <value>クライアント側の CollectionView はカレント項目の管理を組み込みでサポートしているため、FlexGrid でマスター/詳細シナリオを実装できます。&lt;strong&gt;currentItem&lt;/strong&gt; を参照し、ページ内の任意の要素の連結ソースとして使用できます。
 &lt;br/&gt;
 現在の項目が変更されたときは、詳細ビューを更新する必要があります。それには、&lt;strong&gt;currentChanged&lt;/strong&gt; イベントにハンドラをアタッチし、必要に応じて詳細ビューを更新します。</value>
     <comment>The client side CollectionView has built-in support for currency, which enables you to implement master-detail scenarios with FlexGrid. You can refer to the &lt;strong&gt;currentItem&lt;/strong&gt; and use it as a binding source for any elements on the page.
@@ -937,7 +937,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>This view shows the FlexGrid control's merge cells features.</comment>
   </data>
   <data name="ODataBind_Text0" xml:space="preserve">
-    <value>この例は、FlexGrid と OData サービスを連結する方法を示します。</value>
+    <value>この例では、FlexGrid を OData サービスにバインドする方法を示します。</value>
     <comment>This example shows how you can bind FlexGrid with an OData service.</comment>
   </data>
   <data name="PDFExport_Li1" xml:space="preserve">
@@ -1011,7 +1011,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>&lt;b&gt;styles&lt;/b&gt;: It is used to set up the style for the grid elements and link them with the embedded fonts.</comment>
   </data>
   <data name="RemoteBind_Text0" xml:space="preserve">
-    <value>この例は、FlexGrid を何らかのアクションによるデータと連結する方法を示します。</value>
+    <value>この例では、FlexGrid を任意のアクションから取得したデータとバインドする方法を示します。</value>
     <comment>This example shows how you can bind FlexGrid with the data from some Action.</comment>
   </data>
   <data name="Sorting_SortingField" xml:space="preserve">
@@ -1053,12 +1053,12 @@ Note that you have to update the details view when the current item changes. To 
     <comment>This sample shows how to use FlexGrid to display a tree view.</comment>
   </data>
   <data name="UnobtrusiveValidation_Text3" xml:space="preserve">
-    <value>このサンプルでは、控えめな検証の基本的な使用方法を示します。</value>
+    <value>このサンプルでは、控えめな検証の基本的な使い方を示します。</value>
     <comment>This sample shows the basic usage of the unobtrusive validation.</comment>
   </data>
   <data name="VirtualScrolling_Text0" xml:space="preserve">
-    <value>このサンプルは、グリッドを仮想スクロールモードにする方法を示します。この機能を有効にするには、DisableServerRead プロパティが false（デフォルト）である必要があります。次に、InitialItemsCount プロパティに 0 より大きい数字を設定する必要があります。</value>
-    <comment>This sample shows how to make grid work in virtual scrolling mode. To enable this functionality, the DisableServerRead property should be false(default). Then the InitialItemsCount property should be set a number which is greater than 0.</comment>
+    <value>このサンプルは、グリッドを仮想スクロールモードにする方法を示します。この機能を有効にするには、DisableServerRead プロパティが False（デフォルト）である必要があります。次に、InitialItemsCount プロパティに 0 より大きい数字を設定する必要があります。</value>
+    <comment>This sample shows how to make grid work in virtual scrolling mode. To enable this functionality, the DisableServerRead property should be False (default). Then the InitialItemsCount property should be set a number which is greater than 0.</comment>
   </data>
   <data name="HeaderTemplate_Description" xml:space="preserve">
     <value>この例は、財務データを含む表を示しています。 データには2つの列グループがあり、1つはファンドの実績を示し、もう1つはファンドの構成を示します。</value>
@@ -1089,19 +1089,19 @@ Note that you have to update the details view when the current item changes. To 
     <comment>&lt;b&gt;RefreshOnEdit:&lt;/b&gt; This determines whether the grid should refresh all cells after a cell is edited. It's True by default, you can disable this for more perfomance.</comment>
   </data>
   <data name="AutoGenerateColumns_Text0" xml:space="preserve">
-    <value>FlexGridは、自動生成列の幅をデータ型に基づいてカスタマイズできる列の自動生成をサポートしています。</value>
+    <value>FlexGrid は列の自動生成をサポートしており、自動生成された列の幅をデータ型に基づいてカスタマイズできます。</value>
     <comment>The FlexGrid supports generating columns automatically which the width of auto-generate columns can be customizable based on their data-type.</comment>
   </data>
   <data name="AutoGenerateColumns_Text1" xml:space="preserve">
-    <value>このページは、&lt;b&gt; AutoGenerateColumns &lt;/b&gt;プロパティが静的プロパティ&lt;b&gt; DefaultTypeWidth &lt;/b&gt;とどのように機能するかを示しています。&lt;br /&gt;静的プロパティ&lt;b&gt; DefaultTypeWidth &lt;/b&gt;は、 データ型に基づいて列を自動生成します。&lt;br /&gt;「静的プロパティ」は、グリッドに対してこのプロパティを一度設定するだけで、その後作成されるすべてのグリッドで機能することを意味します。</value>
+    <value>このページでは、&lt;b&gt;AutoGenerateColumns&lt;/b&gt; プロパティと静的プロパティ &lt;b&gt;DefaultTypeWidth&lt;/b&gt; がどのように機能するかを示します。&lt;br /&gt;静的プロパティ &lt;b&gt;DefaultTypeWidth&lt;/b&gt; を使うと、データ型に基づいて自動生成列の既定幅を設定できます。&lt;br /&gt;「静的プロパティ」であるため、一度設定すれば、その後作成されるすべてのグリッドに適用されます。</value>
     <comment>This page show how the &lt;b&gt;AutoGenerateColumns&lt;/b&gt; property works with the static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt;.&lt;br /&gt;The static property &lt;b&gt;DefaultTypeWidth&lt;/b&gt; allow to set the default width of auto-generate columns based on their data-type.&lt;br /&gt;It's "static property", means only need to set this property once for any grid then it should work for all grids which are created following.</comment>
   </data>
   <data name="AutoGenerateColumns_Text2" xml:space="preserve">
-    <value>次の設定は最初のグリッド専用です。2番目のグリッドは常にAutoGenerateColumnsをtrueに設定します。</value>
-    <comment>The following settings are for the first grid only, the second grid is always set AutoGenerateColumns to true:</comment>
+    <value>次の設定は最初のグリッド専用です。2番目のグリッドは常にAutoGenerateColumnsをTrueに設定します。</value>
+    <comment>The following settings are for the first grid only, the second grid is always set AutoGenerateColumns to True:</comment>
   </data>
   <data name="CustomCells_Text1" xml:space="preserve">
-    <value>ColumnのデータセルのHTMLコンテンツを生成するために&lt;b&gt;Template&lt;/b&gt;プロパティを使用します。</value>
+    <value>列のデータセルの HTML コンテンツを生成するために、&lt;b&gt;Template&lt;/b&gt; プロパティを使用します。</value>
     <comment>Uses &lt;b&gt;Template&lt;/b&gt; property for generating the HTML content of data cells in the Column.</comment>
   </data>
   <data name="AllowPinning_Text0" xml:space="preserve">
@@ -1133,8 +1133,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable.</comment>
   </data>
   <data name="ColumnGroups_Text1" xml:space="preserve">
-    <value>このサンプルは、グリッドの列セットを階層列として初期化して列グループを作成する方法を示しています。&lt;br /&gt;列の&lt;b&gt; ColapseTo &lt;/b&gt;および&lt;b&gt; IsColapsed &lt;/b&gt;プロパティを設定することでのみ、列グループを折りたたみ、子列を表示できます。&lt;br /&gt; CSSを使用して、列グループを展開または折りたたむときにアニメーション化することもできます。</value>
-    <comment>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</comment>
+    <value>このサンプルは、グリッドの列セットを階層列として初期化して列グループを作成する方法を示しています。&lt;br /&gt;列の&lt;b&gt; CollapseTo &lt;/b&gt;および&lt;b&gt; IsCollapsed &lt;/b&gt;プロパティを設定することでのみ、列グループを折りたたみ、子列を表示できます。&lt;br /&gt; CSSを使用して、列グループを展開または折りたたむときにアニメーション化することもできます。</value>
+    <comment>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;CollapseTo&lt;/b&gt; and &lt;b&gt;IsCollapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</comment>
   </data>
   <data name="PreserveWhiteSpace_Text0" xml:space="preserve">
     <value>このサンプルは、グリッドがセル内の空白をデータに表示されるとおりに保持するか、または空白を単一の空白文字に折りたたむかどうかを決定する方法を示します。</value>
@@ -1167,22 +1167,22 @@ Note that you have to update the details view when the current item changes. To 
   <data name="BooleanChecker_Text1" xml:space="preserve">
     <value>このサンプルでは、​​すべてのアクティブな値を設定するように、BooleanChecker が「アクティブ」列にアタッチされています。&lt;br /&gt;
     グループヘッダー行にチェックボックスを表示するには、「アクティブ」列の Aggregate プロパティを Aggregate.First に設定する必要があります。&lt;br /&gt;
-    メモ：このプロパティはブール列でのみ機能します。リモートデータ連結を使用する場合は、手動で列の DataType プロパティを DataType.Boolean に設定する必要があります。</value>
+    メモ：このプロパティはブール列でのみ機能します。リモート データ バインドを使用する場合は、手動で列の DataType プロパティを DataType.Boolean に設定する必要があります。</value>
     <comment>In this sample, the BooleanChecker is attached to "Active" column for checking all active values.&lt;br /&gt;
     To show checkboxes in groups header, need setting Aggregate property of the "Active" column as Aggregate.First.&lt;br /&gt;
     Note that the BooleanChecker only works with the boolean column. Therefore, with remote data binding, you should manually set the DataType of the column as DataType.Boolean.</comment>
   </data>
   <data name="ODataDeferCommits_Description_Text0" xml:space="preserve">
-    <value>このプロパティのデフォルト値は false です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
-    <comment>The default value for this property is &lt;b&gt;false&lt;/b&gt;, which causes any changes to the data to be immediately committed to the database.</comment>
+    <value>このプロパティのデフォルト値は False です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
+    <comment>The default value for this property is &lt;b&gt;False&lt;/b&gt;, which causes any changes to the data to be immediately committed to the database.</comment>
   </data>
   <data name="ODataDeferCommits_Summary_Text0" xml:space="preserve">
-    <value>このプロパティのデフォルト値は false です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
-    <comment>The default value for this property is false, which causes any changes to the data to be immediately committed to the database.</comment>
+    <value>このプロパティのデフォルト値は False です。これにより、 データへの変更はデータベースにすぐにコミットされます。</value>
+    <comment>The default value for this property is False, which causes any changes to the data to be immediately committed to the database.</comment>
   </data>
   <data name="ODataDeferCommits_Description_Text1" xml:space="preserve">
-    <value>このプロパティを trueに設定すると、 データへの変更（編集、追加、削除など）は追跡されますが、［コミット］ボタンをクリックして変更をコミットするか、［キャンセル］ボタンをクリックして保留中の変更を破棄するまで、 データベースにコミットされません。</value>
-    <comment>If you set this property to &lt;b&gt;true&lt;/b&gt;, any changes to the data (including edits, additions, and removals) will be tracked but not committed to the database until you click Commit button to commit the changes, or Cancel button to discard all pending changes</comment>
+    <value>このプロパティを Trueに設定すると、 データへの変更（編集、追加、削除など）は追跡されますが、［コミット］ボタンをクリックして変更をコミットするか、［キャンセル］ボタンをクリックして保留中の変更を破棄するまで、 データベースにコミットされません。</value>
+    <comment>If you set this property to &lt;b&gt;True&lt;/b&gt;, any changes to the data (including edits, additions, and removals) will be tracked but not committed to the database until you click Commit button to commit the changes, or Cancel button to discard all pending changes</comment>
   </data>
   <data name="ODataDeferCommits_Done_Text0" xml:space="preserve">
     <value>終了。</value>
@@ -1202,7 +1202,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>You can also specify the CaseSensitiveSearch property of FlexGrid to determine whether the search is case-sensitive or not.</comment>
   </data>
   <data name="MergeCells_Text1" xml:space="preserve">
-    <value>ExpandSelectionOnCopyPaste プロパティは、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定する値を設定します。</value>
+    <value>&lt;b&gt;ExpandSelectionOnCopyPaste&lt;/b&gt; プロパティは、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定する値を設定します。</value>
     <comment>The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</comment>
   </data>
   <data name="GroupPanel_Text1" xml:space="preserve">
@@ -1218,8 +1218,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>The SelectionMode property allows you to change that so that users are restricted to selecting rows, row ranges, non-contiguous rows (like in a list-box), single cells, or nothing at all.</comment>
   </data>
   <data name="ColumnVisibility_Text0" xml:space="preserve">
-    <value>Visible プロパティを使用すると、行または列を表示するように設定できます。（AutoGenerateColumnsプロパティをFalseに設定します。）</value>
-    <comment>The Visible property allows you to set row or column is visible.(Grid is set AutoGenerateColumns to false)</comment>
+    <value>Visible プロパティを使用すると、行や列の表示/非表示を設定できます（グリッドの AutoGenerateColumns プロパティは False に設定されています）。</value>
+    <comment>The Visible property allows you to set row or column is visible.(Grid is set AutoGenerateColumns to False)</comment>
   </data>
   <data name="SortingType_Text0" xml:space="preserve">
     <value>ユーザーが一度に1つまたは複数の列をソートできるように、SortingType プロパティを使用してこの動作を変更します。
@@ -1249,7 +1249,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Copying</comment>
   </data>
   <data name="PDFExport_DocumentAssembly" xml:space="preserve">
-    <value>文書アセンブリ</value>
+    <value>文書の組み立て</value>
     <comment>Document Assembly</comment>
   </data>
   <data name="PDFExport_FillingForms" xml:space="preserve">
@@ -1317,8 +1317,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>&lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;.</comment>
   </data>
   <data name="GroupPanel_Text2" xml:space="preserve">
-    <value>&lt;b&gt;ShowDragGlyphs&lt;/b&gt;をtrueに設定すると、グループマーカーの要素にドラッググリフを表示できます。falseに設定すると、グループマーカーの要素にドラッググリフを非表示にできます。</value>
-    <comment>Setting &lt;b&gt;ShowDragGlyphs&lt;/b&gt; to true or false enables to show or hide drag glyphs of the group marker elements.</comment>
+    <value>&lt;b&gt;ShowDragGlyphs&lt;/b&gt; を True に設定すると、グループ マーカー要素にドラッグ グリフを表示できます。False に設定すると、ドラッグ グリフは非表示になります。</value>
+    <comment>Setting &lt;b&gt;ShowDragGlyphs&lt;/b&gt; to True or False enables to show or hide drag glyphs of the group marker elements.</comment>
   </data>
   <data name="ODataDeferCommits_Cancel_Text0" xml:space="preserve">
     <value>キャンセル</value>
@@ -1345,7 +1345,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Export</comment>
   </data>
   <data name="ShowCase_LazyRender_Text0" xml:space="preserve">
-    <value>怠惰なレンダリング</value>
+    <value>遅延レンダリング</value>
     <comment>Lazy Render</comment>
   </data>
   <data name="ShowCase_Rows_Text0" xml:space="preserve">
@@ -1357,7 +1357,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Search:</comment>
   </data>
   <data name="RightToLeft_RightToLeft" xml:space="preserve">
-    <value>左から右へ</value>
+    <value>右から左へ</value>
     <comment>Right To Left</comment>
   </data>
   <data name="HeaderTooltips_Text0" xml:space="preserve">
@@ -1373,7 +1373,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display.</comment>
   </data>
   <data name="ColumnPicker_Text2" xml:space="preserve">
-    <value>ドラッグ＆ドロップで表示する列の順序を変更にする</value>
+    <value>ドラッグ＆ドロップで表示する列の順序を変更する</value>
     <comment>Enable drag-and-drop on column-picker to change columns' order to display.</comment>
   </data>
   <data name="DataMap_DynamicDataMap" xml:space="preserve">
@@ -1389,11 +1389,11 @@ Note that you have to update the details view when the current item changes. To 
     <comment>For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item's country.</comment>
   </data>
   <data name="PDFExport_Text9" xml:space="preserve">
-    <value>このサンプルは、タグ付きPDFを作成する方法を示します。このサンプルでは、tagged、tagContentプロパティを使用して、エクスポート時にセルごとにタグを追加します。このサンプルでは、tagメソッドを使用してタグを作成し、コンテンツにマークを付け、addTagメソッドを使用して論理ドキュメントツリーにタグを追加します。</value>
+    <value>このサンプルでは、タグ付き PDF を作成する方法を示します。&lt;b&gt;tagged&lt;/b&gt; プロパティと &lt;b&gt;tagContent&lt;/b&gt; プロパティを使用して、エクスポート時に各セルへタグを追加します。さらに、&lt;b&gt;tag&lt;/b&gt; メソッドでタグを作成してコンテンツに印を付け、&lt;b&gt;addTag&lt;/b&gt; メソッドで論理文書ツリーにタグを追加します。</value>
     <comment>This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree.</comment>
   </data>
   <data name="PDFExport_Title4" xml:space="preserve">
-    <value>タグサポート</value>
+    <value>タグのサポート</value>
     <comment>Tags Support</comment>
   </data>
   <data name="TreeGrid_BindingXml_Description" xml:space="preserve">
@@ -1401,8 +1401,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid control. It loads a XML document into a XElement object and loops through the XElement to build a list with "category" items, each with a "products" list. The list is used as an itemsSource and the childItemsPath property is used to show the products for each category as a tree.</comment>
   </data>
   <data name="TreeGrid_Editable_Description" xml:space="preserve">
-    <value>FlexGridのChildItemsPathを使用してデータをツリーとして表示すると、結果のグリッドはデフォルトで読み取り専用になります。これは、ツリー内のすべての行がGroupRowであり、グループ行がデフォルトで読み取り専用であるために発生します。ツリーを編集可能にするには、OnClientLoadedRowsイベントを処理して、すべての行のIsReadOnlyプロパティをfalseに設定します。</value>
-    <comment>If you use FlexGrid's childItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &amp;lt;b&amp;gt;OnClientLoadedRows&amp;lt;/b&amp;gt; event to set the isReadOnly property of every row to false.</comment>
+    <value>FlexGridのChildItemsPathを使用してデータをツリーとして表示すると、結果のグリッドはデフォルトで読み取り専用になります。これは、ツリー内のすべての行がGroupRowであり、グループ行がデフォルトで読み取り専用であるために発生します。ツリーを編集可能にするには、OnClientLoadedRowsイベントを処理して、すべての行のIsReadOnlyプロパティをFalseに設定します。</value>
+    <comment>If you use FlexGrid's childItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &amp;lt;b&amp;gt;OnClientLoadedRows&amp;lt;/b&amp;gt; event to set the isReadOnly property of every row to False.</comment>
   </data>
   <data name="TreeGrid_Unbound_Description" xml:space="preserve">
     <value>非連結モードで作業したい場合は、コードで行と列を追加してツリーを構築することもできます。</value>
@@ -1425,7 +1425,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Restore Layout</comment>
   </data>
   <data name="TreeGrid_ChildItems_Description" xml:space="preserve">
-    <value>データ項目に子項目のコレクションが含まれている場合、FlexGridのChildItemsPathを使用してデータをツリーとして表示できます。 たとえば、「children」プロパティを持つ「person」オブジェクトのリストがあるとします。 「children」プロパティには、より多くの人のオブジェクトの配列が含まれています。 これは、同種階層と呼ばれることもあります。 次のグリッドは、グリッドを最上位の人のリストに連結し、ChildItems  Pathプロパティを「children」に設定することによって作成されます。       </value>
+    <value>データ項目に子項目のコレクションが含まれている場合は、FlexGrid の ChildItemsPath を使用してデータをツリー表示できます。たとえば、「children」プロパティを持つ「person」オブジェクトのリストがあるとします。「children」プロパティには、さらに多くの person オブジェクトの配列が含まれています。これは「同種階層」と呼ばれることもあります。次のグリッドは、グリッドを最上位の person リストにバインドし、ChildItemsPath プロパティを「children」に設定して作成されています。</value>
     <comment>If your data items contain collections of child items, you may use FlexGrid's childItemsPath to show the data as a tree. For example, consider a list of 'person' objects which have a 'children' property. The 'children' property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the childItemsPath property to 'children':</comment>
   </data>
   <data name="TreeGrid_LazyLoading_Description" xml:space="preserve">
@@ -1441,7 +1441,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>There are also 'heterogeneous' hierarchies, where items at different levels have different types and different child item properties.</comment>
   </data>
   <data name="TreeGrid_ChildItems_Text2" xml:space="preserve">
-    <value>たとえば、以下のグリッドは、「earnings」を一覧表示する「checks」を受け取る「worker」オブジェクトのコレクションに連結されています。</value>
+    <value>たとえば、以下のグリッドは、「earnings」を一覧表示する「checks」を受け取る「worker」オブジェクトのコレクションにバインドされています。</value>
     <comment>For example, the grid below is bound to a collection of 'worker' objects which receive 'checks' which list 'earnings':</comment>
   </data>
   <data name="TreeGrid_LazyLoading_Text" xml:space="preserve">
@@ -1465,15 +1465,15 @@ Note that you have to update the details view when the current item changes. To 
     <comment>HTML accommodates RTL with the 'dir' attribute. Setting 'dir' to 'rtl' or 'ltr' on any element causes the element's content to flow from right to left or vice versa. The exported file content will change its direction based on  Flexgrid control dir attribute.</comment>
   </data>
   <data name="ExcelImportExport_RTL_Text2" xml:space="preserve">
-    <value>Flexgridは右から左ですか？</value>
+    <value>FlexGrid は右から左ですか？</value>
     <comment>Is Flexgrid RTL</comment>
   </data>
   <data name="ExcelImportExport_RTL_Text3" xml:space="preserve">
-    <value>Excelの右から左に：</value>
+    <value>Excel を右から左に:</value>
     <comment>Excel RightToLeft:</comment>
   </data>
   <data name="MergeCells_Text2" xml:space="preserve">
-    <value>SkipMerged プロパティを使用すると、コピー時に結合されたセルをスキップする機能を有効または無効にすることができます。</value>
+    <value>&lt;b&gt;SkipMerged&lt;/b&gt; プロパティを使用すると、コピー時に結合されたセルをスキップする機能を有効または無効にすることができます。</value>
     <comment>The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying.</comment>
   </data>
   <data name="RemoteBind_Text1" xml:space="preserve">
@@ -1485,7 +1485,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>This page demos how to use CommitEmptyEdits property.</comment>
   </data>
   <data name="EmptyEdit_Text1" xml:space="preserve">
-    <value>空の編集のコミットを無視することを選択した場合や元の値が null のときは、グリッドはセル値に対する空の編集をコミットしません。</value>
+    <value>空の編集をコミットしない設定を選択した場合、または元の値が null の場合、グリッドはセル値に対する空の編集をコミットしません。</value>
     <comment>If you choose to ignore commit empty edits, the Grid will not commit empty edits to cell values if the original value is null.</comment>
   </data>
   <data name="EmptyEdit_Text2" xml:space="preserve">
@@ -1493,7 +1493,151 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Items Changed:</comment>
   </data>
   <data name="CheckboxSelection_Text2" xml:space="preserve">
-    <value>The Selector can be set AriaLabel to support screen reader.</value>
+    <value>Selector では、スクリーン リーダーをサポートするために AriaLabel を設定できます。</value>
     <comment>The Selector can be set AriaLabel to support screen reader.</comment>
+  </data>
+  <data name="MergeCells_Text3" xml:space="preserve">
+    <value>&lt;b&gt;PasteEmptyCells&lt;/b&gt; プロパティを使用すると、貼り付けるときにすべてのセルを貼り付けるか、空でないセルのみを貼り付けるかを決定できます。</value>
+    <comment>The PasteEmptyCells property allows to determines whether when pasting, paste all cells or only not empty cells.</comment>
+  </data>
+  <data name="Focusability_Text01" xml:space="preserve">
+    <value>&lt;b&gt;ヘッダーの Focusability&lt;/b&gt; プロパティは、行ヘッダーと列ヘッダーがフォーカス可能かどうかを決定します。</value>
+    <comment>Headers Focusability property determines whether the row and column headers are focusable.</comment>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>&lt;b&gt;GroupSummaryPosition&lt;/b&gt; プロパティを使用して、グループ内のグループ サマリー行の位置を決定できます。ChildItemsPath プロパティが設定されている場合、このプロパティは機能しません。</value>
+    <comment>You can use the property GroupSummaryPosition to determine the position of group summary row in the group. This property does not work if ChildItemsPath property is set.</comment>
+  </data>
+  <data name="ColumnGroups_Text2" xml:space="preserve">
+    <value>グループの親列に明示的に設定されている場合、列グループ ヘッダーに &lt;b&gt;cssClassAll&lt;/b&gt; プロパティを適用するためのサポートが追加されました。</value>
+    <comment>Added support for cssClassAll property to be applied on column group header when explicitly set on the parent column of a group.</comment>
+  </data>
+  <data name="BuiltInValidation_Text3" xml:space="preserve">
+    <value>ツールチップをトリガーする方法を決定する Trigger プロパティを使用できます。</value>
+    <comment>You can use the Trigger property that determines how the tooltip should be triggered.</comment>
+  </data>
+  <data name="ColumnGroups_Text3" xml:space="preserve">
+    <value>空のセルを編集するときに表示される列の &lt;b&gt;プレースホルダー&lt;/b&gt; を追加しました。</value>
+    <comment>Added the &lt;b&gt;placeholder&lt;/b&gt; for a column which will be displayed when editing an empty cell.</comment>
+  </data>
+  <data name="FrozenCells_Text1" xml:space="preserve">
+    <value>サポートされている操作</value>
+    <comment>Supported Operations</comment>
+  </data>
+  <data name="FrozenCells_Text2" xml:space="preserve">
+    <value>列を左または右に固定します。</value>
+    <comment>Freeze columns on the left or right.</comment>
+  </data>
+  <data name="FrozenCells_Text3" xml:space="preserve">
+    <value>行を上部または下部に固定します。</value>
+    <comment>Freeze rows at the top or bottom.</comment>
+  </data>
+  <data name="FrozenCells_Text4" xml:space="preserve">
+    <value>水平方向 (左または右) と垂直方向 (上または下) の固定化を組み合わせます。</value>
+    <comment>Combine one horizontal (left or right) and one vertical (top or bottom) freeze</comment>
+  </data>
+  <data name="FrozenCells_Text5" xml:space="preserve">
+    <value>注: freezeCells API は４つの辺すべてにオプションを提供しますが、同時にセルを固定できるのは左または右、上または下の２つの辺のみです。左と右の両方が設定されている場合は、左が有効になります。同様に、上と下の両方が設定されている場合は、上が適用されます。</value>
+    <comment>Note: While the frozenCells API provides options for all four sides, you can only freeze cells on two sides simultaneously: left OR right, top OR bottom. If both left and right are set, left will take effect. Similarly, if both top and bottom, top will be applied.</comment>
+  </data>
+  <data name="FrozenCell_Setting1" xml:space="preserve">
+    <value>列の固定化（左）</value>
+    <comment>Frozen Columns (Left)</comment>
+  </data>
+  <data name="FrozenCell_Setting2" xml:space="preserve">
+    <value>列の固定化（右）</value>
+    <comment>Frozen Columns (Right)</comment>
+  </data>
+  <data name="FrozenCell_Setting3" xml:space="preserve">
+    <value>行の固定化（上）</value>
+    <comment>Frozen Rows (Top)</comment>
+  </data>
+  <data name="FrozenCell_Setting4" xml:space="preserve">
+    <value>行の固定化（下）</value>
+    <comment>Frozen Rows (Bottom)</comment>
+  </data>
+  <data name="Searching_SubmitOnChange" xml:space="preserve">
+    <value>&lt;b&gt;SubmitOnChange&lt;/b&gt;: 検索を自動的にトリガーするか手動でトリガーするかを決定します。&lt;/br&gt; &lt;b&gt;True&lt;/b&gt; に設定すると、Enter キーを押すか入力を送信した後にのみ検索が実行されます。&lt;/br&gt; &lt;b&gt;False&lt;/b&gt; に設定すると、入力時に検索が自動的に実行され、テキストの変更にリアルタイムで応答します。</value>
+    <comment>&lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;.</comment>
+  </data>
+  <data name="GroupPanel_GroupPanelToolTip" xml:space="preserve">
+    <value>さらに、割り当てられた &lt;b&gt;aria-label&lt;/b&gt; 属性に基づいて、グループ パネルのツールチップが自動的に作成されます。</value>
+    <comment>Additionally, tooltips are automatically created for the Group Panel based on the &lt;b&gt;aria-label&lt;/b&gt; attribute assigned to it.</comment>
+  </data>
+  <data name="Filter_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ShowIncludeSelection&lt;/b&gt; プロパティは、値フィルターに Excel の「現在の選択をフィルターに追加」機能を表示するかどうかを制御するための高度なオプションです。&lt;br /&gt;ShowIncludeSelection のチェックを切り替えて列フィルターアイコンを開くと、フィルターボックス内で「現在の選択を含める」オプションがどのように表示され、どのように機能するかを確認できます。&lt;br/&gt;
+
+さらに、グリッド列フィルター内の各コントロールに割り当てられた &lt;b&gt;aria-label&lt;/b&gt; 属性に基づいて、ツールチップが自動的に作成されます。</value>
+    <comment>Explains the option that controls whether the filter includes an Excel style feature for adding the current selection, and notes that tooltips come from aria label attributes in the filter controls.</comment>
+  </data>
+  <data name="SortingType_Order" xml:space="preserve">
+    <value>&lt;b&gt;SortOrder&lt;/b&gt; プロパティは、FlexGrid 内のすべての列に適用される並べ替え順序のパターンを定義します。&lt;br/&gt;
+オプションは次のとおりです。&lt;br/&gt;
+&lt;b&gt;AscDesc&lt;/b&gt; - 列は昇順、降順の順に並べ替えられます。&lt;br/&gt;
+&lt;b&gt;DescAsc&lt;/b&gt; - 列は降順、昇順の順に並べ替えられます。&lt;br/&gt;
+&lt;b&gt;AscDescNone&lt;/b&gt; - 列は昇順、降順、クリアの順に並べ替えられます（並べ替えなし）。&lt;br/&gt;
+&lt;b&gt;DescAscNone&lt;/b&gt; - 列は降順、昇順、クリアの順に並べ替えられます（並べ替えなし）。</value>
+    <comment>The &lt;b&gt;SortOrder&lt;/b&gt; property defines the sorting order pattern applied to all columns in the FlexGrid.&lt;br/&gt;
+The options are:&lt;br/&gt;
+&lt;b&gt;AscDesc&lt;/b&gt; - columns are sorted in ascending then descending order.&lt;br/&gt;
+&lt;b&gt;DescAsc&lt;/b&gt; - columns are sorted in descending then ascending order.&lt;br/&gt;
+&lt;b&gt;AscDescNone&lt;/b&gt; - columns are sorted in ascending, descending, then cleared (no sort).&lt;br/&gt;
+&lt;b&gt;DescAscNone&lt;/b&gt; - columns are sorted in descending, ascending, then cleared (no sort).</comment>
+  </data>
+  <data name="ODataGroupLazy_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ODataCollectionView&lt;/b&gt; クラスは、階層データを効率的に扱うための &lt;b&gt;グループ遅延読み込み&lt;/b&gt; をサポートします。&lt;b&gt;groupOnServer&lt;/b&gt; を有効にすると、データはサーバー側でグループ化され、サーバーは &lt;b&gt;aggregates&lt;/b&gt; プロパティを使用して各グループの集計値も計算できます。&lt;b&gt;groupLazyLoading&lt;/b&gt; プロパティを True に設定すると、最初は最上位グループのみが読み込まれます。残りのデータは自動では読み込まれず、グループが展開されたときにオンデマンドで取得されます。上のグリッドは、グループ化されたデータが段階的に読み込まれる様子を示しており、ユーザーが必要に応じてデータを探索しながら、パフォーマンスを向上できます。</value>
+    <comment>The &lt;b&gt;ODataCollectionView&lt;/b&gt; class supports &lt;b&gt;group lazy-loading&lt;/b&gt; to efficiently work with hierarchical data. When &lt;b&gt;groupOnServer&lt;/b&gt; is enabled, the data is grouped on the server side, and the server can also compute aggregated values for each group using the &lt;b&gt;aggregates&lt;/b&gt; property. By setting the &lt;b&gt;groupLazyLoading&lt;/b&gt; property to true, only the top-level groups are loaded initially. The remaining data is not loaded automatically. Instead, it is retrieved on demand when a group is expanded. The grid above demonstrates how grouped data is loaded progressively, improving performance while allowing users to explore data as needed.</comment>
+  </data>
+  <data name="NoDataMessage" xml:space="preserve">
+    <value>表示するデータがありません。</value>
+    <comment>No data to display.</comment>
+  </data>
+  <data name="Searching_ExactMatch" xml:space="preserve">
+    <value>既定では、検索一致のために各行がスペース区切りの文字列に変換されるため、セル値にスペースが含まれる場合は期待どおりに動作しないことがあります。各セルを正確に一致させるには、&lt;b&gt;exactMatch&lt;/b&gt; を有効にしてください。</value>
+    <comment>By default, each row is converted into a space-separated string for search matching, which may not work as expected when cell values contain spaces. Enable &lt;b&gt;exactMatch&lt;/b&gt; to match each cell precisely.</comment>
+  </data>
+  <data name="Filter_Text3" xml:space="preserve">
+    <value>&lt;b&gt;DefaultFilterMode&lt;/b&gt; プロパティは、グリッドフィルターをシングルモードまたはマルチモードで表示するために使用できます。</value>
+    <comment>The &lt;b&gt;DefaultFilterMode&lt;/b&gt; property can be used to display the grid filter in single-mode or multi-mode.</comment>
+  </data>
+  <data name="Filter_Text4" xml:space="preserve">
+    <value />
+    <comment>The Country value filter uses a custom search function. Separate search terms with an ampersand (&amp;amp;) to require every term to match.</comment>
+  </data>
+  <data name="AllowResizing_Description" xml:space="preserve">
+    <value>FlexGrid は、データの視認性を高めるために列のサイズ変更をサポートしています。</value>
+    <comment> FlexGrid supports column resizing to improve data viewing. </comment>
+  </data>
+  <data name="AllowResizing_Details" xml:space="preserve">
+    <value>既定では、列はグリッドの幅の範囲内でのみサイズ変更できます。グリッド境界を超えたサイズ変更を許可するには、適切な列挙値を指定した &lt;b&gt;allowResizing&lt;/b&gt; プロパティを使用します。これにより、列をいつどのようにサイズ変更できるかを制御できます。</value>
+    <comment>By default, columns can only be resized within the grid’s width. To allow resizing beyond the grid boundaries, use the &lt;b&gt;allowResizing&lt;/b&gt; property with appropriate enum values, which control how and when columns can be resized.</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Grouping_Text3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text0" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text4" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text0" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

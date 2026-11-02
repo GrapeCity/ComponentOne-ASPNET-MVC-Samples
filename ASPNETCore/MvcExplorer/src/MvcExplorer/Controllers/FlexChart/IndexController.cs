@@ -44,7 +44,8 @@ namespace MvcExplorer.Controllers
                         "LeftTop",
                         "AboveLeft"
                     }},
-                {"MaxSize", new object[] {"50px", "10%", "100%", "20px", "0.5%", "50%", "100px" } }
+                {"MaxSize", new object[] {"50px", "10%", "100%", "20px", "0.5%", "50%", "100px" } },
+                {"Reverse", new object[]{false, true}}
             };
 
             return settings;

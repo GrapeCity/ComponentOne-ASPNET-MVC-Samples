@@ -650,6 +650,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the popup dialog based on the &lt;b&gt;aria-labelledby&lt;/b&gt; attribute assigned to each control within it..
+        /// </summary>
+        internal static string PopupDialog_Tooltip {
+            get {
+                return ResourceManager.GetString("PopupDialog_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Update Account.
         /// </summary>
         internal static string PopupDialog_UpdateAccount {

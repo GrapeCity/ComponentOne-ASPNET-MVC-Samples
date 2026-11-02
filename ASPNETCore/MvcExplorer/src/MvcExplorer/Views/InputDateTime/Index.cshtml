@@ -1,6 +1,7 @@
 ﻿
 @{
     var today = DateTime.Now.Date;
+    var readonlyOptions = new List<string> { "False", "True" };
 }
 @section Scripts{
     <script>
@@ -10,6 +11,15 @@
                 if (selCulture.selectedOptions.length > 0)
                     document.getElementById("curCulture").textContent = selCulture.selectedOptions[0].label;
             });
+        }
+
+        function handleReadonlyChanged(sender, args) {
+            var inputDatetime = wijmo.Control.getControl('#idcInputDateTime');
+            if (sender.selectedValue === "True") {
+                inputDatetime.isReadOnly = true;
+            } else {
+                inputDatetime.isReadOnly = false;
+            }
         }
     </script>
 
@@ -25,7 +35,7 @@
 
     <label>@Html.Raw(InputDateTimeRes.Index_Text0)</label>
 
-    <c1-input-date-time value="@today">
+    <c1-input-date-time id="idcInputDateTime" value="@today">
 
     </c1-input-date-time>
 
@@ -40,9 +50,15 @@
     </select>
     <br />
     <button id="btn" onclick="applyCulture()">@Html.Raw(InputDateTimeRes.Index_Text22)</button>
+    <p></p>
+    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.Index_Text2)</label>
+    <c1-combo-box selected-index-changed="handleReadonlyChanged">
+        <c1-items-source source-collection="@readonlyOptions"></c1-items-source>
+    </c1-combo-box>
 </div>
 
 @section Description{
     <p>@Html.Raw(InputDateTimeRes.Index_Text1)</p>
     <p>@Html.Raw(InputDateTimeRes.Index_Text2)</p>
+    <p>@Html.Raw(InputDateTimeRes.Index_Text3)</p>
 }

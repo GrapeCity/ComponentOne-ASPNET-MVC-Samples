@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class CollectionView {
@@ -97,7 +97,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The CollectionViewNavigator is used for navigating records of data in CollectionView. &lt;br&gt;This demo uses two CollectionViewNavigator controls, the first for navigating by item, the second for navigating by page. It uses following properties: &lt;br&gt; The &lt;b&gt;ItemSourceId&lt;/b&gt; refers the Id of CollectionViewService or Control that binds to data for navigating. &lt;br&gt; The &lt;b&gt;ByPage&lt;/b&gt; property for determining navigating by item or by page.&lt;br&gt; The &lt;b&gt;RepeatButtons&lt;/b&gt; property for enabling whether the next/previous  [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  The CollectionViewNavigator is used for navigating records of data in CollectionView. &lt;br&gt;This demo uses two CollectionViewNavigator controls, the first for navigating by item, the second for navigating by page. It uses following properties: &lt;br&gt; The &lt;b&gt;ItemSourceId&lt;/b&gt; refers the Id of CollectionViewService or Control that binds to data for navigating. &lt;br&gt; The &lt;b&gt;ByPage&lt;/b&gt; property for determining navigating by item or by page.&lt;br&gt; The &lt;b&gt;RepeatButtons&lt;/b&gt; property for enabling whether the next/previous  [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string CollectionViewNavigator_Text0 {
             get {
@@ -120,6 +120,87 @@ namespace Resources {
         internal static string Index_Text1 {
             get {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to addNew().
+        /// </summary>
+        internal static string NewItemIndex_Text0 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to insertAt(0).
+        /// </summary>
+        internal static string NewItemIndex_Text1 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to insertAt(pageSize-1).
+        /// </summary>
+        internal static string NewItemIndex_Text2 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to insertAt(-1).
+        /// </summary>
+        internal static string NewItemIndex_Text3 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When paging is enabled, a row added using the &lt;b&gt;addNew&lt;/b&gt; method is appended to the end of the entire source collection, so it appears on the last page regardless of which page is currently displayed..
+        /// </summary>
+        internal static string NewItemIndex_Text4 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to To add a new row at a specific position on the current page, set &lt;b&gt;NewItemIndex&lt;/b&gt; on the &lt;b&gt;CollectionViewService&lt;/b&gt;. The valid range is from 0 to &lt;b&gt;pageSize&lt;/b&gt; - 1. If &lt;b&gt;NewItemIndex&lt;/b&gt; is less than 0 or greater than or equal to the current &lt;b&gt;pageSize&lt;/b&gt;, the original &lt;b&gt;addNew&lt;/b&gt; behavior is preserved..
+        /// </summary>
+        internal static string NewItemIndex_Text5 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When paging is disabled, &lt;b&gt;NewItemIndex&lt;/b&gt; is treated as an index within the entire &lt;b&gt;SourceCollection&lt;/b&gt;..
+        /// </summary>
+        internal static string NewItemIndex_Text6 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text6", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;insertAt&lt;/b&gt; method inserts an item directly at a page-relative position when paging is enabled. If the specified index is invalid, the insertion is not performed..
+        /// </summary>
+        internal static string NewItemIndex_Text7 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text7", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to use &lt;b&gt;NewItemIndex&lt;/b&gt; and &lt;b&gt;insertAt&lt;/b&gt; to control the position of newly inserted items..
+        /// </summary>
+        internal static string NewItemIndex_Text8 {
+            get {
+                return ResourceManager.GetString("NewItemIndex_Text8", resourceCulture);
             }
         }
         

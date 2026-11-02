@@ -30,12 +30,6 @@ namespace MvcExplorer.Controllers
             {
                 {"ShowErrors", new object[]{ true, false }},
                 {"ValidateEdits", new object[]{ true, false }},
-                {"ErrorTipStyle", new object[]{
-                        "red-yellow-errortip",
-                        "gradient-errortip",
-                        "text-style-errortip",
-                        "strong-round-errortip"
-                    }},
                 {"TooltipPosition", new object[]{
                         "Above",
                         "AboveRight",
@@ -49,6 +43,17 @@ namespace MvcExplorer.Controllers
                         "Left",
                         "LeftTop",
                         "AboveLeft"
+                    }},
+                {"TooltipTrigger", new object[]{
+                        "Focus",
+                        "Hover",
+                        "Both"
+                    }},
+                {"ErrorTipStyle", new object[]{
+                        "red-yellow-errortip",
+                        "gradient-errortip",
+                        "text-style-errortip",
+                        "strong-round-errortip"
                     }}
             };
 

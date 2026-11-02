@@ -22,6 +22,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -41,29 +43,28 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.8">
-      <HintPath>..\packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Chart">
+      <HintPath>..\packages\C1.Chart.10.0.20262.116\lib\netstandard2.0\C1.Chart.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.4.8">
-      <HintPath>..\packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Chart.Diagram">
+      <HintPath>..\packages\C1.Chart.Diagram.10.0.20262.116\lib\netstandard2.0\C1.Chart.Diagram.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.Bitmap.4.8">
-      <HintPath>..\packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Excel">
+      <HintPath>..\packages\C1.Excel.10.0.20262.328\lib\netstandard2.0\C1.Excel.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Win.C1DX.4.8">
-      <HintPath>..\packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.8.20262.477\lib\net48\C1.Web.Mvc.FlexSheet.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Web.Mvc.FlexSheet">
-      <HintPath>..\packages\C1.Web.Mvc.FlexSheet.4.8.20241.360\lib\net48\C1.Web.Mvc.FlexSheet.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Zip">
+      <HintPath>..\packages\C1.Zip.10.0.20262.20\lib\netstandard2.0\C1.Zip.dll</HintPath>
+    </Reference>
+    <Reference Include="DS.Documents.Imaging, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>..\packages\DS.Documents.Imaging.7.2.6\lib\net461\DS.Documents.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.AspNet.SignalR.Core, Version=2.2.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.SignalR.Core.2.2.0\lib\net45\Microsoft.AspNet.SignalR.Core.dll</HintPath>
@@ -79,9 +80,25 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=4.0.4.1, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Runtime.CompilerServices.Unsafe.4.5.3\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -222,9 +239,6 @@
     <Content Include="fonts\glyphicons-halflings-regular.eot" />
     <Content Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
@@ -259,4 +273,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="SignalR.sa3licx" />
+  </ItemGroup>
 </Project>

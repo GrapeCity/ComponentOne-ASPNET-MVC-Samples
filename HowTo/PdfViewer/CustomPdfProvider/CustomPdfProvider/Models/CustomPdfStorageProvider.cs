@@ -2,8 +2,9 @@
 using System.Collections.Specialized;
 using C1.Web.Api.Storage;
 using System.IO;
-using C1.C1Pdf;
+using C1.Pdf;
 using System.Drawing;
+using System.Web.UI.WebControls;
 
 namespace CustomPdfProvider.Models
 {
@@ -66,7 +67,7 @@ namespace CustomPdfProvider.Models
             return rcPage;
         }
 
-        private RectangleF RenderParagraph(C1PdfDocument c1pdf, string text, Font font, RectangleF rcPage, RectangleF rc, bool outline, bool linkTarget)
+        private RectangleF RenderParagraph(C1PdfDocument c1pdf, string text, C1.Util.Font font, RectangleF rcPage, RectangleF rc, bool outline, bool linkTarget)
         {
             // if it won't fit this page, do a page break
             rc.Height = c1pdf.MeasureString(text, font, rc.Width).Height;
@@ -77,7 +78,7 @@ namespace CustomPdfProvider.Models
             }
 
             // draw the string
-            c1pdf.DrawString(text, font, Brushes.Black, rc);
+            c1pdf.DrawString(text, font, Color.Black, rc);
 
             // show bounds (mainly to check word wrapping)
             //c1pdf.DrawRectangle(Pens.Sienna, rc);
@@ -85,7 +86,7 @@ namespace CustomPdfProvider.Models
             // add headings to outline
             if (outline)
             {
-                c1pdf.DrawLine(Pens.Black, rc.X, rc.Y, rc.Right, rc.Y);
+                c1pdf.DrawLine(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc.X, rc.Y, rc.Right, rc.Y);
                 c1pdf.AddBookmark(text, 0, rc.Y);
             }
 
@@ -117,8 +118,8 @@ namespace CustomPdfProvider.Models
             c1pdf.DocumentInfo.Title = "Text Flow";
 
             // add title
-            Font titleFont = new Font("Tahoma", 24, FontStyle.Bold);
-            Font bodyFont = new Font("Tahoma", 9);
+            C1.Util.Font titleFont = new C1.Util.Font("Tahoma", 24, C1.Util.FontStyle.Bold);
+            C1.Util.Font bodyFont = new C1.Util.Font("Tahoma", 9);
             RectangleF rcPage = GetPageRect(c1pdf);
             RectangleF rc = RenderParagraph(c1pdf, c1pdf.DocumentInfo.Title, titleFont, rcPage, rcPage, false, false);
             rc.Y += titleFont.Size + 6;
@@ -140,9 +141,9 @@ namespace CustomPdfProvider.Models
             {
                 // render as much as will fit into the rectangle
                 rc.Inflate(-3, -3);
-                int nextChar = c1pdf.DrawString(text, bodyFont, Brushes.Black, rc);
+                int nextChar = c1pdf.DrawString(text, bodyFont, Color.Black, rc);
                 rc.Inflate(+3, +3);
-                c1pdf.DrawRectangle(Pens.Silver, rc);
+                c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Silver, 1), rc);
 
                 // break when done
                 if (nextChar >= text.Length)
@@ -177,16 +178,16 @@ namespace CustomPdfProvider.Models
             c1pdf.DocumentInfo.Title = "Text Alignment";
 
             // create objects
-            StringFormat sf = new StringFormat();
-            Font titleFont = new Font("Tahoma", 24, FontStyle.Bold);
-            Font font = new Font("Tahoma", 10);
+            C1.Util.StringFormat sf = new C1.Util.StringFormat();
+            C1.Util.Font titleFont = new C1.Util.Font("Tahoma", 24, C1.Util.FontStyle.Bold);
+            C1.Util.Font font = new C1.Util.Font("Tahoma", 10);
             RectangleF rcPage = GetPageRect(c1pdf);
 
             // render title
             RenderParagraph(c1pdf, c1pdf.DocumentInfo.Title, titleFont, rcPage, rcPage, false, false);
 
             // draw cross-hair
-            Pen pen = new Pen(Color.Black, 0.1f);
+            GrapeCity.Documents.Drawing.Pen pen = new GrapeCity.Documents.Drawing.Pen(Color.Black, 0.1f);
             PointF center = new PointF(rcPage.X + rcPage.Width / 2, rcPage.Y + rcPage.Height / 2);
             c1pdf.DrawLine(pen, center.X, rcPage.Y, center.X, rcPage.Bottom);
             c1pdf.DrawLine(pen, rcPage.X, center.Y, rcPage.Right, center.Y);
@@ -194,30 +195,30 @@ namespace CustomPdfProvider.Models
             // draw some text
             string text = "This is some sample text that will be rendered in rectangles on the page.";
 
-            sf.Alignment = StringAlignment.Far;
-            sf.LineAlignment = StringAlignment.Far;
+            sf.Alignment = C1.Util.HorizontalAlignment.Right;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Bottom;
             RectangleF rc = new RectangleF(center.X - 100, center.Y - 100, 100, 100);
-            c1pdf.FillRectangle(Brushes.LightGoldenrodYellow, rc);
-            c1pdf.DrawString("TOP LEFT: " + text, font, Brushes.Black, rc, sf);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.FillRectangle(Color.LightGoldenrodYellow, rc);
+            c1pdf.DrawString("TOP LEFT: " + text, font, Color.Black, rc, sf);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
-            sf.LineAlignment = StringAlignment.Near;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Top;
             rc.Offset(0, rc.Height);
-            c1pdf.FillRectangle(Brushes.LightSalmon, rc);
-            c1pdf.DrawString("BOTTOM LEFT: " + text, font, Brushes.Black, rc, sf);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.FillRectangle(Color.LightSalmon, rc);
+            c1pdf.DrawString("BOTTOM LEFT: " + text, font, Color.Black, rc, sf);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
-            sf.Alignment = StringAlignment.Near;
+            sf.Alignment = C1.Util.HorizontalAlignment.Left;
             rc.Offset(rc.Width, 0);
-            c1pdf.FillRectangle(Brushes.LightSeaGreen, rc);
-            c1pdf.DrawString("BOTTOM RIGHT: " + text, font, Brushes.Black, rc, sf);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.FillRectangle(Color.LightSeaGreen, rc);
+            c1pdf.DrawString("BOTTOM RIGHT: " + text, font, Color.Black, rc, sf);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
-            sf.LineAlignment = StringAlignment.Far;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Bottom;
             rc.Offset(0, -rc.Height);
-            c1pdf.FillRectangle(Brushes.LightSteelBlue, rc);
-            c1pdf.DrawString("TOP RIGHT: " + text, font, Brushes.Black, rc, sf);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.FillRectangle(Color.LightSteelBlue, rc);
+            c1pdf.DrawString("TOP RIGHT: " + text, font, Color.Black, rc, sf);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
             // render some rtf as well
             string qbf = "The quick brown fox jumped over the lazy dog. ";
@@ -228,9 +229,9 @@ namespace CustomPdfProvider.Models
                     @"\qj And {\i this paragraph} will be {\b\i justified}. {\fs12 " + qbf + @"\par\par Done.}";
             rc.Location = new PointF(rcPage.X + 12, rcPage.Y + 50);
             rc.Size = c1pdf.MeasureStringRtf(text, font, rc.Width * 2);
-            c1pdf.FillRectangle(Brushes.DarkBlue, rc);
-            c1pdf.DrawStringRtf(text, font, Brushes.White, rc);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.FillRectangle(Color.DarkBlue, rc);
+            c1pdf.DrawStringRtf(text, font, Color.White, rc);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
             // and some rtf with bullets
             text = @"{\rtf1\ansi\ansicpg1252\deff0\deflang1033{\fonttbl{\f0\fswiss\fcharset0 Arial;}{\f1\fnil\fcharset2 Symbol;}}" +
@@ -244,12 +245,12 @@ namespace CustomPdfProvider.Models
                    @"}";
             rc.Location = new PointF(rcPage.X + 250, rcPage.Y + 50);
             rc.Size = c1pdf.MeasureStringRtf(text, font, rc.Width);
-            c1pdf.DrawStringRtf(text, font, Brushes.White, rc);
-            c1pdf.DrawRectangle(Pens.Black, rc);
+            c1pdf.DrawStringRtf(text, font, Color.White, rc);
+            c1pdf.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Black, 1), rc);
 
             // box the whole thing
-            pen = new Pen(Brushes.Black, 1);
-            pen.DashStyle = System.Drawing.Drawing2D.DashStyle.Dot;
+            pen = new GrapeCity.Documents.Drawing.Pen(Color.Black, 1);
+            pen.DashStyle = GrapeCity.Documents.Drawing.DashStyle.Dot;
             c1pdf.DrawRectangle(pen, rcPage);
 
             // save and show pdf document

@@ -1,0 +1,82 @@
+﻿@using C1.Web.Mvc
+@using C1.Web.Mvc.Grid
+@using TransposedGridExplorer.Models
+@model IEnumerable<TransposedGridExplorer.Models.ReleasePlan>
+@{
+    var categories = ViewBag.Categories as IList<string>;
+    const string colorTpl = "<span class='color-swatch' style='background:${value}'></span>${text}";
+}
+
+@*The editor controls. Each row below references one of these by its id.*@ 
+<div class="editor-list">
+    @(Html.C1().InputDate().Id("launchDateEditor").IsRequired(false).Format("d").CssStyle("width", "100%"))
+    @(Html.C1().InputTime().Id("launchTimeEditor").IsRequired(false).Format("t").Step(30).CssStyle("width", "100%"))
+    @(Html.C1().AutoComplete().Id("categoryEditor").Bind(categories).CssStyle("width", "100%"))
+    @(Html.C1().InputMask().Id("phoneEditor").Mask("(000) 000-0000").CssStyle("width", "100%"))
+    @(Html.C1().InputColor().Id("accentColorEditor").IsRequired(false).CssStyle("width", "100%"))
+    @(Html.C1().InputNumber().Id("priceEditor").IsRequired(false).Format("c2").Min(0).Step(10).CssStyle("width", "100%"))
+</div>
+
+@(Html.C1().TransposedGrid<TransposedGridExplorer.Models.ReleasePlan>()
+    .Id("customEditorsGrid")
+    .Bind(Model)
+    .AutoGenerateColumns(false)
+    .SortingType(AllowSorting.None)
+    .KeyActionEnter(KeyAction.MoveDown)
+    .KeyActionTab(KeyAction.MoveAcross)
+    .RowGroups(bl =>
+    {
+        // editor set directly on a row
+        bl.Add(r => r.Binding("Product").Header("Product").Width("160").IsReadOnly(true).Height(50));
+        bl.Add(r => r.Binding("Price").Header("Price").Format("c2").Editor("priceEditor"));
+
+        // editor set on the leaf rows of a row group
+        bl.Add(r => r.Header("Schedule").Rows(sl =>
+        {
+            sl.Add(s => s.Binding("LaunchDate").Header("Launch Date").Width("130").Format("d").Editor("launchDateEditor"));
+            sl.Add(s => s.Binding("LaunchTime").Header("Launch Time").Format("t").Editor("launchTimeEditor"));
+        }));
+        bl.Add(r => r.Header("Details").Rows(dl =>
+        {
+            dl.Add(d => d.Binding("Category").Header("Category").Editor("categoryEditor"));
+            dl.Add(d => d.Binding("SupportPhone").Header("Support Phone").Editor("phoneEditor"));
+            dl.Add(d => d.Binding("AccentColor").Header("Accent Color").Editor("accentColorEditor").Template(colorTpl));
+        }));
+    })
+)
+
+<style type="text/css">
+    .editor-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        margin-bottom: 12px;
+        max-width: 720px;
+    }
+
+        .editor-list > * {
+            width: 220px;
+        }
+
+    .color-swatch {
+        border: 1px solid #999;
+        border-radius: 2px;
+        display: inline-block;
+        height: 12px;
+        margin-right: 6px;
+        vertical-align: -1px;
+        width: 12px;
+    }
+
+    .wj-transposed-grid {
+        margin: 10px 0;
+    }
+</style>
+
+@section Summary{
+    <p>@Html.Raw(Resources.TransposedGrid.CustomEditors_Summary)</p>
+}
+
+@section Description{
+    @Html.Raw(Resources.TransposedGrid.CustomEditors_Descriptions)
+}

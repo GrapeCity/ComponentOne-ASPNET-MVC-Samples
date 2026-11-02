@@ -5,12 +5,12 @@
     <RootNamespace>Input101</RootNamespace>
     <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
   </PropertyGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="Input101.Net60.sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
   </ItemGroup>
   <ItemGroup>
@@ -32,5 +32,13 @@
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>Input101Res.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="Input101.Core20.sa3licx" />
+    <None Remove="Input101.Core31.sa3licx" />
+    <None Remove="Input101.Net80.sa3licx" />
+    <None Remove="Input101.Net90.sa3licx" />
+    <None Remove="Input101.sa3licx" />
   </ItemGroup>
 </Project>

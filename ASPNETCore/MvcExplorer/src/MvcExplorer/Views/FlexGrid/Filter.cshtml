@@ -2,10 +2,19 @@
 @{
     ControlOptions optionsModel = ViewBag.DemoOptions;
     Dictionary<string, FilterType> filterTypes = ViewBag.FilterTypes;
+    FilterMode currentFilterMode = ViewBag.FilterMode;
     ViewBag.DemoSettings = true;
 }
 
 <script type="text/javascript">
+    function customValueFilter(filterText, filterItem) {
+        var itemText = filterItem.text.toLowerCase();
+        var searchTerms = filterText.toLowerCase().split('&');
+        return searchTerms.every(function (term) {
+            return itemText.indexOf(term.trim()) > -1;
+        });
+    }
+
     function toggleExclusiveValueSearch(e) {
         var exclusiveValueSearch = e.target.checked;
         var filteringGrid = wijmo.Control.getControl('#filteringGrid');
@@ -18,10 +27,41 @@
             }
         }
     }
+
+    function toggleShowIncludeSelection(e) {
+        var showIncludeSelection = e.target.checked;
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        var flexGridFilter = c1.getExtenders(filteringGrid, wijmo.grid.filter.FlexGridFilter)[0];
+        var cols = filteringGrid.columns;
+        for (var i = 0; i < cols.length; i++) {
+            var colFilter = flexGridFilter.getColumnFilter(cols[i]);
+            if (colFilter) {
+                colFilter.valueFilter.showIncludeSelection = showIncludeSelection;
+            }
+        }
+    }
+
+    function addTooltips(ctl) {
+        let tt = new wijmo.Tooltip();
+        ctl.formatItem.addHandler((s, e) => {
+            if (e.panel === s.columnHeaders) {
+                let btn = e.cell.querySelector('.wj-elem-filter');
+                if (btn) {
+                    tt.setTooltip(btn, "Adjust the column filter as needed");
+                }
+            }
+        });
+    }
+
+    window.onload = () => {
+        var filteringGrid = wijmo.Control.getControl('#filteringGrid');
+        addTooltips(filteringGrid);
+    };
 </script>
 
 <c1-flex-grid id="filteringGrid" auto-generate-columns="false" is-read-only="true"
-              selection-mode="Row" sorting-type="SingleColumn" class="grid">
+              selection-mode="Row" sorting-type="SingleColumn" class="grid"
+              no-data-overlay-content=@Html.Raw(FlexGridRes.NoDataMessage)>
     <c1-items-source page-size="25" read-action-url="@Url.Action("Filter_Bind")"></c1-items-source>
     <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Start"></c1-flex-grid-column>
@@ -33,12 +73,15 @@
     <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Discount" format="p0"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Active"></c1-flex-grid-column>
-    <c1-flex-grid-filter default-filter-type="Both" exclusive-value-search="true">
-        <c1-flex-grid-column-filter column="Country" filter-type="@filterTypes["Country"]"></c1-flex-grid-column-filter>
-        <c1-flex-grid-column-filter column="Product" filter-type="@filterTypes["Product"]"></c1-flex-grid-column-filter>
-        <c1-flex-grid-column-filter column="Color" filter-type="@filterTypes["Color"]"></c1-flex-grid-column-filter>
-        <c1-flex-grid-column-filter column="Amount" filter-type="@filterTypes["Amount"]"></c1-flex-grid-column-filter>
-        <c1-flex-grid-column-filter column="Active" filter-type="@filterTypes["Active"]"></c1-flex-grid-column-filter>
+    <c1-flex-grid-filter default-filter-type="Both" exclusive-value-search="true" show-include-selection="true"
+                         default-filter-mode=@currentFilterMode>
+        <c1-flex-grid-column-filter column="Country" filter-type="@filterTypes["Country"]" aria-label="filterLabel">
+            <c1-flex-grid-value-filter search-type="Custom" custom-filter="customValueFilter"></c1-flex-grid-value-filter>
+        </c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Product" filter-type="@filterTypes["Product"]" aria-label="filterLabel"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Color" filter-type="@filterTypes["Color"]" aria-label="filterLabel"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Amount" filter-type="@filterTypes["Amount"]" aria-label="filterLabel"></c1-flex-grid-column-filter>
+        <c1-flex-grid-column-filter column="Active" filter-type="@filterTypes["Active"]" aria-label="filterLabel"></c1-flex-grid-column-filter>
     </c1-flex-grid-filter>
 </c1-flex-grid>
 
@@ -47,9 +90,13 @@
 @section Settings{
     <p>@await Html.PartialAsync("_OptionsMenu", optionsModel)</p>
     ExclusiveValueSearch:&nbsp;<input id="exclusiveValueSearch" type="checkbox" checked="checked" onchange="toggleExclusiveValueSearch(event)" />
+    ShowIncludeSelection:&nbsp;<input id="showIncludeSelection" type="checkbox" checked="checked" onchange="toggleShowIncludeSelection(event)" />
 }
 
 @section Description{
     <p>@Html.Raw(FlexGridRes.Filter_Text0)</p>
     <p>@Html.Raw(FlexGridRes.Filter_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.Filter_Text2)</p>
+    <p>@Html.Raw(FlexGridRes.Filter_Text3)</p>
+    <p>@Html.Raw(FlexGridRes.Filter_Text4)</p>
 }

@@ -21,6 +21,9 @@
         <li class="odd"><span>@controlPage.Text</span></li>}
     <li class="separator right-icon"></li>
 </ul>
+<div>
+    @await Html.PartialAsync("_ThemeSelector")
+</div>
 @if (!isHome)
 {
     var groups = ControlPages.VisibleControlGroups;

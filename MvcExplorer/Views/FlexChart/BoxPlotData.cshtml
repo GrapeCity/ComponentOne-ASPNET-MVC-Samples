@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SalesAnalysis>
+@{
+    var downloadsStats = ViewBag.DownloadsStats as BoxPlotData[];
+    var salesStats = ViewBag.SalesStats as BoxPlotData[];
+}
+
+@(Html.C1().FlexChart()
+    .Id("boxPlotDataChart")
+    .Height("400px")
+    .Bind("Country", "Downloads", Model)
+    .Series(ser =>
+    {
+        // statistics prepared on the server, used as-is
+        ser.AddBoxWhisker().Name("Downloads").ShowOutliers(true).BoxPlotData(downloadsStats);
+        ser.AddBoxWhisker().Binding("Sales").Name("Sales").ShowOutliers(true).BoxPlotData(salesStats);
+
+        // no statistics supplied: this series falls back to the raw arrays
+        ser.AddBoxWhisker().Binding("Queries").Name("Queries").ShowOutliers(true);
+    })
+)
+@section Summary{
+    <p>@Html.Raw(Resources.FlexChart.BoxPlotData_Summary)</p>
+}
+@section Description{
+    <p>@Html.Raw(Resources.FlexChart.BoxPlotData_Text0)</p>
+    <p>@Html.Raw(Resources.FlexChart.BoxPlotData_Text1)</p>
+}

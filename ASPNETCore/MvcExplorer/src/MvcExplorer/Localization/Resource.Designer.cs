@@ -286,6 +286,24 @@ namespace MvcExplorer.Localization {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        public static string MissingSourceFile {
+            get {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        public static string MissingSourceFileCode {
+            get {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to New Controls.
         /// </summary>
         public static string NewControls {

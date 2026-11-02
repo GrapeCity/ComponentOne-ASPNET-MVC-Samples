@@ -25,6 +25,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <Use64BitIISExpress />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,38 +45,34 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="C1.C1Excel.4.8">
-      <HintPath>packages\C1.C1Excel.4.8.20241.657\lib\net48\C1.C1Excel.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="C1.Chart">
     </Reference>
-    <Reference Include="C1.C1Pdf.4.8">
-      <HintPath>packages\C1.C1Pdf.4.8.20241.657\lib\net48\C1.C1Pdf.4.8.dll</HintPath>
+    <Reference Include="C1.Chart.Diagram">
+    </Reference>
+    <Reference Include="C1.Excel">
+      <HintPath>packages\C1.Excel.10.0.20262.328\lib\netstandard2.0\C1.Excel.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Pdf">
+      <HintPath>packages\C1.Pdf.10.0.20262.331\lib\netstandard2.0\C1.Pdf.dll</HintPath>
+    </Reference>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Zip">
-      <HintPath>packages\C1.Zip.2.0.20233.4\lib\netstandard2.0\C1.Zip.dll</HintPath>
+      <HintPath>packages\C1.Zip.10.0.20262.20\lib\netstandard2.0\C1.Zip.dll</HintPath>
     </Reference>
-    <Reference Include="C1.Web.Mvc">
-      <HintPath>packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="C1.Win.4.8">
-      <HintPath>packages\C1.Win.8.0.20241.657\lib\net48\C1.Win.4.8.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="C1.Win.Bitmap.4.8">
-      <HintPath>packages\C1.Win.Bitmap.8.0.20241.657\lib\net48\C1.Win.Bitmap.4.8.dll</HintPath>
-      <Private>True</Private>
-    </Reference>
-    <Reference Include="C1.Win.C1DX.4.8">
-      <HintPath>packages\C1.Win.C1DX.4.8.20241.657\lib\net48\C1.Win.C1DX.4.8.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="DS.Documents.Imaging, Version=7.2.6.0, Culture=neutral, PublicKeyToken=d55d733d2bfd5065, processorArchitecture=MSIL">
+      <HintPath>packages\DS.Documents.Imaging.7.2.6\lib\net461\DS.Documents.Imaging.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Bcl.Cryptography, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Bcl.Cryptography.9.0.0\lib\net462\Microsoft.Bcl.Cryptography.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>.\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
@@ -95,6 +92,9 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
+    <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
+    </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.SQLite, Version=1.0.113.0, Culture=neutral, PublicKeyToken=db937bc2d44ff139, processorArchitecture=MSIL">
       <HintPath>packages\Stub.System.Data.SQLite.Core.NetFramework.1.0.113.3\lib\net451\System.Data.SQLite.dll</HintPath>
@@ -109,12 +109,31 @@
       <Private>True</Private>
     </Reference>
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Formats.Asn1, Version=9.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Formats.Asn1.9.0.0\lib\net462\System.Formats.Asn1.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Memory, Version=4.0.1.2, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Memory.4.5.5\lib\net461\System.Memory.dll</HintPath>
+    </Reference>
     <Reference Include="System.Net.Http.Formatting, Version=5.2.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>.\packages\Microsoft.AspNet.WebApi.Client.5.2.4\lib\net45\System.Net.Http.Formatting.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Numerics.Vectors, Version=4.1.4.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Numerics.Vectors.4.5.0\lib\net46\System.Numerics.Vectors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Runtime.CompilerServices.Unsafe, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.CompilerServices.Unsafe.6.0.0\lib\net461\System.Runtime.CompilerServices.Unsafe.dll</HintPath>
+    </Reference>
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Security.Cryptography.Pkcs, Version=9.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Pkcs.9.0.0\lib\net462\System.Security.Cryptography.Pkcs.dll</HintPath>
+    </Reference>
+    <Reference Include="System.ValueTuple, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.ValueTuple.4.5.0\lib\net47\System.ValueTuple.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -605,7 +624,9 @@
     <Compile Include="Controllers\Accordion\IndexController.cs" />
     <Compile Include="Controllers\AutoComplete\ComplexTypeController.cs" />
     <Compile Include="Controllers\AutoComplete\CustomActionController.cs" />
+    <Compile Include="Controllers\AutoComplete\CustomFilterController.cs" />
     <Compile Include="Controllers\AutoComplete\IndexController.cs" />
+    <Compile Include="Controllers\AutoComplete\SearchDuringCompositionController.cs" />
     <Compile Include="Controllers\Barcode\IndexController.cs" />
     <Compile Include="Controllers\BulletGraph\DirectionController.cs" />
     <Compile Include="Controllers\BulletGraph\EditingController.cs" />
@@ -619,6 +640,7 @@
     <Compile Include="Controllers\CollectionView\CalculatedFieldsController.cs" />
     <Compile Include="Controllers\CollectionView\CollectionViewNavigatorController.cs" />
     <Compile Include="Controllers\CollectionView\IndexController.cs" />
+    <Compile Include="Controllers\CollectionView\NewItemIndexController.cs" />
     <Compile Include="Controllers\CollectionView\SortingController.cs" />
     <Compile Include="Controllers\ComboBox\GroupingController.cs" />
     <Compile Include="Controllers\DashboardLayout\AutoGridLayoutController.cs" />
@@ -628,6 +650,8 @@
     <Compile Include="Controllers\DashboardLayout\ManualGridLayoutController.cs" />
     <Compile Include="Controllers\DashboardLayout\SaveLoadLayoutController.cs" />
     <Compile Include="Controllers\Enhancements\IndexController.cs" />
+    <Compile Include="Controllers\FlexChart\BoxPlotDataController.cs" />
+    <Compile Include="Controllers\FlexChart\TrendLinesController.cs" />
     <Compile Include="Controllers\FlexChart\AxisGroupsController.cs" />
     <Compile Include="Controllers\FlexChart\BreakEvenController.cs" />
     <Compile Include="Controllers\FlexChart\GanttController.cs" />
@@ -636,10 +660,13 @@
     <Compile Include="Controllers\FlexChart\RangeAreaController.cs" />
     <Compile Include="Controllers\FlexChart\TooltipsController.cs" />
     <Compile Include="Controllers\FlexChart\SeriesCustomizationController.cs" />
+    <Compile Include="Controllers\FlexGrid\AllowResizingController.cs" />
     <Compile Include="Controllers\FlexGrid\AntiForgeryController.cs" />
     <Compile Include="Controllers\FlexGrid\AutoGenerateColumnsController.cs" />
     <Compile Include="Controllers\FlexGrid\ChildItemsController.cs" />
+    <Compile Include="Controllers\FlexGrid\ClipboardController.cs" />
     <Compile Include="Controllers\FlexGrid\ColumnPickerController.cs" />
+    <Compile Include="Controllers\FlexGrid\FocusabilityController.cs" />
     <Compile Include="Controllers\FlexGrid\EditableTreeGridController.cs" />
     <Compile Include="Controllers\FlexGrid\ExcelImportExportRTLController.cs" />
     <Compile Include="Controllers\FlexGrid\HeaderTooltipsController.cs" />
@@ -655,6 +682,7 @@
     <Compile Include="Controllers\FlexGrid\PreserveWhiteSpaceController.cs" />
     <Compile Include="Controllers\FlexGrid\SearchingController.cs" />
     <Compile Include="Controllers\FlexGrid\ShowCaseController.cs" />
+    <Compile Include="Controllers\FlexGrid\TreeColumnController.cs" />
     <Compile Include="Controllers\FlexGrid\TreeGridController.cs" />
     <Compile Include="Controllers\FlexGrid\UnboundTreeGridController.cs" />
     <Compile Include="Controllers\FlexMap\BubbleMapController.cs" />
@@ -933,6 +961,7 @@
     <Content Include="Content\css\bootstrap\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="Content\fonts\fira\FiraSans-Bold.ttf" />
     <Content Include="Content\fonts\fira\FiraSans-Regular.ttf" />
+    <Content Include="Content\fonts\ipaexg.ttf" />
     <Content Include="Content\fonts\fira\LICENSE" />
     <Content Include="Content\fonts\controls.woff" />
     <Content Include="Scripts\jquery-1.8.2.js" />
@@ -960,6 +989,7 @@
     <Content Include="Views\AutoComplete\ComplexType.cshtml" />
     <Content Include="Views\AutoComplete\CustomAction.cshtml" />
     <Content Include="Views\AutoComplete\Index.cshtml" />
+    <Content Include="Views\AutoComplete\SearchDuringComposition.cshtml" />
     <Content Include="Views\BulletGraph\Direction.cshtml" />
     <Content Include="Views\BulletGraph\Editing.cshtml" />
     <Content Include="Views\BulletGraph\Index.cshtml" />
@@ -995,6 +1025,7 @@
     <Content Include="Views\FlexChart\SeriesBinding.cshtml" />
     <Content Include="Views\FlexChart\Waterfall.cshtml" />
     <Content Include="Views\FlexChart\Zones.cshtml" />
+    <Content Include="Views\FlexGrid\AllowResizing.cshtml" />
     <Content Include="Views\FlexGrid\BatchEditing.cshtml" />
     <Content Include="Views\FlexGrid\ColumnLayout.cshtml" />
     <Content Include="Views\FlexGrid\CustomCells.cshtml" />
@@ -1005,6 +1036,7 @@
     <Content Include="Views\FlexGrid\DisableServerRead.cshtml" />
     <Content Include="Views\FlexGrid\EmptyEditing.cshtml" />
     <Content Include="Views\FlexGrid\Editing.cshtml" />
+    <Content Include="Views\FlexGrid\Clipboard.cshtml" />
     <Content Include="Views\FlexGrid\ExcelImportExport.cshtml" />
     <Content Include="Views\FlexGrid\Filter.cshtml" />
     <Content Include="Views\FlexGrid\FrozenCells.cshtml" />
@@ -1021,6 +1053,7 @@
     <Content Include="Views\FlexGrid\RightToLeft.cshtml" />
     <Content Include="Views\FlexGrid\Sorting.cshtml" />
     <Content Include="Views\FlexGrid\StarSizing.cshtml" />
+    <Content Include="Views\FlexGrid\TreeColumn.cshtml" />
     <Content Include="Views\FlexGrid\UnobtrusiveValidation.cshtml" />
     <Content Include="Views\FlexGrid\VirtualScrolling.cshtml" />
     <Content Include="Views\FlexPie\ChartAnimation.cshtml" />
@@ -1104,6 +1137,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexChart\BoxWhisker.cshtml" />
+    <Content Include="Views\FlexChart\BoxPlotData.cshtml" />
     <Content Include="Views\FlexChart\ErrorBar.cshtml" />
     <Content Include="Views\FlexChart\Funnel.cshtml" />
     <Content Include="Views\FlexRadar\Index.cshtml" />
@@ -1272,6 +1306,7 @@
     <Content Include="App_GlobalResources\ComboBox.ja.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>ComboBox.ja.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
     </Content>
     <Content Include="App_GlobalResources\Excel.ja.resx">
       <Generator>GlobalResourceProxyGenerator</Generator>
@@ -1455,7 +1490,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.zh-CN.designer.cs</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexGrid\BuiltInValidation.cshtml" />
@@ -1595,6 +1629,7 @@
     <Content Include="Views\CollectionView\CollectionViewNavigator.cshtml" />
     <Content Include="Views\CollectionView\Sorting.cshtml" />
     <Content Include="Views\CollectionView\CalculatedFields.cshtml" />
+    <Content Include="Views\CollectionView\NewItemIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexChart\StepChart.cshtml" />
@@ -1674,6 +1709,13 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\FlexChart\AxisGroups.cshtml" />
+    <Content Include="Views\FlexChart\TrendLines.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\FlexGrid\Focusability.cshtml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\AutoComplete\CustomFilter.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
@@ -1718,4 +1760,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="MvcExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

@@ -28,8 +28,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>ReportResult</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>
           SELECT BloodReport_Result.ID,
           BloodReport_Result.PatientID AS PatientID1,

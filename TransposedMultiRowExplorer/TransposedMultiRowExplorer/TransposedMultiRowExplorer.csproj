@@ -42,15 +42,15 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>.\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.MultiRow">
-      <HintPath>.\packages\C1.Web.Mvc.MultiRow.4.8.20241.360\lib\net48\C1.Web.Mvc.MultiRow.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.MultiRow.4.8.20262.477\lib\net48\C1.Web.Mvc.MultiRow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.TransposedMultiRow">
-      <HintPath>.\packages\C1.Web.Mvc.TransposedMultiRow.4.8.20241.360\lib\net48\C1.Web.Mvc.TransposedMultiRow.dll</HintPath>
+      <HintPath>.\packages\C1.Web.Mvc.TransposedMultiRow.4.8.20262.477\lib\net48\C1.Web.Mvc.TransposedMultiRow.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -241,7 +241,6 @@
       <LastGenOutput>TransposedMultiRowExplorer.zh-CN.designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
@@ -299,4 +298,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="TransposedMultiRowExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

@@ -1,0 +1,16 @@
+﻿@model List<UserInfo>
+
+<c1-flex-grid id="flexGrid" auto-generate-columns="false" allow-add-new="true" allow-delete="true" height="400px">
+    <c1-flex-grid-column binding="Id" is-read-only="true"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Name"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Email"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Phone"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Industry"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Birthdate" format="M/d/yyyy"></c1-flex-grid-column>
+    <c1-items-source source-collection="@Model"
+                     create-action-url="@Url.Page("UnobtrusiveValidation", "GridCreateUserInfo")"
+                     delete-action-url="@Url.Page("UnobtrusiveValidation", "GridDeleteUserInfo")"
+                     update-action-url="@Url.Page("UnobtrusiveValidation", "GridUpdateUserInfo")">
+    </c1-items-source>
+</c1-flex-grid>

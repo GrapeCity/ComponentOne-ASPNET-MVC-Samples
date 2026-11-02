@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FinancialChartExplorer.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -157,7 +158,9 @@ namespace FinancialChartExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return File.ReadAllText(controllerFilePath);
+            if (File.Exists(controllerFilePath))
+                return File.ReadAllText(controllerFilePath);
+            return Resource.MissingSourceFile;
         }
 
         private static Stream GetResourceStream(string name)

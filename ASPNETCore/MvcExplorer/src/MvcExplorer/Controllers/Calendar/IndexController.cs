@@ -1,8 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using C1.Web.Mvc;
 using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
+using System;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace MvcExplorer.Controllers
 {
@@ -27,7 +28,9 @@ namespace MvcExplorer.Controllers
                 {"MonthView", new object[]{true, false}},
                 {"RepeatButtons", new object[]{true, false}},
                 {"ShowYearPicker", new object[]{true, false}},
-                {"HandleWheel", new object[]{true, false}}
+                {"HandleWheel", new object[]{true, false}},
+                {"KeyActionTab", Enum.GetValues(typeof(CalendarTabKeyAction)).Cast<object>().ToArray()},
+                {"FocusMode", new object[]{false, true}}
             };
 
             return settings;

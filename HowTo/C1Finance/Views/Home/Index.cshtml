@@ -43,7 +43,7 @@
                 bl.Add(cb => cb.Binding("Cost").Header("Cost").IsReadOnly(true).DataType(DataType.Number).Format("n0").Width("*"));
                 bl.Add(cb => cb.Binding("Value").Header("Value").IsReadOnly(true).DataType(DataType.Number).Format("n0").Width("*"));
                 bl.Add(cb => cb.Binding("Gain").Header("Gain").IsReadOnly(true).DataType(DataType.Number).Format("p2").Width("*"));
-                bl.Add(cb => cb.Name("Remove").Header("Remove").IsReadOnly(true).Align("center"));
+                bl.Add(cb => cb.Name("Remove").Header("Remove").IsReadOnly(true).IsRequired(false).Align("center"));
             })
             .ItemFormatter("PortfolioFGrid_ItemFormatter")
         )

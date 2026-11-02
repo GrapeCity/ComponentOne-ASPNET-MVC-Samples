@@ -8,5 +8,9 @@ namespace FlexSheetExplorer.Controllers
         {
             return View();
         }
+        public ActionResult DragDropFrame()
+        {
+            return View();
+        }
     }
 }

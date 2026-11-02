@@ -39,8 +39,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-	  <Reference Include="C1.Web.Mvc">
-		  <HintPath>packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
@@ -133,7 +133,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-	<Compile Include="Localization\FlexChart101.Designer.cs">
+    <Compile Include="Localization\FlexChart101.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>FlexChart101.resx</DependentUpon>
@@ -191,7 +191,7 @@
       <SubType>Designer</SubType>
       <CustomToolNamespace>Resource</CustomToolNamespace>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="FlexChart101.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="favicon\manifest.json" />

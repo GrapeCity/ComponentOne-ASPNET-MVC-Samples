@@ -19,8 +19,9 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>SELECT Orders.ShipName, Orders.OrderDate, Sum([Order Details].UnitPrice*[Order Details].Quantity) AS OrderValue
 FROM (Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID) INNER JOIN (Orders INNER JOIN [Order Details] ON Orders.OrderID = [Order Details].OrderID) ON Products.ProductID = [Order Details].ProductID
 GROUP BY Orders.ShipName, Orders.OrderDate

@@ -15,6 +15,10 @@ namespace MvcExplorer.Controllers
         {
             return new OptionItem { Values = new List<string> { "None", "Condition", "Value", "Both" }, CurrentValue = "Both" };
         }
+        private static OptionItem CreateOptionItemForFilterModes()
+        {
+            return new OptionItem { Values = new List<string> { "SingleFilter", "MultiFilter" }, CurrentValue = "SingleFilter" };
+        }
 
         private readonly ControlOptions _gridFilterModel = new ControlOptions
         {
@@ -24,7 +28,8 @@ namespace MvcExplorer.Controllers
                 {"Product", CreateOptionItem()},
                 {"Color", CreateOptionItem()},
                 {"Amount", CreateOptionItem()},
-                {"Active", CreateOptionItem()}
+                {"Active", CreateOptionItem()},
+                {"DefaultFilterMode",  CreateOptionItemForFilterModes()}
             }
         };
 
@@ -41,6 +46,9 @@ namespace MvcExplorer.Controllers
             var filterTypes = new Dictionary<string, FilterType>();
             foreach (var item in controlOptions.Options)
             {
+                if (string.Equals(item.Key, "DefaultFilterMode", StringComparison.Ordinal))
+                    continue;
+
                 filterTypes.Add(item.Key, (FilterType)Enum.Parse(typeof(FilterType), item.Value.CurrentValue));
             }
             return filterTypes;

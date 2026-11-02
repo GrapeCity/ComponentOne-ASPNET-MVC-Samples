@@ -1,0 +1,50 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"]</title>
+
+    <c1-styles></c1-styles>
+    <c1-scripts>
+        <c1-basic-scripts />
+    </c1-scripts>
+    <link rel="icon" type="image/png" href="~/Content/favicon/logo32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="~/Content/favicon/logo16.png" sizes="16x16">
+    <link rel="stylesheet" href="~/Content/css/bootstrap/css/bootstrap.css" />
+    <link rel="stylesheet" href="~/Content/css/FlightStatisticsSite.css" />
+    <link rel="stylesheet" href="~/Content/css/customMaterialGrid.css" />
+    <link rel="stylesheet" href="~/Content/css/spin.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto" />
+    <script src="~/Scripts/AggregateSeries.js"></script>
+    <script src="~/Scripts/spin.js"></script>
+    <script src="~/Scripts/site.js" asp-append-version="true"></script>
+
+
+    @{
+        Culture.SetCurrentCulture(Context, Context.Request.Query["culture"]);
+    }
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <img class="navbar-brand" src="~/Content/images/FlightIcon_200X200.png" alt="" style="vertical-align:central" />
+                <a asp-area="" asp-controller="Home" asp-action="Index" class="navbar-brand">Flight Statistics</a>
+            </div>
+        </div>
+    </nav>
+    <div class="container-fluid body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Flight Statistics</p>
+        </footer>
+    </div>
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/BootStrap/bootstrap.js"></script>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>

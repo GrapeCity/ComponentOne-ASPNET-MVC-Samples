@@ -48,6 +48,10 @@
             control.legend.maxSize = value;
         }
 
+        function customChangeReverse(control, value) {
+            control.legend.reverse = value;
+        }
+
         function itemPaletteClicked(sender) {
             if (sender.selectedItem) {
                 let flexChart = wijmo.Control.getControl("#@demoSettingModel.ControlId")
@@ -88,4 +92,5 @@
     </ol>
     <p>@Html.Raw(FlexChartRes.Index_Text3)</p>
     <p>@Html.Raw(FlexChartRes.Index_Text4)</p>
+    <p>@Html.Raw(FlexChartRes.Index_Text5)</p>
 }

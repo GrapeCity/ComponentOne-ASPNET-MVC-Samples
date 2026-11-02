@@ -2,17 +2,23 @@
 
 @section Scripts{
     <script>
+        // global variables.
+		let dataMap = new Map();
+        let map;
+
         c1.documentReady(function () {
-            window.dataMap = new Map();
             wijmo.httpRequest('@Url.Content("~/Content/data/temp.json")', {
                 success: function(xhr) {
                     JSON.parse(xhr.responseText).forEach(function (el) { dataMap.set(el.State, parseFloat(el.AverageTemperature)); });
+
+                    //reload the map once temparature data is loaded.
+                    map.invalidate(true);
                 }
             });
         });
 
         function geoMapItemsSourceChanged(layer, a) {
-            var map = wijmo.Control.getControl("#flexMap");
+            map = wijmo.Control.getControl("#flexMap");
             map.zoomTo(layer.getGeoBBox());
         }
 

@@ -45,11 +45,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.Finance">
-      <HintPath>..\packages\C1.Web.Mvc.Finance.4.8.20241.360\lib\net48\C1.Web.Mvc.Finance.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.Finance.4.8.20262.477\lib\net48\C1.Web.Mvc.Finance.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -332,7 +332,6 @@
       <Generator>GlobalResourceProxyGenerator</Generator>
       <LastGenOutput>Resource.zh-CN.designer.cs</LastGenOutput>
     </Content>
-    <EmbeddedResource Include="Properties\licenses.licx" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -402,4 +401,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="FinancialChartExplorer.sa3licx" />
+  </ItemGroup>
 </Project>

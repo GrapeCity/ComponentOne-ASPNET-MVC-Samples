@@ -115,6 +115,9 @@ var c1;
                 if (this._trigger) {
                     this._trigger.style.cursor = 'pointer';
                     this._trigger.addEventListener('click', function () {
+
+                        _this._trigger.classList.toggle('menu-open');
+
                         if (_this._parentMenu) {
                             _this.show(_this._parentMenu.level);
                         }

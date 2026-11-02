@@ -4,14 +4,15 @@
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
     <AssemblyName>AccessibilityExtender</AssemblyName>
     <RootNamespace>AccessibilityExtender</RootNamespace>
-	<MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
     <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="AccessibilityExtender.Net60.sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="5.0.9" />
   </ItemGroup>
   <ItemGroup>
@@ -20,5 +21,13 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="AccessibilityExtender.Core20.sa3licx" />
+    <None Remove="AccessibilityExtender.Core31.sa3licx" />
+    <None Remove="AccessibilityExtender.Net80.sa3licx" />
+    <None Remove="AccessibilityExtender.Net90.sa3licx" />
+    <None Remove="AccessibilityExtender.sa3licx" />
   </ItemGroup>
 </Project>

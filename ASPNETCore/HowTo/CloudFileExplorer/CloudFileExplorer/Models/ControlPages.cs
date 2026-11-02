@@ -1,4 +1,5 @@
-﻿using System;
+﻿using CloudFileExplorer.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace CloudFileExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            return File.Exists(controllerFilePath) ? File.ReadAllText(controllerFilePath) : CloudFileRes.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

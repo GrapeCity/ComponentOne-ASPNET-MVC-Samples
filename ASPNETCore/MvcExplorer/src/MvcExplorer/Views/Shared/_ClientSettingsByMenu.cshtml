@@ -6,12 +6,13 @@
     {
         foreach (var setting in Model.Settings)
         {
-            var commandName = "change" + setting.Key.Replace(".", "_");
-            var customChangeName = "customChange" + setting.Key.Replace(".", "_");
-            var converterName = "convert" + setting.Key.Replace(".", "_");
-            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")).Replace(" ","") + ": ";
-            var propertyPaths = string.Join(".", setting.Key.Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
-            var updateProperty = "update" + setting.Key.Replace(".", "_");
+            var menuId = setting.Key.Replace(".", "_").Replace(" ", "");
+            var commandName = "change" + menuId;
+            var customChangeName = "customChange" + menuId;
+            var converterName = "convert" + menuId;
+            var headerName = string.Join(" ", Regex.Split(setting.Key.Replace(".", ""), @"(?<!^)(?=[A-Z])")) + ": ";
+            var propertyPaths = string.Join(".", setting.Key.Replace(" ", "").Split('.').Select(s => s.First().ToString().ToLower() + s.Substring(1)));
+            var updateProperty = "update" + menuId;
             var defaultValue = setting.Value.First();
             if (Model.DefaultValues != null && Model.DefaultValues.ContainsKey(setting.Key))
             {
@@ -41,7 +42,7 @@
             {
                 items.Add(new { Header = option.ToString(), CommandParameter = option });
             }
-            <c1-menu header="@headText" item-clicked="@commandName" display-member-path="Header" command-parameter-path="CommandParameter">
+            <c1-menu id="@menuId" header="@headText" item-clicked="@commandName" display-member-path="Header" command-parameter-path="CommandParameter">
                 <c1-items-source source-collection="@items"></c1-items-source>
             </c1-menu>
         }

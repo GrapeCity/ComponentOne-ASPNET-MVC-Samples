@@ -27,8 +27,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>SELECT DISTINCT TelephoneBill.BillingID,
 	TelephoneBill.CustomerName,
 	TelephoneBill.CustomerAddress,
@@ -53,8 +54,9 @@ FROM  TelephoneBill WHERE CustomerName=[Select Customer];</RecordSource>
       </DataSource>
       <DataSource>
         <Name>DSCustName</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>SELECT DISTINCT CustomerName FROM TelephoneBill ORDER BY CustomerName</RecordSource>
       </DataSource>
     </DataSources>

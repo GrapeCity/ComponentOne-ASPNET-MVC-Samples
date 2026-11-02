@@ -62,7 +62,8 @@
 
 <c1-flex-grid id="theFlexGrid" pinning-type="SingleColumn" auto-generate-columns="false"
               sorting-type="SingleColumn" selection-mode="CellRange" class="grid" cell-edit-ended="cellEditEnded"
-              copy-headers="Column" big-checkboxes="true" lazy-render="@Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue)" refresh-on-edit="true">
+              copy-headers="Column" big-checkboxes="true" lazy-render="@Convert.ToBoolean(optionsModel.Options["Lazy Render"].CurrentValue)" refresh-on-edit="true"
+              getting-cell-clip-string="handleCsvInjection">
     <c1-flex-grid-group-panel max-groups="3"
                               placeholder="@Html.Raw(FlexGridRes.GroupPanel_Placeholder1)">
     </c1-flex-grid-group-panel>
@@ -169,6 +170,33 @@
                 e.extraRequestData["@(menuName)"] = '@(optionsModel.Options[menuName].CurrentValue)';
                 </text>
             }
+        }
+
+        // function to escape CSV injection content
+        function escapeCSVInjection(content) {
+            // handle the normal formula
+            const dangerousStarts = ["=", "+", "-", "@@"];
+            const needEscape = dangerousStarts.some(char => content.indexOf(char) === 0);
+            if (needEscape) {
+                return `'${content}`;
+            }
+            // handle the formula with " before
+            const containsQuote = dangerousStarts.some(char => content.indexOf('"' + char) === 0);
+            if (containsQuote) {
+                return content.replace(/^"([=\+\-@@])/, (match, $1) => '"\'' + $1);
+            }
+            // handle the split and wrap situations
+            const containsWrap = content.indexOf(";") > -1 || content.indexOf("%0A") > -1;
+            if (containsWrap) {
+                return content.replace(/(\;|%0A)([=\+\-@@])/g, (match, $1, $2) => "'" + $2);
+            }
+            return content;
+        }
+
+        // csv injection is handled during getting clip string
+        function handleCsvInjection(sender, e)
+        {
+            e.data = escapeCSVInjection(e.data);
         }
 
         // #START: TEMPLATE FUNCTION
@@ -279,11 +307,13 @@
                     document.body.removeChild(e);
                 }
             }
+            
 
             //export grid to CSV
             document.getElementById("export-csv").addEventListener("click", function () {
-                var rng = new wijmo.grid.CellRange(0, 0, grid.rows.length - 1, grid.columns.length - 1),
-                    csv = grid.getClipString(rng, true, true);
+                var rng = new wijmo.grid.CellRange(0, 0, grid.rows.length - 1, grid.columns.length - 1);
+                var csv = grid.getClipString(rng, true, true);
+
                 exportFile(csv, 'FlexGrid.csv');
             });
             //#END: EXPORT

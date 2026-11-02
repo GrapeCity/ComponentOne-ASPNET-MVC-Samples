@@ -4,7 +4,51 @@
     ControlOptions optionsModel = ViewBag.DemoOptions;
     ViewBag.DemoSettings = true;
     string vThreshold = optionsModel.Options["Virtualization Threshold"].CurrentValue;
+
+    // Parse key actions first
+    InputKeyAction actionDownArrow;
+    InputKeyAction actionUpArrow;
+    InputKeyAction actionPrintCharacters;
+    TabKeyAction actionTab;
+
+    actionDownArrow = Enum.TryParse<InputKeyAction>(
+        optionsModel.Options["Key Action Down Arrow"].CurrentValue.ToString(), out actionDownArrow)
+        ? actionDownArrow
+        : InputKeyAction.ChangeSelectionOnly;
+
+    actionUpArrow = Enum.TryParse<InputKeyAction>(
+        optionsModel.Options["Key Action Up Arrow"].CurrentValue.ToString(), out actionUpArrow)
+        ? actionUpArrow
+        : InputKeyAction.ChangeSelectionOnly;
+
+    actionPrintCharacters = Enum.TryParse<InputKeyAction>(
+        optionsModel.Options["Key Action Print Characters"].CurrentValue.ToString(), out actionPrintCharacters)
+        ? actionPrintCharacters
+        : InputKeyAction.ChangeSelectionOnly;
+
+    actionTab = Enum.TryParse<TabKeyAction>(
+        optionsModel.Options["Key Action Tab"].CurrentValue.ToString(), out actionTab)
+        ? actionTab
+        : TabKeyAction.CloseAndMoveFocus;
 }
+
+<script>
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let groupPanelEl1 = document.querySelector('[aria-labelledby="comboboxNonEditLabel"]');
+        if (groupPanelEl1) {
+            tt.setTooltip(groupPanelEl1, "Non Editable Combo Box");
+        }
+
+        let groupPanelEl2 = document.querySelector('[aria-labelledby="comboboxEditLabel"]');
+        if (groupPanelEl2) {
+            tt.setTooltip(groupPanelEl2, "Editable Combo Box");
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
+</script>
 
 <div>
     <label>@Html.Raw(Resources.ComboBox.Index_NonEditable)</label>
@@ -12,7 +56,13 @@
         .SelectedIndex(0).IsEditable(false)
         .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
         .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
-        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold)))
+        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold))
+        .KeyActionDownArrow(actionDownArrow)
+        .KeyActionUpArrow(actionUpArrow)
+        .KeyActionPrintCharacters(actionPrintCharacters)
+        .KeyActionTab(actionTab)
+        .AriaLabelledBy("comboboxNonEditLabel")
+        )
 </div>
 <div>
     <label>@Html.Raw(Resources.ComboBox.Index_Editable)</label>
@@ -20,7 +70,13 @@
         .SelectedIndex(0).IsEditable(true)
         .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
         .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
-        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold)))
+        .VirtualizationThreshold(vThreshold.Equals("Disable") ? int.MaxValue : int.Parse(vThreshold))
+        .KeyActionDownArrow(actionDownArrow)
+        .KeyActionUpArrow(actionUpArrow)
+        .KeyActionPrintCharacters(actionPrintCharacters)
+        .KeyActionTab(actionTab)
+        .AriaLabelledBy("comboboxEditLabel")
+        )
 
 </div>
 
@@ -37,4 +93,13 @@
     @Html.Raw(Resources.ComboBox.HandleWheelDescription_Text0)
     <br />
     @Html.Raw(Resources.ComboBox.Index_Text1)
+    <br />
+    <br />
+    @Html.Raw(Resources.ComboBox.Index_ActionsDirectionNPrint)
+    <br />
+    <br />
+    @Html.Raw(Resources.ComboBox.Index_ActionsTab)
+    <br />
+    <br />
+    @Html.Raw(Resources.ComboBox.Index_Tooltip)
 }

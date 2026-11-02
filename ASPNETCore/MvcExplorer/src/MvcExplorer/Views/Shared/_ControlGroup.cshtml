@@ -5,24 +5,53 @@
     {
         return;
     }
+
+    void RenderControlLink(ControlPageGroup control)
+    {
+        switch (control.ControlName)
+        {
+            case "FlexGrid":
+                @:<li>@Html.ActionLink(control.Text, "ShowCase", control.ControlNameEn)</li>
+                break;
+            case "RazorPagesExplorer":
+                // Open Razor Pages in a new tab using the Razor Pages route
+                @:
+                <li><a href="@Url.Page("/Overview")" target="_blank">@control.Text</a></li>
+                break;
+            case "FlexGrid101":
+            case "Gauge101":
+            case "FlexChart101":
+            case "FlexPie101":
+			case "Input101":
+            case "C1Finance":
+            case "DynamicDashboard":
+            case "FlightStatistics":
+            case "ColumnGroup":
+            case "FileManager":
+            // case "FlexViewer":
+            case "Dashboard":
+                @:<li><a href="@Url.Action("Index", control.ControlNameEn)" target="_blank">@control.Text</a></li>
+                break;
+            default:
+                if (string.IsNullOrEmpty(control.Link))
+                {
+                    @:<li>@Html.ActionLink(control.Text, "Index", control.ControlNameEn)</li>
+                }
+                else
+                {
+                    @:<li><a target="_blank" href="@control.Link">@control.Text</a></li>
+                }
+                break;
+        }
+    }
 }
+
 <li class="control-group">
     <h3 class="semi-bold">@Model.GroupName</h3>
     <ul>
         @foreach (var control in Model.Controls)
         {
-            if (control.ControlName == "FlexGrid")
-            {
-                <li>@Html.ActionLink(control.Text, "ShowCase", control.ControlNameEn)</li>
-            }
-            else if (string.IsNullOrEmpty(control.Link))
-            {
-                <li>@Html.ActionLink(control.Text, "Index", control.ControlNameEn)</li>
-            }
-            else
-            {
-                <li><a target="_blank" href="@control.Link">@control.Text</a></li>
-            }
+            RenderControlLink(control);
         }
     </ul>
 </li>

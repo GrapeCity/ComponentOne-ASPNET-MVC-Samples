@@ -423,3 +423,25 @@ function documentReadyLoad() {
     dashboard.addEventListener('dragend', handleDragEnd);
 }
 ;
+
+//avoid chart events during on click.
+function selectSalesDashboardCell(event) {
+    event.stopPropagation();
+
+    var grid = wijmo.Control.getControl(document.getElementById('salesDashboardFGrid'));
+    if (!grid) return;
+
+    var cell = event.target.closest('.wj-cell');
+    if (!cell) return;
+
+    // Get the parent element (row) of the cell
+    var rowElem = cell.parentElement;
+    var rowIndex = parseInt(rowElem.getAttribute('aria-rowindex'), 10) - 2; // -2 for header
+    var colIndex = parseInt(cell.getAttribute('aria-colindex'), 10) - 1;    // 1-based to 0-based
+
+    if (grid.selectionMode === wijmo.grid.SelectionMode.Row) {
+        grid.select(new wijmo.grid.CellRange(rowIndex, colIndex, rowIndex, grid.columns.length - 1));
+    } else {
+        grid.select(new wijmo.grid.CellRange(rowIndex, colIndex));
+    }
+}

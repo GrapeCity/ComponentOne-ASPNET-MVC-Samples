@@ -9,7 +9,9 @@
 
 <div>
     <label>Bound Calendar with Min &amp; Max</label>
-    <c1-calendar id="@settings.ControlId" value="@today" min="@minDate" max="@maxDate" month-view="true" width="300px">
+    <c1-calendar id="@settings.ControlId" value="@today" min="@minDate" max="@maxDate" month-view="true" width="300px"
+     aria-label="calendarLabel"
+    >
     </c1-calendar>
 </div>
 <p><b>@Html.Raw(CalendarRes.Index_ValidRange) <span>@minDate.ToString(format)</span> @Html.Raw(CalendarRes.Index_To) <span>@maxDate.ToString(format)</span></b></p>
@@ -79,9 +81,26 @@
                 calenderControl.invalidate();
             }
         }
+
+        function addTooltips() {
+            let tt = new wijmo.Tooltip();
+            let groupPanelEl = document.querySelector('[aria-label="calendarLabel"]');
+                if (groupPanelEl) {
+             tt.setTooltip(groupPanelEl, "Bound Calendar with Min & Max");
+        }
+        }
+        window.onload = () => {
+            addTooltips();
+        };
     </script>
 }
 
 @section Description{
     @Html.Raw(CalendarRes.Index_Text0)
+    <br/>
+    @Html.Raw(CalendarRes.Index_KeyActionTab)
+    <br />
+    @Html.Raw(CalendarRes.Index_FocusMode)
+    <br />
+    @Html.Raw(CalendarRes.Index_Tooltip)
 }

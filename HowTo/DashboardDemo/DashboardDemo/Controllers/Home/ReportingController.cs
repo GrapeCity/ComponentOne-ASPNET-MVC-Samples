@@ -1,5 +1,6 @@
 ﻿using System.IO;
 using System.Web.Mvc;
+using C1.Report;
 
 namespace DashboardDemo.Controllers
 {
@@ -20,7 +21,7 @@ namespace DashboardDemo.Controllers
 
         public ActionResult Reporting()
         {
-            C1.Win.FlexReport.C1FlexReport.DefaultBasePath = DataXmlFolderPath ?? GetDataFile(new string[] { (Path.Combine(Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory), "bin")) });
+            FlexReport.DefaultBasePath = DataXmlFolderPath ?? GetDataFile(new string[] { (Path.Combine(Path.GetDirectoryName(System.AppDomain.CurrentDomain.BaseDirectory), "bin")) });
             return View();
         }
     }

@@ -1,0 +1,1069 @@
+<?xml version="1.0"?>
+<Reports>
+  <FormatVersion>1.0 1.0.0.0</FormatVersion>
+  <Report ref="1">
+    <Name>Parameters</Name>
+    <DataSourceName />
+    <OnOpen>' -- style script start
+    _styleCtr = 0
+    ' -- style script end
+    </OnOpen>
+    <Layout>
+      <Width>15690</Width>
+      <Margin>576</Margin>
+      <MarginTop>576</MarginTop>
+      <MarginRight>576</MarginRight>
+      <MarginBottom>576</MarginBottom>
+      <Orientation>Landscape</Orientation>
+      <CustomPageWidth>11905.5118110236</CustomPageWidth>
+      <CustomPageHeight>16837.7952755906</CustomPageHeight>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Segoe UI</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
+    <ReportParameters>
+      <ReportParameter>
+        <Name>prmBeginningDate</Name>
+        <Value sys="string">2013-01-01</Value>
+        <Prompt>Beginning Date</Prompt>
+        <ParameterType>Date</ParameterType>
+        <AllowedValuesDefinition>
+          <Values />
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmEndingDate</Name>
+        <Value sys="string">2017-01-01</Value>
+        <Prompt>Ending Date</Prompt>
+        <ParameterType>Date</ParameterType>
+        <AllowedValuesDefinition>
+          <Values />
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmSelectCustomers</Name>
+        <Value sys="string">All Customer</Value>
+        <Prompt>Select Customers</Prompt>
+        <AllowedValuesDefinition>
+          <Values>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">All Customer</Value>
+              </Value>
+              <Label>
+                <Value>All Customer</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">James Kit</Value>
+              </Value>
+              <Label>
+                <Value>James Kit</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">John A.</Value>
+              </Value>
+              <Label>
+                <Value>John A.</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Paul Jaykr</Value>
+              </Value>
+              <Label>
+                <Value>Paul Jaykr</Value>
+              </Label>
+            </ReportLabeledValue>
+          </Values>
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmSelectCategory</Name>
+        <Value sys="string">All Category</Value>
+        <Prompt>Select Category</Prompt>
+        <AllowedValuesDefinition>
+          <Values>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">All Category</Value>
+              </Value>
+              <Label>
+                <Value>All Category</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Appliances</Value>
+              </Value>
+              <Label>
+                <Value>Appliances</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Flowers</Value>
+              </Value>
+              <Label>
+                <Value>Flowers</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Furniture</Value>
+              </Value>
+              <Label>
+                <Value>Furniture</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Jackets</Value>
+              </Value>
+              <Label>
+                <Value>Jackets</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Mens Shirts</Value>
+              </Value>
+              <Label>
+                <Value>Mens Shirts</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Parts</Value>
+              </Value>
+              <Label>
+                <Value>Parts</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Road Bicycles</Value>
+              </Value>
+              <Label>
+                <Value>Road Bicycles</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Trucks</Value>
+              </Value>
+              <Label>
+                <Value>Trucks</Value>
+              </Label>
+            </ReportLabeledValue>
+          </Values>
+        </AllowedValuesDefinition>
+      </ReportParameter>
+    </ReportParameters>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>1770</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>' -- style script start
+    ' -- style script end
+    </OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Border>
+              <Bottom>
+                <Color>FF666666</Color>
+              </Bottom>
+            </Border>
+            <Height>3585</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>120</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Footer</Type>
+        <Visible>false</Visible>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC2DCFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+        <Visible>false</Visible>
+      </Section>
+    </Sections>
+    <Fields>
+      <SubreportField>
+        <Name>Field6</Name>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9990</Width>
+        <Height>1770</Height>
+        <MarginLeft>576</MarginLeft>
+        <Subreport sys="string">SoldItemReport</Subreport>
+        <ParameterValues>
+          <SubreportParameterValue>
+            <Name>prmCategory</Name>
+            <Value>
+              <Expression>prmSelectCategory</Expression>
+            </Value>
+          </SubreportParameterValue>
+          <SubreportParameterValue>
+            <Name>prmCustomer</Name>
+            <Value>
+              <Expression>prmSelectCustomers</Expression>
+            </Value>
+          </SubreportParameterValue>
+          <SubreportParameterValue>
+            <Name>prmStartDate</Name>
+            <Value>
+              <Expression>prmBeginningDate</Expression>
+            </Value>
+          </SubreportParameterValue>
+          <SubreportParameterValue>
+            <Name>prmEndDate</Name>
+            <Value>
+              <Expression>prmEndingDate</Expression>
+            </Value>
+          </SubreportParameterValue>
+        </ParameterValues>
+      </SubreportField>
+      <SubreportField>
+        <Name>Field1</Name>
+        <Background type="Solid">
+          <Color>FFFAFAFA</Color>
+        </Background>
+        <Section>Detail</Section>
+        <Left>10305</Left>
+        <Top>0</Top>
+        <Width>5385</Width>
+        <Height>1605</Height>
+        <Subreport sys="string">Top5RevenueCategories</Subreport>
+      </SubreportField>
+      <Field>
+        <Name>Field13</Name>
+        <Background type="Solid">
+          <Color>FFF1F1F1</Color>
+        </Background>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>15690</Width>
+        <Height>1110</Height>
+        <ZOrder>-9</ZOrder>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Bold>true</Bold>
+          <Size>9.75</Size>
+        </Font>
+      </Field>
+      <TextField>
+        <Name>Field2</Name>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>2190</Top>
+        <Width>15690</Width>
+        <Height>645</Height>
+        <MarginLeft>576</MarginLeft>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+        <Text>
+          <Value sys="string">FlexReport adds new properties for defining Parameters. Have a look on the Data tab. It defines different Parameter fields, each parameter having it's own set of properties.</Value>
+        </Text>
+      </TextField>
+      <Field>
+        <Name>Field19</Name>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9270</Width>
+        <Height>1110</Height>
+        <MarginLeft>576</MarginLeft>
+        <MarginBottom>172.8</MarginBottom>
+        <Text>Parameters</Text>
+        <Align>LeftBottom</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>23</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Field47</Name>
+        <Section>Header</Section>
+        <Left>11370</Left>
+        <Top>0</Top>
+        <Width>4320</Width>
+        <Height>1110</Height>
+        <MarginRight>244.8</MarginRight>
+        <PictureAlign>RightMiddle</PictureAlign>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>9</Size>
+        </Font>
+        <Picture>
+          <Image>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</Image>
+        </Picture>
+      </Field>
+      <Field>
+        <Name>ftrLeft2</Name>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>1380</Top>
+        <Width>5164</Width>
+        <Height>435</Height>
+        <MarginLeft>576</MarginLeft>
+        <Text>Now()</Text>
+        <Calculated>true</Calculated>
+        <Format>Long Date</Format>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+    </Fields>
+    <Culture>en-US</Culture>
+  </Report>
+  <Report ref="1">
+    <Name>SoldItemReport</Name>
+    <DataSourceName>Main</DataSourceName>
+    <OnOpen>' -- style script start
+    _styleCtr = 0
+    ' -- style script end
+    </OnOpen>
+    <Layout>
+      <Width>9630</Width>
+      <Margin>0</Margin>
+      <MarginTop>0</MarginTop>
+      <MarginRight>0</MarginRight>
+      <MarginBottom>0</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <CustomPageWidth>11905.5118110236</CustomPageWidth>
+      <CustomPageHeight>16837.7952755906</CustomPageHeight>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Segoe UI</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=C1NWind.db</ConnectionString>
+        <RecordSourceType>Text</RecordSourceType>
+        <RecordSource>SELECT *
+    FROM InventoryManagement where date(Sold_Date) Between date([prmStartDate]) And date([prmEndDate])</RecordSource>
+        <Filter>Iif(prmCustomer="All Customer",1=1,Customer_Name=prmCustomer) and Iif(prmCategory="All Category",1=1,Item_Category=prmCategory)</Filter>
+        <FilterSyntax>VBScript</FilterSyntax>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
+      </DataSource>
+    </DataSources>
+    <ReportParameters>
+      <ReportParameter>
+        <Name>prmCustomer</Name>
+        <Value sys="string">All Customer</Value>
+        <Prompt>Select Customer</Prompt>
+        <AllowedValuesDefinition>
+          <Values>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">All Customer</Value>
+              </Value>
+              <Label>
+                <Value>All Customer</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">James Kit</Value>
+              </Value>
+              <Label>
+                <Value>James Kit</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">John A.</Value>
+              </Value>
+              <Label>
+                <Value>John A.</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Paul Jaykr</Value>
+              </Value>
+              <Label>
+                <Value>Paul Jaykr</Value>
+              </Label>
+            </ReportLabeledValue>
+          </Values>
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmCategory</Name>
+        <Value sys="string">All Category</Value>
+        <Prompt>Select Category</Prompt>
+        <AllowedValuesDefinition>
+          <Values>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">All Category</Value>
+              </Value>
+              <Label>
+                <Value>All Category</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Appliances</Value>
+              </Value>
+              <Label>
+                <Value>Appliances</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Flowers</Value>
+              </Value>
+              <Label>
+                <Value>Flowers</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Furniture</Value>
+              </Value>
+              <Label>
+                <Value>Furniture</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Jackets</Value>
+              </Value>
+              <Label>
+                <Value>Jackets</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Mens Shirts</Value>
+              </Value>
+              <Label>
+                <Value>Mens Shirts</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Parts</Value>
+              </Value>
+              <Label>
+                <Value>Parts</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Road Bicycles</Value>
+              </Value>
+              <Label>
+                <Value>Road Bicycles</Value>
+              </Label>
+            </ReportLabeledValue>
+            <ReportLabeledValue>
+              <Value>
+                <Value sys="string">Trucks</Value>
+              </Value>
+              <Label>
+                <Value>Trucks</Value>
+              </Label>
+            </ReportLabeledValue>
+          </Values>
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmStartDate</Name>
+        <Value sys="string">2013-01-01</Value>
+        <ParameterType>String</ParameterType>
+        <AllowedValuesDefinition>
+          <Values />
+        </AllowedValuesDefinition>
+      </ReportParameter>
+      <ReportParameter>
+        <Name>prmEndDate</Name>
+        <Value sys="string">2015-01-01</Value>
+        <ParameterType>String</ParameterType>
+        <AllowedValuesDefinition>
+          <Values />
+        </AllowedValuesDefinition>
+      </ReportParameter>
+    </ReportParameters>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Background type="Solid">
+              <Color>FFFFFFFF</Color>
+            </Background>
+            <Height>540</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>1215</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>505</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Footer</Type>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC0C0C0</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+        <Visible>false</Visible>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+      </Section>
+    </Sections>
+    <Fields>
+      <Field>
+        <Name>Item_NameCtl</Name>
+        <Section>Detail</Section>
+        <Left>195</Left>
+        <Top>0</Top>
+        <Width>3750</Width>
+        <Height>375</Height>
+        <Text>Item_Name</Text>
+        <Calculated>true</Calculated>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Qty_SoldCtl</Name>
+        <Section>Detail</Section>
+        <Left>4040</Left>
+        <Top>75</Top>
+        <Width>960</Width>
+        <Height>280</Height>
+        <Text>Qty_Sold &amp;" " &amp; "Unit(s)"</Text>
+        <Calculated>true</Calculated>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Sales_IDCtl</Name>
+        <Section>Detail</Section>
+        <Left>5170</Left>
+        <Top>75</Top>
+        <Width>960</Width>
+        <Height>280</Height>
+        <Text>Sales_ID</Text>
+        <Calculated>true</Calculated>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>NetRevenueCtl</Name>
+        <Section>Detail</Section>
+        <Left>6130</Left>
+        <Top>75</Top>
+        <Width>1490</Width>
+        <Height>280</Height>
+        <Text>NetRevenue</Text>
+        <Calculated>true</Calculated>
+        <Format>$#,##0.00</Format>
+        <Align>RightMiddle</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Sold_DateCtl</Name>
+        <Section>Detail</Section>
+        <Left>7805</Left>
+        <Top>75</Top>
+        <Width>1825</Width>
+        <Height>280</Height>
+        <Text>Sold_Date
+    </Text>
+        <Calculated>true</Calculated>
+        <Format>Date</Format>
+        <Align>CenterMiddle</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Item_CategoryCtl</Name>
+        <Section>Detail</Section>
+        <Left>195</Left>
+        <Top>225</Top>
+        <Width>3420</Width>
+        <Height>280</Height>
+        <Text>"Category: " &amp; Item_Category</Text>
+        <Calculated>true</Calculated>
+        <Align>LeftTop</Align>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>10.5</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Field1</Name>
+        <Border>
+          <Left>
+            <Style>Solid</Style>
+            <Width>15</Width>
+            <Color>FFE6E6E6</Color>
+          </Left>
+          <Top>
+            <Style>Solid</Style>
+            <Width>15</Width>
+            <Color>FFE6E6E6</Color>
+          </Top>
+          <Right>
+            <Style>Solid</Style>
+            <Width>15</Width>
+            <Color>FFE6E6E6</Color>
+          </Right>
+          <Bottom>
+            <Style>Solid</Style>
+            <Width>15</Width>
+            <Color>FFE6E6E6</Color>
+          </Bottom>
+        </Border>
+        <Background type="Solid">
+          <Color>FFE4E4E4</Color>
+        </Background>
+        <Section>Detail</Section>
+        <Left>0</Left>
+        <Top>525</Top>
+        <Width>9630</Width>
+        <Height>15</Height>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>9</Size>
+        </Font>
+        <Shape type="LineShape" />
+      </Field>
+      <Field>
+        <Name>Field5</Name>
+        <Background type="Solid">
+          <Color>FFF8F8F8</Color>
+        </Background>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>660</Top>
+        <Width>9630</Width>
+        <Height>555</Height>
+        <ZOrder>-8</ZOrder>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Bold>true</Bold>
+          <Size>9.75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>titleLbl</Name>
+        <Background type="Solid">
+          <Color>FFF1F1F1</Color>
+        </Background>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9630</Width>
+        <Height>660</Height>
+        <ZOrder>-6</ZOrder>
+        <Text> Sold Items Report</Text>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>14.5</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Item_NameLbl1</Name>
+        <Section>Header</Section>
+        <Left>195</Left>
+        <Top>675</Top>
+        <Width>3855</Width>
+        <Height>510</Height>
+        <Text>Item Name</Text>
+        <Align>LeftMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Qty_SoldLbl1</Name>
+        <Section>Header</Section>
+        <Left>4040</Left>
+        <Top>675</Top>
+        <Width>960</Width>
+        <Height>510</Height>
+        <Text>Qty Sold</Text>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Sales_IDLbl1</Name>
+        <Section>Header</Section>
+        <Left>5170</Left>
+        <Top>675</Top>
+        <Width>960</Width>
+        <Height>510</Height>
+        <Text>ID</Text>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>NetRevenueLbl1</Name>
+        <Section>Header</Section>
+        <Left>6130</Left>
+        <Top>675</Top>
+        <Width>1505</Width>
+        <Height>510</Height>
+        <Text>Net Revenue</Text>
+        <Align>RightMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Sold_DateLbl1</Name>
+        <Section>Header</Section>
+        <Left>7805</Left>
+        <Top>675</Top>
+        <Width>1825</Width>
+        <Height>510</Height>
+        <Text>Last Sold</Text>
+        <Align>CenterMiddle</Align>
+        <WordWrap>false</WordWrap>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>Field2</Name>
+        <Background type="Solid">
+          <Color>FFF8F8F8</Color>
+        </Background>
+        <Section>Footer</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>9630</Width>
+        <Height>505</Height>
+        <ZOrder>-9</ZOrder>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Bold>true</Bold>
+          <Size>9.75</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>lblGrandTotal</Name>
+        <Section>Footer</Section>
+        <Left>195</Left>
+        <Top>0</Top>
+        <Width>2940</Width>
+        <Height>505</Height>
+        <Text>Grand Total:</Text>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>GradTotalUnit</Name>
+        <Section>Footer</Section>
+        <Left>3375</Left>
+        <Top>0</Top>
+        <Width>2075</Width>
+        <Height>505</Height>
+        <Text>Sum(Qty_Sold)&amp;" " &amp; "Unit(s)"</Text>
+        <Calculated>true</Calculated>
+        <Align>RightMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+      <Field>
+        <Name>GranTotalRevenue</Name>
+        <Section>Footer</Section>
+        <Left>6120</Left>
+        <Top>0</Top>
+        <Width>1950</Width>
+        <Height>505</Height>
+        <Text>Sum(NetRevenue)</Text>
+        <Calculated>true</Calculated>
+        <Format>$#,##0.00</Format>
+        <Align>RightMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>12</Size>
+        </Font>
+      </Field>
+    </Fields>
+  </Report>
+  <Report ref="1">
+    <Name>Top5RevenueCategories</Name>
+    <DataSourceName>Main</DataSourceName>
+    <OnOpen>' -- style script start
+    _styleCtr = 0
+    ' -- style script end
+    </OnOpen>
+    <Layout>
+      <Width>5265</Width>
+      <Margin>0</Margin>
+      <MarginTop>0</MarginTop>
+      <MarginRight>0</MarginRight>
+      <MarginBottom>0</MarginBottom>
+      <Orientation>Portrait</Orientation>
+      <CustomPageWidth>12240</CustomPageWidth>
+      <CustomPageHeight>15840</CustomPageHeight>
+    </Layout>
+    <Fonts>
+      <Font>
+        <Name>Segoe UI</Name>
+        <Size>9</Size>
+      </Font>
+    </Fonts>
+    <DataSources>
+      <DataSource>
+        <Name>Main</Name>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=C1NWind.db</ConnectionString>
+        <RecordSource>
+            SELECT * FROM (SELECT *
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement
+            group by Item_Category LIMIT 5)  AS t
+            ORDER BY TotalRevenue DESC) AS t1
+            UNION select 'Remaining Categories',(select Sum(NetRevenue) from InventoryManagement where  Item_Category not In (SELECT Item_Category
+            FROM (SELECT Item_Category, sum(NetRevenue) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement LIMIT 5) as total
+            FROM InventoryManagement group by Item_Category)  AS t
+            ORDER BY TotalRevenue DESC)) as totalRevenue, (select Sum(NetRevenue) from InventoryManagement) as total
+            FROM InventoryManagement;</RecordSource>
+      </DataSource>
+    </DataSources>
+    <Sections>
+      <Section>
+        <Name>Detail</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>45</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Detail</Type>
+        <OnPrint>lblCatagoryLagend.BackColor=Iif(_styleCtr = 0,"Darkred",Iif(_styleCtr = 1,"Darkblue",Iif(_styleCtr = 2,"LightGreen",Iif(_styleCtr = 3,"gray",Iif(_styleCtr = 4,"Yellow","Skyblue")))))
+        _styleCtr = _styleCtr +1</OnPrint>
+      </Section>
+      <Section>
+        <Name>Header</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+            <Height>5460</Height>
+          </SubSection>
+        </SubSections>
+        <Type>Header</Type>
+      </Section>
+      <Section>
+        <Name>Footer</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>Footer</Type>
+        <Visible>false</Visible>
+      </Section>
+      <Section>
+        <Name>PageHeader</Name>
+        <Background type="Solid">
+          <Color>FFC2DCFF</Color>
+        </Background>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageHeader</Type>
+      </Section>
+      <Section>
+        <Name>PageFooter</Name>
+        <SubSections>
+          <SubSection>
+            <Name>SubSection1</Name>
+          </SubSection>
+        </SubSections>
+        <Type>PageFooter</Type>
+        <Visible>false</Visible>
+      </Section>
+    </Sections>
+    <Fields>
+      <FlexChartField>
+        <Name>RevenueChart</Name>
+        <Background type="Solid">
+          <Color>FFFAFAFA</Color>
+        </Background>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>750</Top>
+        <Width>5265</Width>
+        <Height>4665</Height>
+        <ZOrder>-7</ZOrder>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>9</Size>
+        </Font>
+        <CategoryGroups>
+          <FlexChartDataGroup>
+            <GroupExpression>Item_Category</GroupExpression>
+          </FlexChartDataGroup>
+        </CategoryGroups>
+        <Series>
+          <FlexChartSeries>
+            <YExpressions>
+              <Item sys="string">totalRevenue</Item>
+            </YExpressions>
+          </FlexChartSeries>
+        </Series>
+        <AxisX>
+          <LabelAngle>45</LabelAngle>
+          <Title>Item Category</Title>
+        </AxisX>
+        <AxisY>
+          <Format>#,##0.##</Format>
+          <Title>Total Revenue</Title>
+        </AxisY>
+      </FlexChartField>
+      <Field>
+        <Name>titleLbl1</Name>
+        <Background type="Solid">
+          <Color>FFF1F1F1</Color>
+        </Background>
+        <Section>Header</Section>
+        <Left>0</Left>
+        <Top>0</Top>
+        <Width>5265</Width>
+        <Height>660</Height>
+        <ZOrder>-6</ZOrder>
+        <Text> Top 5 Revenue Categories All Times</Text>
+        <Align>LeftMiddle</Align>
+        <ForeColor>FF551E5F</ForeColor>
+        <Font>
+          <Name>Segoe UI Light</Name>
+          <Size>14.5</Size>
+          <GdiCharSet>0</GdiCharSet>
+        </Font>
+      </Field>
+    </Fields>
+  </Report>
+</Reports>

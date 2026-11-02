@@ -11,6 +11,15 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Text;
+using System.Net;
+using C1.AspNetCore.Api;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Util.Store;
+using System.Threading;
+using Google.Apis.Drive.v3;
+
+
+
 #if ODATA_SERVER
 #if NETCORE10
 using Microsoft.AspNetCore.OData.Extensions;
@@ -30,6 +39,7 @@ namespace MvcExplorer
 {
     public class Startup
     {
+        public IConfigurationRoot Configuration { get; set; }
 #if NETCORE31
         public Startup(IWebHostEnvironment env)
 #else
@@ -46,7 +56,7 @@ namespace MvcExplorer
             Configuration = builder.Build();
         }
 
-        public IConfigurationRoot Configuration { get; set; }
+
 
 #if NETCORE31
         public static IWebHostEnvironment Environment { get; set; }
@@ -58,6 +68,7 @@ namespace MvcExplorer
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddDbContext<C1NWindEntities>(o => o.UseSqlite(GetConnectionString()));
+            services.AddDbContext<AirportEntities>(o => o.UseSqlite(GetConnectionStringForFlightStatistics()));
 
 #if ODATA_SERVER
 #if NETCORE10
@@ -81,27 +92,62 @@ namespace MvcExplorer
                 options.AllowSynchronousIO = true;
             });
 #endif
+            services.AddRazorPages();
             services.AddSession();
+
+            Models.AppSettings.Configuration = Configuration;
+
+            // CORS support
+            services.AddCors(options =>
+            {
+                options.AddPolicy("AllowAll", builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+            });
+
+#if NETCORE31
+            services.AddC1Api();
+#endif
         }
 
         private string GetConnectionString()
         {
             var configConnectionString = Configuration["Data:DefaultConnection:ConnectionString"];
-            const char folderSeparator = '\\';
-            var dataFolderPath = Environment.WebRootPath.Replace('/', folderSeparator);
-            if (dataFolderPath.Last() != folderSeparator)
-            {
-                dataFolderPath += folderSeparator;
-            }
+            var dataFolderPath = Environment.WebRootPath;
 
             var dataSourceText = "data source=";
             var index = configConnectionString.IndexOf(dataSourceText);
             if (index != -1)
             {
-                return configConnectionString.Insert(index + dataSourceText.Length, dataFolderPath);
+                var relativePath = configConnectionString.Substring(index + dataSourceText.Length);
+                // Remove trailing semicolon and normalize path separators
+                relativePath = relativePath.TrimEnd(';').Replace('\\', Path.DirectorySeparatorChar);
+                var fullPath = Path.Combine(dataFolderPath, relativePath);
+                return dataSourceText + fullPath + ";";
             }
 
-            return dataFolderPath + configConnectionString;
+            return Path.Combine(dataFolderPath, configConnectionString);
+        }
+
+        private string GetConnectionStringForFlightStatistics()
+        {
+            var configConnectionString = Configuration["ConnectionStrings:ConnectionString"];
+            var dataFolderPath = Environment.WebRootPath;
+
+            var dataSourceText = "data source=";
+            var index = configConnectionString.IndexOf(dataSourceText);
+            if (index != -1)
+            {
+                // Extract relative path once
+                var relativePath = configConnectionString.Substring(index + dataSourceText.Length)
+                                                         .TrimEnd(';')
+                                                         .Replace('\\', Path.DirectorySeparatorChar);
+
+                var fullPath = Path.Combine(dataFolderPath, relativePath);
+
+                // Return updated connection string
+                return configConnectionString.Substring(0, index + dataSourceText.Length) + fullPath + ";";
+            }
+
+            return configConnectionString;
         }
 
 #if NETCORE31
@@ -110,6 +156,14 @@ namespace MvcExplorer
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 #endif
         {
+            var pathBase = System.Environment.GetEnvironmentVariable("BASE_PATH");
+            if (!string.IsNullOrEmpty(pathBase))
+            {
+                app.UsePathBase(pathBase);
+            }
+#if NETCORE31
+            app.UseC1Api();
+#endif
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -139,6 +193,32 @@ namespace MvcExplorer
                 SupportedCultures = supportedCultures,
                 SupportedUICultures = supportedCultures
             });
+
+            #region Storage registration
+            string[] scopes = { DriveService.Scope.Drive };
+            string applicationName = "C1WebApi";
+
+            #region Dropbox
+            // Dropbox storage
+            app.UseStorageProviders().AddDropBoxStorage("DropBox", Configuration["AppSettings:DropBoxStorageAccessToken"], applicationName);
+            #endregion
+
+            #region Onedrive
+            //// Ondrive storage: uncomment these lines when want to test OneDrive storage
+            //app.UseStorageProviders().AddOneDriveStorage("OneDrive", Configuration["AppSettings:OneDriveAccessToken"]);
+            #endregion
+
+            #region Google
+            //// Google storage: please uncomment this line when you want to test GoogleDrive service.
+            //app.UseStorageProviders().AddGoogleDriveStorage("GoogleDrive", GetUserCredential(scopes), applicationName);
+            #endregion
+
+            #region Local
+            app.UseStorageProviders()
+                .AddDiskStorage("ExcelRoot", Path.Combine(env.WebRootPath, "ExcelRoot"));
+            #endregion
+
+            #endregion
 
 #if ODATA_SERVER
 #if NETCORE10
@@ -199,6 +279,8 @@ namespace MvcExplorer
 #if NETCORE31
             app.UseEndpoints(endpoints =>
             {
+                endpoints.MapRazorPages();
+
                 endpoints.MapControllerRoute(
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
@@ -212,7 +294,8 @@ namespace MvcExplorer
             });
 #else
 
-            app.UseMvc(r => {
+            app.UseMvc(r =>
+            {
 #if ODATA_SERVER && !NETCORE10
                 // Enable filter, order and count in OData
                 r.Select().Expand().Filter().MaxTop(100).OrderBy().Count();
@@ -234,7 +317,113 @@ namespace MvcExplorer
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
 #endif
+            app.UseStorageProviders().AddDiskStorage("PdfsRoot", Path.Combine(env.WebRootPath, "PdfsRoot"));
+
+            // Configure FlexReports with DataDirectory resolution
+            var reportsRoot = Path.Combine(env.WebRootPath, "ReportsRoot");
+            var appDataPath = Path.Combine(env.WebRootPath, "App_Data");
+
+            // Detect if running in Docker
+            bool isDocker = System.Environment.GetEnvironmentVariable("DOTNET_RUNNING_IN_CONTAINER") == "true";
+
+            if (isDocker)
+            {
+                Console.WriteLine("Running in Docker - reports will use absolute paths");
+            }
+            else
+            {
+                // Local: Set AppDomain DataDirectory for |DataDirectory| token resolution
+                AppDomain.CurrentDomain.SetData("DataDirectory", appDataPath);
+                Console.WriteLine("Running locally - reports will use |DataDirectory| token");
+            }
+
+            // Log database paths for debugging
+            Console.WriteLine($"DataDirectory set to: {appDataPath}");
+            if (Directory.Exists(appDataPath))
+            {
+                Console.WriteLine($"Files in App_Data: {string.Join(", ", Directory.GetFiles(appDataPath))}");
+            }
+            else
+            {
+                Console.WriteLine($"WARNING: App_Data directory does not exist at {appDataPath}");
+            }
+
+            app.UseReportProviders().AddFlexReportDiskStorage("ReportsRoot", reportsRoot);
+
+            var ssrsUrl = Configuration["AppSettings:SsrsUrl"];
+            var ssrsUserName = Configuration["AppSettings:SsrsUserName"];
+            var ssrsPassword = Configuration["AppSettings:SsrsPassword"];
+
+            if (!string.IsNullOrEmpty(ssrsUrl) && !string.IsNullOrEmpty(ssrsUserName) && !string.IsNullOrEmpty(ssrsPassword))
+            {
+                try
+                {
+                    ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12 | SecurityProtocolType.Tls11 | SecurityProtocolType.Tls;
+                    ServicePointManager.Expect100Continue = false;
+
+                    app.UseReportProviders().AddSsrsReportHost(
+                        "c1ssrs",
+                        ssrsUrl,
+                        new NetworkCredential(ssrsUserName, ssrsPassword),
+                        C1.Web.Api.Report.AuthenticationType.Ntlm);
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine($"ERROR: Failed to register SSRS host: {ex.Message}");
+                }
+            }
+
+            // Register DataEngine providers
+            var dataEngineWorkspace = Path.Combine(env.WebRootPath, "Data");
+
+            // Check for Docker volume mount, otherwise use local path
+            if (Directory.Exists("/data/dataengine-workspace"))
+            {
+                dataEngineWorkspace = "/data/dataengine-workspace";
+            }
+            else if (!Directory.Exists(dataEngineWorkspace))
+            {
+                Directory.CreateDirectory(dataEngineWorkspace);
+            }
+
+            var dataEngineProviders = app.UseDataEngineProviders();
+            dataEngineProviders.SetDefaultWorkspacePath(dataEngineWorkspace);
+
+            try
+            {
+                dataEngineProviders.AddDataEngine("complex10", () => ProductData.GetData(100000));
+            }
+            catch
+            {
+                // Fallback to AddDataSource if AddDataEngine fails
+                dataEngineProviders.AddDataSource("complex10", () => ProductData.GetData(100000));
+            }
+
+            dataEngineProviders
+                .AddDataSource("dataset10", () => ProductData.GetData(100000).ToList())
+                .AddCube("cube", @"Data Source=http://ssrs.componentone.com/OLAP/msmdpump.dll;Provider=msolap;Initial Catalog=AdventureWorksDW2012Multidimensional", "Adventure Works");
+        }
+
+        private static UserCredential GetUserCredential(string[] scopes)
+        {
+            UserCredential credential;
+
+            using (var fileStream =
+                    new FileStream("credentials.json", FileMode.Open, FileAccess.Read))
+            {
+                // The file token.json stores the user's access and refresh tokens, and is created
+                // automatically when the authorization flow completes for the first time.
+                string credPath = "token.json";
+                credential = GoogleWebAuthorizationBroker.AuthorizeAsync(
+                        GoogleClientSecrets.Load(fileStream).Secrets,
+                        scopes,
+                        "user",
+                        CancellationToken.None,
+                        new FileDataStore(credPath, true)).Result;
+            }
+            return credential;
         }
     }
 
@@ -278,4 +467,6 @@ namespace MvcExplorer
         }
     }
 #endif
+
+
 }

@@ -34,6 +34,16 @@
         }
     }
 
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let groupPanelEl = document.querySelector('[aria-label="groupPanelLabel"]');
+            if (groupPanelEl) {
+         tt.setTooltip(groupPanelEl, "Drag columns here from flexGrid to create groups");
+    }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
 </script>
 
 <c1-flex-grid id="ovFlexGrid" auto-generate-columns="false" is-read-only="true" class="grid">
@@ -49,7 +59,7 @@
                               placeholder="@(optionsModel.Options["Placeholder"].CurrentValue)"
                               hide-grouped-columns="@(Convert.ToBoolean(optionsModel.Options["Hide Grouped Columns"].CurrentValue))"
                               group-description-creator=@((Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue)) ? "customGroup" : "null")
-                              show-drag-glyphs="@(Convert.ToBoolean(optionsModel.Options["Show Drag Glyphs"].CurrentValue))">
+                              show-drag-glyphs="@(Convert.ToBoolean(optionsModel.Options["Show Drag Glyphs"].CurrentValue))" aria-label="groupPanelLabel">
                               
     </c1-flex-grid-group-panel>
 </c1-flex-grid>
@@ -64,4 +74,7 @@
     @Html.Raw(FlexGridRes.GroupDescriptionCreator_Text0)
     <br/>
     @Html.Raw(FlexGridRes.GroupPanel_Text2)
+    <br/>
+    @Html.Raw(FlexGridRes.GroupPanel_GroupPanelToolTip)
+
 }

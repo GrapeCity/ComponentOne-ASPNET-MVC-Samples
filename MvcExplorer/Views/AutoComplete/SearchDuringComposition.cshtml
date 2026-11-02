@@ -1,0 +1,75 @@
+﻿@model IList<string>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+    var wordsByLanguage = ViewBag.ComposingWords as IDictionary<string, IList<string>>;
+}
+
+@section Styles {
+    <style>
+        .demo-row {
+            margin-bottom: 22px;
+            max-width: 420px;
+        }
+
+            .demo-row label {
+                display: block;
+                font-weight: 600;
+                margin-bottom: 4px;
+            }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        var composingWords = @Html.Raw(Json.Encode(wordsByLanguage));
+
+        // Called by the Language setting menu. The three controls share the same
+        // word list, so all of them are re-bound together.
+        function customChangeLanguage(control, value) {
+            var words = composingWords[value.toLowerCase()];
+            ["@controlId", "acComposing", "macComposing"].forEach(function (id) {
+                var ctl = wijmo.Control.getControl("#" + id);
+                
+                if (id === "macComposing" && ctl)
+                    ctl.selectedItems = [];
+
+                if (ctl) {
+                    ctl.itemsSource = words;
+                }
+            });
+        }
+    </script>
+}
+
+@section Summary {
+    @Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text0)
+}
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text1)</label>
+    @(Html.C1().AutoComplete().Id(controlId).Bind(Model)
+        .MinLength(1)
+        .Placeholder("Type with an IME"))
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text2)</label>
+    @(Html.C1().AutoComplete().Id("acComposing").Bind(Model)
+        .MinLength(1)
+        .SearchDuringComposition(true)
+        .Placeholder("Type with an IME"))
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text3)</label>
+    @(Html.C1().MultiAutoComplete().Id("macComposing").Bind(Model)
+        .MinLength(1)
+        .SearchDuringComposition(true)
+        .Placeholder("Type with an IME and press Enter"))
+</div>
+
+@section Description {
+    <p>@Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text4)</p>
+    <p>@Html.Raw(Resources.AutoComplete.SearchDuringComposition_Text5)</p>
+}

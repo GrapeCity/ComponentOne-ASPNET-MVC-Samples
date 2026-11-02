@@ -369,7 +369,29 @@ namespace TransposedGridExplorer.Localization {
                 return ResourceManager.GetString("ControlLayout_Description", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how to add custom editor to &lt;b&gt;TransposedGrid&lt;/b&gt; using the &lt;b&gt;Editor&lt;/b&gt; property..
+        /// </summary>
+        internal static string CustomEditors_Descriptions
+        {
+            get
+            {
+                return ResourceManager.GetString("CustomEditors_Descriptions", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Custom editors can be attached to TransposedGrid rows, including the leaf rows of a row group..
+        /// </summary>
+        internal static string CustomEditors_Summary
+        {
+            get
+            {
+                return ResourceManager.GetString("CustomEditors_Summary", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to Error..
         /// </summary>
@@ -425,7 +447,29 @@ namespace TransposedGridExplorer.Localization {
                 return ResourceManager.GetString("RowGroups_Descriptions", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        public static string MissingSourceFile
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        public static string MissingSourceFileCode
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to The row groups feature allow a row contains child rows and the row groups can be collapsible and expandable..
         /// </summary>

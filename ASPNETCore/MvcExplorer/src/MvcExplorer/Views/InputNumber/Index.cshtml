@@ -64,8 +64,17 @@
 
 <div>
     <label>@Html.Raw(InputNumberRes.Index_Text5)</label>
-    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false" format="g5" input-type="number"
+    <c1-input-number value="null" placeholder="@InputNumberRes.Index_EnterANumber" is-required="false" format="g5"
                      handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
+</div>
+
+<div>
+    <label>@Html.Raw(InputNumberRes.Index_Text9)</label>
+    <c1-input-number value="99.999" format="n2" handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
+</div>
+<div>
+    <label>@Html.Raw(InputNumberRes.Index_Text10)</label>
+    <c1-input-number value="99.999" format="n2" truncate="true" handle-wheel="@Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue)"></c1-input-number>
 </div>
 
 @section Settings{
@@ -76,4 +85,5 @@
     <p>@Html.Raw(InputNumberRes.Index_Text4)</p>
     <p>@Html.Raw(InputNumberRes.Index_Text6)</p>
     <p>@Html.Raw(InputNumberRes.HandleWheelDescription_Text0)</p>
+    <p>@Html.Raw(InputNumberRes.TruncateDescription_Text0)</p>
 }

@@ -3,6 +3,13 @@
     ClientSettingsModel optionsModel = ViewBag.DemoSettingsModel;
 }
 
+@* Temporary workaround for C1WEB-30640. Remove this style once the corresponding Wijmo bug fix is available. *@
+<style>
+    .wj-slicer.wj-nocheck .wj-listbox .wj-listbox-item .wj-checklist-base {
+        display: none;
+    }
+</style>
+
 @(Html.C1().PivotEngine().Id("indexEngine")
         .Bind(Model)
         .RowFields(pfcb => pfcb.Items("Country"))

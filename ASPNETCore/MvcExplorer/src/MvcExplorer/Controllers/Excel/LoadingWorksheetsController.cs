@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
 using System;
+using System.IO;
 using C1.Excel;
 
 namespace MvcExplorer.Controllers
@@ -12,7 +13,7 @@ namespace MvcExplorer.Controllers
         {
             try
             {
-                _xlBook.Load(Startup.Environment.WebRootPath + "\\Temp\\Houston.xlsx");
+                _xlBook.Load(Path.Combine(Startup.Environment.WebRootPath, "Temp", "Houston.xlsx"));
             }
             catch (Exception)
             {

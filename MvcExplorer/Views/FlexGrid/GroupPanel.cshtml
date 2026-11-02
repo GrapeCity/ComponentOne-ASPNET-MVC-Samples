@@ -7,7 +7,7 @@
 <script type="text/javascript">
     var europe = ["UK", "France", "German", "Italy"],
         american = ["US", "Canada"], asian = ["Japan", "China", "Korea"], autralian = ["Australia"];
-    
+
     function customGroup(prop) {
         switch (prop) {
             case 'Start':
@@ -34,6 +34,16 @@
         }
     }
 
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let groupPanelEl = document.querySelector('[aria-label="groupPanelLabel"]');
+        if (groupPanelEl) {
+            tt.setTooltip(groupPanelEl, "Drag columns here from flexGrid to create groups");
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
 </script>
 
 @(Html.C1().FlexGrid<Sale>()
@@ -43,6 +53,7 @@
         .HideGroupedColumns(Convert.ToBoolean(optionsModel.Options["Hide Grouped Columns"].CurrentValue))
         .GroupDescriptionCreator(Convert.ToBoolean(optionsModel.Options["Group Description Creator"].CurrentValue) ? "customGroup" : null)
         .ShowDragGlyphs(Convert.ToBoolean(optionsModel.Options["Show Drag Glyphs"].CurrentValue))
+        .AriaLabel("groupPanelLabel")
         )
     .AutoGenerateColumns(false)
     .Bind(Model)
@@ -64,10 +75,12 @@
 }
 @section Description{
     @Html.Raw(Resources.FlexGrid.GroupPanel_Text0)
-    <br/>
+    <br />
     @Html.Raw(Resources.FlexGrid.GroupPanel_Text1)
     <br />
     @Html.Raw(Resources.FlexGrid.GroupDescriptionCreator_Text0)
-    <br/>
+    <br />
     @Html.Raw(Resources.FlexGrid.GroupPanel_Text2)
+    <br />
+    @Html.Raw(Resources.FlexGrid.GroupPanel_GroupPanelToolTip)
 }

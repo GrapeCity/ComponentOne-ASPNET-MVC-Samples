@@ -28,7 +28,7 @@
 
 @(Html.C1().TransposedMultiRow<Orders.Order>()
     .Id("ovTransposedMultiRow")
-    .Bind(bl => bl.Bind(Model))
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
     .LayoutDefinition(layoutDefForTransposedMultiRowBuilder)
     .CssClass("multirow")
 )
@@ -45,7 +45,7 @@
 <h3>MultiRow</h3>
 @(Html.C1().MultiRow<Orders.Order>()
     .Id("ovMultiRow")
-    .Bind(bl => bl.Bind(Model))
+    .Bind(bl => bl.Bind(Model).DisableServerRead(true))
     .LayoutDefinition(layoutDefForMultiRowBuilder)
     .CssClass("multirow")
 )

@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class FlexGrid {
@@ -66,6 +66,24 @@ namespace Resources {
         internal static string AllowPinning_Text0 {
             get {
                 return ResourceManager.GetString("AllowPinning_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to FlexGrid supports column resizing to improve data viewing. .
+        /// </summary>
+        internal static string AllowResizing_Description {
+            get {
+                return ResourceManager.GetString("AllowResizing_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By default, columns can only be resized within the grid’s width. To allow resizing beyond the grid boundaries, use the &lt;b&gt;allowResizing&lt;/b&gt; property with appropriate enum values, which control how and when columns can be resized..
+        /// </summary>
+        internal static string AllowResizing_Details {
+            get {
+                return ResourceManager.GetString("AllowResizing_Details", resourceCulture);
             }
         }
         
@@ -379,6 +397,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to You can use the Trigger property that determines how the tooltip should be triggered..
+        /// </summary>
+        internal static string BuiltInValidation_Text3 {
+            get {
+                return ResourceManager.GetString("BuiltInValidation_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Use the Selector extender to add a checkbox-based scheme for row selection..
         /// </summary>
         internal static string CheckboxSelection_Text0 {
@@ -397,18 +424,61 @@ namespace Resources {
                 return ResourceManager.GetString("CheckboxSelection_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The Selector can be set AriaLabel to support screen reader..
         /// </summary>
-        internal static string CheckboxSelection_Text2
-        {
-            get
-            {
+        internal static string CheckboxSelection_Text2 {
+            get {
                 return ResourceManager.GetString("CheckboxSelection_Text2", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page demos how the AutoClipboard and PreventCut properties control the grid&apos;s built-in clipboard shortcuts..
+        /// </summary>
+        internal static string Clipboard_Text0 {
+            get {
+                return ResourceManager.GetString("Clipboard_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;AutoClipboard&lt;/b&gt; to determine whether the grid handles the standard clipboard shortcuts: Ctrl+C to copy, Ctrl+X to cut, and Ctrl+V to paste. When it is set to false the grid ignores all three..
+        /// </summary>
+        internal static string Clipboard_Text1 {
+            get {
+                return ResourceManager.GetString("Clipboard_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;PreventCut&lt;/b&gt; to disable only the cut shortcut. When it is set to true, Ctrl+X no longer copies, clears, or deletes the selected cells, while Ctrl+C and Ctrl+V keep working. The keyboard event itself is left untouched, so the browser and any external event listeners still receive it. This property has no effect when AutoClipboard is false..
+        /// </summary>
+        internal static string Clipboard_Text2 {
+            get {
+                return ResourceManager.GetString("Clipboard_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Paste here.
+        /// </summary>
+        internal static string Clipboard_Text3 {
+            get {
+                return ResourceManager.GetString("Clipboard_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Clipboard activity.
+        /// </summary>
+        internal static string Clipboard_Text4 {
+            get {
+                return ResourceManager.GetString("Clipboard_Text4", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable..
         /// </summary>
@@ -419,11 +489,29 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This sample shows how you can create column groups by initializing the grid&apos;s column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse..
+        ///   Looks up a localized string similar to This sample shows how you can create column groups by initializing the grid&apos;s column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;CollapseTo&lt;/b&gt; and &lt;b&gt;IsCollapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse..
         /// </summary>
         internal static string ColumnGroups_Text1 {
             get {
                 return ResourceManager.GetString("ColumnGroups_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added support for &lt;b&gt;cssClassAll&lt;/b&gt; property to be applied on column group header when explicitly set on the parent column of a group.
+        /// </summary>
+        internal static string ColumnGroups_Text2 {
+            get {
+                return ResourceManager.GetString("ColumnGroups_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Added the &lt;b&gt;placeholder&lt;/b&gt; for a column which will be displayed when editing an empty cell..
+        /// </summary>
+        internal static string ColumnGroups_Text3 {
+            get {
+                return ResourceManager.GetString("ColumnGroups_Text3", resourceCulture);
             }
         }
         
@@ -482,7 +570,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The FlexGrid has a client ColumnLayout property that gets or sets a JSON string containing a list of grid columns and their properties.
+        ///   Looks up a localized string similar to  The FlexGrid has a client ColumnLayout property that gets or sets a JSON string containing a list of grid columns and their properties.
         ///        It doesn&apos;t support the datamap column.
         ///        This sample uses the client ColumnLayout property to persist the column layout to the browser&apos;s localStorage. FlexGrid also supports server-side saving\loading of column layout,
         ///        this is helpful in cases where column layout maybe saved in a storage\database to present different users with different view. Pleas [rest of string was truncated]&quot;;.
@@ -503,7 +591,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This sample shows how to implement a column-picker for FlexGrid..
+        ///   Looks up a localized string similar to This sample shows how to implement a column-picker for FlexGrid..
         /// </summary>
         internal static string ColumnPicker_Text0 {
             get {
@@ -512,7 +600,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display..
+        ///   Looks up a localized string similar to Click the column-picker icon at the top-left cell to show the column-picker dropdown list where you can select the columns you want to display..
         /// </summary>
         internal static string ColumnPicker_Text1 {
             get {
@@ -521,7 +609,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Enable drag-and-drop on column-picker to change columns&apos; order to display..
+        ///   Looks up a localized string similar to Enable drag-and-drop on column-picker to change columns&apos; order to display..
         /// </summary>
         internal static string ColumnPicker_Text2 {
             get {
@@ -530,7 +618,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to You can also save and restore columns&apos; layout of the FlexGrid. Please try changing columns&apos; layout as you want, click the button &apos;Save Layout&apos; to save it. Now, you can change columns&apos; layout freely and then can click the button &apos;Load Layout&apos; to restore the columns&apos; layout which was saved..
+        ///   Looks up a localized string similar to You can also save and restore columns&apos; layout of the FlexGrid. Please try changing columns&apos; layout as you want, click the button &apos;Save Layout&apos; to save it. Now, you can change columns&apos; layout freely and then can click the button &apos;Load Layout&apos; to restore the columns&apos; layout which was saved..
         /// </summary>
         internal static string ColumnPicker_Text3 {
             get {
@@ -539,7 +627,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Save Layout.
+        ///   Looks up a localized string similar to Save Layout.
         /// </summary>
         internal static string ColumnPicker_Text4 {
             get {
@@ -548,7 +636,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Restore Layout.
+        ///   Looks up a localized string similar to Restore Layout.
         /// </summary>
         internal static string ColumnPicker_Text5 {
             get {
@@ -815,7 +903,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Dynamic Data Map.
+        ///   Looks up a localized string similar to Dynamic Data Map.
         /// </summary>
         internal static string DataMap_DynamicDataMap {
             get {
@@ -843,7 +931,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property..
+        ///   Looks up a localized string similar to Columns with an associated data map can be showed as AutoComplete, DropDownList, RadioButtons or Menu. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property..
         /// </summary>
         internal static string DataMap_Text1 {
             get {
@@ -873,7 +961,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to You can also use DataMap dynamically as filtering the values in the drop-down list if it depends on some conditions..
+        ///   Looks up a localized string similar to You can also use DataMap dynamically as filtering the values in the drop-down list if it depends on some conditions..
         /// </summary>
         internal static string DataMap_Text6 {
             get {
@@ -882,7 +970,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item&apos;s country..
+        ///   Looks up a localized string similar to For example, the grid below shows a list of data items with countries and cities. The drop-down city list includes only cities in the data item&apos;s country..
         /// </summary>
         internal static string DataMap_Text7 {
             get {
@@ -1223,7 +1311,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to &lt;b&gt;Editing Mode:&lt;/b&gt;
+        ///   Looks up a localized string similar to  &lt;b&gt;Editing Mode:&lt;/b&gt;
         ///        There are two modes for updating the data.
         ///        By default, the update operation will be commit to the server once finishing editing.
         ///        If the user wants to commit the update operation to datasource server, the Update, Delete or Create action url should be provided.
@@ -1253,40 +1341,34 @@ namespace Resources {
                 return ResourceManager.GetString("Editing_Text9", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to This page demos how to use CommitEmptyEdits property..
         /// </summary>
-        internal static string EmptyEdit_Text0
-        {
-            get
-            {
+        internal static string EmptyEdit_Text0 {
+            get {
                 return ResourceManager.GetString("EmptyEdit_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to If you choose to ignore commit empty edits, the Grid will not commit empty edits to cell values if the original value is null..
         /// </summary>
-        internal static string EmptyEdit_Text1
-        {
-            get
-            {
+        internal static string EmptyEdit_Text1 {
+            get {
                 return ResourceManager.GetString("EmptyEdit_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Items Changed:.
         /// </summary>
-        internal static string EmptyEdit_Text2
-        {
-            get
-            {
+        internal static string EmptyEdit_Text2 {
+            get {
                 return ResourceManager.GetString("EmptyEdit_Text2", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Enter search text here.
         /// </summary>
@@ -1423,11 +1505,130 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to This view shows the FlexGrid control&apos;s frozen cells features..
+        ///   Looks up a localized string similar to The &lt;b&gt;ShowIncludeSelection&lt;/b&gt; property is an advanced option to control whether the value filter displays an Excel-like &quot;Add current selection to filter&quot; feature.&lt;br /&gt;You can toggle check ShowIncludeSelection, open the column filter icon, and observe how the &quot;Include current selection&quot; option appears and functions within the filter box.&lt;br/&gt;
+        ///
+        ///Additionally, tooltips are automatically created based on the &lt;b&gt;aria-label&lt;/b&gt; attribute assigned to each control in the grid column filter. .
+        /// </summary>
+        internal static string Filter_Text2 {
+            get {
+                return ResourceManager.GetString("Filter_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;DefaultFilterMode&lt;/b&gt; property can be used to display the grid filter in single-mode or multi-mode..
+        /// </summary>
+        internal static string Filter_Text3 {
+            get {
+                return ResourceManager.GetString("Filter_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Country&lt;/b&gt; value filter uses a custom search function. Separate search terms with an ampersand (&amp;amp;) to require every term to match..
+        /// </summary>
+        internal static string Filter_Text4 {
+            get {
+                return ResourceManager.GetString("Filter_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;Headers Focusability&lt;/b&gt; property determines whether the row and column headers are focusable..
+        /// </summary>
+        internal static string Focusability_Text01 {
+            get {
+                return ResourceManager.GetString("Focusability_Text01", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This view shows the FlexGrid control&apos;s frozen cells features. The feature has now been enhanced with the FrozenCells to include options for freezing cells on the right and bottom as well..
         /// </summary>
         internal static string FrozenCells_Text0 {
             get {
                 return ResourceManager.GetString("FrozenCells_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Supported Operations.
+        /// </summary>
+        internal static string FrozenCells_Text1 {
+            get {
+                return ResourceManager.GetString("FrozenCells_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Freeze columns on the left or right..
+        /// </summary>
+        internal static string FrozenCells_Text2 {
+            get {
+                return ResourceManager.GetString("FrozenCells_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Freeze rows at the top or bottom..
+        /// </summary>
+        internal static string FrozenCells_Text3 {
+            get {
+                return ResourceManager.GetString("FrozenCells_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Combine one horizontal (left or right) and one vertical (top or bottom) freeze..
+        /// </summary>
+        internal static string FrozenCells_Text4 {
+            get {
+                return ResourceManager.GetString("FrozenCells_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Note: While the frozenCells API provides options for all four sides, you can only freeze cells on two sides simultaneously: left OR right, top OR bottom. If both left and right are set, left will take effect. Similarly, if both top and bottom, top will be applied..
+        /// </summary>
+        internal static string FrozenCells_Text5 {
+            get {
+                return ResourceManager.GetString("FrozenCells_Text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Columns (Left).
+        /// </summary>
+        internal static string FrozenCell_Setting1 {
+            get {
+                return ResourceManager.GetString("FrozenCell_Setting1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Columns (Right).
+        /// </summary>
+        internal static string FrozenCell_Setting2 {
+            get {
+                return ResourceManager.GetString("FrozenCell_Setting2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Rows (Top).
+        /// </summary>
+        internal static string FrozenCell_Setting3 {
+            get {
+                return ResourceManager.GetString("FrozenCell_Setting3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Frozen Rows (Bottom).
+        /// </summary>
+        internal static string FrozenCell_Setting4 {
+            get {
+                return ResourceManager.GetString("FrozenCell_Setting4", resourceCulture);
             }
         }
         
@@ -1553,7 +1754,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to You can customize the text that is displayed in group header rows using
+        ///   Looks up a localized string similar to  You can customize the text that is displayed in group header rows using
         ///        the grid&apos;s GroupHeaderFormat property. By default, this displays the name
         ///        of the group, for example, ShipCountry, followed by the current group and the
         ///        number of items in the group. Use the Format property on each Column object
@@ -1564,6 +1765,33 @@ namespace Resources {
         internal static string Grouping_Text1 {
             get {
                 return ResourceManager.GetString("Grouping_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;GroupSummaryPosition&lt;/b&gt; to determine the position of group summary row in the group. This property does not work if ChildItemsPath property is set..
+        /// </summary>
+        internal static string Grouping_Text2 {
+            get {
+                return ResourceManager.GetString("Grouping_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;StickyGroupHeaders&lt;/b&gt; to keep the active group path visible while scrolling in a grouped FlexGrid..
+        /// </summary>
+        internal static string Grouping_Text3 {
+            get {
+                return ResourceManager.GetString("Grouping_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the Group Panel based on the &lt;b&gt;aria-label&lt;/b&gt; attribute assigned to it..
+        /// </summary>
+        internal static string GroupPanel_GroupPanelToolTip {
+            get {
+                return ResourceManager.GetString("GroupPanel_GroupPanelToolTip", resourceCulture);
             }
         }
         
@@ -1640,7 +1868,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This sample shows how you can add tooltips to the grid&apos;s column headers..
+        ///   Looks up a localized string similar to This sample shows how you can add tooltips to the grid&apos;s column headers..
         /// </summary>
         internal static string HeaderTooltips_Text0 {
             get {
@@ -1726,25 +1954,41 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting..
+        ///   Looks up a localized string similar to The &lt;b&gt;ExpandSelectionOnCopyPaste&lt;/b&gt; allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting..
         /// </summary>
         internal static string MergeCells_Text1 {
             get {
                 return ResourceManager.GetString("MergeCells_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
-        ///   Looks up a localized string similar to The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying..
+        ///   Looks up a localized string similar to The &lt;b&gt;SkipMerged&lt;/b&gt; property allows to enables/disables the feature skipping the merged cells when copying..
         /// </summary>
-        internal static string MergeCells_Text2
-        {
-            get
-            {
+        internal static string MergeCells_Text2 {
+            get {
                 return ResourceManager.GetString("MergeCells_Text2", resourceCulture);
             }
         }
-
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;PasteEmptyCells&lt;/b&gt; property allows to determines whether when pasting, paste all cells or only not empty cells..
+        /// </summary>
+        internal static string MergeCells_Text3 {
+            get {
+                return ResourceManager.GetString("MergeCells_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to No data to display..
+        /// </summary>
+        internal static string NoDataMessage {
+            get {
+                return ResourceManager.GetString("NoDataMessage", resourceCulture);
+            }
+        }
+        
         /// <summary>
         ///   Looks up a localized string similar to This example shows how you can bind FlexGrid with an OData service..
         /// </summary>
@@ -1755,7 +1999,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///   Looks up a localized string similar to The &lt;b&gt;ODataCollectionView&lt;/b&gt; class provides a simple way to connect controls to OData sources. When you create an &lt;b&gt;ODataCollectionView&lt;/b&gt;, it starts loading the data in the source. The &lt;b&gt;ODataVirtualCollectionView&lt;/b&gt; extends &lt;b&gt;ODataCollectionView&lt;/b&gt; to provide &lt;b&gt;on-demand&lt;/b&gt; loading of data. It does not load the data from the server automatically. Instead, it relies on the &lt;b&gt;setWindow&lt;/b&gt; method to load data fragments (windows) on demand. The grids above show how both classes work. Notice how th [rest of string was truncated]&quot;;.
+        ///   Looks up a localized string similar to  The &lt;b&gt;ODataCollectionView&lt;/b&gt; class provides a simple way to connect controls to OData sources. When you create an &lt;b&gt;ODataCollectionView&lt;/b&gt;, it starts loading the data in the source. The &lt;b&gt;ODataVirtualCollectionView&lt;/b&gt; extends &lt;b&gt;ODataCollectionView&lt;/b&gt; to provide &lt;b&gt;on-demand&lt;/b&gt; loading of data. It does not load the data from the server automatically. Instead, it relies on the &lt;b&gt;setWindow&lt;/b&gt; method to load data fragments (windows) on demand. The grids above show how both classes work. Notice how th [rest of string was truncated]&quot;;.
         /// </summary>
         internal static string ODataBind_Text1 {
             get {
@@ -1841,6 +2085,15 @@ namespace Resources {
         internal static string ODataDeferCommits_Updating_Text0 {
             get {
                 return ResourceManager.GetString("ODataDeferCommits_Updating_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to  The &lt;b&gt;ODataCollectionView&lt;/b&gt; class supports &lt;b&gt;group lazy-loading&lt;/b&gt; to efficiently work with hierarchical data. When &lt;b&gt;groupOnServer&lt;/b&gt; is enabled, the data is grouped on the server side, and the server can also compute aggregated values for each group using the &lt;b&gt;aggregates&lt;/b&gt; property. By setting the &lt;b&gt;groupLazyLoading&lt;/b&gt; property to true, only the top-level groups are loaded initially. The remaining data is not loaded automatically. Instead, it is retrieved on demand when a group is expanded. T [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string ODataGroupLazy_Text1 {
+            get {
+                return ResourceManager.GetString("ODataGroupLazy_Text1", resourceCulture);
             }
         }
         
@@ -2114,7 +2367,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Note: Tagged PDF requires document version 1.4 or higher..
+        ///   Looks up a localized string similar to Note: Tagged PDF requires document version 1.4 or higher..
         /// </summary>
         internal static string PDFExport_Text10 {
             get {
@@ -2189,7 +2442,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree..
+        ///   Looks up a localized string similar to This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree..
         /// </summary>
         internal static string PDFExport_Text9 {
             get {
@@ -2225,7 +2478,7 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to Tags Support.
+        ///   Looks up a localized string similar to Tags Support.
         /// </summary>
         internal static string PDFExport_Title4 {
             get {
@@ -2268,18 +2521,16 @@ namespace Resources {
                 return ResourceManager.GetString("RemoteBind_Text0", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to This example also demos how you can set ariaLabel to the grid control..
         /// </summary>
-        internal static string RemoteBind_Text1
-        {
-            get
-            {
+        internal static string RemoteBind_Text1 {
+            get {
                 return ResourceManager.GetString("RemoteBind_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to Right To Left.
         /// </summary>
@@ -2338,11 +2589,29 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to By default, each row is converted into a space-separated string for search matching, which may not work as expected when cell values contain spaces. Enable &lt;b&gt;exactMatch&lt;/b&gt; to match each cell precisely..
+        /// </summary>
+        internal static string Searching_ExactMatch {
+            get {
+                return ResourceManager.GetString("Searching_ExactMatch", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;b&gt;SearchAllColumns&lt;/b&gt;: Determines whether invisible columns should be included in the search.&lt;/br&gt;In this sample, &lt;b&gt;Color&lt;/b&gt; column is invisible. You can try by search with words &lt;b&gt;Red&lt;/b&gt; or &lt;b&gt;White&lt;/b&gt;..
         /// </summary>
         internal static string Searching_SearchAllColumns {
             get {
                 return ResourceManager.GetString("Searching_SearchAllColumns", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;b&gt;Searching_SubmitOnChange&lt;/b&gt;: Determines whether the search should be triggered automatically or manually.&lt;/br&gt;When set to &lt;b&gt;true&lt;/b&gt;, the search is executed only after pressing Enter or submitting the input.&lt;/br&gt;When set to &lt;b&gt;false&lt;/b&gt;, the search runs automatically as you type, responding to text changes in real time..
+        /// </summary>
+        internal static string Searching_SubmitOnChange {
+            get {
+                return ResourceManager.GetString("Searching_SubmitOnChange", resourceCulture);
             }
         }
         
@@ -2451,6 +2720,21 @@ namespace Resources {
         internal static string ShowCase_Search_Text0 {
             get {
                 return ResourceManager.GetString("ShowCase_Search_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;SortOrder&lt;/b&gt; property defines the sorting order pattern applied to all columns in the FlexGrid.&lt;br/&gt;
+        ///The options are:&lt;br/&gt;
+        ///&lt;b&gt;AscDesc&lt;/b&gt; - columns are sorted in ascending then descending order.&lt;br/&gt;
+        ///&lt;b&gt;DescAsc&lt;/b&gt; - columns are sorted in descending then ascending order.&lt;br/&gt;
+        ///&lt;b&gt;AscDescNone&lt;/b&gt; - columns are sorted in ascending, descending, then cleared (no sort).&lt;br/&gt;
+        ///&lt;b&gt;DescAscNone&lt;/b&gt; - columns are sorted in descending, ascending, then cleared (no sort).
+        ///.
+        /// </summary>
+        internal static string SortingType_Order {
+            get {
+                return ResourceManager.GetString("SortingType_Order", resourceCulture);
             }
         }
         
@@ -2587,9 +2871,37 @@ namespace Resources {
             get {
                 return ResourceManager.GetString("StarSizing_Text6", resourceCulture);
             }
-        }        
+        }
+        
         /// <summary>
-        ///    Looks up a localized string similar to This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid control. It loads a XML document into a XElement object and loops through the XElement to build a list with &quot;category&quot; items, each with a &quot;products&quot; list. The list is used as an itemsSource and the ChildItemsPath property is used to show the products for each category as a tree..
+        ///   Looks up a localized string similar to This page demos how to use the TreeColumnIndex property..
+        /// </summary>
+        internal static string TreeColumn_Text0 {
+            get {
+                return ResourceManager.GetString("TreeColumn_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;TreeColumnIndex&lt;/b&gt; to choose which column displays the tree outline, meaning the expand and collapse buttons and the hierarchical indentation. By default the outline appears in the first visible column, which is not always the right place. In this grid the first column is a row number, so the default puts the hierarchy on the numbers instead of the names..
+        /// </summary>
+        internal static string TreeColumn_Text1 {
+            get {
+                return ResourceManager.GetString("TreeColumn_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set the property to the index of the column that should show the outline. Here, 1 moves it onto the Name column, which is usually what you want; -1 keeps the default behavior. An index outside the range of the columns collection falls back to the first visible column. This property applies only when ChildItemsPath is set, i.e., when the grid is a TreeGrid. It does not affect ordinary grouping..
+        /// </summary>
+        internal static string TreeColumn_Text2 {
+            get {
+                return ResourceManager.GetString("TreeColumn_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how you can use XML documents as a hierarchical data source for the FlexGrid control. It loads a XML document into a XElement object and loops through the XElement to build a list with &quot;category&quot; items, each with a &quot;products&quot; list. The list is used as an itemsSource and the ChildItemsPath property is used to show the products for each category as a tree..
         /// </summary>
         internal static string TreeGrid_BindingXml_Description {
             get {
@@ -2598,93 +2910,77 @@ namespace Resources {
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to If your data items contain collections of child items, you may use FlexGrid&apos;s ChildItemsPath to show the data as a tree. For example, consider a list of &apos;person&apos; objects which have a &apos;children&apos; property. The &apos;children&apos; property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the ChildItemsPath property to &apos;children&apos;:.
+        ///   Looks up a localized string similar to If your data items contain collections of child items, you may use FlexGrid&apos;s ChildItemsPath to show the data as a tree. For example, consider a list of &apos;person&apos; objects which have a &apos;children&apos; property. The &apos;children&apos; property contains an array of more person objects. This is sometimes called a homogeneous hierarchy. The grid below was built by binding the grid to the top-level persons list and setting the ChildItemsPath property to &apos;children&apos;:.
         /// </summary>
-        internal static string TreeGrid_ChildItems_Description 
-        {
-            get 
-            {
+        internal static string TreeGrid_ChildItems_Description {
+            get {
                 return ResourceManager.GetString("TreeGrid_ChildItems_Description", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Show as Tree.
+        /// </summary>
+        internal static string TreeGrid_ChildItems_Text {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to There are also &apos;heterogeneous&apos; hierarchies, where items at different levels have different types and different child item properties..
+        /// </summary>
+        internal static string TreeGrid_ChildItems_Text1 {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to For example, the grid below is bound to a collection of &apos;worker&apos; objects which receive &apos;checks&apos; which list &apos;earnings&apos;:.
+        /// </summary>
+        internal static string TreeGrid_ChildItems_Text2 {
+            get {
+                return ResourceManager.GetString("TreeGrid_ChildItems_Text2", resourceCulture);
             }
         }
         
         /// <summary>
         ///   Looks up a localized string similar to If you use FlexGrid&apos;s ChildItemsPath to show the data as a tree, the resulting grid will be read-only by default. This happens because every row in a tree is a GroupRow, and group rows are read-only by default. If you want your tree to be editable, handle the &lt;b&gt;OnClientLoadedRows&lt;/b&gt; event to set the IsReadOnly property of every row to false..
         /// </summary>
-        internal static string TreeGrid_Editable_Description 
-        {
-            get 
-            {
+        internal static string TreeGrid_Editable_Description {
+            get {
                 return ResourceManager.GetString("TreeGrid_Editable_Description", resourceCulture);
             }
         }
         
         /// <summary>
-        ///    Looks up a localized string similar to In the TreeGrid below, collapsed nodes have a single dummy child. When a node is expanded, more nodes are loaded on demand. This is a common pattern known as &apos;lazy-loading&apos;, and is done by utilizing the OnClientGroupCollapsedChanged event..
+        ///   Looks up a localized string similar to In the TreeGrid below, collapsed nodes have a single dummy child. When a node is expanded, more nodes are loaded on demand. This is a common pattern known as &apos;lazy-loading&apos;, and is done by utilizing the OnClientGroupCollapsedChanged event..
         /// </summary>
-        internal static string TreeGrid_LazyLoading_Description 
-        {
-            get 
-            {
+        internal static string TreeGrid_LazyLoading_Description {
+            get {
                 return ResourceManager.GetString("TreeGrid_LazyLoading_Description", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Show as Tree.
-        /// </summary>
-        internal static string TreeGrid_ChildItems_Text
-        {
-            get
-            {
-                return ResourceManager.GetString("TreeGrid_ChildItems_Text", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to There are also &apos;heterogeneous&apos; hierarchies, where items at different levels have different types and different child item properties..
-        /// </summary>
-        internal static string TreeGrid_ChildItems_Text1
-        {
-            get
-            {
-                return ResourceManager.GetString("TreeGrid_ChildItems_Text1", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to For example, the grid below is bound to a collection of &apos;worker&apos; objects which receive &apos;checks&apos; which list &apos;earnings&apos;:.
-        /// </summary>
-        internal static string TreeGrid_ChildItems_Text2
-        {
-            get
-            {
-                return ResourceManager.GetString("TreeGrid_ChildItems_Text2", resourceCulture);
-            }
-        }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The grid currently has.
         /// </summary>
-        internal static string TreeGrid_LazyLoading_Text
-        {
-            get
-            {
+        internal static string TreeGrid_LazyLoading_Text {
+            get {
                 return ResourceManager.GetString("TreeGrid_LazyLoading_Text", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to rows..
         /// </summary>
-        internal static string TreeGrid_LazyLoading_Text1
-        {
-            get
-            {
+        internal static string TreeGrid_LazyLoading_Text1 {
+            get {
                 return ResourceManager.GetString("TreeGrid_LazyLoading_Text1", resourceCulture);
             }
         }
-
+        
         /// <summary>
         ///   Looks up a localized string similar to The file structure of this sample project.
         /// </summary>

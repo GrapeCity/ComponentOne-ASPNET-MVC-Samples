@@ -4,6 +4,7 @@ using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Xml.Linq;
+using TransposedMultiRowExplorer.Localization;
 
 namespace TransposedMultiRowExplorer.Models
 {
@@ -69,7 +70,7 @@ namespace TransposedMultiRowExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            return File.Exists(controllerFilePath) ? File.ReadAllText(controllerFilePath) : TransposedMultiRowRes.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

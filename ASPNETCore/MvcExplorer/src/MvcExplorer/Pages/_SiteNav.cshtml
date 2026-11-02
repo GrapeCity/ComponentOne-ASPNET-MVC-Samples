@@ -1,0 +1,22 @@
+﻿@model bool
+@{
+    var screenCss = Model ? "narrow-screen" : "wide-screen";
+}
+<ul class="site-nav @screenCss">
+    <li>
+        <a href="https://developer.mescius.com/componentone/demos" target="_blank">Demos</a>
+    </li>
+    <li>
+        <a href="https://developer.mescius.com/componentone/docs/mvc/online-mvc-core/GettingStarted" target="_blank">Docs</a>
+    </li>
+    <li>
+        <a href="https://developer.mescius.com/componentone/samples" target="_blank">Samples</a>
+    </li>
+    <li class="bold">
+        <a href="https://developer.mescius.com/componentone/download" target="_blank">Download</a>
+    </li>
+    <li class="narrow-screen">
+        Edit Theme &gt;
+        @await Html.PartialAsync("_ThemeList")
+    </li>
+</ul>

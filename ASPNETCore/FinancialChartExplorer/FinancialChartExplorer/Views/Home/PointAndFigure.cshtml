@@ -27,7 +27,9 @@
             var items = cv.sourceCollection;
             for (var i = 0; i < items.length; i++) {
                 var item = items[i];
-                item['X'] = wijmo.Globalize.parseDate(item['X'], "yyyy-MM-dd");
+                if (wijmo.isString(item['X'])) {
+                    item['X'] = wijmo.Globalize.parseDate(item['X'], "yyyy-MM-dd");
+                }
             }
         }
 

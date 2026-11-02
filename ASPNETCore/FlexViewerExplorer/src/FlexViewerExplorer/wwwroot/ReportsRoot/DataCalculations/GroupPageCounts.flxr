@@ -16,57 +16,41 @@
     <Font>
       <Name>Verdana</Name>
     </Font>
+
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
-        <RecordSource>SELECT DISTINCT Employees.Country, Employees.LastName, Employees.FirstName, Orders.ShippedDate, Orders.OrderID, [Order Subtotals].Subtotal AS SaleAmount
-         FROM Employees INNER JOIN (Orders INNER JOIN [Order Subtotals] ON Orders.OrderID = [Order Subtotals].OrderID) ON Employees.EmployeeID = Orders.EmployeeID
-         WHERE (((Orders.ShippedDate) Between [Beginning Date] And [Ending Date]));</RecordSource>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
+        <RecordSourceType>Text</RecordSourceType>
+        <RecordSource>
+          SELECT DISTINCT Employees.Country, Employees.LastName, Employees.FirstName, Orders.ShippedDate, Orders.OrderID, [Order Subtotals].Subtotal AS SaleAmount
+          FROM Employees 
+          INNER JOIN (Orders INNER JOIN [Order Subtotals] ON Orders.OrderID = [Order Subtotals].OrderID) ON Employees.EmployeeID = Orders.EmployeeID
+          WHERE date(Orders.ShippedDate) Between date([BeginningDate]) And date([EndingDate]);
+        </RecordSource>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
       </DataSource>
     </DataSources>
+
     <ReportParameters>
       <ReportParameter>
-        <Name>Beginning Date</Name>
-        <Value sys="datetime">1994-01-01T00:00:00.0000000</Value>
-        <AllowedValuesDefinition>
-          <Binding>
-            <DataSourceName>Main</DataSourceName>
-            <ValueExpression />
-            <LabelExpression />
-          </Binding>
-          <Values />
-        </AllowedValuesDefinition>
-        <ParameterType>DateTime</ParameterType>
+        <Name>BeginningDate</Name>
+        <Value sys="string">1994-01-01</Value>
+        <ParameterType>Date</ParameterType>
       </ReportParameter>
       <ReportParameter>
-        <Name>Ending Date</Name>
-        <Value sys="datetime">2017-01-01T00:00:00.0000000</Value>
-        <AllowedValuesDefinition>
-          <Binding>
-            <DataSourceName>Main</DataSourceName>
-            <ValueExpression />
-            <LabelExpression />
-          </Binding>
-          <Values />
-        </AllowedValuesDefinition>
-        <ParameterType>DateTime</ParameterType>
+        <Name>EndingDate</Name>
+        <Value sys="string">2017-01-01</Value>
+        <ParameterType>Date</ParameterType>
       </ReportParameter>
       <ReportParameter>
-        <Name>Sales Goal</Name>
+        <Name>SalesGoal</Name>
         <Value sys="int">15000</Value>
-        <AllowedValuesDefinition>
-          <Binding>
-            <DataSourceName>Main</DataSourceName>
-            <ValueExpression />
-            <LabelExpression />
-          </Binding>
-          <Values />
-        </AllowedValuesDefinition>
         <ParameterType>Integer</ParameterType>
       </ReportParameter>
     </ReportParameters>
+
     <Groups>
       <Group>
         <Name>Country</Name>
@@ -399,7 +383,7 @@ These expressions show the current page within the first group (index zero) and 
         <Width>10755</Width>
         <Height>570</Height>
         <MarginLeft>576</MarginLeft>
-        <Text>"Sales from " &amp; Min(ShippedDate) &amp; " to " &amp; Max(ShippedDate)</Text>
+        <Text>"Sales from " &amp; BeginningDate &amp; " to " &amp; EndingDate</Text>
         <Calculated>true</Calculated>
         <Align>LeftMiddle</Align>
         <ForeColor>FF551E5F</ForeColor>

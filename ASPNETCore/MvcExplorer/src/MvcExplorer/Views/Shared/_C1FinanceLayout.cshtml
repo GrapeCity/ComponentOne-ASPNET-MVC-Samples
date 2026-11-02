@@ -1,0 +1,40 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="@Url.Content("~/Content/favicon/apple-touch-icon180.png")">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo32.png")" sizes="32x32">
+    <link rel="icon" type="image/png" href="@Url.Content("~/Content/favicon/logo16.png")" sizes="16x16">
+    <link rel="manifest" href="@Url.Content("~/Content/favicon/manifest.json")">
+    <link rel="mask-icon" href="@Url.Content("~/Content/favicon/safari-pinned-tab.svg")" color="#697683">
+
+    <!-- jQuery/Bootstrap -->
+    <script src="https://code.jquery.com/jquery-2.0.0.min.js" type="text/javascript"></script>
+    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js" type="text/javascript"></script>
+    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
+    <c1-styles />
+
+    <!-- app scripts and styles -->
+    <link href="~/Content/css/C1FinanceApp.css" rel="stylesheet" />
+    <script src="~/Scripts/finance.js"></script>
+    <c1-scripts>
+        <c1-basic-scripts bundles="Chart,Input,Grid"></c1-basic-scripts>
+    </c1-scripts>
+</head>
+<body>
+    @RenderBody()
+    <!-- Footer -->
+    <div class="container">
+        <a href="http://developer.mescius.com/">
+            <img src="~/Content/css/images/logotext.png" class="gcicon-logo-gc-horiz" alt="mescius" />
+        </a>
+        <p>
+            © @DateTime.Now.Year MESCIUS inc. All rights reserved.<br />
+            All product and company names here in may be trademarks of their respective owners.
+        </p>
+        <br /><br />
+    </div>
+</body>
+</html>

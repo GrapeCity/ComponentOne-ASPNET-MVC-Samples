@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Web;
 using System.Xml.Linq;
@@ -130,7 +131,9 @@ namespace FinancialChartExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            if (File.Exists(controllerFilePath))
+                return System.IO.File.ReadAllText(controllerFilePath);
+            return Resources.Resource.MissingSourceFile;
         }
 
         #region For FinancialChartExplorer

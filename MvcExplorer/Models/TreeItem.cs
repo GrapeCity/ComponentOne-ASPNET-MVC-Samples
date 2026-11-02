@@ -7,12 +7,14 @@ namespace MvcExplorer.Models
 {
     public interface ITreeItem
     {
+        int Index { get; set; }
         string Header { get; set; }
         IList<ITreeItem> Children { get; }
     }
 
     public class Folder : ITreeItem
     {
+        public int Index { get; set; }
         public string Header { get; set; }
         public IList<ITreeItem> Children { get; private set; }
 
@@ -33,6 +35,7 @@ namespace MvcExplorer.Models
 
     public class File : ITreeItem
     {
+        public int Index { get; set; }
         public string Header { get; set; }
         public DateTime DateModified { get; set; }
         public long Size { get; set; }

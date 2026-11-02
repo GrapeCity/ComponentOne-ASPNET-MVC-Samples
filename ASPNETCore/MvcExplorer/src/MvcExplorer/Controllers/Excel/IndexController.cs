@@ -7,6 +7,7 @@ using System.IO;
 using System;
 using C1.Excel;
 using System.Linq;
+using Microsoft.EntityFrameworkCore;
 
 namespace MvcExplorer.Controllers
 {
@@ -36,32 +37,57 @@ namespace MvcExplorer.Controllers
 
         public ActionResult GenerateExcel(bool isXls)
         {
-            //Startup.Environment.WebRootPath
-            TEMP_DIR = Startup.Environment.WebRootPath + "\\Temp";
-            if (!Directory.Exists(TEMP_DIR))
-            {
-                Directory.CreateDirectory(TEMP_DIR);
-            }
-
-            string file = CreateExcelFile(isXls);
-
             try
             {
+                //Startup.Environment.WebRootPath
+                TEMP_DIR = Path.Combine(Startup.Environment.WebRootPath, "Temp");
+                if (!Directory.Exists(TEMP_DIR))
+                {
+                    Directory.CreateDirectory(TEMP_DIR);
+                }
+
+                // Diagnostic: Check database connection
+                var dbPath = Path.Combine(Startup.Environment.WebRootPath, "App_Data", "C1NWind.db");
+                var dbExists = System.IO.File.Exists(dbPath);
+                var dbSize = dbExists ? new FileInfo(dbPath).Length : 0;
+                var categoriesCount = _db.Categories.Count();
+
+                string file = CreateExcelFile(isXls);
+
                 var content = new FileStream(file, FileMode.Open, FileAccess.Read, FileShare.Read);
                 var fileName = "Excel." + (isXls ? "xls" : "xlsx");
                 return File(content, "application/ms-excel", fileName);//FileStreamResult
             }
             catch (Exception ex)
             {
-                Response.WriteAsync(ex.Message);
-            }
+                // Log the full exception details with diagnostics
+                var dbPath = Path.Combine(Startup.Environment.WebRootPath, "App_Data", "C1NWind.db");
+                var dbExists = System.IO.File.Exists(dbPath);
+                var dbSize = dbExists ? new FileInfo(dbPath).Length : 0;
+                var appDataExists = Directory.Exists(Path.Combine(Startup.Environment.WebRootPath, "App_Data"));
 
-            return View(isXls);
+                // Get actual connection string being used
+                var actualConnectionString = _db.Database.GetDbConnection()?.ConnectionString ?? "N/A";
+
+                var errorMessage = $"Error generating Excel: {ex.Message}\n\n";
+                errorMessage += $"WebRootPath: {Startup.Environment.WebRootPath}\n";
+                errorMessage += $"Expected DB Path: {dbPath}\n";
+                errorMessage += $"DB Exists: {dbExists}\n";
+                errorMessage += $"DB Size: {dbSize} bytes\n";
+                errorMessage += $"App_Data Exists: {appDataExists}\n";
+                errorMessage += $"Actual Connection String: {actualConnectionString}\n";
+                errorMessage += $"\nStack Trace: {ex.StackTrace}";
+                if (ex.InnerException != null)
+                {
+                    errorMessage += $"\n\nInner Exception: {ex.InnerException.Message}\n{ex.InnerException.StackTrace}";
+                }
+                return Content(errorMessage, "text/plain");
+            }
         }
 
-        private string CreateExcelFile(bool isXls=false)
+        private string CreateExcelFile(bool isXls = false)
         {
-            
+
             //clear Excel book, remove the single blank sheet
             _c1xl.Clear();
             _c1xl.Sheets.Clear();
@@ -74,7 +100,7 @@ namespace MvcExplorer.Controllers
             _styOrder = new XLStyle(_c1xl);
 
             //set up styles
-            _styTitle.Font = new XLFont(_c1xl.DefaultFont.FontName, 15,true, false);
+            _styTitle.Font = new XLFont(_c1xl.DefaultFont.FontName, 15, true, false);
             _styTitle.ForeColor = Color.Blue;
             _styHeader.Font = new XLFont(_c1xl.DefaultFont.FontName, _c1xl.DefaultFont.FontSize, true, false);
             _styHeader.ForeColor = Color.White;
@@ -92,8 +118,8 @@ namespace MvcExplorer.Controllers
 
             //save xls file
             string uid = System.Guid.NewGuid().ToString();
-            string file =  TEMP_DIR + "\\testexcel" + uid + (isXls? ".xls" : ".xlsx");
-            _c1xl.Save(file, isXls ? FileFormat.Biff8 :FileFormat.OpenXml);
+            string file = Path.Combine(TEMP_DIR, "testexcel" + uid + (isXls ? ".xls" : ".xlsx"));
+            _c1xl.Save(file, isXls ? FileFormat.Biff8 : FileFormat.OpenXml);
             _c1xl.Dispose();
             return file;
         }
@@ -133,7 +159,7 @@ namespace MvcExplorer.Controllers
 
             //loop through products in this category
             //DataRow[] products = category.GetChildRows("Categories_Products");
-            List<Product> products = _db.Products.Where(pro => pro.CategoryID == category.CategoryID).ToList<Product>();
+            List<Product> products = _db.Products.AsQueryable().Where(pro => pro.CategoryID == category.CategoryID).ToList<Product>();
             foreach (Product product in products)
             {
                 //move on to next row
@@ -146,7 +172,7 @@ namespace MvcExplorer.Controllers
                 sheet[row, 4].Value = product.UnitsInStock;
 
                 //calculate value in stock
-                double valueInStock =Convert.ToDouble(product.UnitPrice) *
+                double valueInStock = Convert.ToDouble(product.UnitPrice) *
                                      Convert.ToInt32(product.UnitsInStock);
                 sheet[row, 5].Value = valueInStock;
 

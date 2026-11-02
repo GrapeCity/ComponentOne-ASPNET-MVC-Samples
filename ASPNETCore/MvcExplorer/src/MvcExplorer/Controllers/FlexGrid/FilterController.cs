@@ -1,11 +1,13 @@
 ﻿using C1.Web.Mvc;
+using C1.Web.Mvc.Serialization;
+using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.ApplicationModels;
 using MvcExplorer.Models;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
-using Microsoft.AspNetCore.Mvc;
-using C1.Web.Mvc.Serialization;
-using Microsoft.AspNetCore.Http;
 
 namespace MvcExplorer.Controllers
 {
@@ -18,6 +20,11 @@ namespace MvcExplorer.Controllers
             return new OptionItem { Values = new List<string> { "None", "Condition", "Value", "Both" }, CurrentValue = "Both" };
         }
 
+        private static OptionItem CreateOptionItemForFilterModes()
+        {
+            return new OptionItem { Values = new List<string> { "SingleFilter", "MultiFilter" }, CurrentValue = "SingleFilter" };
+        }
+
         private readonly ControlOptions _gridFilterModel = new ControlOptions
         {
             Options = new OptionDictionary
@@ -26,7 +33,8 @@ namespace MvcExplorer.Controllers
                 {"Product", CreateOptionItem()},
                 {"Color", CreateOptionItem()},
                 {"Amount", CreateOptionItem()},
-                {"Active", CreateOptionItem()}
+                {"Active", CreateOptionItem()},
+                {"DefaultFilterMode", CreateOptionItemForFilterModes() }
             }
         };
 
@@ -35,6 +43,7 @@ namespace MvcExplorer.Controllers
             _gridFilterModel.LoadPostData(data);
             ViewBag.DemoOptions = _gridFilterModel;
             ViewBag.FilterTypes = GetFilterTypes(_gridFilterModel);
+            ViewBag.FilterMode = GetFilterMode(_gridFilterModel);
             return View();
         }
 
@@ -43,11 +52,20 @@ namespace MvcExplorer.Controllers
             return this.C1Json(CollectionViewHelper.Read(requestData, _filterDataModel));
         }
 
+        private FilterMode GetFilterMode(ControlOptions controlOptions)
+        {
+            var defaultFilterMode = controlOptions.Options["DefaultFilterMode"].CurrentValue;
+            return (FilterMode)Enum.Parse(typeof(FilterMode), defaultFilterMode);
+        }
+
         private Dictionary<string, FilterType> GetFilterTypes(ControlOptions controlOptions)
         {
             var filterTypes = new Dictionary<string, FilterType>();
             foreach (var item in controlOptions.Options)
             {
+                if (string.Equals(item.Key, "DefaultFilterMode", StringComparison.Ordinal))
+                    continue;
+
                 filterTypes.Add(item.Key, (FilterType)Enum.Parse(typeof(FilterType), item.Value.CurrentValue));
             }
             return filterTypes;

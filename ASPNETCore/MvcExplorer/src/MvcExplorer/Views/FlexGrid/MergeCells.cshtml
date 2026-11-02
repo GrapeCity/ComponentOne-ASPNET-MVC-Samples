@@ -1,12 +1,16 @@
-﻿@model IEnumerable<Sale>
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
 @{
-    ClientSettingsModel settings = ViewBag.DemoSettingsModel;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    AllowMerging currentAllowMerging = ViewBag.AllowMerging;
+    ViewBag.DemoSettings = true;
 }
+
 
 @section Scripts{
     <script>
     function updateHeaders() {
-        var flex = wijmo.Control.getControl("#@settings.ControlId");
+        var flex = wijmo.Control.getControl("#mergeCellFlexGrid");
         if (flex) {
             // insert new row if not yet
             if (flex.columnHeaders.rows.length === 1) {
@@ -47,8 +51,15 @@
     </script>
 }
 
-<c1-flex-grid id="@settings.ControlId" auto-generate-columns="false" allow-merging="All"
-              expand-selection-on-copy-paste="true" is-read-only="false" class="grid">
+<c1-flex-grid 
+    id="mergeCellFlexGrid" 
+    auto-generate-columns="false"
+    allow-merging=@currentAllowMerging
+    expand-selection-on-copy-paste="@(Convert.ToBoolean(optionsModel.Options["ExpandSelectionOnCopyPaste"].CurrentValue))"
+    skip-merged="@(Convert.ToBoolean(optionsModel.Options["SkipMerged"].CurrentValue))"
+    paste-empty-cells="@(Convert.ToBoolean(optionsModel.Options["PasteEmptyCells"].CurrentValue))"
+    is-read-only="false" 
+    class="grid">
     <c1-flex-grid-column binding="ID" width="70"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Country" allow-merging="true"></c1-flex-grid-column>
     <c1-flex-grid-column binding="Product" allow-merging="true"></c1-flex-grid-column>
@@ -59,10 +70,16 @@
     <c1-items-source read-action-url="@Url.Action("MergeCells_Bind")"></c1-items-source>
 </c1-flex-grid>
 
+@section Settings {
+    <p>@await Html.PartialAsync("_OptionsMenu", optionsModel)</p>
+}
+
 @section Description{
     @Html.Raw(FlexGridRes.MergeCells_Text0)
     <br />
     @Html.Raw(FlexGridRes.MergeCells_Text1)
     <br />
     @Html.Raw(FlexGridRes.MergeCells_Text2)
+    <br />
+    @Html.Raw(FlexGridRes.MergeCells_Text3)
 }

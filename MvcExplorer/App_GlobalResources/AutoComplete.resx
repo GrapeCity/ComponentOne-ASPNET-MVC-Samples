@@ -159,4 +159,49 @@
   <data name="BeginsWithSearchDescription_Text0" xml:space="preserve">
     <value>When BeginsWithSearch property is &lt;b&gt;true&lt;/b&gt;, The control will search for items that begin with the given search term.</value>
   </data>
+  <data name="ComplexType_Tooltip" xml:space="preserve">
+    <value>Additionally, tooltips are automatically created for the  autocomplete input based on the &lt;b&gt;aria-labelledby&lt;/b&gt; attribute assigned to each control within it</value>
+  </data>
+  <data name="CustomFilter_Text0" xml:space="preserve">
+    <value>This page demos how to use the CustomFilter and CustomHighlight properties to replace the built-in text matching.</value>
+  </data>
+  <data name="CustomFilter_Text1" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;CustomFilter&lt;/b&gt; to supply your own matching logic. It names a client-side function that receives the data item, the text the user typed, and the item's display text, and returns true to keep the item in the list. Here the function folds katakana and half-width katakana down to hiragana, so typing &lt;b&gt;あ&lt;/b&gt;, &lt;b&gt;ア&lt;/b&gt; or &lt;b&gt;ｱ&lt;/b&gt; matches all three forms of the same word.</value>
+  </data>
+  <data name="CustomFilter_Text2" xml:space="preserve">
+    <value>On AutoComplete and MultiAutoComplete you can also use &lt;b&gt;CustomHighlight&lt;/b&gt; to control how each matched item is drawn in the drop-down. It returns HTML, so the function must escape any text it did not create itself, using wijmo.escapeHtml, to prevent cross-site scripting. Keeping filtering and highlighting separate lets both reuse the same normalization function.</value>
+  </data>
+  <data name="CustomFilter_Text3" xml:space="preserve">
+    <value>When CustomFilter is set, CaseSensitiveSearch, BeginsWithSearch and IsContentHtml are ignored, while MinLength and MaxItems still apply. On MultiSelect and MultiSelectListBox the property requires ShowFilterInput to be true. On AutoComplete it has no effect when ItemsSourceFunction is set, because the drop-down contents are then supplied entirely by that function.</value>
+  </data>
+  <data name="CustomFilter_AutoComplete" xml:space="preserve">
+    <value>AutoComplete with CustomFilter and CustomHighlight</value>
+  </data>
+  <data name="CustomFilter_MultiAutoComplete" xml:space="preserve">
+    <value>MultiAutoComplete with CustomFilter and CustomHighlight</value>
+  </data>
+  <data name="CustomFilter_MultiSelect" xml:space="preserve">
+    <value>MultiSelect with CustomFilter</value>
+  </data>
+  <data name="CustomFilter_MultiSelectListBox" xml:space="preserve">
+    <value>MultiSelectListBox with CustomFilter</value>
+  </data>
+  <data name="SearchDuringComposition_Text0" xml:space="preserve">
+    <value>This sample shows how the &lt;b&gt;SearchDuringComposition&lt;/b&gt; property lets the &lt;b&gt;AutoComplete&lt;/b&gt; control filter its drop-down list while an IME composition is still in progress. </value>
+  </data>
+  <data name="SearchDuringComposition_Text1" xml:space="preserve">
+    <value>Default (SearchDuringComposition = false)</value>
+  </data>
+  <data name="SearchDuringComposition_Text2" xml:space="preserve">
+    <value>SearchDuringComposition = true</value>
+  </data>
+  <data name="SearchDuringComposition_Text3" xml:space="preserve">
+    <value>MultiAutoComplete with SearchDuringComposition = true</value>
+  </data>
+  <data name="SearchDuringComposition_Text4" xml:space="preserve">
+    <value>By default the control waits until the IME composition is committed before it searches, so no suggestions appear while the user is still composing. Set &lt;b&gt;SearchDuringComposition&lt;/b&gt; to true to filter from the text that is currently being composed. The property only changes when the search runs; &lt;b&gt;MinLength&lt;/b&gt;, &lt;b&gt;Delay&lt;/b&gt; and &lt;b&gt;MaxItems&lt;/b&gt; are honored in both modes.</value>
+  </data>
+  <data name="SearchDuringComposition_Text5" xml:space="preserve">
+    <value>The property is available on both &lt;b&gt;AutoComplete&lt;/b&gt; and &lt;b&gt;MultiAutoComplete&lt;/b&gt;. </value>
+  </data>
 </root>

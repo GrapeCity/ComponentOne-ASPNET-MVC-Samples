@@ -1,15 +1,32 @@
 ﻿@model IEnumerable<MvcExplorer.Models.NamedColor>
 
+<script>
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let elements = document.querySelectorAll('[aria-labelledby="ColorName"]');
+        if (elements) {
+            for (let i = 0; i < elements.length; i++) {
+                tt.setTooltip(elements[i], "Color name autocomplete");
+            }
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
+</script>
+
 <div>
-    <label>@Html.Raw(Resources.AutoComplete.ComplexType_Text1)</label>
+    <label id="ColorName">@Html.Raw(Resources.AutoComplete.ComplexType_Text1)</label>
     <p>@Html.Raw(Resources.AutoComplete.ComplexType_Text0)</p>
     @(Html.C1().AutoComplete()
         .Bind(Model)
         .DisplayMemberPath("Name")
         .SelectedValuePath("Value")
+        .AriaLabelledBy("ColorName")
     )
 </div>
 
 @section Description{
     @Html.Raw(Resources.AutoComplete.ComplexType_Text2)
+    @Html.Raw(Resources.AutoComplete.ComplexType_Tooltip)
 }

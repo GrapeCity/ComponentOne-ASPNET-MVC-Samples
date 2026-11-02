@@ -42,7 +42,7 @@
             <c1-flex-grid-column binding="Cost" header="Cost" is-read-only="true" width="*" format="n0"></c1-flex-grid-column>
             <c1-flex-grid-column binding="Value" header="Value" is-read-only="true" width="*" format="n0"></c1-flex-grid-column>
             <c1-flex-grid-column binding="Gain" header="Gain" is-read-only="true" width="*" format="p2"></c1-flex-grid-column>
-            <c1-flex-grid-column name="Remove" header="Remove" is-read-only="true" align="center" width="*">
+            <c1-flex-grid-column name="Remove" header="Remove" is-read-only="true" is-required="false" align="center" width="*">
               <c1-flex-grid-cell-template >
                   <a href="#" onclick="deleteRow('{{Symbol}}')"><span class="align-center glyphicon glyphicon-remove" style="color:#D14836"></span></a>
               </c1-flex-grid-cell-template>

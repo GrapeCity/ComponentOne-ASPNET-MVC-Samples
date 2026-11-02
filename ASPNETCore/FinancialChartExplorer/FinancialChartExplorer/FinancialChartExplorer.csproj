@@ -1,29 +1,42 @@
 <Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <AssemblyName>FinancialChartExplorer</AssemblyName>
+    <RootNamespace>FinancialChartExplorer</RootNamespace>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+    <DefineConstants>$(DefineConstants);NET50</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="box.json;fb.json;NDX.json;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="FinancialChartExplorer.sa3licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="project.json" />
+    <Content Remove="project.lock.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Finance" Version="6.0.20262.477" />
+    <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.3" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\Resource.resx">
+      <Generator>
+      </Generator>
+    </EmbeddedResource>
+  </ItemGroup>
 
-    <PropertyGroup>
-        <TargetFramework>net8.0</TargetFramework>
-        <AssemblyName>FinancialChartExplorer</AssemblyName>
-        <RootNamespace>FinancialChartExplorer</RootNamespace>
-        <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
-        <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
-        <DefineConstants>$(DefineConstants);NET50</DefineConstants>
-    </PropertyGroup>
-
-    <ItemGroup>
-        <EmbeddedResource Include="box.json;fb.json;NDX.json;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
-    </ItemGroup>
-    <ItemGroup>
-        <Content Remove="project.json" />
-        <Content Remove="project.lock.json" />
-    </ItemGroup>
-    <ItemGroup>
-        <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
-        <PackageReference Include="C1.AspNetCore.Mvc.Finance" Version="6.0.20241.360" />
-        <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.0" />
-        <PackageReference Include="Microsoft.AspNetCore.Mvc.Core" Version="2.2.5" />
-    </ItemGroup>
-    <ItemGroup>
-        <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
-    </ItemGroup>
-
+  <ItemGroup>
+    <None Remove="FinancialChartExplorer.Core20.sa3licx" />
+    <None Remove="FinancialChartExplorer.Core31.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net60.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net80.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net90.sa3licx" />
+  </ItemGroup>
 </Project>

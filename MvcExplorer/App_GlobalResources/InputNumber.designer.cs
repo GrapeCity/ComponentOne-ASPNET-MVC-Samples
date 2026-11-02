@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class InputNumber {
@@ -160,6 +160,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Truncation with &quot;n2&quot; format (Truncate=&quot;true&quot;).
+        /// </summary>
+        internal static string Index_Text10 {
+            get {
+                return ResourceManager.GetString("Index_Text10", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Bound with Min(0), Max(10), Step, and &quot;c2&quot; Format.
         /// </summary>
         internal static string Index_Text2 {
@@ -223,6 +232,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Rounding with &quot;n2&quot; format (Truncate=&quot;false&quot;, the default).
+        /// </summary>
+        internal static string Index_Text9 {
+            get {
+                return ResourceManager.GetString("Index_Text9", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This sample shows how to use model binding features with input controls..
         /// </summary>
         internal static string ModelBinding_Text0 {
@@ -246,6 +264,24 @@ namespace Resources {
         internal static string ModelBinding_Text2 {
             get {
                 return ResourceManager.GetString("ModelBinding_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the model binding input based on the &lt;b&gt;aria-labelledby&lt;/b&gt; attribute assigned to each control within it..
+        /// </summary>
+        internal static string ModelBinding_ToolTip {
+            get {
+                return ResourceManager.GetString("ModelBinding_ToolTip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When a value has more decimal places than the &lt;b&gt;Format&lt;/b&gt; property allows, the control rounds it by default. Set &lt;b&gt;Truncate&lt;/b&gt; to &lt;b&gt;true&lt;/b&gt; to discard the extra digits instead. Both inputs above are set to 99.999 with the &quot;n2&quot; format, so the first one shows 100.00 and the second one shows 99.99. The same rule is applied when you type a value, paste one, or set it in code..
+        /// </summary>
+        internal static string TruncateDescription_Text0 {
+            get {
+                return ResourceManager.GetString("TruncateDescription_Text0", resourceCulture);
             }
         }
     }

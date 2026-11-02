@@ -224,5 +224,40 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Index_VirtualizationThreshold", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Key Action Down Arrow</b>, <b>Key Action Up Arrow</b>, <b>Key Action Print Characters</b>: Defines what happens when the user presses the respective key or types characters. Options are <b>ChangeSelectionOnly</b> (changes selection without opening dropdown) and <b>OpenDropdown</b> (opens dropdown without changing selection).<br/>
+        ///   Looks up a localized string similar to <b>Key Action Tab</b>: Defines what happens when the user presses Tab. Options are <b>CloseAndKeepFocus</b> (closes dropdown, keeps focus) and <b>CloseAndMoveFocus</b> (closes dropdown, moves focus to next element).
+        /// </summary>
+        public static string Index_ActionsDirectionNPrint
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_ActionsDirectionNPrint", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Key Action Down Arrow</b>, <b>Key Action Up Arrow</b>, <b>Key Action Print Characters</b>: Defines what happens when the user presses the respective key or types characters. Options are <b>ChangeSelectionOnly</b> (changes selection without opening dropdown) and <b>OpenDropdown</b> (opens dropdown without changing selection).<br/>
+        ///   Looks up a localized string similar to <b>Key Action Tab</b>: Defines what happens when the user presses the Tab key. Options are <b>CloseAndKeepFocus</b> (closes dropdown while keeping focus) and <b>CloseAndMoveFocus</b> (closes dropdown and moves focus to the next tabbable element).
+        /// </summary>
+        public static string Index_ActionsTab
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_ActionsTab", resourceCulture);
+            }
+        }
+
+           /// <summary>
+           /// Additionally, tooltips are automatically created for the  combobox based on the &lt;b&gt;aria-labelledby&lt;/b&gt; attribute assigned to each control within it
+        /// </summary>
+        public static string Index_Tooltip
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Tooltip", resourceCulture);
+            }
+        }
   }
 }

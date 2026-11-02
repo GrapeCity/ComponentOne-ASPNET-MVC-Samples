@@ -1,0 +1,14 @@
+﻿@model IEnumerable<Sale>
+
+@(Html.C1().FlexChart()
+    .Id("salesChart")
+    .Bind(Model)
+    .BindingX("ID").Series(ssb =>
+    {
+        ssb.AddTrendLine().Name("Trendlines").Binding("Amount2")
+            .MaxX(40).MinX(5);
+    }))
+
+@section Description{
+    @Html.Raw(Resources.FlexChart.TrendLines_Text1)
+}

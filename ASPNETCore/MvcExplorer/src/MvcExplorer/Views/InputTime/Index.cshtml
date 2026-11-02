@@ -1,6 +1,7 @@
 ﻿@{
     var minTime = DateTime.Parse("07:00");
     var maxTime = DateTime.Parse("19:00");
+    var readonlyOptions = new List<string> { "False", "True" };
 }
 
 @section Scripts{
@@ -36,6 +37,14 @@
         _invalidTooltip.hide();
     }
 
+    function handleReadonlyChanged(sender, args) {
+        var inputtime = wijmo.Control.getControl('#iditInputTime');
+        if (sender.selectedValue === "True") {
+            inputtime.isReadOnly = true;
+        } else {
+            inputtime.isReadOnly = false;
+        }
+    }
     </script>
 }
 
@@ -47,6 +56,12 @@
         <c1-input-time id="invalidInput" value="@DateTime.Now" min="@minTime" max="@maxTime" invalid-input="onInvalidInput" value-changed="onValueChanged"></c1-input-time>
     </div>
 
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputTimeRes.Index_Text4)</label>
+<c1-combo-box selected-index-changed="handleReadonlyChanged">
+    <c1-items-source source-collection="@readonlyOptions"></c1-items-source>
+</c1-combo-box>
+
 @section Description{
-    @Html.Raw(InputTimeRes.Index_Text1)
+    <p>@Html.Raw(InputTimeRes.Index_Text1)</p>
+    <p>@Html.Raw(InputTimeRes.Index_Text5)</p>
 }

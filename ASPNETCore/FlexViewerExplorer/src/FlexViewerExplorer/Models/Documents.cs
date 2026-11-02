@@ -56,12 +56,12 @@ namespace FlexViewerExplorer.Models
                     pdfs.Children.AddRange(_pdfs.Items);
                     var ssrsReports = new DocumentItem { Kind = DocumentItem.DocumentKindFolder, Name = "SsrsReports", TitleEn = "SSRS Reports" };
                     ssrsReports.Children.AddRange(_ssrsReports.Items);
-                    var arReports = new DocumentItem { Kind = DocumentItem.DocumentKindFolder, Name = "ArReports", TitleEn = "ActiveReports" };
-                    arReports.Children.AddRange(_arReports.Items);
+                    //var arReports = new DocumentItem { Kind = DocumentItem.DocumentKindFolder, Name = "ArReports", TitleEn = "ActiveReports" };
+                    //arReports.Children.AddRange(_arReports.Items);
                     var flexReports = new DocumentItem { Kind = DocumentItem.DocumentKindFolder, Name = "FlexReports", TitleEn = "FlexReports" };
                     flexReports.Children.AddRange(ReportFiles.Reports);
 
-                    _allItems = new List<DocumentItem> { flexReports, arReports, ssrsReports, pdfs };
+                    _allItems = new List<DocumentItem> { flexReports, /*arReports,*/ ssrsReports, pdfs };
                 }
 
                 return _allItems;

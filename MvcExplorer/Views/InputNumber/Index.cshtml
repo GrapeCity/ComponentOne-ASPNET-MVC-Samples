@@ -4,16 +4,16 @@
 }
 
 @section Scripts{
-<style>
-    .invalid-tooltip {
-        background-color: red;
-        color: yellow;
-        opacity: 0.9;
-        border-color: lightcoral;
-    }
-</style>
+    <style>
+        .invalid-tooltip {
+            background-color: red;
+            color: yellow;
+            opacity: 0.9;
+            border-color: lightcoral;
+        }
+    </style>
 
-<script>
+    <script>
     var _invalidTooltip;
     c1.documentReady(function () {
         _invalidTooltip = new wijmo.Tooltip();
@@ -35,7 +35,7 @@
     function onValueChanged(input, e) {
         _invalidTooltip.hide();
     }
-</script>
+    </script>
 }
 
 <div>
@@ -79,9 +79,23 @@
         .Placeholder(Resources.InputNumber.Index_Placeholder1)
         .IsRequired(false).Value(null)
         .Format("g5")
-        .InputType("number")
         .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
         .HtmlAttributes(new { title = "InputType: number" })
+    )
+</div>
+
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text9)</label>
+    @(Html.C1().InputNumber()
+        .Value(99.999).Format("n2")
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
+    )
+</div>
+<div>
+    <label>@Html.Raw(Resources.InputNumber.Index_Text10)</label>
+    @(Html.C1().InputNumber()
+        .Value(99.999).Format("n2").Truncate(true)
+        .HandleWheel(Convert.ToBoolean(optionsModel.Options["Handle Wheel"].CurrentValue))
     )
 </div>
 
@@ -93,4 +107,5 @@
     <p>@Html.Raw(Resources.InputNumber.Index_Text4)</p>
     <p>@Html.Raw(Resources.InputNumber.Index_Text6)</p>
     <p>@Html.Raw(Resources.InputNumber.HandleWheelDescription_Text0)</p>
+    <p>@Html.Raw(Resources.InputNumber.TruncateDescription_Text0)</p>
 }

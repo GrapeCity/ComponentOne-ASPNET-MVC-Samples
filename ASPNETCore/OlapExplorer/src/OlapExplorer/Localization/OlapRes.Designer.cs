@@ -591,6 +591,28 @@ namespace OlapExplorer.Localization {
                 return ResourceManager.GetString("RemoteBind_Text0", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        public static string MissingSourceFile
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        public static string MissingSourceFileCode
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
         
         /// <summary>
         ///   Looks up a localized string similar to When the data row count is lower than 10,000, you can use Bind(data) or Bind(url) mode.&lt;/br&gt;Otherwise, please use BindService(url) mode..

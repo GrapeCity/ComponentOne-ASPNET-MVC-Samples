@@ -434,6 +434,33 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to This sample demonstrates binding the series with pre-processed statistics through the BoxPlotData property..
+        /// </summary>
+        internal static string BoxPlotData_Summary {
+            get {
+                return ResourceManager.GetString("BoxPlotData_Summary", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Set the &lt;b&gt;BoxPlotData&lt;/b&gt; property to draw a BoxWhisker series from statistics that were calculated in advance, instead of deriving them from the bound array every time the chart renders. This avoids parsing large data sets on each update..
+        /// </summary>
+        internal static string BoxPlotData_Text0 {
+            get {
+                return ResourceManager.GetString("BoxPlotData_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Downloads and Sales use statistics prepared on the server. Queries has none, so it falls back to the raw array. Values supplied through &lt;b&gt;BoxPlotData&lt;/b&gt; are final, so &lt;b&gt;QuartileCalculation&lt;/b&gt; has no effect on those series..
+        /// </summary>
+        internal static string BoxPlotData_Text1 {
+            get {
+                return ResourceManager.GetString("BoxPlotData_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to BoxWhisker series is used to compare distributions between different sets of numerical data..
         /// </summary>
         internal static string BoxWhisker_Text0 {
@@ -925,6 +952,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Uses &lt;b&gt; Legend.Reverse&lt;/b&gt; to determines whether the legend would be shown in reverse order or not..
+        /// </summary>
+        internal static string Index_Text5 {
+            get {
+                return ResourceManager.GetString("Index_Text5", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Item Formatter.
         /// </summary>
         internal static string ItemFormatter_ItemFormatter {
@@ -1381,6 +1417,15 @@ namespace Resources {
         internal static string Tooltips_Text1 {
             get {
                 return ResourceManager.GetString("Tooltips_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page shows how to use MinX, MaxX to limit the region (X) which the trendline is drawn..
+        /// </summary>
+        internal static string TrendLines_Text1 {
+            get {
+                return ResourceManager.GetString("TrendLines_Text1", resourceCulture);
             }
         }
         

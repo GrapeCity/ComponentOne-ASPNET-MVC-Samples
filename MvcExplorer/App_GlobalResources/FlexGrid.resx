@@ -208,7 +208,7 @@
     Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;</value>
   </data>
   <data name="DataMap_Text1" xml:space="preserve">
-    <value>Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</value>
+    <value>Columns with an associated data map can be showed as AutoComplete, DropDownList, RadioButtons or Menu. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</value>
   </data>
   <data name="DataMap_Text2" xml:space="preserve">
     <value>The &lt;b&gt;FlexGrid&lt;/b&gt; columns have a &lt;b&gt;DropDownCssClass&lt;/b&gt; property that can be used to
@@ -616,7 +616,7 @@
     <value>This view shows how to use filtering in FlexGrid.</value>
   </data>
   <data name="FrozenCells_Text0" xml:space="preserve">
-    <value>This view shows the FlexGrid control's frozen cells features.</value>
+    <value>This view shows the FlexGrid control's frozen cells features. The feature has now been enhanced with the FrozenCells to include options for freezing cells on the right and bottom as well.</value>
   </data>
   <data name="Globalization_PleaseSelectACulture" xml:space="preserve">
     <value>Please select a culture</value>
@@ -839,7 +839,7 @@ Note that you have to update the details view when the current item changes. To 
     <value>The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable.</value>
   </data>
   <data name="ColumnGroups_Text1" xml:space="preserve">
-    <value>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</value>
+    <value>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;CollapseTo&lt;/b&gt; and &lt;b&gt;IsCollapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</value>
   </data>
   <data name="PreserveWhiteSpace_Text0" xml:space="preserve">
     <value>The sampe shows how to make the grid keep whitespace in cells as they appear in the data or whether it should collapse the whitespace into a single space character.</value>
@@ -888,7 +888,7 @@ Note that you have to update the details view when the current item changes. To 
     <value>You can also specify the CaseSensitiveSearch property of FlexGrid to determine whether the search is case-sensitive or not.</value>
   </data>
   <data name="MergeCells_Text1" xml:space="preserve">
-    <value>The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</value>
+    <value>The &lt;b&gt;ExpandSelectionOnCopyPaste&lt;/b&gt; allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</value>
   </data>
   <data name="GroupPanel_Text1" xml:space="preserve">
     <value>The drag-drop is supported on computer by using mouse and touch devices by touching.</value>
@@ -1089,7 +1089,7 @@ Note that you have to update the details view when the current item changes. To 
     <value>Excel RightToLeft:</value>
   </data>
   <data name="MergeCells_Text2" xml:space="preserve">
-    <value>The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying.</value>
+    <value>The &lt;b&gt;SkipMerged&lt;/b&gt; property allows to enables/disables the feature skipping the merged cells when copying.</value>
   </data>
   <data name="RemoteBind_Text1" xml:space="preserve">
     <value>This example also demos how you can set ariaLabel to the grid control.</value>
@@ -1105,5 +1105,118 @@ Note that you have to update the details view when the current item changes. To 
   </data>
   <data name="CheckboxSelection_Text2" xml:space="preserve">
     <value>The Selector can be set AriaLabel to support screen reader.</value>
+  </data>
+  <data name="MergeCells_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;PasteEmptyCells&lt;/b&gt; property allows to determines whether when pasting, paste all cells or only not empty cells.</value>
+  </data>
+  <data name="Focusability_Text01" xml:space="preserve">
+    <value>&lt;b&gt;Headers Focusability&lt;/b&gt; property determines whether the row and column headers are focusable.</value>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;GroupSummaryPosition&lt;/b&gt; to determine the position of group summary row in the group. This property does not work if ChildItemsPath property is set.</value>
+  </data>
+  <data name="ColumnGroups_Text2" xml:space="preserve">
+    <value>Added support for &lt;b&gt;cssClassAll&lt;/b&gt; property to be applied on column group header when explicitly set on the parent column of a group</value>
+  </data>
+  <data name="ColumnGroups_Text3" xml:space="preserve">
+    <value>Added the &lt;b&gt;placeholder&lt;/b&gt; for a column which will be displayed when editing an empty cell.</value>
+  </data>
+  <data name="BuiltInValidation_Text3" xml:space="preserve">
+    <value>You can use the Trigger property that determines how the tooltip should be triggered.</value>
+  </data>
+  <data name="FrozenCells_Text1" xml:space="preserve">
+    <value>Supported Operations</value>
+  </data>
+  <data name="FrozenCells_Text2" xml:space="preserve">
+    <value>Freeze columns on the left or right.</value>
+  </data>
+  <data name="FrozenCells_Text3" xml:space="preserve">
+    <value>Freeze rows at the top or bottom.</value>
+  </data>
+  <data name="FrozenCells_Text4" xml:space="preserve">
+    <value>Combine one horizontal (left or right) and one vertical (top or bottom) freeze.</value>
+  </data>
+  <data name="FrozenCells_Text5" xml:space="preserve">
+    <value>Note: While the frozenCells API provides options for all four sides, you can only freeze cells on two sides simultaneously: left OR right, top OR bottom. If both left and right are set, left will take effect. Similarly, if both top and bottom, top will be applied.</value>
+  </data>
+  <data name="FrozenCell_Setting1" xml:space="preserve">
+    <value>Frozen Columns (Left)</value>
+  </data>
+  <data name="FrozenCell_Setting2" xml:space="preserve">
+    <value>Frozen Columns (Right)</value>
+  </data>
+  <data name="FrozenCell_Setting3" xml:space="preserve">
+    <value>Frozen Rows (Top)</value>
+  </data>
+  <data name="FrozenCell_Setting4" xml:space="preserve">
+    <value>Frozen Rows (Bottom)</value>
+  </data>
+  <data name="Searching_SubmitOnChange" xml:space="preserve">
+    <value>&lt;b&gt;Searching_SubmitOnChange&lt;/b&gt;: Determines whether the search should be triggered automatically or manually.&lt;/br&gt;When set to &lt;b&gt;true&lt;/b&gt;, the search is executed only after pressing Enter or submitting the input.&lt;/br&gt;When set to &lt;b&gt;false&lt;/b&gt;, the search runs automatically as you type, responding to text changes in real time.</value>
+  </data>
+  <data name="GroupPanel_GroupPanelToolTip" xml:space="preserve">
+    <value>Additionally, tooltips are automatically created for the Group Panel based on the &lt;b&gt;aria-label&lt;/b&gt; attribute assigned to it.</value>
+  </data>
+  <data name="Filter_Text2" xml:space="preserve">
+    <value>The &lt;b&gt;ShowIncludeSelection&lt;/b&gt; property is an advanced option to control whether the value filter displays an Excel-like "Add current selection to filter" feature.&lt;br /&gt;You can toggle check ShowIncludeSelection, open the column filter icon, and observe how the "Include current selection" option appears and functions within the filter box.&lt;br/&gt;
+
+Additionally, tooltips are automatically created based on the &lt;b&gt;aria-label&lt;/b&gt; attribute assigned to each control in the grid column filter. </value>
+  </data>
+  <data name="SortingType_Order" xml:space="preserve">
+    <value>The &lt;b&gt;SortOrder&lt;/b&gt; property defines the sorting order pattern applied to all columns in the FlexGrid.&lt;br/&gt;
+The options are:&lt;br/&gt;
+&lt;b&gt;AscDesc&lt;/b&gt; - columns are sorted in ascending then descending order.&lt;br/&gt;
+&lt;b&gt;DescAsc&lt;/b&gt; - columns are sorted in descending then ascending order.&lt;br/&gt;
+&lt;b&gt;AscDescNone&lt;/b&gt; - columns are sorted in ascending, descending, then cleared (no sort).&lt;br/&gt;
+&lt;b&gt;DescAscNone&lt;/b&gt; - columns are sorted in descending, ascending, then cleared (no sort).
+</value>
+  </data>
+  <data name="ODataGroupLazy_Text1" xml:space="preserve">
+    <value>The &lt;b&gt;ODataCollectionView&lt;/b&gt; class supports &lt;b&gt;group lazy-loading&lt;/b&gt; to efficiently work with hierarchical data. When &lt;b&gt;groupOnServer&lt;/b&gt; is enabled, the data is grouped on the server side, and the server can also compute aggregated values for each group using the &lt;b&gt;aggregates&lt;/b&gt; property. By setting the &lt;b&gt;groupLazyLoading&lt;/b&gt; property to true, only the top-level groups are loaded initially. The remaining data is not loaded automatically. Instead, it is retrieved on demand when a group is expanded. The grid above demonstrates how grouped data is loaded progressively, improving performance while allowing users to explore data as needed.</value>
+  </data>
+  <data name="NoDataMessage" xml:space="preserve">
+    <value>No data to display.</value>
+  </data>
+  <data name="Searching_ExactMatch" xml:space="preserve">
+    <value>By default, each row is converted into a space-separated string for search matching, which may not work as expected when cell values contain spaces. Enable &lt;b&gt;exactMatch&lt;/b&gt; to match each cell precisely.</value>
+  </data>
+  <data name="Filter_Text3" xml:space="preserve">
+    <value>The &lt;b&gt;DefaultFilterMode&lt;/b&gt; property can be used to display the grid filter in single-mode or multi-mode.</value>
+  </data>
+  <data name="Filter_Text4" xml:space="preserve">
+    <value>The &lt;b&gt;Country&lt;/b&gt; value filter uses a custom search function. Separate search terms with an ampersand (&amp;amp;) to require every term to match.</value>
+  </data>
+  <data name="AllowResizing_Description" xml:space="preserve">
+    <value>FlexGrid supports column resizing to improve data viewing. </value>
+  </data>
+  <data name="AllowResizing_Details" xml:space="preserve">
+    <value>By default, columns can only be resized within the grid’s width. To allow resizing beyond the grid boundaries, use the &lt;b&gt;allowResizing&lt;/b&gt; property with appropriate enum values, which control how and when columns can be resized.</value>
+  </data>
+  <data name="Grouping_Text3" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;StickyGroupHeaders&lt;/b&gt; to keep the active group path visible while scrolling in a grouped FlexGrid.</value>
+  </data>
+  <data name="Clipboard_Text0" xml:space="preserve">
+    <value>This page demos how the AutoClipboard and PreventCut properties control the grid's built-in clipboard shortcuts.</value>
+  </data>
+  <data name="Clipboard_Text1" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;AutoClipboard&lt;/b&gt; to determine whether the grid handles the standard clipboard shortcuts: Ctrl+C to copy, Ctrl+X to cut, and Ctrl+V to paste. When it is set to false the grid ignores all three.</value>
+  </data>
+  <data name="Clipboard_Text2" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;PreventCut&lt;/b&gt; to disable only the cut shortcut. When it is set to true, Ctrl+X no longer copies, clears, or deletes the selected cells, while Ctrl+C and Ctrl+V keep working. The keyboard event itself is left untouched, so the browser and any external event listeners still receive it. This property has no effect when AutoClipboard is false.</value>
+  </data>
+  <data name="Clipboard_Text3" xml:space="preserve">
+    <value>Paste here</value>
+  </data>
+  <data name="Clipboard_Text4" xml:space="preserve">
+    <value>Clipboard activity</value>
+  </data>
+  <data name="TreeColumn_Text0" xml:space="preserve">
+    <value>This page demos how to use the TreeColumnIndex property.</value>
+  </data>
+  <data name="TreeColumn_Text1" xml:space="preserve">
+    <value>You can use the property &lt;b&gt;TreeColumnIndex&lt;/b&gt; to choose which column displays the tree outline, meaning the expand and collapse buttons and the hierarchical indentation. By default the outline appears in the first visible column, which is not always the right place. In this grid the first column is a row number, so the default puts the hierarchy on the numbers instead of the names.</value>
+  </data>
+  <data name="TreeColumn_Text2" xml:space="preserve">
+    <value>Set the property to the index of the column that should show the outline. Here, 1 moves it onto the Name column, which is usually what you want; -1 keeps the default behavior. An index outside the range of the columns collection falls back to the first visible column. This property applies only when ChildItemsPath is set, i.e., when the grid is a TreeGrid. It does not affect ordinary grouping.</value>
   </data>
 </root>

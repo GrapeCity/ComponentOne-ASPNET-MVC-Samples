@@ -82,5 +82,11 @@ namespace MvcExplorer.Models
                 context.Session.SetString("C1Theme", value);
             }
         }
+
+        public static void SetCurrentTheme(HttpContext context)
+        {
+            var value = context.Request.Query["theme"];
+            SetCurrentTheme(context, value);
+        }
     }
 }

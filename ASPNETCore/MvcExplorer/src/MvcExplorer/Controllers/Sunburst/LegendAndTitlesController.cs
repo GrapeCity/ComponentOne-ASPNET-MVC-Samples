@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using MvcExplorer.Models;
 using C1.Web.Mvc.Chart;
 using System;
+using System.Linq;
 
 namespace MvcExplorer.Controllers
 {
@@ -14,7 +15,7 @@ namespace MvcExplorer.Controllers
             {
                 Settings = new Dictionary<string, object[]>
                     {
-                        {"Legend.Position", new object[] { Position.None, Position.Left, Position.Top, Position.Right, Position.Bottom}},
+                        {"Legend.Position", Enum.GetValues(typeof(Position)).Cast<object>().ToArray() },
                         {"Header", new object[] {"Header", "ヘッダー"}},
                         {"Footer", new object[] {"Footer", "フッター"}}
                     }

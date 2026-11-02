@@ -29,16 +29,18 @@
                         <c1-flex-grid-column header="Country" binding="Country" width="*"></c1-flex-grid-column>
                         <c1-flex-grid-column header="Last 12 Months" width="2*">
                             <c1-flex-grid-cell-template is-editing="false">
-                                <c1-flex-chart height="20px" width="*" style="padding:0px;"
-                                               legend-position="None"
-                                               chart-type="Line"
-                                               template-bindings="@(new {ItemsSource="Last12MonthsSales"})">
-                                    <c1-flex-chart-tooltip is-content-html="false" content=""></c1-flex-chart-tooltip>
-                                    <c1-flex-chart-axis c1-property="AxisX" major-unit="100" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
-                                    <c1-flex-chart-axis c1-property="AxisY" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
-                                    <c1-flex-chart-series binding="Sales"></c1-flex-chart-series>
-                                    <c1-chart-gestures mouse-action="Zoom" interactive-axes="X" scale-x="0.5f" scale-y="0.5f" pos-x="0.0f" pos-y="0.0f"></c1-chart-gestures>
-                                </c1-flex-chart>
+                                <div onclick="selectSalesDashboardCell(event)">
+                                    <c1-flex-chart height="20px" width="*" style="padding:0px;"
+                                                   legend-position="None"
+                                                   chart-type="Line"
+                                                   template-bindings="@(new {ItemsSource="Last12MonthsSales"})">
+                                        <c1-flex-chart-tooltip is-content-html="false" content=""></c1-flex-chart-tooltip>
+                                        <c1-flex-chart-axis c1-property="AxisX" major-unit="100" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                                        <c1-flex-chart-axis c1-property="AxisY" axis-line="false" minor-grid="false" labels="false" position="None"></c1-flex-chart-axis>
+                                        <c1-flex-chart-series binding="Sales"></c1-flex-chart-series>
+                                        <c1-chart-gestures mouse-action="Zoom" interactive-axes="X" scale-x="0.5f" scale-y="0.5f" pos-x="0.0f" pos-y="0.0f"></c1-chart-gestures>
+                                    </c1-flex-chart>
+                                </div>
                             </c1-flex-grid-cell-template>
                         </c1-flex-grid-column>
                         <c1-flex-grid-column header="Current Year(mil.)" binding="Sales" format="c0" width="*"></c1-flex-grid-column>

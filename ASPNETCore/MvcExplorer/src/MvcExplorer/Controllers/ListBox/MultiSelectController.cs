@@ -6,6 +6,7 @@ using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
 using MvcExplorer.Models;
 using Microsoft.EntityFrameworkCore;
+using System.Collections.Generic;
 
 namespace MvcExplorer.Controllers
 {
@@ -69,6 +70,27 @@ namespace MvcExplorer.Controllers
                 e = e.InnerException;
             }
             return e as SqlException;
+        }
+
+        public ActionResult UpdateCheckedItems([FromBody] dynamic data)
+        {
+            try
+            {
+                // Extract checkedItems from the incoming JSON object
+                var checkedItems = data.checkedItems.ToObject<List<int>>();
+                // Update the database based on the checked items
+                var products = _db.Products.ToList();
+                foreach (var product in products)
+                {
+                    product.Discontinued = checkedItems.Contains(product.ProductID);
+                }
+                _db.SaveChanges();
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
         }
     }
 }

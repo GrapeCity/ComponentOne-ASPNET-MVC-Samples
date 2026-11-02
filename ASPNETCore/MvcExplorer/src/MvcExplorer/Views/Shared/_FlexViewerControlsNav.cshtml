@@ -1,0 +1,182 @@
+﻿@using MvcExplorer.Models
+<script type="text/javascript">
+    function tvFlexReports_MouseDown(e) {
+        var grid = wijmo.Control.getControl('#tvFlexReports');
+        tvFlexGrid_MouseDown(grid, e);
+    }
+    function tvArReports_MouseDown(e) {
+        var grid = wijmo.Control.getControl('#tvArReports');
+        tvFlexGrid_MouseDown(grid, e);
+    }
+    function tvSsrsReports_MouseDown(e) {
+        var grid = wijmo.Control.getControl('#tvSsrsReports');
+        tvFlexGrid_MouseDown(grid, e);
+    }
+    function tvPdfs_MouseDown(e) {
+        var grid = wijmo.Control.getControl('#tvPdfs');
+        tvFlexGrid_MouseDown(grid, e);
+    }
+
+    /// <summary>
+    /// Generates a breadcrumb array from a file path based on the file type (kind).
+    /// Supports "FlexReport", "SsrsReport", "Pdf".
+    /// </summary>
+    function generateBreadcrumb(filePath, kind) {
+        if (!filePath) return [];
+
+        let path = [];
+
+        switch (kind) {
+            case "FlexReport":
+                path.push("FlexReports");
+
+                var parts = filePath.split('/');
+
+                // Skip the first folder (ReportsRoot)
+                for (var i = 1; i < parts.length; i++) {
+                    var part = parts[i];
+
+                    // Remove extension from last part
+                    if (i === parts.length - 1) {
+                        var dotIndex = part.lastIndexOf('.');
+                        if (dotIndex > 0) part = part.substring(0, dotIndex);
+                    }
+
+                    path.push(part);
+                }
+                break;
+
+            case "SsrsReport":
+                path.push("SSRS Report");
+                var parts = filePath.split('/');
+                path.push(parts[parts.length - 1]);
+                break;
+
+            case "Pdf":
+                path.push("PDF Files");
+                var parts = filePath.split('/');
+                var last = parts.pop();
+                last = last.split('.')[0];
+                parts.push(last);
+                path.push(parts[parts.length - 1]);
+                break;
+
+            default:
+                path.push(kind);
+                path.push(filePath);
+        }
+
+        return path;
+    }
+
+    // Generate default breadcrumb on page load
+    document.addEventListener("DOMContentLoaded", function () {
+        // Default report path and kind
+        var defaultReportPath = "FlexReport/Controls";
+        var defaultKind = "FlexReport";
+
+        var breadcrumbPath = generateBreadcrumb(defaultReportPath, defaultKind);
+
+        updateTitle(breadcrumbPath);
+    });
+
+    function tvFlexGrid_MouseDown(grid, e) {
+        if (e.button != 0) {
+            return;
+        }
+
+        var ht = grid.hitTest(e.pageX, e.pageY);
+        if (ht.cellType != wijmo.grid.CellType.Cell) {
+            return;
+        }
+        var gr = wijmo.tryCast(grid.rows[ht.row], wijmo.grid.GroupRow);
+        if (!gr) {
+            return;
+        }
+
+        if (!gr.hasChildren){
+            
+            switch (gr.dataItem["Kind"]) {
+                case "FlexReport":
+                    loadFlexReport(gr.dataItem["FullPath"], gr.dataItem["Name"]);
+                    break;
+                // case "ArReport":
+                //     loadArReport(gr.dataItem["FullPath"]);
+                //     break;
+                case "SsrsReport":
+                    loadSsrsReport(gr.dataItem["FullPath"]);
+                    break;
+                case "Pdf":
+                    viewerName = "PdfViewer";
+                    loadPdf(gr.dataItem["FullPath"]);
+                    break;
+                default:
+                    return;
+            }
+        }
+        var breadcrumbPath = generateBreadcrumb(gr.dataItem["FullPath"], gr.dataItem["Kind"]);
+        updateTitle(breadcrumbPath);
+    }
+
+    c1.documentReady(function () {
+        var gridFlexReports = wijmo.Control.getControl('#tvFlexReports');
+        gridFlexReports.maxUpdateCount = 1;
+        gridFlexReports.updatedView.addHandler(flexGrid_UpdatedView, gridFlexReports);
+        gridFlexReports.hostElement.addEventListener('mousedown', tvFlexReports_MouseDown)
+
+        //var gridArReports = wijmo.Control.getControl('#tvArReports');
+        //gridArReports.maxUpdateCount = 1;
+        //gridArReports.updatedView.addHandler(flexGrid_UpdatedView, gridArReports);
+        //gridArReports.hostElement.addEventListener('mousedown', tvArReports_MouseDown)
+
+        var gridSsrsReports = wijmo.Control.getControl('#tvSsrsReports');
+        gridSsrsReports.maxUpdateCount = 1;
+        gridSsrsReports.updatedView.addHandler(flexGrid_UpdatedView, gridSsrsReports);
+        gridSsrsReports.hostElement.addEventListener('mousedown', tvSsrsReports_MouseDown)
+
+        var gridPdfs = wijmo.Control.getControl('#tvPdfs');
+        gridPdfs.maxUpdateCount = 1;
+        gridPdfs.updatedView.addHandler(flexGrid_UpdatedView, gridPdfs);
+        gridPdfs.hostElement.addEventListener('mousedown', tvPdfs_MouseDown)
+    });
+</script>
+<div class="aside-title">
+    @Html.Raw(FlexViewerRes._ControlsNav_Text0)
+</div>
+<c1-flex-grid id="tvFlexReports" class="navgrid" auto-generate-columns="false" is-read-only="true"
+              headers-visibility="None" sorting-type="None" tree-indent="20"
+              selection-mode="ListBox" child-items-path="Children"
+              allow-resizing="None" format-item="flexGrid_ItemFormatter">
+    <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
+    <c1-items-source source-collection="ReportFiles.Reports"></c1-items-source>
+</c1-flex-grid>
+@* <div class="aside-title">
+    @Html.Raw(FlexViewerRes._ControlsNav_Text1)
+</div>
+<c1-flex-grid id="tvArReports" class="navgrid" auto-generate-columns="false" is-read-only="true"
+              headers-visibility="None" sorting-type="None" tree-indent="20"
+              selection-mode="ListBox" child-items-path="Children"
+              allow-resizing="None" format-item="flexGrid_ItemFormatter">
+    <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
+    <c1-items-source source-collection="Documents.ArReports.Items"></c1-items-source>
+</c1-flex-grid> *@
+<div class="aside-title">
+    @Html.Raw(FlexViewerRes._ControlsNav_Text2)
+</div>
+<c1-flex-grid id="tvSsrsReports" class="navgrid" auto-generate-columns="false" is-read-only="true"
+              headers-visibility="None" sorting-type="None" tree-indent="20"
+              selection-mode="ListBox" child-items-path="Children"
+              allow-resizing="None" format-item="flexGrid_ItemFormatter">
+    <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
+    <c1-items-source source-collection="Documents.SsrsReports.Items"></c1-items-source>
+</c1-flex-grid>
+<div class="aside-title">
+    @Html.Raw(FlexViewerRes._ControlsNav_Text3)
+</div>
+<c1-flex-grid id="tvPdfs" class="navgrid" auto-generate-columns="false" is-read-only="true"
+              headers-visibility="None" sorting-type="None" tree-indent="20"
+              selection-mode="ListBox" child-items-path="Children"
+              allow-resizing="None" format-item="flexGrid_ItemFormatter">
+    <c1-flex-grid-column binding="Title" width="*"></c1-flex-grid-column>
+    <c1-items-source source-collection="Documents.Pdfs.Items"></c1-items-source>
+</c1-flex-grid>

@@ -33,7 +33,7 @@ namespace MvcExplorer.Controllers.PDF
 
         public void InitialRichGraphicsPdfDocument()
         {
-            _c1Pdf = new C1.C1Pdf.C1PdfDocument();
+            _c1Pdf = new C1.Pdf.C1PdfDocument();
             //start document
             _c1Pdf.Clear();
             _tempDir = Server.MapPath("../Temp");
@@ -51,7 +51,7 @@ namespace MvcExplorer.Controllers.PDF
             int penRGB = 0;
             Rectangle rc = new Rectangle(50, 50, 300, 200);
             string text = "Hello world of .NET Graphics and PDF.\r\nNice to meet you.";
-            Font font = new Font("Times New Roman", 16, FontStyle.Italic | FontStyle.Underline);
+            C1.Util.Font font = new C1.Util.Font("Times New Roman", 16, C1.Util.FontStyle.Italic | C1.Util.FontStyle.Underline);
 
             //start, c1, c2, end1, c3, c4, end
             PointF[] bezierPoints = 
@@ -62,21 +62,21 @@ namespace MvcExplorer.Controllers.PDF
 			};
 
             //draw to pdf document
-            C1.C1Pdf.C1PdfDocument g = _c1Pdf;
-            g.FillPie(Brushes.Red, rc, 0, 20f);
-            g.FillPie(Brushes.Green, rc, 20f, 30f);
-            g.FillPie(Brushes.Blue, rc, 60f, 12f);
-            g.FillPie(Brushes.Gold, rc, -80f, -20f);
+            C1.Pdf.C1PdfDocument g = _c1Pdf;
+            g.FillPie(Color.Red, rc, 0, 20f);
+            g.FillPie(Color.Green, rc, 20f, 30f);
+            g.FillPie(Color.Blue, rc, 60f, 12f);
+            g.FillPie(Color.Gold, rc, -80f, -20f);
             for (float sa = 0; sa < 360; sa += 40)
             {
                 Color penColor = Color.FromArgb(penRGB, penRGB, penRGB);
-                Pen pen = new Pen(penColor, penWidth++);
+                GrapeCity.Documents.Drawing.Pen pen = new GrapeCity.Documents.Drawing.Pen(penColor, penWidth++);
                 penRGB = penRGB + 20;
                 g.DrawArc(pen, rc, sa, 40f);
             }
-            g.DrawRectangle(Pens.Red, rc);
-            g.DrawBeziers(Pens.Blue, bezierPoints);
-            g.DrawString(text, font, Brushes.Black, rc);
+            g.DrawRectangle(new GrapeCity.Documents.Drawing.Pen(Color.Red,1), rc);
+            g.DrawBeziers(new GrapeCity.Documents.Drawing.Pen(Color.Blue, 1), bezierPoints);
+            g.DrawString(text, font, Color.Black, rc);
         }
     }
 }

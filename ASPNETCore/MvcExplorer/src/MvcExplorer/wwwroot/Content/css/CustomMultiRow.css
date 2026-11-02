@@ -1,0 +1,40 @@
+﻿/* custom styling for a MultiRow */
+.multirow-css .wj-cell.wj-record-end:not(.wj-header) {
+    border-bottom-color: #8fabff; /* blue lines between records */
+}
+
+.multirow-css .wj-cell.wj-group-end {
+    border-right-color: #bc5505; /* brown lines between groups */
+}
+
+.multirow-css .wj-cell.id {
+    color: #c0c0c0;
+}
+
+.multirow-css .wj-cell.amount {
+    color: #014701;
+    font-weight: bold;
+}
+
+.multirow-css .wj-cell.email {
+    color: #0010c0;
+    text-decoration: underline;
+}
+
+@@font-face {
+    font-family: 'Fira';
+    src: url("../fonts/fira/FiraSans-Regular.ttf");
+    font-weight: normal;
+    font-style: normal;
+}
+
+@@font-face {
+    font-family: 'Fira';
+    src: url("../fonts/fira/FiraSans-Bold.ttf");
+    font-weight: bold;
+    font-style: normal;
+}
+
+.custom-multi-row .wj-cell {
+    font-family: Fira;
+}

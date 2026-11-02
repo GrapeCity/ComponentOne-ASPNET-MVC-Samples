@@ -1,0 +1,29 @@
+﻿@{
+    ViewBag.PageTitle = @DashboardResource.ReportsPage_Title;
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Reporting.js")"></script>
+
+<c1-tab-panel id="tpReports" class="auto" selected-index-changed="selectedIndexChanged">
+    <div>
+        <a>@DashboardResource.RegionSales_Header</a>
+        <div>
+            <c1-report-viewer file-path="ReportsRoot/Dashboard/RegionWiseSalesData.flxr"
+                              report-name="RegionalSales Report" zoom-mode="PageWidth">
+            </c1-report-viewer>
+        </div>
+    </div>
+    <div>
+        <a>@DashboardResource.Opportunities_Header</a>
+        <div>
+            <c1-report-viewer zoom-mode="PageWidth"></c1-report-viewer>
+        </div>
+    </div>
+    <div>
+        <a>@DashboardResource.ProfitAndSales_Header</a>
+        <div>
+            <c1-report-viewer zoom-mode="PageWidth"></c1-report-viewer>
+        </div>
+    </div>
+</c1-tab-panel>

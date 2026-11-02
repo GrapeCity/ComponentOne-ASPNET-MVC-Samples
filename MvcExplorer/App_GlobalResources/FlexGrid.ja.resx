@@ -234,8 +234,8 @@
     <comment>Then you need to consider when to update the cell value and remove the editor from the grid in your application. For example, when the editor blurs, we need to update the cell value and remove the editor.</comment>
   </data>
   <data name="CustomEditors_Text12" xml:space="preserve">
-    <value>この例では、「Product」列が&amp;lt;input /&amp;gt;をエディタとして使用しています。</value>
-    <comment>In this sample, the "Product" column uses &amp;lt;input /&amp;gt; as the editor to show this kind of editor.</comment>
+    <value>この例では、「Product」列が&lt;input /&gt;をエディタとして使用しています。</value>
+    <comment>In this sample, the "Product" column uses &lt;input /&gt; as the editor to show this kind of editor.</comment>
   </data>
   <data name="CustomFooters_Text0" xml:space="preserve">
     <value>このサンプルでは、FlexGrid を拡張して以下の 2 つのタイプのフッター要素を提供する方法を示します。</value>
@@ -248,8 +248,8 @@
     Columns with an associated data map can be sorted by the mapped display value instead of the binding value.&lt;br /&gt;</comment>
   </data>
   <data name="DataMap_Text1" xml:space="preserve">
-    <value>関連付けられたデータマップを持つ列は、AutoComplete、DropDownList、または RadioButtons として表示できます。これらのタイプを選択するには、&lt;b&gt;DataMapEditor&lt;/b&gt;プロパティを設定します。</value>
-    <comment>Columns with an associated data map can be showed as AutoComplete, DropDownList or RadioButtons. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</comment>
+    <value>関連付けられたデータマップを持つ列は、AutoComplete、DropDownList、RadioButtons、または Menu として表示できます。これらのタイプを選択するには、&lt;b&gt;DataMapEditor&lt;/b&gt;プロパティを設定します。</value>
+    <comment>Columns with an associated data map can be showed as AutoComplete, DropDownList, RadioButtons or Menu. You can choose these by setting &lt;b&gt;DataMapEditor&lt;/b&gt; property.</comment>
   </data>
   <data name="DataMap_Text2" xml:space="preserve">
     <value>&lt;b&gt;FlexGrid&lt;/b&gt; の列の &lt;b&gt;DropDownCssClass&lt;/b&gt; プロパティを使用して、
@@ -858,7 +858,7 @@
     <comment>This view shows how to use filtering in FlexGrid.</comment>
   </data>
   <data name="FrozenCells_Text0" xml:space="preserve">
-    <value>このビューは、FlexGrid コントロールの固定セル機能を示します。</value>
+    <value>このビューには、FlexGrid コントロールの固定セル機能が表示されます。この機能は、FrozenCells によって強化され、右側と下部のセルを固定するオプションも含まれるようになりました。</value>
     <comment>This view shows the FlexGrid control's frozen cells features.</comment>
   </data>
   <data name="Globalization_PleaseSelectACulture" xml:space="preserve">
@@ -1160,8 +1160,8 @@ Note that you have to update the details view when the current item changes. To 
     <comment>The column groups feature allow a column contains child columns and the column groups can be collapsible and expandable.</comment>
   </data>
   <data name="ColumnGroups_Text1" xml:space="preserve">
-    <value>このサンプルは、グリッドの列セットを階層列として初期化して列グループを作成する方法を示しています。&lt;br /&gt;列の&lt;b&gt; ColapseTo &lt;/b&gt;および&lt;b&gt; IsColapsed &lt;/b&gt;プロパティを設定することでのみ、列グループを折りたたみ、子列を表示できます。&lt;br /&gt; CSSを使用して、列グループを展開または折りたたむときにアニメーション化することもできます。</value>
-    <comment>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;ColapseTo&lt;/b&gt; and &lt;b&gt;IsColapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</comment>
+    <value>このサンプルは、グリッドの列セットを階層列として初期化して列グループを作成する方法を示しています。&lt;br /&gt;列の&lt;b&gt; CollapseTo &lt;/b&gt;および&lt;b&gt; IsCollapsed &lt;/b&gt;プロパティを設定することでのみ、列グループを折りたたみ、子列を表示できます。&lt;br /&gt; CSSを使用して、列グループを展開または折りたたむときにアニメーション化することもできます。</value>
+    <comment>This sample shows how you can create column groups by initializing the grid's column set as hierarchical columns.&lt;br /&gt;The column groups can be collapsible to show any of child column only by setting &lt;b&gt;CollapseTo&lt;/b&gt; and &lt;b&gt;IsCollapsed&lt;/b&gt; properties of the column.&lt;br /&gt;You also can use CSS to animates the column groups while they expand or collapse.</comment>
   </data>
   <data name="PreserveWhiteSpace_Text0" xml:space="preserve">
     <value>このサンプルは、グリッドがセル内の空白をデータに表示されるとおりに保持するか、または空白を単一の空白文字に折りたたむかどうかを決定する方法を示します。</value>
@@ -1228,7 +1228,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>You can also specify the CaseSensitiveSearch property of FlexGrid to determine whether the search is case-sensitive or not.</comment>
   </data>
   <data name="MergeCells_Text1" xml:space="preserve">
-    <value>ExpandSelectionOnCopyPaste プロパティは、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定する値を設定します。</value>
+    <value>&lt;b&gt;ExpandSelectionOnCopyPaste&lt;/b&gt; プロパティは、コンテンツをコピーまたは貼り付けるときに、選択範囲を自動的に拡張して結合範囲のセルを含めるかどうかを決定する値を設定します。</value>
     <comment>The ExpandSelectionOnCopyPaste allows to enables/disables automatically expanding the selection to include cells in merged ranges when copying or pasting.</comment>
   </data>
   <data name="GroupPanel_Text1" xml:space="preserve">
@@ -1372,7 +1372,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Export</comment>
   </data>
   <data name="ShowCase_LazyRender_Text0" xml:space="preserve">
-    <value>怠惰なレンダリング</value>
+    <value>遅延レンダリング</value>
     <comment>Lazy Render</comment>
   </data>
   <data name="ShowCase_Rows_Text0" xml:space="preserve">
@@ -1416,7 +1416,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>This sample shows how to create a tagged PDF.&lt;br /&gt;It uses the tagged, tagContent properties to add tags by cells in FlexGrid when export.&lt;br /&gt;The sample also uses the tag method to create tags and mark content and the addTag method to add tags to the logical document tree.</comment>
   </data>
   <data name="PDFExport_Title4" xml:space="preserve">
-    <value>タグサポート</value>
+    <value>タグのサポート</value>
     <comment>Tags Support</comment>
   </data>
   <data name="TreeGrid_BindingXml_Description" xml:space="preserve">
@@ -1496,7 +1496,7 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Excel RightToLeft:</comment>
   </data>
   <data name="MergeCells_Text2" xml:space="preserve">
-    <value>SkipMerged プロパティを使用すると、コピー時に結合されたセルをスキップする機能を有効または無効にすることができます。</value>
+    <value>&lt;b&gt;SkipMerged&lt;/b&gt; プロパティを使用すると、コピー時に結合されたセルをスキップする機能を有効または無効にすることができます。</value>
     <comment>The SkipMerged property allows to enables/disables the feature skipping the merged cells when copying.</comment>
   </data>
   <data name="RemoteBind_Text1" xml:space="preserve">
@@ -1516,7 +1516,143 @@ Note that you have to update the details view when the current item changes. To 
     <comment>Items Changed:</comment>
   </data>
   <data name="CheckboxSelection_Text2" xml:space="preserve">
-    <value>The Selector can be set AriaLabel to support screen reader.</value>
+    <value>セレクターは、スクリーン リーダーをサポートするために AriaLabel を設定できます。</value>
     <comment>The Selector can be set AriaLabel to support screen reader.</comment>
+  </data>
+  <data name="MergeCells_Text3" xml:space="preserve">
+    <value>&lt;b&gt;PasteEmptyCells&lt;/b&gt; プロパティを使用すると、貼り付けるときにすべてのセルを貼り付けるか、空でないセルのみを貼り付けるかを決定できます。</value>
+    <comment>The PasteEmptyCells property allows to determines whether when pasting, paste all cells or only not empty cells.</comment>
+  </data>
+  <data name="Focusability_Text01" xml:space="preserve">
+    <value>&lt;b&gt;ヘッダーの Focusability&lt;/b&gt; プロパティは、行ヘッダーと列ヘッダーがフォーカス可能かどうかを決定します。</value>
+    <comment>Headers Focusability property determines whether the row and column headers are focusable.</comment>
+  </data>
+  <data name="Grouping_Text2" xml:space="preserve">
+    <value>&lt;b&gt;GroupSummaryPosition&lt;/b&gt; プロパティを使用して、グループ内のグループ サマリー行の位置を決定できます。ChildItemsPath プロパティが設定されている場合、このプロパティは機能しません。</value>
+    <comment>You can use the property GroupSummaryPosition to determine the position of group summary row in the group. This property does not work if ChildItemsPath property is set.</comment>
+  </data>
+  <data name="ColumnGroups_Text2" xml:space="preserve">
+    <value>グループの親列に明示的に設定されている場合、列グループ ヘッダーに &lt;b&gt;cssClassAll&lt;/b&gt; プロパティを適用するためのサポートが追加されました。</value>
+    <comment>Added support for cssClassAll property to be applied on column group header when explicitly set on the parent column of a group.</comment>
+  </data>
+  <data name="ColumnGroups_Text3" xml:space="preserve">
+    <value>空のセルを編集するときに表示される列の &lt;b&gt;プレースホルダー&lt;/b&gt; を追加しました。</value>
+    <comment>Added the &lt;b&gt;placeholder&lt;/b&gt; for a column which will be displayed when editing an empty cell.</comment>
+  </data>
+  <data name="BuiltInValidation_Text3" xml:space="preserve">
+    <value>ツールチップをトリガーする方法を決定する Trigger プロパティを使用できます。</value>
+    <comment>You can use the Trigger property that determines how the tooltip should be triggered.</comment>
+  </data>
+  <data name="FrozenCells_Text1" xml:space="preserve">
+    <value>サポートされている操作</value>
+    <comment>Supported Operations</comment>
+  </data>
+  <data name="FrozenCells_Text2" xml:space="preserve">
+    <value>列を左または右に固定します。</value>
+    <comment>Freeze columns on the left or right.</comment>
+  </data>
+  <data name="FrozenCells_Text3" xml:space="preserve">
+    <value>行を上部または下部に固定します。</value>
+    <comment>Freeze rows at the top or bottom.</comment>
+  </data>
+  <data name="FrozenCells_Text4" xml:space="preserve">
+    <value>水平方向 (左または右) と垂直方向 (上または下) の固定化を組み合わせます。</value>
+    <comment>Combine one horizontal (left or right) and one vertical (top or bottom) freeze</comment>
+  </data>
+  <data name="FrozenCells_Text5" xml:space="preserve">
+    <value>注: freezeCells API は４つの辺すべてにオプションを提供しますが、同時にセルを固定できるのは左または右、上または下の２つの辺のみです。左と右の両方が設定されている場合は、左が有効になります。同様に、上と下の両方が設定されている場合は、上が適用されます。</value>
+    <comment>Note: While the frozenCells API provides options for all four sides, you can only freeze cells on two sides simultaneously: left OR right, top OR bottom. If both left and right are set, left will take effect. Similarly, if both top and bottom, top will be applied.</comment>
+  </data>
+  <data name="FrozenCell_Setting1" xml:space="preserve">
+    <value>列の固定化（左）</value>
+    <comment>Frozen Columns (Left)</comment>
+  </data>
+  <data name="FrozenCell_Setting2" xml:space="preserve">
+    <value>列の固定化（右）</value>
+    <comment>Frozen Columns (Right)</comment>
+  </data>
+  <data name="FrozenCell_Setting3" xml:space="preserve">
+    <value>行の固定化（上）</value>
+    <comment>Frozen Rows (Top)</comment>
+  </data>
+  <data name="FrozenCell_Setting4" xml:space="preserve">
+    <value>行の固定化（下）</value>
+    <comment>Frozen Rows (Bottom)</comment>
+  </data>
+  <data name="Searching_SubmitOnChange" xml:space="preserve">
+    <value>&lt;b&gt;SubmitOnChange&lt;/b&gt;: 検索を自動的にトリガーするか手動でトリガーするかを決定します。&lt;/br&gt; &lt;b&gt;true&lt;/b&gt; に設定すると、Enter キーを押すか入力を送信した後にのみ検索が実行されます。&lt;/br&gt; &lt;b&gt;false&lt;/b&gt; に設定すると、入力時に検索が自動的に実行され、テキストの変更にリアルタイムで応答します。</value>
+  </data>
+  <data name="GroupPanel_GroupPanelToolTip" xml:space="preserve">
+    <value>さらに、割り当てられた &lt;b&gt;aria-label&lt;/b&gt; 属性に基づいて、グループ パネルのツールチップが自動的に作成されます。</value>
+  </data>
+  <data name="Filter_Text2" xml:space="preserve">
+    <value>&lt;b&gt;ShowIncludeSelection&lt;/b&gt; プロパティは、値フィルターに Excel の「現在の選択をフィルターに追加」機能を表示するかどうかを制御する高度なオプションです。&lt;br /&gt;ShowIncludeSelection のチェックを切り替えて列のフィルター アイコンを開くと、フィルター ボックス内で「現在の選択を含める」オプションがどのように表示され、動作するかを確認できます。&lt;br/&gt;
+
+さらに、グリッド列フィルター内の各コントロールに割り当てられた &lt;b&gt;aria-label&lt;/b&gt; 属性に基づいて、ツールチップが自動的に作成されます。</value>
+    <comment>The &lt;b&gt;ExclusiveValueSearch&lt;/b&gt; is an advanced property to customize the behavior while searching filter value in column filter box.&lt;br /&gt;You can toggle check ExclusiveValueSearch then click on column filter icon, uncheck some values and input value into search box for observing how it work.</comment>
+  </data>
+  <data name="SortingType_Order" xml:space="preserve">
+    <value>&lt;b&gt;SortOrder&lt;/b&gt; プロパティは、FlexGrid 内のすべての列に適用される並べ替え順序のパターンを定義します。&lt;br/&gt;
+オプションは次のとおりです。&lt;br/&gt;
+&lt;b&gt;AscDesc&lt;/b&gt; - 列は昇順、降順の順に並べ替えられます。&lt;br/&gt;
+&lt;b&gt;DescAsc&lt;/b&gt; - 列は降順、昇順の順に並べ替えられます。&lt;br/&gt;
+&lt;b&gt;AscDescNone&lt;/b&gt; - 列は昇順、降順、クリアの順に並べ替えられます（並べ替えなし）。&lt;br/&gt;
+&lt;b&gt;DescAscNone&lt;/b&gt; - 列は降順、昇順、クリアの順に並べ替えられます（並べ替えなし）。</value>
+  </data>
+  <data name="ODataGroupLazy_Text1" xml:space="preserve">
+    <value>&lt;b&gt;ODataCollectionView&lt;/b&gt; クラスは、階層データを効率的に扱うための &lt;b&gt;グループ遅延読み込み&lt;/b&gt; をサポートします。&lt;b&gt;groupOnServer&lt;/b&gt; を有効にすると、データはサーバー側でグループ化され、さらに &lt;b&gt;aggregates&lt;/b&gt; プロパティを使用して各グループの集計値をサーバー側で計算できます。&lt;b&gt;groupLazyLoading&lt;/b&gt; プロパティを true に設定すると、初期表示では最上位グループのみが読み込まれます。残りのデータは自動では読み込まれず、グループを展開したときに必要に応じて取得されます。上のグリッドは、グループ化されたデータが段階的に読み込まれる様子を示しており、ユーザーが必要なデータを参照しながらパフォーマンスを向上できます。</value>
+    <comment>The &lt;b&gt;ODataCollectionView&lt;/b&gt; class supports &lt;b&gt;group lazy-loading&lt;/b&gt; to efficiently work with hierarchical data. When &lt;b&gt;groupOnServer&lt;/b&gt; is enabled, the data is grouped on the server side, and the server can also compute aggregated values for each group using the &lt;b&gt;aggregates&lt;/b&gt; property. By setting the &lt;b&gt;groupLazyLoading&lt;/b&gt; property to true, only the top-level groups are loaded initially. The remaining data is not loaded automatically. Instead, it is retrieved on demand when a group is expanded. The grid above demonstrates how grouped data is loaded progressively, improving performance while allowing users to explore data as needed.</comment>
+  </data>
+  <data name="NoDataMessage" xml:space="preserve">
+    <value>表示するデータがありません。</value>
+    <comment>No data to display.</comment>
+  </data>
+  <data name="Searching_ExactMatch" xml:space="preserve">
+    <value>既定では、各行は検索一致のためにスペース区切りの文字列に変換されます。そのため、セル値にスペースが含まれる場合は期待どおりに動作しないことがあります。各セルを正確に一致させるには、&lt;b&gt;exactMatch&lt;/b&gt; を有効にしてください。</value>
+    <comment>By default, each row is converted into a space-separated string for search matching, which may not work as expected when cell values contain spaces. Enable &lt;b&gt;exactMatch&lt;/b&gt; to match each cell precisely.</comment>
+  </data>
+  <data name="Filter_Text3" xml:space="preserve">
+    <value>&lt;b&gt;DefaultFilterMode&lt;/b&gt; プロパティを使用すると、グリッド フィルターをシングルモードまたはマルチモードで表示できます。</value>
+    <comment>The &lt;b&gt;DefaultFilterMode&lt;/b&gt; property can be used to display the grid filter in single-mode or multi-mode.</comment>
+  </data>
+  <data name="Filter_Text4" xml:space="preserve">
+    <value />
+    <comment>The Country value filter uses a custom search function. Separate search terms with an ampersand (&amp;amp;) to require every term to match.</comment>
+  </data>
+  <data name="AllowResizing_Description" xml:space="preserve">
+    <value>FlexGrid は、データの視認性を向上させるために列幅の変更をサポートしています。</value>
+    <comment> FlexGrid supports column resizing to improve data viewing. </comment>
+  </data>
+  <data name="AllowResizing_Details" xml:space="preserve">
+    <value>既定では、列幅はグリッドの幅内でのみ変更できます。グリッド境界を超えたサイズ変更を許可するには、適切な列挙値を指定して &lt;b&gt;allowResizing&lt;/b&gt; プロパティを使用します。これにより、列をいつどのようにサイズ変更できるかを制御できます。</value>
+    <comment>By default, columns can only be resized within the grid’s width. To allow resizing beyond the grid boundaries, use the &lt;b&gt;allowResizing&lt;/b&gt; property with appropriate enum values, which control how and when columns can be resized.</comment>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="Grouping_Text3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text0" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text3" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="Clipboard_Text4" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text0" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text1" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
+  </data>
+  <data name="TreeColumn_Text2" type="System.Resources.ResXNullRef, System.Windows.Forms">
+    <value />
   </data>
 </root>

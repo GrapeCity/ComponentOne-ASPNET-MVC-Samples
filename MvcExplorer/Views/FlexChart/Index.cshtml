@@ -30,6 +30,7 @@
         sers.Add().Binding("MayPrice").Name("May");
     })
     .Legend(C1.Web.Mvc.Chart.Position.Bottom)
+    .Legend(false)
     .Legend(demoSettingsModel.GetEnum("LegendOrientation", C1.Web.Mvc.Chart.LegendOrientation.Auto))
     .Palette(C1.Web.Mvc.Chart.Palettes.Standard)
 )
@@ -52,6 +53,10 @@
     }
     function customChangeMaxSize(control, value) {
         control.legend.maxSize = value;
+        }
+
+    function customChangeReverse(control, value) {
+        control.legend.reverse = value;
     }
 
     function itemPaletteClicked(sender) {
@@ -96,4 +101,5 @@
     </ol>
     <p>@Html.Raw(Resources.FlexChart.Index_Text3)</p>
     <p>@Html.Raw(Resources.FlexChart.Index_Text4)</p>
+    <p>@Html.Raw(Resources.FlexChart.Index_Text5)</p>
 }

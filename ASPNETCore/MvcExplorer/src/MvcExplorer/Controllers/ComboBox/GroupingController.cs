@@ -12,7 +12,7 @@ namespace MvcExplorer.Controllers
         // GET: /<controller>/
         public ActionResult Grouping()
         {            
-            return View(_db.Orders.Take(20).ToList());
+            return View(_db.Orders.AsQueryable().Take(20).ToList());
         }
     }
 }

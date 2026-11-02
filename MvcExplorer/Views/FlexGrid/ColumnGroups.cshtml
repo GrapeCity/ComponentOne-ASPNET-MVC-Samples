@@ -6,16 +6,29 @@
     const string tpl1 = "<span class=${value> .3 ? 'big-val' : 'small-val'}>${text}</span>";
     const string tpl2 = "<span class=${value > 50000 ? 'big-val' : 'small-val'}>${text}</span>";
 }
+<style>
+    .col-header-style {
+        color: red;
+        border-left: 1px double red !important;
+        border-right: 1px double red !important;
+    }
+
+    .custom-border-both {
+        border-left: 1px solid blue !important;
+        border-right: 1px solid blue !important;
+    }
+</style>
 
 @(Html.C1().FlexGrid().Id("colGroupsFlexGrid")
     .Bind(Model)
     .AutoGenerateColumns(false)
     .SortingType(AllowSorting.None)
+    .ShowPlaceholders(true)
     .Columns(bl =>
     {
-        bl.Add(cb => cb.Binding("Name").Width("130"));
+        bl.Add(cb => cb.Binding("Name").Width("130").Placeholder("input name"));
         bl.Add(cb => cb.Binding("Currency").Align("center").Width("73"));
-        bl.Add(cb => cb.Header("Performance").Align("center").CollapseTo("YTD").Columns(bl1 =>
+        bl.Add(cb => cb.Header("Performance").Align("center").CollapseTo("YTD").CssClassAll("col-header-style").Columns(bl1 =>
         {
             bl1.Add(cb1 => cb1.Binding("YTD").Format("p2").CssClass("main-column").Height(50));
             bl1.Add(cb1 => cb1.Binding("M1").Format("p2"));
@@ -24,7 +37,7 @@
         }));
         bl.Add(cb => cb.Header("Allocation").Align("center").CollapseTo("Amount").Columns(bl2 =>
         {
-        bl2.Add(cb2 => cb2.Header("Investment").Align("center").CollapseTo("Total").IsCollapsed(true).Columns(bl3 =>
+        bl2.Add(cb2 => cb2.Header("Investment").Align("center").CssClassAll("custom-border-both").CollapseTo("Total").IsCollapsed(true).Columns(bl3 =>
         {
             bl3.Add(cb3 => cb3.Binding("Stock").Format("p2").Template(tpl1));
             bl3.Add(cb3 => cb3.Binding("Bond").Format("p2").Template(tpl1));
@@ -92,5 +105,7 @@
 }
 
 @section Description{
-    @Html.Raw(Resources.FlexGrid.ColumnGroups_Text1)
+    <p>@Html.Raw(Resources.FlexGrid.ColumnGroups_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ColumnGroups_Text2)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ColumnGroups_Text3)</p>
 }

@@ -1,0 +1,26 @@
+@section Scripts{
+    <script type="text/javascript" src="~/Scripts/flexSheet/cellMerging.js"></script>
+    <script type="text/javascript">
+    c1.documentReady(function () {
+        updateBtnTitle('@Html.Raw(FlexSheetRes.CellMerging_Text4)', '@Html.Raw(FlexSheetRes.CellMerging_Text3)');
+    });
+    </script>
+}
+<div>
+    <div class="copy">
+        <h3>@Html.Raw(FlexSheetRes.CellMerging_Text2)</h3>
+
+        <p>@Html.Raw(FlexSheetRes.CellMerging_Text0)</p>
+
+    </div>
+    <button type="button" class="btn btn-default" onclick="mergeCells()" id="mergeBtn">@Html.Raw(FlexSheetRes.CellMerging_Text3)</button>
+    <div>
+        <c1-flex-sheet class="flexSheet" id="mergeSheet">
+            <c1-unbound-sheet row-count="20" column-count="8"></c1-unbound-sheet>
+        </c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+    <p>@Html.Raw(FlexSheetRes.CellMerging_Text1)</p>
+
+}

@@ -26,33 +26,40 @@
         }
         return null;
     }
-        
+
     function customChangeErrorTipStyle(control, value) {
-        var grid = wijmo.Control.getControl('#DemoControl')         
-        grid.errorTip.cssClass = value;        
+        var grid = wijmo.Control.getControl('#DemoControl')
+        grid.errorTip.cssClass = value;
     }
 
     function customChangeTooltipPosition(control, value) {
         control.errorTip.position = value;
     }
+
+    function customChangeTooltipTrigger(control, value) {
+        control.errorTip.trigger = value;
+    }
 </script>
 
-<style>    
+<style>
     .red-yellow-errortip {
         background-color: red;
         color: yellow;
-    }        
+    }
+
     .gradient-errortip {
         background-color: greenyellow;
         background-image: radial-gradient(circle at top right, yellow, #f06d06 50%);
         color: white;
     }
+
     .text-style-errortip {
         background-color: lightyellow;
         color: red;
         font-style: oblique;
         text-shadow: 2px 2px 5px orangered;
     }
+
     .strong-round-errortip {
         background-color: lightgoldenrodyellow;
         color: red;
@@ -67,7 +74,6 @@
     .Create(Url.Action("GridCreateSale"))
     .Delete(Url.Action("GridDeleteSale"))
 )
-
 @(Html.C1().FlexGrid<Sale>()
     .Id("DemoControl")
     .AutoGenerateColumns(false)
@@ -82,14 +88,16 @@
     ).ItemsSourceId("validationCV")
     .AllowAddNew(true)
     .AllowDelete(true)
-    .CssStyle("height", "400px")   
+    .CssStyle("height", "400px")
     .ErrorTip(tip =>
     {
         tip.CssClass("red-yellow-errortip");
+        tip.Trigger(TooltipTrigger.Focus);
     })
 )
 
 @section Description{
     <p>@Html.Raw(Resources.FlexGrid.BuiltInValidation_Text0)</p>
     <p>@Html.Raw(Resources.FlexGrid.BuiltInValidation_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.BuiltInValidation_Text3)</p>
 }

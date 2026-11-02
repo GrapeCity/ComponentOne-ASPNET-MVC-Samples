@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 
 namespace MvcExplorer.Models
 {
@@ -21,6 +22,7 @@ namespace MvcExplorer.Models
         public DbSet<Category> Categories { get; set; }
         public DbSet<Employee> Employees { get; set; }
         public DbSet<Product> Products { get; set; }
+        public DbSet<Supplier> Suppliers { get; set; }
 
         public C1NWindEntities(DbContextOptions<C1NWindEntities> options)
             : base(options)
@@ -95,6 +97,21 @@ namespace MvcExplorer.Models
         public int CategoryID { get; set; }
         public string CategoryName { get; set; }
         public string Description { get; set; }
+
+        public static List<Category> GetCategories()
+        {
+            return new List<Category>()
+            {
+                new Category(){ CategoryID=1, CategoryName="Beverages", Description="Soft drinks, coffees, teas, beers, and ales" },
+                new Category(){ CategoryID=2, CategoryName="Condiments", Description="Sweet and savory sauces, relishes, spreads, and seasonings" },
+                new Category(){ CategoryID=3, CategoryName="Confections", Description="Desserts, candies, and sweet breads" },
+                new Category(){ CategoryID=4, CategoryName="Dairy Products", Description="Cheeses" },
+                new Category(){ CategoryID=5, CategoryName="Grains/Cereals", Description="Breads, crackers, pasta, and cereal" },
+                new Category(){ CategoryID=6, CategoryName="Meat/Poultry", Description="Prepared meats" },
+                new Category(){ CategoryID=7, CategoryName="Produce", Description="Dried fruit and bean curd" },
+                new Category(){ CategoryID=8, CategoryName="Seafood", Description="Seaweed and fish" },
+            };
+        }
     }
     public partial class Employee
     {
@@ -128,5 +145,21 @@ namespace MvcExplorer.Models
         public short? UnitsOnOrder { get; set; }
         public short? ReorderLevel { get; set; }
         public bool Discontinued { get; set; }
+    }
+
+    public partial class Supplier
+    {
+        public int SupplierID { get; set; }
+        public string CompanyName { get; set; }
+        public string ContactName { get; set; }
+        public string ContactTitle { get; set; }
+        public string Address { get; set; }
+        public string City { get; set; }
+        public string Region { get; set; }
+        public string PostalCode { get; set; }
+        public string Country { get; set; }
+        public string Phone { get; set; }
+        public string Fax { get; set; }
+        public string HomePage { get; set; }
     }
 }

@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp2.0</TargetFramework>
     <AssemblyName>FinancialChartExplorer</AssemblyName>
@@ -7,6 +7,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="box.json;fb.json;NDX.json;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="FinancialChartExplorer.Core20.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.AspNetCore.Mvc" Version="1.0.20213.330" />
@@ -48,5 +49,13 @@
     <EmbeddedResource Update="Localization\Resource.ja.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="FinancialChartExplorer.Core31.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net60.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net80.sa3licx" />
+    <None Remove="FinancialChartExplorer.Net90.sa3licx" />
+    <None Remove="FinancialChartExplorer.sa3licx" />
   </ItemGroup>
 </Project>

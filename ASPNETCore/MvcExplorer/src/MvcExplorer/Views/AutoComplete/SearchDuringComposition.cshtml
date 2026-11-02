@@ -1,0 +1,73 @@
+﻿@model IList<string>
+@{
+    ViewBag.DemoSettings = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+    var wordsByLanguage = ViewBag.ComposingWords as IDictionary<string, IList<string>>;
+}
+
+@section Styles {
+    <style>
+        .demo-row {
+            margin-bottom: 22px;
+            max-width: 420px;
+        }
+
+        .demo-row label {
+            display: block;
+            font-weight: 600;
+            margin-bottom: 4px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        var composingWords = @Html.Raw(Json.Serialize(wordsByLanguage));
+
+        // Called by the Language setting menu. The three controls share the same
+        // word list, so all of them are re-bound together.
+        function customChangeLanguage(control, value) {
+            var words = composingWords[value.toLowerCase()];
+            ["@controlId", "acComposing", "macComposing"].forEach(function (id) {
+                var ctl = wijmo.Control.getControl("#" + id);
+                
+                if (id === "macComposing" && ctl)
+                    ctl.selectedItems = [];
+
+                if (ctl) {
+                    ctl.itemsSource = words;
+                }
+            });
+        }
+    </script>
+}
+
+@section Summary {
+    @Html.Raw(AutoCompleteRes.SearchDuringComposition_Text0)
+}
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.SearchDuringComposition_Text1)</label>
+    <c1-auto-complete id="@controlId" min-length="1" placeholder="Type with an IME">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-auto-complete>
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.SearchDuringComposition_Text2)</label>
+    <c1-auto-complete id="acComposing" min-length="1" search-during-composition="true" placeholder="Type with an IME">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-auto-complete>
+</div>
+
+<div class="demo-row">
+    <label>@Html.Raw(AutoCompleteRes.SearchDuringComposition_Text3)</label>
+    <c1-multi-auto-complete id="macComposing" min-length="1" search-during-composition="true" placeholder="Type with an IME and press Enter">
+        <c1-items-source source-collection="@Model"></c1-items-source>
+    </c1-multi-auto-complete>
+</div>
+
+@section Description {
+    <p>@Html.Raw(AutoCompleteRes.SearchDuringComposition_Text4)</p>
+    <p>@Html.Raw(AutoCompleteRes.SearchDuringComposition_Text5)</p>
+}

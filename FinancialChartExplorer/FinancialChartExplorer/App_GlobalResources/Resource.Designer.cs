@@ -184,7 +184,7 @@ namespace Resources {
             get {
                 return ResourceManager.GetString("Layout_TwitterText", resourceCulture);
             }
-        }
+        }                
         
         /// <summary>
         ///   Looks up a localized string similar to About.
@@ -192,6 +192,42 @@ namespace Resources {
         internal static string SiteNav_About {
             get {
                 return ResourceManager.GetString("SiteNav_About", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        internal static string SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        internal static string SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DemosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        internal static string SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
+        /// </summary>
+        internal static string SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_DocsUrl", resourceCulture);
             }
         }
         
@@ -250,6 +286,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        internal static string SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        internal static string SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("SiteNav_SamplesUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Support.
         /// </summary>
         internal static string SiteNav_Support {
@@ -259,58 +313,25 @@ namespace Resources {
         }
 
         /// <summary>
-        ///   Looks up a localized string similar to Demos.
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
         /// </summary>
-        internal static string SiteNav_Demos {
-            get {
-                return ResourceManager.GetString("SiteNav_Demos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
-        /// </summary>
-        internal static string SiteNav_DemosUrl {
-            get {
-                return ResourceManager.GetString("SiteNav_DemosUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Docs.
-        /// </summary>
-        internal static string SiteNav_Docs {
-            get {
-                return ResourceManager.GetString("SiteNav_Docs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
-        /// </summary>
-        internal static string SiteNav_DocsUrl {
-            get {
-                return ResourceManager.GetString("SiteNav_DocsUrl", resourceCulture);
+        internal static string MissingSourceFile
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
             }
         }
 
         /// <summary>
-        ///    Looks up a localized string similar to Samples.
+        ///   Looks up a localized string similar to Error:.
         /// </summary>
-        internal static string SiteNav_Samples {
-            get {
-                return ResourceManager.GetString("SiteNav_Samples", resourceCulture);
+        internal static string MissingSourceFileCode
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
             }
         }
-
-        /// <summary>
-        ///    Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
-        /// </summary>
-        internal static string SiteNav_SamplesUrl {
-            get {
-                return ResourceManager.GetString("SiteNav_SamplesUrl", resourceCulture);
-            }
-        }
-
     }
 }

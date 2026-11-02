@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Reflection;
 using System.Linq;
+using FlexViewerExplorer.Localization;
 
 namespace FlexViewerExplorer.Models
 {
@@ -38,7 +39,7 @@ namespace FlexViewerExplorer.Models
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
             return File.Exists(controllerFilePath) ?
-                File.ReadAllText(controllerFilePath) : null;
+                File.ReadAllText(controllerFilePath) : FlexViewerRes.MissingSourceFile;
         }
 
         private static string GetResourceContent(string name)

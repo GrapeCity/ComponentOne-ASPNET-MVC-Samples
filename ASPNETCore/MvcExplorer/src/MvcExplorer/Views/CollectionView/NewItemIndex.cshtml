@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+    int pageSize = ViewBag.PageSize;
+    int newItemIndex = ViewBag.NewItemIndex;
+}
+
+@section Styles {
+    <style>
+        .ni-buttons {
+            margin-bottom: 10px;
+        }
+
+        .ni-buttons .btn {
+            margin-right: 6px;
+        }
+    </style>
+}
+
+@section Scripts {
+    <script>
+        function View() {
+            return wijmo.Control.getControl('#NewItemIndexGrid').collectionView;
+        }
+
+        // New items are plain objects, so every bound field has to be filled in.
+        function Fill(view, item, label) {
+            var id = view.sourceCollection.length;
+            item.ID = id;
+            item.Country = 'New';
+            item.Product = label;
+            item.Amount = 1000 + id * 37;
+            item.Amount2 = 500 + id * 13;
+        }
+
+        // AddNew() uses the NewItemIndex set on the CollectionViewService.
+        function AddNew() {
+            var view = View(),
+                item = view.addNew();
+            Fill(view, item, 'AddNew');
+            view.commitNew();
+        }
+
+        // insertAt() takes the position directly and returns an uncommitted item,
+        // or null when the index is outside the current page.
+        function InsertAt(index) {
+            var view = View(),
+                item = view.insertAt(index);
+            if (!item) {
+                return;
+            }
+            Fill(view, item, 'insertAt(' + index + ')');
+            view.commitNew();
+        }
+    </script>
+}
+
+<c1-items-source id="newItemIndexCV" source-collection="@Model"
+                 page-size="@pageSize" new-item-index="@newItemIndex"></c1-items-source>
+
+<div class="ni-buttons">
+    <button type="button" class="btn btn-default" onclick="AddNew()">@CollectionViewRes.NewItemIndex_Text0</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(0)">@CollectionViewRes.NewItemIndex_Text1</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(@(pageSize - 1))">@CollectionViewRes.NewItemIndex_Text2</button>
+    <button type="button" class="btn btn-default" onclick="InsertAt(@(-1))">@CollectionViewRes.NewItemIndex_Text3</button>
+
+</div>
+
+
+<c1-flex-grid id="NewItemIndexGrid" items-source-id="newItemIndexCV"
+              auto-generate-columns="false" allow-add-new="true" class="grid" height="320px">
+    <c1-flex-grid-column binding="ID"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Country"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Product" width="160"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount" format="c"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Amount2" format="c"></c1-flex-grid-column>
+</c1-flex-grid>
+
+<c1-collection-view-navigator id="NavigatorForGrid" items-source-id="NewItemIndexGrid"
+                              by-page="true" header-format="Page: {currentPage} / {pageCount}">
+</c1-collection-view-navigator>
+
+@section Summary {
+    <p>@Html.Raw(CollectionViewRes.NewItemIndex_Text8)</p>
+}
+
+@section Settings {
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
+
+@section Description {
+    <p>@Html.Raw(CollectionViewRes.NewItemIndex_Text4)</p>
+    <p>@Html.Raw(CollectionViewRes.NewItemIndex_Text5)</p>
+    <p>@Html.Raw(CollectionViewRes.NewItemIndex_Text6)</p>
+    <p>@Html.Raw(CollectionViewRes.NewItemIndex_Text7)</p>
+}

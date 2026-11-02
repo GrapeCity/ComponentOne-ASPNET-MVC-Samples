@@ -1,0 +1,48 @@
+@{
+
+    Layout = null;
+
+    Theme.CurrentTheme = Request.QueryString["theme"];
+
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    @Html.C1().Styles().Theme(Theme.CurrentTheme)
+    <link href="~/Content/css/bootstrap/css/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/css/explorer.css" rel="stylesheet" />
+    <link href="~/Content/css/app.css" rel="stylesheet" />
+    <style>
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            position: relative;
+            padding: 0;
+            overflow: hidden;
+        }
+
+        .drag-drop-frame-content {
+            width: 100%;
+        }
+    </style>
+    @Html.C1().Scripts().Basic(b => b.Input()).FlexSheet()
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/jszip.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/flexSheet/dragDrop.js"></script>
+
+</head>
+<body>
+    <div class="drag-drop-frame-content">
+        @(Html.C1().FlexSheet().CssClass("flexSheet").Id("dragDropSheet")
+        .AddUnboundSheet("Sheet1", 20, 8))
+    </div>
+</body>
+</html>

@@ -1,0 +1,117 @@
+﻿@{
+    ViewBag.Title = "FlexGrid Column Groups";
+
+    var controllerName = ViewContext.RouteData.Values["controller"].ToString();
+    var actionName = ViewContext.RouteData.Values["action"].ToString();
+
+    var currentPage = ControlPages.GetControlPage(controllerName, actionName);
+    ViewBag.ControllerName = controllerName;
+    ViewBag.ActionName = actionName;
+    ViewBag.PageText = ControlPages.GetPageText(controllerName, actionName);
+
+    var group = ControlPages.GetControlPageGroup(controllerName);
+    var pages = group.Pages;
+
+    void SetPagePath(ControlPage page, string controller)
+    {
+        page.Path = string.IsNullOrEmpty(page.Name) ? "#" : Url.Action(page.Name, controller).ToString();
+        if (page.SubPages != null)
+        {
+            foreach (var subPage in page.SubPages)
+            {
+                SetPagePath(subPage, controller);
+            }
+        }
+    }
+
+    foreach (var page in pages)
+    {
+        SetPagePath(page, controllerName);
+    }
+
+    ViewBag.Pages = pages;
+
+    var allGroups = new List<ControlGroup>();
+    allGroups.Add(ControlPages.NewGroup);
+    allGroups.Add(ControlPages.PopularGroup);
+    allGroups.AddRange(ControlPages.ControlGroups);
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewBag.Title</title>
+
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
+    <link rel="stylesheet" href="@Url.Content(Resource.GcIconsCssPath)" />
+    <link rel="stylesheet" href="@Url.Content("~/Content/css/ColumnGroupApp.css")" />
+
+    @* <c1-styles /> *@
+
+    <c1-scripts>
+        <c1-basic-scripts bundles="Input">
+            <c1-grid-extension-scripts bundles="Filter" />
+        </c1-basic-scripts>
+    </c1-scripts>
+
+    <script src="~/Scripts/jquery.js"></script>
+    <script src="~/Scripts/MultiLevelMenu.js"></script>
+    <script src="~/Scripts/ColumnGroupProvider.js"></script>
+    <script src="~/Scripts/app.js"></script>
+
+    <script>
+        var actionName = '@ViewBag.ActionName';
+    </script>
+</head>
+
+<body>
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-10">
+
+                <p>@Html.Raw(FlexGridColumnGroupingRes.Index_View_P1)</p>
+                <p>@Html.Raw(FlexGridColumnGroupingRes.Index_View_P2)</p>
+                <p>@Html.Raw(FlexGridColumnGroupingRes.Index_View_P3)</p>
+
+                <h3>
+                    @FlexGridColumnGroupingRes.SectionTitle_W3C
+                </h3>
+
+                <p>
+                    @Html.Raw(FlexGridColumnGroupingRes.Index_View_W3C_P1)
+                </p>
+
+                <c1-flex-grid id="w3cFlexGrid" is-read-only="true">
+                    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+                </c1-flex-grid>
+
+                <h3>
+                    @FlexGridColumnGroupingRes.SectionTitle_Financial
+                </h3>
+
+                <p>
+                    @Html.Raw(FlexGridColumnGroupingRes.Index_View_Financial_P1)
+                </p>
+
+                <c1-flex-grid id="fnFlexGrid" is-read-only="true">
+                    <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+                </c1-flex-grid>
+
+            </div>
+        </div>
+    </div>
+
+    @section Summary{
+        <p>@Html.Raw(FlexGridColumnGroupingRes.Index_View_P1)</p>
+    }
+
+    @section Description{
+        <p>@Html.Raw(FlexGridColumnGroupingRes.Index_View_P2)</p>
+    }
+
+</body>
+</html>

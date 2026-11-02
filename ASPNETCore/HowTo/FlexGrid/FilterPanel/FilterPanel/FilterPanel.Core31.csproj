@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk.Web">
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
   <PropertyGroup>
     <TargetFramework>netcoreapp3.1</TargetFramework>
     <AspNetCoreHostingModel>OutOfProcess</AspNetCoreHostingModel>
@@ -8,6 +8,7 @@
   </PropertyGroup>
   <ItemGroup>
     <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="FilterPanel.Core31.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20231.344" />
@@ -23,5 +24,13 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="FilterPanel.Core20.sa3licx" />
+    <None Remove="FilterPanel.Net60.sa3licx" />
+    <None Remove="FilterPanel.Net80.sa3licx" />
+    <None Remove="FilterPanel.Net90.sa3licx" />
+    <None Remove="FilterPanel.sa3licx" />
   </ItemGroup>
 </Project>

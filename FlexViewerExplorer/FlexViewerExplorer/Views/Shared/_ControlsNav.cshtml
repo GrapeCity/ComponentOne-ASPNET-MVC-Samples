@@ -35,9 +35,9 @@
             case "FlexReport":
                 loadFlexReport(gr.dataItem["FullPath"], gr.dataItem["Name"]);
                 break;
-            case "ArReport":
-                loadArReport(gr.dataItem["FullPath"]);
-                break;
+            //case "ArReport":
+            //    loadArReport(gr.dataItem["FullPath"]);
+            //    break;
             case "SsrsReport":
                 loadSsrsReport(gr.dataItem["FullPath"]);
                 break;
@@ -58,10 +58,10 @@
         gridFlexReports.updatedView.addHandler(flexGrid_UpdatedView, gridFlexReports);
         gridFlexReports.hostElement.addEventListener('mousedown', tvFlexReports_MouseDown)
 
-        var gridArReports = wijmo.Control.getControl('#tvArReports');
-        gridArReports.maxUpdateCount = 1;
-        gridArReports.updatedView.addHandler(flexGrid_UpdatedView, gridArReports);
-        gridArReports.hostElement.addEventListener('mousedown', tvArReports_MouseDown)
+        //var gridArReports = wijmo.Control.getControl('#tvArReports');
+        //gridArReports.maxUpdateCount = 1;
+        //gridArReports.updatedView.addHandler(flexGrid_UpdatedView, gridArReports);
+        //gridArReports.hostElement.addEventListener('mousedown', tvArReports_MouseDown)
 
         var gridSsrsReports = wijmo.Control.getControl('#tvSsrsReports');
         gridSsrsReports.maxUpdateCount = 1;
@@ -93,7 +93,7 @@
     })
 )
 
-<div class="aside-title">
+@*<div class="aside-title">
     @Html.Raw(Resources.FlexViewer._ControlsNav_Text1)
 </div>
 @(Html.C1().FlexGrid<DocumentItem>()
@@ -110,7 +110,7 @@
     {
         bl.Add().Binding("Title").Width("*");
     })
-)
+)*@
 
 <div class="aside-title">
     @Html.Raw(Resources.FlexViewer._ControlsNav_Text2)

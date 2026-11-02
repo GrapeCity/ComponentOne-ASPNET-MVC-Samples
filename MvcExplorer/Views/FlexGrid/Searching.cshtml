@@ -34,13 +34,14 @@
     .AutoSearch(true)
     .CaseSensitiveSearch(Convert.ToBoolean(optionsModel.Options["Case Sensitive Search"].CurrentValue))
 )
-
 @(Html.C1().FlexGridSearch("#theSearch")
     .Grid("theFlexGrid")
     .Delay(Convert.ToInt32(optionsModel.Options["Delay"].CurrentValue))
     .CssMatch(cssMatch)
     .Placeholder(string.Format("{0}", Html.Raw(Resources.FlexGrid.EnterTextSearch_Text0)))
     .SearchAllColumns(Convert.ToBoolean(optionsModel.Options["Search All Columns"].CurrentValue))
+    .IsSubmitOnChange(Convert.ToBoolean(optionsModel.Options["Submit On Change"].CurrentValue))
+    .ExactMatch(Convert.ToBoolean(optionsModel.Options["Exact Match Search"].CurrentValue))
 )
 
 <p>
@@ -91,7 +92,7 @@
             let cnt = theGrid.collectionView.items.length;
             document.getElementById('searchCount').textContent = cnt;
         }
-        
+
         window.onbeforeunload = function () {
             let theSearch = wijmo.Control.getControl("#theSearch");
             saveValue("SearchValue", theSearch.text || "");
@@ -105,7 +106,7 @@
             theGrid.collectionView.collectionChanged.addHandler(function () {
                 updateSearchCount(theGrid);
             });
-        });        
+        });
     </script>
 }
 
@@ -121,4 +122,5 @@
     <p>@Html.Raw(Resources.FlexGrid.Searching_Text1)</p>
     <p>@Html.Raw(Resources.FlexGrid.Searching_Text3)</p>
     <p>@Html.Raw(Resources.FlexGrid.Searching_SearchAllColumns)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Searching_ExactMatch)</p>
 }

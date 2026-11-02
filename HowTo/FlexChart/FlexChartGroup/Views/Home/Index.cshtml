@@ -32,18 +32,21 @@
         if(menu.selectedIndex != @(menuSelectedIndexes[0])) {
             targetFdIpt.value = "";
             targetLIpt.value = "0";
+            document.getElementById("groupbyValue").value = menu.selectedValue.Header;
             submit();
         }
     };
 
     aggregateSubmit = function(menu) {
-        if(menu.selectedIndex != @(menuSelectedIndexes[1])) {
+        if (menu.selectedIndex != @(menuSelectedIndexes[1])) {
+            document.getElementById("aggregateValue").value = menu.selectedValue.Header;
             submit();
         }
     };
 
     charttypeSubmit = function(menu) {
-        if(menu.selectedIndex != @(menuSelectedIndexes[2])) {
+        if (menu.selectedIndex != @(menuSelectedIndexes[2])) {
+            document.getElementById("charttypeValue").value = menu.selectedValue.Header;
             submit();
         }
     };
@@ -107,8 +110,11 @@
     }).SelectedIndex(menuSelectedIndexes[2]).OnClientItemClicked("charttypeSubmit")
     </div>
 
-    <input id="targetfields" type="hidden" name="tfields" value="@(targetFields)"/>
-    <input id="targetlevel" type="hidden" name="tlevel" value="@(targetLevel.ToString())"/>
+    <input id="targetfields" type="hidden" name="tfields" value="@(targetFields)" />
+    <input id="targetlevel" type="hidden" name="tlevel" value="@(targetLevel.ToString())" />
+    <input id="groupbyValue" type="hidden" name="groupby" value="@groupby" />
+    <input id="aggregateValue" type="hidden" name="aggregate" value="@aggregate" />
+    <input id="charttypeValue" type="hidden" name="charttype" value="@charttype" />
 }
 <div class="desc">
     <strong>Step 4)</strong>  Click a column, sector or legend to drill down into the details, or click on the header hyperlinks to return to a higher level.

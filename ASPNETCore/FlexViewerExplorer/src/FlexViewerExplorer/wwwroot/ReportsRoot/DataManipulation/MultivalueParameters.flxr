@@ -20,18 +20,20 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
+        <RecordSourceType>Text</RecordSourceType>
         <RecordSource>
           SELECT Categories.*, Products.*
           FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID
-          where Categories.CategoryID in prmCategory
+          where Categories.CategoryID in [prmCategory]
         </RecordSource>
+        <ParameterPassingMode>Literal</ParameterPassingMode>
       </DataSource>
       <DataSource>
         <Name>dsCategories</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>Select * From Categories</RecordSource>
         <RecordSourceType>Text</RecordSourceType>
         <SortDefinitions>

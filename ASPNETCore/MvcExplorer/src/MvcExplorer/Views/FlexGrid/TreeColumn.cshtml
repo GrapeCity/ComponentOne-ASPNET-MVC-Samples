@@ -1,0 +1,24 @@
+﻿@model IEnumerable<ITreeItem>
+@{
+    ViewBag.DemoDescription = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+
+@section Summary {
+    @Html.Raw(FlexGridRes.TreeColumn_Text0)
+}
+
+<c1-flex-grid id="@controlId" child-items-path="Children" is-read-only="true"
+              auto-generate-columns="false" headers-visibility="Column"
+              tree-column-index="-1" style="height:400px">
+    <c1-items-source source-collection="@Model"></c1-items-source>
+    <c1-flex-grid-column binding="Index" header="#" width="50" align="center"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Header" header="Name" width="*"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Size" header="Size" width="100" align="right"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="DateModified" header="Date Modified" width="160" format="g"></c1-flex-grid-column>
+</c1-flex-grid>
+
+@section Description {
+    <p>@Html.Raw(FlexGridRes.TreeColumn_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.TreeColumn_Text2)</p>
+}

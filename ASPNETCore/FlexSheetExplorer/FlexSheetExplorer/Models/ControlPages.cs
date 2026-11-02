@@ -1,4 +1,5 @@
-﻿using System;
+﻿using FlexSheetExplorer.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,9 @@ namespace FlexSheetExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            if (File.Exists(controllerFilePath))
+                return System.IO.File.ReadAllText(controllerFilePath);
+            return FlexSheetRes.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

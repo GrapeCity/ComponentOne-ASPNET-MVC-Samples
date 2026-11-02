@@ -162,20 +162,20 @@
                                 <!-- input tab -->
                                 <div class="mdl-tabs__panel is-active" id="tab-input">
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        @Html.C1().InputDate().Value(theDateTime).IsRequired(false)
+                                        @Html.C1().InputDate().Value(theDateTime).IsRequired(false).Width("100%")
                                         <label class="mdl-textfield__label">@Resources.Resource.HomeTheDate</label>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        @Html.C1().InputTime().Value(theDateTime).IsRequired(false)
+                                        @Html.C1().InputTime().Value(theDateTime).IsRequired(false).Width("100%")
                                         <label class="mdl-textfield__label">@Resources.Resource.HomeTheTime</label>
                                     </div>
                                     <br />
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        @Html.C1().InputNumber().Step(10).Format("c").IsRequired(false)
+                                        @Html.C1().InputNumber().Step(10).Format("c").IsRequired(false).Width("100%")
                                         <label class="mdl-textfield__label">@Resources.Resource.HomeTheAmount</label>
                                     </div>
                                     <div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label">
-                                        @Html.C1().InputNumber().Id("evenNumber").Step(10).Format("n0").IsRequired(false)
+                                        @Html.C1().InputNumber().Id("evenNumber").Step(10).Format("n0").IsRequired(false).Width("100%")
                                         <label class="mdl-textfield__label">@Resources.Resource.HomeEvenNumber</label>
                                         <span class="mdl-textfield__error">@Resources.Resource.HomeEvenNumberError</span>
                                     </div>

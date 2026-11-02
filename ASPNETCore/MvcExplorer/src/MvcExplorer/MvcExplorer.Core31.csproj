@@ -7,37 +7,56 @@
     <!-- Known Issue of NetCore 3.0 ref: https://github.com/dotnet/core/blob/master/release-notes/3.0/3.0-known-issues.md-->
     <EmbeddedResourceUseDependentUponConvention>false</EmbeddedResourceUseDependentUponConvention>
     <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
-	<DefineConstants>TRACE;NETCOREAPP1_0;RELOAD_ON_ERROR;ODATA_SERVER;NETCORE31</DefineConstants>
+    <DefineConstants>TRACE;NETCOREAPP1_0;RELOAD_ON_ERROR;ODATA_SERVER;NETCORE31</DefineConstants>
   </PropertyGroup>
-
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
     <DefineConstants>$(DefineConstants);DEBUG</DefineConstants>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|AnyCPU'">
     <DefineConstants>$(DefineConstants);RELEASE</DefineConstants>
   </PropertyGroup>
-  
   <ItemGroup>
-    <EmbeddedResource Include="fb.json;fb2.json;Models\UserInfo.cs;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="NDX.json;Startup.cs;fb.json;fb2.json;box.json;fb3.json;Models\UserInfo.cs;ControlPages.xml;Controllers\**\*.cs;GCDTLicenses.xml;Pages\**" Exclude="bin\**;obj\**;**\*.xproj" />
+    <EmbeddedResource Include="MvcExplorer.Core31.sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20231.344" />
-    <PackageReference Include="C1.Excel" Version="5.0.20223.11" />    
-    <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.FlexSheet" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.MultiRow" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Finance" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.FlexViewer" Version="6.0.20262.477" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.Sqlite" Version="5.0.5" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.2.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.21.0" />
+    <PackageReference Include="C1.AspNetCore.Api" Version="6.0.20262.433" />
+    <PackageReference Include="C1.AspNetCore.Api.Cloud" Version="6.0.20262.433" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="6.0.20262.433" />
+    <PackageReference Include="C1.AspNetCore.Api.Document" Version="6.0.20262.433" />
+    <PackageReference Include="C1.AspNetCore.Api.Report" Version="6.0.20262.433" />
+    <PackageReference Include="C1.AspNetCore.Api.Pdf" Version="6.0.20262.433" />
   </ItemGroup>
   <ItemGroup>
     <Content Remove="project.json" />
     <Content Remove="project.lock.json" />
+    <Content Remove="wwwroot\InitialData.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Remove="DashboardControlPages.xml" />
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="DashboardControlPages.xml" />
+    <EmbeddedResource Include="wwwroot\InitialData.xml">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Controllers\OData\" />
   </ItemGroup>
- <ItemGroup>
+  <ItemGroup>
     <Compile Update="Localization\ExcelRes.Designer.cs">
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
@@ -45,9 +64,33 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Update="wwwroot\App_Data\C1NWind.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\App_Data\Database1.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\App_Data\Database2.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\App_Data\Database3.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Update="wwwroot\App_Data\FlightStatistics.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
     <EmbeddedResource Update="Localization\ExcelRes.resx">
       <Generator>PublicResXFileCodeGenerator</Generator>
       <LastGenOutput>ExcelRes.Designer.cs</LastGenOutput>
     </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="MvcExplorer.Net60.sa3licx" />
+    <None Remove="MvcExplorer.Net80.sa3licx" />
+    <None Remove="MvcExplorer.Net90.sa3licx" />
+    <None Remove="MvcExplorer.sa3licx" />
   </ItemGroup>
 </Project>

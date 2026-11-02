@@ -79,11 +79,36 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;FocusMode&lt;/b&gt; property controls whether the selected date in the calendar is automatically focused.&lt;br/&gt;
+        ///When set to &lt;b&gt;true&lt;/b&gt;, the calendar highlights and focuses the selected date, allowing keyboard navigation from that date.&lt;br/&gt;
+        ///When set to &lt;b&gt;false&lt;/b&gt;, the selected date is not automatically focused.
+        ///.
+        /// </summary>
+        internal static string Index_FocusMode {
+            get {
+                return ResourceManager.GetString("Index_FocusMode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to &lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can change the current displayMonth using the mouse wheel..
         /// </summary>
         internal static string Index_HandleWheel {
             get {
                 return ResourceManager.GetString("Index_HandleWheel", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the TAB key in the calendar control.&lt;br/&gt;
+        ///The options are:&lt;br/&gt;
+        ///&lt;b&gt;None&lt;/b&gt; - no special action; the browser handles the key.&lt;br/&gt;
+        ///&lt;b&gt;All&lt;/b&gt; - all buttons in the calendar can be selected using the Tab key.
+        ///.
+        /// </summary>
+        internal static string Index_KeyActionTab {
+            get {
+                return ResourceManager.GetString("Index_KeyActionTab", resourceCulture);
             }
         }
         
@@ -165,6 +190,15 @@ namespace Resources {
         internal static string Index_To {
             get {
                 return ResourceManager.GetString("Index_To", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the Calendar based on the aria-label attribute assigned to each calendar control..
+        /// </summary>
+        internal static string Index_Tooltip {
+            get {
+                return ResourceManager.GetString("Index_Tooltip", resourceCulture);
             }
         }
         

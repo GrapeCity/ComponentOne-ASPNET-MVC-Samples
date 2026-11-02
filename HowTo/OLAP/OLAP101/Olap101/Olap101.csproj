@@ -43,35 +43,33 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.DataEngine">
-      <HintPath>..\packages\C1.DataEngine.5.0.20232.306\lib\net452\C1.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.DataEngine.10.0.20262.421\lib\net462\C1.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-	<Reference Include="C1.PivotEngine">
-      <HintPath>..\packages\C1.PivotEngine.5.0.20232.306\lib\net452\C1.PivotEngine.dll</HintPath>
-      <Private>True</Private>
-    </Reference>	
-    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.0.1\lib\net45\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+    <Reference Include="C1.PivotEngine">
+      <HintPath>..\packages\C1.PivotEngine.10.0.20262.421\lib\net462\C1.PivotEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="Microsoft.AnalysisServices.SPClient.Interfaces, Version=19.22.0.1, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
-      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.22.0.1\lib\net45\Microsoft.AnalysisServices.SPClient.Interfaces.dll</HintPath>
-      <Private>True</Private>
+    <Reference Include="Microsoft.AnalysisServices.AdomdClient, Version=19.69.6.2, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.69.6.2\lib\net45\Microsoft.AnalysisServices.AdomdClient.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AnalysisServices.SPClient.Interfaces, Version=19.69.6.2, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AnalysisServices.AdomdClient.retail.amd64.19.69.6.2\lib\net45\Microsoft.AnalysisServices.SPClient.Interfaces.dll</HintPath>
     </Reference>
     <Reference Include="C1.Web.Api">
-      <HintPath>..\packages\C1.Web.Api.4.8.20241.340\lib\net48\C1.Web.Api.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.4.8.20262.433\lib\net48\C1.Web.Api.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Api.DataEngine">
-      <HintPath>..\packages\C1.Web.Api.DataEngine.4.8.20241.340\lib\net48\C1.Web.Api.DataEngine.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Api.DataEngine.4.8.20262.433\lib\net48\C1.Web.Api.DataEngine.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="C1.Web.Mvc.Olap">
-      <HintPath>..\packages\C1.Web.Mvc.Olap.4.8.20241.360\lib\net48\C1.Web.Mvc.Olap.dll</HintPath>
+    <Reference Include="C1.Web.Mvc">
+      <HintPath>..\packages\C1.Web.Mvc.Olap.4.8.20262.477\lib\net48\C1.Web.Mvc.Olap.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -251,7 +249,7 @@
       <LastGenOutput>Olap1011.Designer.cs</LastGenOutput>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="Properties\licenses.licx" />
+    <EmbeddedResource Include="Olap101.sa3licx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Views\Home\Index.cshtml" />

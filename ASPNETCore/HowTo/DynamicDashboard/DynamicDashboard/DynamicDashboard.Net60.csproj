@@ -2,16 +2,16 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <UserSecretsId>aspnet-DynamicDashboard-ee405007-5d70-479a-9c54-9de2e742a044</UserSecretsId>
-	  <AssemblyName>DynamicDashboard</AssemblyName>
+    <AssemblyName>DynamicDashboard</AssemblyName>
     <RootNamespace>DynamicDashboard</RootNamespace>
     <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
   </PropertyGroup>
-
   <ItemGroup>
     <EmbeddedResource Include="GCDTLicenses.xml" Exclude="bin\**;obj\**;**\*.xproj;packages\**;@(EmbeddedResource)" />
+    <EmbeddedResource Include="DynamicDashboard.Net60.sa3licx" />
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20241.360" />
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.9" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc.NewtonsoftJson" Version="3.0.0" />
@@ -22,5 +22,13 @@
   </ItemGroup>
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="DynamicDashboard.Core20.sa3licx" />
+    <None Remove="DynamicDashboard.Core31.sa3licx" />
+    <None Remove="DynamicDashboard.Net80.sa3licx" />
+    <None Remove="DynamicDashboard.Net90.sa3licx" />
+    <None Remove="DynamicDashboard.sa3licx" />
   </ItemGroup>
 </Project>

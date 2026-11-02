@@ -1,0 +1,63 @@
+@model IEnumerable<Sale>
+
+@section Scripts{<script type="text/javascript" src="~/Scripts/flexSheet/sorting.js"></script>}
+<div>
+    <div class="copy">
+<h3>@Html.Raw(FlexSheetRes.Sorting_Text2)</h3>
+
+<p>@Html.Raw(FlexSheetRes.Sorting_Text0)</p>
+
+    </div>
+    <div>
+        <div class="row" id="sortTable">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th class="text-center">@Html.Raw(FlexSheetRes.Sorting_Text3)</th>
+                        <th class="text-center">@Html.Raw(FlexSheetRes.Sorting_Text4)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div class="row well well-lg">
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" onclick="addSortLevel()">
+                    <span class="glyphicon glyphicon-plus-sign"></span>@Html.Raw(FlexSheetRes.Sorting_Text5)
+                </button>
+                <button type="button" class="btn btn-default" onclick="deleteSortLevel()">
+                    <span class="glyphicon glyphicon-remove-sign"></span>@Html.Raw(FlexSheetRes.Sorting_Text6)
+                </button>
+                <button type="button" class="btn btn-default" onclick="copySortLevel()">
+                    <span class="glyphicon glyphicon-copy"></span>@Html.Raw(FlexSheetRes.Sorting_Text7)
+                </button>
+            </div>
+            <div class="btn-group">
+                <button id="moveup" type="button"
+                    class="btn btn-default"
+                    onclick="moveSortLevel(-1)">
+                    <span class="glyphicon glyphicon-arrow-up"></span>
+                </button>
+                <button id="movedown" type="button"
+                    class="btn btn-default"
+                    onclick="moveSortLevel(1)">
+                    <span class="glyphicon glyphicon-arrow-down"></span>
+                </button>
+            </div>
+            <div class="btn-group">
+                <button type="button" class="btn btn-default" onclick="commitSort()">@Html.Raw(FlexSheetRes.Sorting_Text8)</button>
+                <button type="button" class="btn btn-default" onclick="cancelSort()">@Html.Raw(FlexSheetRes.Sorting_Text9)</button>
+            </div>
+        </div>
+        <c1-flex-sheet class="flexSheet" id="sortSheet">
+            <c1-bound-sheet>
+                <c1-items-source source-collection="@Model"></c1-items-source>
+            </c1-bound-sheet>
+        </c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.Sorting_Text1)</p>
+
+}

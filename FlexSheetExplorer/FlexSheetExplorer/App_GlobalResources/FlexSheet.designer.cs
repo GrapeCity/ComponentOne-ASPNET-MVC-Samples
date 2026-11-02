@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "18.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class FlexSheet {
@@ -931,6 +931,24 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        internal static string MissingSourceFile {
+            get {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        internal static string MissingSourceFileCode {
+            get {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to FlexSheet allows you to add multiple row and column headers..
         /// </summary>
         internal static string MultipleHeaders_Text0 {
@@ -1390,6 +1408,60 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Demos.
+        /// </summary>
+        internal static string _SiteNav_Demos {
+            get {
+                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
+        /// </summary>
+        internal static string _SiteNav_DemosUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Docs.
+        /// </summary>
+        internal static string _SiteNav_Docs {
+            get {
+                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
+        /// </summary>
+        internal static string _SiteNav_DocsUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Samples.
+        /// </summary>
+        internal static string _SiteNav_Samples {
+            get {
+                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
+        /// </summary>
+        internal static string _SiteNav_SamplesUrl {
+            get {
+                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to About.
         /// </summary>
         internal static string _SiteNav_Text0 {
@@ -1467,60 +1539,6 @@ namespace Resources {
         internal static string _SiteNav_Text8 {
             get {
                 return ResourceManager.GetString("_SiteNav_Text8", resourceCulture);
-            }
-        }
-
-        /// <summary>
-        ///   Looks up a localized string similar to Demos.
-        /// </summary>
-        internal static string _SiteNav_Demos {
-            get {
-                return ResourceManager.GetString("_SiteNav_Demos", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/demos.
-        /// </summary>
-        internal static string _SiteNav_DemosUrl {
-            get {
-                return ResourceManager.GetString("_SiteNav_DemosUrl", resourceCulture);
-            }
-        }        
-
-        /// <summary>
-        ///   Looks up a localized string similar to Docs.
-        /// </summary>
-        internal static string _SiteNav_Docs {
-            get {
-                return ResourceManager.GetString("_SiteNav_Docs", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/docs/mvc/online-mvc/overview.html.
-        /// </summary>
-        internal static string _SiteNav_DocsUrl {
-            get {
-                return ResourceManager.GetString("_SiteNav_DocsUrl", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to Samples.
-        /// </summary>
-        internal static string _SiteNav_Samples {
-            get {
-                return ResourceManager.GetString("_SiteNav_Samples", resourceCulture);
-            }
-        }
-        
-        /// <summary>
-        ///   Looks up a localized string similar to https://developer.mescius.com/componentone/samples.
-        /// </summary>
-        internal static string _SiteNav_SamplesUrl {
-            get {
-                return ResourceManager.GetString("_SiteNav_SamplesUrl", resourceCulture);
             }
         }
     }

@@ -3,13 +3,32 @@
     var minDate = new DateTime(today.Year, 1, 1);
     var maxDate = new DateTime(today.Year, 12, 31);
     var handleWheelOptions = new List<string> { "True", "False" };
+    var readonlyOptions = new List<string> { "False", "True" };
+    var preserveOptions = new List<string> { "False", "True" };
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+
 }
 
 @section Scripts{
 <script>
     function changeDate(sender, e) {
-        wijmo.Control.getControl("#idcCalendar").value = sender.value;
+        if (!sender.isDroppedDown) {
+            wijmo.Control.getControl("#idcCalendar").value = sender.value;
+        }
     }
+
+    // Initialize event handler after page loads
+    document.addEventListener('DOMContentLoaded', function() {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        if (inputDate) {
+            inputDate.isDroppedDownChanged.addHandler(function(sender, e) {
+                if (!sender.isDroppedDown && sender.value) {
+                    wijmo.Control.getControl("#idcCalendar").value = sender.value;
+                }
+            });
+        }
+    });
 
     function weekBeforeChanged(sender, args) {
         var inputDate = wijmo.Control.getControl('#idcInputDate');
@@ -34,6 +53,24 @@
             inputDate.handleWheel = false;
         }
     }
+
+    function handleReadonlyChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        if (sender.selectedValue === "True") {
+            inputDate.isReadOnly = true;
+        } else {
+            inputDate.isReadOnly = false;
+        }
+    }
+
+    function handlePreserveChanged(sender, args) {
+        var inputDate = wijmo.Control.getControl('#idcInputDate');
+        if (sender.selectedValue === "True") {
+            inputDate.preserveCalendarNavigation = true;
+        } else {
+            inputDate.preserveCalendarNavigation = false;
+        }
+    }
 </script>
 }
 
@@ -41,7 +78,18 @@
     </c1-calendar></p>
 <div>
     <label>@Html.Raw(InputDateRes.Index_Text1)</label>
-    <c1-input-date id="idcInputDate" value="@today" min="@minDate" max="@maxDate" value-changed="changeDate">
+    <c1-input-date id="idcInputDate" preserve-calendar-navigation="false" value="@today" min="@minDate" max="@maxDate" value-changed="changeDate"
+                   show-confirmation-buttons="@Convert.ToBoolean(optionsModel.Options["Show Confirmation Buttons"].CurrentValue)"
+                   key-action-down-arrow="@(Enum.TryParse<InputKeyAction>(
+                      optionsModel.Options["Key Action Down Arrow"].CurrentValue?.ToString(),
+                      out var action) ? action : InputKeyAction.ChangeSelectionOnly)"
+                  key-action-up-arrow="@(Enum.TryParse<InputKeyAction>(
+                      optionsModel.Options["Key Action Up Arrow"].CurrentValue?.ToString(),
+                      out var action1) ? action1 : InputKeyAction.ChangeSelectionOnly)"
+                  key-action-tab="@(Enum.TryParse<TabKeyAction>(
+                      optionsModel.Options["Key Action Tab"].CurrentValue?.ToString(),
+                      out var action3) ? action3 : TabKeyAction.CloseAndMoveFocus)"
+    >
     </c1-input-date>
 </div>
 
@@ -58,15 +106,39 @@
 
     <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.MonthCount_Text0)</label>
     <c1-input-number min="1" max="5" step="1" value="1" format="n0" value-changed="monthCountChanged" />
-
-    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.HandleWheel_Text0)</label>
-    <c1-combo-box selected-index-changed="handleWheelChanged">
-        <c1-items-source source-collection="@handleWheelOptions"></c1-items-source>
-    </c1-combo-box>
 </fieldset>
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.HandleWheel_Text0)</label>
+<c1-combo-box selected-index-changed="handleWheelChanged">
+    <c1-items-source source-collection="@handleWheelOptions"></c1-items-source>
+</c1-combo-box>
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(InputDateRes.Index_Text2)</label>
+<c1-combo-box selected-index-changed="handleReadonlyChanged">
+    <c1-items-source source-collection="@readonlyOptions"></c1-items-source>
+</c1-combo-box>
+
+<label style="font-weight: normal;margin-top: 1em;">PreserveCalendarNavigation</label>
+<c1-combo-box selected-index-changed="handlePreserveChanged">
+    <c1-items-source source-collection="@preserveOptions"></c1-items-source>
+</c1-combo-box>
+
+@section Settings {
+    @await Html.PartialAsync("_OptionsMenu", optionsModel)
+}
 
 @section Description{
     @Html.Raw(InputDateRes.Index_Text0)
     <br />
     @Html.Raw(InputDateRes.HandleWheel_Text1)
+    <p></p>
+    @Html.Raw(InputDateRes.Index_Text3)
+    <br />
+    @Html.Raw(InputDateRes.Index_Text4)
+    <br />
+    <br />
+    @Html.Raw(InputDateRes.Index_ActionArrowDirections)
+    <br />
+    <br />
+    @Html.Raw(InputDateRes.Index_ActionTab)
 }

@@ -309,13 +309,13 @@ This is a multi-line message!</comment>
     <comment>Dialogs are Popups with no owner element. They must be shown by calling the show method.&lt;br /&gt;
     Dialogs can be modal or modeless. Modal dialogs have a dark backdrop, and if their HideTrigger property is set to None, they cannot lose focus and must be dismissed by the user, either by pressing escape or by clicking an element on the dialog itself.</comment>
   </data>
-  <data name="PopupDialog_InputTitle2" xml:space="preserve">
-    <value>2 文字以上を入力してください。</value>
-    <comment>Please enter 2 characters or more.</comment>
-  </data>
   <data name="PopupDialog_InputTitle4" xml:space="preserve">
     <value>4 文字以上を入力してください。</value>
     <comment>Please enter 4 characters or more.</comment>
+  </data>
+  <data name="PopupDialog_InputTitle2" xml:space="preserve">
+    <value>2 文字以上を入力してください。</value>
+    <comment>Please enter 2 characters or more.</comment>
   </data>
   <data name="Index_Text3" xml:space="preserve">
     <value>&lt;b&gt;IsResizable ：&lt;/b&gt;マウスでエッジをドラッグしてポップアップのサイズを変更できるかどうかを決定する値を取得または設定します。</value>
@@ -338,7 +338,7 @@ This is a multi-line message!</comment>
     <comment>Change Popup position to set where the popup should be displayed with respect to the owner element.</comment>
   </data>
   <data name="Index_ClickToShowPopupWithEvents" xml:space="preserve">
-    <value>クリックしてポップアップとイベントを表示します。</value>
+    <value>クリックしてポップアップとイベントを表示</value>
     <comment>Click to show Popup with Events</comment>
   </data>
   <data name="Index_IsDraggable_Description" xml:space="preserve">
@@ -392,5 +392,8 @@ This is a multi-line message!</comment>
   <data name="PopupDialog_Custom" xml:space="preserve">
     <value>カスタム送信結果</value>
     <comment>Custom Submit Result</comment>
+  </data>
+  <data name="PopupDialog_Tooltip" xml:space="preserve">
+    <value>さらに、ポップアップ ダイアログ内の各コントロールに割り当てられた &lt;b&gt;aria-labelledby&lt;/b&gt; 属性に基づいて、ポップアップ ダイアログのツールチップが自動的に作成されます。</value>
   </data>
 </root>

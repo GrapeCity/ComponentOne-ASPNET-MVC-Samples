@@ -41,11 +41,11 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="C1.Web.Mvc">
-      <HintPath>..\packages\C1.Web.Mvc.4.8.20241.360\lib\net48\C1.Web.Mvc.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.4.8.20262.477\lib\net48\C1.Web.Mvc.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="C1.Web.Mvc.Finance">
-      <HintPath>..\packages\C1.Web.Mvc.Finance.4.8.20241.360\lib\net48\C1.Web.Mvc.Finance.dll</HintPath>
+      <HintPath>..\packages\C1.Web.Mvc.Finance.4.8.20262.477\lib\net48\C1.Web.Mvc.Finance.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
@@ -205,9 +205,6 @@
     <Content Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Properties\licenses.licx" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="Content\data\fb.json" />
   </ItemGroup>
   <ItemGroup>
@@ -248,4 +245,7 @@
   </Target>
   <Target Name="AfterBuild">
   </Target> -->
+  <ItemGroup>
+    <EmbeddedResource Include="FinancialChart101.sa3licx" />
+  </ItemGroup>
 </Project>

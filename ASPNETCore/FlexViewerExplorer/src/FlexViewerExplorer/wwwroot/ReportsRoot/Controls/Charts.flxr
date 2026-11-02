@@ -24,8 +24,8 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>SELECT Categories.CategoryName, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID;
 </RecordSource>
@@ -304,11 +304,11 @@ _styleCtr = _styleCtr + 1
         <MarginLeft>576</MarginLeft>
         <AutoHeight>GrowAndShrink</AutoHeight>
         <Text>How to add charts to your report:
- o   Add a Chart field to a group header section and set the Chart's DataX and DataY properties to the values you want to display on the chart.
- o   You can show several series by setting the DataY property to a list of fields delimited by semicolons (e.g. "UnitsInStock; ReorderLevel").
- o   The chart’s data is automatically scoped to the current report group, so when rendering the "Beverages" section, only data for that category will be charted.
- o   You can customize the chart using the ChartType, GridLines and Palette properties.
-</Text>
+              o   Add a Chart field to a group header section and set the Chart's DataX and DataY properties to the values you want to display on the chart.
+              o   You can show several series by setting the DataY property to a list of fields delimited by semicolons (e.g. "UnitsInStock; ReorderLevel").
+              o   The chart’s data is automatically scoped to the current report group, so when rendering the "Beverages" section, only data for that category will be charted.
+              o   You can customize the chart using the ChartType, GridLines and Palette properties.
+        </Text>
         <Align>LeftTop</Align>
         <Font>
           <Name>Segoe UI Light</Name>
@@ -391,90 +391,50 @@ _styleCtr = _styleCtr + 1
           <Size>8</Size>
         </Font>
       </Field>
-      <ChartField>
+      <FlexChartField>
         <Name>Field2</Name>
         <Section>GroupHeader1</Section>
         <Left>576</Left>
         <Top>0</Top>
         <Width>10179</Width>
         <Height>5055</Height>
-        <ColorGeneration>CustomByDataColor</ColorGeneration>
-        <DataColor>FFC29EC4</DataColor>
-        <DefaultStyle>
-          <Font>
-            <Name>Segoe UI Light</Name>
-          </Font>
-        </DefaultStyle>
+        <Font>
+          <Name>Segoe UI Light</Name>
+        </Font>
         <Header>
-          <Visible>false</Visible>
+          <Content>Product Inventory Data</Content>
         </Header>
         <Legend>
-          <Visible>true</Visible>
-          <Style>
-            <Font>
-              <Name>Segoe UI Light</Name>
-              <Size>10.5</Size>
-            </Font>
-          </Style>
+          <Position>Right</Position>
         </Legend>
-        <ChartGroups2D>
-          <Group0>
+        <CategoryGroups>
+          <FlexChartDataGroup>
+            <GroupExpression>ProductID</GroupExpression>
+          </FlexChartDataGroup>
+        </CategoryGroups>
+        <Series>
+          <FlexChartSeries>
+            <Name>Units In Stock</Name>
+            <YExpressions>
+              <Item sys="string">UnitsInStock</Item>
+            </YExpressions>
             <ChartType>Area</ChartType>
-            <Use3D>true</Use3D>
-            <OutlineColor>FF808080</OutlineColor>
-            <ChartData>
-              <IsForEachRecord>true</IsForEachRecord>
-              <CategoryGroups>
-                <ChartDataGroup>
-                  <Name>Field2_CategoryGroup0</Name>
-                  <GroupExpression>ProductID</GroupExpression>
-                </ChartDataGroup>
-              </CategoryGroups>
-              <SeriesValues>
-                <ChartDataSeries>
-                  <Label>Units In Stock</Label>
-                  <DataValues>
-                    <ChartDataValue>
-                      <ValueExpression>UnitsInStock</ValueExpression>
-                    </ChartDataValue>
-                  </DataValues>
-                  <DataLabel>
-                    <Offset>300</Offset>
-                    <Text>{#YVAL}</Text>
-                  </DataLabel>
-                </ChartDataSeries>
-                <ChartDataSeries>
-                  <Label>ReorderLevel</Label>
-                  <DataValues>
-                    <ChartDataValue>
-                      <ValueExpression>ReorderLevel</ValueExpression>
-                    </ChartDataValue>
-                  </DataValues>
-                  <DataLabel>
-                    <Offset>300</Offset>
-                    <Text>{#YVAL}</Text>
-                  </DataLabel>
-                </ChartDataSeries>
-              </SeriesValues>
-            </ChartData>
-            <Pie>
-              <LegendLayout>Percentage</LegendLayout>
-            </Pie>
-          </Group0>
-        </ChartGroups2D>
-        <ChartArea2D>
-          <AxisX>
-            <Rotation>Rotate0</Rotation>
-          </AxisX>
-          <AxisY>
-            <NoAnnoOverlap>true</NoAnnoOverlap>
-            <Rotation>Rotate270</Rotation>
-          </AxisY>
-          <AxisY2>
-            <Rotation>Rotate90</Rotation>
-          </AxisY2>
-        </ChartArea2D>
-      </ChartField>
+            <Label>
+              <Value>Units In Stock</Value>
+            </Label>
+          </FlexChartSeries>
+          <FlexChartSeries>
+            <Name>ReorderLevel</Name>
+            <YExpressions>
+              <Item sys="string">ReorderLevel</Item>
+            </YExpressions>
+            <ChartType>Area</ChartType>
+            <Label>
+              <Value>ReorderLevel</Value>
+            </Label>
+          </FlexChartSeries>
+        </Series>
+      </FlexChartField>
       <ShapeField>
         <Name>Field5</Name>
         <Background type="Solid">

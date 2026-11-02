@@ -1,0 +1,97 @@
+﻿@model IEnumerable<Sale>
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoDescription = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+
+@section Scripts{
+    <script>
+        var clipGrid;
+
+        c1.documentReady(function () {
+            clipGrid = wijmo.Control.getControl('#@(controlId)');
+
+            // Log the raw keystroke, in the capture phase, so the shortcut is
+            // reported even when the grid declines to act on it.
+            clipGrid.hostElement.addEventListener('keydown', function (e) {
+                if (!e.ctrlKey && !e.metaKey) {
+                    return;
+                }
+                var key = e.key ? e.key.toLowerCase() : '';
+                if (key === 'x') {
+                    log('<b>Ctrl+X</b> pressed');
+                } else if (key === 'c') {
+                    log('<b>Ctrl+C</b> pressed');
+                }
+            }, true);
+        });
+
+        // Raised for Ctrl+C, and for Ctrl+X only when the grid handles the cut.
+        function clipboardCopying(s, e) {
+            log('&nbsp;&nbsp;&rarr; grid handled it, <b>copying</b> raised for ' +
+                (e.range ? e.range.rowSpan + 'x' + e.range.columnSpan : '1x1') + ' cell(s)');
+        }
+
+        function customChangeAutoClipboard(grid, value) {
+            grid.autoClipboard = value === 'true';
+            log('AutoClipboard = <b>' + grid.autoClipboard + '</b>');
+        }
+
+        function customChangePreventCut(grid, value) {
+            grid.preventCut = value === 'true';
+            log('PreventCut = <b>' + grid.preventCut + '</b>');
+        }
+
+        function log(line) {
+            var result = document.getElementById('result');
+            result.innerHTML += line + '<br />';
+            result.scrollTop = result.scrollHeight;
+        }
+    </script>
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.Clipboard_Text0)
+}
+
+@(Html.C1().CollectionViewService()
+    .Id("CVService")
+    .Bind(Model)
+    .DisableServerRead(true)
+)
+@(Html.C1().FlexGrid<Sale>()
+    .Id(controlId)
+    .ItemsSourceId("CVService")
+    .AutoGenerateColumns(false)
+    .Columns(columns =>
+    {
+        columns.Add(c => c.Binding("ID").Header("Id").Width("60").IsReadOnly(true).Format("d"));
+        columns.Add(c => c.Binding("Country").Header("Country"));
+        columns.Add(c => c.Binding("Product").Header("Product").Width("*"));
+        columns.Add(c => c.Binding("Amount").Header("Amount").Format("c2"));
+        columns.Add(c => c.Binding("Active").Header("Active"));
+    })
+    .AutoClipboard(true)
+    .PreventCut(true)
+    .RefreshOnEdit(false)
+    .ShowPlaceholders(true)
+    .OnClientCopying("clipboardCopying")
+    .CssStyle("height", "300px")
+)
+
+<div class="row" style="margin-top:15px">
+    <div class="col-md-6">
+        <h4>@Html.Raw(Resources.FlexGrid.Clipboard_Text3)</h4>
+        <textarea id="pasteTarget" class="form-control" rows="6"></textarea>
+    </div>
+    <div class="col-md-6">
+        <h4>@Html.Raw(Resources.FlexGrid.Clipboard_Text4)</h4>
+        <div id="result" style="line-height:22px;font-size:13px;overflow-y:scroll;height:145px;"></div>
+    </div>
+</div>
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.Clipboard_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.Clipboard_Text2)</p>
+}

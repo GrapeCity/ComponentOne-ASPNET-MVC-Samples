@@ -19,7 +19,7 @@ namespace Resources {
     // class via a tool like ResGen or Visual Studio.
     // To add or remove a member, edit your .ResX file then rerun ResGen
     // with the /str option or rebuild the Visual Studio project.
-    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "14.0.0.0")]
+    [global::System.CodeDom.Compiler.GeneratedCodeAttribute("Microsoft.VisualStudio.Web.Application.StronglyTypedResourceProxyBuilder", "17.0.0.0")]
     [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
     [global::System.Runtime.CompilerServices.CompilerGeneratedAttribute()]
     internal class AutoComplete {
@@ -106,6 +106,15 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the  autocomplete input based on the &lt;b&gt;aria-labelledby&lt;/b&gt; attribute assigned to each control within it.
+        /// </summary>
+        internal static string ComplexType_Tooltip {
+            get {
+                return ResourceManager.GetString("ComplexType_Tooltip", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Search for types in mscorlib:.
         /// </summary>
         internal static string CustomAction_Text0 {
@@ -138,6 +147,78 @@ namespace Resources {
         internal static string CustomAction_Text3 {
             get {
                 return ResourceManager.GetString("CustomAction_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to AutoComplete with CustomFilter and CustomHighlight.
+        /// </summary>
+        internal static string CustomFilter_AutoComplete {
+            get {
+                return ResourceManager.GetString("CustomFilter_AutoComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MultiAutoComplete with CustomFilter and CustomHighlight.
+        /// </summary>
+        internal static string CustomFilter_MultiAutoComplete {
+            get {
+                return ResourceManager.GetString("CustomFilter_MultiAutoComplete", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MultiSelect with CustomFilter.
+        /// </summary>
+        internal static string CustomFilter_MultiSelect {
+            get {
+                return ResourceManager.GetString("CustomFilter_MultiSelect", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MultiSelectListBox with CustomFilter.
+        /// </summary>
+        internal static string CustomFilter_MultiSelectListBox {
+            get {
+                return ResourceManager.GetString("CustomFilter_MultiSelectListBox", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This page demos how to use the CustomFilter and CustomHighlight properties to replace the built-in text matching..
+        /// </summary>
+        internal static string CustomFilter_Text0 {
+            get {
+                return ResourceManager.GetString("CustomFilter_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to You can use the property &lt;b&gt;CustomFilter&lt;/b&gt; to supply your own matching logic. It names a client-side function that receives the data item, the text the user typed, and the item&apos;s display text, and returns true to keep the item in the list. Here the function folds katakana and half-width katakana down to hiragana, so typing &lt;b&gt;あ&lt;/b&gt;, &lt;b&gt;ア&lt;/b&gt; or &lt;b&gt;ｱ&lt;/b&gt; matches all three forms of the same word..
+        /// </summary>
+        internal static string CustomFilter_Text1 {
+            get {
+                return ResourceManager.GetString("CustomFilter_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to On AutoComplete and MultiAutoComplete you can also use &lt;b&gt;CustomHighlight&lt;/b&gt; to control how each matched item is drawn in the drop-down. It returns HTML, so the function must escape any text it did not create itself, using wijmo.escapeHtml, to prevent cross-site scripting. Keeping filtering and highlighting separate lets both reuse the same normalization function..
+        /// </summary>
+        internal static string CustomFilter_Text2 {
+            get {
+                return ResourceManager.GetString("CustomFilter_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to When CustomFilter is set, CaseSensitiveSearch, BeginsWithSearch and IsContentHtml are ignored, while MinLength and MaxItems still apply. On MultiSelect and MultiSelectListBox the property requires ShowFilterInput to be true. On AutoComplete it has no effect when ItemsSourceFunction is set, because the drop-down contents are then supplied entirely by that function..
+        /// </summary>
+        internal static string CustomFilter_Text3 {
+            get {
+                return ResourceManager.GetString("CustomFilter_Text3", resourceCulture);
             }
         }
         
@@ -183,6 +264,60 @@ namespace Resources {
         internal static string Index_Text4 {
             get {
                 return ResourceManager.GetString("Index_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to This sample shows how the &lt;b&gt;SearchDuringComposition&lt;/b&gt; property lets the &lt;b&gt;AutoComplete&lt;/b&gt; control filter its drop-down list while an IME composition is still in progress. Use the Language setting to load a word list that matches the IME you have installed..
+        /// </summary>
+        internal static string SearchDuringComposition_Text0 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Default (SearchDuringComposition = false).
+        /// </summary>
+        internal static string SearchDuringComposition_Text1 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to SearchDuringComposition = true.
+        /// </summary>
+        internal static string SearchDuringComposition_Text2 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to MultiAutoComplete with SearchDuringComposition = true.
+        /// </summary>
+        internal static string SearchDuringComposition_Text3 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to By default the control waits until the IME composition is committed before it searches, so no suggestions appear while the user is still composing. Set &lt;b&gt;SearchDuringComposition&lt;/b&gt; to true to filter from the text that is currently being composed. The property only changes when the search runs; &lt;b&gt;MinLength&lt;/b&gt;, &lt;b&gt;Delay&lt;/b&gt; and &lt;b&gt;MaxItems&lt;/b&gt; are honored in both modes..
+        /// </summary>
+        internal static string SearchDuringComposition_Text4 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text4", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The property is available on both &lt;b&gt;AutoComplete&lt;/b&gt; and &lt;b&gt;MultiAutoComplete&lt;/b&gt;. An IME is required to see any difference, because with a plain keyboard there is no composition and both controls behave the same. The control matches against whatever text the IME currently shows in the input, so how much of a word can be matched before it is committed depends on the IME..
+        /// </summary>
+        internal static string SearchDuringComposition_Text5 {
+            get {
+                return ResourceManager.GetString("SearchDuringComposition_Text5", resourceCulture);
             }
         }
     }

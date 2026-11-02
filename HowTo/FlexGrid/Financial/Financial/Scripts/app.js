@@ -222,7 +222,12 @@ c1.documentReady(function () {
 
     theGrid = wijmo.Control.getControl('#theGrid');
     theGrid.rowHeaders.columns[0].width = 80;
-    updateTrades();
 
+    // Listen to the scrollPositionChanged event
+    theGrid.scrollPositionChanged.addHandler(function () {
+        theGrid.refresh();
+    });
+
+    updateTrades();
     initHamburgerNav();
 });

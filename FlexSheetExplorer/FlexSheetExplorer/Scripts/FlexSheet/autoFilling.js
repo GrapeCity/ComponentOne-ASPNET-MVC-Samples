@@ -43,7 +43,7 @@ function styleRange(range, color) {
     if (color)
         ctx.flexSheet.applyCellsStyle({ backgroundColor: color }, [range]);
     else
-        ctx.flexSheet.applyCellsStyle({ backgroundColor: "none" }, [range]);
+        ctx.flexSheet.applyCellsStyle({ backgroundColor: "" }, [range]);
 }
 
 function getColChar(col) {

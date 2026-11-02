@@ -3,38 +3,92 @@
     var minDate = new DateTime(today.Year, 1, 1);
     var maxDate = new DateTime(today.Year, 12, 31);
     var handleWheelOptions = new List<string> { "True", "False" };
+    var readonlyOptions = new List<string> { "False", "True" };
+    var preserveOptions = new List<string> { "True", "False" };
+    ViewBag.DemoSettings = true;
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+
+    // Parse key actions first
+    InputKeyAction actionDownArrow;
+    InputKeyAction actionUpArrow;
+    InputKeyAction actionPrintCharacters;
+    TabKeyAction actionTab;
+    actionDownArrow = Enum.TryParse<InputKeyAction>(
+        optionsModel.Options["Key Action Down Arrow"].CurrentValue.ToString(), out actionDownArrow)
+        ? actionDownArrow
+        : InputKeyAction.ChangeSelectionOnly;
+    actionUpArrow = Enum.TryParse<InputKeyAction>(
+        optionsModel.Options["Key Action Up Arrow"].CurrentValue.ToString(), out actionUpArrow)
+        ? actionUpArrow
+        : InputKeyAction.ChangeSelectionOnly;
+    actionTab = Enum.TryParse<TabKeyAction>(
+        optionsModel.Options["Key Action Tab"].CurrentValue.ToString(), out actionTab)
+        ? actionTab
+        : TabKeyAction.CloseAndMoveFocus;
 }
 
 @section Scripts{
-<script>
-    function changeDate(sender, e) {
-        wijmo.Control.getControl("#idcCalendar").value = sender.value;
-    }
-
-    function weekBeforeChanged(sender, args) {
-        var inputDate = wijmo.Control.getControl('#idcInputDate');
-        inputDate.weeksBefore = sender.value;
-    }
-
-    function weekAfterChanged(sender, args) {
-        var inputDate = wijmo.Control.getControl('#idcInputDate');
-        inputDate.weeksAfter = sender.value;
-    }
-
-    function monthCountChanged(sender, args) {
-        var inputDate = wijmo.Control.getControl('#idcInputDate');
-        inputDate.monthCount = sender.value;
-    }
-
-    function handleWheelChanged(sender, args) {
-        var inputDate = wijmo.Control.getControl('#idcInputDate');
-        if (sender.selectedValue === "True") {
-            inputDate.handleWheel = true;
-        } else {
-            inputDate.handleWheel = false;
+    <script>
+        function changeDate(sender, e) {
+            if (!sender.isDroppedDown) {
+                wijmo.Control.getControl("#idcCalendar").value = sender.value;
+            }
         }
-    }
-</script>
+
+        // Initialize event handler after page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            if (inputDate) {
+                inputDate.isDroppedDownChanged.addHandler(function(sender, e) {
+                    if (!sender.isDroppedDown && sender.value) {
+                        wijmo.Control.getControl("#idcCalendar").value = sender.value;
+                    }
+                });
+            }
+        });
+
+        function weekBeforeChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.weeksBefore = sender.value;
+        }
+
+        function weekAfterChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.weeksAfter = sender.value;
+        }
+
+        function monthCountChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            inputDate.monthCount = sender.value;
+        }
+
+        function handleWheelChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            if (sender.selectedValue === "True") {
+                inputDate.handleWheel = true;
+            } else {
+                inputDate.handleWheel = false;
+            }
+        }
+
+        function handleReadonlyChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            if (sender.selectedValue === "True") {
+                inputDate.isReadOnly = true;
+            } else {
+                inputDate.isReadOnly = false;
+            }
+        }
+
+        function handlePreserveChanged(sender, args) {
+            var inputDate = wijmo.Control.getControl('#idcInputDate');
+            if (sender.selectedValue === "True") {
+                inputDate.preserveCalendarNavigation = true;
+            } else {
+                inputDate.preserveCalendarNavigation = false;
+            }
+        }
+    </script>
 }
 
 <p>
@@ -47,7 +101,11 @@
     <label>Select a date</label>
     @(Html.C1().InputDate().Id("idcInputDate")
         .Value(today).Min(minDate).Max(maxDate).HandleWheel(true).OnClientValueChanged("changeDate")
-    )
+        .KeyActionDownArrow(actionDownArrow)
+        .KeyActionUpArrow(actionUpArrow)
+        .KeyActionTab(actionTab)
+        .ShowConfirmationButtons(Convert.ToBoolean(optionsModel.Options["Show Confirmation Buttons"].CurrentValue))
+        )
 </div>
 
 <br />
@@ -62,13 +120,34 @@
 
     <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.MonthCount_Text0)</label>
     @(Html.C1().InputNumber().Min(1).Max(5).Step(1).Value(1).Format("n0").OnClientValueChanged("monthCountChanged"))
-
-    <label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.HandleWheel_Text0)</label>
-    @(Html.C1().ComboBox().Bind(handleWheelOptions).OnClientSelectedIndexChanged("handleWheelChanged"))
 </fieldset>
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.HandleWheel_Text0)</label>
+@(Html.C1().ComboBox().Bind(handleWheelOptions).OnClientSelectedIndexChanged("handleWheelChanged"))
+
+<label style="font-weight: normal;margin-top: 1em;">@Html.Raw(Resources.InputDate.Index_Text2)</label>
+@(Html.C1().ComboBox().Bind(readonlyOptions).OnClientSelectedIndexChanged("handleReadonlyChanged"))
+
+<label style="font-weight: normal;margin-top: 1em;">PreserveCalendarNavigation</label>
+@(Html.C1().ComboBox().Bind(preserveOptions).OnClientSelectedIndexChanged("handlePreserveChanged"))
+
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+
 
 @section Description{
     @Html.Raw(Resources.InputDate.Index_Text0)
     <br />
     @Html.Raw(Resources.InputDate.HandleWheel_Text1)
+    <br />
+    @Html.Raw(Resources.InputDate.Index_Text3)
+    <br />
+    @Html.Raw(Resources.InputDate.Index_Text4)
+    <br />
+    <br />
+    @Html.Raw(Resources.InputDate.Index_ActionArrowDirections)
+    <br />
+    <br />
+    @Html.Raw(Resources.InputDate.Index_ActionTab)
 }

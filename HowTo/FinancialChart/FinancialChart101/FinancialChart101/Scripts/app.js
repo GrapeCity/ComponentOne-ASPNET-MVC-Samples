@@ -111,6 +111,9 @@ function tpCombo_SelectedIndexChanged(sender) {
 
 //Marker
 function lineMarkerContent(ht, pt) {
+    if (!ht.series || !ht.series.collectionView) {
+        return '';
+    }
     var item = ht.series.collectionView.items[ht.pointIndex];
     if (item) {
         return 'Date: ' + wijmo.Globalize.format(ht.x, 'MMM-dd') + '<br/>' +

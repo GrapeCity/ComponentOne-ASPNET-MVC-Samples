@@ -79,11 +79,65 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Key Action Down Arrow&lt;/b&gt; and &lt;b&gt;Key Action Up Arrow&lt;/b&gt; properties define the behavior when the user presses the respective key in the control.&lt;br/&gt;
+        ///The options are:&lt;br/&gt;
+        ///&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - changes the selection without opening the dropdown.&lt;br/&gt;
+        ///&lt;b&gt;OpenDropdown&lt;/b&gt; - opens the dropdown without changing the selection..
+        /// </summary>
+        internal static string Index_ActionArrowDirections {
+            get {
+                return ResourceManager.GetString("Index_ActionArrowDirections", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the Tab key in the control.&lt;br/&gt;
+        ///The options are:
+        ///&lt;br/&gt;
+        ///&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - closes the dropdown while keeping focus on the control.
+        ///&lt;br/&gt;
+        ///&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - closes the dropdown and moves focus to the next tabbable element.
+        ///.
+        /// </summary>
+        internal static string Index_ActionTab {
+            get {
+                return ResourceManager.GetString("Index_ActionTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to This sample shows the basic usage of the InputDate control..
         /// </summary>
         internal static string Index_Text0 {
             get {
                 return ResourceManager.GetString("Index_Text0", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to IsReadOnly.
+        /// </summary>
+        internal static string Index_Text2 {
+            get {
+                return ResourceManager.GetString("Index_Text2", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to InputDate control supports changing individual date components (day, month, year) independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly..
+        /// </summary>
+        internal static string Index_Text3 {
+            get {
+                return ResourceManager.GetString("Index_Text3", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Select value to set the PreserveCalendarNavigation property. The False value always show selected date when dropdown calendar is reopened after navigating to a different month..
+        /// </summary>
+        internal static string Index_Text4 {
+            get {
+                return ResourceManager.GetString("Index_Text4", resourceCulture);
             }
         }
         

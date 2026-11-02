@@ -20,8 +20,9 @@
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSourceType>Text</RecordSourceType>
         <RecordSource>SELECT Categories.CategoryName, Products.*
 FROM Categories INNER JOIN Products ON Categories.CategoryID = Products.CategoryID;

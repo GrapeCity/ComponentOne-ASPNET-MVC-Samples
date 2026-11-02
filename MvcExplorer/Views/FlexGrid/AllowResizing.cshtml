@@ -1,0 +1,36 @@
+@using C1.Web.Mvc.Grid
+@model IEnumerable<Sale>
+@{
+    ControlOptions optionsModel = ViewBag.DemoOptions;
+    ViewBag.DemoSettings = true;
+}
+
+<br />
+<br />
+@(Html.C1().FlexGrid<Sale>()
+            .Id("ovFlexGrid")
+            .AutoGenerateColumns(false)
+            .CssClass("grid")
+            .IsReadOnly(true)
+            .Bind(bl => bl.Bind(Model))
+            .Columns(bl =>
+            {
+                bl.Add(cb => cb.Binding("ID"));
+                bl.Add(cb => cb.Binding("Country"));
+                bl.Add(cb => cb.Binding("Product"));
+                bl.Add(cb => cb.Binding("Color"));
+                bl.Add(cb => cb.Binding("Amount").Format("c"));
+                bl.Add(cb => cb.Binding("Amount2").Format("c"));
+            })
+            .AllowResizing((AllowResizing)Enum.Parse(typeof(AllowResizing), optionsModel.Options["AllowResizing"].CurrentValue))
+)
+<br />
+<br />
+@section Settings{
+    @Html.Partial("_OptionsMenu", optionsModel)
+}
+@section Description{
+    @Html.Raw(Resources.FlexGrid.AllowResizing_Description)
+    @Html.Raw(Resources.FlexGrid.AllowResizing_Details)
+}
+

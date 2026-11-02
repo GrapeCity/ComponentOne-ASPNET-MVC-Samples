@@ -1,0 +1,94 @@
+@model IEnumerable<Supplier>
+
+@section Styles{
+    <style>
+        .queryErrorMessage {
+            color: #f00;
+        }
+    </style>
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        var isUpdating = false;
+
+        function batchUpdate() {
+            var batchEditMultiRow = wijmo.Control.getControl('#batchEditMultiRow'),
+                cv = batchEditMultiRow.collectionView;
+            cv.commit();
+
+            var isChanged = (cv.itemsAdded && cv.itemsAdded.length)
+                || (cv.itemsRemoved && cv.itemsRemoved.length)
+                || (cv.itemsEdited && cv.itemsEdited.length);
+            if (isChanged) {
+                isUpdating = true;
+                setQueryMessage('@Html.Raw(MultiRowRes.BatchEditing_Text12)');
+            } else {
+                setQueryMessage('@Html.Raw(MultiRowRes.BatchEditing_Text13)');
+            }
+
+        }
+
+        function onQueryComplete(sender, e) {
+            if (isUpdating) {
+                if (e.result.success) {
+                    setQueryMessage('@Html.Raw(MultiRowRes.BatchEditing_Text14)');
+                } else {
+                    setQueryMessage(e.result.error, 'queryErrorMessage');
+                }
+            }
+
+            isUpdating = false;
+        }
+
+        function setQueryMessage(message, className) {
+            var element = document.getElementById('queryMessage');
+            element.innerHTML = message;
+            element.className = className;
+        }
+    </script>
+}
+
+<input type="button" value="@Html.Raw(MultiRowRes.BatchEditing_Text11 )" class="btn" onclick="batchUpdate()" />
+<span id="queryMessage"></span>
+
+<c1-multi-row id="batchEditMultiRow" allow-add-new="true" allow-delete="true" class="multirow">
+    <c1-items-source disable-server-read="true" read-action-url="@Url.Action("BatchEditing_Bind")"
+                     batch-edit-action-url="@Url.Action("MultiRowBatchEdit")" query-complete="onQueryComplete"></c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="SupplierID" is-read-only="true" format="d" align="center"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="CompanyName" colspan="2"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="ContactName" width="150"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="ContactTitle" width="200"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="3">
+        <c1-multi-row-cell binding="Country"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Region"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="City"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Address" colspan="3"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+@section Summary{
+    @Html.Raw(MultiRowRes.BatchEditing_Text10)
+}
+
+@section Description{
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text0)</p>
+
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text1)</p>
+
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text2)</p>
+    <h4>@Html.Raw(MultiRowRes.BatchEditing_Text8)</h4>
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text3)</p>
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text4)</p>
+
+    <h4>@Html.Raw(MultiRowRes.BatchEditing_Text9)</h4>
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text5)</p>
+
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text6)</p>
+    <p>@Html.Raw(MultiRowRes.BatchEditing_Text7)</p>
+
+}

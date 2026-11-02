@@ -1,0 +1,58 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+  <PropertyGroup>
+    <TargetFramework>net9.0-windows</TargetFramework>
+    <AssemblyName>OlapExplorer</AssemblyName>
+    <RootNamespace>OlapExplorer</RootNamespace>
+    <MvcRazorCompileOnPublish>false</MvcRazorCompileOnPublish>
+    <CopyRazorGenerateFilesToPublishDirectory>true</CopyRazorGenerateFilesToPublishDirectory>
+    <DefineConstants>$(DefineConstants);NETCORE31</DefineConstants>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="C1.AspNetCore.Mvc" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Mvc.Olap" Version="6.0.20262.477" />
+    <PackageReference Include="C1.AspNetCore.Api.DataEngine" Version="6.0.20262.433" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Remove="project.json" />
+    <Content Remove="project.lock.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="ControlPages.xml" />
+    <EmbeddedResource Include="GCDTLicenses.xml" />
+    <EmbeddedResource Include="Startup.cs" />
+    <EmbeddedResource Include="Controllers/**/*.cs" />
+    <EmbeddedResource Include="OlapExplorer.Net90.sa3licx" />
+  </ItemGroup>
+  <ItemGroup>
+    <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Update="Localization\OlapRes.zh-CN.Designer.cs">
+      <DependentUpon>OlapRes.zh-CN.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
+    <Compile Update="Localization\OlapRes.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>OlapRes.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Update="Localization\OlapRes.zh-CN.resx">
+      <LastGenOutput>OlapRes.zh-CN.Designer.cs</LastGenOutput>
+      <Generator>PublicResXFileCodeGenerator</Generator>
+    </EmbeddedResource>
+    <EmbeddedResource Update="Localization\OlapRes.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>OlapRes.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Remove="OlapExplorer.Core31.sa3licx" />
+    <None Remove="OlapExplorer.Net60.sa3licx" />
+    <None Remove="OlapExplorer.Net80.sa3licx" />
+    <None Remove="OlapExplorer.sa3licx" />
+  </ItemGroup>
+</Project>

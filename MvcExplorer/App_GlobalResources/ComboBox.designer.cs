@@ -146,6 +146,34 @@ namespace Resources {
         }
         
         /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Key Action Down Arrow&lt;/b&gt;, &lt;b&gt;Key Action Up Arrow&lt;/b&gt;, and &lt;b&gt;Key Action Print Characters&lt;/b&gt; properties define the behavior when the user presses the respective key or types characters in the control.&lt;br/&gt;
+        ///The options are:
+        ///&lt;br/&gt;
+        ///&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - changes the selection without opening the dropdown.
+        ///&lt;br/&gt;
+        ///&lt;b&gt;OpenDropdown&lt;/b&gt; - opens the dropdown without changing the selection..
+        /// </summary>
+        internal static string Index_ActionsDirectionNPrint {
+            get {
+                return ResourceManager.GetString("Index_ActionsDirectionNPrint", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the Tab key in the control.&lt;br/&gt;
+        ///The options are:
+        ///&lt;br/&gt;
+        ///&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - closes the dropdown while keeping focus on the control.
+        ///&lt;br/&gt;
+        ///&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - closes the dropdown and moves focus to the next tabbable element..
+        /// </summary>
+        internal static string Index_ActionsTab {
+            get {
+                return ResourceManager.GetString("Index_ActionsTab", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Looks up a localized string similar to Editable.
         /// </summary>
         internal static string Index_Editable {
@@ -178,6 +206,15 @@ namespace Resources {
         internal static string Index_Text1 {
             get {
                 return ResourceManager.GetString("Index_Text1", resourceCulture);
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to Additionally, tooltips are automatically created for the  combobox based on the &lt;b&gt; aria-labelledby&lt;/b&gt; attribute assigned to each control within it.
+        /// </summary>
+        internal static string Index_Tooltip {
+            get {
+                return ResourceManager.GetString("Index_Tooltip", resourceCulture);
             }
         }
         

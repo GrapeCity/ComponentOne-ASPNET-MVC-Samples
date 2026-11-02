@@ -35,7 +35,7 @@
             .SelectedValuePath("Name")
             .SortByDisplayValues(true)
             .Bind(countries)));
-        bl.Add(cb => cb.Binding("Product").DataMapEditor(DataMapEditor.DropDownList)
+        bl.Add(cb => cb.Binding("Product").DataMapEditor(DataMapEditor.Menu)
         .DataMap(dm => dm.DisplayMemberPath("Name")
             .SelectedValuePath("Id")
             .SortByDisplayValues(true)

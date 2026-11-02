@@ -18,7 +18,9 @@ namespace MvcExplorer.Controllers
             {
                 Settings = new Dictionary<string, object[]>
                 {
-                    {"GroupBy", new object[]{"ShipCountry", "ShipCity", "ShipCountry and ShipCity", "Freight", "ShippedDate","None"}}
+                    {"GroupBy", new object[]{"ShipCountry", "ShipCity", "ShipCountry and ShipCity", "Freight", "ShippedDate","None"}},
+                    {"GroupSummaryPosition", new object[]{"Top", "Bottom", "Auto"}},
+                    {"StickyGroupHeaders", new object[]{"true", "false" } }
                 }
             };            
             return View();

@@ -32,10 +32,11 @@ End Function
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
-        <RecordSource>Products</RecordSource>
-        <RecordSourceType>TableDirect</RecordSourceType>
+        <FactoryName>System.Data.SQLite</FactoryName>
+        <RecordSource>Select * From Products</RecordSource>
+        <RecordSourceType>Text</RecordSourceType>
       </DataSource>
     </DataSources>
     <Sections>

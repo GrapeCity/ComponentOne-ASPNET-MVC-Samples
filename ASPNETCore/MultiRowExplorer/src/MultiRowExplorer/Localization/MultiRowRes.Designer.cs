@@ -1440,7 +1440,29 @@ namespace MultiRowExplorer.Localization {
                 return ResourceManager.GetString("Index_Text9", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        public static string MissingSourceFile
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        public static string MissingSourceFileCode
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to This sample shows how to implement paged views with the &lt;b&gt;MultiRow&lt;/b&gt;.&lt;/br&gt; All the work is done by the &lt;b&gt;CollectionView&lt;/b&gt; class used as a data source for the grid.&lt;/br&gt;To enable paging, set the &lt;b&gt;PageSize&lt;/b&gt; property of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;.&lt;/br&gt;To switch pages, use the &lt;b&gt;Pager&lt;/b&gt; control and set &lt;b&gt;Pager&lt;/b&gt;.&lt;b&gt;Owner&lt;/b&gt; property to the id of &lt;b&gt;MultiRow&lt;/b&gt; or &lt;b&gt;CollectionViewService&lt;/b&gt;..
         /// </summary>

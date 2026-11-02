@@ -1,0 +1,138 @@
+﻿body {
+    margin-left: 50px;
+    margin-top: 50px;
+    margin-right: 50px;
+    margin-bottom: 50px;
+    font-family: 'Roboto', sans-serif;
+    /*padding-top: 50px;
+    padding-bottom: 10px;*/
+}
+
+/* Wrapping element */
+/* Set some basic padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+/* Carousel */
+.carousel-caption p {
+    font-size: 20px;
+    line-height: 1.4;
+}
+
+/* Make .svg files in the carousel display properly in older browsers */
+.carousel-inner .item img[src$=".svg"] {
+    width: 100%;
+}
+
+/* QR code generator */
+#qrCode {
+    margin: 15px;
+}
+
+/* Hide/rearrange for smaller screens */
+@media screen and (max-width: 767px) {
+    /* Hide captions */
+    .carousel-caption {
+        display: none;
+    }
+}
+
+.star-highlighted {
+    color: orange;
+}
+
+.star-dimmed {
+    color: lightgray;
+}
+
+#breadCrumbs {
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 5px;
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+    #breadCrumbs > li {
+        display: inline-block;
+    }
+
+        #breadCrumbs > li + li:before {
+            padding: 0 5px;
+            color: #ccc;
+            content: "/\00a0";
+        }
+
+    #breadCrumbs > .active {
+        color: #999;
+    }
+
+#breadCrumbs2 {
+    padding: 5px 5px 0px 5px;
+    margin-bottom: 5px;
+    list-style: none;
+    background-color: #ffffff;
+    border-radius: 4px;
+}
+
+    #breadCrumbs2 > li {
+        display: inline-block;
+    }
+
+        #breadCrumbs2 > li + li:before {
+            padding: 0 5px;
+            color: #ccc;
+            content: "/\00a0";
+        }
+
+    #breadCrumbs2 > .active {
+        color: #999;
+    }
+
+
+.wj-flexchart {
+    padding: 5px !important;
+}
+
+    .wj-flexchart .wj-plot-area {
+        cursor: default !important;
+    }
+
+    .wj-flexchart .wj-header {
+        cursor: default !important;
+    }
+
+    .wj-flexchart .wj-footer {
+        cursor: default !important;
+    }
+
+    .wj-flexchart .wj-legend {
+        cursor: default !important;
+        font-size: 11pt !important;
+    }
+
+    .wj-flexchart .wj-axis-x {
+        cursor: default !important;
+    }
+
+    .wj-flexchart .wj-axis-y {
+        cursor: default !important;
+    }
+
+    .wj-flexchart .wj-header .wj-title {
+        font-size: 13pt !important;
+    }
+
+    .wj-flexchart .wj-label {
+        font-size: 9pt !important;
+    }
+
+    .wj-flexchart .wj-axis-x .wj-title {
+        font-size: 11pt !important;
+    }
+
+    .wj-flexchart .wj-axis-y .wj-title {
+        font-size: 10pt !important;
+    }

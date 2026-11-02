@@ -23,8 +23,9 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>SQLite</DataProvider>
+        <DataProvider>DbProviderFactory</DataProvider>
         <ConnectionString>Data Source=|DataDirectory|\C1NWind.db</ConnectionString>
+        <FactoryName>System.Data.SQLite</FactoryName>
         <RecordSource>SELECT ((Airfare+lodging+Ground_transportation+Conferences_seminars+Meals_Tips+Mileage_Reimbursement+Miscellaneous)*Curr_Exchange_rate) AS [Total], *
 FROM EmployeeTravelExp
 WHERE EmpName=[Select Employee] order by [Date_From];</RecordSource>

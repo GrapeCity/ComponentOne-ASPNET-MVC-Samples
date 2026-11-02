@@ -1,12 +1,28 @@
 ﻿@model MvcExplorer.Models.CustomerOrder
 
+<script>
+    function addTooltips() {
+        let tt = new wijmo.Tooltip();
+        let elements = document.querySelectorAll('[aria-labelledby="customerOrder"]');
+        if (elements) {
+            for (let i = 0; i < elements.length; i++) {
+                tt.setTooltip(elements[i], "Model binding with input controls");
+            }
+        }
+    }
+    window.onload = () => {
+        addTooltips();
+    };
+</script>
 <div>
-    <label>@Html.Raw(Resources.InputNumber.ModelBinding_Text2)</label>
-    @Html.C1().InputNumberFor(m => m.Count)
-    @Html.C1().InputTimeFor(m => m.OrderTime)
+    <label id="customerOrder">@Html.Raw(Resources.InputNumber.ModelBinding_Text2)</label>
+    @Html.C1().InputNumberFor(m => m.Count).AriaLabelledBy("customerOrder")
+    @Html.C1().InputTimeFor(m => m.OrderTime).AriaLabelledBy("customerOrder")
 </div>
 
 @section Description{
     <p>@Html.Raw(Resources.InputNumber.ModelBinding_Text0)</p>
     <p>@Html.Raw(Resources.InputNumber.ModelBinding_Text1)</p>
+    <p>@Html.Raw(Resources.InputNumber.ModelBinding_ToolTip)</p>
+
 }

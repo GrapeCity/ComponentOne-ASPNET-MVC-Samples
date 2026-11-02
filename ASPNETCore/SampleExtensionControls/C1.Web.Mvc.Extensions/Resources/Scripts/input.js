@@ -437,7 +437,9 @@ var c1;
             MultiColumnComboBox.prototype.onTextChanged = function (args) {
                 _super.prototype.onTextChanged.call(this, args);
                 if (this._initialized && this._grid.collectionView) {
-                    this._query = this.text;
+                    // A non-editable combo's text is the selected item, not a search query;
+                    // filtering by it would hide every other row.
+                    this._query = this.isEditable === false ? "" : this.text;
                     if (this._toSearch != null) {
                         clearTimeout(this._toSearch);
                     }

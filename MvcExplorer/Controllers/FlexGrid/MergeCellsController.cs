@@ -15,8 +15,9 @@ namespace MvcExplorer.Controllers
                 Settings = new Dictionary<string, object[]>
                 {
                     {"AllowMerging", new object[]{AllowMerging.All, AllowMerging.None, AllowMerging.Cells, AllowMerging.ColumnHeaders, AllowMerging.RowHeaders, AllowMerging.AllHeaders}},
-                    {"ExpandSelectionOnCopyPaste", new object[]{true, false}},
-                    {"SkipMerged", new object[]{false, true}}
+                    {"ExpandSelectionOnCopyPaste", new object[]{false, true}},
+                    {"SkipMerged", new object[]{false, true}},
+                    {"PasteEmptyCells", new object[]{true, false}}
                 }
             };
             return View(Sale.GetData(500));

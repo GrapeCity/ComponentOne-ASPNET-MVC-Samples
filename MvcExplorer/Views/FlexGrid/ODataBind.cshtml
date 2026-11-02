@@ -38,6 +38,46 @@
     .OnClientScrollPositionChanged("scrollPositionChanged")
     .OnClientLoadedRows("oDataVCVLoaded")
 )
+<br />
+<br />
+<h4>ODataCollectionView Group Lazy Loading</h4>
+<p id="totalItemCountGroupLazyLoading"></p>
+
+@(Html.C1().FlexGrid()
+    .Id("ODataGroupLazyLoading")
+    .CssStyle("height", "400px")
+    .IsReadOnly(true)
+    .BindODataSource(odsb =>
+                        odsb.ServiceUrl("https://demodata.mescius.io/adventureworks/odata/v1/")
+                        .TableName("SalesOrderHeaders")
+                        .GroupOnServer(true)
+                        .GroupLazyLoading(true)
+                        .Aggregates("TotalDue with sum as TotalDueSum")
+                        .GroupDescriptions(new C1.Web.Mvc.GroupDescription[]
+                        {
+                            new C1.Web.Mvc.PropertyGroupDescription()
+                            {
+                                PropertyName = "AccountNumber"
+                            }
+                        })
+                        .SortOnServer(Convert.ToBoolean(optionsModel.Options["Sort On Server"].CurrentValue))
+                        .FilterOnServer(Convert.ToBoolean(optionsModel.Options["Filter On Server"].CurrentValue))
+
+    )
+    .Columns(bl =>
+    {
+        bl.Add(cb => cb.Binding("AccountNumber").Header("Account Number").Visible(false));
+        bl.Add(cb => cb.Binding("PurchaseOrderNumber").Header("Purchase Order Number"));
+        bl.Add(cb => cb.Binding("SalesOrderNumber").Header("Sales Order Number"));
+        bl.Add(cb => cb.Binding("SubTotal").Header("Sub Total"));
+        bl.Add(cb => cb.Binding("TaxAmt").Header("Tax Amount"));
+        bl.Add(cb => cb.Binding("Freight").Header("Freight"));
+        bl.Add(cb => cb.Binding("TotalDue").Header("Total Due").Aggregate(C1.Web.Mvc.Grid.Aggregate.Sum));
+        bl.Add(cb => cb.Binding("ModifiedDate").Header("Modified Date"));
+    })
+    .Filterable(fb => fb.DefaultFilterType(FilterType.Both))
+    .OnClientLoadedRows("oDataGroupLazyLoadingLoaded")
+)
 
 @section Scripts{
     <script type="text/javascript">
@@ -63,6 +103,10 @@
             var el = document.getElementById('totalItemCount');
             el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
         }
+        function oDataGroupLazyLoadingLoaded(grid, e) {
+            var el = document.getElementById('totalItemCountGroupLazyLoading');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+        }
     </script>
 }
 
@@ -78,4 +122,5 @@
     <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text0)</p>
     <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text1)</p>
     <p>@Html.Raw(Resources.FlexGrid.ODataBind_Text2)</p>
+    <p>@Html.Raw(Resources.FlexGrid.ODataGroupLazy_Text1)</p>
 }

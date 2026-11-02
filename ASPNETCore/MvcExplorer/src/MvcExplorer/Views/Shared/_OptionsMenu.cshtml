@@ -1,9 +1,9 @@
-﻿@model ControlOptions
+@model ControlOptions
 @using System.Text
 <script type="text/javascript">
 
     submit = function (menu) {
-        var form = document.forms ? document.forms[0] : null, optionMenus, optionValues, currentMenu;
+        var form = document.forms ? document.forms[0] : null, optionMenus, optionValues, currentMenu, hiddenInput;
         @{
             var menus = new StringBuilder();
             var currentValue = new StringBuilder();
@@ -20,9 +20,16 @@
         optionValues = '@(Html.Raw(currentValue.ToString().Substring(0, currentValue.Length - 1)))'.split(",");
 
         for (var i = 0; i < optionMenus.length; i++) {
-            currentMenu = document.querySelector('input[name=\'' + optionMenus[i] + '\']');
-            if (currentMenu && menu.inputElement !== currentMenu) {
-                currentMenu.value = optionValues[i];
+            currentMenu = wijmo.Control.getControl('#' + optionMenus[i]);
+            if (currentMenu) {
+                hiddenInput = form.querySelector('input[type="hidden"][name="' + optionMenus[i] + '"]');
+                if (!hiddenInput) {
+                    hiddenInput = document.createElement('input');
+                    hiddenInput.type = 'hidden';
+                    hiddenInput.name = optionMenus[i];
+                    form.appendChild(hiddenInput);
+                }
+                hiddenInput.value = (menu !== currentMenu) ? optionValues[i] : currentMenu.inputElement.value;
             }
         }
         form.submit();

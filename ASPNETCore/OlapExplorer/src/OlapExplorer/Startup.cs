@@ -7,6 +7,8 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using OlapExplorer.Models;
+using System.Collections.Generic;
+
 
 #if NETCORE31
 using Microsoft.Extensions.Hosting;
@@ -58,11 +60,7 @@ namespace OlapExplorer
         public void Configure(IApplicationBuilder app, IHostingEnvironment env, ILoggerFactory loggerFactory)
 #endif
         {
-            var defaultCulture = "en-US";
-            var supportedCultures = new[]
-            {
-                new CultureInfo(defaultCulture)
-            };
+           
 
             if (env.IsDevelopment())
             {
@@ -80,6 +78,12 @@ namespace OlapExplorer
             app.UseRouting();
 #endif
 
+            // do not change the name of defaultCulture
+            var defaultCulture = "en-US";
+            IList<CultureInfo> supportedCultures = new List<CultureInfo>
+            {
+                new CultureInfo(defaultCulture)
+            };
             app.UseRequestLocalization(new RequestLocalizationOptions
             {
                 DefaultRequestCulture = new RequestCulture(defaultCulture),

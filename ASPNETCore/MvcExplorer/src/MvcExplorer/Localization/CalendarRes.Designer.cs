@@ -287,5 +287,37 @@ namespace MvcExplorer.Localization {
                 return ResourceManager.GetString("Validation_Text1", resourceCulture);
             }
         }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Key Action Tab</b>: Defines the behavior when the user presses the TAB key in the calendar control. Options are <b>None</b> (no special action; let the browser handle the key) and <b>All</b> (all buttons in the calendar can be selected using the Tab key).
+        /// </summary>
+
+        public static string Index_KeyActionTab {
+            get {
+                return ResourceManager.GetString("Index_KeyActionTab", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to <b>Index_FocusMode</b>: Controls whether the selected date in the calendar is automatically focused. 
+        ///   When <b>true</b>, the selected date is highlighted and can be navigated using the keyboard. 
+        ///   When <b>false</b>, the selected date is not automatically focused.
+        /// </summary>
+
+        public static string Index_FocusMode {
+            get {
+                return ResourceManager.GetString("Index_FocusMode", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Additionally, tooltips are automatically created for the Calendar based on the aria-label attribute assigned to each calendar control.
+        /// </summary>
+
+        public static string Index_Tooltip {
+            get {
+                return ResourceManager.GetString("Index_Tooltip", resourceCulture);
+            }
+        }
     }
 }

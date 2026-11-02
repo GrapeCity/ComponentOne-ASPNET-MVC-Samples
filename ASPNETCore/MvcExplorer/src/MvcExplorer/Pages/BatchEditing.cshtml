@@ -1,0 +1,75 @@
+﻿@page
+@model BatchEditingModel
+@{
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        var isUpdating = false;
+
+        function batchUpdate() {
+            var batchEditGrid = wijmo.Control.getControl('#batchEditGrid'),
+                cv = batchEditGrid.collectionView;
+            cv.commit();
+
+            var isChanged = (cv.itemsAdded && cv.itemsAdded.length)
+                || (cv.itemsRemoved && cv.itemsRemoved.length)
+                || (cv.itemsEdited && cv.itemsEdited.length);
+            if (isChanged) {
+                isUpdating = true;
+                setQueryMessage('Updating...');
+            } else {
+                setQueryMessage('No changes.');
+            }
+        }
+
+        function onQueryComplete(sender, e) {
+            if (isUpdating) {
+                if (e.result.success) {
+                    setQueryMessage('Done.');
+                } else {
+                    setQueryMessage(e.result.error, 'queryErrorMessage');
+                }
+            }
+
+            isUpdating = false;
+        }
+
+        function setQueryMessage(message, className) {
+            var element = document.getElementById('queryMessage');
+            element.innerHTML = message;
+            element.className = className;
+        }
+    </script>
+}
+
+@Html.AntiForgeryToken()
+
+<input type="button" value="Update" class="btn" onclick="batchUpdate()" />
+<span id="queryMessage"></span>
+
+<c1-flex-grid id="batchEditGrid" auto-generate-columns="false" class="grid"
+              allow-add-new="true" allow-delete="true">
+    <c1-flex-grid-column binding="CategoryID" is-read-only="true" format="d"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="CategoryName"></c1-flex-grid-column>
+    <c1-flex-grid-column binding="Description" width="*"></c1-flex-grid-column>
+    <c1-items-source disable-server-read="true" read-action-url="@Url.Page("BatchEditing","BatchEditing_Bind")"
+                     batch-edit-action-url="@Url.Page("BatchEditing","GridBatchEdit")" query-complete="onQueryComplete"></c1-items-source>
+</c1-flex-grid>
+
+@section Summary{
+    <p>This view shows how Excel-like editing of FlexGrid runs in Razor Pages.</p>
+}
+
+@section Description{
+    <p>
+        Steps for implementing batch editing in the FlexGrid control in Razor Pages:
+    </p>
+    <ol>
+        <li>Add handler <b>OnPostBatchEditing_Bind</b> to page model for model binding.</li>
+        <li>Add handler <b>OnPostGridBatchEdit</b> to page model for batch editing.</li>
+        <li>Add token <b>@@Html.AntiForgeryToken()</b> in razor page view.</li>
+        <li>Initialize the FlexGrid control in razor page view using <b>&lt;c1-flex-grid&gt;&lt;/c1-flex-grid&gt;</b> tag.</li>
+        <li>Set value of read-action-url attribute as @@Url.Page("BatchEditing", "BatchEditing_Bind") and set value of batch-edit-action-url attribute as @@Url.Page("BatchEditing","GridBatchEdit").  Here, "BatchEditing" is the page name, "BatchEditing_Bind" and "GridBatchEdit" are the handler names without prefix.</li>
+    </ol>
+}

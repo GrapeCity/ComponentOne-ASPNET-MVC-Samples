@@ -12,7 +12,7 @@ namespace MvcExplorer.Models
 
         public static IEnumerable<EmployeeEx> GetEmployees(int? leaderID, DbSet<Employee> employees)
         {
-            return employees.Where(e => e.ReportsTo == leaderID).ToList().Select(e => new EmployeeEx
+            return employees.AsQueryable().Where(e => e.ReportsTo == leaderID).ToList().Select(e => new EmployeeEx
             {
                 EmployeeID = e.EmployeeID,
                 Name = e.FirstName + " " + e.LastName,

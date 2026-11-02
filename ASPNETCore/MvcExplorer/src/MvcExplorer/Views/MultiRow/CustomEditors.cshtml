@@ -1,0 +1,68 @@
+@model IEnumerable<Sale>
+@{
+    List<string> countries = ViewBag.Countries;
+    List<string> products = ViewBag.Products;
+}
+
+@section Scripts{
+    <script type="text/javascript">
+        c1.documentReady(function () {
+            var grid = wijmo.Control.getControl('#customEditorsMultiRow');
+            grid.hostElement.addEventListener('keydown', function (e) {
+                if (e.keyCode == 32) {
+                    e.preventDefault();
+                }
+            });
+        });
+
+        function setNewRowAtTop() {
+            var multirow = wijmo.Control.getControl("#customEditorsMultiRow");
+            var checkbox = document.getElementById("newRowAtTop");
+            multirow.newRowAtTop = checkbox.checked;
+        }
+    </script>
+}
+
+<c1-input-date id="dateEditor" style="width:100%" is-required="false" format="d"></c1-input-date>
+<c1-input-time id="timeEditor" style="width:100%" is-required="false" step="30" format="t"></c1-input-time>
+<c1-combo-box id="countryEditor" style="width:100%" is-editable="false">
+    <c1-items-source source-collection="@countries"></c1-items-source>
+</c1-combo-box>
+<c1-input-color id="colorEditor" style="width:100%" is-required="false"></c1-input-color>
+<c1-input-number id="amountEditor" style="width:100%" is-required="false" format="c2" step="10"></c1-input-number>
+
+<!-- MultiRow hosting the custom editors -->
+<c1-multi-row id="customEditorsMultiRow" allow-add-new="true" allow-delete="true"
+              key-action-tab="Cycle" class="multirow" new-row-at-top="false">
+    <c1-items-source read-action-url="@Url.Action("CustomEditors_Bind")"
+                     update-action-url="@Url.Action("MultiRowEditorsUpdate")"
+                     create-action-url="@Url.Action("MultiRowEditorsCreate")"
+                     delete-action-url="@Url.Action("MultiRowEditorsDelete")">
+    </c1-items-source>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="ID" header="ID" is-read-only="true"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Active" header="Active" is-read-only="false"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Start" header="Date" width="150" format="d" editor="dateEditor"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="End" header="Time" format="t" editor="timeEditor"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group colspan="2">
+        <c1-multi-row-cell binding="Country" header="Country" colspan="2" editor="countryEditor"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Product" header="Product"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Color" header="Color" editor="colorEditor"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+    <c1-multi-row-cell-group>
+        <c1-multi-row-cell binding="Amount" header="Amount" format="n2" editor="amountEditor"></c1-multi-row-cell>
+        <c1-multi-row-cell binding="Amount2" header="Amount2"></c1-multi-row-cell>
+    </c1-multi-row-cell-group>
+</c1-multi-row>
+
+<p>
+    @Html.Raw(MultiRowRes.CustomEditors_Text14)&nbsp;<input id="newRowAtTop" type="checkbox" onchange="setNewRowAtTop()" />
+</p>
+
+@section Description{
+    <p>@Html.Raw(MultiRowRes.CustomEditors_Text0)</p>
+    <p>@Html.Raw(MultiRowRes.CustomEditors_Text15)</p>
+}

@@ -169,4 +169,23 @@
   <data name="Index_Text1" xml:space="preserve">
     <value>The VirtualizationThreshold property allow to enable/disable the virtualization. The default value for this property is a very big number, meaning virtualization is disabled. To enable virtualization, set its value to 0 or a positive number. Note that the virtualization makes a huge difference in performance when the ComboBox contains a large number of items (say 1,000 or so).</value>
   </data>
+  <data name="Index_ActionsTab" xml:space="preserve">
+    <value>The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the Tab key in the control.&lt;br/&gt;
+The options are:
+&lt;br/&gt;
+&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - closes the dropdown while keeping focus on the control.
+&lt;br/&gt;
+&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - closes the dropdown and moves focus to the next tabbable element.</value>
+  </data>
+  <data name="Index_ActionsDirectionNPrint" xml:space="preserve">
+    <value>The &lt;b&gt;Key Action Down Arrow&lt;/b&gt;, &lt;b&gt;Key Action Up Arrow&lt;/b&gt;, and &lt;b&gt;Key Action Print Characters&lt;/b&gt; properties define the behavior when the user presses the respective key or types characters in the control.&lt;br/&gt;
+The options are:
+&lt;br/&gt;
+&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - changes the selection without opening the dropdown.
+&lt;br/&gt;
+&lt;b&gt;OpenDropdown&lt;/b&gt; - opens the dropdown without changing the selection.</value>
+  </data>
+  <data name="Index_Tooltip" xml:space="preserve">
+    <value>Additionally, tooltips are automatically created for the  combobox based on the &lt;b&gt; aria-labelledby&lt;/b&gt; attribute assigned to each control within it</value>
+  </data>
 </root>

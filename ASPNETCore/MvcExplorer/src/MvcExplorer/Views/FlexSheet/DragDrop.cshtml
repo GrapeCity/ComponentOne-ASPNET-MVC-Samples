@@ -1,0 +1,28 @@
+@section Styles {
+    <style>
+        .drag-drop-frame {
+            width: 100%;
+            height: 620px;
+            border: 0;
+            display: block;
+        }
+    </style>
+}
+
+<div>
+    <div class="copy">
+        <h3>
+            @Html.Raw(FlexSheetRes.DragDrop_Text2)
+        </h3>
+<p>@Html.Raw(FlexSheetRes.DragDrop_Text0)</p>
+
+    </div>
+    <iframe class="drag-drop-frame"
+            src="@Url.Action("DragDropFrame", "FlexSheet", new { theme = Context.Request.Query["theme"].ToString() })"
+            title="@Html.Raw(FlexSheetRes.DragDrop_Text2)">
+    </iframe>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.DragDrop_Text1)</p>
+
+}

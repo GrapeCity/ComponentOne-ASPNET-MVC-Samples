@@ -77,10 +77,28 @@ namespace MultiRowExplorer
 #endif
         {
             var defaultCulture = "en-US";
+
             var supportedCultures = new[]
             {
-                new CultureInfo(defaultCulture)
+                    new CultureInfo(defaultCulture),
+                    new CultureInfo("zh-CN"),
+                    new CultureInfo("ja-JP")
             };
+
+            var requestLocalizationOptions = new RequestLocalizationOptions
+            {
+                DefaultRequestCulture = new RequestCulture(defaultCulture), // fallback
+                SupportedCultures = supportedCultures,
+                SupportedUICultures = supportedCultures
+            };
+
+            // Add providers to detect culture automatically
+            // Order matters: QueryString > Cookie > Accept-Language header
+            requestLocalizationOptions.RequestCultureProviders.Insert(0, new QueryStringRequestCultureProvider());
+            requestLocalizationOptions.RequestCultureProviders.Insert(1, new CookieRequestCultureProvider());
+            requestLocalizationOptions.RequestCultureProviders.Insert(2, new AcceptLanguageHeaderRequestCultureProvider());
+
+            app.UseRequestLocalization(requestLocalizationOptions);
 
             app.UseStaticFiles();
             app.UseSession();

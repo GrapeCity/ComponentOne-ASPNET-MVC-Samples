@@ -15,9 +15,19 @@
             {
                 className = "brush:js;html-script:true;";
             }
-            <div class="tab-pane pane-content mob-hide-1">
-                <pre  class=@className>@pageSource.Value</pre>
-            </div>
+            if (pageSource.Value.StartsWith(Resources.MultiRowExplorer.MissingSourceFileCode))
+            {
+                <div class="tab-pane pane-content mob-hide-1">
+                    <h4><span style='color:red'>@pageSource.Value</span></h4>
+                </div>
+            }
+            else
+            {
+                <div class="tab-pane pane-content mob-hide-1">
+                    <pre class=@className>@pageSource.Value</pre>
+                </div>
+            }
+
         }
     </div>
 }

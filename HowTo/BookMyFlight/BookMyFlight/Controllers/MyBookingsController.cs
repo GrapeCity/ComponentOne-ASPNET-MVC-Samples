@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using BookMyFlight.Models;
-using C1.C1Pdf;
+using C1.Pdf;
 using System.Reflection;
 using System.IO;
 using System.Drawing;
@@ -15,7 +15,7 @@ namespace BookMyFlight.Controllers
 {
     public class MyBookingsController : Controller
     {
-        private C1.C1Pdf.C1PdfDocument C1PDF;
+        private C1.Pdf.C1PdfDocument C1PDF;
         
         //MyBookings View Controller
         public ActionResult Index()
@@ -99,22 +99,22 @@ namespace BookMyFlight.Controllers
             MemoryStream InvoiceStream = new MemoryStream();
             // create pdf document
             C1PDF = new C1PdfDocument();
-            StringFormat sf = new StringFormat();
+            C1.Util.StringFormat sf = new C1.Util.StringFormat();
             C1PDF.Clear();
             C1PDF.DocumentInfo.Title = "INVOICE-" + InvoiceID;
             GetBookingsResult InvoiceData = Common.GetAllBookings().Where(x => x.Id == InvoiceID).FirstOrDefault();//ADBML.GetBookings(InvoiceID, null, null, null, null, null, null, null, null).ToList()[0];
             List<GetBookingsDetailsResult> InvoicePSG = Common.GetAllBookingsDetails().Where(x => x.Book_Id == InvoiceID).ToList(); //ADBML.GetBookingsDetails(InvoiceID, null).ToList();
             RectangleF rcPage = GetPageRect();
-            Pen pen = new Pen(Color.Black, 0.1f);
+            GrapeCity.Documents.Drawing.Pen pen = new GrapeCity.Documents.Drawing.Pen(Color.Black, 0.1f);
             PointF Pagecenter = new PointF(rcPage.X + rcPage.Width / 2, rcPage.Y + rcPage.Height / 2);
             //draw Page border
             C1PDF.DrawRectangle(pen, rcPage);
             // add title            
             string Title = "INVOICE";
-            Font titleFont = new Font("Tahoma", 15, FontStyle.Italic);
-            Font bodyFont = new Font("Tahoma", 9);
-            Font bodyFontBold = new Font("Tahoma", 9, FontStyle.Bold);
-            C1PDF.DrawString(Title, titleFont, Brushes.Black, new PointF(rcPage.Left + Pagecenter.X - 2 * titleFont.Size * Title.Length / 2, rcPage.Top + 10));
+            C1.Util.Font titleFont = new C1.Util.Font("Tahoma", 15, C1.Util.FontStyle.Italic);
+            C1.Util.Font bodyFont = new C1.Util.Font("Tahoma", 9);
+            C1.Util.Font bodyFontBold = new C1.Util.Font("Tahoma", 9, C1.Util.FontStyle.Bold);
+            C1PDF.DrawString(Title, titleFont, Color.Black, new PointF(rcPage.Left + Pagecenter.X - 2 * titleFont.Size * Title.Length / 2, rcPage.Top + 10));
 
             //Add logo of BookMyFlight
             PointF logoPoint = new PointF(rcPage.Left + 10, rcPage.Top + 40);
@@ -122,18 +122,18 @@ namespace BookMyFlight.Controllers
 
             string FullPath = AppPath + "images/logo.PNG";
             RectangleF LogoRect = new RectangleF(logoPoint.X, logoPoint.Y, 150, 25);
-            Image LogoImg = Image.FromFile(FullPath);
+            GrapeCity.Documents.Drawing.Image LogoImg = GrapeCity.Documents.Drawing.Image.FromFile(FullPath);
             C1PDF.DrawImage(LogoImg, LogoRect);
 
             //draw right panel            
             string PnlRight1Str1 = "BookMyFlight\n211 North Whitfield, Seventh Floor\nPittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343\nFax 412.681.4384\nE-mail us.sales@mescius.com\n";
             RectangleF PnlRight1 = new RectangleF(Pagecenter.X, rcPage.Top + 40, rcPage.Width / 2 - 20, 100);
-            sf.Alignment = StringAlignment.Far;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString(PnlRight1Str1, bodyFont, Brushes.Purple, PnlRight1, sf);
+            sf.Alignment = C1.Util.HorizontalAlignment.Right;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString(PnlRight1Str1, bodyFont, Color.Purple, PnlRight1, sf);
 
             //Add Client Info
-            C1PDF.DrawString("Client Info-", bodyFontBold, Brushes.Purple, new PointF(rcPage.Left + 10, PnlRight1.Y + PnlRight1.Height + 20));
+            C1PDF.DrawString("Client Info-", bodyFontBold, Color.Purple, new PointF(rcPage.Left + 10, PnlRight1.Y + PnlRight1.Height + 20));
             string PnlLeft2Str1 = "";
             PnlLeft2Str1 += "\nName";
             PnlLeft2Str1 += "\nAddress";
@@ -142,9 +142,9 @@ namespace BookMyFlight.Controllers
             PnlLeft2Str1 += "\nPhone";
             PnlLeft2Str1 += "\nE-mail";
             RectangleF PnlLeft2 = new RectangleF(rcPage.Left + 10, PnlRight1.Y + PnlRight1.Height + 20, 70, 80);
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString(PnlLeft2Str1, bodyFont, Brushes.Black, PnlLeft2, sf);
+            sf.Alignment = C1.Util.HorizontalAlignment.Left;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString(PnlLeft2Str1, bodyFont, Color.Black, PnlLeft2, sf);
             string PnlLeft3Str = "";
             PnlLeft3Str += "\n: " + Common.GetUserProfile().First_Name + " " + Common.GetUserProfile().Last_Name;
             PnlLeft3Str += "\n: " + Common.GetUserProfile().Address1;
@@ -153,51 +153,51 @@ namespace BookMyFlight.Controllers
             PnlLeft3Str += "\n: " + Common.GetUserProfile().Contact_No;
             PnlLeft3Str += "\n: " + Common.GetUserProfile().Email_ID;
             RectangleF PnlLeft3 = new RectangleF(rcPage.Left + 10 + 70, PnlRight1.Y + PnlRight1.Height + 20, 150, 80);
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString(PnlLeft3Str, bodyFont, Brushes.Black, PnlLeft3, sf);
+            sf.Alignment = C1.Util.HorizontalAlignment.Left;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString(PnlLeft3Str, bodyFont, Color.Black, PnlLeft3, sf);
 
             //Add Booking Info
-            C1PDF.DrawString("Booking Info-", bodyFontBold, Brushes.Purple, new PointF(PnlRight1.X + 30, PnlRight1.Y + PnlRight1.Height + 20));
+            C1PDF.DrawString("Booking Info-", bodyFontBold, Color.Purple, new PointF(PnlRight1.X + 30, PnlRight1.Y + PnlRight1.Height + 20));
             string PnlRight2Str = "";
             PnlRight2Str += "\nBooking Reference";
             PnlRight2Str += "\nInvoice No";
             PnlRight2Str += "\nInvoice Date";
             PnlRight2Str += "\nBooking Date";
             RectangleF PnlRight2 = new RectangleF(PnlRight1.X + 30, PnlRight1.Y + PnlRight1.Height + 20, 90, 80);
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString(PnlRight2Str, bodyFont, Brushes.Black, PnlRight2, sf);
+            //sf.Alignment = C1.Util.HorizontalAlignment.Left;
+            //sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString(PnlRight2Str, bodyFont, Color.Black, PnlRight2, sf);
             string PnlRight3Str = "";
             PnlRight3Str += "\n: " + InvoiceData.Id;
             PnlRight3Str += "\n: BMF/" + InvoiceData.Book_Date.Year.ToString() + "/" + InvoiceData.Book_Date.Month.ToString() + InvoiceData.Id;
             PnlRight3Str += "\n: " + InvoiceData.Book_Date.ToShortDateString();
             PnlRight3Str += "\n: " + InvoiceData.Book_Date.ToShortDateString() + " " + InvoiceData.Book_Date.ToShortTimeString();
             RectangleF PnlRight3 = new RectangleF(PnlRight1.X + 30 + 90, PnlRight1.Y + PnlRight1.Height + 20, 150, 80);
-            sf.Alignment = StringAlignment.Near;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString(PnlRight3Str, bodyFont, Brushes.Black, PnlRight3, sf);
+            //sf.Alignment = C1.Util.HorizontalAlignment.Left;
+            //sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString(PnlRight3Str, bodyFont, Color.Black, PnlRight3, sf);
 
             //Add Travelers Info
             C1PDF.DrawLine(pen, new PointF(rcPage.X, PnlLeft2.Y + PnlLeft2.Height + 10), new PointF(rcPage.X + rcPage.Width, PnlLeft2.Y + PnlLeft2.Height + 10));
-            C1PDF.DrawString("Traveler", bodyFontBold, Brushes.Black, new PointF(rcPage.X + 5, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
-            C1PDF.DrawString("From-To", bodyFontBold, Brushes.Black, new PointF(rcPage.X + 130, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
-            C1PDF.DrawString("Class", bodyFontBold, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
-            C1PDF.DrawString("Airline", bodyFontBold, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
-            C1PDF.DrawString("Travel Date", bodyFontBold, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
-            sf.Alignment = StringAlignment.Far;
-            sf.LineAlignment = StringAlignment.Near;
-            C1PDF.DrawString("Fare", bodyFontBold, Brushes.Black, new PointF(rcPage.X + rcPage.Width - 23, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            C1PDF.DrawString("Traveler", bodyFontBold, Color.Black, new PointF(rcPage.X + 5, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            C1PDF.DrawString("From-To", bodyFontBold, Color.Black, new PointF(rcPage.X + 130, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            C1PDF.DrawString("Class", bodyFontBold, Color.Black, new PointF(rcPage.X + 5 + 130 + 60, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            C1PDF.DrawString("Airline", bodyFontBold, Color.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            C1PDF.DrawString("Travel Date", bodyFontBold, Color.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
+            sf.Alignment = C1.Util.HorizontalAlignment.Right;
+            sf.LineAlignment = C1.Util.VerticalAlignment.Top;
+            C1PDF.DrawString("Fare", bodyFontBold, Color.Black, new PointF(rcPage.X + rcPage.Width - 23, PnlLeft2.Y + PnlLeft2.Height + 10 + 10));
             C1PDF.DrawLine(pen, new PointF(rcPage.X, PnlLeft2.Y + PnlLeft2.Height + 10 + 30), new PointF(rcPage.X + rcPage.Width, PnlLeft2.Y + PnlLeft2.Height + 10 + 30));
             float YValue = PnlLeft2.Y + PnlLeft2.Height + 10 + 20;
             for (int PsgCount = 0; PsgCount < InvoicePSG.Count; PsgCount++)
             {
                 YValue += 15;
-                C1PDF.DrawString(Common.GetAllTravelers().Where(x => x.Id == InvoicePSG[PsgCount].Traveller_Id).FirstOrDefault().User_Name, bodyFont, Brushes.Black, new PointF(rcPage.X + 5, YValue));
-                C1PDF.DrawString(InvoiceData.From_Dest + "-" + InvoiceData.To_Dest, bodyFont, Brushes.Black, new PointF(rcPage.X + 130, YValue));
-                C1PDF.DrawString(InvoiceData.Class, bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60, YValue));
-                C1PDF.DrawString(InvoiceData.Depart_Airlines + "-" + InvoiceData.Depart_FlightNo, bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, YValue));
-                C1PDF.DrawString(InvoiceData.Departure_DateTime.ToString("MMM dd,yyyy"), bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, YValue));
+                C1PDF.DrawString(Common.GetAllTravelers().Where(x => x.Id == InvoicePSG[PsgCount].Traveller_Id).FirstOrDefault().User_Name, bodyFont, Color.Black, new PointF(rcPage.X + 5, YValue));
+                C1PDF.DrawString(InvoiceData.From_Dest + "-" + InvoiceData.To_Dest, bodyFont, Color.Black, new PointF(rcPage.X + 130, YValue));
+                C1PDF.DrawString(InvoiceData.Class, bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 60, YValue));
+                C1PDF.DrawString(InvoiceData.Depart_Airlines + "-" + InvoiceData.Depart_FlightNo, bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, YValue));
+                C1PDF.DrawString(InvoiceData.Departure_DateTime.ToString("MMM dd,yyyy"), bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, YValue));
                 double Fare = 0;
                 float FarePer = 1;
                 if (InvoicePSG[PsgCount].Type == "Child")
@@ -207,27 +207,27 @@ namespace BookMyFlight.Controllers
                 Fare += (double)InvoiceData.Depart_AdultFare * FarePer;
                 if (InvoiceData.Return_DateTime != null)
                     Fare += (double)InvoiceData.Return_AdultFare * FarePer;
-                C1PDF.DrawString(Math.Round(Fare, 0).ToString() + ".00", bodyFont, Brushes.Black, new RectangleF(new PointF(rcPage.X + rcPage.Width - 50, YValue), new SizeF(45, 20)), sf);
+                C1PDF.DrawString(Math.Round(Fare, 0).ToString() + ".00", bodyFont, Color.Black, new RectangleF(new PointF(rcPage.X + rcPage.Width - 50, YValue), new SizeF(45, 20)), sf);
                 if (InvoiceData.Return_DateTime != null)
                 {
                     YValue += 12;
-                    C1PDF.DrawString(InvoiceData.To_Dest + "-" + InvoiceData.From_Dest, bodyFont, Brushes.Black, new PointF(rcPage.X + 130, YValue));
-                    C1PDF.DrawString(InvoiceData.Class, bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60, YValue));
-                    C1PDF.DrawString(InvoiceData.Return_Airlines + "-" + InvoiceData.Return_FlightNo, bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, YValue));
-                    C1PDF.DrawString(DateTime.Parse(InvoiceData.Return_DateTime.ToString()).ToString("MMM dd,yyyy"), bodyFont, Brushes.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, YValue));
+                    C1PDF.DrawString(InvoiceData.To_Dest + "-" + InvoiceData.From_Dest, bodyFont, Color.Black, new PointF(rcPage.X + 130, YValue));
+                    C1PDF.DrawString(InvoiceData.Class, bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 60, YValue));
+                    C1PDF.DrawString(InvoiceData.Return_Airlines + "-" + InvoiceData.Return_FlightNo, bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 60 + 60, YValue));
+                    C1PDF.DrawString(DateTime.Parse(InvoiceData.Return_DateTime.ToString()).ToString("MMM dd,yyyy"), bodyFont, Color.Black, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 130, YValue));
                 }
             }
             YValue += 20;
             C1PDF.DrawLine(pen, new PointF(rcPage.X, YValue), new PointF(rcPage.X + rcPage.Width, YValue));
             YValue += 5;
             //Add Total Fare
-            C1PDF.DrawString("Total Fare:", bodyFont, Brushes.Green, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 80, YValue));
-            C1PDF.DrawString("$" + Math.Round(InvoiceData.Total_Fare, 0).ToString() + ".00", bodyFontBold, Brushes.Green, new RectangleF(new PointF(rcPage.X + rcPage.Width - 45 - 55, YValue), new SizeF(100, 20)), sf);
+            C1PDF.DrawString("Total Fare:", bodyFont, Color.Green, new PointF(rcPage.X + 5 + 130 + 50 + 50 + 80, YValue));
+            C1PDF.DrawString("$" + Math.Round(InvoiceData.Total_Fare, 0).ToString() + ".00", bodyFontBold, Color.Green, new RectangleF(new PointF(rcPage.X + rcPage.Width - 45 - 55, YValue), new SizeF(100, 20)), sf);
             YValue += 15;
             C1PDF.DrawLine(pen, new PointF(rcPage.X, YValue), new PointF(rcPage.X + rcPage.Width, YValue));
             //Add Footer
             C1PDF.DrawLine(pen, new PointF(rcPage.X, rcPage.Y + rcPage.Height - 30), new PointF(rcPage.X + rcPage.Width, rcPage.Y + rcPage.Height - 30));
-            C1PDF.DrawString("Regd. Office: BookMyFlight, BookMyFlight, 211 North Whitfield, Seventh Floor, Pittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343, Fax 412.681.4384, E-mail us.sales@mescius.com", bodyFont, Brushes.Blue, new PointF(rcPage.X + 50, rcPage.Y + rcPage.Height - 25));
+            C1PDF.DrawString("Regd. Office: BookMyFlight, BookMyFlight, 211 North Whitfield, Seventh Floor, Pittsburgh, PA 15206\nTel 1.800.858.2739 | 412.681.4343, Fax 412.681.4384, E-mail us.sales@mescius.com", bodyFont, Color.Blue, new PointF(rcPage.X + 50, rcPage.Y + rcPage.Height - 25));
             return C1PDF;
         }
 

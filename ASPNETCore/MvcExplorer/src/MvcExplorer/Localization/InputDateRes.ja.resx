@@ -186,7 +186,7 @@
     <comment>WeekBefore</comment>
   </data>
   <data name="WeekAfter_Text0" xml:space="preserve">
-    <value>後ろの週の数</value>
+    <value>後の週の数</value>
     <comment>WeekAfter</comment>
   </data>
   <data name="MonthCount_Text0" xml:space="preserve">
@@ -200,5 +200,34 @@
   <data name="HandleWheel_Text1" xml:space="preserve">
     <value>&lt;i&gt;HandleWheel：&lt;/i&gt;ユーザーがマウスホイールで現在の値を編集できるかどうかを決定します。</value>
     <comment>&lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can edit the current value using the mouse wheel.</comment>
+  </data>
+  <data name="Index_Text2" xml:space="preserve">
+    <value>読み取り専用</value>
+    <comment>IsReadOnly</comment>
+  </data>
+  <data name="Index_Text3" xml:space="preserve">
+    <value>InputDate コントロールは、矢印キーとマウス ホイールを使用して、個々の日付コンポーネント (日、月、年) を個別に変更することをサポートします。コントロールが読み取り専用の場合、この機能は無効になります。</value>
+    <comment>InputDate control supports changing individual date components (day, month, year) independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly.</comment>
+  </data>
+  <data name="Index_Text4" xml:space="preserve">
+    <value>値を選択して PreserveCalendarNavigation プロパティを設定します。False 値の場合、別の月に移動した後にドロップダウンカレンダーを再度開いたときに、選択した日付が常に表示されます。</value>
+    <comment>Select value to set the PreserveCalendarNavigation property. The False value always show selected date when dropdown calendar is reopened after navigating to a different month.</comment>
+  </data>
+  <data name="Index_ActionArrowDirections" xml:space="preserve">
+    <value>&lt;b&gt;Key Action Down Arrow&lt;/b&gt;プロパティと&lt;b&gt;Key Action Up Arrow&lt;/b&gt;プロパティは、ユーザーがコントロール内の対応するキーを押したときの動作を定義します。&lt;br/&gt;
+オプションは次のとおりです。&lt;br/&gt;
+&lt;b&gt;ChangeSelectionOnly&lt;/b&gt; - ドロップダウンを開かずに選択を変更します。&lt;br/&gt;
+&lt;b&gt;OpenDropdown&lt;/b&gt; - 選択を変更せずにドロップダウンを開きます。</value>
+    <comment>Describes how arrow key actions affect selection or dropdown behavior in the control.</comment>
+  </data>
+  <data name="Index_ActionTab" xml:space="preserve">
+    <value>&lt;b&gt;Key Action Tab&lt;/b&gt; プロパティは、ユーザーがコントロール内で Tab キーを押したときの動作を定義します。&lt;br/&gt;
+オプションは次のとおりです。
+&lt;br/&gt;
+&lt;b&gt;CloseAndKeepFocus&lt;/b&gt; - コントロールにフォーカスを保持したままドロップダウンを閉じます。
+&lt;br/&gt;
+&lt;b&gt;CloseAndMoveFocus&lt;/b&gt; - ドロップダウンを閉じ、フォーカスを次のタブ可能な要素に移動します。
+</value>
+    <comment>Explains how the control responds to the Tab key, either keeping focus or moving it to the next element.</comment>
   </data>
 </root>

@@ -9,6 +9,7 @@ using C1.Web.Mvc;
 using C1.Web.Mvc.Serialization;
 using MvcExplorer.Models;
 using System.Data.Entity;
+using System.Web.Http;
 
 namespace MvcExplorer.Controllers
 {
@@ -51,6 +52,26 @@ namespace MvcExplorer.Controllers
                     Data = item
                 };
             }, () => db.Products.ToList<Product>()));
+        }
+
+        public ActionResult UpdateCheckedItems([FromBody] List<int> checkedItems)
+        {
+            try
+            {
+                // Update the database based on the checked items
+                checkedItems = checkedItems ?? new List<int>();
+                var products = db.Products.ToList();
+                foreach (var product in products)
+                {
+                    product.Discontinued = checkedItems.Contains(product.ProductID);
+                }
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+            catch (Exception ex)
+            {
+                return Json(new { success = false, error = ex.Message });
+            }
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using OlapExplorer.Localization;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -69,7 +70,7 @@ namespace OlapExplorer.Models
 
         private static string GetFileAsHtmlContent(string controllerFilePath)
         {
-            return System.IO.File.ReadAllText(controllerFilePath);
+            return File.Exists(controllerFilePath) ? File.ReadAllText(controllerFilePath) : OlapRes.MissingSourceFile;
         }
 
         public static string GetPageText(string controllerName, string actionName)

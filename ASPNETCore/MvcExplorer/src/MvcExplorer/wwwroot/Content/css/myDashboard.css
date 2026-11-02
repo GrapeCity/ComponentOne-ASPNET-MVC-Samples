@@ -1,0 +1,145 @@
+﻿/* dashboard and tiles */
+.dashboard {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+}
+
+.tile {
+    flex-grow: 1;
+    min-width: 200px;
+    min-height: 80px;
+    overflow: hidden;
+    padding: 6px;
+    margin: 6px;
+    border: 2px solid transparent;
+    background: white;
+    transition: all 250ms;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+    .tile:hover {
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    }
+    .tile.drag-over {
+        border: 2px dashed #000;
+    }
+
+
+.tile .buttons {
+    transition: all 250ms;
+    opacity: 0;
+}
+    .tile:hover .buttons {
+        opacity: 1;
+    }
+.tile .buttons>span {
+    padding: 0 6px;
+    cursor: pointer;
+} 
+.tile.drag-over {
+    border: 2px dashed #000;
+    background-color: rgba(0,0,0,0.10);
+}
+.tile.drag-source {
+    opacity: 0.4;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+    transform: scale(0.9);
+}
+
+
+/*-------------------*/
+.myDashboard {
+    padding: 20px;
+    box-sizing: border-box;
+    background-color: white;
+    backface-visibility: hidden;
+}
+
+    .myDashboard ul {
+        margin: 0;
+        padding: 0;
+    }
+
+        .myDashboard ul li {
+            height: 350px;
+            /*padding: 10px 10px 10px 10px;*/
+            padding: 0px 0px 10px 0px;
+            border: solid 1px #cccccc;
+            display: inline-block;
+            width: 49%;
+            margin: 0.5%;
+            float: left;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            -webkit-border-radius: 5px;
+            -ms-border-radius: 5px;
+            -moz-border-radius: 5px;
+            border-radius: 5px;
+            cursor: move;
+        }
+
+            .myDashboard ul li .header {
+                padding: 10px 10px 10px 10px;
+                border-bottom: solid 1px #cccccc;
+                max-height: 50px;
+                vertical-align: middle;
+                font-size: 12pt;
+                font-weight: normal;
+                color: black;
+                cursor: move;
+                -webkit-border-radius: 5px;
+                -ms-border-radius: 5px;
+                -moz-border-radius: 5px;
+                border-radius: 5px;
+                border-bottom-left-radius: 0px;
+                border-bottom-right-radius: 0px;
+                background-color:aliceblue;
+            }
+
+                .myDashboard ul li .header icon {
+                    vertical-align: top;
+                    margin: 0px;
+                    padding: 0px;
+                    display: inline-block;
+                    float: right;
+                    margin-left: 5px;
+                    font-size: 16pt;
+                }
+
+                .myDashboard ul li .header icon img {                        
+                        cursor: pointer;
+                        height:80%;
+                        width:auto;
+                    }
+
+                    
+            .myDashboard ul li .content {
+                font-size: 10pt;
+                font-weight: normal;
+                padding: 10px 10px 10px 10px;
+                text-align: center;
+                vertical-align: top;
+            }
+
+@media screen and (max-width: 768px) {
+    .myDashboard ul li {
+        width: 100%;
+        margin-right: 0;
+        margin-bottom: 20px;
+        height: auto;
+        box-sizing: border-box;
+    }
+}
+
+@media screen and (max-width: 425px) {
+    .myDashboard ul li .header {        
+        font-size: 75%;
+    }
+
+    .myDashboard ul li .header icon img {                        
+                        cursor: pointer;                        
+                    }
+}
+
+

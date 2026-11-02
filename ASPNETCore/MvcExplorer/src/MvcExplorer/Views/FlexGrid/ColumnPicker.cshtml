@@ -11,9 +11,17 @@
         }
 
         .wj-multiselectlistbox .wj-listbox-item > label {
-            display: block;
-            margin: 0 0 3px 0;
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 4px 8px;
+            line-height: 1.2;
         }
+
+            .wj-multiselectlistbox .wj-listbox-item > label > input[type="checkbox"] {
+                margin: 0 8px 0 0;
+                vertical-align: middle;
+            }
 
         .wj-multiselectlistbox .wj-listbox-item.wj-state-selected {
             background: transparent;
@@ -31,6 +39,25 @@
             pointer-events: none;
             z-index: 1000;
         }
+
+        /* Additional alignment fixes for MultiSelectListBox */
+        .wj-multiselectlistbox .wj-listbox-item {
+            display: flex;
+            align-items: center;
+            padding: 0;
+        }
+
+        .wj-multiselectlistbox .wj-header label {
+            display: flex;
+            align-items: center;
+            margin: 0;
+            padding: 4px 8px;
+        }
+
+            .wj-multiselectlistbox .wj-header label input[type="checkbox"] {
+                margin: 0 8px 0 0;
+                vertical-align: middle;
+            }
     </style>
 }
 

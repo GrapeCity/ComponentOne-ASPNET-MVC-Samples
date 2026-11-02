@@ -1211,7 +1211,29 @@ namespace FlexSheetExplorer.Localization {
                 return ResourceManager.GetString("Intro_Text9", resourceCulture);
             }
         }
-        
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error: Can&apos;t find the source content of the file. Please ensure the file is exist!.
+        /// </summary>
+        internal static string MissingSourceFile
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFile", resourceCulture);
+            }
+        }
+
+        /// <summary>
+        ///   Looks up a localized string similar to Error:.
+        /// </summary>
+        internal static string MissingSourceFileCode
+        {
+            get
+            {
+                return ResourceManager.GetString("MissingSourceFileCode", resourceCulture);
+            }
+        }
+
         /// <summary>
         ///   Looks up a localized string similar to FlexSheet allows you to add multiple row and column headers..
         /// </summary>

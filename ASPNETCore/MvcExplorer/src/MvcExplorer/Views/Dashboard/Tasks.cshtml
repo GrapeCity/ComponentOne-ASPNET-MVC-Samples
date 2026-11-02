@@ -1,0 +1,67 @@
+﻿@model IEnumerable<MvcExplorer.Models.DashboardModels.CampainTaskItem>
+@{
+    ViewBag.PageTitle = @DashboardResource.TaskPage_Title;
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<script type="text/javascript" src="@Url.Content("~/Scripts/Tasks.js")"></script>
+<script type="text/javascript">
+    function setRange(start, end) {
+        reset();
+        getData(start, end);
+    }
+
+    function getData(start, end) {
+        updateData(start, end, '@Url.Action("GetTasks")');
+    }
+</script>
+<div class="flex vertical auto" style="overflow:hidden;">
+    <c1-tab-panel id="tpTasks" selected-index-changed="selectedIndexChanged">
+        <div>
+            <a>@DashboardResource.AllTasks_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@DashboardResource.InProgress_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@DashboardResource.Completed_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@DashboardResource.Deferred_Header</a>
+            <div>
+            </div>
+        </div>
+        <div>
+            <a>@DashboardResource.Urgent_Header</a>
+            <div>
+            </div>
+        </div>
+    </c1-tab-panel>
+    <div id="groupPanel"></div>
+    <div class="auto" style="overflow:hidden">
+        <c1-flex-grid id="gridTasks"
+                      headers-visibility="Column"
+                      sorting-type="SingleColumn"
+                      auto-generate-columns="false"
+                      alternating-row-step="0"
+                      is-read-only="true"
+                      show-groups="true"
+                      item-formatter="completeFormatter">
+            <c1-flex-grid-column binding="AssignedTo" header="Assigned To" width="*"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Subject" width="*"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="ItemName" header="Item Name" width="*"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="DueDate" header="Due Date" width="*"></c1-flex-grid-column>
+            <c1-flex-grid-column binding="Complete" width="*"></c1-flex-grid-column>
+            <c1-flex-grid-group-panel max-groups="4" placeholder="@DashboardResource.Assigned_Task_Placeholder" selector="#groupPanel"></c1-flex-grid-group-panel>
+        </c1-flex-grid>
+    </div>
+    <div>
+        @await Html.PartialAsync("RangeSelector", ViewBag.RangeSelectorModel as MvcExplorer.Models.DashboardModels.RangeSelectorModel)
+    </div>
+</div>

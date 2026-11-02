@@ -1,0 +1,16 @@
+<div>
+    <div class="copy">
+        <h3>
+            @Html.Raw(FlexSheetRes.ServerLoad_Text2)
+        </h3>
+<p>@Html.Raw(FlexSheetRes.ServerLoad_Text0)</p>
+
+    </div>
+    <div>
+        <c1-flex-sheet class="flexSheet" file-path="~/Content/xlsxFile/example1.xlsx"></c1-flex-sheet>
+    </div>
+</div>
+@section Summary{
+<p>@Html.Raw(FlexSheetRes.ServerLoad_Text1)</p>
+
+}

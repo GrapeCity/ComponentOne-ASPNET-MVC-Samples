@@ -2,11 +2,7 @@
 
     @{
         string webApiClient;
-#if NETCORE31
-        webApiClient = "Scripts/wijmo.io/webapiclientCore22.min.js";
-#else
         webApiClient = "Scripts/wijmo.io/webapiclient.min.js";
-#endif
     }
     
     <script src="@Url.Content("~/")@webApiClient" ></script>

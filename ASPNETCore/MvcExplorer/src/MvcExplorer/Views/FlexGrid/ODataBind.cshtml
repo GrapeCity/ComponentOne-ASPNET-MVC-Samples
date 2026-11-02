@@ -20,6 +20,28 @@
         <c1-odata-virtual-source service-url="https://services.odata.org/Northwind/Northwind.svc" table-name="Orders" keys="OrderID"></c1-odata-virtual-source>
         <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
     </c1-flex-grid>
+
+
+    <h4>ODataCollectionView Group Lazy Loading</h4>
+    <p id="groupedItemCount"></p>
+    <c1-flex-grid id="ODataGroupLazyLoading" is-read-only="true" allow-add-new="false" allow-delete="false" style="height:400px" loaded-rows="oDataGroupLazyLoaded">
+        <c1-odata-source service-url="https://demodata.mescius.io/adventureworks/odata/v1/"
+                         table-name="SalesOrderHeaders"
+                         group-on-server="true"
+                         aggregates="TotalDue with sum as TotalDueSum"
+                         group-lazy-loading="true">
+            <c1-property-group-description property-name="AccountNumber"></c1-property-group-description>
+        </c1-odata-source>
+        <c1-flex-grid-column binding="AccountNumber" header="Account Number" is-visible="@false"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="PurchaseOrderNumber" header="Purchase Order Number"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="SalesOrderNumber" header="Sales Order Number"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="SubTotal" header="Sub Total"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="TaxAmt" header="Tax Amount"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="Freight" header="Freight"></c1-flex-grid-column>
+        <c1-flex-grid-column binding="TotalDue" header="Total Due" aggregate=Sum></c1-flex-grid-column>
+        <c1-flex-grid-column binding="ModifiedDate" header="Modified Date"></c1-flex-grid-column>
+        <c1-flex-grid-filter default-filter-type="Both"></c1-flex-grid-filter>
+    </c1-flex-grid>
 }
 else
 {
@@ -63,6 +85,12 @@ else
             var el = document.getElementById('totalItemCount');
             el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
         }
+
+        function oDataGroupLazyLoaded(grid, e) {
+            var el = document.getElementById('groupedItemCount');
+            el.innerHTML = wijmo.format('{length:n0} items', grid.rows);
+
+        }
     </script>
 }
 
@@ -73,4 +101,5 @@ else
 @section Description{
     <p>@Html.Raw(FlexGridRes.ODataBind_Text0)</p>
     <p>@Html.Raw(FlexGridRes.ODataBind_Text1)</p>
+    <p>@Html.Raw(FlexGridRes.ODataGroupLazy_Text1)</p>
 }

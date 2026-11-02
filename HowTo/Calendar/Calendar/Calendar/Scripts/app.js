@@ -1,8 +1,20 @@
-﻿onload = function () {
-    var start = new Date();
-    for (var i = 0; i < 12; i++) {
-        customizeMonth(document.getElementById("month" + i), wijmo.DateTime.addMonths(start, -i));
-    }
+﻿document.addEventListener('DOMContentLoaded', function () {
+    var checkInterval = setInterval(function() {
+        var firstCalendar = wijmo.Control.getControl(document.getElementById("month0"));
+        if (firstCalendar) {
+            clearInterval(checkInterval);
+            var start = new Date();
+            for (var i = 0; i < 12; i++) {
+                var calendarElement = document.getElementById("month" + i);
+                if (calendarElement) {
+                    var calendar = wijmo.Control.getControl(calendarElement);
+                    if (calendar) {
+                        customizeMonth(calendar.hostElement, wijmo.DateTime.addMonths(start, -i));
+                    }
+                }
+            }
+        }
+    }, 50);
 
     // customize a month
     function customizeMonth(month, date) {
@@ -19,7 +31,7 @@
         hdr.parentElement.insertBefore(newHeader, hdr);
 
         // show only first letter of week day
-        var cells = month.querySelectorAll('table tr.wj-header td');
+        var cells = month.querySelectorAll('table tr.wj-header th');
         for (var i = 0; i < 7; i++) {
             cells[i].textContent = cells[i].textContent.substr(0, 1);
         }
@@ -29,7 +41,7 @@
         var tm = [100, 99.75, 99.998, 99.98, 99.996, 99.93];
         return tm[Math.floor(Math.random() * tm.length)];
     }
-}
+});
 
 // format the calendar cells to show events
 function formatDayCell(s, e) {

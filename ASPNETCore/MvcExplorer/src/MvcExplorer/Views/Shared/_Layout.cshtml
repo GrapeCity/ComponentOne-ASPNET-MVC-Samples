@@ -33,9 +33,15 @@
     <script src="~/Scripts/jquery.js"></script>
     <c1-scripts culture="@Culture.GetCurrentCulture(Context)">
         <c1-basic-scripts />
+        <c1-flex-sheet-scripts />
+        <c1-olap-scripts />
+        <c1-multi-row-scripts />
+        <c1-finance-scripts />
     </c1-scripts>
     <script src="~/Scripts/MultiLevelMenu.js"></script>
     <script src="~/Scripts/Layout.js"></script>
+    <script src="~/Scripts/BootStrap/bootstrap.js"></script>
+    <script src="~/Scripts/jszip.js"></script>
     @RenderSection("Scripts", false)
 </head>
 <body>
@@ -62,7 +68,6 @@
                 <span class="semi-bold wide-screen">@Html.Raw("ComponentOne " + Resource.Layout_LongTitle)</span>
             </div>
             <div class="menu-right">
-                @await Html.PartialAsync("_ThemeSelector")
                 @await Html.PartialAsync("_SiteNav", false)
             </div>
         </div>

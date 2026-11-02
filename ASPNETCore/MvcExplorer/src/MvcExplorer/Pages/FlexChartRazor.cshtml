@@ -1,0 +1,46 @@
+﻿@page
+@model FlexChartModel
+@{
+    ViewData["DemoSettings"] = true;
+    ClientSettingsModel demoSettingModel = (ClientSettingsModel)ViewData["DemoSettingsModel"];
+}
+
+<c1-flex-chart id="@demoSettingModel.ControlId" binding-x="Name">
+    <c1-items-source source-collection="@Model.FruitsSales"></c1-items-source>
+    <c1-flex-chart-series binding="MarPrice">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="AprPrice">
+    </c1-flex-chart-series>
+    <c1-flex-chart-series binding="MayPrice">
+    </c1-flex-chart-series>
+</c1-flex-chart>
+
+@section Scripts{
+    <script type="text/javascript">
+    convertStacking = function (value) {
+        return value === "Stacked 100%" ? "Stacked100pc" : value;
+    };
+    convertPalette = function (value) {
+        return wijmo.chart.Palettes[value];
+    };
+    updateGroupWidth = function (control, value) {
+        control.options = { groupWidth: value === "50 pixels" ? 50 : value };
+
+    };
+    </script>
+}
+
+@section Summary{
+    This view shows the basic features of FlexChartges.
+}
+
+@section Description{
+    <p>
+        Steps for getting started with the FlexChart control in Razor Pages:
+    </p>
+    <ol>
+        <li>Add a public property <b>FruitsSales</b> for items source binding.</li>
+        <li>Initialize the FlexChart control in Razor page view using <b>&lt;c1-flex-chart&gt;&lt;/c1-flex-chart&gt;</b> tag.</li>
+        <li>Set the value of items sources as <b>@@Model.FruitsSales</b>.</li>
+    </ol>
+}

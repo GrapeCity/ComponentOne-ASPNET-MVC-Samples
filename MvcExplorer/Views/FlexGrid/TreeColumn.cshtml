@@ -1,0 +1,33 @@
+﻿@using C1.Web.Mvc.Grid
+@model IEnumerable<ITreeItem>
+@{
+    ViewBag.DemoSettings = true;
+    ViewBag.DemoDescription = true;
+    var controlId = (ViewBag.DemoSettingsModel as ClientSettingsModel).ControlId;
+}
+
+@section Summary{
+    @Html.Raw(Resources.FlexGrid.TreeColumn_Text0)
+}
+
+@(Html.C1().FlexGrid().Id(controlId)
+    .Bind(Model)
+    .ChildItemsPath("Children")
+    .IsReadOnly(true)
+    .AutoGenerateColumns(false)
+    .HeadersVisibility(HeadersVisibility.Column)
+    .Columns(columns =>
+    {
+        columns.Add().Binding("Index").Header("#").Width("50").Align("center");
+        columns.Add().Binding("Header").Header("Name").Width("*");
+        columns.Add().Binding("Size").Header("Size").Width("100").Align("right");
+        columns.Add().Binding("DateModified").Header("Date Modified").Width("160").Format("g");
+    })
+    .TreeColumnIndex(-1)
+    .CssStyle("height", "400px")
+)
+
+@section Description{
+    <p>@Html.Raw(Resources.FlexGrid.TreeColumn_Text1)</p>
+    <p>@Html.Raw(Resources.FlexGrid.TreeColumn_Text2)</p>
+}

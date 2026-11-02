@@ -166,3 +166,49 @@
 .wj-accordion .main-pane.wj-state-active {
     background: green;
 }
+
+.flexSheet {
+    height: 600px;
+    border: 2px solid #e0e0e0;
+    margin: 6px;
+}
+
+
+/* Styles for olap controls
+-----------------------------------------------------------*/
+.wj-pivotpanel {
+    max-height: 550px;
+    width: 100%;
+}
+
+.wj-pivotgrid {
+    max-height: 550px;
+}
+
+.wj-slicer {
+    display: block;
+    max-height: 250px;
+    margin: 15px;
+}
+}
+
+/* CSS for multi-column listBox (note: FlexBox is not supported by IE9) */
+.multi-column {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 450px;
+}
+
+.multi-column .wj-listbox-item {
+    min-width: 140px;
+}
+
+.multirow {
+    height: 500px;
+    border: 2px solid #e0e0e0;
+}
+
+.input-control {
+    display: inline-block;
+    width: inherit;
+}

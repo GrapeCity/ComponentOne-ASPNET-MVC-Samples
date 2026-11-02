@@ -199,4 +199,20 @@
   <data name="Index_HandleWheel" xml:space="preserve">
     <value>&lt;i&gt;HandleWheel&lt;/i&gt;: Determines whether the user can change the current displayMonth using the mouse wheel.</value>
   </data>
+  <data name="Index_KeyActionTab" xml:space="preserve">
+    <value>The &lt;b&gt;Key Action Tab&lt;/b&gt; property defines the behavior when the user presses the TAB key in the calendar control.&lt;br/&gt;
+The options are:&lt;br/&gt;
+&lt;b&gt;None&lt;/b&gt; - no special action; the browser handles the key.&lt;br/&gt;
+&lt;b&gt;All&lt;/b&gt; - all buttons in the calendar can be selected using the Tab key.
+</value>
+  </data>
+  <data name="Index_Tooltip" xml:space="preserve">
+    <value>Additionally, tooltips are automatically created for the Calendar based on the aria-label attribute assigned to each calendar control.</value>
+  </data>
+  <data name="Index_FocusMode" xml:space="preserve">
+    <value>The &lt;b&gt;FocusMode&lt;/b&gt; property controls whether the selected date in the calendar is automatically focused.&lt;br/&gt;
+When set to &lt;b&gt;true&lt;/b&gt;, the calendar highlights and focuses the selected date, allowing keyboard navigation from that date.&lt;br/&gt;
+When set to &lt;b&gt;false&lt;/b&gt;, the selected date is not automatically focused.
+</value>
+  </data>
 </root>

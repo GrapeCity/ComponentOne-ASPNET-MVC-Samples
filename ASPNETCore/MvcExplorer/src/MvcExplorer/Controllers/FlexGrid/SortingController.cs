@@ -1,9 +1,12 @@
 ﻿using C1.Web.Mvc;
+using C1.Web.Mvc.Grid;
 using C1.Web.Mvc.Serialization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using MvcExplorer.Models;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace MvcExplorer.Controllers
 {
@@ -13,7 +16,14 @@ namespace MvcExplorer.Controllers
         {
             Options = new OptionDictionary
             {
-                {"Sorting type", new OptionItem {Values = new List<string> {"None", "SingleColumn", "MultiColumn"}, CurrentValue = "SingleColumn"}}
+                {"Sorting By", new OptionItem {Values = new List<string> { "ID", "Start", "End", "Country", "Product", "Color", "Amount", "Amount2", "Discount", "Active" }, CurrentValue = "ID"}},
+                {"Sorting type", new OptionItem {Values = new List<string> {"None", "SingleColumn", "MultiColumn"}, CurrentValue = "SingleColumn"}},
+                { "Sorting Order", new OptionItem
+                {
+                    Values = Enum.GetNames(typeof(SortOrder)).ToList(),
+                    CurrentValue = SortOrder.AscDesc.ToString()
+                }
+    }
             }
         };
         public ActionResult Sorting(IFormCollection collection)

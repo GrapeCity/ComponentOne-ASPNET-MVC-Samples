@@ -34,11 +34,27 @@
 
         return false;
     }
+
+
+    function applyAriaLabel() {
+        var ariaLabel = document.getElementById("txtLabel").value;
+        if (ariaLabel != "") {
+            var control = wijmo.Control.getControl("#menuFile");
+            if (control) {
+                control.ariaLabel = ariaLabel;
+                control.invalidate();
+            }
+        }
+    }
+
+
 </script>
 <div>
     <label>@Html.Raw(Resources.Menu.Index_ItemClickedEvent)</label>
     @(Html.C1().Menu().Header(Resources.Menu.Index_File)
+        .Id("menuFile")
         .OnClientItemClicked("itemClicked")
+        .AutoSelectOnFocus(true)
         .MenuItems(items => items // Syntax 1: Expression
             .Add(item => item.Header(Resources.Menu.Index_ItemFileNew))
             .Add(item => item.Header(Resources.Menu.Index_ItemFileOpen))
@@ -80,9 +96,15 @@
     @(Html.C1().InputNumber().Id("mInputNumber")
         .Value(0.07).Step(0.05).Format("p0").Min(0).Max(1)
     )
+
+    <label>AriaLabel</label>
+    <input type="text" style="width:500px" id="txtLabel" value="This is the File Menu." />
+    <input type="button" class="btn" onclick="applyAriaLabel()" value="@Html.Raw(Resources.Menu.Index_TextButton)" />
 </div>
 
 
 @section Description{
-    @Html.Raw(Resources.Menu.Index_Text0)
+    <p>@Html.Raw(Resources.Menu.Index_Text0)</p>
+    <p>@Html.Raw(Resources.Menu.Index_Text1)</p>
+    <p>@Html.Raw(Resources.Menu.Index_Text2)</p>
 }

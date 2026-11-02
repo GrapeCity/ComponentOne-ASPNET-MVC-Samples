@@ -23,16 +23,16 @@ _styleCtr = 0
     <DataSources>
       <DataSource>
         <Name>Main</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>SELECT PatientInfo.*, PatientTestResult.*
         FROM PatientInfo INNER JOIN PatientTestResult ON PatientInfo.PatientID = PatientTestResult.PatientID
         WHERE PatientName=[Select Patient Name];</RecordSource>
       </DataSource>
       <DataSource>
         <Name>dsPatientName</Name>
-        <DataProvider>DbProviderFactory</DataProvider><FactoryName>System.Data.SQLite</FactoryName>
-        <ConnectionString>Data Source=|DataDirectory|\wwwroot\App_Data\C1NWind.db</ConnectionString>
+        <DataProvider>SQLite</DataProvider>
+        <ConnectionString>Data Source=wwwroot/App_Data/C1NWind.db</ConnectionString>
         <RecordSource>select distinct PatientName from PatientInfo</RecordSource>
       </DataSource>
     </DataSources>

@@ -111,6 +111,17 @@ namespace MvcExplorer.Localization {
         }
 
         /// <summary>
+        ///   Looks up a localized string similar to InputDateTime control supports changing individual date and time components (day, month, year, hour, minute, second)  independently using arrow keys and mouse wheel. This feature is disabled if the control is readonly..
+        /// </summary>
+        public static string Index_Text3
+        {
+            get
+            {
+                return ResourceManager.GetString("Index_Text3", resourceCulture);
+            }
+        }
+
+        /// <summary>
         ///   Looks up a localized string similar to Select a date and a time.
         /// </summary>
         public static string Validation_Text0 {

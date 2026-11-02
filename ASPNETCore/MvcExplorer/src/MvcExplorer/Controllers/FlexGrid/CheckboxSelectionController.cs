@@ -27,7 +27,7 @@ namespace MvcExplorer.Controllers
 
         public ActionResult CheckboxSelection_Bind([C1JsonRequest] CollectionViewRequest<Order> requestData)
         {
-            return this.C1Json(CollectionViewHelper.Read(requestData, _db.Orders.Take(100).ToList()));
+            return this.C1Json(CollectionViewHelper.Read(requestData, _db.Orders.AsQueryable().Take(100).ToList()));
         }
 
     }
